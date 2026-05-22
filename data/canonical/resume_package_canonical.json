@@ -487,7 +487,8 @@
       "toyota__rav4__1994__2026__il",
       "toyota__land_cruiser__1991__2026__il",
       "toyota__land_cruiser_prado__1991__2026__il",
-      "toyota__hilux__1991__2026__il"
+      "toyota__hilux__1991__2026__il",
+      "toyota__highlander__2021__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -940,8 +941,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "toyota__hilux__1991__2026__il",
-    "next_seed_id": "toyota__highlander__2021__2026__il",
+    "last_completed_seed_id": "toyota__highlander__2021__2026__il",
+    "next_seed_id": "toyota__starlet__1985__1999__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2113,6 +2114,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-22T18:35:08.092991+00:00"
+      },
+      "toyota__highlander__2021__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 3,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-22T18:35:47.624473+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -230952,6 +230961,173 @@
         "trim": []
       },
       "variant_id": "toyota_hilux_1991_1997_il_confirmed_5th_gen_n80_n90_n100_n110_2_4l_diesel_5_speed_manual_double_cab_pickup_diesel"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Toyota",
+      "model": "Highlander",
+      "global_model_name": "Highlander (XU70)",
+      "official_marketed_name_il": "Highlander",
+      "local_brand_name_il": "Toyota",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2021,
+      "year_end": 2026,
+      "generation": "XU70",
+      "body_type": "SUV",
+      "seats": 7,
+      "engine": "2.5L Hybrid (A25A-FXS), 248 hp (System Output)",
+      "transmission": "e-CVT",
+      "fuel_type": "Hybrid",
+      "drivetrain": "AWD",
+      "trim": "",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Official IL importer and local automotive portals confirm the 2.5L Hybrid AWD (E-Four) is the sole official powertrain for the XU70 Highlander in Israel. Trims sold in Israel include E-Motion and E-Xclusive (recorded here as base variant).",
+      "source_ids": [
+        "toyota_il_official_highlander_2023",
+        "cartube_il_highlander_launch_2021",
+        "icar_il_toyota_highlander_xu70"
+      ],
+      "field_sources": {
+        "body_type": [
+          "toyota_il_official_highlander_2023"
+        ],
+        "seats": [
+          "toyota_il_official_highlander_2023",
+          "icar_il_toyota_highlander_xu70"
+        ],
+        "engine": [
+          "toyota_il_official_highlander_2023",
+          "cartube_il_highlander_launch_2021"
+        ],
+        "transmission": [
+          "toyota_il_official_highlander_2023"
+        ],
+        "fuel_type": [
+          "toyota_il_official_highlander_2023",
+          "icar_il_toyota_highlander_xu70"
+        ],
+        "drivetrain": [
+          "toyota_il_official_highlander_2023",
+          "icar_il_toyota_highlander_xu70"
+        ],
+        "generation": [
+          "cartube_il_highlander_launch_2021",
+          "icar_il_toyota_highlander_xu70"
+        ],
+        "year_start": [
+          "cartube_il_highlander_launch_2021"
+        ],
+        "year_end": [
+          "toyota_il_official_highlander_2023"
+        ],
+        "trim": []
+      },
+      "variant_id": "toyota_highlander_2021_2026_il_confirmed_xu70_2_5l_hybrid_a25a_fxs_248_hp_system_output_e_cvt_suv_hybrid"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Toyota",
+      "model": "Highlander",
+      "global_model_name": "Highlander (XU70)",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2023,
+      "year_end": 2026,
+      "generation": "XU70",
+      "body_type": "SUV",
+      "seats": 7,
+      "engine": "2.4L Turbo Petrol (T24A-FTS), 265 hp",
+      "transmission": "8-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "AWD",
+      "trim": "",
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "Global manufacturer press release confirms introduction of 2.4L Turbo replacing the 3.5L V6 for 2023+ models. Official IL availability is primarily hybrid; turbo models may appear via parallel import. IL marketed name for this specific petrol variant not explicitly confirmed.",
+      "source_ids": [
+        "toyota_global_highlander_2023_update"
+      ],
+      "field_sources": {
+        "body_type": [
+          "toyota_global_highlander_2023_update"
+        ],
+        "seats": [],
+        "engine": [
+          "toyota_global_highlander_2023_update"
+        ],
+        "transmission": [
+          "toyota_global_highlander_2023_update"
+        ],
+        "fuel_type": [
+          "toyota_global_highlander_2023_update"
+        ],
+        "drivetrain": [
+          "toyota_global_highlander_2023_update"
+        ],
+        "generation": [],
+        "year_start": [
+          "toyota_global_highlander_2023_update"
+        ],
+        "year_end": [],
+        "trim": []
+      },
+      "variant_id": "toyota_highlander_2023_2026_global_reference_only_xu70_2_4l_turbo_petrol_t24a_fts_265_hp_8_speed_automatic_suv_petrol"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Toyota",
+      "model": "Highlander",
+      "global_model_name": "Highlander (XU70)",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2021,
+      "year_end": 2022,
+      "generation": "XU70",
+      "body_type": "SUV",
+      "seats": 7,
+      "engine": "3.5L V6 Petrol (2GR-FKS), 295 hp",
+      "transmission": "8-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "AWD",
+      "trim": "",
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "Global reference for pre-2023 Highlander standard V6 powertrain, largely replaced by the 2.4T in 2023 globally. Not officially imported to IL by the main distributor (who focused on the 2.5 Hybrid).",
+      "source_ids": [
+        "toyota_global_highlander_2023_update"
+      ],
+      "field_sources": {
+        "body_type": [
+          "toyota_global_highlander_2023_update"
+        ],
+        "seats": [],
+        "engine": [
+          "toyota_global_highlander_2023_update"
+        ],
+        "transmission": [
+          "toyota_global_highlander_2023_update"
+        ],
+        "fuel_type": [
+          "toyota_global_highlander_2023_update"
+        ],
+        "drivetrain": [],
+        "generation": [],
+        "year_start": [],
+        "year_end": [
+          "toyota_global_highlander_2023_update"
+        ],
+        "trim": []
+      },
+      "variant_id": "toyota_highlander_2021_2022_global_reference_only_xu70_3_5l_v6_petrol_2gr_fks_295_hp_8_speed_automatic_suv_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -448962,17 +449138,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1733,
-    "variants": 1733,
+    "total_variants": 1736,
+    "variants": 1736,
     "verified": 788,
-    "partial": 945,
+    "partial": 948,
     "makes_count": 40,
-    "models_count": 481,
-    "processed_seeds": 478,
+    "models_count": 482,
+    "processed_seeds": 479,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-22T18:35:08.097800+00:00"
+    "last_updated_at": "2026-05-22T18:35:47.629745+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
