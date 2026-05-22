@@ -481,7 +481,8 @@
       "toyota__corolla_cross__2022__2026__il",
       "toyota__auris__2006__2018__il",
       "toyota__camry__1990__2026__il",
-      "toyota__prius__2000__2026__il"
+      "toyota__prius__2000__2026__il",
+      "toyota__prius+__2012__2021__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -934,8 +935,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "toyota__prius__2000__2026__il",
-    "next_seed_id": "toyota__prius+__2012__2021__il",
+    "last_completed_seed_id": "toyota__prius+__2012__2021__il",
+    "next_seed_id": "toyota__c-hr__2017__2026__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2059,6 +2060,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-22T18:29:15.893156+00:00"
+      },
+      "toyota__prius+__2012__2021__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 2,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-22T18:30:13.498782+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -228949,6 +228958,133 @@
         "trim": []
       },
       "variant_id": "toyota_prius_2023_2026_il_confirmed_5th_gen_xw60_2_0l_plug_in_hybrid_e_cvt_hatchback_plug_in_hybrid"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Toyota",
+      "model": "Prius+",
+      "global_model_name": "Prius+",
+      "official_marketed_name_il": "Prius+",
+      "local_brand_name_il": "Toyota",
+      "alternate_names": [
+        "Prius Alpha",
+        "Prius v"
+      ],
+      "rebadged_as": null,
+      "year_start": 2012,
+      "year_end": 2015,
+      "generation": "XW40",
+      "body_type": "MPV",
+      "seats": 7,
+      "engine": "1.8L Hybrid (2ZR-FXE), 136 hp",
+      "transmission": "e-CVT",
+      "fuel_type": "Hybrid",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli automotive sources (Cartube, iCar) confirm launch in 2012. Standard 1.8L hybrid powertrain with 7 seats, officially marketed as Prius+.",
+      "source_ids": [
+        "icar_il_prius_plus",
+        "cartube_il_prius_plus_2012"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_prius_plus"
+        ],
+        "seats": [
+          "icar_il_prius_plus",
+          "cartube_il_prius_plus_2012"
+        ],
+        "engine": [
+          "icar_il_prius_plus",
+          "cartube_il_prius_plus_2012"
+        ],
+        "transmission": [
+          "icar_il_prius_plus"
+        ],
+        "fuel_type": [
+          "icar_il_prius_plus",
+          "cartube_il_prius_plus_2012"
+        ],
+        "drivetrain": [
+          "icar_il_prius_plus"
+        ],
+        "generation": [
+          "icar_il_prius_plus"
+        ],
+        "year_start": [
+          "cartube_il_prius_plus_2012"
+        ],
+        "year_end": [
+          "cartube_il_prius_plus_facelift_2015"
+        ],
+        "trim": []
+      },
+      "variant_id": "toyota_prius_2012_2015_il_confirmed_xw40_1_8l_hybrid_2zr_fxe_136_hp_e_cvt_mpv_hybrid"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Toyota",
+      "model": "Prius+",
+      "global_model_name": "Prius+",
+      "official_marketed_name_il": "Prius+",
+      "local_brand_name_il": "Toyota",
+      "alternate_names": [
+        "Prius Alpha",
+        "Prius v"
+      ],
+      "rebadged_as": null,
+      "year_start": 2015,
+      "year_end": 2021,
+      "generation": "XW40 Facelift",
+      "body_type": "MPV",
+      "seats": 7,
+      "engine": "1.8L Hybrid (2ZR-FXE), 136 hp",
+      "transmission": "e-CVT",
+      "fuel_type": "Hybrid",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Cartube confirms facelift launch in early 2015 in Israel. Sold continuously until end of global production around 2021.",
+      "source_ids": [
+        "icar_il_prius_plus",
+        "cartube_il_prius_plus_facelift_2015"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_prius_plus"
+        ],
+        "seats": [
+          "icar_il_prius_plus"
+        ],
+        "engine": [
+          "icar_il_prius_plus"
+        ],
+        "transmission": [
+          "icar_il_prius_plus"
+        ],
+        "fuel_type": [
+          "icar_il_prius_plus"
+        ],
+        "drivetrain": [
+          "icar_il_prius_plus"
+        ],
+        "generation": [
+          "cartube_il_prius_plus_facelift_2015"
+        ],
+        "year_start": [
+          "cartube_il_prius_plus_facelift_2015"
+        ],
+        "year_end": [
+          "icar_il_prius_plus"
+        ],
+        "trim": []
+      },
+      "variant_id": "toyota_prius_2015_2021_il_confirmed_xw40_facelift_1_8l_hybrid_2zr_fxe_136_hp_e_cvt_mpv_hybrid"
     }
   ],
   "accumulated_clean_export": {
@@ -446959,17 +447095,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1701,
-    "variants": 1701,
+    "total_variants": 1703,
+    "variants": 1703,
     "verified": 788,
-    "partial": 913,
+    "partial": 915,
     "makes_count": 40,
-    "models_count": 476,
-    "processed_seeds": 472,
+    "models_count": 477,
+    "processed_seeds": 473,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-22T18:29:15.898122+00:00"
+    "last_updated_at": "2026-05-22T18:30:13.504041+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
