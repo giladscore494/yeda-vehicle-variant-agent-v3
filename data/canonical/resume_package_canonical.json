@@ -529,7 +529,8 @@
       "nissan__juke__2010__2026__il",
       "nissan__qashqai__2007__2026__il",
       "nissan__x-trail__2001__2026__il",
-      "nissan__leaf__2011__2024__il"
+      "nissan__leaf__2011__2024__il",
+      "nissan__note__2006__2022__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -982,8 +983,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "nissan__leaf__2011__2024__il",
-    "next_seed_id": "nissan__note__2006__2022__il",
+    "last_completed_seed_id": "nissan__note__2006__2022__il",
+    "next_seed_id": "nissan__tiida__2004__2012__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2491,6 +2492,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-22T19:26:31.290065+00:00"
+      },
+      "nissan__note__2006__2022__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 2,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-22T19:27:12.379232+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -240266,6 +240275,129 @@
         ]
       },
       "variant_id": "nissan_leaf_2019_2024_il_likely_2nd_gen_ze1_electric_motor_217_hp_160_kw_62_kwh_battery_single_speed_ev_hatchback_electric"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Nissan",
+      "model": "Note",
+      "global_model_name": "Nissan Note",
+      "official_marketed_name_il": "Nissan Note",
+      "local_brand_name_il": "ניסאן",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2006,
+      "year_end": 2013,
+      "generation": "E11",
+      "body_type": "Mini MPV",
+      "seats": 5,
+      "engine": "1.6L HR16DE naturally aspirated, 110 hp",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli automotive specs (Auto.co.il, iCar) confirm the E11 generation was marketed in Israel with the 1.6L 110hp engine and 4-speed automatic, selling from late 2006 through 2013.",
+      "source_ids": [
+        "auto_il_nissan_note_e11",
+        "icar_il_nissan_note_history"
+      ],
+      "field_sources": {
+        "body_type": [
+          "auto_il_nissan_note_e11",
+          "icar_il_nissan_note_history"
+        ],
+        "seats": [
+          "auto_il_nissan_note_e11",
+          "icar_il_nissan_note_history"
+        ],
+        "engine": [
+          "auto_il_nissan_note_e11"
+        ],
+        "transmission": [
+          "auto_il_nissan_note_e11"
+        ],
+        "fuel_type": [
+          "auto_il_nissan_note_e11"
+        ],
+        "drivetrain": [
+          "auto_il_nissan_note_e11",
+          "icar_il_nissan_note_history"
+        ],
+        "generation": [
+          "auto_il_nissan_note_e11"
+        ],
+        "year_start": [
+          "auto_il_nissan_note_e11"
+        ],
+        "year_end": [
+          "auto_il_nissan_note_e11",
+          "icar_il_nissan_note_history"
+        ],
+        "trim": []
+      },
+      "variant_id": "nissan_note_2006_2013_il_confirmed_e11_1_6l_hr16de_naturally_aspirated_110_hp_4_speed_automatic_mini_mpv_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Nissan",
+      "model": "Note",
+      "global_model_name": "Nissan Note",
+      "official_marketed_name_il": "Nissan Note",
+      "local_brand_name_il": "ניסאן",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2014,
+      "year_end": 2018,
+      "generation": "E12",
+      "body_type": "Mini MPV",
+      "seats": 5,
+      "engine": "1.2L HR12DDR DIG-S supercharged, 98 hp",
+      "transmission": "CVT",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli launch reports (Cartube) and specs confirm the E12 generation launched locally in early 2014. It featured the 1.2L DIG-S supercharged engine with an Xtronic CVT. Discontinued locally by roughly 2018.",
+      "source_ids": [
+        "cartube_il_nissan_note_e12_launch",
+        "icar_il_nissan_note_history"
+      ],
+      "field_sources": {
+        "body_type": [
+          "cartube_il_nissan_note_e12_launch",
+          "icar_il_nissan_note_history"
+        ],
+        "seats": [
+          "icar_il_nissan_note_history"
+        ],
+        "engine": [
+          "cartube_il_nissan_note_e12_launch"
+        ],
+        "transmission": [
+          "cartube_il_nissan_note_e12_launch"
+        ],
+        "fuel_type": [
+          "cartube_il_nissan_note_e12_launch"
+        ],
+        "drivetrain": [
+          "icar_il_nissan_note_history"
+        ],
+        "generation": [
+          "cartube_il_nissan_note_e12_launch"
+        ],
+        "year_start": [
+          "cartube_il_nissan_note_e12_launch"
+        ],
+        "year_end": [
+          "icar_il_nissan_note_history"
+        ],
+        "trim": []
+      },
+      "variant_id": "nissan_note_2014_2018_il_confirmed_e12_1_2l_hr12ddr_dig_s_supercharged_98_hp_cvt_mini_mpv_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -458276,17 +458408,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1879,
-    "variants": 1879,
+    "total_variants": 1881,
+    "variants": 1881,
     "verified": 788,
-    "partial": 1091,
+    "partial": 1093,
     "makes_count": 42,
-    "models_count": 523,
-    "processed_seeds": 520,
+    "models_count": 524,
+    "processed_seeds": 521,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-22T19:26:31.294821+00:00"
+    "last_updated_at": "2026-05-22T19:27:12.386785+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
