@@ -499,7 +499,8 @@
       "toyota__proace__2017__2026__il",
       "toyota__proace_city__2020__2026__il",
       "toyota__bz4x__2022__2026__il",
-      "toyota__gt86__2012__2021__il"
+      "toyota__gt86__2012__2021__il",
+      "toyota__gr86__2021__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -952,8 +953,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "toyota__gt86__2012__2021__il",
-    "next_seed_id": "toyota__gr86__2021__2026__il",
+    "last_completed_seed_id": "toyota__gr86__2021__2026__il",
+    "next_seed_id": "toyota__fj_cruiser__2007__2016__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2221,6 +2222,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-22T18:57:24.997549+00:00"
+      },
+      "toyota__gr86__2021__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 2,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-22T18:58:05.762032+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -233303,6 +233312,136 @@
         "trim": []
       },
       "variant_id": "toyota_gt86_2012_2021_il_confirmed_1st_gen_zn6_2_0l_flat_4_petrol_200_hp_6_speed_automatic_coupe_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Toyota",
+      "model": "GR86",
+      "global_model_name": "Toyota GR86",
+      "official_marketed_name_il": "GR86",
+      "local_brand_name_il": "Toyota",
+      "alternate_names": [
+        "Toyota 86"
+      ],
+      "rebadged_as": null,
+      "year_start": 2022,
+      "year_end": 2026,
+      "generation": "2nd Gen (ZN8)",
+      "body_type": "Coupe",
+      "seats": 4,
+      "engine": "2.4L FA24 naturally aspirated flat-four, 234 hp",
+      "transmission": "6-speed manual",
+      "fuel_type": "Petrol",
+      "drivetrain": "RWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "IL-confirmed via Cartube and iCar. The GR86 (ZN8 generation) was launched in Israel in late 2022/early 2023 with the 234 hp FA24 engine. Manual transmission explicitly verified. Marketed simply as 'Toyota GR86' without highly divergent trim names.",
+      "source_ids": [
+        "cartube_il_toyota_gr86_2022",
+        "icar_il_toyota_gr86",
+        "toyota_global_gr86_zn8"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_toyota_gr86",
+          "toyota_global_gr86_zn8"
+        ],
+        "seats": [
+          "icar_il_toyota_gr86"
+        ],
+        "engine": [
+          "cartube_il_toyota_gr86_2022",
+          "toyota_global_gr86_zn8"
+        ],
+        "transmission": [
+          "cartube_il_toyota_gr86_2022",
+          "icar_il_toyota_gr86"
+        ],
+        "fuel_type": [
+          "icar_il_toyota_gr86"
+        ],
+        "drivetrain": [
+          "cartube_il_toyota_gr86_2022",
+          "toyota_global_gr86_zn8"
+        ],
+        "generation": [
+          "cartube_il_toyota_gr86_2022",
+          "toyota_global_gr86_zn8"
+        ],
+        "year_start": [
+          "cartube_il_toyota_gr86_2022"
+        ],
+        "year_end": [],
+        "trim": []
+      },
+      "variant_id": "toyota_gr86_2022_2026_il_confirmed_2nd_gen_zn8_2_4l_fa24_naturally_aspirated_flat_four_234_hp_6_speed_manual_coupe_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Toyota",
+      "model": "GR86",
+      "global_model_name": "Toyota GR86",
+      "official_marketed_name_il": "GR86",
+      "local_brand_name_il": "Toyota",
+      "alternate_names": [
+        "Toyota 86"
+      ],
+      "rebadged_as": null,
+      "year_start": 2022,
+      "year_end": 2026,
+      "generation": "2nd Gen (ZN8)",
+      "body_type": "Coupe",
+      "seats": 4,
+      "engine": "2.4L FA24 naturally aspirated flat-four, 234 hp",
+      "transmission": "6-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "RWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "IL-confirmed via Cartube and iCar. Automatic variant offered alongside the manual for the Israeli market.",
+      "source_ids": [
+        "cartube_il_toyota_gr86_2022",
+        "icar_il_toyota_gr86",
+        "toyota_global_gr86_zn8"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_toyota_gr86",
+          "toyota_global_gr86_zn8"
+        ],
+        "seats": [
+          "icar_il_toyota_gr86"
+        ],
+        "engine": [
+          "cartube_il_toyota_gr86_2022",
+          "toyota_global_gr86_zn8"
+        ],
+        "transmission": [
+          "cartube_il_toyota_gr86_2022",
+          "icar_il_toyota_gr86"
+        ],
+        "fuel_type": [
+          "icar_il_toyota_gr86"
+        ],
+        "drivetrain": [
+          "cartube_il_toyota_gr86_2022",
+          "toyota_global_gr86_zn8"
+        ],
+        "generation": [
+          "cartube_il_toyota_gr86_2022",
+          "toyota_global_gr86_zn8"
+        ],
+        "year_start": [
+          "cartube_il_toyota_gr86_2022"
+        ],
+        "year_end": [],
+        "trim": []
+      },
+      "variant_id": "toyota_gr86_2022_2026_il_confirmed_2nd_gen_zn8_2_4l_fa24_naturally_aspirated_flat_four_234_hp_6_speed_automatic_coupe_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -451313,17 +451452,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1771,
-    "variants": 1771,
+    "total_variants": 1773,
+    "variants": 1773,
     "verified": 788,
-    "partial": 983,
+    "partial": 985,
     "makes_count": 40,
-    "models_count": 493,
-    "processed_seeds": 490,
+    "models_count": 494,
+    "processed_seeds": 491,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-22T18:57:25.004963+00:00"
+    "last_updated_at": "2026-05-22T18:58:05.766926+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
