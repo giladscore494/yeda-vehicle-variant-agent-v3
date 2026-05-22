@@ -491,7 +491,8 @@
       "toyota__highlander__2021__2026__il",
       "toyota__starlet__1985__1999__il",
       "toyota__avensis__1997__2018__il",
-      "toyota__verso__2009__2018__il"
+      "toyota__verso__2009__2018__il",
+      "toyota__aygo__2005__2022__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -944,8 +945,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "toyota__verso__2009__2018__il",
-    "next_seed_id": "toyota__aygo__2005__2022__il",
+    "last_completed_seed_id": "toyota__aygo__2005__2022__il",
+    "next_seed_id": "toyota__aygo_x__2022__2026__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2149,6 +2150,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-22T18:38:11.094606+00:00"
+      },
+      "toyota__aygo__2005__2022__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 6,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-22T18:39:08.764432+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -231623,6 +231632,341 @@
         "trim": []
       },
       "variant_id": "toyota_verso_2009_2018_il_confirmed_ar20_1_8l_petrol_valvematic_147_hp_cvt_mpv_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Toyota",
+      "model": "Aygo",
+      "global_model_name": "Toyota Aygo",
+      "official_marketed_name_il": "Toyota Aygo",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2005,
+      "year_end": 2014,
+      "generation": "AB10 (1st Gen)",
+      "body_type": "Hatchback",
+      "seats": 4,
+      "engine": "1.0L 3-cylinder VVT-i petrol, 68 hp",
+      "transmission": "5-speed manual",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "First generation Aygo (AB10) was officially launched in Israel in mid-2012 with a 1.0L engine. Globally available since 2005.",
+      "source_ids": [
+        "cartube_il_aygo_ab10_2012"
+      ],
+      "field_sources": {
+        "body_type": [
+          "cartube_il_aygo_ab10_2012"
+        ],
+        "seats": [],
+        "engine": [
+          "cartube_il_aygo_ab10_2012"
+        ],
+        "transmission": [
+          "cartube_il_aygo_ab10_2012"
+        ],
+        "fuel_type": [
+          "cartube_il_aygo_ab10_2012"
+        ],
+        "drivetrain": [],
+        "generation": [
+          "cartube_il_aygo_ab10_2012"
+        ],
+        "year_start": [
+          "cartube_il_aygo_ab10_2012"
+        ],
+        "year_end": [
+          "cartube_il_aygo_ab10_2012"
+        ],
+        "trim": []
+      },
+      "variant_id": "toyota_aygo_2005_2014_il_confirmed_ab10_1st_gen_1_0l_3_cylinder_vvt_i_petrol_68_hp_5_speed_manual_hatchback_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Toyota",
+      "model": "Aygo",
+      "global_model_name": "Toyota Aygo",
+      "official_marketed_name_il": "Toyota Aygo",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2005,
+      "year_end": 2014,
+      "generation": "AB10 (1st Gen)",
+      "body_type": "Hatchback",
+      "seats": 4,
+      "engine": "1.0L 3-cylinder VVT-i petrol, 68 hp",
+      "transmission": "5-speed automated manual",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Automated manual (MMT) variant of the 1st gen AB10, heavily marketed in Israel from 2012.",
+      "source_ids": [
+        "cartube_il_aygo_ab10_2012"
+      ],
+      "field_sources": {
+        "body_type": [
+          "cartube_il_aygo_ab10_2012"
+        ],
+        "seats": [],
+        "engine": [
+          "cartube_il_aygo_ab10_2012"
+        ],
+        "transmission": [
+          "cartube_il_aygo_ab10_2012"
+        ],
+        "fuel_type": [
+          "cartube_il_aygo_ab10_2012"
+        ],
+        "drivetrain": [],
+        "generation": [
+          "cartube_il_aygo_ab10_2012"
+        ],
+        "year_start": [
+          "cartube_il_aygo_ab10_2012"
+        ],
+        "year_end": [
+          "cartube_il_aygo_ab10_2012"
+        ],
+        "trim": []
+      },
+      "variant_id": "toyota_aygo_2005_2014_il_confirmed_ab10_1st_gen_1_0l_3_cylinder_vvt_i_petrol_68_hp_5_speed_automated_manual_hatchback_petrol"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Toyota",
+      "model": "Aygo",
+      "global_model_name": "Toyota Aygo",
+      "official_marketed_name_il": "Toyota Aygo",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2014,
+      "year_end": 2018,
+      "generation": "AB40 (2nd Gen)",
+      "body_type": "Hatchback",
+      "seats": 4,
+      "engine": "1.0L 3-cylinder VVT-i petrol, 69 hp",
+      "transmission": "5-speed manual",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Second generation Aygo (AB40) launched in Israel in late 2014 with distinctive X-design. Manual transmission option.",
+      "source_ids": [
+        "icar_il_aygo_ab40_2014"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_aygo_ab40_2014"
+        ],
+        "seats": [
+          "icar_il_aygo_ab40_2014"
+        ],
+        "engine": [
+          "icar_il_aygo_ab40_2014"
+        ],
+        "transmission": [
+          "icar_il_aygo_ab40_2014"
+        ],
+        "fuel_type": [
+          "icar_il_aygo_ab40_2014"
+        ],
+        "drivetrain": [],
+        "generation": [
+          "icar_il_aygo_ab40_2014"
+        ],
+        "year_start": [
+          "icar_il_aygo_ab40_2014"
+        ],
+        "year_end": [
+          "icar_il_aygo_ab40_2014"
+        ],
+        "trim": []
+      },
+      "variant_id": "toyota_aygo_2014_2018_il_confirmed_ab40_2nd_gen_1_0l_3_cylinder_vvt_i_petrol_69_hp_5_speed_manual_hatchback_petrol"
+    },
+    {
+      "candidate_index": 3,
+      "make": "Toyota",
+      "model": "Aygo",
+      "global_model_name": "Toyota Aygo",
+      "official_marketed_name_il": "Toyota Aygo",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2014,
+      "year_end": 2018,
+      "generation": "AB40 (2nd Gen)",
+      "body_type": "Hatchback",
+      "seats": 4,
+      "engine": "1.0L 3-cylinder VVT-i petrol, 69 hp",
+      "transmission": "5-speed automated manual",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Automated manual (x-shift) variant of the pre-facelift 2nd Gen Aygo in Israel.",
+      "source_ids": [
+        "icar_il_aygo_ab40_2014"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_aygo_ab40_2014"
+        ],
+        "seats": [
+          "icar_il_aygo_ab40_2014"
+        ],
+        "engine": [
+          "icar_il_aygo_ab40_2014"
+        ],
+        "transmission": [
+          "icar_il_aygo_ab40_2014"
+        ],
+        "fuel_type": [
+          "icar_il_aygo_ab40_2014"
+        ],
+        "drivetrain": [],
+        "generation": [
+          "icar_il_aygo_ab40_2014"
+        ],
+        "year_start": [
+          "icar_il_aygo_ab40_2014"
+        ],
+        "year_end": [
+          "icar_il_aygo_ab40_2014"
+        ],
+        "trim": []
+      },
+      "variant_id": "toyota_aygo_2014_2018_il_confirmed_ab40_2nd_gen_1_0l_3_cylinder_vvt_i_petrol_69_hp_5_speed_automated_manual_hatchback_petrol"
+    },
+    {
+      "candidate_index": 4,
+      "make": "Toyota",
+      "model": "Aygo",
+      "global_model_name": "Toyota Aygo",
+      "official_marketed_name_il": "Toyota Aygo",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2018,
+      "year_end": 2021,
+      "generation": "AB40 (2nd Gen Facelift)",
+      "body_type": "Hatchback",
+      "seats": 4,
+      "engine": "1.0L 3-cylinder VVT-i petrol, 72 hp",
+      "transmission": "5-speed automated manual",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "2018 facelift for AB40 brought engine power bump to 72 hp and mechanical revisions. Sold in Israel until replaced by Aygo X.",
+      "source_ids": [
+        "gear_il_aygo_facelift_2018",
+        "icar_il_aygo_ab40_2014"
+      ],
+      "field_sources": {
+        "body_type": [
+          "gear_il_aygo_facelift_2018"
+        ],
+        "seats": [
+          "icar_il_aygo_ab40_2014"
+        ],
+        "engine": [
+          "gear_il_aygo_facelift_2018"
+        ],
+        "transmission": [
+          "gear_il_aygo_facelift_2018"
+        ],
+        "fuel_type": [
+          "gear_il_aygo_facelift_2018"
+        ],
+        "drivetrain": [],
+        "generation": [
+          "gear_il_aygo_facelift_2018"
+        ],
+        "year_start": [
+          "gear_il_aygo_facelift_2018"
+        ],
+        "year_end": [
+          "gear_il_aygo_facelift_2018"
+        ],
+        "trim": []
+      },
+      "variant_id": "toyota_aygo_2018_2021_il_confirmed_ab40_2nd_gen_facelift_1_0l_3_cylinder_vvt_i_petrol_72_hp_5_speed_automated_manual_hatchback_petrol"
+    },
+    {
+      "candidate_index": 5,
+      "make": "Toyota",
+      "model": "Aygo",
+      "global_model_name": "Toyota Aygo X",
+      "official_marketed_name_il": "Toyota Aygo X",
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Aygo Cross"
+      ],
+      "rebadged_as": null,
+      "year_start": 2022,
+      "year_end": 2022,
+      "generation": "AB70 (3rd Gen)",
+      "body_type": "Hatchback",
+      "seats": 4,
+      "engine": "1.0L 3-cylinder VVT-i petrol, 72 hp",
+      "transmission": "CVT",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "The 3rd generation of the Aygo lineage was launched in April 2022 in Israel as 'Toyota Aygo X' (crossover hatchback layout on TNGA-B platform) equipped with a CVT.",
+      "source_ids": [
+        "toyota_il_aygo_x_2022"
+      ],
+      "field_sources": {
+        "body_type": [
+          "toyota_il_aygo_x_2022"
+        ],
+        "seats": [
+          "toyota_il_aygo_x_2022"
+        ],
+        "engine": [
+          "toyota_il_aygo_x_2022"
+        ],
+        "transmission": [
+          "toyota_il_aygo_x_2022"
+        ],
+        "fuel_type": [
+          "toyota_il_aygo_x_2022"
+        ],
+        "drivetrain": [],
+        "generation": [
+          "toyota_il_aygo_x_2022"
+        ],
+        "year_start": [
+          "toyota_il_aygo_x_2022"
+        ],
+        "year_end": [
+          "toyota_il_aygo_x_2022"
+        ],
+        "trim": []
+      },
+      "variant_id": "toyota_aygo_2022_2022_il_confirmed_ab70_3rd_gen_1_0l_3_cylinder_vvt_i_petrol_72_hp_cvt_hatchback_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -449633,17 +449977,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1744,
-    "variants": 1744,
+    "total_variants": 1750,
+    "variants": 1750,
     "verified": 788,
-    "partial": 956,
+    "partial": 962,
     "makes_count": 40,
-    "models_count": 485,
-    "processed_seeds": 482,
+    "models_count": 486,
+    "processed_seeds": 483,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-22T18:38:11.100102+00:00"
+    "last_updated_at": "2026-05-22T18:39:08.771263+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
