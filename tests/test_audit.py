@@ -106,3 +106,36 @@ class TestAudit:
         ok, errs = audit_canonical(canonical)
         # Should pass — il_confirmed_placeholder is a warning, not blocking
         assert ok is True
+
+    def test_new_il_confirmed_placeholder_is_hard_error(self):
+        """Newly added IL-confirmed variant with placeholder sources MUST block save."""
+        canonical = _make_valid_canonical()
+        canonical["verified_variants"].append({
+            "variant_id": "v_new",
+            "make": "Test",
+            "model": "Test",
+            "market_scope": "IL-confirmed",
+            "source_ids": ["src_1"],
+        })
+        canonical["counts"]["total_variants"] = 2
+        ok, errs = audit_canonical(
+            canonical, newly_added_variant_ids=["v_new"],
+        )
+        assert ok is False
+        assert any("new_il_confirmed_placeholder_sources" in e for e in errs)
+
+    def test_new_il_confirmed_with_real_sources_passes(self):
+        """Newly added IL-confirmed variant with real sources should pass."""
+        canonical = _make_valid_canonical()
+        canonical["verified_variants"].append({
+            "variant_id": "v_new",
+            "make": "Test",
+            "model": "Test",
+            "market_scope": "IL-confirmed",
+            "source_ids": ["ministry_transport_il_2023"],
+        })
+        canonical["counts"]["total_variants"] = 2
+        ok, errs = audit_canonical(
+            canonical, newly_added_variant_ids=["v_new"],
+        )
+        assert ok is True

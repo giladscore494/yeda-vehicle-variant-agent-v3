@@ -4,15 +4,24 @@ from __future__ import annotations
 from core.source_ids import looks_like_placeholder_source_id
 
 
-def audit_canonical(canonical: dict, seed_catalog: list[dict] | None = None) -> tuple[bool, list[str]]:
+def audit_canonical(
+    canonical: dict,
+    seed_catalog: list[dict] | None = None,
+    newly_added_variant_ids: list[str] | None = None,
+) -> tuple[bool, list[str]]:
     """Validate canonical integrity. Returns (ok, errors).
 
     Hard errors block save. Pre-existing data quality issues in individual
     variants (e.g. IL-confirmed with placeholder source_ids) are collected
     but do NOT block save — they are legacy issues to be cleaned up over time.
+
+    However, if ``newly_added_variant_ids`` is supplied, any variant whose
+    variant_id appears in that list AND has IL-confirmed market_scope with
+    placeholder/empty source_ids is a HARD error that blocks save.
     """
     errors: list[str] = []
     warnings: list[str] = []  # non-blocking
+    new_ids: set[str] = set(newly_added_variant_ids or [])
 
     if not isinstance(canonical, dict):
         return False, ["root_not_dict"]
@@ -101,7 +110,9 @@ def audit_canonical(canonical: dict, seed_catalog: list[dict] | None = None) -> 
                     f"placeholder_sources_in_proven_zvr: {sa_seed_id}"
                 )
 
-    # 5. IL-confirmed with placeholder source_ids (warning, not blocking)
+    # 5. IL-confirmed with placeholder source_ids
+    #    - Legacy (not in newly_added_variant_ids): warning only, non-blocking
+    #    - Newly added by v3 engine: HARD error, blocks save
     for v in all_variants:
         if not isinstance(v, dict):
             continue
@@ -109,9 +120,14 @@ def audit_canonical(canonical: dict, seed_catalog: list[dict] | None = None) -> 
             sids = v.get("source_ids") or []
             if not sids or all(looks_like_placeholder_source_id(str(s)) for s in sids):
                 vid = v.get("variant_id", "unknown")
-                warnings.append(
-                    f"il_confirmed_placeholder_sources: {vid}"
-                )
+                if vid in new_ids:
+                    errors.append(
+                        f"new_il_confirmed_placeholder_sources: {vid}"
+                    )
+                else:
+                    warnings.append(
+                        f"il_confirmed_placeholder_sources: {vid}"
+                    )
 
     # 7. next_seed_id in seed catalog
     if seed_catalog is not None:

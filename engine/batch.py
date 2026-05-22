@@ -101,6 +101,7 @@ def run_batch(
                 canonical, c_path,
                 seed_catalog=seeds,
                 push_to_github=push_to_github,
+                newly_added_variant_ids=stats.get("newly_added_variant_ids"),
             )
             if not save_result["ok"]:
                 tracker.mark_failed(seed_id, save_result.get("error", "save failed"))

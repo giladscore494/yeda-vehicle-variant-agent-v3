@@ -48,6 +48,7 @@ def _merge_variants_into_canonical(canonical: dict, new_variants: list[dict]) ->
 
     added = 0
     merged = 0
+    added_variant_ids: list[str] = []
 
     for incoming in new_variants:
         if not isinstance(incoming, dict):
@@ -63,6 +64,7 @@ def _merge_variants_into_canonical(canonical: dict, new_variants: list[dict]) ->
             index[vid] = len(all_variants)
             all_variants.append(copy.deepcopy(incoming))
             added += 1
+            added_variant_ids.append(vid)
 
     # Rebuild verified/partial split
     new_verified = []
@@ -76,7 +78,7 @@ def _merge_variants_into_canonical(canonical: dict, new_variants: list[dict]) ->
     canonical["verified_variants"] = new_verified
     canonical["partial_variants"] = new_partial
 
-    return {"added_count": added, "merged_count": merged}
+    return {"added_count": added, "merged_count": merged, "added_variant_ids": added_variant_ids}
 
 
 def apply_decision(canonical: dict, decision: Decision, is_current_next: bool = False) -> dict:
@@ -87,12 +89,13 @@ def apply_decision(canonical: dict, decision: Decision, is_current_next: bool = 
     bs.setdefault("failed_seed_ids", [])
     bs.setdefault("seed_accounting", {})
     now = datetime.now(timezone.utc).isoformat()
-    stats = {"added_count": 0, "merged_count": 0}
+    stats = {"added_count": 0, "merged_count": 0, "newly_added_variant_ids": []}
 
     if decision.action == "ACCEPT_VARIANTS":
         merge_result = _merge_variants_into_canonical(canonical, decision.variants_to_add)
         stats["added_count"] = merge_result["added_count"]
         stats["merged_count"] = merge_result["merged_count"]
+        stats["newly_added_variant_ids"] = merge_result["added_variant_ids"]
 
         if decision.seed_id not in bs["processed_seed_ids"]:
             bs["processed_seed_ids"].append(decision.seed_id)

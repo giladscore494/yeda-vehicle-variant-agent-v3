@@ -54,6 +54,7 @@ def save_canonical_atomic(
     path: str | Path,
     seed_catalog: list[dict] | None = None,
     push_to_github: bool = False,
+    newly_added_variant_ids: list[str] | None = None,
 ) -> dict:
     """Atomic save: audit -> write tmp -> reload tmp -> replace -> reload -> audit -> push.
 
@@ -66,7 +67,10 @@ def save_canonical_atomic(
     _refresh_counts(canonical)
 
     # Pre-save audit
-    ok, errs = audit_canonical(canonical, seed_catalog=seed_catalog)
+    ok, errs = audit_canonical(
+        canonical, seed_catalog=seed_catalog,
+        newly_added_variant_ids=newly_added_variant_ids,
+    )
     if not ok:
         return {"ok": False, "path": str(p), "error": f"pre-save audit failed: {errs}"}
 
@@ -89,7 +93,10 @@ def save_canonical_atomic(
         except Exception as exc:
             return {"ok": False, "path": str(p), "error": f"temp file unreadable: {exc}"}
 
-        ok2, errs2 = audit_canonical(tmp_data, seed_catalog=seed_catalog)
+        ok2, errs2 = audit_canonical(
+            tmp_data, seed_catalog=seed_catalog,
+            newly_added_variant_ids=newly_added_variant_ids,
+        )
         if not ok2:
             return {"ok": False, "path": str(p), "error": f"temp file audit failed: {errs2}"}
 
@@ -109,7 +116,10 @@ def save_canonical_atomic(
         return {"ok": False, "path": str(p), "error": f"post-save reload failed: {exc}"}
 
     # Post-save audit
-    ok3, errs3 = audit_canonical(reloaded, seed_catalog=seed_catalog)
+    ok3, errs3 = audit_canonical(
+        reloaded, seed_catalog=seed_catalog,
+        newly_added_variant_ids=newly_added_variant_ids,
+    )
     if not ok3:
         return {"ok": False, "path": str(p), "error": f"post-save audit failed: {errs3}"}
 
