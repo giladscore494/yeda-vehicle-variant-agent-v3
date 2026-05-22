@@ -494,7 +494,8 @@
       "toyota__verso__2009__2018__il",
       "toyota__aygo__2005__2022__il",
       "toyota__aygo_x__2022__2026__il",
-      "toyota__iq__2009__2015__il"
+      "toyota__iq__2009__2015__il",
+      "toyota__urban_cruiser__2009__2014__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -947,8 +948,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "toyota__iq__2009__2015__il",
-    "next_seed_id": "toyota__urban_cruiser__2009__2014__il",
+    "last_completed_seed_id": "toyota__urban_cruiser__2009__2014__il",
+    "next_seed_id": "toyota__proace__2017__2026__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2176,6 +2177,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-22T18:40:32.691346+00:00"
+      },
+      "toyota__urban_cruiser__2009__2014__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 2,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-22T18:54:08.445316+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -232289,6 +232298,127 @@
         "trim": []
       },
       "variant_id": "toyota_iq_2009_2012_global_reference_only_1st_gen_aj10_1_4l_1nd_tv_d_4d_i4_diesel_90_hp_6_speed_manual_hatchback_diesel"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Toyota",
+      "model": "Urban Cruiser",
+      "global_model_name": "Toyota Urban Cruiser",
+      "official_marketed_name_il": "Toyota Urban Cruiser",
+      "local_brand_name_il": "Toyota",
+      "alternate_names": [
+        "Toyota ist",
+        "Scion xD"
+      ],
+      "rebadged_as": null,
+      "year_start": 2009,
+      "year_end": 2012,
+      "generation": "XP110",
+      "body_type": "Hatchback",
+      "seats": 5,
+      "engine": "1.33L 1NR-FE petrol, 100 hp",
+      "transmission": "6-speed manual",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli automotive publications confirm the XP110 Urban Cruiser was imported to Israel starting in 2009 exclusively with the 1.33L petrol engine and a 6-speed manual transmission. The lack of an automatic gearbox severely limited sales, leading to early discontinuation in the local market before the global production run ended.",
+      "source_ids": [
+        "auto_il_toyota_urban_cruiser_review_2009",
+        "toyota_europe_urban_cruiser_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "auto_il_toyota_urban_cruiser_review_2009"
+        ],
+        "seats": [
+          "toyota_europe_urban_cruiser_specs"
+        ],
+        "engine": [
+          "auto_il_toyota_urban_cruiser_review_2009"
+        ],
+        "transmission": [
+          "auto_il_toyota_urban_cruiser_review_2009"
+        ],
+        "fuel_type": [
+          "auto_il_toyota_urban_cruiser_review_2009"
+        ],
+        "drivetrain": [
+          "auto_il_toyota_urban_cruiser_review_2009"
+        ],
+        "generation": [
+          "auto_il_toyota_urban_cruiser_review_2009",
+          "toyota_europe_urban_cruiser_specs"
+        ],
+        "year_start": [
+          "auto_il_toyota_urban_cruiser_review_2009"
+        ],
+        "year_end": [
+          "auto_il_toyota_urban_cruiser_review_2009"
+        ],
+        "trim": []
+      },
+      "variant_id": "toyota_urban_cruiser_2009_2012_il_confirmed_xp110_1_33l_1nr_fe_petrol_100_hp_6_speed_manual_hatchback_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Toyota",
+      "model": "Urban Cruiser",
+      "global_model_name": "Toyota Urban Cruiser",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2009,
+      "year_end": 2014,
+      "generation": "XP110",
+      "body_type": "Hatchback",
+      "seats": 5,
+      "engine": "1.4L 1ND-TV D-4D diesel, 90 hp",
+      "transmission": "6-speed manual",
+      "fuel_type": "Diesel",
+      "drivetrain": "AWD",
+      "trim": null,
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "European specification included a 1.4L diesel variant with available All-Wheel Drive. Israeli market sources show no evidence of this diesel AWD variant being officially imported or sold. Maintained as global-reference-only.",
+      "source_ids": [
+        "toyota_europe_urban_cruiser_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "toyota_europe_urban_cruiser_specs"
+        ],
+        "seats": [
+          "toyota_europe_urban_cruiser_specs"
+        ],
+        "engine": [
+          "toyota_europe_urban_cruiser_specs"
+        ],
+        "transmission": [
+          "toyota_europe_urban_cruiser_specs"
+        ],
+        "fuel_type": [
+          "toyota_europe_urban_cruiser_specs"
+        ],
+        "drivetrain": [
+          "toyota_europe_urban_cruiser_specs"
+        ],
+        "generation": [
+          "toyota_europe_urban_cruiser_specs"
+        ],
+        "year_start": [
+          "toyota_europe_urban_cruiser_specs"
+        ],
+        "year_end": [
+          "toyota_europe_urban_cruiser_specs"
+        ],
+        "trim": []
+      },
+      "variant_id": "toyota_urban_cruiser_2009_2014_global_reference_only_xp110_1_4l_1nd_tv_d_4d_diesel_90_hp_6_speed_manual_hatchback_diesel"
     }
   ],
   "accumulated_clean_export": {
@@ -450299,17 +450429,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1755,
-    "variants": 1755,
+    "total_variants": 1757,
+    "variants": 1757,
     "verified": 788,
-    "partial": 967,
+    "partial": 969,
     "makes_count": 40,
-    "models_count": 488,
-    "processed_seeds": 485,
+    "models_count": 489,
+    "processed_seeds": 486,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-22T18:40:32.696298+00:00"
+    "last_updated_at": "2026-05-22T18:54:08.452083+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
