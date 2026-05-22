@@ -501,7 +501,8 @@
       "toyota__bz4x__2022__2026__il",
       "toyota__gt86__2012__2021__il",
       "toyota__gr86__2021__2026__il",
-      "toyota__fj_cruiser__2007__2016__il"
+      "toyota__fj_cruiser__2007__2016__il",
+      "toyota__supra__2019__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -954,8 +955,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "toyota__fj_cruiser__2007__2016__il",
-    "next_seed_id": "toyota__supra__2019__2026__il",
+    "last_completed_seed_id": "toyota__supra__2019__2026__il",
+    "next_seed_id": "toyota__sienna__2021__2026__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2239,6 +2240,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-22T18:58:54.967518+00:00"
+      },
+      "toyota__supra__2019__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 3,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-22T18:59:36.883284+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -233584,6 +233593,190 @@
         "trim": []
       },
       "variant_id": "toyota_fj_cruiser_2010_2016_il_confirmed_1st_gen_gsj15w_4_0l_v6_petrol_1gr_fe_dual_vvt_i_260_hp_5_speed_automatic_suv_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Toyota",
+      "model": "Supra",
+      "global_model_name": "GR Supra",
+      "official_marketed_name_il": "Toyota GR Supra",
+      "local_brand_name_il": "Toyota",
+      "alternate_names": [
+        "A90",
+        "J29"
+      ],
+      "rebadged_as": null,
+      "year_start": 2019,
+      "year_end": 2026,
+      "generation": "5th Gen (J29/A90)",
+      "body_type": "Coupe",
+      "seats": 2,
+      "engine": "3.0L I6 Turbo, 340 hp",
+      "transmission": "8-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "RWD",
+      "trim": "",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli auto publications and official importer data confirm the 3.0L turbo GR Supra was launched in Israel in 2019. Also referred to internally as the J29 or A90 generation.",
+      "source_ids": [
+        "cartube_il_gr_supra_2019",
+        "toyota_il_official_site"
+      ],
+      "field_sources": {
+        "body_type": [
+          "cartube_il_gr_supra_2019",
+          "toyota_il_official_site"
+        ],
+        "seats": [
+          "toyota_il_official_site"
+        ],
+        "engine": [
+          "cartube_il_gr_supra_2019"
+        ],
+        "transmission": [
+          "cartube_il_gr_supra_2019"
+        ],
+        "fuel_type": [
+          "toyota_il_official_site"
+        ],
+        "drivetrain": [
+          "cartube_il_gr_supra_2019"
+        ],
+        "generation": [
+          "cartube_il_gr_supra_2019"
+        ],
+        "year_start": [
+          "cartube_il_gr_supra_2019"
+        ],
+        "year_end": [
+          "toyota_il_official_site"
+        ],
+        "trim": []
+      },
+      "variant_id": "toyota_supra_2019_2026_il_confirmed_5th_gen_j29_a90_3_0l_i6_turbo_340_hp_8_speed_automatic_coupe_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Toyota",
+      "model": "Supra",
+      "global_model_name": "GR Supra",
+      "official_marketed_name_il": "Toyota GR Supra",
+      "local_brand_name_il": "Toyota",
+      "alternate_names": [
+        "A90",
+        "J29"
+      ],
+      "rebadged_as": null,
+      "year_start": 2021,
+      "year_end": 2026,
+      "generation": "5th Gen (J29/A90)",
+      "body_type": "Coupe",
+      "seats": 2,
+      "engine": "2.0L I4 Turbo, 258 hp",
+      "transmission": "8-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "RWD",
+      "trim": "",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli market sources confirm the introduction of the 2.0L 4-cylinder variant to Israel around early 2021 to provide a more accessible entry point.",
+      "source_ids": [
+        "cartube_il_gr_supra_2021",
+        "toyota_il_official_site"
+      ],
+      "field_sources": {
+        "body_type": [
+          "toyota_il_official_site"
+        ],
+        "seats": [
+          "toyota_il_official_site"
+        ],
+        "engine": [
+          "cartube_il_gr_supra_2021"
+        ],
+        "transmission": [
+          "cartube_il_gr_supra_2021"
+        ],
+        "fuel_type": [
+          "toyota_il_official_site"
+        ],
+        "drivetrain": [
+          "toyota_il_official_site"
+        ],
+        "generation": [
+          "cartube_il_gr_supra_2021"
+        ],
+        "year_start": [
+          "cartube_il_gr_supra_2021"
+        ],
+        "year_end": [
+          "toyota_il_official_site"
+        ],
+        "trim": []
+      },
+      "variant_id": "toyota_supra_2021_2026_il_confirmed_5th_gen_j29_a90_2_0l_i4_turbo_258_hp_8_speed_automatic_coupe_petrol"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Toyota",
+      "model": "Supra",
+      "global_model_name": "GR Supra",
+      "official_marketed_name_il": "Toyota GR Supra",
+      "local_brand_name_il": "Toyota",
+      "alternate_names": [
+        "A90",
+        "J29"
+      ],
+      "rebadged_as": null,
+      "year_start": 2022,
+      "year_end": 2026,
+      "generation": "5th Gen (J29/A90)",
+      "body_type": "Coupe",
+      "seats": 2,
+      "engine": "3.0L I6 Turbo, 340 hp",
+      "transmission": "6-speed manual",
+      "fuel_type": "Petrol",
+      "drivetrain": "RWD",
+      "trim": "MT",
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "medium",
+      "source_basis": "Global manufacturer press introduced a 6-speed manual transmission for the 3.0L model in 2022. It is unknown if Union Motors imported this variant to Israel, so it is marked as global-reference-only.",
+      "source_ids": [
+        "global_toyota_press_mt_2022"
+      ],
+      "field_sources": {
+        "body_type": [
+          "global_toyota_press_mt_2022"
+        ],
+        "seats": [],
+        "engine": [
+          "global_toyota_press_mt_2022"
+        ],
+        "transmission": [
+          "global_toyota_press_mt_2022"
+        ],
+        "fuel_type": [
+          "global_toyota_press_mt_2022"
+        ],
+        "drivetrain": [
+          "global_toyota_press_mt_2022"
+        ],
+        "generation": [
+          "global_toyota_press_mt_2022"
+        ],
+        "year_start": [
+          "global_toyota_press_mt_2022"
+        ],
+        "year_end": [],
+        "trim": [
+          "global_toyota_press_mt_2022"
+        ]
+      },
+      "variant_id": "toyota_supra_2022_2026_global_reference_only_5th_gen_j29_a90_3_0l_i6_turbo_340_hp_6_speed_manual_coupe_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -451594,17 +451787,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1775,
-    "variants": 1775,
+    "total_variants": 1778,
+    "variants": 1778,
     "verified": 788,
-    "partial": 987,
+    "partial": 990,
     "makes_count": 40,
-    "models_count": 495,
-    "processed_seeds": 492,
+    "models_count": 496,
+    "processed_seeds": 493,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-22T18:58:54.974281+00:00"
+    "last_updated_at": "2026-05-22T18:59:36.888275+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
