@@ -488,7 +488,8 @@
       "toyota__land_cruiser__1991__2026__il",
       "toyota__land_cruiser_prado__1991__2026__il",
       "toyota__hilux__1991__2026__il",
-      "toyota__highlander__2021__2026__il"
+      "toyota__highlander__2021__2026__il",
+      "toyota__starlet__1985__1999__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -941,8 +942,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "toyota__highlander__2021__2026__il",
-    "next_seed_id": "toyota__starlet__1985__1999__il",
+    "last_completed_seed_id": "toyota__starlet__1985__1999__il",
+    "next_seed_id": "toyota__avensis__1997__2018__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2122,6 +2123,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-22T18:35:47.624473+00:00"
+      },
+      "toyota__starlet__1985__1999__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 3,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-22T18:36:45.093052+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -231128,6 +231137,174 @@
         "trim": []
       },
       "variant_id": "toyota_highlander_2021_2022_global_reference_only_xu70_3_5l_v6_petrol_2gr_fks_295_hp_8_speed_automatic_suv_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Toyota",
+      "model": "Starlet",
+      "global_model_name": "Toyota Starlet",
+      "official_marketed_name_il": "Toyota Starlet",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 1996,
+      "year_end": 1999,
+      "generation": "P90",
+      "body_type": "Hatchback",
+      "seats": 5,
+      "engine": "1.3L 4E-FE inline-4 petrol, 75 hp",
+      "transmission": "3-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "XLi",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Confirmed by Israeli used-car archives and spec sites (KML/Yad2) as highly popular in Israel during 1996-1999. The 1.3L XLi with a 3-speed automatic was the most common configuration.",
+      "source_ids": [
+        "kml_co_il_toyota_starlet_p90",
+        "yad2_il_toyota_starlet_history"
+      ],
+      "field_sources": {
+        "body_type": [
+          "kml_co_il_toyota_starlet_p90"
+        ],
+        "seats": [],
+        "engine": [
+          "kml_co_il_toyota_starlet_p90"
+        ],
+        "transmission": [
+          "kml_co_il_toyota_starlet_p90"
+        ],
+        "fuel_type": [
+          "kml_co_il_toyota_starlet_p90"
+        ],
+        "drivetrain": [],
+        "generation": [
+          "kml_co_il_toyota_starlet_p90"
+        ],
+        "year_start": [
+          "kml_co_il_toyota_starlet_p90"
+        ],
+        "year_end": [
+          "kml_co_il_toyota_starlet_p90"
+        ],
+        "trim": [
+          "yad2_il_toyota_starlet_history"
+        ]
+      },
+      "variant_id": "toyota_starlet_1996_1999_il_confirmed_p90_1_3l_4e_fe_inline_4_petrol_75_hp_3_speed_automatic_hatchback_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Toyota",
+      "model": "Starlet",
+      "global_model_name": "Toyota Starlet",
+      "official_marketed_name_il": "Toyota Starlet",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 1996,
+      "year_end": 1999,
+      "generation": "P90",
+      "body_type": "Hatchback",
+      "seats": 5,
+      "engine": "1.3L 4E-FE inline-4 petrol, 75 hp",
+      "transmission": "5-speed manual",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "XLi",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "IL market sources confirm availability of the manual 5-speed alongside the automatic for the 1.3L P90 generation.",
+      "source_ids": [
+        "kml_co_il_toyota_starlet_p90",
+        "yad2_il_toyota_starlet_history"
+      ],
+      "field_sources": {
+        "body_type": [
+          "kml_co_il_toyota_starlet_p90"
+        ],
+        "seats": [],
+        "engine": [
+          "kml_co_il_toyota_starlet_p90"
+        ],
+        "transmission": [
+          "kml_co_il_toyota_starlet_p90"
+        ],
+        "fuel_type": [
+          "kml_co_il_toyota_starlet_p90"
+        ],
+        "drivetrain": [],
+        "generation": [
+          "kml_co_il_toyota_starlet_p90"
+        ],
+        "year_start": [
+          "kml_co_il_toyota_starlet_p90"
+        ],
+        "year_end": [
+          "kml_co_il_toyota_starlet_p90"
+        ],
+        "trim": [
+          "yad2_il_toyota_starlet_history"
+        ]
+      },
+      "variant_id": "toyota_starlet_1996_1999_il_confirmed_p90_1_3l_4e_fe_inline_4_petrol_75_hp_5_speed_manual_hatchback_petrol"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Toyota",
+      "model": "Starlet",
+      "global_model_name": "Toyota Starlet",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 1989,
+      "year_end": 1995,
+      "generation": "P80",
+      "body_type": "Hatchback",
+      "seats": 5,
+      "engine": "1.3L 2E inline-4 petrol, 75 hp",
+      "transmission": "3-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "Base",
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "The P80 generation was built from 1989-1995. Toyota officially entered Israel in 1991, but Starlet imports heavily started with the P90 in 1996. The P80 is provided for global reference to cover the seed year range accurately.",
+      "source_ids": [
+        "autodata_net_toyota_starlet_p80"
+      ],
+      "field_sources": {
+        "body_type": [
+          "autodata_net_toyota_starlet_p80"
+        ],
+        "seats": [],
+        "engine": [
+          "autodata_net_toyota_starlet_p80"
+        ],
+        "transmission": [
+          "autodata_net_toyota_starlet_p80"
+        ],
+        "fuel_type": [],
+        "drivetrain": [
+          "autodata_net_toyota_starlet_p80"
+        ],
+        "generation": [
+          "autodata_net_toyota_starlet_p80"
+        ],
+        "year_start": [
+          "autodata_net_toyota_starlet_p80"
+        ],
+        "year_end": [
+          "autodata_net_toyota_starlet_p80"
+        ],
+        "trim": []
+      },
+      "variant_id": "toyota_starlet_1989_1995_global_reference_only_p80_1_3l_2e_inline_4_petrol_75_hp_3_speed_automatic_hatchback_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -449138,17 +449315,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1736,
-    "variants": 1736,
+    "total_variants": 1739,
+    "variants": 1739,
     "verified": 788,
-    "partial": 948,
+    "partial": 951,
     "makes_count": 40,
-    "models_count": 482,
-    "processed_seeds": 479,
+    "models_count": 483,
+    "processed_seeds": 480,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-22T18:35:47.629745+00:00"
+    "last_updated_at": "2026-05-22T18:36:45.100807+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
