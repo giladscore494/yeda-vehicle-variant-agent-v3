@@ -457,7 +457,8 @@
       "volkswagen__bora__1999__2005__il",
       "volkswagen__beetle__1998__2019__il",
       "volkswagen__scirocco__2008__2017__il",
-      "volkswagen__passat__1990__2026__il"
+      "volkswagen__passat__1990__2026__il",
+      "volkswagen__passat_cc__2008__2017__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1843,6 +1844,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-22T15:44:03.568874+00:00"
+      },
+      "volkswagen__passat_cc__2008__2017__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 4,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-22T15:44:52.314839+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -222347,6 +222356,248 @@
         "trim": []
       },
       "variant_id": "volkswagen_passat_2014_2020_il_confirmed_b8_2_0l_tdi_150_hp_6_speed_dsg_sedan_diesel"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Volkswagen",
+      "model": "Passat CC",
+      "global_model_name": "Volkswagen Passat CC",
+      "official_marketed_name_il": "Volkswagen Passat CC",
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Passat CC"
+      ],
+      "rebadged_as": null,
+      "year_start": 2008,
+      "year_end": 2011,
+      "generation": "1st Gen (PQ46)",
+      "body_type": "Gran Coupe",
+      "seats": null,
+      "engine": "1.8L TSI, 160 hp",
+      "transmission": "7-speed DSG",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli specifications confirm the pre-facelift model was marketed as 'Passat CC' featuring the 1.8L TSI engine coupled with a 7-speed DSG transmission.",
+      "source_ids": [
+        "icar_il_vw_passat_cc_2008"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_vw_passat_cc_2008"
+        ],
+        "seats": [],
+        "engine": [
+          "icar_il_vw_passat_cc_2008"
+        ],
+        "transmission": [
+          "icar_il_vw_passat_cc_2008"
+        ],
+        "fuel_type": [
+          "icar_il_vw_passat_cc_2008"
+        ],
+        "drivetrain": [
+          "icar_il_vw_passat_cc_2008"
+        ],
+        "generation": [
+          "icar_il_vw_passat_cc_2008"
+        ],
+        "year_start": [
+          "icar_il_vw_passat_cc_2008"
+        ],
+        "year_end": [
+          "icar_il_vw_passat_cc_2008"
+        ],
+        "trim": []
+      },
+      "variant_id": "volkswagen_passat_cc_2008_2011_il_confirmed_1st_gen_pq46_1_8l_tsi_160_hp_7_speed_dsg_gran_coupe_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Volkswagen",
+      "model": "Passat CC",
+      "global_model_name": "Volkswagen Passat CC",
+      "official_marketed_name_il": "Volkswagen Passat CC",
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Passat CC"
+      ],
+      "rebadged_as": null,
+      "year_start": 2008,
+      "year_end": 2011,
+      "generation": "1st Gen (PQ46)",
+      "body_type": "Gran Coupe",
+      "seats": null,
+      "engine": "2.0L TSI, 200 hp",
+      "transmission": "6-speed DSG",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "IL specs document the 2.0L TSI with a 6-speed DSG (due to higher torque limits of the 6-speed wet clutch vs 7-speed dry clutch) for the pre-facelift 2008-2011 period.",
+      "source_ids": [
+        "icar_il_vw_passat_cc_2008"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_vw_passat_cc_2008"
+        ],
+        "seats": [],
+        "engine": [
+          "icar_il_vw_passat_cc_2008"
+        ],
+        "transmission": [
+          "icar_il_vw_passat_cc_2008"
+        ],
+        "fuel_type": [
+          "icar_il_vw_passat_cc_2008"
+        ],
+        "drivetrain": [
+          "icar_il_vw_passat_cc_2008"
+        ],
+        "generation": [
+          "icar_il_vw_passat_cc_2008"
+        ],
+        "year_start": [
+          "icar_il_vw_passat_cc_2008"
+        ],
+        "year_end": [
+          "icar_il_vw_passat_cc_2008"
+        ],
+        "trim": []
+      },
+      "variant_id": "volkswagen_passat_cc_2008_2011_il_confirmed_1st_gen_pq46_2_0l_tsi_200_hp_6_speed_dsg_gran_coupe_petrol"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Volkswagen",
+      "model": "Passat CC",
+      "global_model_name": "Volkswagen CC",
+      "official_marketed_name_il": "Volkswagen CC",
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "CC"
+      ],
+      "rebadged_as": null,
+      "year_start": 2012,
+      "year_end": 2017,
+      "generation": "1st Gen Facelift (PQ46)",
+      "body_type": "Gran Coupe",
+      "seats": null,
+      "engine": "1.8L TSI, 160 hp",
+      "transmission": "7-speed DSG",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli automotive sources confirm the 2012 facelift dropped the 'Passat' moniker and was officially marketed simply as 'Volkswagen CC'. The 1.8 TSI model was retained.",
+      "source_ids": [
+        "auto_il_vw_cc_2012",
+        "cartube_il_vw_cc_launch"
+      ],
+      "field_sources": {
+        "body_type": [
+          "auto_il_vw_cc_2012"
+        ],
+        "seats": [],
+        "engine": [
+          "auto_il_vw_cc_2012",
+          "cartube_il_vw_cc_launch"
+        ],
+        "transmission": [
+          "auto_il_vw_cc_2012",
+          "cartube_il_vw_cc_launch"
+        ],
+        "fuel_type": [
+          "auto_il_vw_cc_2012"
+        ],
+        "drivetrain": [
+          "auto_il_vw_cc_2012"
+        ],
+        "generation": [
+          "auto_il_vw_cc_2012",
+          "cartube_il_vw_cc_launch"
+        ],
+        "year_start": [
+          "auto_il_vw_cc_2012",
+          "cartube_il_vw_cc_launch"
+        ],
+        "year_end": [
+          "auto_il_vw_cc_2012"
+        ],
+        "trim": []
+      },
+      "variant_id": "volkswagen_passat_cc_2012_2017_il_confirmed_1st_gen_facelift_pq46_1_8l_tsi_160_hp_7_speed_dsg_gran_coupe_petrol"
+    },
+    {
+      "candidate_index": 3,
+      "make": "Volkswagen",
+      "model": "Passat CC",
+      "global_model_name": "Volkswagen CC",
+      "official_marketed_name_il": "Volkswagen CC",
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "CC"
+      ],
+      "rebadged_as": null,
+      "year_start": 2012,
+      "year_end": 2017,
+      "generation": "1st Gen Facelift (PQ46)",
+      "body_type": "Gran Coupe",
+      "seats": null,
+      "engine": "2.0L TSI, 210 hp",
+      "transmission": "6-speed DSG",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Facelifted CC in Israel featured an upgraded 2.0L TSI engine outputting 210 hp (up from 200 hp) mated to the 6-speed DSG, clearly listed in Israeli new-car and launch reviews.",
+      "source_ids": [
+        "auto_il_vw_cc_2012",
+        "cartube_il_vw_cc_launch"
+      ],
+      "field_sources": {
+        "body_type": [
+          "auto_il_vw_cc_2012"
+        ],
+        "seats": [],
+        "engine": [
+          "auto_il_vw_cc_2012",
+          "cartube_il_vw_cc_launch"
+        ],
+        "transmission": [
+          "auto_il_vw_cc_2012",
+          "cartube_il_vw_cc_launch"
+        ],
+        "fuel_type": [
+          "auto_il_vw_cc_2012"
+        ],
+        "drivetrain": [
+          "auto_il_vw_cc_2012"
+        ],
+        "generation": [
+          "auto_il_vw_cc_2012",
+          "cartube_il_vw_cc_launch"
+        ],
+        "year_start": [
+          "auto_il_vw_cc_2012",
+          "cartube_il_vw_cc_launch"
+        ],
+        "year_end": [
+          "auto_il_vw_cc_2012"
+        ],
+        "trim": []
+      },
+      "variant_id": "volkswagen_passat_cc_2012_2017_il_confirmed_1st_gen_facelift_pq46_2_0l_tsi_210_hp_6_speed_dsg_gran_coupe_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -440357,17 +440608,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1595,
-    "variants": 1595,
+    "total_variants": 1599,
+    "variants": 1599,
     "verified": 788,
-    "partial": 807,
+    "partial": 811,
     "makes_count": 40,
-    "models_count": 452,
-    "processed_seeds": 448,
+    "models_count": 453,
+    "processed_seeds": 449,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-22T15:44:03.571917+00:00"
+    "last_updated_at": "2026-05-22T15:44:52.318333+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
