@@ -484,7 +484,8 @@
       "toyota__prius__2000__2026__il",
       "toyota__prius+__2012__2021__il",
       "toyota__c-hr__2017__2026__il",
-      "toyota__rav4__1994__2026__il"
+      "toyota__rav4__1994__2026__il",
+      "toyota__land_cruiser__1991__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -937,8 +938,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "toyota__rav4__1994__2026__il",
-    "next_seed_id": "toyota__land_cruiser__1991__2026__il",
+    "last_completed_seed_id": "toyota__land_cruiser__1991__2026__il",
+    "next_seed_id": "toyota__land_cruiser_prado__1991__2026__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2086,6 +2087,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-22T18:32:01.701913+00:00"
+      },
+      "toyota__land_cruiser__1991__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 7,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-22T18:33:09.120574+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -229782,6 +229791,425 @@
         ]
       },
       "variant_id": "toyota_rav4_2021_2026_il_confirmed_xa50_2_5l_plug_in_hybrid_306_hp_e_cvt_suv_plug_in_hybrid"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Toyota",
+      "model": "Land Cruiser",
+      "global_model_name": "Toyota Land Cruiser Prado (J90)",
+      "official_marketed_name_il": "Toyota Land Cruiser",
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Prado"
+      ],
+      "rebadged_as": null,
+      "year_start": 1998,
+      "year_end": 2002,
+      "generation": "J90",
+      "body_type": "SUV",
+      "seats": null,
+      "engine": "3.0L Turbo Diesel",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Diesel",
+      "drivetrain": "4WD",
+      "trim": "",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli automotive history confirms J90 generation marketed primarily as Land Cruiser (diesel auto 4WD) starting around 1998. Trim packages omitted for clean data.",
+      "source_ids": [
+        "auto_il_j120_history"
+      ],
+      "field_sources": {
+        "body_type": [
+          "auto_il_j120_history"
+        ],
+        "seats": [],
+        "engine": [
+          "auto_il_j120_history"
+        ],
+        "transmission": [
+          "auto_il_j120_history"
+        ],
+        "fuel_type": [
+          "auto_il_j120_history"
+        ],
+        "drivetrain": [
+          "auto_il_j120_history"
+        ],
+        "generation": [
+          "auto_il_j120_history"
+        ],
+        "year_start": [
+          "auto_il_j120_history"
+        ],
+        "year_end": [
+          "auto_il_j120_history"
+        ],
+        "trim": []
+      },
+      "variant_id": "toyota_land_cruiser_1998_2002_il_confirmed_j90_3_0l_turbo_diesel_4_speed_automatic_suv_diesel"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Toyota",
+      "model": "Land Cruiser",
+      "global_model_name": "Toyota Land Cruiser Prado (J120)",
+      "official_marketed_name_il": "Toyota Land Cruiser",
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Prado"
+      ],
+      "rebadged_as": null,
+      "year_start": 2003,
+      "year_end": 2009,
+      "generation": "J120",
+      "body_type": "SUV",
+      "seats": null,
+      "engine": "3.0L D-4D Turbo Diesel",
+      "transmission": "5-speed automatic",
+      "fuel_type": "Diesel",
+      "drivetrain": "4WD",
+      "trim": "",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "iCar IL and Auto IL confirm J120 generation sold in Israel as 'Land Cruiser' with 3.0L D-4D engine. Common local trims include Standard/Luxury.",
+      "source_ids": [
+        "auto_il_j120_history",
+        "icar_il_land_cruiser_j150"
+      ],
+      "field_sources": {
+        "body_type": [
+          "auto_il_j120_history"
+        ],
+        "seats": [],
+        "engine": [
+          "auto_il_j120_history"
+        ],
+        "transmission": [
+          "auto_il_j120_history"
+        ],
+        "fuel_type": [
+          "auto_il_j120_history"
+        ],
+        "drivetrain": [
+          "auto_il_j120_history"
+        ],
+        "generation": [
+          "auto_il_j120_history"
+        ],
+        "year_start": [
+          "auto_il_j120_history"
+        ],
+        "year_end": [
+          "auto_il_j120_history"
+        ],
+        "trim": []
+      },
+      "variant_id": "toyota_land_cruiser_2003_2009_il_confirmed_j120_3_0l_d_4d_turbo_diesel_5_speed_automatic_suv_diesel"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Toyota",
+      "model": "Land Cruiser",
+      "global_model_name": "Toyota Land Cruiser Prado (J150)",
+      "official_marketed_name_il": "Toyota Land Cruiser",
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Prado"
+      ],
+      "rebadged_as": null,
+      "year_start": 2009,
+      "year_end": 2015,
+      "generation": "J150",
+      "body_type": "SUV",
+      "seats": null,
+      "engine": "3.0L D-4D Turbo Diesel",
+      "transmission": "5-speed automatic",
+      "fuel_type": "Diesel",
+      "drivetrain": "4WD",
+      "trim": "",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "iCar IL spec data confirms early J150 generation models maintained the 3.0L D-4D and 5-speed automatic. Marketed simply as Land Cruiser.",
+      "source_ids": [
+        "icar_il_land_cruiser_j150"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_land_cruiser_j150"
+        ],
+        "seats": [],
+        "engine": [
+          "icar_il_land_cruiser_j150"
+        ],
+        "transmission": [
+          "icar_il_land_cruiser_j150"
+        ],
+        "fuel_type": [
+          "icar_il_land_cruiser_j150"
+        ],
+        "drivetrain": [
+          "icar_il_land_cruiser_j150"
+        ],
+        "generation": [
+          "icar_il_land_cruiser_j150"
+        ],
+        "year_start": [
+          "icar_il_land_cruiser_j150"
+        ],
+        "year_end": [
+          "icar_il_land_cruiser_j150"
+        ],
+        "trim": []
+      },
+      "variant_id": "toyota_land_cruiser_2009_2015_il_confirmed_j150_3_0l_d_4d_turbo_diesel_5_speed_automatic_suv_diesel"
+    },
+    {
+      "candidate_index": 3,
+      "make": "Toyota",
+      "model": "Land Cruiser",
+      "global_model_name": "Toyota Land Cruiser Prado (J150)",
+      "official_marketed_name_il": "Toyota Land Cruiser",
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Prado"
+      ],
+      "rebadged_as": null,
+      "year_start": 2015,
+      "year_end": 2020,
+      "generation": "J150 Facelift",
+      "body_type": "SUV",
+      "seats": null,
+      "engine": "2.8L D-4D Turbo Diesel (177 hp)",
+      "transmission": "6-speed automatic",
+      "fuel_type": "Diesel",
+      "drivetrain": "4WD",
+      "trim": "",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Toyota Israel official archives and iCar confirm shift to new 2.8L (177 hp) engine and 6-speed auto from 2015 onwards.",
+      "source_ids": [
+        "toyota_il_official",
+        "icar_il_land_cruiser_j150"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_land_cruiser_j150"
+        ],
+        "seats": [],
+        "engine": [
+          "toyota_il_official",
+          "icar_il_land_cruiser_j150"
+        ],
+        "transmission": [
+          "toyota_il_official",
+          "icar_il_land_cruiser_j150"
+        ],
+        "fuel_type": [
+          "toyota_il_official",
+          "icar_il_land_cruiser_j150"
+        ],
+        "drivetrain": [
+          "toyota_il_official"
+        ],
+        "generation": [
+          "icar_il_land_cruiser_j150"
+        ],
+        "year_start": [
+          "icar_il_land_cruiser_j150"
+        ],
+        "year_end": [
+          "icar_il_land_cruiser_j150"
+        ],
+        "trim": []
+      },
+      "variant_id": "toyota_land_cruiser_2015_2020_il_confirmed_j150_facelift_2_8l_d_4d_turbo_diesel_177_hp_6_speed_automatic_suv_diesel"
+    },
+    {
+      "candidate_index": 4,
+      "make": "Toyota",
+      "model": "Land Cruiser",
+      "global_model_name": "Toyota Land Cruiser Prado (J150)",
+      "official_marketed_name_il": "Toyota Land Cruiser",
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Prado"
+      ],
+      "rebadged_as": null,
+      "year_start": 2020,
+      "year_end": 2023,
+      "generation": "J150 2nd Facelift",
+      "body_type": "SUV",
+      "seats": null,
+      "engine": "2.8L D-4D Turbo Diesel (204 hp)",
+      "transmission": "6-speed automatic",
+      "fuel_type": "Diesel",
+      "drivetrain": "4WD",
+      "trim": "",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Toyota Israel officially updated the J150 engine output to 204 hp starting in late 2020.",
+      "source_ids": [
+        "toyota_il_official",
+        "icar_il_land_cruiser_j150"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_land_cruiser_j150"
+        ],
+        "seats": [],
+        "engine": [
+          "toyota_il_official",
+          "icar_il_land_cruiser_j150"
+        ],
+        "transmission": [
+          "toyota_il_official",
+          "icar_il_land_cruiser_j150"
+        ],
+        "fuel_type": [
+          "toyota_il_official"
+        ],
+        "drivetrain": [
+          "toyota_il_official"
+        ],
+        "generation": [
+          "icar_il_land_cruiser_j150"
+        ],
+        "year_start": [
+          "icar_il_land_cruiser_j150"
+        ],
+        "year_end": [
+          "icar_il_land_cruiser_j150"
+        ],
+        "trim": []
+      },
+      "variant_id": "toyota_land_cruiser_2020_2023_il_confirmed_j150_2nd_facelift_2_8l_d_4d_turbo_diesel_204_hp_6_speed_automatic_suv_diesel"
+    },
+    {
+      "candidate_index": 5,
+      "make": "Toyota",
+      "model": "Land Cruiser",
+      "global_model_name": "Toyota Land Cruiser 250 (J250)",
+      "official_marketed_name_il": "Toyota Land Cruiser",
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Land Cruiser 250"
+      ],
+      "rebadged_as": null,
+      "year_start": 2024,
+      "year_end": 2026,
+      "generation": "J250",
+      "body_type": "SUV",
+      "seats": null,
+      "engine": "2.8L D-4D Turbo Diesel (204 hp)",
+      "transmission": "8-speed automatic",
+      "fuel_type": "Diesel",
+      "drivetrain": "4WD",
+      "trim": "",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Cartube IL and Toyota IL official site confirm the launch of the new generation J250 with the updated 8-speed automatic.",
+      "source_ids": [
+        "toyota_il_official",
+        "cartube_il_j250_launch"
+      ],
+      "field_sources": {
+        "body_type": [
+          "cartube_il_j250_launch"
+        ],
+        "seats": [],
+        "engine": [
+          "toyota_il_official",
+          "cartube_il_j250_launch"
+        ],
+        "transmission": [
+          "toyota_il_official",
+          "cartube_il_j250_launch"
+        ],
+        "fuel_type": [
+          "toyota_il_official",
+          "cartube_il_j250_launch"
+        ],
+        "drivetrain": [
+          "toyota_il_official",
+          "cartube_il_j250_launch"
+        ],
+        "generation": [
+          "cartube_il_j250_launch"
+        ],
+        "year_start": [
+          "cartube_il_j250_launch"
+        ],
+        "year_end": [
+          "cartube_il_j250_launch"
+        ],
+        "trim": []
+      },
+      "variant_id": "toyota_land_cruiser_2024_2026_il_confirmed_j250_2_8l_d_4d_turbo_diesel_204_hp_8_speed_automatic_suv_diesel"
+    },
+    {
+      "candidate_index": 6,
+      "make": "Toyota",
+      "model": "Land Cruiser",
+      "global_model_name": "Toyota Land Cruiser 200 (J200)",
+      "official_marketed_name_il": "Toyota Land Cruiser V8",
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Land Cruiser 200"
+      ],
+      "rebadged_as": null,
+      "year_start": 2008,
+      "year_end": 2021,
+      "generation": "J200",
+      "body_type": "SUV",
+      "seats": null,
+      "engine": "4.5L V8 Twin-Turbo Diesel",
+      "transmission": "6-speed automatic",
+      "fuel_type": "Diesel",
+      "drivetrain": "4WD",
+      "trim": "",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "iCar confirms the larger J200 generation was imported officially into Israel specifically branded as 'Land Cruiser V8' to distinguish it from the Prado variants.",
+      "source_ids": [
+        "icar_il_land_cruiser_v8"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_land_cruiser_v8"
+        ],
+        "seats": [],
+        "engine": [
+          "icar_il_land_cruiser_v8"
+        ],
+        "transmission": [
+          "icar_il_land_cruiser_v8"
+        ],
+        "fuel_type": [
+          "icar_il_land_cruiser_v8"
+        ],
+        "drivetrain": [
+          "icar_il_land_cruiser_v8"
+        ],
+        "generation": [
+          "icar_il_land_cruiser_v8"
+        ],
+        "year_start": [
+          "icar_il_land_cruiser_v8"
+        ],
+        "year_end": [
+          "icar_il_land_cruiser_v8"
+        ],
+        "trim": []
+      },
+      "variant_id": "toyota_land_cruiser_2008_2021_il_confirmed_j200_4_5l_v8_twin_turbo_diesel_6_speed_automatic_suv_diesel"
     }
   ],
   "accumulated_clean_export": {
@@ -447792,17 +448220,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1714,
-    "variants": 1714,
+    "total_variants": 1721,
+    "variants": 1721,
     "verified": 788,
-    "partial": 926,
+    "partial": 933,
     "makes_count": 40,
-    "models_count": 478,
-    "processed_seeds": 475,
+    "models_count": 479,
+    "processed_seeds": 476,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-22T18:32:01.707106+00:00"
+    "last_updated_at": "2026-05-22T18:33:09.127465+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
