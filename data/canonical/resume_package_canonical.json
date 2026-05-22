@@ -500,7 +500,8 @@
       "toyota__proace_city__2020__2026__il",
       "toyota__bz4x__2022__2026__il",
       "toyota__gt86__2012__2021__il",
-      "toyota__gr86__2021__2026__il"
+      "toyota__gr86__2021__2026__il",
+      "toyota__fj_cruiser__2007__2016__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -953,8 +954,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "toyota__gr86__2021__2026__il",
-    "next_seed_id": "toyota__fj_cruiser__2007__2016__il",
+    "last_completed_seed_id": "toyota__fj_cruiser__2007__2016__il",
+    "next_seed_id": "toyota__supra__2019__2026__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2230,6 +2231,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-22T18:58:05.762032+00:00"
+      },
+      "toyota__fj_cruiser__2007__2016__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 2,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-22T18:58:54.967518+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -233442,6 +233451,139 @@
         "trim": []
       },
       "variant_id": "toyota_gr86_2022_2026_il_confirmed_2nd_gen_zn8_2_4l_fa24_naturally_aspirated_flat_four_234_hp_6_speed_automatic_coupe_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Toyota",
+      "model": "FJ Cruiser",
+      "global_model_name": "Toyota FJ Cruiser",
+      "official_marketed_name_il": "Toyota FJ Cruiser",
+      "local_brand_name_il": "Toyota",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2007,
+      "year_end": 2009,
+      "generation": "1st Gen (GSJ15W)",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "4.0L V6 Petrol (1GR-FE Single VVT-i, ~239 hp)",
+      "transmission": "5-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "4WD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Not officially sold by the main Israeli importer (Union Motors) but confirmed to have a strong presence in the Israeli market via personal and parallel imports. Registered and locally known as Toyota FJ Cruiser. Pre-2010 models feature the single VVT-i 1GR-FE engine. TRD and Trail Teams editions are common but treated as packages rather than distinct base variants here.",
+      "source_ids": [
+        "jeepolog_il_fj_cruiser_buyers_guide",
+        "yad2_il_fj_cruiser_listings",
+        "toyota_global_fj_cruiser_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "yad2_il_fj_cruiser_listings",
+          "toyota_global_fj_cruiser_specs"
+        ],
+        "seats": [
+          "toyota_global_fj_cruiser_specs"
+        ],
+        "engine": [
+          "yad2_il_fj_cruiser_listings",
+          "toyota_global_fj_cruiser_specs"
+        ],
+        "transmission": [
+          "yad2_il_fj_cruiser_listings",
+          "toyota_global_fj_cruiser_specs"
+        ],
+        "fuel_type": [
+          "yad2_il_fj_cruiser_listings",
+          "toyota_global_fj_cruiser_specs"
+        ],
+        "drivetrain": [
+          "jeepolog_il_fj_cruiser_buyers_guide",
+          "toyota_global_fj_cruiser_specs"
+        ],
+        "generation": [
+          "toyota_global_fj_cruiser_specs",
+          "jeepolog_il_fj_cruiser_buyers_guide"
+        ],
+        "year_start": [
+          "yad2_il_fj_cruiser_listings"
+        ],
+        "year_end": [
+          "yad2_il_fj_cruiser_listings",
+          "toyota_global_fj_cruiser_specs"
+        ],
+        "trim": []
+      },
+      "variant_id": "toyota_fj_cruiser_2007_2009_il_confirmed_1st_gen_gsj15w_4_0l_v6_petrol_1gr_fe_single_vvt_i_239_hp_5_speed_automatic_suv_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Toyota",
+      "model": "FJ Cruiser",
+      "global_model_name": "Toyota FJ Cruiser",
+      "official_marketed_name_il": "Toyota FJ Cruiser",
+      "local_brand_name_il": "Toyota",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2010,
+      "year_end": 2016,
+      "generation": "1st Gen (GSJ15W)",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "4.0L V6 Petrol (1GR-FE Dual VVT-i, ~260 hp)",
+      "transmission": "5-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "4WD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Starting with the 2010 model year, the 4.0L engine was updated to Dual VVT-i for increased output. Brought to Israel heavily via personal import (mainly from North American specification models, which ended in 2014, and some Middle East specs extending to 2016 and beyond). Israeli name confirmed via local listings and forums.",
+      "source_ids": [
+        "jeepolog_il_fj_cruiser_buyers_guide",
+        "yad2_il_fj_cruiser_listings",
+        "toyota_global_fj_cruiser_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "yad2_il_fj_cruiser_listings",
+          "toyota_global_fj_cruiser_specs"
+        ],
+        "seats": [
+          "toyota_global_fj_cruiser_specs"
+        ],
+        "engine": [
+          "yad2_il_fj_cruiser_listings",
+          "toyota_global_fj_cruiser_specs"
+        ],
+        "transmission": [
+          "yad2_il_fj_cruiser_listings",
+          "toyota_global_fj_cruiser_specs"
+        ],
+        "fuel_type": [
+          "yad2_il_fj_cruiser_listings",
+          "toyota_global_fj_cruiser_specs"
+        ],
+        "drivetrain": [
+          "jeepolog_il_fj_cruiser_buyers_guide",
+          "toyota_global_fj_cruiser_specs"
+        ],
+        "generation": [
+          "toyota_global_fj_cruiser_specs"
+        ],
+        "year_start": [
+          "yad2_il_fj_cruiser_listings",
+          "toyota_global_fj_cruiser_specs"
+        ],
+        "year_end": [
+          "toyota_global_fj_cruiser_specs"
+        ],
+        "trim": []
+      },
+      "variant_id": "toyota_fj_cruiser_2010_2016_il_confirmed_1st_gen_gsj15w_4_0l_v6_petrol_1gr_fe_dual_vvt_i_260_hp_5_speed_automatic_suv_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -451452,17 +451594,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1773,
-    "variants": 1773,
+    "total_variants": 1775,
+    "variants": 1775,
     "verified": 788,
-    "partial": 985,
+    "partial": 987,
     "makes_count": 40,
-    "models_count": 494,
-    "processed_seeds": 491,
+    "models_count": 495,
+    "processed_seeds": 492,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-22T18:58:05.766926+00:00"
+    "last_updated_at": "2026-05-22T18:58:54.974281+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
