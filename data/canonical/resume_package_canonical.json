@@ -495,7 +495,8 @@
       "toyota__aygo__2005__2022__il",
       "toyota__aygo_x__2022__2026__il",
       "toyota__iq__2009__2015__il",
-      "toyota__urban_cruiser__2009__2014__il"
+      "toyota__urban_cruiser__2009__2014__il",
+      "toyota__proace__2017__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -948,8 +949,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "toyota__urban_cruiser__2009__2014__il",
-    "next_seed_id": "toyota__proace__2017__2026__il",
+    "last_completed_seed_id": "toyota__proace__2017__2026__il",
+    "next_seed_id": "toyota__proace_city__2020__2026__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2185,6 +2186,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-22T18:54:08.445316+00:00"
+      },
+      "toyota__proace__2017__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 5,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-22T18:55:14.086762+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -232419,6 +232428,299 @@
         "trim": []
       },
       "variant_id": "toyota_urban_cruiser_2009_2014_global_reference_only_xp110_1_4l_1nd_tv_d_4d_diesel_90_hp_6_speed_manual_hatchback_diesel"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Toyota",
+      "model": "Proace",
+      "global_model_name": "Toyota Proace",
+      "official_marketed_name_il": "Toyota Proace",
+      "local_brand_name_il": "Toyota",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2017,
+      "year_end": 2026,
+      "generation": "2nd Gen",
+      "body_type": "Panel Van",
+      "seats": 3,
+      "engine": "2.0L Turbodiesel, 150 hp",
+      "transmission": "6-speed manual",
+      "fuel_type": "Diesel",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Confirmed by Israeli automotive publications and official importer data (launched IL mid-2017). Shares platform/powertrain with Peugeot Expert.",
+      "source_ids": [
+        "union_motors_il_official",
+        "cartube_il_proace_launch",
+        "icar_il_proace_catalog"
+      ],
+      "field_sources": {
+        "body_type": [
+          "union_motors_il_official"
+        ],
+        "seats": [
+          "union_motors_il_official"
+        ],
+        "engine": [
+          "cartube_il_proace_launch",
+          "union_motors_il_official"
+        ],
+        "transmission": [
+          "cartube_il_proace_launch",
+          "union_motors_il_official"
+        ],
+        "fuel_type": [
+          "cartube_il_proace_launch",
+          "icar_il_proace_catalog"
+        ],
+        "drivetrain": [
+          "union_motors_il_official"
+        ],
+        "generation": [
+          "cartube_il_proace_launch"
+        ],
+        "year_start": [
+          "cartube_il_proace_launch",
+          "icar_il_proace_catalog"
+        ],
+        "year_end": [
+          "icar_il_proace_catalog"
+        ],
+        "trim": []
+      },
+      "variant_id": "toyota_proace_2017_2026_il_confirmed_2nd_gen_2_0l_turbodiesel_150_hp_6_speed_manual_panel_van_diesel"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Toyota",
+      "model": "Proace",
+      "global_model_name": "Toyota Proace",
+      "official_marketed_name_il": "Toyota Proace",
+      "local_brand_name_il": "Toyota",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2017,
+      "year_end": 2019,
+      "generation": "2nd Gen",
+      "body_type": "Panel Van",
+      "seats": 3,
+      "engine": "2.0L Turbodiesel, 177 hp",
+      "transmission": "6-speed automatic",
+      "fuel_type": "Diesel",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Early automatic versions used a 6-speed gearbox before transitioning to 8-speed globally and in IL.",
+      "source_ids": [
+        "union_motors_il_official",
+        "cartube_il_proace_launch",
+        "icar_il_proace_catalog"
+      ],
+      "field_sources": {
+        "body_type": [
+          "union_motors_il_official"
+        ],
+        "seats": [
+          "union_motors_il_official"
+        ],
+        "engine": [
+          "cartube_il_proace_launch",
+          "union_motors_il_official"
+        ],
+        "transmission": [
+          "cartube_il_proace_launch"
+        ],
+        "fuel_type": [
+          "cartube_il_proace_launch"
+        ],
+        "drivetrain": [
+          "union_motors_il_official"
+        ],
+        "generation": [
+          "cartube_il_proace_launch"
+        ],
+        "year_start": [
+          "cartube_il_proace_launch"
+        ],
+        "year_end": [
+          "icar_il_proace_catalog"
+        ],
+        "trim": []
+      },
+      "variant_id": "toyota_proace_2017_2019_il_confirmed_2nd_gen_2_0l_turbodiesel_177_hp_6_speed_automatic_panel_van_diesel"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Toyota",
+      "model": "Proace",
+      "global_model_name": "Toyota Proace",
+      "official_marketed_name_il": "Toyota Proace",
+      "local_brand_name_il": "Toyota",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2019,
+      "year_end": 2026,
+      "generation": "2nd Gen",
+      "body_type": "Panel Van",
+      "seats": 3,
+      "engine": "2.0L Turbodiesel, 177 hp",
+      "transmission": "8-speed automatic",
+      "fuel_type": "Diesel",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Transition to 8-speed automatic on the 2.0L diesel. Documented in iCar catalog and importer specs.",
+      "source_ids": [
+        "union_motors_il_official",
+        "icar_il_proace_catalog"
+      ],
+      "field_sources": {
+        "body_type": [
+          "union_motors_il_official"
+        ],
+        "seats": [
+          "union_motors_il_official"
+        ],
+        "engine": [
+          "union_motors_il_official"
+        ],
+        "transmission": [
+          "union_motors_il_official",
+          "icar_il_proace_catalog"
+        ],
+        "fuel_type": [
+          "icar_il_proace_catalog"
+        ],
+        "drivetrain": [
+          "union_motors_il_official"
+        ],
+        "generation": [],
+        "year_start": [
+          "icar_il_proace_catalog"
+        ],
+        "year_end": [
+          "icar_il_proace_catalog"
+        ],
+        "trim": []
+      },
+      "variant_id": "toyota_proace_2019_2026_il_confirmed_2nd_gen_2_0l_turbodiesel_177_hp_8_speed_automatic_panel_van_diesel"
+    },
+    {
+      "candidate_index": 3,
+      "make": "Toyota",
+      "model": "Proace",
+      "global_model_name": "Toyota Proace Verso",
+      "official_marketed_name_il": "Toyota Proace Verso",
+      "local_brand_name_il": "Toyota",
+      "alternate_names": [
+        "Proace Passenger"
+      ],
+      "rebadged_as": null,
+      "year_start": 2018,
+      "year_end": 2026,
+      "generation": "2nd Gen",
+      "body_type": "Minivan",
+      "seats": null,
+      "engine": "2.0L Turbodiesel, 177 hp",
+      "transmission": "8-speed automatic",
+      "fuel_type": "Diesel",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Passenger version confirmed for IL market under 'Verso' suffix. Typically sold with 8 or 9 seats depending on configuration, using the higher-output 2.0D engine.",
+      "source_ids": [
+        "union_motors_il_official",
+        "icar_il_proace_catalog"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_proace_catalog"
+        ],
+        "seats": [],
+        "engine": [
+          "union_motors_il_official"
+        ],
+        "transmission": [
+          "union_motors_il_official",
+          "icar_il_proace_catalog"
+        ],
+        "fuel_type": [
+          "icar_il_proace_catalog"
+        ],
+        "drivetrain": [
+          "union_motors_il_official"
+        ],
+        "generation": [],
+        "year_start": [
+          "icar_il_proace_catalog"
+        ],
+        "year_end": [
+          "icar_il_proace_catalog"
+        ],
+        "trim": []
+      },
+      "variant_id": "toyota_proace_2018_2026_il_confirmed_2nd_gen_2_0l_turbodiesel_177_hp_8_speed_automatic_minivan_diesel"
+    },
+    {
+      "candidate_index": 4,
+      "make": "Toyota",
+      "model": "Proace",
+      "global_model_name": "Toyota Proace Electric",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2021,
+      "year_end": 2026,
+      "generation": "2nd Gen",
+      "body_type": "Panel Van",
+      "seats": 3,
+      "engine": "100 kW electric motor, 136 hp",
+      "transmission": "single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "Global EV variant available in Europe. IL availability of the medium electric van is less clearly documented compared to the smaller Proace City EV, thus marked global-reference-only.",
+      "source_ids": [
+        "global_toyota_proace_ev"
+      ],
+      "field_sources": {
+        "body_type": [
+          "global_toyota_proace_ev"
+        ],
+        "seats": [],
+        "engine": [
+          "global_toyota_proace_ev"
+        ],
+        "transmission": [
+          "global_toyota_proace_ev"
+        ],
+        "fuel_type": [
+          "global_toyota_proace_ev"
+        ],
+        "drivetrain": [
+          "global_toyota_proace_ev"
+        ],
+        "generation": [],
+        "year_start": [
+          "global_toyota_proace_ev"
+        ],
+        "year_end": [],
+        "trim": []
+      },
+      "variant_id": "toyota_proace_2021_2026_global_reference_only_2nd_gen_100_kw_electric_motor_136_hp_single_speed_ev_panel_van_electric"
     }
   ],
   "accumulated_clean_export": {
@@ -450429,17 +450731,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1757,
-    "variants": 1757,
+    "total_variants": 1762,
+    "variants": 1762,
     "verified": 788,
-    "partial": 969,
+    "partial": 974,
     "makes_count": 40,
-    "models_count": 489,
-    "processed_seeds": 486,
+    "models_count": 490,
+    "processed_seeds": 487,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-22T18:54:08.452083+00:00"
+    "last_updated_at": "2026-05-22T18:55:14.094034+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
