@@ -492,7 +492,8 @@
       "toyota__starlet__1985__1999__il",
       "toyota__avensis__1997__2018__il",
       "toyota__verso__2009__2018__il",
-      "toyota__aygo__2005__2022__il"
+      "toyota__aygo__2005__2022__il",
+      "toyota__aygo_x__2022__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -945,8 +946,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "toyota__aygo__2005__2022__il",
-    "next_seed_id": "toyota__aygo_x__2022__2026__il",
+    "last_completed_seed_id": "toyota__aygo_x__2022__2026__il",
+    "next_seed_id": "toyota__iq__2009__2015__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2158,6 +2159,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-22T18:39:08.764432+00:00"
+      },
+      "toyota__aygo_x__2022__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 2,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-22T18:39:48.173140+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -231967,6 +231976,129 @@
         "trim": []
       },
       "variant_id": "toyota_aygo_2022_2022_il_confirmed_ab70_3rd_gen_1_0l_3_cylinder_vvt_i_petrol_72_hp_cvt_hatchback_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Toyota",
+      "model": "Aygo X",
+      "global_model_name": "Aygo X",
+      "official_marketed_name_il": "Toyota Aygo X",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2022,
+      "year_end": 2026,
+      "generation": "1st Gen (AB70)",
+      "body_type": "Crossover",
+      "seats": 4,
+      "engine": "1.0L 3-cylinder VVT-i (1KR-FE), 72 hp",
+      "transmission": "CVT",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Confirmed via official Toyota IL importer and Israeli motoring sources (Cartube, iCar). Launched in Israel in 2022 exclusively with the 1.0L 72hp engine and S-CVT transmission. Marketed as an A-segment crossover. IL trims typically include 'Pulse' and 'Vision'.",
+      "source_ids": [
+        "toyota_il_official_aygo_x",
+        "cartube_il_aygo_x_launch_2022",
+        "icar_il_aygo_x_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "toyota_il_official_aygo_x",
+          "icar_il_aygo_x_specs"
+        ],
+        "seats": [
+          "toyota_il_official_aygo_x",
+          "cartube_il_aygo_x_launch_2022"
+        ],
+        "engine": [
+          "toyota_il_official_aygo_x",
+          "cartube_il_aygo_x_launch_2022",
+          "icar_il_aygo_x_specs"
+        ],
+        "transmission": [
+          "toyota_il_official_aygo_x",
+          "cartube_il_aygo_x_launch_2022"
+        ],
+        "fuel_type": [
+          "toyota_il_official_aygo_x",
+          "icar_il_aygo_x_specs"
+        ],
+        "drivetrain": [
+          "toyota_il_official_aygo_x",
+          "icar_il_aygo_x_specs"
+        ],
+        "generation": [
+          "cartube_il_aygo_x_launch_2022",
+          "global_toyota_aygo_x_pressroom"
+        ],
+        "year_start": [
+          "toyota_il_official_aygo_x",
+          "cartube_il_aygo_x_launch_2022"
+        ],
+        "year_end": [],
+        "trim": []
+      },
+      "variant_id": "toyota_aygo_x_2022_2026_il_confirmed_1st_gen_ab70_1_0l_3_cylinder_vvt_i_1kr_fe_72_hp_cvt_crossover_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Toyota",
+      "model": "Aygo X",
+      "global_model_name": "Aygo X",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2022,
+      "year_end": 2026,
+      "generation": "1st Gen (AB70)",
+      "body_type": "Crossover",
+      "seats": 4,
+      "engine": "1.0L 3-cylinder VVT-i (1KR-FE), 72 hp",
+      "transmission": "5-speed manual",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "Global manufacturer spec includes a 5-speed manual variant. Not verified as actively imported to Israel by official channels, as the local A-segment market heavily favors automatic/CVT.",
+      "source_ids": [
+        "global_toyota_aygo_x_pressroom"
+      ],
+      "field_sources": {
+        "body_type": [
+          "global_toyota_aygo_x_pressroom"
+        ],
+        "seats": [
+          "global_toyota_aygo_x_pressroom"
+        ],
+        "engine": [
+          "global_toyota_aygo_x_pressroom"
+        ],
+        "transmission": [
+          "global_toyota_aygo_x_pressroom"
+        ],
+        "fuel_type": [
+          "global_toyota_aygo_x_pressroom"
+        ],
+        "drivetrain": [
+          "global_toyota_aygo_x_pressroom"
+        ],
+        "generation": [
+          "global_toyota_aygo_x_pressroom"
+        ],
+        "year_start": [
+          "global_toyota_aygo_x_pressroom"
+        ],
+        "year_end": [],
+        "trim": []
+      },
+      "variant_id": "toyota_aygo_x_2022_2026_global_reference_only_1st_gen_ab70_1_0l_3_cylinder_vvt_i_1kr_fe_72_hp_5_speed_manual_crossover_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -449977,17 +450109,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1750,
-    "variants": 1750,
+    "total_variants": 1752,
+    "variants": 1752,
     "verified": 788,
-    "partial": 962,
+    "partial": 964,
     "makes_count": 40,
-    "models_count": 486,
-    "processed_seeds": 483,
+    "models_count": 487,
+    "processed_seeds": 484,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-22T18:39:08.771263+00:00"
+    "last_updated_at": "2026-05-22T18:39:48.180529+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
