@@ -134,7 +134,7 @@ class TestBatchAutosave:
         assert ok is True
 
     def test_batch_stops_on_zero_mutation_accept(self, tmp_path):
-        """Batch must stop if ACCEPT_VARIANTS produces 0 added and 0 merged."""
+        """Candidates missing variant_id fields → MANUAL_REVIEW, not zero-mutation crash."""
         canonical_path = tmp_path / "canonical.json"
         canonical_path.write_text(json.dumps(_make_canonical()), encoding="utf-8")
 
@@ -142,12 +142,13 @@ class TestBatchAutosave:
         seeds_path.write_text(json.dumps(_make_seeds()), encoding="utf-8")
 
         def mock_run_seed(seed, seed_id, dry_run=False):
-            # Return candidates with no variant_id → will produce 0 mutations
+            # Return candidates with no variant_id and no year fields
+            # → cannot generate variant_id → MANUAL_REVIEW
             return SeedRunResult(
                 seed_id=seed_id,
                 ok=True,
                 candidate_variants=[
-                    {"make": seed["make"], "model": seed["model"]}  # no variant_id
+                    {"make": seed["make"], "model": seed["model"]}  # no variant_id, no years
                 ],
             )
 
@@ -158,16 +159,16 @@ class TestBatchAutosave:
                 seeds_path=str(seeds_path),
             )
 
-        assert result["ok"] is False
-        assert "zero-mutation" in result.get("error", "")
+        # Batch succeeds but seeds go to manual_review (not processed)
+        assert result["ok"] is True
 
-        # Canonical must not have any processed seeds
         from engine.state import load_canonical as lc
         reloaded = lc(canonical_path)
         assert len(reloaded["batch_state"]["processed_seed_ids"]) == 0
+        assert len(reloaded["batch_state"]["manual_review_seed_ids"]) >= 1
 
     def test_zero_mutation_accept_does_not_advance_cursor(self, tmp_path):
-        """Cursor must not advance past the failed seed (Jetta→Bora prevention)."""
+        """Candidates without variant_id fields → MANUAL_REVIEW, cursor does not mark processed."""
         canonical_path = tmp_path / "canonical.json"
         canonical_path.write_text(json.dumps(_make_canonical()), encoding="utf-8")
 
@@ -179,7 +180,7 @@ class TestBatchAutosave:
                 seed_id=seed_id,
                 ok=True,
                 candidate_variants=[
-                    {"make": seed["make"], "model": seed["model"]}  # no variant_id
+                    {"make": seed["make"], "model": seed["model"]}  # no variant_id, no years
                 ],
             )
 
@@ -190,15 +191,16 @@ class TestBatchAutosave:
                 seeds_path=str(seeds_path),
             )
 
-        assert result["ok"] is False
+        assert result["ok"] is True
 
         from engine.state import load_canonical as lc
         reloaded = lc(canonical_path)
-        # Cursor must remain on the first seed, NOT advance to model_b
-        assert reloaded["batch_state"]["next_seed_id"] == "make_a__model_a__2020__2026__il"
+        # Seeds go to manual_review, not processed — cursor not advanced past them
+        assert len(reloaded["batch_state"]["processed_seed_ids"]) == 0
+        assert len(reloaded["batch_state"]["manual_review_seed_ids"]) >= 1
 
     def test_zero_mutation_accept_variants_unchanged(self, tmp_path):
-        """Variants must remain unchanged after a zero-mutation ACCEPT_VARIANTS failure."""
+        """Variants remain unchanged when candidates go to MANUAL_REVIEW."""
         initial = _make_canonical()
         initial["verified_variants"] = [
             {"variant_id": "existing_v1", "make": "Pre", "model": "Existing",
@@ -213,7 +215,8 @@ class TestBatchAutosave:
         seeds_path.write_text(json.dumps(_make_seeds()), encoding="utf-8")
 
         def mock_run_seed(seed, seed_id, dry_run=False):
-            # Has make+model (passes quality filter) but no variant_id (0 mutations)
+            # Has make+model (passes quality filter) but no year fields
+            # → cannot generate variant_id → MANUAL_REVIEW
             return SeedRunResult(
                 seed_id=seed_id,
                 ok=True,
@@ -227,7 +230,7 @@ class TestBatchAutosave:
                 seeds_path=str(seeds_path),
             )
 
-        assert result["ok"] is False
+        assert result["ok"] is True
 
         from engine.state import load_canonical as lc
         reloaded = lc(canonical_path)
@@ -236,7 +239,7 @@ class TestBatchAutosave:
         assert all_v[0]["variant_id"] == "existing_v1"
 
     def test_zero_mutation_accept_tracker_records_error(self, tmp_path):
-        """Runtime tracker must record ERROR stage, not DONE, on zero-mutation accept."""
+        """Seeds with un-enrichable candidates go to manual_review in seed_accounting."""
         canonical_path = tmp_path / "canonical.json"
         canonical_path.write_text(json.dumps(_make_canonical()), encoding="utf-8")
 
@@ -244,7 +247,8 @@ class TestBatchAutosave:
         seeds_path.write_text(json.dumps(_make_seeds()), encoding="utf-8")
 
         def mock_run_seed(seed, seed_id, dry_run=False):
-            # Has make+model (passes quality filter) but no variant_id (0 mutations)
+            # Has make+model (passes quality filter) but no year fields
+            # → cannot generate variant_id → MANUAL_REVIEW
             return SeedRunResult(
                 seed_id=seed_id,
                 ok=True,
@@ -258,7 +262,12 @@ class TestBatchAutosave:
                 seeds_path=str(seeds_path),
             )
 
-        assert result["ok"] is False
-        # The tracker should be absent from result (batch returned early)
-        # but the error message should reference zero-mutation
-        assert "zero-mutation" in result.get("error", "")
+        assert result["ok"] is True
+
+        from engine.state import load_canonical as lc
+        reloaded = lc(canonical_path)
+        acct = reloaded["batch_state"]["seed_accounting"]
+        first_seed_id = "make_a__model_a__2020__2026__il"
+        assert first_seed_id in acct
+        assert acct[first_seed_id]["status"] == "manual_review"
+        assert acct[first_seed_id]["reason"] == "no_mergeable_candidates_after_variant_id_generation"
