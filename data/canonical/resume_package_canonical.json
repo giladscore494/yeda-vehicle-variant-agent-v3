@@ -508,7 +508,8 @@
       "toyota__previa__1990__2000__il",
       "toyota__carina_e__1992__1997__il",
       "toyota__corona__1990__1996__il",
-      "toyota__celica__1990__2006__il"
+      "toyota__celica__1990__2006__il",
+      "lexus__ct_200h__2011__2022__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -961,8 +962,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "toyota__celica__1990__2006__il",
-    "next_seed_id": "lexus__ct_200h__2011__2022__il",
+    "last_completed_seed_id": "lexus__ct_200h__2011__2022__il",
+    "next_seed_id": "lexus__is__2006__2026__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2302,6 +2303,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-22T19:04:46.599142+00:00"
+      },
+      "lexus__ct_200h__2011__2022__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 1,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-22T19:05:25.806676+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -234938,6 +234947,72 @@
         ]
       },
       "variant_id": "toyota_celica_1989_1993_global_reference_only_t180_2_0l_petrol_156_hp_5_speed_manual_coupe_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Lexus",
+      "model": "CT 200h",
+      "global_model_name": "Lexus CT",
+      "official_marketed_name_il": "Lexus CT 200h",
+      "local_brand_name_il": "Lexus",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2011,
+      "year_end": 2020,
+      "generation": "1st Gen (ZWA10)",
+      "body_type": "Hatchback",
+      "seats": 5,
+      "engine": "1.8L 2ZR-FXE Hybrid",
+      "transmission": "e-CVT",
+      "fuel_type": "Hybrid",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "iCar IL and Cartube confirm the Lexus CT 200h was marketed in Israel from 2011 to 2020. Marketed locally in various packages including Luxury, Premium, and F-Sport. The global standard 1.8L hybrid powertrain paired with an e-CVT was the sole configuration.",
+      "source_ids": [
+        "icar_il_lexus_ct_200h",
+        "cartube_il_lexus_ct_200h",
+        "lexus_global_ct_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_lexus_ct_200h",
+          "cartube_il_lexus_ct_200h"
+        ],
+        "seats": [
+          "icar_il_lexus_ct_200h"
+        ],
+        "engine": [
+          "icar_il_lexus_ct_200h",
+          "lexus_global_ct_specs"
+        ],
+        "transmission": [
+          "icar_il_lexus_ct_200h",
+          "lexus_global_ct_specs"
+        ],
+        "fuel_type": [
+          "icar_il_lexus_ct_200h",
+          "cartube_il_lexus_ct_200h"
+        ],
+        "drivetrain": [
+          "lexus_global_ct_specs"
+        ],
+        "generation": [
+          "icar_il_lexus_ct_200h",
+          "lexus_global_ct_specs"
+        ],
+        "year_start": [
+          "icar_il_lexus_ct_200h",
+          "cartube_il_lexus_ct_200h"
+        ],
+        "year_end": [
+          "icar_il_lexus_ct_200h"
+        ],
+        "trim": []
+      },
+      "variant_id": "lexus_ct_200h_2011_2020_il_confirmed_1st_gen_zwa10_1_8l_2zr_fxe_hybrid_e_cvt_hatchback_hybrid"
     }
   ],
   "accumulated_clean_export": {
@@ -452948,17 +453023,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1795,
-    "variants": 1795,
+    "total_variants": 1796,
+    "variants": 1796,
     "verified": 788,
-    "partial": 1007,
-    "makes_count": 40,
-    "models_count": 502,
-    "processed_seeds": 499,
+    "partial": 1008,
+    "makes_count": 41,
+    "models_count": 503,
+    "processed_seeds": 500,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-22T19:04:46.603967+00:00"
+    "last_updated_at": "2026-05-22T19:05:25.813023+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
