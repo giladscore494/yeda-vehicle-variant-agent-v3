@@ -140,11 +140,32 @@ Rules:
 4. Do NOT set market_scope = "IL-confirmed" unless there is actual evidence for
    the Israeli marketed name.
 
-Allowed market_scope values:
-  IL-confirmed         — Israeli marketed name confirmed from Israeli sources
-  IL-likely            — strong evidence but not fully confirmed
-  global-reference-only — no IL-specific confirmation found
-  uncertain            — insufficient data
+Allowed market_scope values (STRICT definitions):
+
+  IL-confirmed:
+    Use ONLY when the candidate has reliable Israeli-market evidence.
+    Required evidence examples:
+    - Israeli importer / official Israeli brand site
+    - Israeli price list
+    - Israeli automotive publication
+    - Israeli used-car listing source
+    - Israeli Ministry/registration/market source
+    - source clearly proving this model/variant/generation was sold or marketed in Israel
+    source_ids MUST be non-empty, real (not placeholders), and reference
+    at least one Israeli-market source in the sources[] array.
+    Global technical specs alone do NOT prove IL-confirmed.
+
+  IL-likely:
+    Use when the candidate is plausible for Israel, or the model is known
+    globally and likely relevant, but direct Israeli-market evidence is
+    partial or indirect.
+
+  global-reference-only:
+    Use when the candidate is a real global variant, but Israeli availability
+    is not confirmed.
+
+  uncertain:
+    Use when there is insufficient data to determine market scope.
 
 5. Source priority for Israeli marketed name:
   1. Israeli importer/dealer official source
@@ -338,6 +359,8 @@ Before returning JSON, silently perform this checklist for every candidate varia
   8. Is confidence_level not overstated?
   9. Is source_basis present and meaningful?
   10. Would this variant pass a deterministic quality gate?
+  11. Does this variant have non-empty, real (non-placeholder) source_ids?
+  12. If market_scope is IL-confirmed, does at least one source_id reference an Israeli-market source?
 
 If the answer to any question is NO:
   - fix the offending field
@@ -415,10 +438,74 @@ Candidate shape:
 
 Source shape:
 {{
-  "source_id": "src_1", "url": "", "title": "",
+  "source_id": "yad2_il_jetta_2023", "url": "", "title": "",
   "source_type": "official_importer|israeli_specs|israeli_review|price_list|global_fallback|unknown",
   "market_scope": "IL|EU|GLOBAL|UNKNOWN", "fields_supported": []
 }}
+
+IMPORTANT — source_id naming:
+- Every source_id must be a descriptive, unique identifier derived from the
+  actual source (e.g. "kia_official_il_sportage_2022", "yad2_il_listing_45678",
+  "autocar_uk_golf_review_2023").
+- NEVER use placeholder IDs: src_1, src_2, source_1, source_2, citation_1,
+  ref_1, ref_2, or bare numbers ("1", "2").
+- Every source_id used in a candidate variant's source_ids or field_sources
+  MUST reference an actual source object in the sources array.
+
+IMPORTANT — candidate variant source_ids:
+- Every candidate variant MUST include source_ids referencing real sources.
+- If market_scope is "IL-confirmed", source_ids MUST include at least one
+  Israeli-market source that confirms the variant's presence in Israel.
+- If no real Israeli-market source_ids are available, do NOT mark the variant
+  as IL-confirmed. Use "IL-likely" or "global-reference-only" instead.
+- Candidates with empty source_ids or placeholder source_ids will be
+  rejected or downgraded by the engine.
+
+==== ANTI-PATTERNS: IL-confirmed WITHOUT REAL SOURCES ====
+The v3 engine will reject or downgrade any candidate that violates these rules.
+Do NOT produce any of the following patterns:
+
+BAD — IL-confirmed with placeholder source_ids (BLOCKED by engine):
+{{
+  "market_scope": "IL-confirmed",
+  "source_ids": ["src_1", "src_2"]
+}}
+
+BAD — IL-confirmed with empty source_ids (BLOCKED by engine):
+{{
+  "market_scope": "IL-confirmed",
+  "source_ids": []
+}}
+
+CORRECT — Israeli proof exists:
+{{
+  "market_scope": "IL-confirmed",
+  "source_ids": ["cartube_il_jetta_2011", "vw_il_archive_jetta"]
+}}
+
+CORRECT — Technical/global proof exists but Israeli proof is weak:
+{{
+  "market_scope": "IL-likely",
+  "identity_confidence": "market_plausible",
+  "source_ids": ["vw_global_jetta_mk6_specs"]
+}}
+
+CORRECT — Real global variant, no Israeli proof:
+{{
+  "market_scope": "global-reference-only",
+  "identity_confidence": "candidate_unverified",
+  "source_ids": ["vw_global_jetta_mk6_specs"]
+}}
+
+Remember: a variant can be technically valid globally but must NOT be marked
+IL-confirmed unless Israeli-market evidence exists. Technical specs from global
+sources can support engine, transmission, drivetrain, generation, and body type,
+but global technical sources alone do NOT prove IL-confirmed.
+
+If the model appears sold in Israel under another name:
+- do NOT return model_not_sold_in_market
+- return candidate_variants with official_marketed_name_il, aliases, source_ids
+  proving the alias/name relationship
 
 ==== EXAMPLE: CLEAN vs DIRTY VARIANT ====
 BAD (do not return this):

@@ -126,6 +126,56 @@ def decide_seed_result(result: SeedRunResult) -> Decision:
                 proof=None,
                 warnings=id_warnings,
             )
+
+        # --- IL-confirmed source-proof gate ---
+        # Candidates marked IL-confirmed must have real (non-placeholder)
+        # source_ids.  If they don't, downgrade to IL-likely so that
+        # unverified market claims never reach canonical as IL-confirmed.
+        available_source_ids: set[str] = set()
+        if result.sources:
+            for src in result.sources:
+                if isinstance(src, dict) and src.get("source_id"):
+                    sid = str(src["source_id"]).strip()
+                    if not looks_like_placeholder_source_id(sid):
+                        available_source_ids.add(sid)
+
+        for c in enriched:
+            if c.get("market_scope") != "IL-confirmed":
+                continue
+            candidate_sids = c.get("source_ids") or []
+            real_sids = filter_real_source_ids(candidate_sids)
+            if not real_sids:
+                vid = c.get("variant_id", "unknown")
+                id_warnings.append(
+                    f"il_confirmed_without_real_sources_downgraded: {vid}"
+                )
+                c["market_scope"] = "IL-likely"
+                c["identity_confidence"] = "market_plausible"
+
+        # If every candidate ended up downgraded (none remain IL-confirmed
+        # AND none had real source_ids originally), flag for manual review.
+        all_lack_sources = all(
+            not filter_real_source_ids(c.get("source_ids") or [])
+            for c in enriched
+        )
+        all_were_il = all(
+            c.get("market_scope") in ("IL-likely",) and
+            any(
+                w.startswith("il_confirmed_without_real_sources_downgraded")
+                for w in id_warnings
+            )
+            for c in enriched
+        )
+        if all_lack_sources and all_were_il:
+            return Decision(
+                action="MANUAL_REVIEW",
+                seed_id=result.seed_id,
+                reason="il_confirmed_without_real_sources",
+                variants_to_add=[],
+                proof=None,
+                warnings=id_warnings,
+            )
+
         return Decision(
             action="ACCEPT_VARIANTS",
             seed_id=result.seed_id,
