@@ -1,7 +1,8 @@
 """Tests for engine/apply.py — apply layer."""
 import copy
+import pytest
 from engine.types import Decision
-from engine.apply import apply_decision
+from engine.apply import apply_decision, ZeroMutationAcceptError
 
 
 def _make_canonical():
@@ -115,3 +116,47 @@ class TestApply:
         all_v = canonical["verified_variants"] + canonical["partial_variants"]
         v1 = [v for v in all_v if v.get("variant_id") == "v1"][0]
         assert v1["engine"] == "2.0L turbo"
+
+    def test_accept_zero_mutation_raises_error(self):
+        """ACCEPT_VARIANTS with candidates that produce 0 added and 0 merged must raise."""
+        canonical = _make_canonical()
+        # Variants with no variant_id will be skipped by merge → 0 added, 0 merged
+        decision = Decision(
+            action="ACCEPT_VARIANTS",
+            seed_id="test__model__2020__2026__il",
+            reason="valid",
+            variants_to_add=[{"make": "Test", "model": "Model"}],  # no variant_id
+        )
+        with pytest.raises(ZeroMutationAcceptError):
+            apply_decision(canonical, decision)
+
+        # Seed must NOT be in processed
+        assert "test__model__2020__2026__il" not in canonical["batch_state"]["processed_seed_ids"]
+
+    def test_accept_zero_mutation_empty_list_raises(self):
+        """ACCEPT_VARIANTS with empty variants_to_add must raise."""
+        canonical = _make_canonical()
+        decision = Decision(
+            action="ACCEPT_VARIANTS",
+            seed_id="test__model__2020__2026__il",
+            reason="valid",
+            variants_to_add=[],
+        )
+        with pytest.raises(ZeroMutationAcceptError):
+            apply_decision(canonical, decision)
+        assert "test__model__2020__2026__il" not in canonical["batch_state"]["processed_seed_ids"]
+
+    def test_accept_zero_mutation_does_not_advance_cursor(self):
+        """Zero-mutation accept must not change next_seed_id."""
+        canonical = _make_canonical()
+        original_next = canonical["batch_state"]["next_seed_id"]
+        decision = Decision(
+            action="ACCEPT_VARIANTS",
+            seed_id="test__model__2020__2026__il",
+            reason="valid",
+            variants_to_add=[],
+        )
+        with pytest.raises(ZeroMutationAcceptError):
+            apply_decision(canonical, decision, is_current_next=True)
+        assert canonical["batch_state"]["next_seed_id"] == original_next
+        assert "test__model__2020__2026__il" not in canonical["batch_state"]["processed_seed_ids"]

@@ -5,7 +5,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from core.config import CANONICAL_RESUME_PATH
-from engine.apply import apply_decision, advance_cursor
+from engine.apply import apply_decision, advance_cursor, ZeroMutationAcceptError
 from engine.audit import audit_canonical
 from engine.decision import decide_seed_result
 from engine.progress import ProgressTracker, generate_run_id, generate_seed_run_id
@@ -87,7 +87,16 @@ def run_batch(
         # Apply
         tracker.set_stage("APPLYING_TO_CANONICAL")
         is_current_next = (bs.get("next_seed_id") == seed_id)
-        stats = apply_decision(canonical, decision, is_current_next=is_current_next)
+        try:
+            stats = apply_decision(canonical, decision, is_current_next=is_current_next)
+        except ZeroMutationAcceptError as exc:
+            tracker.mark_failed(seed_id, str(exc))
+            return {
+                "ok": False,
+                "run_id": run_id,
+                "error": f"zero-mutation accept invariant violated at seed {seed_id}: {exc}",
+                "results": results,
+            }
 
         # Advance cursor
         if decision.action in ("ACCEPT_VARIANTS", "CLOSE_NO_VARIANTS_PROVEN", "MANUAL_REVIEW"):

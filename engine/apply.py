@@ -7,6 +7,11 @@ from datetime import datetime, timezone
 from engine.types import Decision
 
 
+class ZeroMutationAcceptError(Exception):
+    """Raised when ACCEPT_VARIANTS produces zero added and zero merged variants."""
+    pass
+
+
 def _merge_variant(existing: dict, incoming: dict) -> dict:
     """Merge incoming fields into existing, never overwriting rich data with empty."""
     out = copy.deepcopy(existing)
@@ -96,6 +101,15 @@ def apply_decision(canonical: dict, decision: Decision, is_current_next: bool = 
         stats["added_count"] = merge_result["added_count"]
         stats["merged_count"] = merge_result["merged_count"]
         stats["newly_added_variant_ids"] = merge_result["added_variant_ids"]
+
+        # Invariant: ACCEPT_VARIANTS must produce at least one mutation
+        if merge_result["added_count"] + merge_result["merged_count"] == 0:
+            raise ZeroMutationAcceptError(
+                f"ACCEPT_VARIANTS produced 0 added and 0 merged for "
+                f"seed_id={decision.seed_id}. "
+                f"variants_to_add had {len(decision.variants_to_add)} entries. "
+                f"This violates the accept-must-mutate invariant."
+            )
 
         if decision.seed_id not in bs["processed_seed_ids"]:
             bs["processed_seed_ids"].append(decision.seed_id)
