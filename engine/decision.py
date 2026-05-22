@@ -139,6 +139,7 @@ def decide_seed_result(result: SeedRunResult) -> Decision:
                     if not looks_like_placeholder_source_id(sid):
                         available_source_ids.add(sid)
 
+        downgraded_vids: set[str] = set()
         for c in enriched:
             if c.get("market_scope") != "IL-confirmed":
                 continue
@@ -151,22 +152,15 @@ def decide_seed_result(result: SeedRunResult) -> Decision:
                 )
                 c["market_scope"] = "IL-likely"
                 c["identity_confidence"] = "market_plausible"
+                downgraded_vids.add(vid)
 
-        # If every candidate ended up downgraded (none remain IL-confirmed
-        # AND none had real source_ids originally), flag for manual review.
-        all_lack_sources = all(
-            not filter_real_source_ids(c.get("source_ids") or [])
+        # If every candidate was downgraded from IL-confirmed (none had real
+        # source_ids), flag the entire batch for manual review rather than
+        # accepting candidates whose market claims are unverified.
+        if downgraded_vids and all(
+            c.get("variant_id", "unknown") in downgraded_vids
             for c in enriched
-        )
-        all_were_il = all(
-            c.get("market_scope") in ("IL-likely",) and
-            any(
-                w.startswith("il_confirmed_without_real_sources_downgraded")
-                for w in id_warnings
-            )
-            for c in enriched
-        )
-        if all_lack_sources and all_were_il:
+        ):
             return Decision(
                 action="MANUAL_REVIEW",
                 seed_id=result.seed_id,

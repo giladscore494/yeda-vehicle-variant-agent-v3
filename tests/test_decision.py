@@ -319,6 +319,8 @@ class TestILConfirmedSourceProofGate:
         # Second downgraded to IL-likely
         assert decision.variants_to_add[1]["market_scope"] == "IL-likely"
         assert decision.variants_to_add[1]["identity_confidence"] == "market_plausible"
+        # Warning logged for the downgrade
+        assert any("il_confirmed_without_real_sources_downgraded" in w for w in decision.warnings)
 
     def test_non_il_confirmed_candidates_not_affected(self):
         """Candidates with market_scope != IL-confirmed are not checked/downgraded."""
