@@ -475,7 +475,8 @@
       "volkswagen__sharan__1996__2022__il",
       "volkswagen__touran__2003__2026__il",
       "volkswagen__caddy__1996__2026__il",
-      "toyota__yaris__1999__2026__il"
+      "toyota__yaris__1999__2026__il",
+      "toyota__yaris_cross__2021__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -928,8 +929,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "toyota__yaris__1999__2026__il",
-    "next_seed_id": "toyota__yaris_cross__2021__2026__il",
+    "last_completed_seed_id": "toyota__yaris_cross__2021__2026__il",
+    "next_seed_id": "toyota__corolla__1992__2026__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2005,6 +2006,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-22T18:23:43.664626+00:00"
+      },
+      "toyota__yaris_cross__2021__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 2,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-22T18:24:35.960536+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -227098,6 +227107,130 @@
         ]
       },
       "variant_id": "toyota_yaris_2021_2026_il_confirmed_xp210_1_6l_turbo_3_cylinder_261_hp_6_speed_manual_hatchback_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Toyota",
+      "model": "Yaris Cross",
+      "global_model_name": "Toyota Yaris Cross",
+      "official_marketed_name_il": "Toyota Yaris Cross",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2021,
+      "year_end": 2026,
+      "generation": "1st Gen (XP210)",
+      "body_type": "SUV/Crossover",
+      "seats": 5,
+      "engine": "1.5L 3-cylinder petrol, 125 hp",
+      "transmission": "CVT",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli official importer data and launch reviews confirm the 1.5L naturally aspirated petrol engine (125 hp) with a continuously variable transmission. Marketed trims in Israel for this powertrain include Sol, Urban, and Sky. AWD is generally excluded from standard IL imports for this variant.",
+      "source_ids": [
+        "toyota_il_official_yaris_cross",
+        "cartube_il_yaris_cross_2021_launch"
+      ],
+      "field_sources": {
+        "body_type": [
+          "toyota_il_official_yaris_cross"
+        ],
+        "seats": [
+          "toyota_il_official_yaris_cross"
+        ],
+        "engine": [
+          "toyota_il_official_yaris_cross",
+          "cartube_il_yaris_cross_2021_launch"
+        ],
+        "transmission": [
+          "toyota_il_official_yaris_cross"
+        ],
+        "fuel_type": [
+          "toyota_il_official_yaris_cross",
+          "cartube_il_yaris_cross_2021_launch"
+        ],
+        "drivetrain": [
+          "toyota_il_official_yaris_cross",
+          "cartube_il_yaris_cross_2021_launch"
+        ],
+        "generation": [
+          "cartube_il_yaris_cross_2021_launch"
+        ],
+        "year_start": [
+          "cartube_il_yaris_cross_2021_launch"
+        ],
+        "year_end": [
+          "toyota_il_official_yaris_cross"
+        ],
+        "trim": []
+      },
+      "variant_id": "toyota_yaris_cross_2021_2026_il_confirmed_1st_gen_xp210_1_5l_3_cylinder_petrol_125_hp_cvt_suv_crossover_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Toyota",
+      "model": "Yaris Cross",
+      "global_model_name": "Toyota Yaris Cross",
+      "official_marketed_name_il": "Toyota Yaris Cross",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2021,
+      "year_end": 2026,
+      "generation": "1st Gen (XP210)",
+      "body_type": "SUV/Crossover",
+      "seats": 5,
+      "engine": "1.5L 3-cylinder hybrid, 116 hp",
+      "transmission": "e-CVT",
+      "fuel_type": "Hybrid",
+      "drivetrain": "FWD",
+      "trim": "",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli official importer data confirms the highly popular 1.5L Hybrid powertrain (116 hp combined) with e-CVT. Marketed trims in Israel for the hybrid include Eco, City, Urban, Sky, Adventure, GR Sport, and Premiere Edition.",
+      "source_ids": [
+        "toyota_il_official_yaris_cross",
+        "cartube_il_yaris_cross_2021_launch"
+      ],
+      "field_sources": {
+        "body_type": [
+          "toyota_il_official_yaris_cross"
+        ],
+        "seats": [
+          "toyota_il_official_yaris_cross"
+        ],
+        "engine": [
+          "toyota_il_official_yaris_cross",
+          "cartube_il_yaris_cross_2021_launch"
+        ],
+        "transmission": [
+          "toyota_il_official_yaris_cross"
+        ],
+        "fuel_type": [
+          "toyota_il_official_yaris_cross",
+          "cartube_il_yaris_cross_2021_launch"
+        ],
+        "drivetrain": [
+          "toyota_il_official_yaris_cross",
+          "cartube_il_yaris_cross_2021_launch"
+        ],
+        "generation": [
+          "cartube_il_yaris_cross_2021_launch"
+        ],
+        "year_start": [
+          "cartube_il_yaris_cross_2021_launch"
+        ],
+        "year_end": [
+          "toyota_il_official_yaris_cross"
+        ],
+        "trim": []
+      },
+      "variant_id": "toyota_yaris_cross_2021_2026_il_confirmed_1st_gen_xp210_1_5l_3_cylinder_hybrid_116_hp_e_cvt_suv_crossover_hybrid"
     }
   ],
   "accumulated_clean_export": {
@@ -445108,17 +445241,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1671,
-    "variants": 1671,
+    "total_variants": 1673,
+    "variants": 1673,
     "verified": 788,
-    "partial": 883,
+    "partial": 885,
     "makes_count": 40,
-    "models_count": 470,
-    "processed_seeds": 466,
+    "models_count": 471,
+    "processed_seeds": 467,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-22T18:23:43.669229+00:00"
+    "last_updated_at": "2026-05-22T18:24:35.965137+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
