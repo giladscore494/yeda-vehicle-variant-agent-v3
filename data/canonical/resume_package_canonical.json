@@ -532,7 +532,8 @@
       "nissan__leaf__2011__2024__il",
       "nissan__note__2006__2022__il",
       "nissan__tiida__2004__2012__il",
-      "nissan__almera__1995__2012__il"
+      "nissan__almera__1995__2012__il",
+      "nissan__primera__1990__2008__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -985,8 +986,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "nissan__almera__1995__2012__il",
-    "next_seed_id": "nissan__primera__1990__2008__il",
+    "last_completed_seed_id": "nissan__primera__1990__2008__il",
+    "next_seed_id": "nissan__maxima__1995__2008__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2518,6 +2519,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-22T19:28:57.948971+00:00"
+      },
+      "nissan__primera__1990__2008__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 6,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-22T19:30:16.566827+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -240993,6 +241002,388 @@
         "trim": []
       },
       "variant_id": "nissan_almera_2000_2006_il_confirmed_n16_1_5l_petrol_90_hp_5_speed_manual_sedan_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Nissan",
+      "model": "Primera",
+      "global_model_name": "Nissan Primera",
+      "official_marketed_name_il": "Nissan Primera",
+      "local_brand_name_il": "Nissan",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 1990,
+      "year_end": 1996,
+      "generation": "P10",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "2.0L petrol",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "P10 generation confirmed for Israeli market with 2.0L engine and 4-speed automatic transmission. Sedan was the primary body style.",
+      "source_ids": [
+        "auto_il_nissan_primera_history",
+        "yad2_il_nissan_primera_cars",
+        "nissan_global_primera"
+      ],
+      "field_sources": {
+        "body_type": [
+          "auto_il_nissan_primera_history",
+          "yad2_il_nissan_primera_cars"
+        ],
+        "seats": [
+          "auto_il_nissan_primera_history"
+        ],
+        "engine": [
+          "auto_il_nissan_primera_history"
+        ],
+        "transmission": [
+          "auto_il_nissan_primera_history"
+        ],
+        "fuel_type": [
+          "auto_il_nissan_primera_history"
+        ],
+        "drivetrain": [
+          "nissan_global_primera"
+        ],
+        "generation": [
+          "auto_il_nissan_primera_history",
+          "nissan_global_primera"
+        ],
+        "year_start": [
+          "auto_il_nissan_primera_history",
+          "yad2_il_nissan_primera_cars"
+        ],
+        "year_end": [
+          "auto_il_nissan_primera_history",
+          "yad2_il_nissan_primera_cars"
+        ],
+        "trim": []
+      },
+      "variant_id": "nissan_primera_1990_1996_il_confirmed_p10_2_0l_petrol_4_speed_automatic_sedan_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Nissan",
+      "model": "Primera",
+      "global_model_name": "Nissan Primera",
+      "official_marketed_name_il": "Nissan Primera",
+      "local_brand_name_il": "Nissan",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 1996,
+      "year_end": 1999,
+      "generation": "P11",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "2.0L petrol",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Pre-facelift P11 model in Israel featured the 2.0L petrol paired with a conventional 4-speed automatic transmission.",
+      "source_ids": [
+        "auto_il_nissan_primera_history",
+        "kml_il_nissan_primera",
+        "yad2_il_nissan_primera_cars"
+      ],
+      "field_sources": {
+        "body_type": [
+          "auto_il_nissan_primera_history"
+        ],
+        "seats": [
+          "auto_il_nissan_primera_history"
+        ],
+        "engine": [
+          "auto_il_nissan_primera_history",
+          "kml_il_nissan_primera"
+        ],
+        "transmission": [
+          "auto_il_nissan_primera_history"
+        ],
+        "fuel_type": [
+          "kml_il_nissan_primera"
+        ],
+        "drivetrain": [
+          "nissan_global_primera"
+        ],
+        "generation": [
+          "auto_il_nissan_primera_history",
+          "nissan_global_primera"
+        ],
+        "year_start": [
+          "auto_il_nissan_primera_history"
+        ],
+        "year_end": [
+          "auto_il_nissan_primera_history"
+        ],
+        "trim": []
+      },
+      "variant_id": "nissan_primera_1996_1999_il_confirmed_p11_2_0l_petrol_4_speed_automatic_sedan_petrol"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Nissan",
+      "model": "Primera",
+      "global_model_name": "Nissan Primera",
+      "official_marketed_name_il": "Nissan Primera",
+      "local_brand_name_il": "Nissan",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 1999,
+      "year_end": 2002,
+      "generation": "P11",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "1.8L petrol, 114 hp",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "The 1.8L engine was introduced in the P11 facelift for the Israeli market, paired with a 4-speed automatic.",
+      "source_ids": [
+        "auto_il_nissan_primera_history",
+        "kml_il_nissan_primera",
+        "yad2_il_nissan_primera_cars"
+      ],
+      "field_sources": {
+        "body_type": [
+          "auto_il_nissan_primera_history"
+        ],
+        "seats": [
+          "auto_il_nissan_primera_history"
+        ],
+        "engine": [
+          "auto_il_nissan_primera_history",
+          "kml_il_nissan_primera"
+        ],
+        "transmission": [
+          "auto_il_nissan_primera_history"
+        ],
+        "fuel_type": [
+          "kml_il_nissan_primera"
+        ],
+        "drivetrain": [
+          "nissan_global_primera"
+        ],
+        "generation": [
+          "auto_il_nissan_primera_history"
+        ],
+        "year_start": [
+          "auto_il_nissan_primera_history"
+        ],
+        "year_end": [
+          "auto_il_nissan_primera_history",
+          "yad2_il_nissan_primera_cars"
+        ],
+        "trim": []
+      },
+      "variant_id": "nissan_primera_1999_2002_il_confirmed_p11_1_8l_petrol_114_hp_4_speed_automatic_sedan_petrol"
+    },
+    {
+      "candidate_index": 3,
+      "make": "Nissan",
+      "model": "Primera",
+      "global_model_name": "Nissan Primera",
+      "official_marketed_name_il": "Nissan Primera",
+      "local_brand_name_il": "Nissan",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 1999,
+      "year_end": 2002,
+      "generation": "P11",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "2.0L petrol, 140 hp",
+      "transmission": "CVT",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "The P11 facelift upgraded the 2.0L version to a CVT transmission, replacing the 4-speed auto.",
+      "source_ids": [
+        "auto_il_nissan_primera_history",
+        "nissan_global_primera",
+        "yad2_il_nissan_primera_cars"
+      ],
+      "field_sources": {
+        "body_type": [
+          "auto_il_nissan_primera_history"
+        ],
+        "seats": [
+          "auto_il_nissan_primera_history"
+        ],
+        "engine": [
+          "auto_il_nissan_primera_history"
+        ],
+        "transmission": [
+          "auto_il_nissan_primera_history",
+          "nissan_global_primera"
+        ],
+        "fuel_type": [
+          "auto_il_nissan_primera_history"
+        ],
+        "drivetrain": [
+          "nissan_global_primera"
+        ],
+        "generation": [
+          "auto_il_nissan_primera_history"
+        ],
+        "year_start": [
+          "auto_il_nissan_primera_history"
+        ],
+        "year_end": [
+          "auto_il_nissan_primera_history"
+        ],
+        "trim": []
+      },
+      "variant_id": "nissan_primera_1999_2002_il_confirmed_p11_2_0l_petrol_140_hp_cvt_sedan_petrol"
+    },
+    {
+      "candidate_index": 4,
+      "make": "Nissan",
+      "model": "Primera",
+      "global_model_name": "Nissan Primera",
+      "official_marketed_name_il": "Nissan Primera",
+      "local_brand_name_il": "Nissan",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2002,
+      "year_end": 2008,
+      "generation": "P12",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "1.8L petrol, 116 hp",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "P12 generation prominently sold in Israel. The entry 1.8L variant retained a traditional 4-speed automatic.",
+      "source_ids": [
+        "auto_il_nissan_primera_history",
+        "kml_il_nissan_primera",
+        "yad2_il_nissan_primera_cars"
+      ],
+      "field_sources": {
+        "body_type": [
+          "auto_il_nissan_primera_history",
+          "yad2_il_nissan_primera_cars"
+        ],
+        "seats": [
+          "auto_il_nissan_primera_history"
+        ],
+        "engine": [
+          "auto_il_nissan_primera_history",
+          "kml_il_nissan_primera"
+        ],
+        "transmission": [
+          "auto_il_nissan_primera_history",
+          "kml_il_nissan_primera"
+        ],
+        "fuel_type": [
+          "kml_il_nissan_primera"
+        ],
+        "drivetrain": [
+          "nissan_global_primera"
+        ],
+        "generation": [
+          "auto_il_nissan_primera_history",
+          "nissan_global_primera"
+        ],
+        "year_start": [
+          "auto_il_nissan_primera_history",
+          "yad2_il_nissan_primera_cars"
+        ],
+        "year_end": [
+          "auto_il_nissan_primera_history",
+          "yad2_il_nissan_primera_cars"
+        ],
+        "trim": []
+      },
+      "variant_id": "nissan_primera_2002_2008_il_confirmed_p12_1_8l_petrol_116_hp_4_speed_automatic_sedan_petrol"
+    },
+    {
+      "candidate_index": 5,
+      "make": "Nissan",
+      "model": "Primera",
+      "global_model_name": "Nissan Primera",
+      "official_marketed_name_il": "Nissan Primera",
+      "local_brand_name_il": "Nissan",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2002,
+      "year_end": 2008,
+      "generation": "P12",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "2.0L petrol, 140 hp",
+      "transmission": "CVT",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "The premium 2.0L P12 Primera in Israel featured Nissan's CVT, as confirmed by Israeli road tests and listings.",
+      "source_ids": [
+        "auto_il_nissan_primera_history",
+        "kml_il_nissan_primera",
+        "yad2_il_nissan_primera_cars",
+        "nissan_global_primera"
+      ],
+      "field_sources": {
+        "body_type": [
+          "auto_il_nissan_primera_history",
+          "yad2_il_nissan_primera_cars"
+        ],
+        "seats": [
+          "auto_il_nissan_primera_history"
+        ],
+        "engine": [
+          "auto_il_nissan_primera_history",
+          "kml_il_nissan_primera"
+        ],
+        "transmission": [
+          "auto_il_nissan_primera_history",
+          "nissan_global_primera"
+        ],
+        "fuel_type": [
+          "kml_il_nissan_primera"
+        ],
+        "drivetrain": [
+          "nissan_global_primera"
+        ],
+        "generation": [
+          "auto_il_nissan_primera_history",
+          "nissan_global_primera"
+        ],
+        "year_start": [
+          "auto_il_nissan_primera_history",
+          "yad2_il_nissan_primera_cars"
+        ],
+        "year_end": [
+          "auto_il_nissan_primera_history",
+          "yad2_il_nissan_primera_cars"
+        ],
+        "trim": []
+      },
+      "variant_id": "nissan_primera_2002_2008_il_confirmed_p12_2_0l_petrol_140_hp_cvt_sedan_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -459003,17 +459394,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1890,
-    "variants": 1890,
+    "total_variants": 1896,
+    "variants": 1896,
     "verified": 788,
-    "partial": 1102,
+    "partial": 1108,
     "makes_count": 42,
-    "models_count": 526,
-    "processed_seeds": 523,
+    "models_count": 527,
+    "processed_seeds": 524,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-22T19:28:57.954361+00:00"
+    "last_updated_at": "2026-05-22T19:30:16.574464+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
