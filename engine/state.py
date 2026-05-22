@@ -114,6 +114,16 @@ def repair_cursor(canonical: dict, seeds: list[dict]) -> dict:
         if catalog_ids:
             last_handled_id = catalog_ids[-1]
 
+    # Fallback: if no contiguous prefix from start but handled seeds exist,
+    # find the last handled seed in catalog order.  This covers the case
+    # where the first seed(s) in the catalog are unhandled but later seeds
+    # have been processed (out-of-order processing).
+    if last_handled_id is None and handled:
+        for sid in reversed(catalog_ids):
+            if sid in handled:
+                last_handled_id = sid
+                break
+
     # Only update cursor fields — never touch variants or buckets
     bs["last_completed_seed_id"] = last_handled_id
     bs["next_seed_id"] = first_unhandled_id

@@ -18,6 +18,7 @@ def _make_valid_canonical():
             "processed_seed_ids": ["bmw__3__2020__2026__il"],
             "manual_review_seed_ids": [],
             "failed_seed_ids": [],
+            "last_completed_seed_id": "bmw__3__2020__2026__il",
             "seed_accounting": {
                 "bmw__3__2020__2026__il": {
                     "status": "resolved",

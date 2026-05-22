@@ -160,7 +160,13 @@ def audit_canonical(
     if overlap_mf:
         errors.append(f"seed_in_both_manual_and_failed: {sorted(overlap_mf)[:3]}")
 
-    # 10. next_seed_id must not be in processed/manual_review/failed
+    # 10. If processed seeds exist, last_completed_seed_id must not be None
+    last_completed = bs.get("last_completed_seed_id")
+    any_handled = processed_set or manual_set or failed_set
+    if any_handled and last_completed is None:
+        errors.append("last_completed_seed_id_none_with_processed_seeds")
+
+    # 11. next_seed_id must not be in processed/manual_review/failed
     next_sid_check = bs.get("next_seed_id")
     if next_sid_check:
         if next_sid_check in processed_set:
