@@ -160,6 +160,16 @@ def audit_canonical(
     if overlap_mf:
         errors.append(f"seed_in_both_manual_and_failed: {sorted(overlap_mf)[:3]}")
 
+    # 10. next_seed_id must not be in processed/manual_review/failed
+    next_sid_check = bs.get("next_seed_id")
+    if next_sid_check:
+        if next_sid_check in processed_set:
+            errors.append(f"next_seed_id_already_processed: {next_sid_check}")
+        if next_sid_check in manual_set:
+            errors.append(f"next_seed_id_in_manual_review: {next_sid_check}")
+        if next_sid_check in failed_set:
+            errors.append(f"next_seed_id_in_failed: {next_sid_check}")
+
     # 6. ACCEPT_VARIANTS / variants_added accounting must have added + merged > 0
     for sa_seed_id, sa_entry in accounting.items():
         if not isinstance(sa_entry, dict):
