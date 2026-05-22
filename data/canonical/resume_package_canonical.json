@@ -526,7 +526,8 @@
       "lexus__lc__2017__2026__il",
       "lexus__sc_430__2006__2010__il",
       "nissan__micra__1992__2023__il",
-      "nissan__juke__2010__2026__il"
+      "nissan__juke__2010__2026__il",
+      "nissan__qashqai__2007__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -979,8 +980,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "nissan__juke__2010__2026__il",
-    "next_seed_id": "nissan__qashqai__2007__2026__il",
+    "last_completed_seed_id": "nissan__qashqai__2007__2026__il",
+    "next_seed_id": "nissan__x-trail__2001__2026__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2464,6 +2465,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-22T19:23:48.981636+00:00"
+      },
+      "nissan__qashqai__2007__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 7,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-22T19:24:51.580531+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -239295,6 +239304,416 @@
         "trim": []
       },
       "variant_id": "nissan_juke_2022_2026_il_confirmed_f16_2nd_gen_1_6l_e_tech_hybrid_143_hp_combined_multi_mode_automatic_crossover_suv_hybrid"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Nissan",
+      "model": "Qashqai",
+      "global_model_name": "Nissan Qashqai",
+      "official_marketed_name_il": "Nissan Qashqai",
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Nissan Dualis"
+      ],
+      "rebadged_as": null,
+      "year_start": 2007,
+      "year_end": 2013,
+      "generation": "1st Gen (J10)",
+      "body_type": "Crossover",
+      "seats": 5,
+      "engine": "2.0L Petrol (140 hp)",
+      "transmission": "CVT",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli market sources confirm the 1st Gen J10 was sold locally as 'Nissan Qashqai' predominantly with the 2.0L petrol engine and CVT. AWD variants also existed but FWD was standard. Trims included Visia, Acenta, Tekna.",
+      "source_ids": [
+        "cartube_il_qashqai_j10"
+      ],
+      "field_sources": {
+        "body_type": [
+          "cartube_il_qashqai_j10"
+        ],
+        "seats": [
+          "cartube_il_qashqai_j10"
+        ],
+        "engine": [
+          "cartube_il_qashqai_j10"
+        ],
+        "transmission": [
+          "cartube_il_qashqai_j10"
+        ],
+        "fuel_type": [
+          "cartube_il_qashqai_j10"
+        ],
+        "drivetrain": [
+          "cartube_il_qashqai_j10"
+        ],
+        "generation": [
+          "cartube_il_qashqai_j10"
+        ],
+        "year_start": [
+          "cartube_il_qashqai_j10"
+        ],
+        "year_end": [
+          "cartube_il_qashqai_j10"
+        ],
+        "trim": []
+      },
+      "variant_id": "nissan_qashqai_2007_2013_il_confirmed_1st_gen_j10_2_0l_petrol_140_hp_cvt_crossover_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Nissan",
+      "model": "Qashqai",
+      "global_model_name": "Nissan Qashqai+2",
+      "official_marketed_name_il": "Nissan Qashqai+2",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2008,
+      "year_end": 2013,
+      "generation": "1st Gen (J10)",
+      "body_type": "Crossover",
+      "seats": 7,
+      "engine": "2.0L Petrol (140 hp)",
+      "transmission": "CVT",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli market sources explicitly confirm the 7-seater long-wheelbase variant was marketed distinctively as 'Qashqai+2'. It shared the 2.0L petrol and CVT with the 5-seater.",
+      "source_ids": [
+        "cartube_il_qashqai_j10"
+      ],
+      "field_sources": {
+        "body_type": [
+          "cartube_il_qashqai_j10"
+        ],
+        "seats": [
+          "cartube_il_qashqai_j10"
+        ],
+        "engine": [
+          "cartube_il_qashqai_j10"
+        ],
+        "transmission": [
+          "cartube_il_qashqai_j10"
+        ],
+        "fuel_type": [
+          "cartube_il_qashqai_j10"
+        ],
+        "drivetrain": [
+          "cartube_il_qashqai_j10"
+        ],
+        "generation": [
+          "cartube_il_qashqai_j10"
+        ],
+        "year_start": [
+          "cartube_il_qashqai_j10"
+        ],
+        "year_end": [
+          "cartube_il_qashqai_j10"
+        ],
+        "trim": []
+      },
+      "variant_id": "nissan_qashqai_2008_2013_il_confirmed_1st_gen_j10_2_0l_petrol_140_hp_cvt_crossover_petrol"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Nissan",
+      "model": "Qashqai",
+      "global_model_name": "Nissan Qashqai",
+      "official_marketed_name_il": "Nissan Qashqai",
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Rogue Sport"
+      ],
+      "rebadged_as": null,
+      "year_start": 2014,
+      "year_end": 2018,
+      "generation": "2nd Gen (J11)",
+      "body_type": "Crossover",
+      "seats": 5,
+      "engine": "1.2L DIG-T Turbo Petrol (115 hp)",
+      "transmission": "X-Tronic CVT",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "iCar Israel confirms the early 2nd Gen J11 was imported to Israel with the 1.2L DIG-T turbo engine and X-Tronic CVT transmission. Manual versions were also available but CVT was dominant.",
+      "source_ids": [
+        "icar_il_qashqai_j11"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_qashqai_j11"
+        ],
+        "seats": [
+          "icar_il_qashqai_j11"
+        ],
+        "engine": [
+          "icar_il_qashqai_j11"
+        ],
+        "transmission": [
+          "icar_il_qashqai_j11"
+        ],
+        "fuel_type": [
+          "icar_il_qashqai_j11"
+        ],
+        "drivetrain": [
+          "icar_il_qashqai_j11"
+        ],
+        "generation": [
+          "icar_il_qashqai_j11"
+        ],
+        "year_start": [
+          "icar_il_qashqai_j11"
+        ],
+        "year_end": [
+          "icar_il_qashqai_j11"
+        ],
+        "trim": []
+      },
+      "variant_id": "nissan_qashqai_2014_2018_il_confirmed_2nd_gen_j11_1_2l_dig_t_turbo_petrol_115_hp_x_tronic_cvt_crossover_petrol"
+    },
+    {
+      "candidate_index": 3,
+      "make": "Nissan",
+      "model": "Qashqai",
+      "global_model_name": "Nissan Qashqai",
+      "official_marketed_name_il": "Nissan Qashqai",
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Rogue Sport"
+      ],
+      "rebadged_as": null,
+      "year_start": 2014,
+      "year_end": 2018,
+      "generation": "2nd Gen (J11)",
+      "body_type": "Crossover",
+      "seats": 5,
+      "engine": "1.6L dCi Turbo Diesel (130 hp)",
+      "transmission": "X-Tronic CVT",
+      "fuel_type": "Diesel",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "iCar Israel confirms the presence of the 1.6 dCi diesel variant in Israel for the pre-facelift J11 generation, paired with the X-Tronic CVT.",
+      "source_ids": [
+        "icar_il_qashqai_j11"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_qashqai_j11"
+        ],
+        "seats": [
+          "icar_il_qashqai_j11"
+        ],
+        "engine": [
+          "icar_il_qashqai_j11"
+        ],
+        "transmission": [
+          "icar_il_qashqai_j11"
+        ],
+        "fuel_type": [
+          "icar_il_qashqai_j11"
+        ],
+        "drivetrain": [
+          "icar_il_qashqai_j11"
+        ],
+        "generation": [
+          "icar_il_qashqai_j11"
+        ],
+        "year_start": [
+          "icar_il_qashqai_j11"
+        ],
+        "year_end": [
+          "icar_il_qashqai_j11"
+        ],
+        "trim": []
+      },
+      "variant_id": "nissan_qashqai_2014_2018_il_confirmed_2nd_gen_j11_1_6l_dci_turbo_diesel_130_hp_x_tronic_cvt_crossover_diesel"
+    },
+    {
+      "candidate_index": 4,
+      "make": "Nissan",
+      "model": "Qashqai",
+      "global_model_name": "Nissan Qashqai",
+      "official_marketed_name_il": "Nissan Qashqai",
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Rogue Sport"
+      ],
+      "rebadged_as": null,
+      "year_start": 2019,
+      "year_end": 2021,
+      "generation": "2nd Gen (J11)",
+      "body_type": "Crossover",
+      "seats": 5,
+      "engine": "1.3L DIG-T Turbo Petrol (160 hp)",
+      "transmission": "7-speed DCT",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli sources show that during the J11 facelift, the 1.2L engine and CVT were replaced by a newer 1.3L turbo engine developed with Renault/Mercedes, paired with a 7-speed dual-clutch transmission (DCT).",
+      "source_ids": [
+        "icar_il_qashqai_j11"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_qashqai_j11"
+        ],
+        "seats": [
+          "icar_il_qashqai_j11"
+        ],
+        "engine": [
+          "icar_il_qashqai_j11"
+        ],
+        "transmission": [
+          "icar_il_qashqai_j11"
+        ],
+        "fuel_type": [
+          "icar_il_qashqai_j11"
+        ],
+        "drivetrain": [
+          "icar_il_qashqai_j11"
+        ],
+        "generation": [
+          "icar_il_qashqai_j11"
+        ],
+        "year_start": [
+          "icar_il_qashqai_j11"
+        ],
+        "year_end": [
+          "icar_il_qashqai_j11"
+        ],
+        "trim": []
+      },
+      "variant_id": "nissan_qashqai_2019_2021_il_confirmed_2nd_gen_j11_1_3l_dig_t_turbo_petrol_160_hp_7_speed_dct_crossover_petrol"
+    },
+    {
+      "candidate_index": 5,
+      "make": "Nissan",
+      "model": "Qashqai",
+      "global_model_name": "Nissan Qashqai",
+      "official_marketed_name_il": "Nissan Qashqai",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2021,
+      "year_end": 2026,
+      "generation": "3rd Gen (J12)",
+      "body_type": "Crossover",
+      "seats": 5,
+      "engine": "1.3L DIG-T Mild Hybrid (156 hp)",
+      "transmission": "X-Tronic CVT",
+      "fuel_type": "Mild Hybrid",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Nissan Israel's official website outlines the 3rd Gen (J12) Qashqai base powertrain as a 1.3-liter mild-hybrid petrol engine returning to the X-Tronic CVT transmission. Trims include Acenta Top, Tekna, and Tekna TT.",
+      "source_ids": [
+        "nissan_israel_official_j12"
+      ],
+      "field_sources": {
+        "body_type": [
+          "nissan_israel_official_j12"
+        ],
+        "seats": [
+          "nissan_israel_official_j12"
+        ],
+        "engine": [
+          "nissan_israel_official_j12"
+        ],
+        "transmission": [
+          "nissan_israel_official_j12"
+        ],
+        "fuel_type": [
+          "nissan_israel_official_j12"
+        ],
+        "drivetrain": [
+          "nissan_israel_official_j12"
+        ],
+        "generation": [
+          "nissan_israel_official_j12"
+        ],
+        "year_start": [
+          "nissan_israel_official_j12"
+        ],
+        "year_end": [],
+        "trim": []
+      },
+      "variant_id": "nissan_qashqai_2021_2026_il_confirmed_3rd_gen_j12_1_3l_dig_t_mild_hybrid_156_hp_x_tronic_cvt_crossover_mild_hybrid"
+    },
+    {
+      "candidate_index": 6,
+      "make": "Nissan",
+      "model": "Qashqai",
+      "global_model_name": "Nissan Qashqai",
+      "official_marketed_name_il": "Nissan Qashqai e-Power",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2022,
+      "year_end": 2026,
+      "generation": "3rd Gen (J12)",
+      "body_type": "Crossover",
+      "seats": 5,
+      "engine": "1.5L VC-Turbo e-Power Hybrid (190 hp)",
+      "transmission": "Single-speed EV",
+      "fuel_type": "Hybrid",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Nissan Israel heavily markets the 'e-Power' variant, a series hybrid where the 1.5L turbo petrol acts strictly as a generator for the 190hp electric drive motor. Uses a single-speed reducer.",
+      "source_ids": [
+        "nissan_israel_official_j12"
+      ],
+      "field_sources": {
+        "body_type": [
+          "nissan_israel_official_j12"
+        ],
+        "seats": [
+          "nissan_israel_official_j12"
+        ],
+        "engine": [
+          "nissan_israel_official_j12"
+        ],
+        "transmission": [
+          "nissan_israel_official_j12"
+        ],
+        "fuel_type": [
+          "nissan_israel_official_j12"
+        ],
+        "drivetrain": [
+          "nissan_israel_official_j12"
+        ],
+        "generation": [
+          "nissan_israel_official_j12"
+        ],
+        "year_start": [
+          "nissan_israel_official_j12"
+        ],
+        "year_end": [],
+        "trim": []
+      },
+      "variant_id": "nissan_qashqai_2022_2026_il_confirmed_3rd_gen_j12_1_5l_vc_turbo_e_power_hybrid_190_hp_single_speed_ev_crossover_hybrid"
     }
   ],
   "accumulated_clean_export": {
@@ -457305,17 +457724,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1863,
-    "variants": 1863,
+    "total_variants": 1870,
+    "variants": 1870,
     "verified": 788,
-    "partial": 1075,
+    "partial": 1082,
     "makes_count": 42,
-    "models_count": 520,
-    "processed_seeds": 517,
+    "models_count": 521,
+    "processed_seeds": 518,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-22T19:23:48.987172+00:00"
+    "last_updated_at": "2026-05-22T19:24:51.586607+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
