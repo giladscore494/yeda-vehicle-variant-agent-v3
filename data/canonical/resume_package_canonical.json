@@ -524,7 +524,8 @@
       "lexus__lbx__2023__2026__il",
       "lexus__rc__2014__2026__il",
       "lexus__lc__2017__2026__il",
-      "lexus__sc_430__2006__2010__il"
+      "lexus__sc_430__2006__2010__il",
+      "nissan__micra__1992__2023__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -977,8 +978,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "lexus__sc_430__2006__2010__il",
-    "next_seed_id": "nissan__micra__1992__2023__il",
+    "last_completed_seed_id": "nissan__micra__1992__2023__il",
+    "next_seed_id": "nissan__juke__2010__2026__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2446,6 +2447,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-22T19:22:14.323966+00:00"
+      },
+      "nissan__micra__1992__2023__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 4,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-22T19:23:00.733461+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -238799,6 +238808,252 @@
         "trim": []
       },
       "variant_id": "lexus_sc_430_2006_2010_il_confirmed_z40_4_3l_v8_286_hp_6_speed_automatic_convertible_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Nissan",
+      "model": "Micra",
+      "global_model_name": "Nissan Micra",
+      "official_marketed_name_il": "Nissan Micra",
+      "local_brand_name_il": "Nissan",
+      "alternate_names": [
+        "Nissan March"
+      ],
+      "rebadged_as": null,
+      "year_start": 1993,
+      "year_end": 2002,
+      "generation": "K11",
+      "body_type": "Hatchback",
+      "seats": 5,
+      "engine": "1.3L CG13DE petrol, 75 hp",
+      "transmission": "CVT",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli used car archives and spec databases confirm the K11 generation was sold in Israel primarily with the 1.3L petrol engine and N-CVT. Official marketed name confirmed as Nissan Micra.",
+      "source_ids": [
+        "icar_il_nissan_micra_history",
+        "yad2_il_nissan_micra_k11_k12"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_nissan_micra_history"
+        ],
+        "seats": [
+          "icar_il_nissan_micra_history"
+        ],
+        "engine": [
+          "yad2_il_nissan_micra_k11_k12"
+        ],
+        "transmission": [
+          "yad2_il_nissan_micra_k11_k12"
+        ],
+        "fuel_type": [
+          "icar_il_nissan_micra_history"
+        ],
+        "drivetrain": [
+          "icar_il_nissan_micra_history"
+        ],
+        "generation": [
+          "icar_il_nissan_micra_history",
+          "yad2_il_nissan_micra_k11_k12"
+        ],
+        "year_start": [
+          "yad2_il_nissan_micra_k11_k12"
+        ],
+        "year_end": [
+          "yad2_il_nissan_micra_k11_k12"
+        ],
+        "trim": []
+      },
+      "variant_id": "nissan_micra_1993_2002_il_confirmed_k11_1_3l_cg13de_petrol_75_hp_cvt_hatchback_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Nissan",
+      "model": "Micra",
+      "global_model_name": "Nissan Micra",
+      "official_marketed_name_il": "Nissan Micra",
+      "local_brand_name_il": "Nissan",
+      "alternate_names": [
+        "Nissan March"
+      ],
+      "rebadged_as": null,
+      "year_start": 2003,
+      "year_end": 2010,
+      "generation": "K12",
+      "body_type": "Hatchback",
+      "seats": 5,
+      "engine": "1.4L CR14DE petrol, 88 hp",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Highly popular in Israel, confirmed by local price lists and catalogs. Known primarily for the 1.4L petrol with a conventional 4-speed automatic. Marketed officially as Nissan Micra.",
+      "source_ids": [
+        "icar_il_nissan_micra_history",
+        "yad2_il_nissan_micra_k11_k12"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_nissan_micra_history"
+        ],
+        "seats": [
+          "icar_il_nissan_micra_history"
+        ],
+        "engine": [
+          "yad2_il_nissan_micra_k11_k12",
+          "icar_il_nissan_micra_history"
+        ],
+        "transmission": [
+          "yad2_il_nissan_micra_k11_k12",
+          "icar_il_nissan_micra_history"
+        ],
+        "fuel_type": [
+          "icar_il_nissan_micra_history"
+        ],
+        "drivetrain": [
+          "icar_il_nissan_micra_history"
+        ],
+        "generation": [
+          "icar_il_nissan_micra_history"
+        ],
+        "year_start": [
+          "yad2_il_nissan_micra_k11_k12",
+          "icar_il_nissan_micra_history"
+        ],
+        "year_end": [
+          "yad2_il_nissan_micra_k11_k12",
+          "icar_il_nissan_micra_history"
+        ],
+        "trim": []
+      },
+      "variant_id": "nissan_micra_2003_2010_il_confirmed_k12_1_4l_cr14de_petrol_88_hp_4_speed_automatic_hatchback_petrol"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Nissan",
+      "model": "Micra",
+      "global_model_name": "Nissan Micra",
+      "official_marketed_name_il": "Nissan Micra",
+      "local_brand_name_il": "Nissan",
+      "alternate_names": [
+        "Nissan March"
+      ],
+      "rebadged_as": null,
+      "year_start": 2011,
+      "year_end": 2017,
+      "generation": "K13",
+      "body_type": "Hatchback",
+      "seats": 5,
+      "engine": "1.2L HR12DE 3-cylinder petrol, 80 hp",
+      "transmission": "CVT",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Extremely common fleet and private vehicle in IL; iCar database confirms exact 1.2L CVT powertrain configuration and K13 generation boundaries. Marketed uniformly as Nissan Micra.",
+      "source_ids": [
+        "icar_il_nissan_micra_history"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_nissan_micra_history"
+        ],
+        "seats": [
+          "icar_il_nissan_micra_history"
+        ],
+        "engine": [
+          "icar_il_nissan_micra_history"
+        ],
+        "transmission": [
+          "icar_il_nissan_micra_history"
+        ],
+        "fuel_type": [
+          "icar_il_nissan_micra_history"
+        ],
+        "drivetrain": [
+          "icar_il_nissan_micra_history"
+        ],
+        "generation": [
+          "icar_il_nissan_micra_history"
+        ],
+        "year_start": [
+          "icar_il_nissan_micra_history"
+        ],
+        "year_end": [
+          "icar_il_nissan_micra_history"
+        ],
+        "trim": []
+      },
+      "variant_id": "nissan_micra_2011_2017_il_confirmed_k13_1_2l_hr12de_3_cylinder_petrol_80_hp_cvt_hatchback_petrol"
+    },
+    {
+      "candidate_index": 3,
+      "make": "Nissan",
+      "model": "Micra",
+      "global_model_name": "Nissan Micra",
+      "official_marketed_name_il": "Nissan Micra",
+      "local_brand_name_il": "Nissan",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2019,
+      "year_end": 2023,
+      "generation": "K14",
+      "body_type": "Hatchback",
+      "seats": 5,
+      "engine": "1.0L IG-T turbo petrol, 100 hp",
+      "transmission": "CVT",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Cartube and iCar verify the addition of the 1.0L IG-T engine with Xtronic CVT in Israel around 2019, replacing the less popular manual-only 0.9L initial K14 offering. Confirmed official IL name is Nissan Micra.",
+      "source_ids": [
+        "icar_il_nissan_micra_history",
+        "cartube_il_micra_k14_launch"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_nissan_micra_history"
+        ],
+        "seats": [
+          "icar_il_nissan_micra_history"
+        ],
+        "engine": [
+          "cartube_il_micra_k14_launch"
+        ],
+        "transmission": [
+          "cartube_il_micra_k14_launch"
+        ],
+        "fuel_type": [
+          "icar_il_nissan_micra_history"
+        ],
+        "drivetrain": [
+          "icar_il_nissan_micra_history"
+        ],
+        "generation": [
+          "cartube_il_micra_k14_launch"
+        ],
+        "year_start": [
+          "cartube_il_micra_k14_launch"
+        ],
+        "year_end": [
+          "icar_il_nissan_micra_history"
+        ],
+        "trim": []
+      },
+      "variant_id": "nissan_micra_2019_2023_il_confirmed_k14_1_0l_ig_t_turbo_petrol_100_hp_cvt_hatchback_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -456809,17 +457064,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1855,
-    "variants": 1855,
+    "total_variants": 1859,
+    "variants": 1859,
     "verified": 788,
-    "partial": 1067,
-    "makes_count": 41,
-    "models_count": 518,
-    "processed_seeds": 515,
+    "partial": 1071,
+    "makes_count": 42,
+    "models_count": 519,
+    "processed_seeds": 516,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-22T19:22:14.331209+00:00"
+    "last_updated_at": "2026-05-22T19:23:00.738507+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
