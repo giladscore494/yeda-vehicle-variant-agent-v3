@@ -454,7 +454,8 @@
       "gac_-_aion__aion_y__2023__2026__il",
       "gac_-_aion__aion_v__2024__2026__il",
       "volkswagen__jetta__1990__2026__il",
-      "volkswagen__bora__1999__2005__il"
+      "volkswagen__bora__1999__2005__il",
+      "volkswagen__beetle__1998__2019__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -907,8 +908,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "volkswagen__bora__1999__2005__il",
-    "next_seed_id": "volkswagen__beetle__1998__2019__il",
+    "last_completed_seed_id": "volkswagen__beetle__1998__2019__il",
+    "next_seed_id": "volkswagen__scirocco__2008__2017__il",
     "run_history": [],
     "failed_details": [
       {
@@ -1816,6 +1817,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-22T15:31:13.912679+00:00"
+      },
+      "volkswagen__beetle__1998__2019__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 5,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-22T15:41:55.033018+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -221254,6 +221263,312 @@
         "trim": []
       },
       "variant_id": "volkswagen_bora_2000_2005_il_confirmed_mk4_1j_1_6l_inline_4_petrol_4_speed_automatic_station_wagon_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Volkswagen",
+      "model": "Beetle",
+      "global_model_name": "New Beetle",
+      "official_marketed_name_il": "Volkswagen New Beetle",
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "פולקסווגן חיפושית החדשה"
+      ],
+      "rebadged_as": null,
+      "year_start": 1998,
+      "year_end": 2011,
+      "generation": "New Beetle (A4/PQ34)",
+      "body_type": "Hatchback",
+      "seats": 4,
+      "engine": "1.6L MPI",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli catalog iCar confirms the New Beetle was sold in Israel with a 1.6L MPI engine and automatic transmission (4-speed AL4/01M).",
+      "source_ids": [
+        "icar_il_vw_new_beetle_a4"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_vw_new_beetle_a4"
+        ],
+        "seats": [
+          "icar_il_vw_new_beetle_a4"
+        ],
+        "engine": [
+          "icar_il_vw_new_beetle_a4"
+        ],
+        "transmission": [
+          "icar_il_vw_new_beetle_a4"
+        ],
+        "fuel_type": [
+          "icar_il_vw_new_beetle_a4"
+        ],
+        "drivetrain": [
+          "icar_il_vw_new_beetle_a4"
+        ],
+        "generation": [
+          "icar_il_vw_new_beetle_a4"
+        ],
+        "year_start": [
+          "icar_il_vw_new_beetle_a4"
+        ],
+        "year_end": [
+          "icar_il_vw_new_beetle_a4"
+        ],
+        "trim": []
+      },
+      "variant_id": "volkswagen_beetle_1998_2011_il_confirmed_new_beetle_a4_pq34_1_6l_mpi_4_speed_automatic_hatchback_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Volkswagen",
+      "model": "Beetle",
+      "global_model_name": "New Beetle",
+      "official_marketed_name_il": "Volkswagen New Beetle",
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "פולקסווגן חיפושית החדשה"
+      ],
+      "rebadged_as": null,
+      "year_start": 1998,
+      "year_end": 2011,
+      "generation": "New Beetle (A4/PQ34)",
+      "body_type": "Hatchback",
+      "seats": 4,
+      "engine": "2.0L MPI",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "iCar Israel verifies the 2.0L variant. Base early models used the 4-speed automatic; later years received a 6-speed Tiptronic upgrade. 4-speed noted as the predominant baseline.",
+      "source_ids": [
+        "icar_il_vw_new_beetle_a4"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_vw_new_beetle_a4"
+        ],
+        "seats": [
+          "icar_il_vw_new_beetle_a4"
+        ],
+        "engine": [
+          "icar_il_vw_new_beetle_a4"
+        ],
+        "transmission": [
+          "icar_il_vw_new_beetle_a4"
+        ],
+        "fuel_type": [
+          "icar_il_vw_new_beetle_a4"
+        ],
+        "drivetrain": [
+          "icar_il_vw_new_beetle_a4"
+        ],
+        "generation": [
+          "icar_il_vw_new_beetle_a4"
+        ],
+        "year_start": [
+          "icar_il_vw_new_beetle_a4"
+        ],
+        "year_end": [
+          "icar_il_vw_new_beetle_a4"
+        ],
+        "trim": []
+      },
+      "variant_id": "volkswagen_beetle_1998_2011_il_confirmed_new_beetle_a4_pq34_2_0l_mpi_4_speed_automatic_hatchback_petrol"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Volkswagen",
+      "model": "Beetle",
+      "global_model_name": "Beetle",
+      "official_marketed_name_il": "Volkswagen Beetle",
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "פולקסווגן חיפושית"
+      ],
+      "rebadged_as": null,
+      "year_start": 2012,
+      "year_end": 2019,
+      "generation": "Beetle (A5/PQ35)",
+      "body_type": "Hatchback",
+      "seats": 4,
+      "engine": "1.2L TSI",
+      "transmission": "7-speed DSG",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Cartube and iCar Israel confirm the launch of the A5-generation Beetle in Israel in 2012-2013, predominantly powered by the 105 hp 1.2 TSI mated to a 7-speed DSG transmission. Design trim common.",
+      "source_ids": [
+        "icar_il_vw_beetle_a5",
+        "cartube_il_vw_beetle_launch"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_vw_beetle_a5"
+        ],
+        "seats": [
+          "icar_il_vw_beetle_a5"
+        ],
+        "engine": [
+          "icar_il_vw_beetle_a5",
+          "cartube_il_vw_beetle_launch"
+        ],
+        "transmission": [
+          "icar_il_vw_beetle_a5",
+          "cartube_il_vw_beetle_launch"
+        ],
+        "fuel_type": [
+          "icar_il_vw_beetle_a5"
+        ],
+        "drivetrain": [
+          "icar_il_vw_beetle_a5"
+        ],
+        "generation": [
+          "icar_il_vw_beetle_a5",
+          "cartube_il_vw_beetle_launch"
+        ],
+        "year_start": [
+          "icar_il_vw_beetle_a5",
+          "cartube_il_vw_beetle_launch"
+        ],
+        "year_end": [
+          "icar_il_vw_beetle_a5"
+        ],
+        "trim": []
+      },
+      "variant_id": "volkswagen_beetle_2012_2019_il_confirmed_beetle_a5_pq35_1_2l_tsi_7_speed_dsg_hatchback_petrol"
+    },
+    {
+      "candidate_index": 3,
+      "make": "Volkswagen",
+      "model": "Beetle",
+      "global_model_name": "Beetle",
+      "official_marketed_name_il": "Volkswagen Beetle",
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "פולקסווגן חיפושית"
+      ],
+      "rebadged_as": null,
+      "year_start": 2012,
+      "year_end": 2019,
+      "generation": "Beetle (A5/PQ35)",
+      "body_type": "Hatchback",
+      "seats": 4,
+      "engine": "1.4L TSI",
+      "transmission": "7-speed DSG",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "iCar Israel confirms the higher-tier 1.4L TSI (150/160 hp) engine option for the A5 generation Beetle in Israel, paired with the 7-speed DSG.",
+      "source_ids": [
+        "icar_il_vw_beetle_a5"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_vw_beetle_a5"
+        ],
+        "seats": [
+          "icar_il_vw_beetle_a5"
+        ],
+        "engine": [
+          "icar_il_vw_beetle_a5"
+        ],
+        "transmission": [
+          "icar_il_vw_beetle_a5"
+        ],
+        "fuel_type": [
+          "icar_il_vw_beetle_a5"
+        ],
+        "drivetrain": [
+          "icar_il_vw_beetle_a5"
+        ],
+        "generation": [
+          "icar_il_vw_beetle_a5"
+        ],
+        "year_start": [
+          "icar_il_vw_beetle_a5"
+        ],
+        "year_end": [
+          "icar_il_vw_beetle_a5"
+        ],
+        "trim": []
+      },
+      "variant_id": "volkswagen_beetle_2012_2019_il_confirmed_beetle_a5_pq35_1_4l_tsi_7_speed_dsg_hatchback_petrol"
+    },
+    {
+      "candidate_index": 4,
+      "make": "Volkswagen",
+      "model": "Beetle",
+      "global_model_name": "Beetle Cabriolet",
+      "official_marketed_name_il": "Volkswagen Beetle Cabriolet",
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "פולקסווגן חיפושית קבריולה"
+      ],
+      "rebadged_as": null,
+      "year_start": 2013,
+      "year_end": 2019,
+      "generation": "Beetle (A5/PQ35)",
+      "body_type": "Convertible",
+      "seats": 4,
+      "engine": "1.2L TSI",
+      "transmission": "7-speed DSG",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Convertible body style was imported to Israel alongside the hatchback, primarily featuring the 1.2L TSI powertrain with 7-speed DSG.",
+      "source_ids": [
+        "icar_il_vw_beetle_a5",
+        "cartube_il_vw_beetle_launch"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_vw_beetle_a5"
+        ],
+        "seats": [
+          "icar_il_vw_beetle_a5"
+        ],
+        "engine": [
+          "icar_il_vw_beetle_a5"
+        ],
+        "transmission": [
+          "icar_il_vw_beetle_a5"
+        ],
+        "fuel_type": [
+          "icar_il_vw_beetle_a5"
+        ],
+        "drivetrain": [
+          "icar_il_vw_beetle_a5"
+        ],
+        "generation": [
+          "icar_il_vw_beetle_a5"
+        ],
+        "year_start": [
+          "icar_il_vw_beetle_a5"
+        ],
+        "year_end": [
+          "icar_il_vw_beetle_a5"
+        ],
+        "trim": []
+      },
+      "variant_id": "volkswagen_beetle_2013_2019_il_confirmed_beetle_a5_pq35_1_2l_tsi_7_speed_dsg_convertible_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -439264,17 +439579,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1577,
-    "variants": 1577,
+    "total_variants": 1582,
+    "variants": 1582,
     "verified": 788,
-    "partial": 789,
+    "partial": 794,
     "makes_count": 40,
-    "models_count": 449,
-    "processed_seeds": 445,
+    "models_count": 450,
+    "processed_seeds": 446,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-22T15:31:13.916770+00:00"
+    "last_updated_at": "2026-05-22T15:41:55.041662+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
