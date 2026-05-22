@@ -139,3 +139,24 @@ class TestAudit:
             canonical, newly_added_variant_ids=["v_new"],
         )
         assert ok is True
+
+    def test_rejects_variants_added_zero_mutation(self):
+        """Accounting with resolution_type=variants_added but 0 added + 0 merged must fail."""
+        canonical = _make_valid_canonical()
+        canonical["batch_state"]["seed_accounting"]["zero_mut_seed"] = {
+            "status": "resolved",
+            "resolution_type": "variants_added",
+            "added_count": 0,
+            "merged_count": 0,
+        }
+        canonical["batch_state"]["processed_seed_ids"].append("zero_mut_seed")
+        ok, errs = audit_canonical(canonical)
+        assert ok is False
+        assert any("accept_variants_zero_mutation" in e for e in errs)
+
+    def test_passes_variants_added_with_mutations(self):
+        """Accounting with resolution_type=variants_added and positive counts should pass."""
+        canonical = _make_valid_canonical()
+        # The existing entry already has added_count=1, so it should pass
+        ok, errs = audit_canonical(canonical)
+        assert ok is True

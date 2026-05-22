@@ -160,7 +160,20 @@ def audit_canonical(
     if overlap_mf:
         errors.append(f"seed_in_both_manual_and_failed: {sorted(overlap_mf)[:3]}")
 
-    # 6. Duplicate variant_ids
+    # 6. ACCEPT_VARIANTS / variants_added accounting must have added + merged > 0
+    for sa_seed_id, sa_entry in accounting.items():
+        if not isinstance(sa_entry, dict):
+            continue
+        res_type = sa_entry.get("resolution_type", "")
+        if res_type == "variants_added":
+            ac = sa_entry.get("added_count", 0) or 0
+            mc = sa_entry.get("merged_count", 0) or 0
+            if ac + mc == 0:
+                errors.append(
+                    f"accept_variants_zero_mutation: {sa_seed_id}"
+                )
+
+    # 7. Duplicate variant_ids
     seen_vids: set[str] = set()
     dup_count = 0
     for v in all_variants:

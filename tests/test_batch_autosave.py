@@ -132,3 +132,36 @@ class TestBatchAutosave:
         reloaded = load_canonical(canonical_path)
         ok, errs = audit_canonical(reloaded)
         assert ok is True
+
+    def test_batch_stops_on_zero_mutation_accept(self, tmp_path):
+        """Batch must stop if ACCEPT_VARIANTS produces 0 added and 0 merged."""
+        canonical_path = tmp_path / "canonical.json"
+        canonical_path.write_text(json.dumps(_make_canonical()), encoding="utf-8")
+
+        seeds_path = tmp_path / "seeds.json"
+        seeds_path.write_text(json.dumps(_make_seeds()), encoding="utf-8")
+
+        def mock_run_seed(seed, seed_id, dry_run=False):
+            # Return candidates with no variant_id → will produce 0 mutations
+            return SeedRunResult(
+                seed_id=seed_id,
+                ok=True,
+                candidate_variants=[
+                    {"make": seed["make"], "model": seed["model"]}  # no variant_id
+                ],
+            )
+
+        with patch("engine.batch.run_seed", side_effect=mock_run_seed):
+            result = run_batch(
+                batch_size=3,
+                canonical_path=str(canonical_path),
+                seeds_path=str(seeds_path),
+            )
+
+        assert result["ok"] is False
+        assert "zero-mutation" in result.get("error", "")
+
+        # Canonical must not have any processed seeds
+        from engine.state import load_canonical as lc
+        reloaded = lc(canonical_path)
+        assert len(reloaded["batch_state"]["processed_seed_ids"]) == 0
