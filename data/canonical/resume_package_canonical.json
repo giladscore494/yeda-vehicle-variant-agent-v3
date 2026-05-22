@@ -482,7 +482,8 @@
       "toyota__auris__2006__2018__il",
       "toyota__camry__1990__2026__il",
       "toyota__prius__2000__2026__il",
-      "toyota__prius+__2012__2021__il"
+      "toyota__prius+__2012__2021__il",
+      "toyota__c-hr__2017__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -935,8 +936,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "toyota__prius+__2012__2021__il",
-    "next_seed_id": "toyota__c-hr__2017__2026__il",
+    "last_completed_seed_id": "toyota__c-hr__2017__2026__il",
+    "next_seed_id": "toyota__rav4__1994__2026__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2068,6 +2069,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-22T18:30:13.498782+00:00"
+      },
+      "toyota__c-hr__2017__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 3,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-22T18:30:52.701574+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -229085,6 +229094,183 @@
         "trim": []
       },
       "variant_id": "toyota_prius_2015_2021_il_confirmed_xw40_facelift_1_8l_hybrid_2zr_fxe_136_hp_e_cvt_mpv_hybrid"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Toyota",
+      "model": "C-HR",
+      "global_model_name": "Toyota C-HR",
+      "official_marketed_name_il": "Toyota C-HR",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2017,
+      "year_end": 2020,
+      "generation": "1st Gen (AX10)",
+      "body_type": "Crossover",
+      "seats": 5,
+      "engine": "1.2L 8NR-FTS turbo petrol, 116 hp",
+      "transmission": "CVT",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli launch sources confirm the 1.2L turbo was initially offered alongside the hybrid, later phased out. Trims included C-ITY among others.",
+      "source_ids": [
+        "cartube_il_chr_2017",
+        "icar_il_chr_1st_gen"
+      ],
+      "field_sources": {
+        "body_type": [
+          "cartube_il_chr_2017"
+        ],
+        "seats": [
+          "icar_il_chr_1st_gen"
+        ],
+        "engine": [
+          "cartube_il_chr_2017",
+          "icar_il_chr_1st_gen"
+        ],
+        "transmission": [
+          "cartube_il_chr_2017"
+        ],
+        "fuel_type": [
+          "cartube_il_chr_2017"
+        ],
+        "drivetrain": [
+          "icar_il_chr_1st_gen"
+        ],
+        "generation": [
+          "cartube_il_chr_2017"
+        ],
+        "year_start": [
+          "cartube_il_chr_2017"
+        ],
+        "year_end": [
+          "icar_il_chr_1st_gen"
+        ],
+        "trim": []
+      },
+      "variant_id": "toyota_c_hr_2017_2020_il_confirmed_1st_gen_ax10_1_2l_8nr_fts_turbo_petrol_116_hp_cvt_crossover_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Toyota",
+      "model": "C-HR",
+      "global_model_name": "Toyota C-HR",
+      "official_marketed_name_il": "Toyota C-HR",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2017,
+      "year_end": 2023,
+      "generation": "1st Gen (AX10)",
+      "body_type": "Crossover",
+      "seats": 5,
+      "engine": "1.8L 2ZR-FXE hybrid, 122 hp",
+      "transmission": "e-CVT",
+      "fuel_type": "Hybrid",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "The 1.8L Hybrid was the dominant powertrain in Israel throughout the 1st generation. Common IL trims included C-HIC, C-ONCEPT, and Vision.",
+      "source_ids": [
+        "cartube_il_chr_2017",
+        "icar_il_chr_1st_gen"
+      ],
+      "field_sources": {
+        "body_type": [
+          "cartube_il_chr_2017"
+        ],
+        "seats": [
+          "icar_il_chr_1st_gen"
+        ],
+        "engine": [
+          "cartube_il_chr_2017",
+          "icar_il_chr_1st_gen"
+        ],
+        "transmission": [
+          "cartube_il_chr_2017"
+        ],
+        "fuel_type": [
+          "cartube_il_chr_2017",
+          "icar_il_chr_1st_gen"
+        ],
+        "drivetrain": [
+          "icar_il_chr_1st_gen"
+        ],
+        "generation": [
+          "cartube_il_chr_2017"
+        ],
+        "year_start": [
+          "cartube_il_chr_2017"
+        ],
+        "year_end": [
+          "icar_il_chr_1st_gen"
+        ],
+        "trim": []
+      },
+      "variant_id": "toyota_c_hr_2017_2023_il_confirmed_1st_gen_ax10_1_8l_2zr_fxe_hybrid_122_hp_e_cvt_crossover_hybrid"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Toyota",
+      "model": "C-HR",
+      "global_model_name": "Toyota C-HR",
+      "official_marketed_name_il": "Toyota C-HR",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2024,
+      "year_end": 2026,
+      "generation": "2nd Gen (AX20)",
+      "body_type": "Crossover",
+      "seats": 5,
+      "engine": "1.8L 2ZR-FXE (5th Gen) hybrid, 140 hp",
+      "transmission": "e-CVT",
+      "fuel_type": "Hybrid",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "IL automotive sources confirm the 2nd generation launched in early 2024 with the 5th generation 1.8L HEV powertrain producing 140 hp.",
+      "source_ids": [
+        "cartube_il_chr_2024"
+      ],
+      "field_sources": {
+        "body_type": [
+          "cartube_il_chr_2024"
+        ],
+        "seats": [
+          "cartube_il_chr_2024"
+        ],
+        "engine": [
+          "cartube_il_chr_2024"
+        ],
+        "transmission": [
+          "cartube_il_chr_2024"
+        ],
+        "fuel_type": [
+          "cartube_il_chr_2024"
+        ],
+        "drivetrain": [
+          "cartube_il_chr_2024"
+        ],
+        "generation": [
+          "cartube_il_chr_2024"
+        ],
+        "year_start": [
+          "cartube_il_chr_2024"
+        ],
+        "year_end": [],
+        "trim": []
+      },
+      "variant_id": "toyota_c_hr_2024_2026_il_confirmed_2nd_gen_ax20_1_8l_2zr_fxe_5th_gen_hybrid_140_hp_e_cvt_crossover_hybrid"
     }
   ],
   "accumulated_clean_export": {
@@ -447095,17 +447281,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1703,
-    "variants": 1703,
+    "total_variants": 1706,
+    "variants": 1706,
     "verified": 788,
-    "partial": 915,
+    "partial": 918,
     "makes_count": 40,
     "models_count": 477,
-    "processed_seeds": 473,
+    "processed_seeds": 474,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-22T18:30:13.504041+00:00"
+    "last_updated_at": "2026-05-22T18:30:52.706930+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
