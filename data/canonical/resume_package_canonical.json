@@ -502,7 +502,8 @@
       "toyota__gt86__2012__2021__il",
       "toyota__gr86__2021__2026__il",
       "toyota__fj_cruiser__2007__2016__il",
-      "toyota__supra__2019__2026__il"
+      "toyota__supra__2019__2026__il",
+      "toyota__sienna__2021__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -955,8 +956,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "toyota__supra__2019__2026__il",
-    "next_seed_id": "toyota__sienna__2021__2026__il",
+    "last_completed_seed_id": "toyota__sienna__2021__2026__il",
+    "next_seed_id": "toyota__crown__2025__2026__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2248,6 +2249,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-22T18:59:36.883284+00:00"
+      },
+      "toyota__sienna__2021__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 1,
+        "merged_count": 1,
+        "warnings": [],
+        "resolved_at": "2026-05-22T19:00:15.660739+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -233777,6 +233786,68 @@
         ]
       },
       "variant_id": "toyota_supra_2022_2026_global_reference_only_5th_gen_j29_a90_3_0l_i6_turbo_340_hp_6_speed_manual_coupe_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Toyota",
+      "model": "Sienna",
+      "global_model_name": "Toyota Sienna",
+      "official_marketed_name_il": "Toyota Sienna",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2021,
+      "year_end": 2026,
+      "generation": "XL40",
+      "body_type": "Minivan",
+      "seats": null,
+      "engine": "2.5L A25A-FXS Hybrid 245 hp",
+      "transmission": "e-CVT",
+      "fuel_type": "Hybrid",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli marketed name confirmed via parallel import pricing and listings (Levi Yitzhak, iCar). Generation XL40 is strictly hybrid. Trims imported typically include LE, XLE, XSE, Limited, and Platinum. Seats vary between 7 and 8 depending on trim.",
+      "source_ids": [
+        "icar_il_sienna_parallel_import",
+        "levi_yitzhak_il_pricing_sienna",
+        "toyota_us_global_sienna_xl40"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_sienna_parallel_import",
+          "toyota_us_global_sienna_xl40"
+        ],
+        "seats": [],
+        "engine": [
+          "toyota_us_global_sienna_xl40",
+          "icar_il_sienna_parallel_import"
+        ],
+        "transmission": [
+          "toyota_us_global_sienna_xl40"
+        ],
+        "fuel_type": [
+          "toyota_us_global_sienna_xl40",
+          "icar_il_sienna_parallel_import"
+        ],
+        "drivetrain": [
+          "toyota_us_global_sienna_xl40",
+          "levi_yitzhak_il_pricing_sienna"
+        ],
+        "generation": [
+          "toyota_us_global_sienna_xl40"
+        ],
+        "year_start": [
+          "icar_il_sienna_parallel_import",
+          "toyota_us_global_sienna_xl40"
+        ],
+        "year_end": [],
+        "trim": []
+      },
+      "variant_id": "toyota_sienna_2021_2026_il_confirmed_xl40_2_5l_a25a_fxs_hybrid_245_hp_e_cvt_minivan_hybrid",
+      "updated_at": "2026-05-22T19:00:15.661799+00:00"
     }
   ],
   "accumulated_clean_export": {
@@ -451787,17 +451858,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1778,
-    "variants": 1778,
+    "total_variants": 1779,
+    "variants": 1779,
     "verified": 788,
-    "partial": 990,
+    "partial": 991,
     "makes_count": 40,
-    "models_count": 496,
-    "processed_seeds": 493,
+    "models_count": 497,
+    "processed_seeds": 494,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-22T18:59:36.888275+00:00"
+    "last_updated_at": "2026-05-22T19:00:15.666294+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
