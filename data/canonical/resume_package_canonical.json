@@ -528,7 +528,8 @@
       "nissan__micra__1992__2023__il",
       "nissan__juke__2010__2026__il",
       "nissan__qashqai__2007__2026__il",
-      "nissan__x-trail__2001__2026__il"
+      "nissan__x-trail__2001__2026__il",
+      "nissan__leaf__2011__2024__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -981,8 +982,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "nissan__x-trail__2001__2026__il",
-    "next_seed_id": "nissan__leaf__2011__2024__il",
+    "last_completed_seed_id": "nissan__leaf__2011__2024__il",
+    "next_seed_id": "nissan__note__2006__2022__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2482,6 +2483,14 @@
         "merged_count": 1,
         "warnings": [],
         "resolved_at": "2026-05-22T19:25:48.175021+00:00"
+      },
+      "nissan__leaf__2011__2024__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 3,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-22T19:26:31.290065+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -240071,6 +240080,192 @@
       },
       "variant_id": "nissan_x_trail_2022_2026_il_confirmed_t33_1_5l_vc_turbo_e_power_1_speed_reduction_gear_suv_hybrid",
       "updated_at": "2026-05-22T19:25:48.176294+00:00"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Nissan",
+      "model": "Leaf",
+      "global_model_name": "Nissan Leaf",
+      "official_marketed_name_il": "Nissan Leaf",
+      "local_brand_name_il": "Nissan",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2011,
+      "year_end": 2017,
+      "generation": "1st Gen (ZE0/AZE0)",
+      "body_type": "Hatchback",
+      "seats": 5,
+      "engine": "Electric motor, 109 hp (80 kW)",
+      "transmission": "Single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "FWD",
+      "trim": "Acenta",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "iCar.co.il and local IL archives confirm 1st gen Leaf was sold in Israel (with broader retail availability starting around 2013-2014) featuring the 109 hp electric motor, FWD, and Acenta trim. Global production start falls within seed range.",
+      "source_ids": [
+        "icar_il_nissan_leaf_gen1"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_nissan_leaf_gen1"
+        ],
+        "seats": [
+          "icar_il_nissan_leaf_gen1"
+        ],
+        "engine": [
+          "icar_il_nissan_leaf_gen1"
+        ],
+        "transmission": [
+          "icar_il_nissan_leaf_gen1"
+        ],
+        "fuel_type": [
+          "icar_il_nissan_leaf_gen1"
+        ],
+        "drivetrain": [
+          "icar_il_nissan_leaf_gen1"
+        ],
+        "generation": [
+          "icar_il_nissan_leaf_gen1"
+        ],
+        "year_start": [
+          "icar_il_nissan_leaf_gen1"
+        ],
+        "year_end": [
+          "icar_il_nissan_leaf_gen1"
+        ],
+        "trim": [
+          "icar_il_nissan_leaf_gen1"
+        ]
+      },
+      "variant_id": "nissan_leaf_2011_2017_il_confirmed_1st_gen_ze0_aze0_electric_motor_109_hp_80_kw_single_speed_ev_hatchback_electric"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Nissan",
+      "model": "Leaf",
+      "global_model_name": "Nissan Leaf",
+      "official_marketed_name_il": "Nissan Leaf",
+      "local_brand_name_il": "Nissan",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2018,
+      "year_end": 2024,
+      "generation": "2nd Gen (ZE1)",
+      "body_type": "Hatchback",
+      "seats": 5,
+      "engine": "Electric motor, 150 hp (110 kW) / 40 kWh battery",
+      "transmission": "Single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "FWD",
+      "trim": "Acenta",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Official Israeli importer (Carasso) and local automotive portals (Cartube) confirm 2nd gen ZE1 launched in Israel in 2019 with the 40 kWh battery (150 hp) in Acenta trim.",
+      "source_ids": [
+        "cartube_il_leaf_launch_2019",
+        "carasso_il_nissan_leaf_official"
+      ],
+      "field_sources": {
+        "body_type": [
+          "cartube_il_leaf_launch_2019",
+          "carasso_il_nissan_leaf_official"
+        ],
+        "seats": [
+          "carasso_il_nissan_leaf_official"
+        ],
+        "engine": [
+          "cartube_il_leaf_launch_2019",
+          "carasso_il_nissan_leaf_official"
+        ],
+        "transmission": [
+          "carasso_il_nissan_leaf_official"
+        ],
+        "fuel_type": [
+          "cartube_il_leaf_launch_2019",
+          "carasso_il_nissan_leaf_official"
+        ],
+        "drivetrain": [
+          "carasso_il_nissan_leaf_official"
+        ],
+        "generation": [
+          "cartube_il_leaf_launch_2019"
+        ],
+        "year_start": [
+          "cartube_il_leaf_launch_2019"
+        ],
+        "year_end": [
+          "carasso_il_nissan_leaf_official"
+        ],
+        "trim": [
+          "cartube_il_leaf_launch_2019",
+          "carasso_il_nissan_leaf_official"
+        ]
+      },
+      "variant_id": "nissan_leaf_2018_2024_il_confirmed_2nd_gen_ze1_electric_motor_150_hp_110_kw_40_kwh_battery_single_speed_ev_hatchback_electric"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Nissan",
+      "model": "Leaf",
+      "global_model_name": "Nissan Leaf e+",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Leaf e+",
+        "Leaf 62kWh"
+      ],
+      "rebadged_as": null,
+      "year_start": 2019,
+      "year_end": 2024,
+      "generation": "2nd Gen (ZE1)",
+      "body_type": "Hatchback",
+      "seats": 5,
+      "engine": "Electric motor, 217 hp (160 kW) / 62 kWh battery",
+      "transmission": "Single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "FWD",
+      "trim": "e+",
+      "market_scope": "IL-likely",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "Global e+ variant introduced with 62 kWh battery and 217 hp motor. Highly common globally and via parallel imports, but direct official IL importer timeline/naming for this extended range spec is less definitively sourced in the official mainstream catalog.",
+      "source_ids": [
+        "global_nissan_leaf_eplus"
+      ],
+      "field_sources": {
+        "body_type": [
+          "global_nissan_leaf_eplus"
+        ],
+        "seats": [],
+        "engine": [
+          "global_nissan_leaf_eplus"
+        ],
+        "transmission": [
+          "global_nissan_leaf_eplus"
+        ],
+        "fuel_type": [
+          "global_nissan_leaf_eplus"
+        ],
+        "drivetrain": [
+          "global_nissan_leaf_eplus"
+        ],
+        "generation": [
+          "global_nissan_leaf_eplus"
+        ],
+        "year_start": [
+          "global_nissan_leaf_eplus"
+        ],
+        "year_end": [
+          "global_nissan_leaf_eplus"
+        ],
+        "trim": [
+          "global_nissan_leaf_eplus"
+        ]
+      },
+      "variant_id": "nissan_leaf_2019_2024_il_likely_2nd_gen_ze1_electric_motor_217_hp_160_kw_62_kwh_battery_single_speed_ev_hatchback_electric"
     }
   ],
   "accumulated_clean_export": {
@@ -458081,17 +458276,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1876,
-    "variants": 1876,
+    "total_variants": 1879,
+    "variants": 1879,
     "verified": 788,
-    "partial": 1088,
+    "partial": 1091,
     "makes_count": 42,
-    "models_count": 522,
-    "processed_seeds": 519,
+    "models_count": 523,
+    "processed_seeds": 520,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-22T19:25:48.180064+00:00"
+    "last_updated_at": "2026-05-22T19:26:31.294821+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
