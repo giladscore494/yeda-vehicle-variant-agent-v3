@@ -166,8 +166,8 @@ def audit_canonical(
             continue
         res_type = sa_entry.get("resolution_type", "")
         if res_type == "variants_added":
-            ac = sa_entry.get("added_count", 0) or 0
-            mc = sa_entry.get("merged_count", 0) or 0
+            ac = sa_entry.get("added_count") or 0
+            mc = sa_entry.get("merged_count") or 0
             if ac + mc == 0:
                 errors.append(
                     f"accept_variants_zero_mutation: {sa_seed_id}"
