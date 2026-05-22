@@ -452,7 +452,9 @@
       "volkswagen__golf_variant__1993__2026__il",
       "volkswagen__golf_plus__2005__2020__il",
       "gac_-_aion__aion_y__2023__2026__il",
-      "gac_-_aion__aion_v__2024__2026__il"
+      "gac_-_aion__aion_v__2024__2026__il",
+      "volkswagen__jetta__1990__2026__il",
+      "volkswagen__bora__1999__2005__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -905,8 +907,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "volkswagen__golf_plus__2005__2020__il",
-    "next_seed_id": "volkswagen__jetta__1990__2026__il",
+    "last_completed_seed_id": "volkswagen__bora__1999__2005__il",
+    "next_seed_id": "volkswagen__beetle__1998__2019__il",
     "run_history": [],
     "failed_details": [
       {
@@ -1800,11 +1802,20 @@
         "resolved_at": "2026-05-16T18:30:52.705347+00:00"
       },
       "volkswagen__jetta__1990__2026__il": {
-        "status": "failed_invariant",
-        "reason": "accept_variants_zero_mutation",
-        "added_count": 0,
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 6,
         "merged_count": 0,
-        "failed_at": "2026-05-22T15:01:42.167285+00:00"
+        "warnings": [],
+        "resolved_at": "2026-05-22T15:28:45.321812+00:00"
+      },
+      "volkswagen__bora__1999__2005__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 5,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-22T15:31:13.912679+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -220562,6 +220573,687 @@
         }
       },
       "identity_confidence": "market_confirmed"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Volkswagen",
+      "model": "Jetta",
+      "global_model_name": "Jetta Mk4",
+      "official_marketed_name_il": "Volkswagen Bora",
+      "local_brand_name_il": "Volkswagen",
+      "alternate_names": [
+        "Bora",
+        "Jetta Mk4"
+      ],
+      "rebadged_as": null,
+      "year_start": 1999,
+      "year_end": 2005,
+      "generation": "Mk4",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "1.6L MPI, 100 hp",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "Comfortline",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Confirmed via IL market specs (iCar); the 4th generation Jetta was marketed in Israel (and Europe) under the name 'Bora'.",
+      "source_ids": [
+        "icar_il_vw_bora_mk4",
+        "champion_motors_il_archive"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_vw_bora_mk4"
+        ],
+        "seats": [
+          "icar_il_vw_bora_mk4"
+        ],
+        "engine": [
+          "icar_il_vw_bora_mk4"
+        ],
+        "transmission": [
+          "icar_il_vw_bora_mk4"
+        ],
+        "fuel_type": [
+          "icar_il_vw_bora_mk4"
+        ],
+        "drivetrain": [
+          "icar_il_vw_bora_mk4"
+        ],
+        "generation": [
+          "icar_il_vw_bora_mk4"
+        ],
+        "year_start": [
+          "icar_il_vw_bora_mk4"
+        ],
+        "year_end": [
+          "icar_il_vw_bora_mk4"
+        ],
+        "trim": [
+          "icar_il_vw_bora_mk4"
+        ]
+      },
+      "variant_id": "volkswagen_jetta_1999_2005_il_confirmed_mk4_1_6l_mpi_100_hp_4_speed_automatic_sedan_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Volkswagen",
+      "model": "Jetta",
+      "global_model_name": "Jetta Mk5",
+      "official_marketed_name_il": "Volkswagen Jetta",
+      "local_brand_name_il": "Volkswagen",
+      "alternate_names": [
+        "Jetta Mk5"
+      ],
+      "rebadged_as": null,
+      "year_start": 2006,
+      "year_end": 2010,
+      "generation": "Mk5",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "1.6L MPI, 102 hp",
+      "transmission": "6-speed Tiptronic AT",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "Trendline",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Mk5 generation returned to the Jetta name globally and in Israel. 1.6L MPI with 6-speed Tiptronic was the base fleet and consumer variant.",
+      "source_ids": [
+        "icar_il_vw_jetta_mk5",
+        "champion_motors_il_archive"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_vw_jetta_mk5"
+        ],
+        "seats": [
+          "icar_il_vw_jetta_mk5"
+        ],
+        "engine": [
+          "icar_il_vw_jetta_mk5"
+        ],
+        "transmission": [
+          "icar_il_vw_jetta_mk5"
+        ],
+        "fuel_type": [
+          "icar_il_vw_jetta_mk5"
+        ],
+        "drivetrain": [
+          "icar_il_vw_jetta_mk5"
+        ],
+        "generation": [
+          "icar_il_vw_jetta_mk5"
+        ],
+        "year_start": [
+          "icar_il_vw_jetta_mk5"
+        ],
+        "year_end": [
+          "icar_il_vw_jetta_mk5"
+        ],
+        "trim": [
+          "icar_il_vw_jetta_mk5"
+        ]
+      },
+      "variant_id": "volkswagen_jetta_2006_2010_il_confirmed_mk5_1_6l_mpi_102_hp_6_speed_tiptronic_at_sedan_petrol"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Volkswagen",
+      "model": "Jetta",
+      "global_model_name": "Jetta Mk5",
+      "official_marketed_name_il": "Volkswagen Jetta",
+      "local_brand_name_il": "Volkswagen",
+      "alternate_names": [
+        "Jetta Mk5"
+      ],
+      "rebadged_as": null,
+      "year_start": 2008,
+      "year_end": 2010,
+      "generation": "Mk5",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "1.4L TSI, 122 hp",
+      "transmission": "7-speed DCT (DSG)",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "Comfortline",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Late Mk5 generation in Israel introduced the 1.4 TSI engine with 7-speed DSG, verified via Israeli spec databases.",
+      "source_ids": [
+        "icar_il_vw_jetta_mk5"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_vw_jetta_mk5"
+        ],
+        "seats": [
+          "icar_il_vw_jetta_mk5"
+        ],
+        "engine": [
+          "icar_il_vw_jetta_mk5"
+        ],
+        "transmission": [
+          "icar_il_vw_jetta_mk5"
+        ],
+        "fuel_type": [
+          "icar_il_vw_jetta_mk5"
+        ],
+        "drivetrain": [
+          "icar_il_vw_jetta_mk5"
+        ],
+        "generation": [
+          "icar_il_vw_jetta_mk5"
+        ],
+        "year_start": [
+          "icar_il_vw_jetta_mk5"
+        ],
+        "year_end": [
+          "icar_il_vw_jetta_mk5"
+        ],
+        "trim": [
+          "icar_il_vw_jetta_mk5"
+        ]
+      },
+      "variant_id": "volkswagen_jetta_2008_2010_il_confirmed_mk5_1_4l_tsi_122_hp_7_speed_dct_dsg_sedan_petrol"
+    },
+    {
+      "candidate_index": 3,
+      "make": "Volkswagen",
+      "model": "Jetta",
+      "global_model_name": "Jetta Mk6",
+      "official_marketed_name_il": "Volkswagen Jetta",
+      "local_brand_name_il": "Volkswagen",
+      "alternate_names": [
+        "Jetta Mk6"
+      ],
+      "rebadged_as": null,
+      "year_start": 2011,
+      "year_end": 2014,
+      "generation": "Mk6",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "1.2L TSI, 105 hp",
+      "transmission": "7-speed DCT (DSG)",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "Trendline",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Mk6 entry level for the Israeli market featured the 1.2 TSI. Discontinued mid-cycle.",
+      "source_ids": [
+        "icar_il_vw_jetta_mk6"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_vw_jetta_mk6"
+        ],
+        "seats": [
+          "icar_il_vw_jetta_mk6"
+        ],
+        "engine": [
+          "icar_il_vw_jetta_mk6"
+        ],
+        "transmission": [
+          "icar_il_vw_jetta_mk6"
+        ],
+        "fuel_type": [
+          "icar_il_vw_jetta_mk6"
+        ],
+        "drivetrain": [
+          "icar_il_vw_jetta_mk6"
+        ],
+        "generation": [
+          "icar_il_vw_jetta_mk6"
+        ],
+        "year_start": [
+          "icar_il_vw_jetta_mk6"
+        ],
+        "year_end": [
+          "icar_il_vw_jetta_mk6"
+        ],
+        "trim": [
+          "icar_il_vw_jetta_mk6"
+        ]
+      },
+      "variant_id": "volkswagen_jetta_2011_2014_il_confirmed_mk6_1_2l_tsi_105_hp_7_speed_dct_dsg_sedan_petrol"
+    },
+    {
+      "candidate_index": 4,
+      "make": "Volkswagen",
+      "model": "Jetta",
+      "global_model_name": "Jetta Mk6",
+      "official_marketed_name_il": "Volkswagen Jetta",
+      "local_brand_name_il": "Volkswagen",
+      "alternate_names": [
+        "Jetta Mk6"
+      ],
+      "rebadged_as": null,
+      "year_start": 2011,
+      "year_end": 2018,
+      "generation": "Mk6",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "1.4L TSI, 122-125 hp",
+      "transmission": "7-speed DCT (DSG)",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "Comfortline",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "High volume variant for Mk6 in Israel. Power bumped from 122hp to 125hp during its lifespan.",
+      "source_ids": [
+        "icar_il_vw_jetta_mk6",
+        "champion_motors_il_archive"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_vw_jetta_mk6"
+        ],
+        "seats": [
+          "icar_il_vw_jetta_mk6"
+        ],
+        "engine": [
+          "icar_il_vw_jetta_mk6"
+        ],
+        "transmission": [
+          "icar_il_vw_jetta_mk6"
+        ],
+        "fuel_type": [
+          "icar_il_vw_jetta_mk6"
+        ],
+        "drivetrain": [
+          "icar_il_vw_jetta_mk6"
+        ],
+        "generation": [
+          "icar_il_vw_jetta_mk6"
+        ],
+        "year_start": [
+          "icar_il_vw_jetta_mk6"
+        ],
+        "year_end": [
+          "icar_il_vw_jetta_mk6"
+        ],
+        "trim": [
+          "icar_il_vw_jetta_mk6"
+        ]
+      },
+      "variant_id": "volkswagen_jetta_2011_2018_il_confirmed_mk6_1_4l_tsi_122_125_hp_7_speed_dct_dsg_sedan_petrol"
+    },
+    {
+      "candidate_index": 5,
+      "make": "Volkswagen",
+      "model": "Jetta",
+      "global_model_name": "Jetta Mk7",
+      "official_marketed_name_il": "Volkswagen Jetta",
+      "local_brand_name_il": "Volkswagen",
+      "alternate_names": [
+        "Jetta Mk7"
+      ],
+      "rebadged_as": null,
+      "year_start": 2019,
+      "year_end": 2021,
+      "generation": "Mk7",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "1.4L TSI, 150 hp",
+      "transmission": "8-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "Comfortline Plus",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Mk7 launched in Israel mid-2019 imported from the NA/Mexico factory, uniquely featuring an Aisin 8-speed automatic rather than DSG. Withdrawn from the market around 2021.",
+      "source_ids": [
+        "cartube_il_vw_jetta_mk7_2019",
+        "champion_motors_il_archive"
+      ],
+      "field_sources": {
+        "body_type": [
+          "cartube_il_vw_jetta_mk7_2019"
+        ],
+        "seats": [
+          "cartube_il_vw_jetta_mk7_2019"
+        ],
+        "engine": [
+          "cartube_il_vw_jetta_mk7_2019"
+        ],
+        "transmission": [
+          "cartube_il_vw_jetta_mk7_2019"
+        ],
+        "fuel_type": [
+          "cartube_il_vw_jetta_mk7_2019"
+        ],
+        "drivetrain": [
+          "cartube_il_vw_jetta_mk7_2019"
+        ],
+        "generation": [
+          "cartube_il_vw_jetta_mk7_2019"
+        ],
+        "year_start": [
+          "cartube_il_vw_jetta_mk7_2019"
+        ],
+        "year_end": [
+          "champion_motors_il_archive"
+        ],
+        "trim": [
+          "cartube_il_vw_jetta_mk7_2019"
+        ]
+      },
+      "variant_id": "volkswagen_jetta_2019_2021_il_confirmed_mk7_1_4l_tsi_150_hp_8_speed_automatic_sedan_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Volkswagen",
+      "model": "Bora",
+      "global_model_name": "Volkswagen Bora",
+      "official_marketed_name_il": "Volkswagen Bora",
+      "local_brand_name_il": "Volkswagen",
+      "alternate_names": [
+        "Volkswagen Jetta Mk4"
+      ],
+      "rebadged_as": null,
+      "year_start": 1999,
+      "year_end": 2005,
+      "generation": "Mk4 (1J)",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "1.6L inline-4 petrol",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli automotive catalogs (auto.co.il) and price lists (Levi Itzhak) confirm the 1.6L petrol automatic sedan as one of the most popular configurations in Israel from 1999-2005. Name verified as Bora, differentiating from the North American Jetta Mk4.",
+      "source_ids": [
+        "auto_co_il_vw_bora_catalog",
+        "levi_itzhak_vw_bora_il",
+        "vw_global_bora_1j_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "auto_co_il_vw_bora_catalog"
+        ],
+        "seats": [
+          "vw_global_bora_1j_specs"
+        ],
+        "engine": [
+          "auto_co_il_vw_bora_catalog"
+        ],
+        "transmission": [
+          "auto_co_il_vw_bora_catalog",
+          "levi_itzhak_vw_bora_il"
+        ],
+        "fuel_type": [
+          "auto_co_il_vw_bora_catalog",
+          "levi_itzhak_vw_bora_il"
+        ],
+        "drivetrain": [
+          "vw_global_bora_1j_specs"
+        ],
+        "generation": [
+          "vw_global_bora_1j_specs"
+        ],
+        "year_start": [
+          "auto_co_il_vw_bora_catalog"
+        ],
+        "year_end": [
+          "auto_co_il_vw_bora_catalog"
+        ],
+        "trim": []
+      },
+      "variant_id": "volkswagen_bora_1999_2005_il_confirmed_mk4_1j_1_6l_inline_4_petrol_4_speed_automatic_sedan_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Volkswagen",
+      "model": "Bora",
+      "global_model_name": "Volkswagen Bora",
+      "official_marketed_name_il": "Volkswagen Bora",
+      "local_brand_name_il": "Volkswagen",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 1999,
+      "year_end": 2005,
+      "generation": "Mk4 (1J)",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "1.6L inline-4 petrol",
+      "transmission": "5-speed manual",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Manual transmission 1.6L version confirmed in Israeli catalogs alongside the automatic variant.",
+      "source_ids": [
+        "auto_co_il_vw_bora_catalog",
+        "levi_itzhak_vw_bora_il"
+      ],
+      "field_sources": {
+        "body_type": [
+          "auto_co_il_vw_bora_catalog"
+        ],
+        "seats": [
+          "vw_global_bora_1j_specs"
+        ],
+        "engine": [
+          "auto_co_il_vw_bora_catalog"
+        ],
+        "transmission": [
+          "auto_co_il_vw_bora_catalog"
+        ],
+        "fuel_type": [
+          "auto_co_il_vw_bora_catalog"
+        ],
+        "drivetrain": [
+          "vw_global_bora_1j_specs"
+        ],
+        "generation": [
+          "vw_global_bora_1j_specs"
+        ],
+        "year_start": [
+          "auto_co_il_vw_bora_catalog"
+        ],
+        "year_end": [
+          "auto_co_il_vw_bora_catalog"
+        ],
+        "trim": []
+      },
+      "variant_id": "volkswagen_bora_1999_2005_il_confirmed_mk4_1j_1_6l_inline_4_petrol_5_speed_manual_sedan_petrol"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Volkswagen",
+      "model": "Bora",
+      "global_model_name": "Volkswagen Bora",
+      "official_marketed_name_il": "Volkswagen Bora",
+      "local_brand_name_il": "Volkswagen",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 1999,
+      "year_end": 2005,
+      "generation": "Mk4 (1J)",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "2.0L inline-4 petrol",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "IL market catalogs confirm the 2.0L petrol engine was officially marketed in Israel, commonly equipped with a 4-speed automatic.",
+      "source_ids": [
+        "auto_co_il_vw_bora_catalog",
+        "levi_itzhak_vw_bora_il",
+        "vw_global_bora_1j_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "auto_co_il_vw_bora_catalog"
+        ],
+        "seats": [
+          "vw_global_bora_1j_specs"
+        ],
+        "engine": [
+          "auto_co_il_vw_bora_catalog"
+        ],
+        "transmission": [
+          "auto_co_il_vw_bora_catalog"
+        ],
+        "fuel_type": [
+          "auto_co_il_vw_bora_catalog"
+        ],
+        "drivetrain": [
+          "vw_global_bora_1j_specs"
+        ],
+        "generation": [
+          "vw_global_bora_1j_specs"
+        ],
+        "year_start": [
+          "auto_co_il_vw_bora_catalog"
+        ],
+        "year_end": [
+          "auto_co_il_vw_bora_catalog"
+        ],
+        "trim": []
+      },
+      "variant_id": "volkswagen_bora_1999_2005_il_confirmed_mk4_1j_2_0l_inline_4_petrol_4_speed_automatic_sedan_petrol"
+    },
+    {
+      "candidate_index": 3,
+      "make": "Volkswagen",
+      "model": "Bora",
+      "global_model_name": "Volkswagen Bora",
+      "official_marketed_name_il": "Volkswagen Bora",
+      "local_brand_name_il": "Volkswagen",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 1999,
+      "year_end": 2005,
+      "generation": "Mk4 (1J)",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "1.9L inline-4 turbo diesel",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Diesel",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "1.9 TDI variant heavily utilized in Israel for both private and taxi markets. Confirmed via local listings and catalog records.",
+      "source_ids": [
+        "auto_co_il_vw_bora_catalog",
+        "levi_itzhak_vw_bora_il",
+        "vw_global_bora_1j_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "auto_co_il_vw_bora_catalog"
+        ],
+        "seats": [
+          "vw_global_bora_1j_specs"
+        ],
+        "engine": [
+          "auto_co_il_vw_bora_catalog"
+        ],
+        "transmission": [
+          "auto_co_il_vw_bora_catalog"
+        ],
+        "fuel_type": [
+          "auto_co_il_vw_bora_catalog"
+        ],
+        "drivetrain": [
+          "vw_global_bora_1j_specs"
+        ],
+        "generation": [
+          "vw_global_bora_1j_specs"
+        ],
+        "year_start": [
+          "auto_co_il_vw_bora_catalog"
+        ],
+        "year_end": [
+          "auto_co_il_vw_bora_catalog"
+        ],
+        "trim": []
+      },
+      "variant_id": "volkswagen_bora_1999_2005_il_confirmed_mk4_1j_1_9l_inline_4_turbo_diesel_4_speed_automatic_sedan_diesel"
+    },
+    {
+      "candidate_index": 4,
+      "make": "Volkswagen",
+      "model": "Bora",
+      "global_model_name": "Volkswagen Bora Variant",
+      "official_marketed_name_il": "Volkswagen Bora Variant",
+      "local_brand_name_il": "Volkswagen",
+      "alternate_names": [
+        "Bora Station"
+      ],
+      "rebadged_as": null,
+      "year_start": 2000,
+      "year_end": 2005,
+      "generation": "Mk4 (1J)",
+      "body_type": "Station Wagon",
+      "seats": 5,
+      "engine": "1.6L inline-4 petrol",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "medium",
+      "source_basis": "The Station Wagon variant (officially known globally and locally as Variant) was available in Israel in limited quantities, mainly with the base 1.6L powertrain. Confidence medium on exact transmission availability compared to sedan.",
+      "source_ids": [
+        "auto_co_il_vw_bora_catalog",
+        "levi_itzhak_vw_bora_il"
+      ],
+      "field_sources": {
+        "body_type": [
+          "auto_co_il_vw_bora_catalog"
+        ],
+        "seats": [
+          "vw_global_bora_1j_specs"
+        ],
+        "engine": [
+          "auto_co_il_vw_bora_catalog"
+        ],
+        "transmission": [
+          "auto_co_il_vw_bora_catalog"
+        ],
+        "fuel_type": [
+          "auto_co_il_vw_bora_catalog"
+        ],
+        "drivetrain": [
+          "vw_global_bora_1j_specs"
+        ],
+        "generation": [
+          "vw_global_bora_1j_specs"
+        ],
+        "year_start": [
+          "vw_global_bora_1j_specs"
+        ],
+        "year_end": [
+          "auto_co_il_vw_bora_catalog"
+        ],
+        "trim": []
+      },
+      "variant_id": "volkswagen_bora_2000_2005_il_confirmed_mk4_1j_1_6l_inline_4_petrol_4_speed_automatic_station_wagon_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -438572,17 +439264,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1566,
-    "variants": 1566,
+    "total_variants": 1577,
+    "variants": 1577,
     "verified": 788,
-    "partial": 778,
+    "partial": 789,
     "makes_count": 40,
-    "models_count": 447,
-    "processed_seeds": 443,
+    "models_count": 449,
+    "processed_seeds": 445,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-22T15:01:42.167321+00:00"
+    "last_updated_at": "2026-05-22T15:31:13.916770+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
