@@ -452,8 +452,7 @@
       "volkswagen__golf_variant__1993__2026__il",
       "volkswagen__golf_plus__2005__2020__il",
       "gac_-_aion__aion_y__2023__2026__il",
-      "gac_-_aion__aion_v__2024__2026__il",
-      "geely__coolray__2023__2026__il"
+      "gac_-_aion__aion_v__2024__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1441,25 +1440,10 @@
         "resolved_at": "2026-05-14T21:18:36.845011+00:00"
       },
       "geely__coolray__2023__2026__il": {
-        "seed_id": "geely__coolray__2023__2026__il",
-        "variants_added_to_canonical": 0,
-        "variants_deduped_or_merged": 0,
-        "dedupe_proof": [],
-        "no_variants_reason": "model_not_sold_in_market",
-        "marked_processed": true,
-        "status": "resolved",
-        "resolved_at": "2026-05-16T19:50:49.827200+00:00",
-        "zero_variant_resolution": {
-          "resolved": true,
-          "reason": "model_not_sold_in_market",
-          "proof_status": "proven",
-          "source_ids": [
-            "src_walla_cars",
-            "src_autoboom_il"
-          ],
-          "source_basis": "Multiple Israeli automotive sources explicitly state that the Geely Coolray is not sold in Israel.",
-          "confidence": "high"
-        }
+        "status": "manual_review",
+        "reason": "migrated_from_v2_invalid_proof",
+        "previous_resolution_type": "unknown",
+        "migrated_at": null
       },
       "hyundai__ioniq_6__2023__2026__il": {
         "seed_id": "hyundai__ioniq_6__2023__2026__il",
@@ -1814,6 +1798,13 @@
         "marked_processed": true,
         "status": "resolved",
         "resolved_at": "2026-05-16T18:30:52.705347+00:00"
+      },
+      "volkswagen__jetta__1990__2026__il": {
+        "status": "failed_invariant",
+        "reason": "accept_variants_zero_mutation",
+        "added_count": 0,
+        "merged_count": 0,
+        "failed_at": "2026-05-22T15:01:42.167285+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -2623,7 +2614,10 @@
       "haval__h6__2022__2026__il"
     ],
     "active_mode": "rerun_queue_required",
-    "rerun_queue_path": "data/output/rerun_queue.json"
+    "rerun_queue_path": "data/output/rerun_queue.json",
+    "manual_review_seed_ids": [
+      "geely__coolray__2023__2026__il"
+    ]
   },
   "run_history": [],
   "verified_variants": [
@@ -438579,16 +438573,16 @@
   },
   "counts": {
     "total_variants": 1566,
+    "variants": 1566,
     "verified": 788,
     "partial": 778,
     "makes_count": 40,
     "models_count": 447,
-    "unresolved": 1,
-    "processed_seeds": 444,
+    "processed_seeds": 443,
     "needs_retry_seeds": 3,
-    "variants": 1566,
     "total_seeds": 993,
-    "last_updated_at": "2026-05-16T19:50:49.840248+00:00"
+    "unresolved": 1,
+    "last_updated_at": "2026-05-22T15:01:42.167321+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
