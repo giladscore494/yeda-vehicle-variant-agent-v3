@@ -477,7 +477,8 @@
       "volkswagen__caddy__1996__2026__il",
       "toyota__yaris__1999__2026__il",
       "toyota__yaris_cross__2021__2026__il",
-      "toyota__corolla__1992__2026__il"
+      "toyota__corolla__1992__2026__il",
+      "toyota__corolla_cross__2022__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -930,8 +931,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "toyota__corolla__1992__2026__il",
-    "next_seed_id": "toyota__corolla_cross__2022__2026__il",
+    "last_completed_seed_id": "toyota__corolla_cross__2022__2026__il",
+    "next_seed_id": "toyota__auris__2006__2018__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2023,6 +2024,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-22T18:25:46.577084+00:00"
+      },
+      "toyota__corolla_cross__2022__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 1,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-22T18:26:21.524933+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -227729,6 +227738,75 @@
         ]
       },
       "variant_id": "toyota_corolla_2019_2026_il_confirmed_e21_1_8l_hybrid_e_cvt_wagon_hybrid"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Toyota",
+      "model": "Corolla Cross",
+      "global_model_name": "Toyota Corolla Cross",
+      "official_marketed_name_il": "Toyota Corolla Cross",
+      "local_brand_name_il": "Toyota",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2022,
+      "year_end": 2026,
+      "generation": "1st Gen (XG10)",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "1.8L Hybrid, 140 hp",
+      "transmission": "e-CVT",
+      "fuel_type": "Hybrid",
+      "drivetrain": "FWD",
+      "trim": "Active",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Official Israeli importer (Union Motors) launched the Corolla Cross in September 2022 exclusively with the 5th-gen 1.8L Hybrid (140 hp) and FWD. Trims noted in IL: Active, Dynamic, Adventure. Active used as the representative base trim.",
+      "source_ids": [
+        "toyota_il_official_corolla_cross",
+        "icar_il_corolla_cross_2022",
+        "cartube_il_corolla_cross_launch"
+      ],
+      "field_sources": {
+        "body_type": [
+          "toyota_il_official_corolla_cross"
+        ],
+        "seats": [
+          "toyota_il_official_corolla_cross"
+        ],
+        "engine": [
+          "toyota_il_official_corolla_cross",
+          "icar_il_corolla_cross_2022",
+          "cartube_il_corolla_cross_launch"
+        ],
+        "transmission": [
+          "toyota_il_official_corolla_cross"
+        ],
+        "fuel_type": [
+          "toyota_il_official_corolla_cross",
+          "icar_il_corolla_cross_2022"
+        ],
+        "drivetrain": [
+          "toyota_il_official_corolla_cross",
+          "cartube_il_corolla_cross_launch"
+        ],
+        "generation": [
+          "icar_il_corolla_cross_2022",
+          "cartube_il_corolla_cross_launch"
+        ],
+        "year_start": [
+          "icar_il_corolla_cross_2022",
+          "cartube_il_corolla_cross_launch"
+        ],
+        "year_end": [
+          "icar_il_corolla_cross_2022"
+        ],
+        "trim": [
+          "toyota_il_official_corolla_cross",
+          "icar_il_corolla_cross_2022"
+        ]
+      },
+      "variant_id": "toyota_corolla_cross_2022_2026_il_confirmed_1st_gen_xg10_1_8l_hybrid_140_hp_e_cvt_suv_hybrid"
     }
   ],
   "accumulated_clean_export": {
@@ -445739,17 +445817,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1681,
-    "variants": 1681,
+    "total_variants": 1682,
+    "variants": 1682,
     "verified": 788,
-    "partial": 893,
+    "partial": 894,
     "makes_count": 40,
-    "models_count": 472,
-    "processed_seeds": 468,
+    "models_count": 473,
+    "processed_seeds": 469,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-22T18:25:46.582744+00:00"
+    "last_updated_at": "2026-05-22T18:26:21.528716+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
