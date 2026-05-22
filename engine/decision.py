@@ -13,6 +13,8 @@ from core.variant_id import generate_variant_id
 
 logger = logging.getLogger(__name__)
 
+_DEFAULT_MARKET = "il"
+
 
 def _quality_filter(candidates: list[dict]) -> list[dict]:
     """Filter out candidates that are obviously invalid."""
@@ -54,7 +56,7 @@ def _ensure_variant_ids(candidates: list[dict]) -> tuple[list[dict], list[str]]:
             model=c["model"],
             year_start=c["year_start"],
             year_end=c["year_end"],
-            market=c.get("market_scope") or c.get("market") or "il",
+            market=c.get("market_scope") or c.get("market") or _DEFAULT_MARKET,
             generation=c.get("generation"),
             engine=c.get("engine"),
             transmission=c.get("transmission"),
