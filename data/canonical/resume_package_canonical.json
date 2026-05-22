@@ -483,7 +483,8 @@
       "toyota__camry__1990__2026__il",
       "toyota__prius__2000__2026__il",
       "toyota__prius+__2012__2021__il",
-      "toyota__c-hr__2017__2026__il"
+      "toyota__c-hr__2017__2026__il",
+      "toyota__rav4__1994__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -936,8 +937,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "toyota__c-hr__2017__2026__il",
-    "next_seed_id": "toyota__rav4__1994__2026__il",
+    "last_completed_seed_id": "toyota__rav4__1994__2026__il",
+    "next_seed_id": "toyota__land_cruiser__1991__2026__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2077,6 +2078,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-22T18:30:52.701574+00:00"
+      },
+      "toyota__rav4__1994__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 8,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-22T18:32:01.701913+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -229271,6 +229280,508 @@
         "trim": []
       },
       "variant_id": "toyota_c_hr_2024_2026_il_confirmed_2nd_gen_ax20_1_8l_2zr_fxe_5th_gen_hybrid_140_hp_e_cvt_crossover_hybrid"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Toyota",
+      "model": "RAV4",
+      "global_model_name": "RAV4",
+      "official_marketed_name_il": "Toyota RAV4",
+      "local_brand_name_il": "Toyota",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 1994,
+      "year_end": 2000,
+      "generation": "XA10",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "2.0L petrol, 129 hp",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "AWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli databases confirm the 1st generation (XA10) 5-door was sold locally with the 2.0L engine and automatic transmission.",
+      "source_ids": [
+        "icar_il_rav4_database",
+        "yad2_il_rav4_history"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_rav4_database"
+        ],
+        "seats": [
+          "icar_il_rav4_database"
+        ],
+        "engine": [
+          "icar_il_rav4_database"
+        ],
+        "transmission": [
+          "icar_il_rav4_database"
+        ],
+        "fuel_type": [
+          "icar_il_rav4_database"
+        ],
+        "drivetrain": [
+          "icar_il_rav4_database"
+        ],
+        "generation": [
+          "icar_il_rav4_database"
+        ],
+        "year_start": [
+          "icar_il_rav4_database",
+          "yad2_il_rav4_history"
+        ],
+        "year_end": [
+          "icar_il_rav4_database",
+          "yad2_il_rav4_history"
+        ],
+        "trim": []
+      },
+      "variant_id": "toyota_rav4_1994_2000_il_confirmed_xa10_2_0l_petrol_129_hp_4_speed_automatic_suv_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Toyota",
+      "model": "RAV4",
+      "global_model_name": "RAV4",
+      "official_marketed_name_il": "Toyota RAV4",
+      "local_brand_name_il": "Toyota",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2000,
+      "year_end": 2005,
+      "generation": "XA20",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "2.0L petrol, 150 hp",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "AWD",
+      "trim": "GLI",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "iCar and Yad2 list XA20 2nd generation as highly popular in Israel, standard with full-time AWD and 150 hp 2.0L petrol. GLI was the prominent trim.",
+      "source_ids": [
+        "icar_il_rav4_database",
+        "yad2_il_rav4_history"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_rav4_database"
+        ],
+        "seats": [
+          "icar_il_rav4_database"
+        ],
+        "engine": [
+          "icar_il_rav4_database"
+        ],
+        "transmission": [
+          "icar_il_rav4_database"
+        ],
+        "fuel_type": [
+          "icar_il_rav4_database"
+        ],
+        "drivetrain": [
+          "icar_il_rav4_database"
+        ],
+        "generation": [
+          "icar_il_rav4_database"
+        ],
+        "year_start": [
+          "icar_il_rav4_database",
+          "yad2_il_rav4_history"
+        ],
+        "year_end": [
+          "icar_il_rav4_database",
+          "yad2_il_rav4_history"
+        ],
+        "trim": [
+          "icar_il_rav4_database"
+        ]
+      },
+      "variant_id": "toyota_rav4_2000_2005_il_confirmed_xa20_2_0l_petrol_150_hp_4_speed_automatic_suv_petrol"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Toyota",
+      "model": "RAV4",
+      "global_model_name": "RAV4",
+      "official_marketed_name_il": "Toyota RAV4",
+      "local_brand_name_il": "Toyota",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2006,
+      "year_end": 2012,
+      "generation": "XA30",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "2.0L petrol, 152-158 hp",
+      "transmission": "CVT",
+      "fuel_type": "Petrol",
+      "drivetrain": "AWD",
+      "trim": "Premium",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "The XA30 3rd generation introduced standard CVT for the local market in its facelift versions. Sold predominantly with the 2.0L petrol in IL.",
+      "source_ids": [
+        "icar_il_rav4_database",
+        "yad2_il_rav4_history",
+        "cartube_il_rav4_reviews"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_rav4_database"
+        ],
+        "seats": [
+          "icar_il_rav4_database"
+        ],
+        "engine": [
+          "icar_il_rav4_database"
+        ],
+        "transmission": [
+          "icar_il_rav4_database",
+          "cartube_il_rav4_reviews"
+        ],
+        "fuel_type": [
+          "icar_il_rav4_database"
+        ],
+        "drivetrain": [
+          "icar_il_rav4_database"
+        ],
+        "generation": [
+          "icar_il_rav4_database"
+        ],
+        "year_start": [
+          "icar_il_rav4_database"
+        ],
+        "year_end": [
+          "icar_il_rav4_database"
+        ],
+        "trim": [
+          "icar_il_rav4_database"
+        ]
+      },
+      "variant_id": "toyota_rav4_2006_2012_il_confirmed_xa30_2_0l_petrol_152_158_hp_cvt_suv_petrol"
+    },
+    {
+      "candidate_index": 3,
+      "make": "Toyota",
+      "model": "RAV4",
+      "global_model_name": "RAV4",
+      "official_marketed_name_il": "Toyota RAV4",
+      "local_brand_name_il": "Toyota",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2013,
+      "year_end": 2018,
+      "generation": "XA40",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "2.0L petrol, 151 hp",
+      "transmission": "CVT",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "GLI",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "XA40 (4th Gen) 2.0L petrol introduced widely with 2WD configurations to lower entry price in Israel, alongside AWD options.",
+      "source_ids": [
+        "icar_il_rav4_database",
+        "cartube_il_rav4_reviews"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_rav4_database"
+        ],
+        "seats": [
+          "icar_il_rav4_database"
+        ],
+        "engine": [
+          "icar_il_rav4_database"
+        ],
+        "transmission": [
+          "icar_il_rav4_database"
+        ],
+        "fuel_type": [
+          "icar_il_rav4_database"
+        ],
+        "drivetrain": [
+          "icar_il_rav4_database",
+          "cartube_il_rav4_reviews"
+        ],
+        "generation": [
+          "icar_il_rav4_database"
+        ],
+        "year_start": [
+          "icar_il_rav4_database"
+        ],
+        "year_end": [
+          "icar_il_rav4_database"
+        ],
+        "trim": [
+          "icar_il_rav4_database"
+        ]
+      },
+      "variant_id": "toyota_rav4_2013_2018_il_confirmed_xa40_2_0l_petrol_151_hp_cvt_suv_petrol"
+    },
+    {
+      "candidate_index": 4,
+      "make": "Toyota",
+      "model": "RAV4",
+      "global_model_name": "RAV4",
+      "official_marketed_name_il": "Toyota RAV4",
+      "local_brand_name_il": "Toyota",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2016,
+      "year_end": 2018,
+      "generation": "XA40",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "2.5L hybrid, 197 hp",
+      "transmission": "e-CVT",
+      "fuel_type": "Hybrid",
+      "drivetrain": "AWD",
+      "trim": "Premium",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "The mid-cycle update for XA40 brought the 2.5L Hybrid system to Israel. Confirmed extensively by local automotive reviews and specifications.",
+      "source_ids": [
+        "icar_il_rav4_database",
+        "cartube_il_rav4_reviews"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_rav4_database"
+        ],
+        "seats": [
+          "icar_il_rav4_database"
+        ],
+        "engine": [
+          "icar_il_rav4_database",
+          "cartube_il_rav4_reviews"
+        ],
+        "transmission": [
+          "icar_il_rav4_database"
+        ],
+        "fuel_type": [
+          "icar_il_rav4_database",
+          "cartube_il_rav4_reviews"
+        ],
+        "drivetrain": [
+          "icar_il_rav4_database"
+        ],
+        "generation": [
+          "icar_il_rav4_database"
+        ],
+        "year_start": [
+          "cartube_il_rav4_reviews",
+          "icar_il_rav4_database"
+        ],
+        "year_end": [
+          "icar_il_rav4_database"
+        ],
+        "trim": [
+          "icar_il_rav4_database"
+        ]
+      },
+      "variant_id": "toyota_rav4_2016_2018_il_confirmed_xa40_2_5l_hybrid_197_hp_e_cvt_suv_hybrid"
+    },
+    {
+      "candidate_index": 5,
+      "make": "Toyota",
+      "model": "RAV4",
+      "global_model_name": "RAV4",
+      "official_marketed_name_il": "Toyota RAV4",
+      "local_brand_name_il": "Toyota",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2019,
+      "year_end": 2026,
+      "generation": "XA50",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "2.0L petrol, 175 hp",
+      "transmission": "CVT",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "Experience",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Official Toyota Israel website confirms current generation (XA50) availability with the 2.0L naturally aspirated petrol engine in 2WD.",
+      "source_ids": [
+        "toyota_il_official",
+        "icar_il_rav4_database"
+      ],
+      "field_sources": {
+        "body_type": [
+          "toyota_il_official"
+        ],
+        "seats": [
+          "toyota_il_official"
+        ],
+        "engine": [
+          "toyota_il_official",
+          "icar_il_rav4_database"
+        ],
+        "transmission": [
+          "toyota_il_official"
+        ],
+        "fuel_type": [
+          "toyota_il_official"
+        ],
+        "drivetrain": [
+          "toyota_il_official"
+        ],
+        "generation": [
+          "icar_il_rav4_database"
+        ],
+        "year_start": [
+          "icar_il_rav4_database"
+        ],
+        "year_end": [
+          "toyota_il_official"
+        ],
+        "trim": [
+          "toyota_il_official"
+        ]
+      },
+      "variant_id": "toyota_rav4_2019_2026_il_confirmed_xa50_2_0l_petrol_175_hp_cvt_suv_petrol"
+    },
+    {
+      "candidate_index": 6,
+      "make": "Toyota",
+      "model": "RAV4",
+      "global_model_name": "RAV4",
+      "official_marketed_name_il": "Toyota RAV4",
+      "local_brand_name_il": "Toyota",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2019,
+      "year_end": 2026,
+      "generation": "XA50",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "2.5L hybrid, 218 hp",
+      "transmission": "e-CVT",
+      "fuel_type": "Hybrid",
+      "drivetrain": "FWD",
+      "trim": "E-Motion",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "The 2.5L Hybrid (FWD) is the volume seller for XA50 in Israel. Trims often marketed with 'E-' prefix such as E-Motion and E-Xperience.",
+      "source_ids": [
+        "toyota_il_official",
+        "cartube_il_rav4_reviews"
+      ],
+      "field_sources": {
+        "body_type": [
+          "toyota_il_official"
+        ],
+        "seats": [
+          "toyota_il_official"
+        ],
+        "engine": [
+          "toyota_il_official",
+          "cartube_il_rav4_reviews"
+        ],
+        "transmission": [
+          "toyota_il_official"
+        ],
+        "fuel_type": [
+          "toyota_il_official",
+          "cartube_il_rav4_reviews"
+        ],
+        "drivetrain": [
+          "toyota_il_official"
+        ],
+        "generation": [
+          "cartube_il_rav4_reviews"
+        ],
+        "year_start": [
+          "cartube_il_rav4_reviews"
+        ],
+        "year_end": [
+          "toyota_il_official"
+        ],
+        "trim": [
+          "toyota_il_official"
+        ]
+      },
+      "variant_id": "toyota_rav4_2019_2026_il_confirmed_xa50_2_5l_hybrid_218_hp_e_cvt_suv_hybrid"
+    },
+    {
+      "candidate_index": 7,
+      "make": "Toyota",
+      "model": "RAV4",
+      "global_model_name": "RAV4",
+      "official_marketed_name_il": "Toyota RAV4",
+      "local_brand_name_il": "Toyota",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2021,
+      "year_end": 2026,
+      "generation": "XA50",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "2.5L plug-in hybrid, 306 hp",
+      "transmission": "e-CVT",
+      "fuel_type": "Plug-in Hybrid",
+      "drivetrain": "AWD",
+      "trim": "E-Motion",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Plug-in hybrid RAV4 arrived in Israel later (around 2021) offering 306 hp combined output with standard AWD (E-Four).",
+      "source_ids": [
+        "toyota_il_official",
+        "cartube_il_rav4_reviews"
+      ],
+      "field_sources": {
+        "body_type": [
+          "toyota_il_official"
+        ],
+        "seats": [
+          "toyota_il_official"
+        ],
+        "engine": [
+          "toyota_il_official",
+          "cartube_il_rav4_reviews"
+        ],
+        "transmission": [
+          "toyota_il_official"
+        ],
+        "fuel_type": [
+          "toyota_il_official",
+          "cartube_il_rav4_reviews"
+        ],
+        "drivetrain": [
+          "toyota_il_official",
+          "cartube_il_rav4_reviews"
+        ],
+        "generation": [
+          "cartube_il_rav4_reviews"
+        ],
+        "year_start": [
+          "cartube_il_rav4_reviews"
+        ],
+        "year_end": [
+          "toyota_il_official"
+        ],
+        "trim": [
+          "toyota_il_official"
+        ]
+      },
+      "variant_id": "toyota_rav4_2021_2026_il_confirmed_xa50_2_5l_plug_in_hybrid_306_hp_e_cvt_suv_plug_in_hybrid"
     }
   ],
   "accumulated_clean_export": {
@@ -447281,17 +447792,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1706,
-    "variants": 1706,
+    "total_variants": 1714,
+    "variants": 1714,
     "verified": 788,
-    "partial": 918,
+    "partial": 926,
     "makes_count": 40,
-    "models_count": 477,
-    "processed_seeds": 474,
+    "models_count": 478,
+    "processed_seeds": 475,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-22T18:30:52.706930+00:00"
+    "last_updated_at": "2026-05-22T18:32:01.707106+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
