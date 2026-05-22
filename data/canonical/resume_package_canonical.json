@@ -506,7 +506,8 @@
       "toyota__sienna__2021__2026__il",
       "toyota__crown__2025__2026__il",
       "toyota__previa__1990__2000__il",
-      "toyota__carina_e__1992__1997__il"
+      "toyota__carina_e__1992__1997__il",
+      "toyota__corona__1990__1996__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -959,8 +960,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "toyota__carina_e__1992__1997__il",
-    "next_seed_id": "toyota__corona__1990__1996__il",
+    "last_completed_seed_id": "toyota__corona__1990__1996__il",
+    "next_seed_id": "toyota__celica__1990__2006__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2284,6 +2285,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-22T19:02:37.133814+00:00"
+      },
+      "toyota__corona__1990__1996__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 3,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-22T19:03:46.574092+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -234413,6 +234422,199 @@
         ]
       },
       "variant_id": "toyota_carina_e_1992_1997_il_confirmed_t190_1_6l_4a_fe_inline_4_petrol_107_hp_4_speed_automatic_hatchback_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Toyota",
+      "model": "Corona",
+      "global_model_name": "Toyota Corona",
+      "official_marketed_name_il": "Toyota Carina E",
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Toyota Carina"
+      ],
+      "rebadged_as": null,
+      "year_start": 1992,
+      "year_end": 1997,
+      "generation": "T190",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "1.6L 4A-FE I4",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "XLi",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "The T190 generation Toyota Corona was marketed in Israel in its European specification under the official name Toyota Carina E. The 1.6L XLi with a 4-speed automatic was a core variant for the Israeli market.",
+      "source_ids": [
+        "icar_il_toyota_carina_history",
+        "toyota_global_heritage_t190"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_toyota_carina_history"
+        ],
+        "seats": [
+          "toyota_global_heritage_t190"
+        ],
+        "engine": [
+          "icar_il_toyota_carina_history"
+        ],
+        "transmission": [
+          "icar_il_toyota_carina_history"
+        ],
+        "fuel_type": [
+          "icar_il_toyota_carina_history"
+        ],
+        "drivetrain": [
+          "toyota_global_heritage_t190"
+        ],
+        "generation": [
+          "icar_il_toyota_carina_history",
+          "toyota_global_heritage_t190"
+        ],
+        "year_start": [
+          "icar_il_toyota_carina_history"
+        ],
+        "year_end": [
+          "icar_il_toyota_carina_history"
+        ],
+        "trim": [
+          "icar_il_toyota_carina_history"
+        ]
+      },
+      "variant_id": "toyota_corona_1992_1997_il_confirmed_t190_1_6l_4a_fe_i4_4_speed_automatic_sedan_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Toyota",
+      "model": "Corona",
+      "global_model_name": "Toyota Corona",
+      "official_marketed_name_il": "Toyota Carina E",
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Toyota Carina"
+      ],
+      "rebadged_as": null,
+      "year_start": 1992,
+      "year_end": 1997,
+      "generation": "T190",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "2.0L 3S-FE I4",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "GLi",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli specifications confirm the availability of the higher-tier 2.0L GLi trim for the Carina E (T190 Corona equivalent) alongside the base 1.6L versions.",
+      "source_ids": [
+        "icar_il_toyota_carina_history",
+        "toyota_global_heritage_t190"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_toyota_carina_history"
+        ],
+        "seats": [
+          "toyota_global_heritage_t190"
+        ],
+        "engine": [
+          "icar_il_toyota_carina_history"
+        ],
+        "transmission": [
+          "icar_il_toyota_carina_history"
+        ],
+        "fuel_type": [
+          "icar_il_toyota_carina_history"
+        ],
+        "drivetrain": [
+          "toyota_global_heritage_t190"
+        ],
+        "generation": [
+          "icar_il_toyota_carina_history",
+          "toyota_global_heritage_t190"
+        ],
+        "year_start": [
+          "icar_il_toyota_carina_history"
+        ],
+        "year_end": [
+          "icar_il_toyota_carina_history"
+        ],
+        "trim": [
+          "icar_il_toyota_carina_history"
+        ]
+      },
+      "variant_id": "toyota_corona_1992_1997_il_confirmed_t190_2_0l_3s_fe_i4_4_speed_automatic_sedan_petrol"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Toyota",
+      "model": "Corona",
+      "global_model_name": "Toyota Corona",
+      "official_marketed_name_il": "Toyota Carina E",
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Toyota Carina"
+      ],
+      "rebadged_as": null,
+      "year_start": 1992,
+      "year_end": 1997,
+      "generation": "T190",
+      "body_type": "Liftback",
+      "seats": 5,
+      "engine": "1.6L 4A-FE I4",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "XLi",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "The 5-door Liftback variant of the Carina E (T190) was actively marketed in Israel, sharing identical powertrains with the Sedan.",
+      "source_ids": [
+        "icar_il_toyota_carina_history",
+        "toyota_global_heritage_t190"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_toyota_carina_history",
+          "toyota_global_heritage_t190"
+        ],
+        "seats": [
+          "toyota_global_heritage_t190"
+        ],
+        "engine": [
+          "icar_il_toyota_carina_history"
+        ],
+        "transmission": [
+          "icar_il_toyota_carina_history"
+        ],
+        "fuel_type": [
+          "icar_il_toyota_carina_history"
+        ],
+        "drivetrain": [
+          "toyota_global_heritage_t190"
+        ],
+        "generation": [
+          "icar_il_toyota_carina_history",
+          "toyota_global_heritage_t190"
+        ],
+        "year_start": [
+          "icar_il_toyota_carina_history"
+        ],
+        "year_end": [
+          "icar_il_toyota_carina_history"
+        ],
+        "trim": [
+          "icar_il_toyota_carina_history"
+        ]
+      },
+      "variant_id": "toyota_corona_1992_1997_il_confirmed_t190_1_6l_4a_fe_i4_4_speed_automatic_liftback_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -452423,17 +452625,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1787,
-    "variants": 1787,
+    "total_variants": 1790,
+    "variants": 1790,
     "verified": 788,
-    "partial": 999,
+    "partial": 1002,
     "makes_count": 40,
-    "models_count": 500,
-    "processed_seeds": 497,
+    "models_count": 501,
+    "processed_seeds": 498,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-22T19:02:37.140611+00:00"
+    "last_updated_at": "2026-05-22T19:03:46.581711+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
