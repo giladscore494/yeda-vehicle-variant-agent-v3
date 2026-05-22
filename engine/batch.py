@@ -124,6 +124,7 @@ def run_batch(
             tracker.set_stage("RELOADING_JSON")
             canonical = load_canonical(c_path)
             ensure_batch_state_fields(canonical)
+            bs = canonical["batch_state"]
 
             tracker.mark_saved(seed_id)
 

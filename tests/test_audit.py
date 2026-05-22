@@ -1,6 +1,8 @@
 """Tests for engine/audit.py."""
+import copy
 import pytest
 from engine.audit import audit_canonical
+from engine.state import repair_cursor
 
 
 def _make_valid_canonical():
@@ -160,3 +162,200 @@ class TestAudit:
         # The existing entry already has added_count=1, so it should pass
         ok, errs = audit_canonical(canonical)
         assert ok is True
+
+
+# ---------------------------------------------------------------------------
+# Helper: build a minimal seed catalog for cursor tests
+# ---------------------------------------------------------------------------
+
+def _make_seed(make: str, model: str, ys: int = 2020, ye: int = 2026) -> dict:
+    return {"make": make, "model": model, "year_start": ys, "year_end": ye, "market": "il"}
+
+
+def _seed_id(make: str, model: str, ys: int = 2020, ye: int = 2026) -> str:
+    return f"{make.lower()}__{model.lower()}__{ys}__{ye}__il"
+
+
+_CATALOG = [
+    _make_seed("Alpha", "A1"),
+    _make_seed("Alpha", "A2"),
+    _make_seed("Beta", "B1"),
+    _make_seed("Gamma", "G1"),
+    _make_seed("Delta", "D1"),
+]
+
+_CATALOG_IDS = [_seed_id(s["make"], s["model"]) for s in _CATALOG]
+
+
+def _make_canonical_with_cursor(
+    processed_ids: list[str],
+    manual_ids: list[str] | None = None,
+    failed_ids: list[str] | None = None,
+    next_seed_id: str | None = None,
+    last_completed_seed_id: str | None = None,
+) -> dict:
+    """Build a minimal canonical with cursor fields for testing."""
+    return {
+        "verified_variants": [
+            {"variant_id": "v1", "make": "BMW", "model": "3", "verification_status": "verified"}
+        ],
+        "partial_variants": [],
+        "batch_state": {
+            "processed_seed_ids": list(processed_ids),
+            "manual_review_seed_ids": list(manual_ids or []),
+            "failed_seed_ids": list(failed_ids or []),
+            "next_seed_id": next_seed_id,
+            "last_completed_seed_id": last_completed_seed_id,
+            "seed_accounting": {
+                sid: {"status": "resolved", "resolution_type": "variants_added",
+                      "added_count": 1, "merged_count": 0}
+                for sid in processed_ids
+            },
+        },
+        "counts": {"total_variants": 1},
+    }
+
+
+class TestCursorAuditRule:
+    """Audit must reject next_seed_id that is already processed/manual/failed."""
+
+    def test_next_seed_already_processed_fails_audit(self):
+        canonical = _make_canonical_with_cursor(
+            processed_ids=[_CATALOG_IDS[0], _CATALOG_IDS[1]],
+            next_seed_id=_CATALOG_IDS[1],  # already processed
+            last_completed_seed_id=_CATALOG_IDS[0],
+        )
+        ok, errs = audit_canonical(canonical)
+        assert ok is False
+        assert any("next_seed_id_already_processed" in e for e in errs)
+
+    def test_next_seed_in_manual_fails_audit(self):
+        canonical = _make_canonical_with_cursor(
+            processed_ids=[_CATALOG_IDS[0]],
+            manual_ids=[_CATALOG_IDS[1]],
+            next_seed_id=_CATALOG_IDS[1],
+        )
+        ok, errs = audit_canonical(canonical)
+        assert ok is False
+        assert any("next_seed_id_in_manual_review" in e for e in errs)
+
+    def test_next_seed_in_failed_fails_audit(self):
+        canonical = _make_canonical_with_cursor(
+            processed_ids=[_CATALOG_IDS[0]],
+            failed_ids=[_CATALOG_IDS[1]],
+            next_seed_id=_CATALOG_IDS[1],
+        )
+        ok, errs = audit_canonical(canonical)
+        assert ok is False
+        assert any("next_seed_id_in_failed" in e for e in errs)
+
+    def test_next_seed_unprocessed_passes_audit(self):
+        canonical = _make_canonical_with_cursor(
+            processed_ids=[_CATALOG_IDS[0]],
+            next_seed_id=_CATALOG_IDS[1],
+            last_completed_seed_id=_CATALOG_IDS[0],
+        )
+        ok, errs = audit_canonical(canonical)
+        assert ok is True
+
+
+class TestCursorRepair:
+    """repair_cursor must fix the cursor without touching variants or buckets."""
+
+    def test_repair_advances_past_processed(self):
+        """If next_seed_id points to an already-processed seed, repair fixes it."""
+        canonical = _make_canonical_with_cursor(
+            processed_ids=[_CATALOG_IDS[0], _CATALOG_IDS[1]],
+            next_seed_id=_CATALOG_IDS[1],
+            last_completed_seed_id=_CATALOG_IDS[0],
+        )
+        result = repair_cursor(canonical, _CATALOG)
+        bs = canonical["batch_state"]
+
+        # Contiguous prefix is [0, 1], so last_completed = CATALOG_IDS[1]
+        assert bs["last_completed_seed_id"] == _CATALOG_IDS[1]
+        # next = CATALOG_IDS[2] (first unhandled)
+        assert bs["next_seed_id"] == _CATALOG_IDS[2]
+        assert result["old_next_seed_id"] == _CATALOG_IDS[1]
+        assert result["new_next_seed_id"] == _CATALOG_IDS[2]
+
+    def test_repair_respects_gap(self):
+        """If there is a gap, cursor does not jump across it."""
+        # Processed: [0] and [2] — gap at [1]
+        canonical = _make_canonical_with_cursor(
+            processed_ids=[_CATALOG_IDS[0], _CATALOG_IDS[2]],
+            next_seed_id=_CATALOG_IDS[2],
+        )
+        result = repair_cursor(canonical, _CATALOG)
+        bs = canonical["batch_state"]
+
+        # Contiguous prefix is [0] only, gap at [1]
+        assert bs["last_completed_seed_id"] == _CATALOG_IDS[0]
+        assert bs["next_seed_id"] == _CATALOG_IDS[1]
+
+    def test_repair_skips_manual_and_failed_in_prefix(self):
+        """Manual/failed seeds count as handled in the contiguous prefix."""
+        canonical = _make_canonical_with_cursor(
+            processed_ids=[_CATALOG_IDS[0]],
+            manual_ids=[_CATALOG_IDS[1]],
+            failed_ids=[_CATALOG_IDS[2]],
+            next_seed_id=_CATALOG_IDS[0],
+        )
+        result = repair_cursor(canonical, _CATALOG)
+        bs = canonical["batch_state"]
+
+        # Contiguous prefix includes [0]=processed, [1]=manual, [2]=failed
+        assert bs["last_completed_seed_id"] == _CATALOG_IDS[2]
+        assert bs["next_seed_id"] == _CATALOG_IDS[3]
+
+    def test_repair_does_not_modify_variants(self):
+        canonical = _make_canonical_with_cursor(
+            processed_ids=[_CATALOG_IDS[0]],
+            next_seed_id=_CATALOG_IDS[0],
+        )
+        variants_before = copy.deepcopy(canonical["verified_variants"])
+        partial_before = copy.deepcopy(canonical["partial_variants"])
+
+        repair_cursor(canonical, _CATALOG)
+
+        assert canonical["verified_variants"] == variants_before
+        assert canonical["partial_variants"] == partial_before
+
+    def test_repair_does_not_modify_buckets(self):
+        canonical = _make_canonical_with_cursor(
+            processed_ids=[_CATALOG_IDS[0], _CATALOG_IDS[1]],
+            manual_ids=[_CATALOG_IDS[2]],
+            failed_ids=[_CATALOG_IDS[3]],
+            next_seed_id=_CATALOG_IDS[1],
+        )
+        proc_before = list(canonical["batch_state"]["processed_seed_ids"])
+        man_before = list(canonical["batch_state"]["manual_review_seed_ids"])
+        fail_before = list(canonical["batch_state"]["failed_seed_ids"])
+
+        repair_cursor(canonical, _CATALOG)
+
+        assert canonical["batch_state"]["processed_seed_ids"] == proc_before
+        assert canonical["batch_state"]["manual_review_seed_ids"] == man_before
+        assert canonical["batch_state"]["failed_seed_ids"] == fail_before
+
+    def test_repair_all_handled(self):
+        """When all catalog seeds are handled, next_seed_id should be None."""
+        canonical = _make_canonical_with_cursor(
+            processed_ids=list(_CATALOG_IDS),
+            next_seed_id=_CATALOG_IDS[-1],
+        )
+        repair_cursor(canonical, _CATALOG)
+        bs = canonical["batch_state"]
+        assert bs["next_seed_id"] is None
+        assert bs["last_completed_seed_id"] == _CATALOG_IDS[-1]
+
+    def test_repair_none_handled(self):
+        """When no seeds are handled, cursor starts at beginning."""
+        canonical = _make_canonical_with_cursor(
+            processed_ids=[],
+            next_seed_id=_CATALOG_IDS[3],
+        )
+        repair_cursor(canonical, _CATALOG)
+        bs = canonical["batch_state"]
+        assert bs["next_seed_id"] == _CATALOG_IDS[0]
+        assert bs["last_completed_seed_id"] is None
