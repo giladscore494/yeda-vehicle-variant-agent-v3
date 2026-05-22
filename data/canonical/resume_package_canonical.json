@@ -518,7 +518,8 @@
       "lexus__nx__2014__2026__il",
       "lexus__rx__2006__2026__il",
       "lexus__rz__2022__2026__il",
-      "lexus__gx__2006__2026__il"
+      "lexus__gx__2006__2026__il",
+      "lexus__lx__2006__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -971,8 +972,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "lexus__gx__2006__2026__il",
-    "next_seed_id": "lexus__lx__2006__2026__il",
+    "last_completed_seed_id": "lexus__lx__2006__2026__il",
+    "next_seed_id": "lexus__lm__2020__2026__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2392,6 +2393,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-22T19:17:12.105794+00:00"
+      },
+      "lexus__lx__2006__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 5,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-22T19:18:16.745003+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -237676,6 +237685,311 @@
         ]
       },
       "variant_id": "lexus_gx_2023_2026_global_reference_only_3rd_gen_j250_3_4l_v6_twin_turbo_v35a_fts_10_speed_automatic_suv_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Lexus",
+      "model": "LX",
+      "global_model_name": "Lexus LX 470",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": "Lexus",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 1998,
+      "year_end": 2007,
+      "generation": "J100",
+      "body_type": "SUV",
+      "seats": 8,
+      "engine": "4.7L V8 Petrol",
+      "transmission": "5-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "4WD",
+      "trim": null,
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "Global historical specs confirm J100 generation until 2007 (overlapping seed range). Israeli marketed name not confirmed; global model name used as reference only.",
+      "source_ids": [
+        "lexus_global_pressroom_j200"
+      ],
+      "field_sources": {
+        "body_type": [
+          "lexus_global_pressroom_j200"
+        ],
+        "seats": [
+          "lexus_global_pressroom_j200"
+        ],
+        "engine": [
+          "lexus_global_pressroom_j200"
+        ],
+        "transmission": [
+          "lexus_global_pressroom_j200"
+        ],
+        "fuel_type": [
+          "lexus_global_pressroom_j200"
+        ],
+        "drivetrain": [
+          "lexus_global_pressroom_j200"
+        ],
+        "generation": [
+          "lexus_global_pressroom_j200"
+        ],
+        "year_start": [
+          "lexus_global_pressroom_j200"
+        ],
+        "year_end": [
+          "lexus_global_pressroom_j200"
+        ],
+        "trim": []
+      },
+      "variant_id": "lexus_lx_1998_2007_global_reference_only_j100_4_7l_v8_petrol_5_speed_automatic_suv_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Lexus",
+      "model": "LX",
+      "global_model_name": "Lexus LX 570",
+      "official_marketed_name_il": "Lexus LX 570",
+      "local_brand_name_il": "Lexus",
+      "alternate_names": [
+        "לקסוס LX 570"
+      ],
+      "rebadged_as": null,
+      "year_start": 2007,
+      "year_end": 2015,
+      "generation": "J200",
+      "body_type": "SUV",
+      "seats": 8,
+      "engine": "5.7L V8 Petrol",
+      "transmission": "6-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "4WD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli market sources (Yad2) verify the presence of the pre-facelift J200 LX 570 (via parallel import channels). Specs cross-checked with global Lexus pressroom.",
+      "source_ids": [
+        "yad2_il_lexus_lx_listings",
+        "lexus_global_pressroom_j200"
+      ],
+      "field_sources": {
+        "body_type": [
+          "lexus_global_pressroom_j200"
+        ],
+        "seats": [
+          "lexus_global_pressroom_j200"
+        ],
+        "engine": [
+          "lexus_global_pressroom_j200",
+          "yad2_il_lexus_lx_listings"
+        ],
+        "transmission": [
+          "lexus_global_pressroom_j200"
+        ],
+        "fuel_type": [
+          "lexus_global_pressroom_j200"
+        ],
+        "drivetrain": [
+          "lexus_global_pressroom_j200"
+        ],
+        "generation": [
+          "lexus_global_pressroom_j200"
+        ],
+        "year_start": [
+          "lexus_global_pressroom_j200"
+        ],
+        "year_end": [
+          "lexus_global_pressroom_j200"
+        ],
+        "trim": []
+      },
+      "variant_id": "lexus_lx_2007_2015_il_confirmed_j200_5_7l_v8_petrol_6_speed_automatic_suv_petrol"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Lexus",
+      "model": "LX",
+      "global_model_name": "Lexus LX 570",
+      "official_marketed_name_il": "Lexus LX 570",
+      "local_brand_name_il": "Lexus",
+      "alternate_names": [
+        "לקסוס LX 570"
+      ],
+      "rebadged_as": null,
+      "year_start": 2015,
+      "year_end": 2021,
+      "generation": "J200 (Facelift)",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "5.7L V8 Petrol",
+      "transmission": "8-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "4WD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Major facelift replaced 6-speed with 8-speed automatic. Heavily imported to Israel via parallel importers; IL marketed name confirmed via used market listings.",
+      "source_ids": [
+        "yad2_il_lexus_lx_listings",
+        "lexus_global_pressroom_j200"
+      ],
+      "field_sources": {
+        "body_type": [
+          "lexus_global_pressroom_j200"
+        ],
+        "seats": [
+          "lexus_global_pressroom_j200"
+        ],
+        "engine": [
+          "lexus_global_pressroom_j200",
+          "yad2_il_lexus_lx_listings"
+        ],
+        "transmission": [
+          "lexus_global_pressroom_j200"
+        ],
+        "fuel_type": [
+          "lexus_global_pressroom_j200"
+        ],
+        "drivetrain": [
+          "lexus_global_pressroom_j200"
+        ],
+        "generation": [
+          "lexus_global_pressroom_j200"
+        ],
+        "year_start": [
+          "lexus_global_pressroom_j200"
+        ],
+        "year_end": [
+          "lexus_global_pressroom_j200"
+        ],
+        "trim": []
+      },
+      "variant_id": "lexus_lx_2015_2021_il_confirmed_j200_facelift_5_7l_v8_petrol_8_speed_automatic_suv_petrol"
+    },
+    {
+      "candidate_index": 3,
+      "make": "Lexus",
+      "model": "LX",
+      "global_model_name": "Lexus LX 600",
+      "official_marketed_name_il": "Lexus LX 600",
+      "local_brand_name_il": "Lexus",
+      "alternate_names": [
+        "לקסוס LX 600"
+      ],
+      "rebadged_as": null,
+      "year_start": 2021,
+      "year_end": 2026,
+      "generation": "J310",
+      "body_type": "SUV",
+      "seats": 7,
+      "engine": "3.5L Twin-Turbo V6 Petrol",
+      "transmission": "10-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "4WD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "IL name and availability directly confirmed through Israeli official parallel import channels (AutoMax). Trims include F-Sport, Luxury, and VIP (4-seat), but omitted from field to avoid mixing configurations.",
+      "source_ids": [
+        "automax_il_lexus_lx",
+        "lexus_global_pressroom_j310"
+      ],
+      "field_sources": {
+        "body_type": [
+          "automax_il_lexus_lx",
+          "lexus_global_pressroom_j310"
+        ],
+        "seats": [
+          "automax_il_lexus_lx"
+        ],
+        "engine": [
+          "automax_il_lexus_lx",
+          "lexus_global_pressroom_j310"
+        ],
+        "transmission": [
+          "automax_il_lexus_lx",
+          "lexus_global_pressroom_j310"
+        ],
+        "fuel_type": [
+          "automax_il_lexus_lx",
+          "lexus_global_pressroom_j310"
+        ],
+        "drivetrain": [
+          "automax_il_lexus_lx",
+          "lexus_global_pressroom_j310"
+        ],
+        "generation": [
+          "automax_il_lexus_lx",
+          "lexus_global_pressroom_j310"
+        ],
+        "year_start": [
+          "lexus_global_pressroom_j310"
+        ],
+        "year_end": [
+          "automax_il_lexus_lx"
+        ],
+        "trim": []
+      },
+      "variant_id": "lexus_lx_2021_2026_il_confirmed_j310_3_5l_twin_turbo_v6_petrol_10_speed_automatic_suv_petrol"
+    },
+    {
+      "candidate_index": 4,
+      "make": "Lexus",
+      "model": "LX",
+      "global_model_name": "Lexus LX 500d",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": "Lexus",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2021,
+      "year_end": 2026,
+      "generation": "J310",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "3.3L Twin-Turbo V6 Diesel",
+      "transmission": "10-speed automatic",
+      "fuel_type": "Diesel",
+      "drivetrain": "4WD",
+      "trim": null,
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "Global J310 diesel variant. Israeli marketed name not confirmed as parallel imports heavily favor the LX 600 petrol variant; global model name used as reference only.",
+      "source_ids": [
+        "lexus_global_pressroom_j310"
+      ],
+      "field_sources": {
+        "body_type": [
+          "lexus_global_pressroom_j310"
+        ],
+        "seats": [],
+        "engine": [
+          "lexus_global_pressroom_j310"
+        ],
+        "transmission": [
+          "lexus_global_pressroom_j310"
+        ],
+        "fuel_type": [
+          "lexus_global_pressroom_j310"
+        ],
+        "drivetrain": [
+          "lexus_global_pressroom_j310"
+        ],
+        "generation": [
+          "lexus_global_pressroom_j310"
+        ],
+        "year_start": [
+          "lexus_global_pressroom_j310"
+        ],
+        "year_end": [
+          "lexus_global_pressroom_j310"
+        ],
+        "trim": []
+      },
+      "variant_id": "lexus_lx_2021_2026_global_reference_only_j310_3_3l_twin_turbo_v6_diesel_10_speed_automatic_suv_diesel"
     }
   ],
   "accumulated_clean_export": {
@@ -455686,17 +456000,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1838,
-    "variants": 1838,
+    "total_variants": 1843,
+    "variants": 1843,
     "verified": 788,
-    "partial": 1050,
+    "partial": 1055,
     "makes_count": 41,
-    "models_count": 512,
-    "processed_seeds": 509,
+    "models_count": 513,
+    "processed_seeds": 510,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-22T19:17:12.111884+00:00"
+    "last_updated_at": "2026-05-22T19:18:16.750153+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
