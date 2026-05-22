@@ -460,7 +460,8 @@
       "volkswagen__passat__1990__2026__il",
       "volkswagen__passat_cc__2008__2017__il",
       "volkswagen__arteon__2017__2026__il",
-      "volkswagen__phaeton__2003__2016__il"
+      "volkswagen__phaeton__2003__2016__il",
+      "volkswagen__t-cross__2019__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1870,6 +1871,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-22T15:46:44.814255+00:00"
+      },
+      "volkswagen__t-cross__2019__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 3,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-22T15:47:24.464016+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -223206,6 +223215,189 @@
         "trim": []
       },
       "variant_id": "volkswagen_phaeton_2008_2016_global_reference_only_d1_3_0l_v6_tdi_turbo_diesel_240_hp_6_speed_automatic_sedan_diesel"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Volkswagen",
+      "model": "T-Cross",
+      "global_model_name": "Volkswagen T-Cross",
+      "official_marketed_name_il": "Volkswagen T-Cross",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2020,
+      "year_end": 2021,
+      "generation": "1st Gen",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "1.0L TSI 3-cylinder turbo petrol, 115 hp",
+      "transmission": "7-speed DSG",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "Comfortline",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli launch documented in January 2020 with the 115 hp 1.0L TSI engine. Marketed in Comfortline and Comfortline Plus trims.",
+      "source_ids": [
+        "cartube_il_vw_tcross_2020",
+        "icar_il_vw_tcross_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "cartube_il_vw_tcross_2020",
+          "icar_il_vw_tcross_specs"
+        ],
+        "seats": [
+          "icar_il_vw_tcross_specs"
+        ],
+        "engine": [
+          "cartube_il_vw_tcross_2020",
+          "icar_il_vw_tcross_specs"
+        ],
+        "transmission": [
+          "cartube_il_vw_tcross_2020",
+          "icar_il_vw_tcross_specs"
+        ],
+        "fuel_type": [
+          "icar_il_vw_tcross_specs"
+        ],
+        "drivetrain": [
+          "cartube_il_vw_tcross_2020",
+          "icar_il_vw_tcross_specs"
+        ],
+        "generation": [
+          "cartube_il_vw_tcross_2020"
+        ],
+        "year_start": [
+          "cartube_il_vw_tcross_2020"
+        ],
+        "year_end": [
+          "icar_il_vw_tcross_specs"
+        ],
+        "trim": [
+          "cartube_il_vw_tcross_2020"
+        ]
+      },
+      "variant_id": "volkswagen_t_cross_2020_2021_il_confirmed_1st_gen_1_0l_tsi_3_cylinder_turbo_petrol_115_hp_7_speed_dsg_suv_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Volkswagen",
+      "model": "T-Cross",
+      "global_model_name": "Volkswagen T-Cross",
+      "official_marketed_name_il": "Volkswagen T-Cross",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2021,
+      "year_end": 2023,
+      "generation": "1st Gen",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "1.0L TSI 3-cylinder turbo petrol, 110 hp",
+      "transmission": "7-speed DSG",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "Life",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Engine output slightly adjusted to 110 hp globally and in Israel due to emissions standards updates. Trim lines updated to Life and Style.",
+      "source_ids": [
+        "icar_il_vw_tcross_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_vw_tcross_specs"
+        ],
+        "seats": [
+          "icar_il_vw_tcross_specs"
+        ],
+        "engine": [
+          "icar_il_vw_tcross_specs"
+        ],
+        "transmission": [
+          "icar_il_vw_tcross_specs"
+        ],
+        "fuel_type": [
+          "icar_il_vw_tcross_specs"
+        ],
+        "drivetrain": [
+          "icar_il_vw_tcross_specs"
+        ],
+        "generation": [
+          "icar_il_vw_tcross_specs"
+        ],
+        "year_start": [
+          "icar_il_vw_tcross_specs"
+        ],
+        "year_end": [
+          "vw_israel_tcross_official_2024"
+        ],
+        "trim": [
+          "icar_il_vw_tcross_specs"
+        ]
+      },
+      "variant_id": "volkswagen_t_cross_2021_2023_il_confirmed_1st_gen_1_0l_tsi_3_cylinder_turbo_petrol_110_hp_7_speed_dsg_suv_petrol"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Volkswagen",
+      "model": "T-Cross",
+      "global_model_name": "Volkswagen T-Cross",
+      "official_marketed_name_il": "Volkswagen T-Cross",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2024,
+      "year_end": 2026,
+      "generation": "1st Gen Facelift",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "1.0L TSI evo2 3-cylinder turbo petrol, 115 hp",
+      "transmission": "7-speed DSG",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "Life",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Facelift version launched in Israel returning the 1.0L engine output to 115 hp with the evo2 update. Official VW Israel documentation confirms specs and availability.",
+      "source_ids": [
+        "vw_israel_tcross_official_2024"
+      ],
+      "field_sources": {
+        "body_type": [
+          "vw_israel_tcross_official_2024"
+        ],
+        "seats": [
+          "vw_israel_tcross_official_2024"
+        ],
+        "engine": [
+          "vw_israel_tcross_official_2024"
+        ],
+        "transmission": [
+          "vw_israel_tcross_official_2024"
+        ],
+        "fuel_type": [
+          "vw_israel_tcross_official_2024"
+        ],
+        "drivetrain": [
+          "vw_israel_tcross_official_2024"
+        ],
+        "generation": [
+          "vw_israel_tcross_official_2024"
+        ],
+        "year_start": [
+          "vw_israel_tcross_official_2024"
+        ],
+        "year_end": [],
+        "trim": [
+          "vw_israel_tcross_official_2024"
+        ]
+      },
+      "variant_id": "volkswagen_t_cross_2024_2026_il_confirmed_1st_gen_facelift_1_0l_tsi_evo2_3_cylinder_turbo_petrol_115_hp_7_speed_dsg_suv_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -441216,17 +441408,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1609,
-    "variants": 1609,
+    "total_variants": 1612,
+    "variants": 1612,
     "verified": 788,
-    "partial": 821,
+    "partial": 824,
     "makes_count": 40,
-    "models_count": 455,
-    "processed_seeds": 451,
+    "models_count": 456,
+    "processed_seeds": 452,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-22T15:46:44.817746+00:00"
+    "last_updated_at": "2026-05-22T15:47:24.467613+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
