@@ -520,7 +520,8 @@
       "lexus__rz__2022__2026__il",
       "lexus__gx__2006__2026__il",
       "lexus__lx__2006__2026__il",
-      "lexus__lm__2020__2026__il"
+      "lexus__lm__2020__2026__il",
+      "lexus__lbx__2023__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -973,8 +974,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "lexus__lm__2020__2026__il",
-    "next_seed_id": "lexus__lbx__2023__2026__il",
+    "last_completed_seed_id": "lexus__lbx__2023__2026__il",
+    "next_seed_id": "lexus__rc__2014__2026__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2410,6 +2411,14 @@
         "merged_count": 1,
         "warnings": [],
         "resolved_at": "2026-05-22T19:19:14.308260+00:00"
+      },
+      "lexus__lbx__2023__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 1,
+        "merged_count": 1,
+        "warnings": [],
+        "resolved_at": "2026-05-22T19:19:56.024853+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -238178,6 +238187,69 @@
         "trim": []
       },
       "variant_id": "lexus_lm_2023_2026_global_reference_only_2nd_gen_aw10_2_4l_inline_4_turbo_hybrid_350_hp_6_speed_automatic_minivan_hybrid"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Lexus",
+      "model": "LBX",
+      "global_model_name": "Lexus LBX",
+      "official_marketed_name_il": "Lexus LBX",
+      "local_brand_name_il": "Lexus",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2024,
+      "year_end": 2026,
+      "generation": "1st Gen (GA-B)",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "1.5L M15A-FXE 3-cylinder hybrid, 136 hp",
+      "transmission": "e-CVT",
+      "fuel_type": "Hybrid",
+      "drivetrain": "FWD",
+      "trim": "Elegant",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli importer site and local reviews confirm the LBX was launched in IL in Q1 2024. Available in multiple 'atmospheres' including Elegant, Relax, Cool, and Emotion, all sharing the 1.5L FWD hybrid powertrain.",
+      "source_ids": [
+        "lexus_il_official_lbx_specs",
+        "cartube_il_lexus_lbx_launch_2024"
+      ],
+      "field_sources": {
+        "body_type": [
+          "lexus_il_official_lbx_specs"
+        ],
+        "seats": [
+          "lexus_il_official_lbx_specs"
+        ],
+        "engine": [
+          "lexus_il_official_lbx_specs",
+          "cartube_il_lexus_lbx_launch_2024"
+        ],
+        "transmission": [
+          "lexus_il_official_lbx_specs"
+        ],
+        "fuel_type": [
+          "lexus_il_official_lbx_specs"
+        ],
+        "drivetrain": [
+          "lexus_il_official_lbx_specs"
+        ],
+        "generation": [
+          "cartube_il_lexus_lbx_launch_2024"
+        ],
+        "year_start": [
+          "cartube_il_lexus_lbx_launch_2024"
+        ],
+        "year_end": [
+          "lexus_il_official_lbx_specs"
+        ],
+        "trim": [
+          "lexus_il_official_lbx_specs"
+        ]
+      },
+      "variant_id": "lexus_lbx_2024_2026_il_confirmed_1st_gen_ga_b_1_5l_m15a_fxe_3_cylinder_hybrid_136_hp_e_cvt_suv_hybrid",
+      "updated_at": "2026-05-22T19:19:56.025902+00:00"
     }
   ],
   "accumulated_clean_export": {
@@ -456188,17 +456260,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1846,
-    "variants": 1846,
+    "total_variants": 1847,
+    "variants": 1847,
     "verified": 788,
-    "partial": 1058,
+    "partial": 1059,
     "makes_count": 41,
-    "models_count": 514,
-    "processed_seeds": 511,
+    "models_count": 515,
+    "processed_seeds": 512,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-22T19:19:14.313259+00:00"
+    "last_updated_at": "2026-05-22T19:19:56.029898+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
