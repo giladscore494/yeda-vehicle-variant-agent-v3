@@ -517,7 +517,8 @@
       "lexus__ux__2018__2026__il",
       "lexus__nx__2014__2026__il",
       "lexus__rx__2006__2026__il",
-      "lexus__rz__2022__2026__il"
+      "lexus__rz__2022__2026__il",
+      "lexus__gx__2006__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -970,8 +971,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "lexus__rz__2022__2026__il",
-    "next_seed_id": "lexus__gx__2006__2026__il",
+    "last_completed_seed_id": "lexus__gx__2006__2026__il",
+    "next_seed_id": "lexus__lx__2006__2026__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2383,6 +2384,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-22T19:16:02.167143+00:00"
+      },
+      "lexus__gx__2006__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 3,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-22T19:17:12.105794+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -237475,6 +237484,198 @@
         ]
       },
       "variant_id": "lexus_rz_2024_2026_il_confirmed_1st_gen_e_tnga_single_electric_motor_204_hp_150_kw_single_speed_ev_suv_electric"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Lexus",
+      "model": "GX",
+      "global_model_name": "Lexus GX 470",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2002,
+      "year_end": 2009,
+      "generation": "1st Gen (J120)",
+      "body_type": "SUV",
+      "seats": null,
+      "engine": "4.7L V8 2UZ-FE",
+      "transmission": "5-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "4WD",
+      "trim": "470",
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "Global specs used as reference. Israeli marketed name not confirmed; model likely available only via parallel import. Global model name used as reference only.",
+      "source_ids": [
+        "lexus_global_gx_specs",
+        "motortrend_gx_history"
+      ],
+      "field_sources": {
+        "body_type": [
+          "lexus_global_gx_specs"
+        ],
+        "seats": [],
+        "engine": [
+          "lexus_global_gx_specs",
+          "motortrend_gx_history"
+        ],
+        "transmission": [
+          "lexus_global_gx_specs",
+          "motortrend_gx_history"
+        ],
+        "fuel_type": [
+          "lexus_global_gx_specs"
+        ],
+        "drivetrain": [
+          "lexus_global_gx_specs"
+        ],
+        "generation": [
+          "lexus_global_gx_specs",
+          "motortrend_gx_history"
+        ],
+        "year_start": [
+          "lexus_global_gx_specs",
+          "motortrend_gx_history"
+        ],
+        "year_end": [
+          "lexus_global_gx_specs",
+          "motortrend_gx_history"
+        ],
+        "trim": [
+          "lexus_global_gx_specs"
+        ]
+      },
+      "variant_id": "lexus_gx_2002_2009_global_reference_only_1st_gen_j120_4_7l_v8_2uz_fe_5_speed_automatic_suv_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Lexus",
+      "model": "GX",
+      "global_model_name": "Lexus GX 460",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2009,
+      "year_end": 2023,
+      "generation": "2nd Gen (J150)",
+      "body_type": "SUV",
+      "seats": null,
+      "engine": "4.6L V8 1UR-FE",
+      "transmission": "6-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "4WD",
+      "trim": "460",
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "Global specs used as reference. Israeli marketed name not confirmed; official local import was not established. Global model name used as reference only.",
+      "source_ids": [
+        "lexus_global_gx_specs",
+        "motortrend_gx_history"
+      ],
+      "field_sources": {
+        "body_type": [
+          "lexus_global_gx_specs"
+        ],
+        "seats": [],
+        "engine": [
+          "lexus_global_gx_specs",
+          "motortrend_gx_history"
+        ],
+        "transmission": [
+          "lexus_global_gx_specs",
+          "motortrend_gx_history"
+        ],
+        "fuel_type": [
+          "lexus_global_gx_specs"
+        ],
+        "drivetrain": [
+          "lexus_global_gx_specs"
+        ],
+        "generation": [
+          "lexus_global_gx_specs",
+          "motortrend_gx_history"
+        ],
+        "year_start": [
+          "lexus_global_gx_specs",
+          "motortrend_gx_history"
+        ],
+        "year_end": [
+          "lexus_global_gx_specs",
+          "motortrend_gx_history"
+        ],
+        "trim": [
+          "lexus_global_gx_specs"
+        ]
+      },
+      "variant_id": "lexus_gx_2009_2023_global_reference_only_2nd_gen_j150_4_6l_v8_1ur_fe_6_speed_automatic_suv_petrol"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Lexus",
+      "model": "GX",
+      "global_model_name": "Lexus GX 550",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2023,
+      "year_end": 2026,
+      "generation": "3rd Gen (J250)",
+      "body_type": "SUV",
+      "seats": null,
+      "engine": "3.4L V6 Twin-Turbo V35A-FTS",
+      "transmission": "10-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "4WD",
+      "trim": "550",
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "Global specs used as reference. Israeli marketed name not confirmed; regular official import status remains unconfirmed. Global model name used as reference only.",
+      "source_ids": [
+        "lexus_global_gx_specs",
+        "motortrend_gx_history"
+      ],
+      "field_sources": {
+        "body_type": [
+          "lexus_global_gx_specs"
+        ],
+        "seats": [],
+        "engine": [
+          "lexus_global_gx_specs",
+          "motortrend_gx_history"
+        ],
+        "transmission": [
+          "lexus_global_gx_specs",
+          "motortrend_gx_history"
+        ],
+        "fuel_type": [
+          "lexus_global_gx_specs"
+        ],
+        "drivetrain": [
+          "lexus_global_gx_specs"
+        ],
+        "generation": [
+          "lexus_global_gx_specs",
+          "motortrend_gx_history"
+        ],
+        "year_start": [
+          "lexus_global_gx_specs",
+          "motortrend_gx_history"
+        ],
+        "year_end": [
+          "lexus_global_gx_specs",
+          "motortrend_gx_history"
+        ],
+        "trim": [
+          "lexus_global_gx_specs"
+        ]
+      },
+      "variant_id": "lexus_gx_2023_2026_global_reference_only_3rd_gen_j250_3_4l_v6_twin_turbo_v35a_fts_10_speed_automatic_suv_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -455485,17 +455686,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1835,
-    "variants": 1835,
+    "total_variants": 1838,
+    "variants": 1838,
     "verified": 788,
-    "partial": 1047,
+    "partial": 1050,
     "makes_count": 41,
-    "models_count": 511,
-    "processed_seeds": 508,
+    "models_count": 512,
+    "processed_seeds": 509,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-22T19:16:02.172821+00:00"
+    "last_updated_at": "2026-05-22T19:17:12.111884+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
