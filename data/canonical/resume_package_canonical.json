@@ -490,7 +490,8 @@
       "toyota__hilux__1991__2026__il",
       "toyota__highlander__2021__2026__il",
       "toyota__starlet__1985__1999__il",
-      "toyota__avensis__1997__2018__il"
+      "toyota__avensis__1997__2018__il",
+      "toyota__verso__2009__2018__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -943,8 +944,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "toyota__avensis__1997__2018__il",
-    "next_seed_id": "toyota__verso__2009__2018__il",
+    "last_completed_seed_id": "toyota__verso__2009__2018__il",
+    "next_seed_id": "toyota__aygo__2005__2022__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2140,6 +2141,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-22T18:37:41.586430+00:00"
+      },
+      "toyota__verso__2009__2018__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 1,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-22T18:38:11.094606+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -231552,6 +231561,68 @@
         "trim": []
       },
       "variant_id": "toyota_avensis_1997_2003_global_reference_only_t220_1st_gen_2_0l_3s_fe_4_cylinder_petrol_128_hp_4_speed_automatic_sedan_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Toyota",
+      "model": "Verso",
+      "global_model_name": "Toyota Verso",
+      "official_marketed_name_il": "Toyota Verso",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2009,
+      "year_end": 2018,
+      "generation": "AR20",
+      "body_type": "MPV",
+      "seats": 7,
+      "engine": "1.8L Petrol Valvematic, 147 hp",
+      "transmission": "CVT",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli automotive catalogs (iCar, Cartube) confirm the AR20 generation Toyota Verso was imported to Israel primarily with the 1.8L Valvematic petrol engine mated to a Multidrive S CVT. The 7-seater configuration was standard for the Israeli market.",
+      "source_ids": [
+        "icar_il_toyota_verso_ar20",
+        "cartube_il_toyota_verso_2013"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_toyota_verso_ar20"
+        ],
+        "seats": [
+          "icar_il_toyota_verso_ar20",
+          "cartube_il_toyota_verso_2013"
+        ],
+        "engine": [
+          "icar_il_toyota_verso_ar20",
+          "cartube_il_toyota_verso_2013"
+        ],
+        "transmission": [
+          "icar_il_toyota_verso_ar20",
+          "cartube_il_toyota_verso_2013"
+        ],
+        "fuel_type": [
+          "icar_il_toyota_verso_ar20"
+        ],
+        "drivetrain": [
+          "icar_il_toyota_verso_ar20"
+        ],
+        "generation": [
+          "icar_il_toyota_verso_ar20"
+        ],
+        "year_start": [
+          "icar_il_toyota_verso_ar20"
+        ],
+        "year_end": [
+          "icar_il_toyota_verso_ar20"
+        ],
+        "trim": []
+      },
+      "variant_id": "toyota_verso_2009_2018_il_confirmed_ar20_1_8l_petrol_valvematic_147_hp_cvt_mpv_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -449562,17 +449633,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1743,
-    "variants": 1743,
+    "total_variants": 1744,
+    "variants": 1744,
     "verified": 788,
-    "partial": 955,
+    "partial": 956,
     "makes_count": 40,
-    "models_count": 484,
-    "processed_seeds": 481,
+    "models_count": 485,
+    "processed_seeds": 482,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-22T18:37:41.591849+00:00"
+    "last_updated_at": "2026-05-22T18:38:11.100102+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
