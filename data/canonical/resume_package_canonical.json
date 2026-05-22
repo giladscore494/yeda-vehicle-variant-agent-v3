@@ -513,7 +513,8 @@
       "lexus__is__2006__2026__il",
       "lexus__es__2006__2026__il",
       "lexus__gs__2006__2020__il",
-      "lexus__ls__2006__2026__il"
+      "lexus__ls__2006__2026__il",
+      "lexus__ux__2018__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -966,8 +967,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "lexus__ls__2006__2026__il",
-    "next_seed_id": "lexus__ux__2018__2026__il",
+    "last_completed_seed_id": "lexus__ux__2018__2026__il",
+    "next_seed_id": "lexus__nx__2014__2026__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2347,6 +2348,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-22T19:09:01.515180+00:00"
+      },
+      "lexus__ux__2018__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 4,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-22T19:09:49.176347+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -236276,6 +236285,267 @@
         ]
       },
       "variant_id": "lexus_ls_2018_2026_il_confirmed_xf50_3_5l_v6_hybrid_8gr_fxs_359_hp_combined_multi_stage_hybrid_e_cvt_4_speed_auto_sedan_hybrid"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Lexus",
+      "model": "UX",
+      "global_model_name": "Lexus UX 200",
+      "official_marketed_name_il": "Lexus UX 200",
+      "local_brand_name_il": "Lexus",
+      "alternate_names": [
+        "לקסוס UX 200"
+      ],
+      "rebadged_as": null,
+      "year_start": 2019,
+      "year_end": 2022,
+      "generation": "ZA10",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "2.0L naturally aspirated petrol, 173 hp",
+      "transmission": "Direct Shift-CVT",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "UX 200",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli auto media confirms the 2.0L petrol UX 200 was launched in Israel in early 2019 alongside the hybrid, outputting 173 hp with a Direct Shift-CVT. Phased out globally/locally in favor of hybrid-only offerings in subsequent years.",
+      "source_ids": [
+        "cartube_il_ux_launch",
+        "icar_il_lexus_ux"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_lexus_ux"
+        ],
+        "seats": [
+          "icar_il_lexus_ux"
+        ],
+        "engine": [
+          "cartube_il_ux_launch"
+        ],
+        "transmission": [
+          "cartube_il_ux_launch"
+        ],
+        "fuel_type": [
+          "cartube_il_ux_launch"
+        ],
+        "drivetrain": [
+          "icar_il_lexus_ux"
+        ],
+        "generation": [
+          "icar_il_lexus_ux"
+        ],
+        "year_start": [
+          "cartube_il_ux_launch"
+        ],
+        "year_end": [
+          "icar_il_lexus_ux"
+        ],
+        "trim": [
+          "cartube_il_ux_launch"
+        ]
+      },
+      "variant_id": "lexus_ux_2019_2022_il_confirmed_za10_2_0l_naturally_aspirated_petrol_173_hp_direct_shift_cvt_suv_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Lexus",
+      "model": "UX",
+      "global_model_name": "Lexus UX 250h",
+      "official_marketed_name_il": "Lexus UX 250h",
+      "local_brand_name_il": "Lexus",
+      "alternate_names": [
+        "לקסוס UX 250h"
+      ],
+      "rebadged_as": null,
+      "year_start": 2019,
+      "year_end": 2023,
+      "generation": "ZA10",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "2.0L hybrid, 184 hp",
+      "transmission": "e-CVT",
+      "fuel_type": "Hybrid",
+      "drivetrain": "FWD",
+      "trim": "UX 250h",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "The UX 250h was the primary volume model in Israel from launch (2019) until replaced by the 300h in 2024. Features the 4th generation hybrid system with 184 hp.",
+      "source_ids": [
+        "lexus_il_official",
+        "cartube_il_ux_launch",
+        "icar_il_lexus_ux"
+      ],
+      "field_sources": {
+        "body_type": [
+          "lexus_il_official",
+          "icar_il_lexus_ux"
+        ],
+        "seats": [
+          "icar_il_lexus_ux"
+        ],
+        "engine": [
+          "cartube_il_ux_launch",
+          "lexus_il_official"
+        ],
+        "transmission": [
+          "lexus_il_official",
+          "icar_il_lexus_ux"
+        ],
+        "fuel_type": [
+          "lexus_il_official",
+          "cartube_il_ux_launch"
+        ],
+        "drivetrain": [
+          "icar_il_lexus_ux"
+        ],
+        "generation": [
+          "icar_il_lexus_ux"
+        ],
+        "year_start": [
+          "cartube_il_ux_launch"
+        ],
+        "year_end": [
+          "cartube_il_ux300h"
+        ],
+        "trim": [
+          "cartube_il_ux_launch"
+        ]
+      },
+      "variant_id": "lexus_ux_2019_2023_il_confirmed_za10_2_0l_hybrid_184_hp_e_cvt_suv_hybrid"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Lexus",
+      "model": "UX",
+      "global_model_name": "Lexus UX 300e",
+      "official_marketed_name_il": "Lexus UX 300e",
+      "local_brand_name_il": "Lexus",
+      "alternate_names": [
+        "לקסוס UX 300e"
+      ],
+      "rebadged_as": null,
+      "year_start": 2021,
+      "year_end": 2026,
+      "generation": "ZA10",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "Electric motor, 204 hp",
+      "transmission": "single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "FWD",
+      "trim": "UX 300e",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Fully electric version launched in Israel in early 2021 with 204 hp. Later models received battery upgrades but retained the same basic powertrain output and 300e designation.",
+      "source_ids": [
+        "lexus_il_official",
+        "cartube_il_ux300e",
+        "icar_il_lexus_ux"
+      ],
+      "field_sources": {
+        "body_type": [
+          "lexus_il_official"
+        ],
+        "seats": [
+          "icar_il_lexus_ux"
+        ],
+        "engine": [
+          "cartube_il_ux300e"
+        ],
+        "transmission": [
+          "cartube_il_ux300e"
+        ],
+        "fuel_type": [
+          "lexus_il_official",
+          "cartube_il_ux300e"
+        ],
+        "drivetrain": [
+          "icar_il_lexus_ux"
+        ],
+        "generation": [
+          "icar_il_lexus_ux"
+        ],
+        "year_start": [
+          "cartube_il_ux300e"
+        ],
+        "year_end": [
+          "lexus_il_official"
+        ],
+        "trim": [
+          "cartube_il_ux300e"
+        ]
+      },
+      "variant_id": "lexus_ux_2021_2026_il_confirmed_za10_electric_motor_204_hp_single_speed_ev_suv_electric"
+    },
+    {
+      "candidate_index": 3,
+      "make": "Lexus",
+      "model": "UX",
+      "global_model_name": "Lexus UX 300h",
+      "official_marketed_name_il": "Lexus UX 300h",
+      "local_brand_name_il": "Lexus",
+      "alternate_names": [
+        "לקסוס UX 300h"
+      ],
+      "rebadged_as": null,
+      "year_start": 2024,
+      "year_end": 2026,
+      "generation": "ZA10",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "2.0L hybrid, 199 hp",
+      "transmission": "e-CVT",
+      "fuel_type": "Hybrid",
+      "drivetrain": "FWD",
+      "trim": "UX 300h",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Cartube and official importer site confirm the UX 300h replaced the 250h in Israel for the 2024 model year, featuring a 5th-gen hybrid system outputting 199 hp.",
+      "source_ids": [
+        "lexus_il_official",
+        "cartube_il_ux300h",
+        "icar_il_lexus_ux"
+      ],
+      "field_sources": {
+        "body_type": [
+          "lexus_il_official"
+        ],
+        "seats": [
+          "icar_il_lexus_ux"
+        ],
+        "engine": [
+          "cartube_il_ux300h"
+        ],
+        "transmission": [
+          "lexus_il_official"
+        ],
+        "fuel_type": [
+          "lexus_il_official",
+          "cartube_il_ux300h"
+        ],
+        "drivetrain": [
+          "icar_il_lexus_ux"
+        ],
+        "generation": [
+          "icar_il_lexus_ux"
+        ],
+        "year_start": [
+          "cartube_il_ux300h"
+        ],
+        "year_end": [
+          "lexus_il_official"
+        ],
+        "trim": [
+          "cartube_il_ux300h"
+        ]
+      },
+      "variant_id": "lexus_ux_2024_2026_il_confirmed_za10_2_0l_hybrid_199_hp_e_cvt_suv_hybrid"
     }
   ],
   "accumulated_clean_export": {
@@ -454286,17 +454556,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1816,
-    "variants": 1816,
+    "total_variants": 1820,
+    "variants": 1820,
     "verified": 788,
-    "partial": 1028,
+    "partial": 1032,
     "makes_count": 41,
-    "models_count": 507,
-    "processed_seeds": 504,
+    "models_count": 508,
+    "processed_seeds": 505,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-22T19:09:01.520463+00:00"
+    "last_updated_at": "2026-05-22T19:09:49.181394+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
