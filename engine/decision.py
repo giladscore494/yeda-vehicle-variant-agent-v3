@@ -126,6 +126,50 @@ def decide_seed_result(result: SeedRunResult) -> Decision:
                 proof=None,
                 warnings=id_warnings,
             )
+
+        # --- IL-confirmed source-proof gate ---
+        # Candidates marked IL-confirmed must have real (non-placeholder)
+        # source_ids.  If they don't, downgrade to IL-likely so that
+        # unverified market claims never reach canonical as IL-confirmed.
+        available_source_ids: set[str] = set()
+        if result.sources:
+            for src in result.sources:
+                if isinstance(src, dict) and src.get("source_id"):
+                    sid = str(src["source_id"]).strip()
+                    if not looks_like_placeholder_source_id(sid):
+                        available_source_ids.add(sid)
+
+        downgraded_vids: set[str] = set()
+        for c in enriched:
+            if c.get("market_scope") != "IL-confirmed":
+                continue
+            candidate_sids = c.get("source_ids") or []
+            real_sids = filter_real_source_ids(candidate_sids)
+            if not real_sids:
+                vid = c.get("variant_id", "unknown")
+                id_warnings.append(
+                    f"il_confirmed_without_real_sources_downgraded: {vid}"
+                )
+                c["market_scope"] = "IL-likely"
+                c["identity_confidence"] = "market_plausible"
+                downgraded_vids.add(vid)
+
+        # If every candidate was downgraded from IL-confirmed (none had real
+        # source_ids), flag the entire batch for manual review rather than
+        # accepting candidates whose market claims are unverified.
+        if downgraded_vids and all(
+            c.get("variant_id", "unknown") in downgraded_vids
+            for c in enriched
+        ):
+            return Decision(
+                action="MANUAL_REVIEW",
+                seed_id=result.seed_id,
+                reason="il_confirmed_without_real_sources",
+                variants_to_add=[],
+                proof=None,
+                warnings=id_warnings,
+            )
+
         return Decision(
             action="ACCEPT_VARIANTS",
             seed_id=result.seed_id,

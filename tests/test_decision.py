@@ -234,3 +234,147 @@ class TestVariantIdEnrichment:
         }
         with pytest.raises(ZeroMutationAcceptError):
             apply_decision(canonical, decision)
+
+
+class TestILConfirmedSourceProofGate:
+    """Tests for the IL-confirmed source-proof gate in decision.py."""
+
+    def _jetta_candidates(self, source_ids, market_scope="IL-confirmed", count=7):
+        return [
+            {
+                "make": "Volkswagen", "model": "Jetta",
+                "year_start": 2019 + i, "year_end": 2020 + i,
+                "body_type": "sedan", "engine": f"1.{i} TSI",
+                "transmission": "automatic", "fuel_type": "petrol",
+                "market_scope": market_scope,
+                "source_ids": source_ids,
+            }
+            for i in range(count)
+        ]
+
+    def test_il_confirmed_placeholder_sources_becomes_manual_review(self):
+        """All IL-confirmed candidates with placeholder source_ids → MANUAL_REVIEW."""
+        result = _make_result(
+            candidate_variants=self._jetta_candidates(["src_1", "src_2"]),
+        )
+        decision = decide_seed_result(result)
+        assert decision.action == "MANUAL_REVIEW"
+        assert decision.reason == "il_confirmed_without_real_sources"
+        assert decision.variants_to_add == []
+
+    def test_il_confirmed_empty_sources_becomes_manual_review(self):
+        """All IL-confirmed candidates with empty source_ids → MANUAL_REVIEW."""
+        result = _make_result(
+            candidate_variants=self._jetta_candidates([]),
+        )
+        decision = decide_seed_result(result)
+        assert decision.action == "MANUAL_REVIEW"
+        assert decision.reason == "il_confirmed_without_real_sources"
+        assert decision.variants_to_add == []
+
+    def test_il_confirmed_real_sources_becomes_accept(self):
+        """IL-confirmed candidates with real source_ids → ACCEPT_VARIANTS."""
+        result = _make_result(
+            candidate_variants=self._jetta_candidates(
+                ["cartube_il_jetta_2023", "vw_il_archive_jetta"],
+            ),
+            sources=[
+                {"source_id": "cartube_il_jetta_2023", "url": "https://example.com"},
+                {"source_id": "vw_il_archive_jetta", "url": "https://example.com"},
+            ],
+        )
+        decision = decide_seed_result(result)
+        assert decision.action == "ACCEPT_VARIANTS"
+        assert len(decision.variants_to_add) == 7
+        for v in decision.variants_to_add:
+            assert v["market_scope"] == "IL-confirmed"
+
+    def test_mix_il_confirmed_real_and_placeholder_partial_accept(self):
+        """Mix: some candidates have real sources, some placeholder → ACCEPT with downgrades."""
+        candidates = [
+            {
+                "make": "Volkswagen", "model": "Jetta",
+                "year_start": 2019, "year_end": 2024,
+                "body_type": "sedan", "engine": "1.4 TSI",
+                "market_scope": "IL-confirmed",
+                "source_ids": ["cartube_il_jetta_2023"],
+            },
+            {
+                "make": "Volkswagen", "model": "Jetta",
+                "year_start": 2015, "year_end": 2018,
+                "body_type": "sedan", "engine": "1.6 TDI",
+                "market_scope": "IL-confirmed",
+                "source_ids": ["src_1"],
+            },
+        ]
+        result = _make_result(
+            candidate_variants=candidates,
+            sources=[{"source_id": "cartube_il_jetta_2023", "url": "https://example.com"}],
+        )
+        decision = decide_seed_result(result)
+        assert decision.action == "ACCEPT_VARIANTS"
+        assert len(decision.variants_to_add) == 2
+        # First keeps IL-confirmed
+        assert decision.variants_to_add[0]["market_scope"] == "IL-confirmed"
+        # Second downgraded to IL-likely
+        assert decision.variants_to_add[1]["market_scope"] == "IL-likely"
+        assert decision.variants_to_add[1]["identity_confidence"] == "market_plausible"
+        # Warning logged for the downgrade
+        assert any("il_confirmed_without_real_sources_downgraded" in w for w in decision.warnings)
+
+    def test_non_il_confirmed_candidates_not_affected(self):
+        """Candidates with market_scope != IL-confirmed are not checked/downgraded."""
+        candidates = self._jetta_candidates(["src_1"], market_scope="IL-likely", count=3)
+        result = _make_result(candidate_variants=candidates)
+        decision = decide_seed_result(result)
+        assert decision.action == "ACCEPT_VARIANTS"
+        assert len(decision.variants_to_add) == 3
+        for v in decision.variants_to_add:
+            assert v["market_scope"] == "IL-likely"
+
+    def test_global_reference_candidates_with_placeholder_accepted(self):
+        """global-reference-only candidates with placeholder source_ids still accepted."""
+        candidates = self._jetta_candidates(
+            ["src_1"], market_scope="global-reference-only", count=2,
+        )
+        result = _make_result(candidate_variants=candidates)
+        decision = decide_seed_result(result)
+        assert decision.action == "ACCEPT_VARIANTS"
+        assert len(decision.variants_to_add) == 2
+
+    def test_cursor_does_not_advance_on_manual_review(self):
+        """MANUAL_REVIEW decision has empty variants_to_add — nothing to save/advance."""
+        result = _make_result(
+            candidate_variants=self._jetta_candidates(["src_1", "src_2"]),
+        )
+        decision = decide_seed_result(result)
+        assert decision.action == "MANUAL_REVIEW"
+        assert decision.variants_to_add == []
+
+    def test_audit_still_blocks_new_il_confirmed_placeholder(self):
+        """Even if decision somehow accepts, audit blocks IL-confirmed + placeholder."""
+        from engine.audit import audit_canonical
+
+        canonical = {
+            "verified_variants": [
+                {
+                    "variant_id": "v_jetta_new",
+                    "make": "Volkswagen", "model": "Jetta",
+                    "market_scope": "IL-confirmed",
+                    "source_ids": ["src_1"],
+                }
+            ],
+            "partial_variants": [],
+            "batch_state": {
+                "processed_seed_ids": [],
+                "manual_review_seed_ids": [],
+                "failed_seed_ids": [],
+                "seed_accounting": {},
+            },
+            "counts": {"total_variants": 1},
+        }
+        ok, errs = audit_canonical(
+            canonical, newly_added_variant_ids=["v_jetta_new"],
+        )
+        assert ok is False
+        assert any("new_il_confirmed_placeholder_sources" in e for e in errs)
