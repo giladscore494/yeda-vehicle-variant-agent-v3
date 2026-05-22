@@ -458,7 +458,8 @@
       "volkswagen__beetle__1998__2019__il",
       "volkswagen__scirocco__2008__2017__il",
       "volkswagen__passat__1990__2026__il",
-      "volkswagen__passat_cc__2008__2017__il"
+      "volkswagen__passat_cc__2008__2017__il",
+      "volkswagen__arteon__2017__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1852,6 +1853,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-22T15:44:52.314839+00:00"
+      },
+      "volkswagen__arteon__2017__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 4,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-22T15:45:50.791775+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -222598,6 +222607,242 @@
         "trim": []
       },
       "variant_id": "volkswagen_passat_cc_2012_2017_il_confirmed_1st_gen_facelift_pq46_2_0l_tsi_210_hp_6_speed_dsg_gran_coupe_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Volkswagen",
+      "model": "Arteon",
+      "global_model_name": "Volkswagen Arteon",
+      "official_marketed_name_il": "Volkswagen Arteon",
+      "local_brand_name_il": "Volkswagen",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2017,
+      "year_end": 2026,
+      "generation": "1st Gen (Typ 3H)",
+      "body_type": "Fastback",
+      "seats": 5,
+      "engine": "2.0L turbo petrol, 190 hp",
+      "transmission": "7-speed DCT",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "R-Line",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Marketed in Israel primarily via parallel importers. Fastback body style with 2.0 TSI confirmed by Israeli auto publications.",
+      "source_ids": [
+        "cartube_il_arteon_tsi",
+        "vw_global_arteon_press_2017"
+      ],
+      "field_sources": {
+        "body_type": [
+          "vw_global_arteon_press_2017",
+          "cartube_il_arteon_tsi"
+        ],
+        "seats": [
+          "vw_global_arteon_press_2017"
+        ],
+        "engine": [
+          "cartube_il_arteon_tsi"
+        ],
+        "transmission": [
+          "cartube_il_arteon_tsi"
+        ],
+        "fuel_type": [
+          "cartube_il_arteon_tsi"
+        ],
+        "drivetrain": [
+          "cartube_il_arteon_tsi"
+        ],
+        "generation": [
+          "vw_global_arteon_press_2017"
+        ],
+        "year_start": [
+          "vw_global_arteon_press_2017"
+        ],
+        "year_end": [],
+        "trim": [
+          "cartube_il_arteon_tsi"
+        ]
+      },
+      "variant_id": "volkswagen_arteon_2017_2026_il_confirmed_1st_gen_typ_3h_2_0l_turbo_petrol_190_hp_7_speed_dct_fastback_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Volkswagen",
+      "model": "Arteon",
+      "global_model_name": "Volkswagen Arteon",
+      "official_marketed_name_il": "Volkswagen Arteon",
+      "local_brand_name_il": "Volkswagen",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2020,
+      "year_end": 2026,
+      "generation": "1st Gen (Typ 3H)",
+      "body_type": "Fastback",
+      "seats": 5,
+      "engine": "1.4L turbo PHEV, 218 hp combined",
+      "transmission": "6-speed DCT",
+      "fuel_type": "Plug-in Hybrid",
+      "drivetrain": "FWD",
+      "trim": "Elegance",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "eHybrid model introduced globally with the 2020 facelift. Confirmed sold in Israel via parallel import networks. Israeli name confirmed.",
+      "source_ids": [
+        "auto_il_arteon_parallel_phev",
+        "vw_global_arteon_sb_facelift_2020"
+      ],
+      "field_sources": {
+        "body_type": [
+          "auto_il_arteon_parallel_phev"
+        ],
+        "seats": [
+          "vw_global_arteon_sb_facelift_2020"
+        ],
+        "engine": [
+          "auto_il_arteon_parallel_phev",
+          "vw_global_arteon_sb_facelift_2020"
+        ],
+        "transmission": [
+          "auto_il_arteon_parallel_phev"
+        ],
+        "fuel_type": [
+          "auto_il_arteon_parallel_phev"
+        ],
+        "drivetrain": [
+          "auto_il_arteon_parallel_phev"
+        ],
+        "generation": [
+          "vw_global_arteon_press_2017"
+        ],
+        "year_start": [
+          "vw_global_arteon_sb_facelift_2020"
+        ],
+        "year_end": [],
+        "trim": [
+          "vw_global_arteon_sb_facelift_2020"
+        ]
+      },
+      "variant_id": "volkswagen_arteon_2020_2026_il_confirmed_1st_gen_typ_3h_1_4l_turbo_phev_218_hp_combined_6_speed_dct_fastback_plug_in_hybrid"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Volkswagen",
+      "model": "Arteon",
+      "global_model_name": "Volkswagen Arteon Shooting Brake",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": "Volkswagen",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2020,
+      "year_end": 2026,
+      "generation": "1st Gen (Typ 3H)",
+      "body_type": "Shooting Brake",
+      "seats": 5,
+      "engine": "1.4L turbo PHEV, 218 hp combined",
+      "transmission": "6-speed DCT",
+      "fuel_type": "Plug-in Hybrid",
+      "drivetrain": "FWD",
+      "trim": "R-Line",
+      "market_scope": "IL-likely",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "Shooting Brake body style introduced in 2020. While standard Fastback PHEV is well-documented in Israeli parallel import, the Shooting Brake variant availability in IL is likely but lacks explicit IL-specific confirmation in sources.",
+      "source_ids": [
+        "vw_global_arteon_sb_facelift_2020"
+      ],
+      "field_sources": {
+        "body_type": [
+          "vw_global_arteon_sb_facelift_2020"
+        ],
+        "seats": [
+          "vw_global_arteon_sb_facelift_2020"
+        ],
+        "engine": [
+          "vw_global_arteon_sb_facelift_2020"
+        ],
+        "transmission": [
+          "vw_global_arteon_sb_facelift_2020"
+        ],
+        "fuel_type": [
+          "vw_global_arteon_sb_facelift_2020"
+        ],
+        "drivetrain": [
+          "vw_global_arteon_sb_facelift_2020"
+        ],
+        "generation": [
+          "vw_global_arteon_press_2017"
+        ],
+        "year_start": [
+          "vw_global_arteon_sb_facelift_2020"
+        ],
+        "year_end": [],
+        "trim": [
+          "vw_global_arteon_sb_facelift_2020"
+        ]
+      },
+      "variant_id": "volkswagen_arteon_2020_2026_il_likely_1st_gen_typ_3h_1_4l_turbo_phev_218_hp_combined_6_speed_dct_shooting_brake_plug_in_hybrid"
+    },
+    {
+      "candidate_index": 3,
+      "make": "Volkswagen",
+      "model": "Arteon",
+      "global_model_name": "Volkswagen Arteon R",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": "Volkswagen",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2020,
+      "year_end": 2026,
+      "generation": "1st Gen (Typ 3H)",
+      "body_type": "Fastback",
+      "seats": 5,
+      "engine": "2.0L turbo petrol, 320 hp",
+      "transmission": "7-speed DCT",
+      "fuel_type": "Petrol",
+      "drivetrain": "AWD",
+      "trim": "R",
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "High-performance R model with 4Motion AWD introduced in 2020. IL market presence unconfirmed; global model name used as reference.",
+      "source_ids": [
+        "vw_global_arteon_sb_facelift_2020"
+      ],
+      "field_sources": {
+        "body_type": [
+          "vw_global_arteon_sb_facelift_2020"
+        ],
+        "seats": [
+          "vw_global_arteon_sb_facelift_2020"
+        ],
+        "engine": [
+          "vw_global_arteon_sb_facelift_2020"
+        ],
+        "transmission": [
+          "vw_global_arteon_sb_facelift_2020"
+        ],
+        "fuel_type": [
+          "vw_global_arteon_sb_facelift_2020"
+        ],
+        "drivetrain": [
+          "vw_global_arteon_sb_facelift_2020"
+        ],
+        "generation": [
+          "vw_global_arteon_press_2017"
+        ],
+        "year_start": [
+          "vw_global_arteon_sb_facelift_2020"
+        ],
+        "year_end": [],
+        "trim": [
+          "vw_global_arteon_sb_facelift_2020"
+        ]
+      },
+      "variant_id": "volkswagen_arteon_2020_2026_global_reference_only_1st_gen_typ_3h_2_0l_turbo_petrol_320_hp_7_speed_dct_fastback_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -440608,17 +440853,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1599,
-    "variants": 1599,
+    "total_variants": 1603,
+    "variants": 1603,
     "verified": 788,
-    "partial": 811,
+    "partial": 815,
     "makes_count": 40,
-    "models_count": 453,
-    "processed_seeds": 449,
+    "models_count": 454,
+    "processed_seeds": 450,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-22T15:44:52.318333+00:00"
+    "last_updated_at": "2026-05-22T15:45:50.795549+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
