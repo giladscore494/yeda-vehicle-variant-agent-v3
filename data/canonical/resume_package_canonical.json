@@ -523,7 +523,8 @@
       "lexus__lm__2020__2026__il",
       "lexus__lbx__2023__2026__il",
       "lexus__rc__2014__2026__il",
-      "lexus__lc__2017__2026__il"
+      "lexus__lc__2017__2026__il",
+      "lexus__sc_430__2006__2010__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -976,8 +977,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "lexus__lc__2017__2026__il",
-    "next_seed_id": "lexus__sc_430__2006__2010__il",
+    "last_completed_seed_id": "lexus__sc_430__2006__2010__il",
+    "next_seed_id": "nissan__micra__1992__2023__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2437,6 +2438,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-22T19:21:44.229281+00:00"
+      },
+      "lexus__sc_430__2006__2010__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 1,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-22T19:22:14.323966+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -238723,6 +238732,73 @@
         ]
       },
       "variant_id": "lexus_lc_2020_2026_il_confirmed_z100_5_0l_v8_naturally_aspirated_10_speed_automatic_convertible_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Lexus",
+      "model": "SC 430",
+      "global_model_name": "Lexus SC 430",
+      "official_marketed_name_il": "Lexus SC 430",
+      "local_brand_name_il": "לקסוס",
+      "alternate_names": [
+        "לקסוס SC"
+      ],
+      "rebadged_as": null,
+      "year_start": 2006,
+      "year_end": 2010,
+      "generation": "Z40",
+      "body_type": "Convertible",
+      "seats": 4,
+      "engine": "4.3L V8, 286 hp",
+      "transmission": "6-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "RWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli automotive catalogs (iCar, Auto.co.il) confirm the sale of the SC 430 in Israel starting from the official brand launch in 2006 through 2010. The 2006-2010 Z40 facelift includes the 6-speed automatic.",
+      "source_ids": [
+        "icar_il_lexus_sc_2006_2010",
+        "auto_il_lexus_sc430_launch",
+        "lexus_global_z40_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_lexus_sc_2006_2010"
+        ],
+        "seats": [
+          "icar_il_lexus_sc_2006_2010"
+        ],
+        "engine": [
+          "icar_il_lexus_sc_2006_2010",
+          "lexus_global_z40_specs"
+        ],
+        "transmission": [
+          "icar_il_lexus_sc_2006_2010",
+          "lexus_global_z40_specs"
+        ],
+        "fuel_type": [
+          "icar_il_lexus_sc_2006_2010"
+        ],
+        "drivetrain": [
+          "icar_il_lexus_sc_2006_2010",
+          "lexus_global_z40_specs"
+        ],
+        "generation": [
+          "auto_il_lexus_sc430_launch",
+          "lexus_global_z40_specs"
+        ],
+        "year_start": [
+          "icar_il_lexus_sc_2006_2010",
+          "auto_il_lexus_sc430_launch"
+        ],
+        "year_end": [
+          "icar_il_lexus_sc_2006_2010"
+        ],
+        "trim": []
+      },
+      "variant_id": "lexus_sc_430_2006_2010_il_confirmed_z40_4_3l_v8_286_hp_6_speed_automatic_convertible_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -456733,17 +456809,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1854,
-    "variants": 1854,
+    "total_variants": 1855,
+    "variants": 1855,
     "verified": 788,
-    "partial": 1066,
+    "partial": 1067,
     "makes_count": 41,
-    "models_count": 517,
-    "processed_seeds": 514,
+    "models_count": 518,
+    "processed_seeds": 515,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-22T19:21:44.234319+00:00"
+    "last_updated_at": "2026-05-22T19:22:14.331209+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
