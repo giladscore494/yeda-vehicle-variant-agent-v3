@@ -504,7 +504,8 @@
       "toyota__fj_cruiser__2007__2016__il",
       "toyota__supra__2019__2026__il",
       "toyota__sienna__2021__2026__il",
-      "toyota__crown__2025__2026__il"
+      "toyota__crown__2025__2026__il",
+      "toyota__previa__1990__2000__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -957,8 +958,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "toyota__crown__2025__2026__il",
-    "next_seed_id": "toyota__previa__1990__2000__il",
+    "last_completed_seed_id": "toyota__previa__1990__2000__il",
+    "next_seed_id": "toyota__carina_e__1992__1997__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2266,6 +2267,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-22T19:00:52.127829+00:00"
+      },
+      "toyota__previa__1990__2000__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 2,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-22T19:01:39.574652+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -233987,6 +233996,147 @@
         "trim": []
       },
       "variant_id": "toyota_crown_2025_2026_global_reference_only_s235_16th_gen_2_4l_t24a_fts_i4_turbo_hybrid_max_340_hp_6_speed_automatic_sedan_hybrid"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Toyota",
+      "model": "Previa",
+      "global_model_name": "Toyota Previa",
+      "official_marketed_name_il": "Toyota Previa",
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Toyota Estima",
+        "Toyota Tarago"
+      ],
+      "rebadged_as": null,
+      "year_start": 1990,
+      "year_end": 1999,
+      "generation": "XR10 (1st Gen)",
+      "body_type": "MPV",
+      "seats": 8,
+      "engine": "2.4L 2TZ-FE Inline-4",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "RWD",
+      "trim": "GL",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli used car platforms and historical automotive reviews confirm the 1st Gen XR10 Previa was officially sold in Israel with a 2.4L mid-engine RWD layout and automatic transmission, accommodating 8 passengers.",
+      "source_ids": [
+        "yad2_il_previa_listings_historical",
+        "auto_co_il_toyota_previa_history",
+        "global_toyota_previa_xr10_xr30_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "yad2_il_previa_listings_historical",
+          "global_toyota_previa_xr10_xr30_specs"
+        ],
+        "seats": [
+          "yad2_il_previa_listings_historical"
+        ],
+        "engine": [
+          "auto_co_il_toyota_previa_history",
+          "global_toyota_previa_xr10_xr30_specs"
+        ],
+        "transmission": [
+          "yad2_il_previa_listings_historical",
+          "global_toyota_previa_xr10_xr30_specs"
+        ],
+        "fuel_type": [
+          "auto_co_il_toyota_previa_history"
+        ],
+        "drivetrain": [
+          "auto_co_il_toyota_previa_history",
+          "global_toyota_previa_xr10_xr30_specs"
+        ],
+        "generation": [
+          "global_toyota_previa_xr10_xr30_specs"
+        ],
+        "year_start": [
+          "yad2_il_previa_listings_historical",
+          "global_toyota_previa_xr10_xr30_specs"
+        ],
+        "year_end": [
+          "yad2_il_previa_listings_historical",
+          "global_toyota_previa_xr10_xr30_specs"
+        ],
+        "trim": [
+          "yad2_il_previa_listings_historical"
+        ]
+      },
+      "variant_id": "toyota_previa_1990_1999_il_confirmed_xr10_1st_gen_2_4l_2tz_fe_inline_4_4_speed_automatic_mpv_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Toyota",
+      "model": "Previa",
+      "global_model_name": "Toyota Previa",
+      "official_marketed_name_il": "Toyota Previa",
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Toyota Estima",
+        "Toyota Tarago"
+      ],
+      "rebadged_as": null,
+      "year_start": 2000,
+      "year_end": 2005,
+      "generation": "XR30 (2nd Gen)",
+      "body_type": "MPV",
+      "seats": 7,
+      "engine": "2.4L 2AZ-FE VVT-i Inline-4",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "GL",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "The 2nd Gen Previa (XR30) switched to a front-engine FWD architecture in 2000. Israeli market sources confirm its local availability starting from the year 2000, equipped with the 2.4L VVT-i engine.",
+      "source_ids": [
+        "yad2_il_previa_listings_historical",
+        "auto_co_il_toyota_previa_history",
+        "global_toyota_previa_xr10_xr30_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "yad2_il_previa_listings_historical",
+          "global_toyota_previa_xr10_xr30_specs"
+        ],
+        "seats": [
+          "yad2_il_previa_listings_historical"
+        ],
+        "engine": [
+          "auto_co_il_toyota_previa_history",
+          "global_toyota_previa_xr10_xr30_specs"
+        ],
+        "transmission": [
+          "yad2_il_previa_listings_historical",
+          "global_toyota_previa_xr10_xr30_specs"
+        ],
+        "fuel_type": [
+          "auto_co_il_toyota_previa_history"
+        ],
+        "drivetrain": [
+          "auto_co_il_toyota_previa_history",
+          "global_toyota_previa_xr10_xr30_specs"
+        ],
+        "generation": [
+          "global_toyota_previa_xr10_xr30_specs"
+        ],
+        "year_start": [
+          "yad2_il_previa_listings_historical",
+          "auto_co_il_toyota_previa_history"
+        ],
+        "year_end": [
+          "auto_co_il_toyota_previa_history"
+        ],
+        "trim": [
+          "yad2_il_previa_listings_historical"
+        ]
+      },
+      "variant_id": "toyota_previa_2000_2005_il_confirmed_xr30_2nd_gen_2_4l_2az_fe_vvt_i_inline_4_4_speed_automatic_mpv_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -451997,17 +452147,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1781,
-    "variants": 1781,
+    "total_variants": 1783,
+    "variants": 1783,
     "verified": 788,
-    "partial": 993,
+    "partial": 995,
     "makes_count": 40,
-    "models_count": 498,
-    "processed_seeds": 495,
+    "models_count": 499,
+    "processed_seeds": 496,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-22T19:00:52.134405+00:00"
+    "last_updated_at": "2026-05-22T19:01:39.579227+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
