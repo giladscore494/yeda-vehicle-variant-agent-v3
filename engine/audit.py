@@ -162,8 +162,8 @@ def audit_canonical(
 
     # 10. If processed seeds exist, last_completed_seed_id must not be None
     last_completed = bs.get("last_completed_seed_id")
-    any_resolved = processed_set or manual_set or failed_set
-    if any_resolved and last_completed is None:
+    any_handled = processed_set or manual_set or failed_set
+    if any_handled and last_completed is None:
         errors.append("last_completed_seed_id_none_with_processed_seeds")
 
     # 11. next_seed_id must not be in processed/manual_review/failed
