@@ -519,7 +519,8 @@
       "lexus__rx__2006__2026__il",
       "lexus__rz__2022__2026__il",
       "lexus__gx__2006__2026__il",
-      "lexus__lx__2006__2026__il"
+      "lexus__lx__2006__2026__il",
+      "lexus__lm__2020__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -972,8 +973,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "lexus__lx__2006__2026__il",
-    "next_seed_id": "lexus__lm__2020__2026__il",
+    "last_completed_seed_id": "lexus__lm__2020__2026__il",
+    "next_seed_id": "lexus__lbx__2023__2026__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2401,6 +2402,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-22T19:18:16.745003+00:00"
+      },
+      "lexus__lm__2020__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 3,
+        "merged_count": 1,
+        "warnings": [],
+        "resolved_at": "2026-05-22T19:19:14.308260+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -237990,6 +237999,185 @@
         "trim": []
       },
       "variant_id": "lexus_lx_2021_2026_global_reference_only_j310_3_3l_twin_turbo_v6_diesel_10_speed_automatic_suv_diesel"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Lexus",
+      "model": "LM",
+      "global_model_name": "Lexus LM 350h",
+      "official_marketed_name_il": "Lexus LM 350h",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2023,
+      "year_end": 2026,
+      "generation": "2nd Gen (AW10)",
+      "body_type": "Minivan",
+      "seats": 7,
+      "engine": "2.5L inline-4 hybrid, 250 hp",
+      "transmission": "e-CVT",
+      "fuel_type": "Hybrid",
+      "drivetrain": "AWD",
+      "trim": "Luxury",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli auto media (Cartube) and Lexus IL official site confirm the local late-2023 launch of the 2nd generation LM 350h. The 'Luxury' trim is confirmed as the 7-seat configuration with E-Four AWD.",
+      "source_ids": [
+        "lexus_il_official_lm",
+        "cartube_il_lexus_lm_launch_2023"
+      ],
+      "field_sources": {
+        "body_type": [
+          "lexus_il_official_lm"
+        ],
+        "seats": [
+          "lexus_il_official_lm",
+          "cartube_il_lexus_lm_launch_2023"
+        ],
+        "engine": [
+          "lexus_il_official_lm",
+          "cartube_il_lexus_lm_launch_2023"
+        ],
+        "transmission": [
+          "lexus_il_official_lm"
+        ],
+        "fuel_type": [
+          "lexus_il_official_lm"
+        ],
+        "drivetrain": [
+          "lexus_il_official_lm",
+          "cartube_il_lexus_lm_launch_2023"
+        ],
+        "generation": [
+          "cartube_il_lexus_lm_launch_2023",
+          "global_lexus_pressroom_lm"
+        ],
+        "year_start": [
+          "cartube_il_lexus_lm_launch_2023"
+        ],
+        "year_end": [
+          "global_lexus_pressroom_lm"
+        ],
+        "trim": [
+          "lexus_il_official_lm",
+          "cartube_il_lexus_lm_launch_2023"
+        ]
+      },
+      "variant_id": "lexus_lm_2023_2026_il_confirmed_2nd_gen_aw10_2_5l_inline_4_hybrid_250_hp_e_cvt_minivan_hybrid",
+      "updated_at": "2026-05-22T19:19:14.309426+00:00"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Lexus",
+      "model": "LM",
+      "global_model_name": "Lexus LM 300h",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2020,
+      "year_end": 2023,
+      "generation": "1st Gen (AH30)",
+      "body_type": "Minivan",
+      "seats": null,
+      "engine": "2.5L inline-4 hybrid, 197 hp",
+      "transmission": "e-CVT",
+      "fuel_type": "Hybrid",
+      "drivetrain": "AWD",
+      "trim": null,
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "The 1st generation LM was primarily an Asian market vehicle. No evidence of official Israeli import. Included strictly for historical completeness across the 2020-2023 timeframe.",
+      "source_ids": [
+        "global_lexus_pressroom_lm"
+      ],
+      "field_sources": {
+        "body_type": [
+          "global_lexus_pressroom_lm"
+        ],
+        "seats": [],
+        "engine": [
+          "global_lexus_pressroom_lm"
+        ],
+        "transmission": [
+          "global_lexus_pressroom_lm"
+        ],
+        "fuel_type": [
+          "global_lexus_pressroom_lm"
+        ],
+        "drivetrain": [
+          "global_lexus_pressroom_lm"
+        ],
+        "generation": [
+          "global_lexus_pressroom_lm"
+        ],
+        "year_start": [
+          "global_lexus_pressroom_lm"
+        ],
+        "year_end": [
+          "global_lexus_pressroom_lm"
+        ],
+        "trim": []
+      },
+      "variant_id": "lexus_lm_2020_2023_global_reference_only_1st_gen_ah30_2_5l_inline_4_hybrid_197_hp_e_cvt_minivan_hybrid"
+    },
+    {
+      "candidate_index": 3,
+      "make": "Lexus",
+      "model": "LM",
+      "global_model_name": "Lexus LM 500h",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2023,
+      "year_end": 2026,
+      "generation": "2nd Gen (AW10)",
+      "body_type": "Minivan",
+      "seats": null,
+      "engine": "2.4L inline-4 turbo hybrid, 350 hp",
+      "transmission": "6-speed automatic",
+      "fuel_type": "Hybrid",
+      "drivetrain": "AWD",
+      "trim": null,
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "LM 500h is the high-performance global variant featuring the Direct4 turbo hybrid system. Not confirmed for Israel; current IL market data only references the 350h.",
+      "source_ids": [
+        "global_lexus_pressroom_lm"
+      ],
+      "field_sources": {
+        "body_type": [
+          "global_lexus_pressroom_lm"
+        ],
+        "seats": [],
+        "engine": [
+          "global_lexus_pressroom_lm"
+        ],
+        "transmission": [
+          "global_lexus_pressroom_lm"
+        ],
+        "fuel_type": [
+          "global_lexus_pressroom_lm"
+        ],
+        "drivetrain": [
+          "global_lexus_pressroom_lm"
+        ],
+        "generation": [
+          "global_lexus_pressroom_lm"
+        ],
+        "year_start": [
+          "global_lexus_pressroom_lm"
+        ],
+        "year_end": [
+          "global_lexus_pressroom_lm"
+        ],
+        "trim": []
+      },
+      "variant_id": "lexus_lm_2023_2026_global_reference_only_2nd_gen_aw10_2_4l_inline_4_turbo_hybrid_350_hp_6_speed_automatic_minivan_hybrid"
     }
   ],
   "accumulated_clean_export": {
@@ -456000,17 +456188,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1843,
-    "variants": 1843,
+    "total_variants": 1846,
+    "variants": 1846,
     "verified": 788,
-    "partial": 1055,
+    "partial": 1058,
     "makes_count": 41,
-    "models_count": 513,
-    "processed_seeds": 510,
+    "models_count": 514,
+    "processed_seeds": 511,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-22T19:18:16.750153+00:00"
+    "last_updated_at": "2026-05-22T19:19:14.313259+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
