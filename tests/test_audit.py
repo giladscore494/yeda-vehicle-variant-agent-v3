@@ -15,6 +15,7 @@ def _make_valid_canonical():
             "processed_seed_ids": ["bmw__3__2020__2026__il"],
             "manual_review_seed_ids": [],
             "failed_seed_ids": [],
+            "last_completed_seed_id": "bmw__3__2020__2026__il",
             "seed_accounting": {
                 "bmw__3__2020__2026__il": {
                     "status": "resolved",
@@ -359,3 +360,66 @@ class TestCursorRepair:
         bs = canonical["batch_state"]
         assert bs["next_seed_id"] == _CATALOG_IDS[0]
         assert bs["last_completed_seed_id"] is None
+
+    def test_repair_no_contiguous_prefix_but_later_handled(self):
+        """When first seed is unhandled but later seeds are processed,
+        last_completed_seed_id must not be None."""
+        # Processed: [2] and [3] — gap at start ([0] and [1] unhandled)
+        canonical = _make_canonical_with_cursor(
+            processed_ids=[_CATALOG_IDS[2], _CATALOG_IDS[3]],
+            next_seed_id=_CATALOG_IDS[3],
+        )
+        repair_cursor(canonical, _CATALOG)
+        bs = canonical["batch_state"]
+
+        # next_seed_id should be [0] (first unhandled)
+        assert bs["next_seed_id"] == _CATALOG_IDS[0]
+        # last_completed_seed_id must NOT be None — fallback to last handled
+        assert bs["last_completed_seed_id"] == _CATALOG_IDS[3]
+
+    def test_repair_never_none_when_processed_exist(self):
+        """Cursor repair never leaves last_completed_seed_id as None
+        when processed seeds exist."""
+        # Process only the last seed, leaving a big gap from start
+        canonical = _make_canonical_with_cursor(
+            processed_ids=[_CATALOG_IDS[-1]],
+            next_seed_id=_CATALOG_IDS[-1],
+        )
+        repair_cursor(canonical, _CATALOG)
+        bs = canonical["batch_state"]
+
+        assert bs["last_completed_seed_id"] is not None
+        assert bs["last_completed_seed_id"] == _CATALOG_IDS[-1]
+        assert bs["next_seed_id"] == _CATALOG_IDS[0]
+
+
+class TestLastCompletedAuditRule:
+    """Audit must reject last_completed_seed_id=None when processed seeds exist."""
+
+    def test_none_last_completed_with_processed_fails(self):
+        canonical = _make_canonical_with_cursor(
+            processed_ids=[_CATALOG_IDS[0]],
+            next_seed_id=_CATALOG_IDS[1],
+            last_completed_seed_id=None,
+        )
+        ok, errs = audit_canonical(canonical)
+        assert ok is False
+        assert any("last_completed_seed_id_none_with_processed_seeds" in e for e in errs)
+
+    def test_none_last_completed_no_processed_passes(self):
+        canonical = _make_canonical_with_cursor(
+            processed_ids=[],
+            next_seed_id=_CATALOG_IDS[0],
+            last_completed_seed_id=None,
+        )
+        ok, errs = audit_canonical(canonical)
+        assert ok is True
+
+    def test_valid_last_completed_passes(self):
+        canonical = _make_canonical_with_cursor(
+            processed_ids=[_CATALOG_IDS[0]],
+            next_seed_id=_CATALOG_IDS[1],
+            last_completed_seed_id=_CATALOG_IDS[0],
+        )
+        ok, errs = audit_canonical(canonical)
+        assert ok is True

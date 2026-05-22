@@ -163,6 +163,9 @@ def apply_decision(canonical: dict, decision: Decision, is_current_next: bool = 
             "last_attempt_at": now,
         }
 
+        if is_current_next:
+            bs["last_completed_seed_id"] = decision.seed_id
+
     elif decision.action == "FAIL_TRANSIENT":
         # Do NOT mark processed
         if decision.seed_id not in bs.get("failed_seed_ids", []):
@@ -174,6 +177,9 @@ def apply_decision(canonical: dict, decision: Decision, is_current_next: bool = 
             "error_summary": "; ".join(decision.warnings) if decision.warnings else "",
             "last_attempt_at": now,
         }
+
+        if is_current_next:
+            bs["last_completed_seed_id"] = decision.seed_id
 
     return stats
 
