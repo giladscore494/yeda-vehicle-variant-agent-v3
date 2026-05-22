@@ -509,7 +509,8 @@
       "toyota__carina_e__1992__1997__il",
       "toyota__corona__1990__1996__il",
       "toyota__celica__1990__2006__il",
-      "lexus__ct_200h__2011__2022__il"
+      "lexus__ct_200h__2011__2022__il",
+      "lexus__is__2006__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -962,8 +963,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "lexus__ct_200h__2011__2022__il",
-    "next_seed_id": "lexus__is__2006__2026__il",
+    "last_completed_seed_id": "lexus__is__2006__2026__il",
+    "next_seed_id": "lexus__es__2006__2026__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2311,6 +2312,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-22T19:05:25.806676+00:00"
+      },
+      "lexus__is__2006__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 5,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-22T19:06:14.533222+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -235013,6 +235022,305 @@
         "trim": []
       },
       "variant_id": "lexus_ct_200h_2011_2020_il_confirmed_1st_gen_zwa10_1_8l_2zr_fxe_hybrid_e_cvt_hatchback_hybrid"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Lexus",
+      "model": "IS",
+      "global_model_name": "Lexus IS 250",
+      "official_marketed_name_il": "Lexus IS 250",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2006,
+      "year_end": 2013,
+      "generation": "2nd Gen (XE20)",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "2.5L V6 Petrol (4GR-FSE)",
+      "transmission": "6-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "RWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli spec sites (iCar) confirm the IS 250 was the primary variant imported to Israel for the XE20 generation starting in 2006.",
+      "source_ids": [
+        "icar_il_lexus_is",
+        "lexus_il_official_archive"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_lexus_is"
+        ],
+        "seats": [
+          "icar_il_lexus_is"
+        ],
+        "engine": [
+          "icar_il_lexus_is"
+        ],
+        "transmission": [
+          "icar_il_lexus_is"
+        ],
+        "fuel_type": [
+          "icar_il_lexus_is"
+        ],
+        "drivetrain": [
+          "icar_il_lexus_is"
+        ],
+        "generation": [
+          "icar_il_lexus_is"
+        ],
+        "year_start": [
+          "icar_il_lexus_is"
+        ],
+        "year_end": [
+          "icar_il_lexus_is"
+        ],
+        "trim": []
+      },
+      "variant_id": "lexus_is_2006_2013_il_confirmed_2nd_gen_xe20_2_5l_v6_petrol_4gr_fse_6_speed_automatic_sedan_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Lexus",
+      "model": "IS",
+      "global_model_name": "Lexus IS 250C",
+      "official_marketed_name_il": "Lexus IS 250C",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2009,
+      "year_end": 2013,
+      "generation": "2nd Gen (XE20)",
+      "body_type": "Convertible",
+      "seats": 4,
+      "engine": "2.5L V6 Petrol (4GR-FSE)",
+      "transmission": "6-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "RWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "IL market availability confirmed by iCar catalog for the hardtop convertible version of the XE20.",
+      "source_ids": [
+        "icar_il_lexus_is"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_lexus_is"
+        ],
+        "seats": [
+          "icar_il_lexus_is"
+        ],
+        "engine": [
+          "icar_il_lexus_is"
+        ],
+        "transmission": [
+          "icar_il_lexus_is"
+        ],
+        "fuel_type": [
+          "icar_il_lexus_is"
+        ],
+        "drivetrain": [
+          "icar_il_lexus_is"
+        ],
+        "generation": [
+          "icar_il_lexus_is"
+        ],
+        "year_start": [
+          "icar_il_lexus_is"
+        ],
+        "year_end": [
+          "icar_il_lexus_is"
+        ],
+        "trim": []
+      },
+      "variant_id": "lexus_is_2009_2013_il_confirmed_2nd_gen_xe20_2_5l_v6_petrol_4gr_fse_6_speed_automatic_convertible_petrol"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Lexus",
+      "model": "IS",
+      "global_model_name": "Lexus IS F",
+      "official_marketed_name_il": "Lexus IS F",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2008,
+      "year_end": 2012,
+      "generation": "2nd Gen (XE20)",
+      "body_type": "Sedan",
+      "seats": 4,
+      "engine": "5.0L V8 Petrol (2UR-GSE)",
+      "transmission": "8-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "RWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "medium",
+      "source_basis": "IS F performance model was imported to Israel in limited numbers. Verified via historic IL motoring press.",
+      "source_ids": [
+        "icar_il_lexus_is"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_lexus_is"
+        ],
+        "seats": [
+          "icar_il_lexus_is"
+        ],
+        "engine": [
+          "icar_il_lexus_is"
+        ],
+        "transmission": [
+          "icar_il_lexus_is"
+        ],
+        "fuel_type": [
+          "icar_il_lexus_is"
+        ],
+        "drivetrain": [
+          "icar_il_lexus_is"
+        ],
+        "generation": [
+          "icar_il_lexus_is"
+        ],
+        "year_start": [
+          "icar_il_lexus_is"
+        ],
+        "year_end": [
+          "icar_il_lexus_is"
+        ],
+        "trim": []
+      },
+      "variant_id": "lexus_is_2008_2012_il_confirmed_2nd_gen_xe20_5_0l_v8_petrol_2ur_gse_8_speed_automatic_sedan_petrol"
+    },
+    {
+      "candidate_index": 3,
+      "make": "Lexus",
+      "model": "IS",
+      "global_model_name": "Lexus IS 300h",
+      "official_marketed_name_il": "Lexus IS 300h",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2013,
+      "year_end": 2021,
+      "generation": "3rd Gen (XE30)",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "2.5L e:HEV Hybrid (2AR-FSE)",
+      "transmission": "e-CVT",
+      "fuel_type": "Hybrid",
+      "drivetrain": "RWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "The IS 300h was the dominant IS variant in Israel for the 3rd generation, launched in 2013. Discontinued locally around 2021 following European market withdrawal.",
+      "source_ids": [
+        "cartube_il_lexus_is_hybrid",
+        "icar_il_lexus_is",
+        "lexus_il_official_archive"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_lexus_is"
+        ],
+        "seats": [
+          "icar_il_lexus_is"
+        ],
+        "engine": [
+          "cartube_il_lexus_is_hybrid",
+          "icar_il_lexus_is"
+        ],
+        "transmission": [
+          "cartube_il_lexus_is_hybrid",
+          "icar_il_lexus_is"
+        ],
+        "fuel_type": [
+          "cartube_il_lexus_is_hybrid",
+          "icar_il_lexus_is"
+        ],
+        "drivetrain": [
+          "icar_il_lexus_is"
+        ],
+        "generation": [
+          "icar_il_lexus_is"
+        ],
+        "year_start": [
+          "cartube_il_lexus_is_hybrid",
+          "icar_il_lexus_is"
+        ],
+        "year_end": [
+          "icar_il_lexus_is"
+        ],
+        "trim": []
+      },
+      "variant_id": "lexus_is_2013_2021_il_confirmed_3rd_gen_xe30_2_5l_e_hev_hybrid_2ar_fse_e_cvt_sedan_hybrid"
+    },
+    {
+      "candidate_index": 4,
+      "make": "Lexus",
+      "model": "IS",
+      "global_model_name": "Lexus IS 200t",
+      "official_marketed_name_il": "Lexus IS 200t",
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Lexus IS 300"
+      ],
+      "rebadged_as": null,
+      "year_start": 2015,
+      "year_end": 2018,
+      "generation": "3rd Gen (XE30)",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "2.0L Turbo Petrol (8AR-FTS)",
+      "transmission": "8-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "RWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Introduced to Israel as a petrol alternative to the 300h, featuring the 2.0L turbocharged engine. Listed in Israeli specs databases.",
+      "source_ids": [
+        "icar_il_lexus_is"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_lexus_is"
+        ],
+        "seats": [
+          "icar_il_lexus_is"
+        ],
+        "engine": [
+          "icar_il_lexus_is"
+        ],
+        "transmission": [
+          "icar_il_lexus_is"
+        ],
+        "fuel_type": [
+          "icar_il_lexus_is"
+        ],
+        "drivetrain": [
+          "icar_il_lexus_is"
+        ],
+        "generation": [
+          "icar_il_lexus_is"
+        ],
+        "year_start": [
+          "icar_il_lexus_is"
+        ],
+        "year_end": [
+          "icar_il_lexus_is"
+        ],
+        "trim": []
+      },
+      "variant_id": "lexus_is_2015_2018_il_confirmed_3rd_gen_xe30_2_0l_turbo_petrol_8ar_fts_8_speed_automatic_sedan_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -453023,17 +453331,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1796,
-    "variants": 1796,
+    "total_variants": 1801,
+    "variants": 1801,
     "verified": 788,
-    "partial": 1008,
+    "partial": 1013,
     "makes_count": 41,
-    "models_count": 503,
-    "processed_seeds": 500,
+    "models_count": 504,
+    "processed_seeds": 501,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-22T19:05:25.813023+00:00"
+    "last_updated_at": "2026-05-22T19:06:14.538311+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
