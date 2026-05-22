@@ -466,7 +466,8 @@
       "volkswagen__t-roc__2018__2026__il",
       "volkswagen__tiguan__2007__2026__il",
       "volkswagen__tiguan_allspace__2017__2026__il",
-      "volkswagen__touareg__2002__2026__il"
+      "volkswagen__touareg__2002__2026__il",
+      "volkswagen__id.3__2020__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1924,6 +1925,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-22T15:51:48.860975+00:00"
+      },
+      "volkswagen__id.3__2020__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 3,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-22T15:52:36.712910+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -224720,6 +224729,199 @@
         "trim": []
       },
       "variant_id": "volkswagen_touareg_2018_2026_il_confirmed_3rd_gen_cr_3_0l_v6_tdi_8_speed_automatic_suv_diesel"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Volkswagen",
+      "model": "ID.3",
+      "global_model_name": "Volkswagen ID.3",
+      "official_marketed_name_il": "Volkswagen ID.3",
+      "local_brand_name_il": "Volkswagen",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2020,
+      "year_end": 2026,
+      "generation": "1st Gen (MEB)",
+      "body_type": "Hatchback",
+      "seats": 5,
+      "engine": "Single Electric Motor (58 kWh), 204 hp",
+      "transmission": "Single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "RWD",
+      "trim": "Pro",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Official IL importer (Champion Motors) launched the facelifted ID.3 Pro (58 kWh, 204 hp) in early 2024. Pre-facelift versions (2020-2023) were widely sold in IL via parallel importers. Engine, transmission, and RWD drivetrain confirmed.",
+      "source_ids": [
+        "vw_champion_motors_il_id3",
+        "cartube_il_vw_id3_launch_2024",
+        "ev_database_global_vw_id3"
+      ],
+      "field_sources": {
+        "body_type": [
+          "vw_champion_motors_il_id3",
+          "ev_database_global_vw_id3"
+        ],
+        "seats": [
+          "vw_champion_motors_il_id3",
+          "ev_database_global_vw_id3"
+        ],
+        "engine": [
+          "vw_champion_motors_il_id3",
+          "cartube_il_vw_id3_launch_2024",
+          "ev_database_global_vw_id3"
+        ],
+        "transmission": [
+          "vw_champion_motors_il_id3",
+          "ev_database_global_vw_id3"
+        ],
+        "fuel_type": [
+          "vw_champion_motors_il_id3",
+          "ev_database_global_vw_id3"
+        ],
+        "drivetrain": [
+          "vw_champion_motors_il_id3",
+          "ev_database_global_vw_id3"
+        ],
+        "generation": [
+          "cartube_il_vw_id3_launch_2024",
+          "ev_database_global_vw_id3"
+        ],
+        "year_start": [
+          "cartube_il_vw_id3_launch_2024",
+          "ev_database_global_vw_id3"
+        ],
+        "year_end": [
+          "ev_database_global_vw_id3"
+        ],
+        "trim": [
+          "vw_champion_motors_il_id3",
+          "cartube_il_vw_id3_launch_2024"
+        ]
+      },
+      "variant_id": "volkswagen_id_3_2020_2026_il_confirmed_1st_gen_meb_single_electric_motor_58_kwh_204_hp_single_speed_ev_hatchback_electric"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Volkswagen",
+      "model": "ID.3",
+      "global_model_name": "Volkswagen ID.3",
+      "official_marketed_name_il": "Volkswagen ID.3",
+      "local_brand_name_il": "Volkswagen",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2020,
+      "year_end": 2026,
+      "generation": "1st Gen (MEB)",
+      "body_type": "Hatchback",
+      "seats": 4,
+      "engine": "Single Electric Motor (77 kWh), 204 hp",
+      "transmission": "Single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "RWD",
+      "trim": "Pro S",
+      "market_scope": "IL-likely",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "medium",
+      "source_basis": "The 77 kWh Pro S variant is well documented globally and imported to Israel primarily through parallel import channels rather than the primary official importer. Originally a 4-seater globally due to weight limits (later updated to 5 in some markets). Marked as IL-likely.",
+      "source_ids": [
+        "cartube_il_vw_id3_launch_2024",
+        "ev_database_global_vw_id3"
+      ],
+      "field_sources": {
+        "body_type": [
+          "ev_database_global_vw_id3"
+        ],
+        "seats": [
+          "ev_database_global_vw_id3"
+        ],
+        "engine": [
+          "ev_database_global_vw_id3"
+        ],
+        "transmission": [
+          "ev_database_global_vw_id3"
+        ],
+        "fuel_type": [
+          "ev_database_global_vw_id3"
+        ],
+        "drivetrain": [
+          "ev_database_global_vw_id3"
+        ],
+        "generation": [
+          "ev_database_global_vw_id3"
+        ],
+        "year_start": [
+          "ev_database_global_vw_id3"
+        ],
+        "year_end": [
+          "ev_database_global_vw_id3"
+        ],
+        "trim": [
+          "ev_database_global_vw_id3"
+        ]
+      },
+      "variant_id": "volkswagen_id_3_2020_2026_il_likely_1st_gen_meb_single_electric_motor_77_kwh_204_hp_single_speed_ev_hatchback_electric"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Volkswagen",
+      "model": "ID.3",
+      "global_model_name": "Volkswagen ID.3",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2021,
+      "year_end": 2023,
+      "generation": "1st Gen (MEB)",
+      "body_type": "Hatchback",
+      "seats": 5,
+      "engine": "Single Electric Motor (45 kWh), 150 hp",
+      "transmission": "Single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "RWD",
+      "trim": "Pure",
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "Entry-level 45 kWh battery (Pure Performance) was available in European markets prior to the 2023 facelift. No firm evidence of official or widespread marketing in Israel. Included as global reference.",
+      "source_ids": [
+        "ev_database_global_vw_id3"
+      ],
+      "field_sources": {
+        "body_type": [
+          "ev_database_global_vw_id3"
+        ],
+        "seats": [
+          "ev_database_global_vw_id3"
+        ],
+        "engine": [
+          "ev_database_global_vw_id3"
+        ],
+        "transmission": [
+          "ev_database_global_vw_id3"
+        ],
+        "fuel_type": [
+          "ev_database_global_vw_id3"
+        ],
+        "drivetrain": [
+          "ev_database_global_vw_id3"
+        ],
+        "generation": [
+          "ev_database_global_vw_id3"
+        ],
+        "year_start": [
+          "ev_database_global_vw_id3"
+        ],
+        "year_end": [
+          "ev_database_global_vw_id3"
+        ],
+        "trim": [
+          "ev_database_global_vw_id3"
+        ]
+      },
+      "variant_id": "volkswagen_id_3_2021_2023_global_reference_only_1st_gen_meb_single_electric_motor_45_kwh_150_hp_single_speed_ev_hatchback_electric"
     }
   ],
   "accumulated_clean_export": {
@@ -442730,17 +442932,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1633,
-    "variants": 1633,
+    "total_variants": 1636,
+    "variants": 1636,
     "verified": 788,
-    "partial": 845,
+    "partial": 848,
     "makes_count": 40,
-    "models_count": 461,
-    "processed_seeds": 457,
+    "models_count": 462,
+    "processed_seeds": 458,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-22T15:51:48.865423+00:00"
+    "last_updated_at": "2026-05-22T15:52:36.717491+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
