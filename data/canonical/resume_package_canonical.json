@@ -498,7 +498,8 @@
       "toyota__urban_cruiser__2009__2014__il",
       "toyota__proace__2017__2026__il",
       "toyota__proace_city__2020__2026__il",
-      "toyota__bz4x__2022__2026__il"
+      "toyota__bz4x__2022__2026__il",
+      "toyota__gt86__2012__2021__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -951,8 +952,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "toyota__bz4x__2022__2026__il",
-    "next_seed_id": "toyota__gt86__2012__2021__il",
+    "last_completed_seed_id": "toyota__gt86__2012__2021__il",
+    "next_seed_id": "toyota__gr86__2021__2026__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2212,6 +2213,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-22T18:56:51.802873+00:00"
+      },
+      "toyota__gt86__2012__2021__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 2,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-22T18:57:24.997549+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -233166,6 +233175,134 @@
         ]
       },
       "variant_id": "toyota_bz4x_2022_2026_il_confirmed_1st_gen_ea10_dual_electric_motor_160_kw_218_hp_single_speed_ev_suv_electric"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Toyota",
+      "model": "GT86",
+      "global_model_name": "GT86",
+      "official_marketed_name_il": "GT86",
+      "local_brand_name_il": "Toyota",
+      "alternate_names": [
+        "86",
+        "FT86"
+      ],
+      "rebadged_as": "Subaru BRZ",
+      "year_start": 2012,
+      "year_end": 2021,
+      "generation": "1st Gen (ZN6)",
+      "body_type": "Coupe",
+      "seats": 4,
+      "engine": "2.0L Flat-4 Petrol, 200 hp",
+      "transmission": "6-speed manual",
+      "fuel_type": "Petrol",
+      "drivetrain": "RWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli automotive sources confirm the ZN6 GT86 was marketed in Israel from 2012 featuring the FA20 naturally aspirated 2.0L boxer engine and a 6-speed manual option.",
+      "source_ids": [
+        "auto_co_il_gt86_catalog",
+        "cartube_il_gt86_2012"
+      ],
+      "field_sources": {
+        "body_type": [
+          "auto_co_il_gt86_catalog"
+        ],
+        "seats": [
+          "auto_co_il_gt86_catalog"
+        ],
+        "engine": [
+          "auto_co_il_gt86_catalog",
+          "cartube_il_gt86_2012"
+        ],
+        "transmission": [
+          "auto_co_il_gt86_catalog",
+          "cartube_il_gt86_2012"
+        ],
+        "fuel_type": [
+          "auto_co_il_gt86_catalog"
+        ],
+        "drivetrain": [
+          "auto_co_il_gt86_catalog"
+        ],
+        "generation": [
+          "auto_co_il_gt86_catalog"
+        ],
+        "year_start": [
+          "cartube_il_gt86_2012"
+        ],
+        "year_end": [
+          "auto_co_il_gt86_catalog"
+        ],
+        "trim": []
+      },
+      "variant_id": "toyota_gt86_2012_2021_il_confirmed_1st_gen_zn6_2_0l_flat_4_petrol_200_hp_6_speed_manual_coupe_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Toyota",
+      "model": "GT86",
+      "global_model_name": "GT86",
+      "official_marketed_name_il": "GT86",
+      "local_brand_name_il": "Toyota",
+      "alternate_names": [
+        "86",
+        "FT86"
+      ],
+      "rebadged_as": "Subaru BRZ",
+      "year_start": 2012,
+      "year_end": 2021,
+      "generation": "1st Gen (ZN6)",
+      "body_type": "Coupe",
+      "seats": 4,
+      "engine": "2.0L Flat-4 Petrol, 200 hp",
+      "transmission": "6-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "RWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli automotive publications confirm the 6-speed automatic transmission variant of the GT86 was sold alongside the manual in Israel.",
+      "source_ids": [
+        "auto_co_il_gt86_catalog",
+        "cartube_il_gt86_2012"
+      ],
+      "field_sources": {
+        "body_type": [
+          "auto_co_il_gt86_catalog"
+        ],
+        "seats": [
+          "auto_co_il_gt86_catalog"
+        ],
+        "engine": [
+          "auto_co_il_gt86_catalog",
+          "cartube_il_gt86_2012"
+        ],
+        "transmission": [
+          "auto_co_il_gt86_catalog",
+          "cartube_il_gt86_2012"
+        ],
+        "fuel_type": [
+          "auto_co_il_gt86_catalog"
+        ],
+        "drivetrain": [
+          "auto_co_il_gt86_catalog"
+        ],
+        "generation": [
+          "auto_co_il_gt86_catalog"
+        ],
+        "year_start": [
+          "cartube_il_gt86_2012"
+        ],
+        "year_end": [
+          "auto_co_il_gt86_catalog"
+        ],
+        "trim": []
+      },
+      "variant_id": "toyota_gt86_2012_2021_il_confirmed_1st_gen_zn6_2_0l_flat_4_petrol_200_hp_6_speed_automatic_coupe_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -451176,17 +451313,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1769,
-    "variants": 1769,
+    "total_variants": 1771,
+    "variants": 1771,
     "verified": 788,
-    "partial": 981,
+    "partial": 983,
     "makes_count": 40,
-    "models_count": 492,
-    "processed_seeds": 489,
+    "models_count": 493,
+    "processed_seeds": 490,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-22T18:56:51.810061+00:00"
+    "last_updated_at": "2026-05-22T18:57:25.004963+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
