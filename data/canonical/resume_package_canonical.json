@@ -456,7 +456,8 @@
       "volkswagen__jetta__1990__2026__il",
       "volkswagen__bora__1999__2005__il",
       "volkswagen__beetle__1998__2019__il",
-      "volkswagen__scirocco__2008__2017__il"
+      "volkswagen__scirocco__2008__2017__il",
+      "volkswagen__passat__1990__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1834,6 +1835,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-22T15:42:48.125108+00:00"
+      },
+      "volkswagen__passat__1990__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 8,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-22T15:44:03.568874+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -221873,6 +221882,471 @@
         "trim": []
       },
       "variant_id": "volkswagen_scirocco_2015_2017_il_confirmed_scirocco_iii_facelift_2_0l_tsi_turbo_petrol_180_hp_6_speed_dsg_coupe_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Volkswagen",
+      "model": "Passat",
+      "global_model_name": "Passat B5.5",
+      "official_marketed_name_il": "Volkswagen Passat",
+      "local_brand_name_il": "פולקסווגן",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2000,
+      "year_end": 2005,
+      "generation": "B5.5",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "1.8L Turbo Petrol (150 hp)",
+      "transmission": "5-speed automatic (Tiptronic)",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "Comfortline",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "iCar Israel and Yad2 historical listings confirm B5.5 generation popularity with 1.8T and Tiptronic in Israel.",
+      "source_ids": [
+        "icar_il_vw_passat_history",
+        "yad2_il_passat_used_cars"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_vw_passat_history"
+        ],
+        "seats": [],
+        "engine": [
+          "icar_il_vw_passat_history",
+          "yad2_il_passat_used_cars"
+        ],
+        "transmission": [
+          "icar_il_vw_passat_history"
+        ],
+        "fuel_type": [
+          "icar_il_vw_passat_history"
+        ],
+        "drivetrain": [
+          "icar_il_vw_passat_history"
+        ],
+        "generation": [
+          "icar_il_vw_passat_history"
+        ],
+        "year_start": [
+          "icar_il_vw_passat_history"
+        ],
+        "year_end": [
+          "icar_il_vw_passat_history"
+        ],
+        "trim": [
+          "yad2_il_passat_used_cars"
+        ]
+      },
+      "variant_id": "volkswagen_passat_2000_2005_il_confirmed_b5_5_1_8l_turbo_petrol_150_hp_5_speed_automatic_tiptronic_sedan_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Volkswagen",
+      "model": "Passat",
+      "global_model_name": "Passat B6",
+      "official_marketed_name_il": "Volkswagen Passat",
+      "local_brand_name_il": "פולקסווגן",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2007,
+      "year_end": 2010,
+      "generation": "B6",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "1.8L TSI (160 hp)",
+      "transmission": "6-speed automatic / 7-speed DSG",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "Comfortline",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli specifications from iCar confirm the mid-cycle addition of the 1.8 TSI for B6 generation in the local market.",
+      "source_ids": [
+        "icar_il_vw_passat_history",
+        "yad2_il_passat_used_cars"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_vw_passat_history"
+        ],
+        "seats": [],
+        "engine": [
+          "icar_il_vw_passat_history"
+        ],
+        "transmission": [
+          "icar_il_vw_passat_history"
+        ],
+        "fuel_type": [
+          "icar_il_vw_passat_history"
+        ],
+        "drivetrain": [
+          "icar_il_vw_passat_history"
+        ],
+        "generation": [
+          "icar_il_vw_passat_history"
+        ],
+        "year_start": [
+          "icar_il_vw_passat_history"
+        ],
+        "year_end": [
+          "icar_il_vw_passat_history"
+        ],
+        "trim": []
+      },
+      "variant_id": "volkswagen_passat_2007_2010_il_confirmed_b6_1_8l_tsi_160_hp_6_speed_automatic_7_speed_dsg_sedan_petrol"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Volkswagen",
+      "model": "Passat",
+      "global_model_name": "Passat B7",
+      "official_marketed_name_il": "Volkswagen Passat",
+      "local_brand_name_il": "פולקסווגן",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2010,
+      "year_end": 2014,
+      "generation": "B7",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "1.8L TSI (160 hp)",
+      "transmission": "7-speed DSG",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "Highline",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "iCar Israel specs and Yad2 listings confirm B7 generation sold predominantly with 1.8 TSI and 1.4 TSI engines with DSG.",
+      "source_ids": [
+        "icar_il_vw_passat_history",
+        "yad2_il_passat_used_cars"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_vw_passat_history"
+        ],
+        "seats": [],
+        "engine": [
+          "icar_il_vw_passat_history"
+        ],
+        "transmission": [
+          "icar_il_vw_passat_history"
+        ],
+        "fuel_type": [
+          "icar_il_vw_passat_history"
+        ],
+        "drivetrain": [
+          "icar_il_vw_passat_history"
+        ],
+        "generation": [
+          "icar_il_vw_passat_history"
+        ],
+        "year_start": [
+          "icar_il_vw_passat_history"
+        ],
+        "year_end": [
+          "icar_il_vw_passat_history"
+        ],
+        "trim": [
+          "yad2_il_passat_used_cars"
+        ]
+      },
+      "variant_id": "volkswagen_passat_2010_2014_il_confirmed_b7_1_8l_tsi_160_hp_7_speed_dsg_sedan_petrol"
+    },
+    {
+      "candidate_index": 3,
+      "make": "Volkswagen",
+      "model": "Passat",
+      "global_model_name": "Passat B8",
+      "official_marketed_name_il": "Volkswagen Passat",
+      "local_brand_name_il": "פולקסווגן",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2014,
+      "year_end": 2019,
+      "generation": "B8",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "1.4L TSI (150 hp)",
+      "transmission": "7-speed DSG",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "Comfortline",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Cartube and iCar confirm launch of B8 in Israel with 1.4 TSI engine replacing previous base versions.",
+      "source_ids": [
+        "icar_il_vw_passat_history",
+        "champion_motors_il_passat_archive"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_vw_passat_history"
+        ],
+        "seats": [],
+        "engine": [
+          "icar_il_vw_passat_history"
+        ],
+        "transmission": [
+          "icar_il_vw_passat_history"
+        ],
+        "fuel_type": [
+          "icar_il_vw_passat_history"
+        ],
+        "drivetrain": [
+          "icar_il_vw_passat_history"
+        ],
+        "generation": [
+          "icar_il_vw_passat_history"
+        ],
+        "year_start": [
+          "icar_il_vw_passat_history"
+        ],
+        "year_end": [
+          "icar_il_vw_passat_history"
+        ],
+        "trim": []
+      },
+      "variant_id": "volkswagen_passat_2014_2019_il_confirmed_b8_1_4l_tsi_150_hp_7_speed_dsg_sedan_petrol"
+    },
+    {
+      "candidate_index": 4,
+      "make": "Volkswagen",
+      "model": "Passat",
+      "global_model_name": "Passat B8",
+      "official_marketed_name_il": "Volkswagen Passat GTE",
+      "local_brand_name_il": "פולקסווגן",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2017,
+      "year_end": 2023,
+      "generation": "B8",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "1.4L TSI PHEV (218 hp combined)",
+      "transmission": "6-speed DSG",
+      "fuel_type": "Plug-in Hybrid",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Cartube article confirms IL market launch of Passat GTE PHEV model, marketed distinctly with GTE badge.",
+      "source_ids": [
+        "cartube_il_passat_gte_2017",
+        "champion_motors_il_passat_archive"
+      ],
+      "field_sources": {
+        "body_type": [
+          "champion_motors_il_passat_archive"
+        ],
+        "seats": [],
+        "engine": [
+          "cartube_il_passat_gte_2017"
+        ],
+        "transmission": [
+          "cartube_il_passat_gte_2017"
+        ],
+        "fuel_type": [
+          "cartube_il_passat_gte_2017"
+        ],
+        "drivetrain": [
+          "cartube_il_passat_gte_2017"
+        ],
+        "generation": [
+          "cartube_il_passat_gte_2017"
+        ],
+        "year_start": [
+          "cartube_il_passat_gte_2017"
+        ],
+        "year_end": [
+          "champion_motors_il_passat_archive"
+        ],
+        "trim": []
+      },
+      "variant_id": "volkswagen_passat_2017_2023_il_confirmed_b8_1_4l_tsi_phev_218_hp_combined_6_speed_dsg_sedan_plug_in_hybrid"
+    },
+    {
+      "candidate_index": 5,
+      "make": "Volkswagen",
+      "model": "Passat",
+      "global_model_name": "Passat B8 Facelift",
+      "official_marketed_name_il": "Volkswagen Passat",
+      "local_brand_name_il": "פולקסווגן",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2019,
+      "year_end": 2023,
+      "generation": "B8",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "1.5L TSI (150 hp)",
+      "transmission": "7-speed DSG",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "Business",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Cartube covers 2019 IL facelift launch updating base engine to 1.5 TSI and realigning trim levels to Business and Elegance.",
+      "source_ids": [
+        "cartube_il_passat_b8_facelift_2019",
+        "champion_motors_il_passat_archive"
+      ],
+      "field_sources": {
+        "body_type": [
+          "cartube_il_passat_b8_facelift_2019"
+        ],
+        "seats": [],
+        "engine": [
+          "cartube_il_passat_b8_facelift_2019"
+        ],
+        "transmission": [
+          "cartube_il_passat_b8_facelift_2019"
+        ],
+        "fuel_type": [
+          "cartube_il_passat_b8_facelift_2019"
+        ],
+        "drivetrain": [
+          "cartube_il_passat_b8_facelift_2019"
+        ],
+        "generation": [
+          "cartube_il_passat_b8_facelift_2019"
+        ],
+        "year_start": [
+          "cartube_il_passat_b8_facelift_2019"
+        ],
+        "year_end": [
+          "champion_motors_il_passat_archive"
+        ],
+        "trim": [
+          "cartube_il_passat_b8_facelift_2019"
+        ]
+      },
+      "variant_id": "volkswagen_passat_2019_2023_il_confirmed_b8_1_5l_tsi_150_hp_7_speed_dsg_sedan_petrol"
+    },
+    {
+      "candidate_index": 6,
+      "make": "Volkswagen",
+      "model": "Passat",
+      "global_model_name": "Passat Variant B8 Facelift",
+      "official_marketed_name_il": "Volkswagen Passat Variant",
+      "local_brand_name_il": "פולקסווגן",
+      "alternate_names": [
+        "Passat Estate"
+      ],
+      "rebadged_as": null,
+      "year_start": 2019,
+      "year_end": 2023,
+      "generation": "B8",
+      "body_type": "Estate",
+      "seats": 5,
+      "engine": "1.5L TSI (150 hp)",
+      "transmission": "7-speed DSG",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "Elegance",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Estate body officially imported to Israel and marketed specifically under the 'Variant' suffix name, alongside Sedan.",
+      "source_ids": [
+        "champion_motors_il_passat_archive",
+        "icar_il_vw_passat_history"
+      ],
+      "field_sources": {
+        "body_type": [
+          "champion_motors_il_passat_archive"
+        ],
+        "seats": [],
+        "engine": [
+          "icar_il_vw_passat_history"
+        ],
+        "transmission": [
+          "icar_il_vw_passat_history"
+        ],
+        "fuel_type": [
+          "icar_il_vw_passat_history"
+        ],
+        "drivetrain": [
+          "icar_il_vw_passat_history"
+        ],
+        "generation": [
+          "icar_il_vw_passat_history"
+        ],
+        "year_start": [
+          "icar_il_vw_passat_history"
+        ],
+        "year_end": [
+          "champion_motors_il_passat_archive"
+        ],
+        "trim": []
+      },
+      "variant_id": "volkswagen_passat_2019_2023_il_confirmed_b8_1_5l_tsi_150_hp_7_speed_dsg_estate_petrol"
+    },
+    {
+      "candidate_index": 7,
+      "make": "Volkswagen",
+      "model": "Passat",
+      "global_model_name": "Passat B8",
+      "official_marketed_name_il": "Volkswagen Passat",
+      "local_brand_name_il": "פולקסווגן",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2014,
+      "year_end": 2020,
+      "generation": "B8",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "2.0L TDI (150 hp)",
+      "transmission": "6-speed DSG",
+      "fuel_type": "Diesel",
+      "drivetrain": "FWD",
+      "trim": "Comfortline",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "medium",
+      "source_basis": "Diesel variants were sold predominantly to fleet/taxi market in IL, verified via used car datasets and historical catalogs.",
+      "source_ids": [
+        "icar_il_vw_passat_history",
+        "yad2_il_passat_used_cars"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_vw_passat_history"
+        ],
+        "seats": [],
+        "engine": [
+          "yad2_il_passat_used_cars"
+        ],
+        "transmission": [
+          "icar_il_vw_passat_history"
+        ],
+        "fuel_type": [
+          "yad2_il_passat_used_cars"
+        ],
+        "drivetrain": [
+          "icar_il_vw_passat_history"
+        ],
+        "generation": [
+          "icar_il_vw_passat_history"
+        ],
+        "year_start": [
+          "icar_il_vw_passat_history"
+        ],
+        "year_end": [
+          "yad2_il_passat_used_cars"
+        ],
+        "trim": []
+      },
+      "variant_id": "volkswagen_passat_2014_2020_il_confirmed_b8_2_0l_tdi_150_hp_6_speed_dsg_sedan_diesel"
     }
   ],
   "accumulated_clean_export": {
@@ -439883,17 +440357,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1587,
-    "variants": 1587,
+    "total_variants": 1595,
+    "variants": 1595,
     "verified": 788,
-    "partial": 799,
+    "partial": 807,
     "makes_count": 40,
-    "models_count": 451,
-    "processed_seeds": 447,
+    "models_count": 452,
+    "processed_seeds": 448,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-22T15:42:48.129246+00:00"
+    "last_updated_at": "2026-05-22T15:44:03.571917+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
