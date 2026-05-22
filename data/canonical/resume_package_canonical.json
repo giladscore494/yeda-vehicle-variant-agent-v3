@@ -497,7 +497,8 @@
       "toyota__iq__2009__2015__il",
       "toyota__urban_cruiser__2009__2014__il",
       "toyota__proace__2017__2026__il",
-      "toyota__proace_city__2020__2026__il"
+      "toyota__proace_city__2020__2026__il",
+      "toyota__bz4x__2022__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -950,8 +951,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "toyota__proace_city__2020__2026__il",
-    "next_seed_id": "toyota__bz4x__2022__2026__il",
+    "last_completed_seed_id": "toyota__bz4x__2022__2026__il",
+    "next_seed_id": "toyota__gt86__2012__2021__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2203,6 +2204,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-22T18:56:16.769902+00:00"
+      },
+      "toyota__bz4x__2022__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 2,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-22T18:56:51.802873+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -233027,6 +233036,136 @@
         "trim": []
       },
       "variant_id": "toyota_proace_city_2022_2026_il_likely_1st_gen_k9_electric_motor_136_hp_single_speed_ev_panel_van_electric"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Toyota",
+      "model": "bZ4X",
+      "global_model_name": "bZ4X",
+      "official_marketed_name_il": "Toyota bZ4X",
+      "local_brand_name_il": "Toyota",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2022,
+      "year_end": 2026,
+      "generation": "1st Gen (EA10)",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "Single Electric Motor (150 kW / 204 hp)",
+      "transmission": "Single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "FWD",
+      "trim": "Motion",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli official importer data confirms the FWD version of the bZ4X is marketed under the 'Motion' trim level with a 204 hp electric motor.",
+      "source_ids": [
+        "toyota_il_bz4x_official",
+        "cartube_il_bz4x_launch_2022"
+      ],
+      "field_sources": {
+        "body_type": [
+          "toyota_il_bz4x_official"
+        ],
+        "seats": [
+          "toyota_il_bz4x_official"
+        ],
+        "engine": [
+          "toyota_il_bz4x_official",
+          "cartube_il_bz4x_launch_2022"
+        ],
+        "transmission": [
+          "toyota_il_bz4x_official"
+        ],
+        "fuel_type": [
+          "toyota_il_bz4x_official"
+        ],
+        "drivetrain": [
+          "toyota_il_bz4x_official",
+          "cartube_il_bz4x_launch_2022"
+        ],
+        "generation": [
+          "toyota_il_bz4x_official"
+        ],
+        "year_start": [
+          "toyota_il_bz4x_official",
+          "cartube_il_bz4x_launch_2022"
+        ],
+        "year_end": [
+          "toyota_il_bz4x_official"
+        ],
+        "trim": [
+          "toyota_il_bz4x_official",
+          "cartube_il_bz4x_launch_2022"
+        ]
+      },
+      "variant_id": "toyota_bz4x_2022_2026_il_confirmed_1st_gen_ea10_single_electric_motor_150_kw_204_hp_single_speed_ev_suv_electric"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Toyota",
+      "model": "bZ4X",
+      "global_model_name": "bZ4X",
+      "official_marketed_name_il": "Toyota bZ4X",
+      "local_brand_name_il": "Toyota",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2022,
+      "year_end": 2026,
+      "generation": "1st Gen (EA10)",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "Dual Electric Motor (160 kW / 218 hp)",
+      "transmission": "Single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "AWD",
+      "trim": "Vision",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli official importer data confirms the AWD dual-motor version of the bZ4X is marketed under the 'Vision' trim level with 218 hp.",
+      "source_ids": [
+        "toyota_il_bz4x_official",
+        "cartube_il_bz4x_launch_2022"
+      ],
+      "field_sources": {
+        "body_type": [
+          "toyota_il_bz4x_official"
+        ],
+        "seats": [
+          "toyota_il_bz4x_official"
+        ],
+        "engine": [
+          "toyota_il_bz4x_official",
+          "cartube_il_bz4x_launch_2022"
+        ],
+        "transmission": [
+          "toyota_il_bz4x_official"
+        ],
+        "fuel_type": [
+          "toyota_il_bz4x_official"
+        ],
+        "drivetrain": [
+          "toyota_il_bz4x_official",
+          "cartube_il_bz4x_launch_2022"
+        ],
+        "generation": [
+          "toyota_il_bz4x_official"
+        ],
+        "year_start": [
+          "toyota_il_bz4x_official",
+          "cartube_il_bz4x_launch_2022"
+        ],
+        "year_end": [
+          "toyota_il_bz4x_official"
+        ],
+        "trim": [
+          "toyota_il_bz4x_official",
+          "cartube_il_bz4x_launch_2022"
+        ]
+      },
+      "variant_id": "toyota_bz4x_2022_2026_il_confirmed_1st_gen_ea10_dual_electric_motor_160_kw_218_hp_single_speed_ev_suv_electric"
     }
   ],
   "accumulated_clean_export": {
@@ -451037,17 +451176,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1767,
-    "variants": 1767,
+    "total_variants": 1769,
+    "variants": 1769,
     "verified": 788,
-    "partial": 979,
+    "partial": 981,
     "makes_count": 40,
-    "models_count": 491,
-    "processed_seeds": 488,
+    "models_count": 492,
+    "processed_seeds": 489,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-22T18:56:16.775174+00:00"
+    "last_updated_at": "2026-05-22T18:56:51.810061+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
