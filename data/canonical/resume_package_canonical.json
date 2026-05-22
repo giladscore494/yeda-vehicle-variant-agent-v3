@@ -489,7 +489,8 @@
       "toyota__land_cruiser_prado__1991__2026__il",
       "toyota__hilux__1991__2026__il",
       "toyota__highlander__2021__2026__il",
-      "toyota__starlet__1985__1999__il"
+      "toyota__starlet__1985__1999__il",
+      "toyota__avensis__1997__2018__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -942,8 +943,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "toyota__starlet__1985__1999__il",
-    "next_seed_id": "toyota__avensis__1997__2018__il",
+    "last_completed_seed_id": "toyota__avensis__1997__2018__il",
+    "next_seed_id": "toyota__verso__2009__2018__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2131,6 +2132,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-22T18:36:45.093052+00:00"
+      },
+      "toyota__avensis__1997__2018__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 4,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-22T18:37:41.586430+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -231305,6 +231314,244 @@
         "trim": []
       },
       "variant_id": "toyota_starlet_1989_1995_global_reference_only_p80_1_3l_2e_inline_4_petrol_75_hp_3_speed_automatic_hatchback_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Toyota",
+      "model": "Avensis",
+      "global_model_name": "Toyota Avensis",
+      "official_marketed_name_il": "Toyota Avensis",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2004,
+      "year_end": 2009,
+      "generation": "T250 (2nd Gen)",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "2.0L 1AZ-FSE 4-cylinder petrol, 147 hp",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli sources (Auto.co.il, Yad2) confirm the 2nd Gen T250 was launched in Israel in early 2004 equipped exclusively with the 2.0L direct-injection petrol engine and a 4-speed automatic transmission. Official IL marketed name confirmed.",
+      "source_ids": [
+        "auto_il_avensis_t250",
+        "yad2_toyota_avensis_listings"
+      ],
+      "field_sources": {
+        "body_type": [
+          "auto_il_avensis_t250",
+          "yad2_toyota_avensis_listings"
+        ],
+        "seats": [
+          "auto_il_avensis_t250"
+        ],
+        "engine": [
+          "auto_il_avensis_t250"
+        ],
+        "transmission": [
+          "auto_il_avensis_t250"
+        ],
+        "fuel_type": [
+          "auto_il_avensis_t250"
+        ],
+        "drivetrain": [
+          "auto_il_avensis_t250"
+        ],
+        "generation": [
+          "auto_il_avensis_t250"
+        ],
+        "year_start": [
+          "auto_il_avensis_t250"
+        ],
+        "year_end": [
+          "auto_il_avensis_t250"
+        ],
+        "trim": []
+      },
+      "variant_id": "toyota_avensis_2004_2009_il_confirmed_t250_2nd_gen_2_0l_1az_fse_4_cylinder_petrol_147_hp_4_speed_automatic_sedan_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Toyota",
+      "model": "Avensis",
+      "global_model_name": "Toyota Avensis",
+      "official_marketed_name_il": "Toyota Avensis",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2009,
+      "year_end": 2018,
+      "generation": "T270 (3rd Gen)",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "2.0L 3ZR-FAE 4-cylinder petrol, 152 hp",
+      "transmission": "CVT",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Cartube.co.il and Yad2 heavily document the 3rd Gen T270 sedan in Israel, sold through to 2018. Exclusively features the 2.0L Valvematic engine with a Continuously Variable Transmission (Multidrive S). Trims such as GLi, Executive, and Premium were available.",
+      "source_ids": [
+        "cartube_il_avensis_t270",
+        "yad2_toyota_avensis_listings"
+      ],
+      "field_sources": {
+        "body_type": [
+          "cartube_il_avensis_t270",
+          "yad2_toyota_avensis_listings"
+        ],
+        "seats": [
+          "cartube_il_avensis_t270"
+        ],
+        "engine": [
+          "cartube_il_avensis_t270"
+        ],
+        "transmission": [
+          "cartube_il_avensis_t270"
+        ],
+        "fuel_type": [
+          "cartube_il_avensis_t270"
+        ],
+        "drivetrain": [
+          "cartube_il_avensis_t270"
+        ],
+        "generation": [
+          "cartube_il_avensis_t270"
+        ],
+        "year_start": [
+          "cartube_il_avensis_t270"
+        ],
+        "year_end": [
+          "cartube_il_avensis_t270"
+        ],
+        "trim": []
+      },
+      "variant_id": "toyota_avensis_2009_2018_il_confirmed_t270_3rd_gen_2_0l_3zr_fae_4_cylinder_petrol_152_hp_cvt_sedan_petrol"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Toyota",
+      "model": "Avensis",
+      "global_model_name": "Toyota Avensis",
+      "official_marketed_name_il": "Toyota Avensis",
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Toyota Avensis Space Flow"
+      ],
+      "rebadged_as": null,
+      "year_start": 2009,
+      "year_end": 2018,
+      "generation": "T270 (3rd Gen)",
+      "body_type": "Wagon",
+      "seats": 5,
+      "engine": "2.0L 3ZR-FAE 4-cylinder petrol, 152 hp",
+      "transmission": "CVT",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli specifications confirm the T270 was also imported in a Wagon/Estate body style sharing the exact same 2.0L Valvematic powertrain as the sedan. Supported by Yad2 listings.",
+      "source_ids": [
+        "cartube_il_avensis_t270",
+        "yad2_toyota_avensis_listings"
+      ],
+      "field_sources": {
+        "body_type": [
+          "cartube_il_avensis_t270",
+          "yad2_toyota_avensis_listings"
+        ],
+        "seats": [
+          "cartube_il_avensis_t270"
+        ],
+        "engine": [
+          "cartube_il_avensis_t270"
+        ],
+        "transmission": [
+          "cartube_il_avensis_t270"
+        ],
+        "fuel_type": [
+          "cartube_il_avensis_t270"
+        ],
+        "drivetrain": [
+          "cartube_il_avensis_t270"
+        ],
+        "generation": [
+          "cartube_il_avensis_t270"
+        ],
+        "year_start": [
+          "cartube_il_avensis_t270"
+        ],
+        "year_end": [
+          "cartube_il_avensis_t270"
+        ],
+        "trim": []
+      },
+      "variant_id": "toyota_avensis_2009_2018_il_confirmed_t270_3rd_gen_2_0l_3zr_fae_4_cylinder_petrol_152_hp_cvt_wagon_petrol"
+    },
+    {
+      "candidate_index": 3,
+      "make": "Toyota",
+      "model": "Avensis",
+      "global_model_name": "Toyota Avensis",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 1997,
+      "year_end": 2003,
+      "generation": "T220 (1st Gen)",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "2.0L 3S-FE 4-cylinder petrol, 128 hp",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "The 1st Generation Avensis (T220) was sold globally but was not officially imported into Israel in significant numbers; the Israeli market continued with other models until the T250 launch in 2004. Included strictly for global reference overlapping the requested seed range.",
+      "source_ids": [
+        "toyota_global_history_avensis_t220"
+      ],
+      "field_sources": {
+        "body_type": [
+          "toyota_global_history_avensis_t220"
+        ],
+        "seats": [],
+        "engine": [
+          "toyota_global_history_avensis_t220"
+        ],
+        "transmission": [
+          "toyota_global_history_avensis_t220"
+        ],
+        "fuel_type": [
+          "toyota_global_history_avensis_t220"
+        ],
+        "drivetrain": [
+          "toyota_global_history_avensis_t220"
+        ],
+        "generation": [
+          "toyota_global_history_avensis_t220"
+        ],
+        "year_start": [
+          "toyota_global_history_avensis_t220"
+        ],
+        "year_end": [
+          "toyota_global_history_avensis_t220"
+        ],
+        "trim": []
+      },
+      "variant_id": "toyota_avensis_1997_2003_global_reference_only_t220_1st_gen_2_0l_3s_fe_4_cylinder_petrol_128_hp_4_speed_automatic_sedan_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -449315,17 +449562,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1739,
-    "variants": 1739,
+    "total_variants": 1743,
+    "variants": 1743,
     "verified": 788,
-    "partial": 951,
+    "partial": 955,
     "makes_count": 40,
-    "models_count": 483,
-    "processed_seeds": 480,
+    "models_count": 484,
+    "processed_seeds": 481,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-22T18:36:45.100807+00:00"
+    "last_updated_at": "2026-05-22T18:37:41.591849+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
