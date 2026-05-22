@@ -522,7 +522,8 @@
       "lexus__lx__2006__2026__il",
       "lexus__lm__2020__2026__il",
       "lexus__lbx__2023__2026__il",
-      "lexus__rc__2014__2026__il"
+      "lexus__rc__2014__2026__il",
+      "lexus__lc__2017__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -975,8 +976,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "lexus__rc__2014__2026__il",
-    "next_seed_id": "lexus__lc__2017__2026__il",
+    "last_completed_seed_id": "lexus__lc__2017__2026__il",
+    "next_seed_id": "lexus__sc_430__2006__2010__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2428,6 +2429,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-22T19:20:58.387025+00:00"
+      },
+      "lexus__lc__2017__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 3,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-22T19:21:44.229281+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -238524,6 +238533,196 @@
         ]
       },
       "variant_id": "lexus_rc_2015_2021_il_confirmed_1st_gen_xc10_5_0l_2ur_gse_v8_477_hp_8_speed_automatic_coupe_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Lexus",
+      "model": "LC",
+      "global_model_name": "Lexus LC",
+      "official_marketed_name_il": "Lexus LC",
+      "local_brand_name_il": "Lexus",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2017,
+      "year_end": 2026,
+      "generation": "Z100",
+      "body_type": "Coupe",
+      "seats": 4,
+      "engine": "5.0L V8 naturally aspirated",
+      "transmission": "10-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "RWD",
+      "trim": "500",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli market confirmation via official importer and iCar. Launched in Israel in 2017 featuring the 5.0L V8 engine. Trim options (e.g. Sport+) exist locally but core variant is 500.",
+      "source_ids": [
+        "lexus_il_official",
+        "cartube_il_lc_launch",
+        "icar_il_lc_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "lexus_il_official",
+          "icar_il_lc_specs"
+        ],
+        "seats": [
+          "icar_il_lc_specs"
+        ],
+        "engine": [
+          "lexus_il_official",
+          "cartube_il_lc_launch"
+        ],
+        "transmission": [
+          "lexus_il_official"
+        ],
+        "fuel_type": [
+          "cartube_il_lc_launch"
+        ],
+        "drivetrain": [
+          "lexus_il_official"
+        ],
+        "generation": [
+          "icar_il_lc_specs"
+        ],
+        "year_start": [
+          "cartube_il_lc_launch"
+        ],
+        "year_end": [
+          "lexus_il_official"
+        ],
+        "trim": [
+          "cartube_il_lc_launch"
+        ]
+      },
+      "variant_id": "lexus_lc_2017_2026_il_confirmed_z100_5_0l_v8_naturally_aspirated_10_speed_automatic_coupe_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Lexus",
+      "model": "LC",
+      "global_model_name": "Lexus LC",
+      "official_marketed_name_il": "Lexus LC",
+      "local_brand_name_il": "Lexus",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2017,
+      "year_end": 2026,
+      "generation": "Z100",
+      "body_type": "Coupe",
+      "seats": 4,
+      "engine": "3.5L V6 Multi-Stage Hybrid",
+      "transmission": "e-CVT",
+      "fuel_type": "Hybrid",
+      "drivetrain": "RWD",
+      "trim": "500h",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Cartube and Lexus IL confirm the 500h hybrid variant launched alongside the V8 in 2017. Features the Multi-Stage Hybrid transmission (normalized to e-CVT).",
+      "source_ids": [
+        "lexus_il_official",
+        "cartube_il_lc_launch",
+        "icar_il_lc_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "lexus_il_official",
+          "icar_il_lc_specs"
+        ],
+        "seats": [
+          "icar_il_lc_specs"
+        ],
+        "engine": [
+          "lexus_il_official",
+          "cartube_il_lc_launch"
+        ],
+        "transmission": [
+          "lexus_il_official"
+        ],
+        "fuel_type": [
+          "cartube_il_lc_launch"
+        ],
+        "drivetrain": [
+          "lexus_il_official"
+        ],
+        "generation": [
+          "icar_il_lc_specs"
+        ],
+        "year_start": [
+          "cartube_il_lc_launch"
+        ],
+        "year_end": [
+          "lexus_il_official"
+        ],
+        "trim": [
+          "cartube_il_lc_launch"
+        ]
+      },
+      "variant_id": "lexus_lc_2017_2026_il_confirmed_z100_3_5l_v6_multi_stage_hybrid_e_cvt_coupe_hybrid"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Lexus",
+      "model": "LC",
+      "global_model_name": "Lexus LC",
+      "official_marketed_name_il": "Lexus LC Convertible",
+      "local_brand_name_il": "Lexus",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2020,
+      "year_end": 2026,
+      "generation": "Z100",
+      "body_type": "Convertible",
+      "seats": 4,
+      "engine": "5.0L V8 naturally aspirated",
+      "transmission": "10-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "RWD",
+      "trim": "500",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Convertible body style was introduced globally in 2020 and subsequently offered in Israel with the V8 engine, confirmed via Lexus Israel importer site.",
+      "source_ids": [
+        "lexus_il_official",
+        "icar_il_lc_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "lexus_il_official",
+          "icar_il_lc_specs"
+        ],
+        "seats": [
+          "icar_il_lc_specs"
+        ],
+        "engine": [
+          "lexus_il_official"
+        ],
+        "transmission": [
+          "lexus_il_official"
+        ],
+        "fuel_type": [
+          "lexus_il_official"
+        ],
+        "drivetrain": [
+          "lexus_il_official"
+        ],
+        "generation": [
+          "icar_il_lc_specs"
+        ],
+        "year_start": [
+          "icar_il_lc_specs"
+        ],
+        "year_end": [
+          "lexus_il_official"
+        ],
+        "trim": [
+          "lexus_il_official"
+        ]
+      },
+      "variant_id": "lexus_lc_2020_2026_il_confirmed_z100_5_0l_v8_naturally_aspirated_10_speed_automatic_convertible_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -456534,17 +456733,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1851,
-    "variants": 1851,
+    "total_variants": 1854,
+    "variants": 1854,
     "verified": 788,
-    "partial": 1063,
+    "partial": 1066,
     "makes_count": 41,
-    "models_count": 516,
-    "processed_seeds": 513,
+    "models_count": 517,
+    "processed_seeds": 514,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-22T19:20:58.394348+00:00"
+    "last_updated_at": "2026-05-22T19:21:44.234319+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
