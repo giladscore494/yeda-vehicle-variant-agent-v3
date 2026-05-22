@@ -503,7 +503,8 @@
       "toyota__gr86__2021__2026__il",
       "toyota__fj_cruiser__2007__2016__il",
       "toyota__supra__2019__2026__il",
-      "toyota__sienna__2021__2026__il"
+      "toyota__sienna__2021__2026__il",
+      "toyota__crown__2025__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -956,8 +957,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "toyota__sienna__2021__2026__il",
-    "next_seed_id": "toyota__crown__2025__2026__il",
+    "last_completed_seed_id": "toyota__crown__2025__2026__il",
+    "next_seed_id": "toyota__previa__1990__2000__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2257,6 +2258,14 @@
         "merged_count": 1,
         "warnings": [],
         "resolved_at": "2026-05-22T19:00:15.660739+00:00"
+      },
+      "toyota__crown__2025__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 2,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-22T19:00:52.127829+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -233848,6 +233857,136 @@
       },
       "variant_id": "toyota_sienna_2021_2026_il_confirmed_xl40_2_5l_a25a_fxs_hybrid_245_hp_e_cvt_minivan_hybrid",
       "updated_at": "2026-05-22T19:00:15.661799+00:00"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Toyota",
+      "model": "Crown",
+      "global_model_name": "Toyota Crown Crossover",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Crown Crossover"
+      ],
+      "rebadged_as": null,
+      "year_start": 2025,
+      "year_end": 2026,
+      "generation": "S235 (16th Gen)",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "2.5L A25A-FXS I4 Hybrid, 236 hp",
+      "transmission": "e-CVT",
+      "fuel_type": "Hybrid",
+      "drivetrain": "AWD",
+      "trim": null,
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "Global manufacturer specs confirm S235 Crown Crossover (marketed simply as Crown in many regions) with 2.5L THS powertrain for 2025. Official Union Motors (Israel) availability is unconfirmed; recorded as global-reference-only.",
+      "source_ids": [
+        "toyota_global_newsroom_crown_s235",
+        "toyota_us_pressroom_crown_2025"
+      ],
+      "field_sources": {
+        "body_type": [
+          "toyota_global_newsroom_crown_s235"
+        ],
+        "seats": [
+          "toyota_us_pressroom_crown_2025"
+        ],
+        "engine": [
+          "toyota_global_newsroom_crown_s235",
+          "toyota_us_pressroom_crown_2025"
+        ],
+        "transmission": [
+          "toyota_global_newsroom_crown_s235",
+          "toyota_us_pressroom_crown_2025"
+        ],
+        "fuel_type": [
+          "toyota_global_newsroom_crown_s235",
+          "toyota_us_pressroom_crown_2025"
+        ],
+        "drivetrain": [
+          "toyota_global_newsroom_crown_s235",
+          "toyota_us_pressroom_crown_2025"
+        ],
+        "generation": [
+          "toyota_global_newsroom_crown_s235"
+        ],
+        "year_start": [
+          "toyota_us_pressroom_crown_2025"
+        ],
+        "year_end": [
+          "toyota_us_pressroom_crown_2025"
+        ],
+        "trim": []
+      },
+      "variant_id": "toyota_crown_2025_2026_global_reference_only_s235_16th_gen_2_5l_a25a_fxs_i4_hybrid_236_hp_e_cvt_sedan_hybrid"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Toyota",
+      "model": "Crown",
+      "global_model_name": "Toyota Crown Crossover",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Crown Crossover"
+      ],
+      "rebadged_as": null,
+      "year_start": 2025,
+      "year_end": 2026,
+      "generation": "S235 (16th Gen)",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "2.4L T24A-FTS I4 Turbo Hybrid MAX, 340 hp",
+      "transmission": "6-speed automatic",
+      "fuel_type": "Hybrid",
+      "drivetrain": "AWD",
+      "trim": null,
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "Global manufacturer specs confirm the high-output Hybrid MAX powertrain for the 2025 Crown. Direct injection turbo hybrid paired with a direct shift 6-speed auto. IL-market availability not confirmed.",
+      "source_ids": [
+        "toyota_global_newsroom_crown_s235",
+        "toyota_us_pressroom_crown_2025"
+      ],
+      "field_sources": {
+        "body_type": [
+          "toyota_global_newsroom_crown_s235"
+        ],
+        "seats": [
+          "toyota_us_pressroom_crown_2025"
+        ],
+        "engine": [
+          "toyota_global_newsroom_crown_s235",
+          "toyota_us_pressroom_crown_2025"
+        ],
+        "transmission": [
+          "toyota_global_newsroom_crown_s235",
+          "toyota_us_pressroom_crown_2025"
+        ],
+        "fuel_type": [
+          "toyota_global_newsroom_crown_s235",
+          "toyota_us_pressroom_crown_2025"
+        ],
+        "drivetrain": [
+          "toyota_global_newsroom_crown_s235",
+          "toyota_us_pressroom_crown_2025"
+        ],
+        "generation": [
+          "toyota_global_newsroom_crown_s235"
+        ],
+        "year_start": [
+          "toyota_us_pressroom_crown_2025"
+        ],
+        "year_end": [
+          "toyota_us_pressroom_crown_2025"
+        ],
+        "trim": []
+      },
+      "variant_id": "toyota_crown_2025_2026_global_reference_only_s235_16th_gen_2_4l_t24a_fts_i4_turbo_hybrid_max_340_hp_6_speed_automatic_sedan_hybrid"
     }
   ],
   "accumulated_clean_export": {
@@ -451858,17 +451997,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1779,
-    "variants": 1779,
+    "total_variants": 1781,
+    "variants": 1781,
     "verified": 788,
-    "partial": 991,
+    "partial": 993,
     "makes_count": 40,
-    "models_count": 497,
-    "processed_seeds": 494,
+    "models_count": 498,
+    "processed_seeds": 495,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-22T19:00:15.666294+00:00"
+    "last_updated_at": "2026-05-22T19:00:52.134405+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
