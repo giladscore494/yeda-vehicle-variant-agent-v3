@@ -570,8 +570,7 @@
       "mazda__rx-8__2003__2012__il",
       "mazda__tribute__2001__2011__il",
       "mazda__premacy__1999__2010__il",
-      "mitsubishi__space_star__2012__2026__il",
-      "mitsubishi__colt__2004__2012__il"
+      "mitsubishi__space_star__2012__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -2833,26 +2832,26 @@
       "mazda__rx-8__2003__2012__il": {
         "status": "resolved",
         "resolution_type": "variants_added",
+        "added_count": 4,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T01:33:32.507084+00:00"
+      },
+      "mazda__tribute__2001__2011__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
         "added_count": 3,
         "merged_count": 0,
         "warnings": [],
-        "resolved_at": "2026-05-23T01:32:32.700839+00:00"
+        "resolved_at": "2026-05-23T01:34:32.945680+00:00"
       },
-      "mazda__tribute__2001__2011__il": {
+      "mazda__premacy__1999__2010__il": {
         "status": "resolved",
         "resolution_type": "variants_added",
         "added_count": 4,
         "merged_count": 0,
         "warnings": [],
-        "resolved_at": "2026-05-23T01:33:25.356261+00:00"
-      },
-      "mazda__premacy__1999__2010__il": {
-        "status": "resolved",
-        "resolution_type": "variants_added",
-        "added_count": 3,
-        "merged_count": 0,
-        "warnings": [],
-        "resolved_at": "2026-05-23T01:34:10.459005+00:00"
+        "resolved_at": "2026-05-23T01:35:30.227466+00:00"
       },
       "mitsubishi__space_star__2012__2026__il": {
         "status": "resolved",
@@ -2860,15 +2859,7 @@
         "added_count": 4,
         "merged_count": 0,
         "warnings": [],
-        "resolved_at": "2026-05-23T01:34:55.714575+00:00"
-      },
-      "mitsubishi__colt__2004__2012__il": {
-        "status": "resolved",
-        "resolution_type": "variants_added",
-        "added_count": 3,
-        "merged_count": 0,
-        "warnings": [],
-        "resolved_at": "2026-05-23T01:35:51.783832+00:00"
+        "resolved_at": "2026-05-23T01:36:18.419755+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -249731,6 +249722,256 @@
     {
       "candidate_index": 0,
       "make": "Mazda",
+      "model": "RX-8",
+      "global_model_name": "Mazda RX-8",
+      "official_marketed_name_il": "Mazda RX-8",
+      "local_brand_name_il": "Mazda",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2003,
+      "year_end": 2008,
+      "generation": "SE3P (Series I)",
+      "body_type": "Coupe",
+      "seats": 4,
+      "engine": "1.3L 13B-MSP Renesis Wankel Rotary (192 hp)",
+      "transmission": "5-speed manual",
+      "fuel_type": "Petrol",
+      "drivetrain": "RWD",
+      "trim": "Standard Power",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli automotive archives (iCar, Auto.co.il) confirm the Series I was officially imported to Israel featuring the 192 hp standard power Wankel engine with a 5-speed manual.",
+      "source_ids": [
+        "icar_il_rx8_specs",
+        "auto_il_rx8_archive"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_rx8_specs"
+        ],
+        "seats": [
+          "icar_il_rx8_specs"
+        ],
+        "engine": [
+          "icar_il_rx8_specs",
+          "auto_il_rx8_archive"
+        ],
+        "transmission": [
+          "icar_il_rx8_specs"
+        ],
+        "fuel_type": [
+          "icar_il_rx8_specs"
+        ],
+        "drivetrain": [
+          "icar_il_rx8_specs"
+        ],
+        "generation": [
+          "mazda_global_rx8_specs"
+        ],
+        "year_start": [
+          "auto_il_rx8_archive",
+          "mazda_global_rx8_specs"
+        ],
+        "year_end": [
+          "auto_il_rx8_archive",
+          "mazda_global_rx8_specs"
+        ],
+        "trim": [
+          "icar_il_rx8_specs"
+        ]
+      },
+      "variant_id": "mazda_rx_8_2003_2008_il_confirmed_se3p_series_i_1_3l_13b_msp_renesis_wankel_rotary_192_hp_5_speed_manual_coupe_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Mazda",
+      "model": "RX-8",
+      "global_model_name": "Mazda RX-8",
+      "official_marketed_name_il": "Mazda RX-8",
+      "local_brand_name_il": "Mazda",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2003,
+      "year_end": 2008,
+      "generation": "SE3P (Series I)",
+      "body_type": "Coupe",
+      "seats": 4,
+      "engine": "1.3L 13B-MSP Renesis Wankel Rotary (192 hp)",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "RWD",
+      "trim": "Standard Power",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli specifications list an automatic option for the 192 hp standard power variant during the Series I lifecycle.",
+      "source_ids": [
+        "icar_il_rx8_specs",
+        "auto_il_rx8_archive"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_rx8_specs"
+        ],
+        "seats": [
+          "icar_il_rx8_specs"
+        ],
+        "engine": [
+          "icar_il_rx8_specs",
+          "auto_il_rx8_archive"
+        ],
+        "transmission": [
+          "icar_il_rx8_specs"
+        ],
+        "fuel_type": [
+          "icar_il_rx8_specs"
+        ],
+        "drivetrain": [
+          "icar_il_rx8_specs"
+        ],
+        "generation": [
+          "mazda_global_rx8_specs"
+        ],
+        "year_start": [
+          "auto_il_rx8_archive",
+          "mazda_global_rx8_specs"
+        ],
+        "year_end": [
+          "auto_il_rx8_archive",
+          "mazda_global_rx8_specs"
+        ],
+        "trim": [
+          "icar_il_rx8_specs"
+        ]
+      },
+      "variant_id": "mazda_rx_8_2003_2008_il_confirmed_se3p_series_i_1_3l_13b_msp_renesis_wankel_rotary_192_hp_4_speed_automatic_coupe_petrol"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Mazda",
+      "model": "RX-8",
+      "global_model_name": "Mazda RX-8",
+      "official_marketed_name_il": "Mazda RX-8",
+      "local_brand_name_il": "Mazda",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2003,
+      "year_end": 2008,
+      "generation": "SE3P (Series I)",
+      "body_type": "Coupe",
+      "seats": 4,
+      "engine": "1.3L 13B-MSP Renesis Wankel Rotary (231 hp)",
+      "transmission": "6-speed manual",
+      "fuel_type": "Petrol",
+      "drivetrain": "RWD",
+      "trim": "High Power",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli sources confirm the High Power 231 hp version of the Series I was sold in IL exclusively with a 6-speed manual.",
+      "source_ids": [
+        "icar_il_rx8_specs",
+        "auto_il_rx8_archive"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_rx8_specs"
+        ],
+        "seats": [
+          "icar_il_rx8_specs"
+        ],
+        "engine": [
+          "icar_il_rx8_specs",
+          "auto_il_rx8_archive"
+        ],
+        "transmission": [
+          "icar_il_rx8_specs"
+        ],
+        "fuel_type": [
+          "icar_il_rx8_specs"
+        ],
+        "drivetrain": [
+          "icar_il_rx8_specs"
+        ],
+        "generation": [
+          "mazda_global_rx8_specs"
+        ],
+        "year_start": [
+          "auto_il_rx8_archive",
+          "mazda_global_rx8_specs"
+        ],
+        "year_end": [
+          "auto_il_rx8_archive",
+          "mazda_global_rx8_specs"
+        ],
+        "trim": [
+          "icar_il_rx8_specs"
+        ]
+      },
+      "variant_id": "mazda_rx_8_2003_2008_il_confirmed_se3p_series_i_1_3l_13b_msp_renesis_wankel_rotary_231_hp_6_speed_manual_coupe_petrol"
+    },
+    {
+      "candidate_index": 3,
+      "make": "Mazda",
+      "model": "RX-8",
+      "global_model_name": "Mazda RX-8",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2009,
+      "year_end": 2012,
+      "generation": "SE3P (Series II)",
+      "body_type": "Coupe",
+      "seats": 4,
+      "engine": "1.3L 13B-MSP Renesis Wankel Rotary (231 hp)",
+      "transmission": "6-speed manual",
+      "fuel_type": "Petrol",
+      "drivetrain": "RWD",
+      "trim": "High Power",
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "Global manufacturer specs confirm the Series II generation (facelift) from 2009 to 2012. Israeli marketed name not confirmed; availability in Israel for the facelift period is undocumented in main official importer price lists, so marked as global-reference-only.",
+      "source_ids": [
+        "mazda_global_rx8_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "mazda_global_rx8_specs"
+        ],
+        "seats": [
+          "mazda_global_rx8_specs"
+        ],
+        "engine": [
+          "mazda_global_rx8_specs"
+        ],
+        "transmission": [
+          "mazda_global_rx8_specs"
+        ],
+        "fuel_type": [
+          "mazda_global_rx8_specs"
+        ],
+        "drivetrain": [
+          "mazda_global_rx8_specs"
+        ],
+        "generation": [
+          "mazda_global_rx8_specs"
+        ],
+        "year_start": [
+          "mazda_global_rx8_specs"
+        ],
+        "year_end": [
+          "mazda_global_rx8_specs"
+        ],
+        "trim": []
+      },
+      "variant_id": "mazda_rx_8_2009_2012_global_reference_only_se3p_series_ii_1_3l_13b_msp_renesis_wankel_rotary_231_hp_6_speed_manual_coupe_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Mazda",
       "model": "Tribute",
       "global_model_name": "Mazda Tribute",
       "official_marketed_name_il": "Mazda Tribute",
@@ -249738,55 +249979,54 @@
       "alternate_names": [],
       "rebadged_as": null,
       "year_start": 2001,
-      "year_end": 2004,
-      "generation": "1st Gen",
+      "year_end": 2006,
+      "generation": "1st Gen (EP)",
       "body_type": "SUV",
       "seats": 5,
-      "engine": "2.0L I4 Petrol",
+      "engine": "2.0L Zetec I4",
       "transmission": "4-speed automatic",
       "fuel_type": "Petrol",
       "drivetrain": "4WD",
-      "trim": "",
+      "trim": null,
       "market_scope": "IL-confirmed",
       "market_name_confidence": "confirmed",
       "confidence_level": "high",
-      "source_basis": "Israeli market sources confirm the official marketed name as Mazda Tribute for the early 1st generation. 2.0L engine paired with 4-speed auto and 4WD was a standard configuration sold in IL.",
+      "source_basis": "IL market historical spec databases and used listings confirm the 1st generation Mazda Tribute was imported and sold in Israel by Delek Motors. The 2.0L 4WD variant with a 4-speed automatic is documented.",
       "source_ids": [
-        "icar_il_mazda_tribute_1st_gen",
-        "auto_co_il_mazda_tribute_review"
+        "icar_il_tribute_specs_2001_2006",
+        "yad2_il_tribute_archive"
       ],
       "field_sources": {
         "body_type": [
-          "icar_il_mazda_tribute_1st_gen"
+          "icar_il_tribute_specs_2001_2006"
         ],
         "seats": [
-          "auto_co_il_mazda_tribute_review"
+          "yad2_il_tribute_archive"
         ],
         "engine": [
-          "icar_il_mazda_tribute_1st_gen",
-          "auto_co_il_mazda_tribute_review"
+          "icar_il_tribute_specs_2001_2006"
         ],
         "transmission": [
-          "icar_il_mazda_tribute_1st_gen"
+          "icar_il_tribute_specs_2001_2006"
         ],
         "fuel_type": [
-          "auto_co_il_mazda_tribute_review"
+          "yad2_il_tribute_archive"
         ],
         "drivetrain": [
-          "icar_il_mazda_tribute_1st_gen"
+          "icar_il_tribute_specs_2001_2006"
         ],
         "generation": [
-          "auto_co_il_mazda_tribute_review"
+          "icar_il_tribute_specs_2001_2006"
         ],
         "year_start": [
-          "icar_il_mazda_tribute_1st_gen"
+          "icar_il_tribute_specs_2001_2006"
         ],
         "year_end": [
-          "icar_il_mazda_tribute_1st_gen"
+          "icar_il_tribute_specs_2001_2006"
         ],
         "trim": []
       },
-      "variant_id": "mazda_tribute_2001_2004_il_confirmed_1st_gen_2_0l_i4_petrol_4_speed_automatic_suv_petrol"
+      "variant_id": "mazda_tribute_2001_2006_il_confirmed_1st_gen_ep_2_0l_zetec_i4_4_speed_automatic_suv_petrol"
     },
     {
       "candidate_index": 1,
@@ -249799,117 +250039,56 @@
       "rebadged_as": null,
       "year_start": 2001,
       "year_end": 2006,
-      "generation": "1st Gen",
+      "generation": "1st Gen (EP)",
       "body_type": "SUV",
       "seats": 5,
-      "engine": "3.0L V6 Petrol",
+      "engine": "3.0L Duratec V6",
       "transmission": "4-speed automatic",
       "fuel_type": "Petrol",
       "drivetrain": "4WD",
-      "trim": "",
+      "trim": null,
       "market_scope": "IL-confirmed",
       "market_name_confidence": "confirmed",
       "confidence_level": "high",
-      "source_basis": "Israeli automotive catalogs confirm the 3.0L V6 engine was imported and sold alongside the 4-cylinder option. Marketed simply as Mazda Tribute V6.",
+      "source_basis": "IL market historical spec databases verify the 3.0L V6 was the premium Tribute variant sold in Israel, featuring standard 4WD and a 4-speed automatic.",
       "source_ids": [
-        "icar_il_mazda_tribute_1st_gen",
-        "auto_co_il_mazda_tribute_review"
+        "icar_il_tribute_specs_2001_2006",
+        "yad2_il_tribute_archive"
       ],
       "field_sources": {
         "body_type": [
-          "icar_il_mazda_tribute_1st_gen"
+          "icar_il_tribute_specs_2001_2006"
         ],
         "seats": [
-          "auto_co_il_mazda_tribute_review"
+          "yad2_il_tribute_archive"
         ],
         "engine": [
-          "icar_il_mazda_tribute_1st_gen",
-          "auto_co_il_mazda_tribute_review"
+          "icar_il_tribute_specs_2001_2006"
         ],
         "transmission": [
-          "icar_il_mazda_tribute_1st_gen"
+          "icar_il_tribute_specs_2001_2006"
         ],
         "fuel_type": [
-          "auto_co_il_mazda_tribute_review"
+          "yad2_il_tribute_archive"
         ],
         "drivetrain": [
-          "icar_il_mazda_tribute_1st_gen"
+          "icar_il_tribute_specs_2001_2006"
         ],
         "generation": [
-          "auto_co_il_mazda_tribute_review"
+          "icar_il_tribute_specs_2001_2006"
         ],
         "year_start": [
-          "icar_il_mazda_tribute_1st_gen"
+          "icar_il_tribute_specs_2001_2006"
         ],
         "year_end": [
-          "icar_il_mazda_tribute_1st_gen"
+          "icar_il_tribute_specs_2001_2006"
         ],
         "trim": []
       },
-      "variant_id": "mazda_tribute_2001_2006_il_confirmed_1st_gen_3_0l_v6_petrol_4_speed_automatic_suv_petrol"
+      "variant_id": "mazda_tribute_2001_2006_il_confirmed_1st_gen_ep_3_0l_duratec_v6_4_speed_automatic_suv_petrol"
     },
     {
       "candidate_index": 2,
-      "make": "Mazda",
-      "model": "Tribute",
-      "global_model_name": "Mazda Tribute",
-      "official_marketed_name_il": "Mazda Tribute",
-      "local_brand_name_il": "Mazda",
-      "alternate_names": [],
-      "rebadged_as": null,
-      "year_start": 2004,
-      "year_end": 2006,
-      "generation": "1st Gen",
-      "body_type": "SUV",
-      "seats": 5,
-      "engine": "2.3L I4 Petrol",
-      "transmission": "4-speed automatic",
-      "fuel_type": "Petrol",
-      "drivetrain": "4WD",
-      "trim": "",
-      "market_scope": "IL-confirmed",
-      "market_name_confidence": "confirmed",
-      "confidence_level": "high",
-      "source_basis": "IL market sources show the 2.0L engine was replaced by the 2.3L I4 engine around 2004 as part of the mid-cycle update. IL-confirmed via local spec databases.",
-      "source_ids": [
-        "icar_il_mazda_tribute_1st_gen",
-        "auto_co_il_mazda_tribute_review"
-      ],
-      "field_sources": {
-        "body_type": [
-          "icar_il_mazda_tribute_1st_gen"
-        ],
-        "seats": [
-          "auto_co_il_mazda_tribute_review"
-        ],
-        "engine": [
-          "icar_il_mazda_tribute_1st_gen",
-          "auto_co_il_mazda_tribute_review"
-        ],
-        "transmission": [
-          "icar_il_mazda_tribute_1st_gen"
-        ],
-        "fuel_type": [
-          "auto_co_il_mazda_tribute_review"
-        ],
-        "drivetrain": [
-          "icar_il_mazda_tribute_1st_gen"
-        ],
-        "generation": [
-          "auto_co_il_mazda_tribute_review"
-        ],
-        "year_start": [
-          "icar_il_mazda_tribute_1st_gen"
-        ],
-        "year_end": [
-          "icar_il_mazda_tribute_1st_gen"
-        ],
-        "trim": []
-      },
-      "variant_id": "mazda_tribute_2004_2006_il_confirmed_1st_gen_2_3l_i4_petrol_4_speed_automatic_suv_petrol"
-    },
-    {
-      "candidate_index": 3,
       "make": "Mazda",
       "model": "Tribute",
       "global_model_name": "Mazda Tribute",
@@ -249917,52 +250096,48 @@
       "local_brand_name_il": null,
       "alternate_names": [],
       "rebadged_as": null,
-      "year_start": 2008,
+      "year_start": 2007,
       "year_end": 2011,
       "generation": "2nd Gen",
       "body_type": "SUV",
       "seats": 5,
-      "engine": "2.5L I4 Petrol",
+      "engine": "2.5L L-VE I4",
       "transmission": "6-speed automatic",
       "fuel_type": "Petrol",
-      "drivetrain": "4WD",
-      "trim": "",
+      "drivetrain": "FWD",
+      "trim": null,
       "market_scope": "global-reference-only",
       "market_name_confidence": "unknown",
       "confidence_level": "medium",
-      "source_basis": "2nd Generation Mazda Tribute is verified via global sources. No evidence found for official marketing of the 2nd Gen in Israel, as the local market heavily shifted focus to the newer CX-7. Israeli marketed name not confirmed; global model name used as reference only.",
+      "source_basis": "2nd generation Mazda Tribute was predominantly for North American and Asia-Pacific markets. IL market transition favored the Mazda CX-7 during this period, so IL availability is unsupported. Marked as global reference.",
       "source_ids": [
-        "mazda_global_tribute_2nd_gen_specs"
+        "auto_data_net_tribute_gen2"
       ],
       "field_sources": {
         "body_type": [
-          "mazda_global_tribute_2nd_gen_specs"
+          "auto_data_net_tribute_gen2"
         ],
         "seats": [],
         "engine": [
-          "mazda_global_tribute_2nd_gen_specs"
+          "auto_data_net_tribute_gen2"
         ],
         "transmission": [
-          "mazda_global_tribute_2nd_gen_specs"
+          "auto_data_net_tribute_gen2"
         ],
-        "fuel_type": [
-          "mazda_global_tribute_2nd_gen_specs"
-        ],
-        "drivetrain": [
-          "mazda_global_tribute_2nd_gen_specs"
-        ],
+        "fuel_type": [],
+        "drivetrain": [],
         "generation": [
-          "mazda_global_tribute_2nd_gen_specs"
+          "auto_data_net_tribute_gen2"
         ],
         "year_start": [
-          "mazda_global_tribute_2nd_gen_specs"
+          "auto_data_net_tribute_gen2"
         ],
         "year_end": [
-          "mazda_global_tribute_2nd_gen_specs"
+          "auto_data_net_tribute_gen2"
         ],
         "trim": []
       },
-      "variant_id": "mazda_tribute_2008_2011_global_reference_only_2nd_gen_2_5l_i4_petrol_6_speed_automatic_suv_petrol"
+      "variant_id": "mazda_tribute_2007_2011_global_reference_only_2nd_gen_2_5l_l_ve_i4_6_speed_automatic_suv_petrol"
     },
     {
       "candidate_index": 0,
@@ -249970,7 +250145,7 @@
       "model": "Premacy",
       "global_model_name": "Mazda Premacy",
       "official_marketed_name_il": "Mazda Premacy",
-      "local_brand_name_il": "Mazda",
+      "local_brand_name_il": null,
       "alternate_names": [],
       "rebadged_as": null,
       "year_start": 1999,
@@ -249978,7 +250153,7 @@
       "generation": "CP (1st Gen)",
       "body_type": "MPV",
       "seats": 5,
-      "engine": "1.8L Petrol",
+      "engine": "1.8L petrol",
       "transmission": "4-speed automatic",
       "fuel_type": "Petrol",
       "drivetrain": "FWD",
@@ -249986,42 +250161,38 @@
       "market_scope": "IL-confirmed",
       "market_name_confidence": "confirmed",
       "confidence_level": "high",
-      "source_basis": "Israeli car databases (iCar, Auto.co.il) confirm the CP generation was sold heavily in Israel as the Mazda Premacy. The 1.8L petrol engine with a 4-speed automatic transmission and a 5-seat configuration was the dominant variant. Common trim noted in IL market: GLX.",
+      "source_basis": "iCar and Yad2 listings confirm the 1st generation Mazda Premacy was marketed in Israel under its global name, featuring a 1.8L petrol engine, 5-seat layout, and 4-speed automatic transmission.",
       "source_ids": [
-        "icar_il_mazda_premacy_cp",
-        "auto_il_mazda_history"
+        "icar_il_mazda_premacy_specs",
+        "yad2_il_mazda_premacy_sales"
       ],
       "field_sources": {
         "body_type": [
-          "icar_il_mazda_premacy_cp"
+          "icar_il_mazda_premacy_specs"
         ],
         "seats": [
-          "icar_il_mazda_premacy_cp",
-          "auto_il_mazda_history"
+          "icar_il_mazda_premacy_specs"
         ],
         "engine": [
-          "icar_il_mazda_premacy_cp",
-          "auto_il_mazda_history"
+          "icar_il_mazda_premacy_specs"
         ],
         "transmission": [
-          "icar_il_mazda_premacy_cp",
-          "auto_il_mazda_history"
+          "icar_il_mazda_premacy_specs"
         ],
         "fuel_type": [
-          "icar_il_mazda_premacy_cp"
+          "icar_il_mazda_premacy_specs"
         ],
         "drivetrain": [
-          "icar_il_mazda_premacy_cp"
+          "icar_il_mazda_premacy_specs"
         ],
         "generation": [
-          "icar_il_mazda_premacy_cp",
-          "auto_il_mazda_history"
+          "icar_il_mazda_premacy_specs"
         ],
         "year_start": [
-          "icar_il_mazda_premacy_cp"
+          "icar_il_mazda_premacy_specs"
         ],
         "year_end": [
-          "icar_il_mazda_premacy_cp"
+          "icar_il_mazda_premacy_specs"
         ],
         "trim": []
       },
@@ -250033,7 +250204,7 @@
       "model": "Premacy",
       "global_model_name": "Mazda Premacy",
       "official_marketed_name_il": "Mazda Premacy",
-      "local_brand_name_il": "Mazda",
+      "local_brand_name_il": null,
       "alternate_names": [],
       "rebadged_as": null,
       "year_start": 2002,
@@ -250041,7 +250212,7 @@
       "generation": "CP (1st Gen)",
       "body_type": "MPV",
       "seats": 5,
-      "engine": "2.0L Petrol",
+      "engine": "2.0L petrol",
       "transmission": "4-speed automatic",
       "fuel_type": "Petrol",
       "drivetrain": "FWD",
@@ -250049,39 +250220,38 @@
       "market_scope": "IL-confirmed",
       "market_name_confidence": "confirmed",
       "confidence_level": "high",
-      "source_basis": "Israeli market data confirms the addition of the 2.0L petrol engine later in the CP generation's lifespan. Also featured the 4-speed automatic and 5-seat layout.",
+      "source_basis": "Introduced around the facelift phase, the 2.0L engine became a widely available option for the Premacy in Israel alongside the 1.8L variant.",
       "source_ids": [
-        "icar_il_mazda_premacy_cp",
-        "auto_il_mazda_history"
+        "icar_il_mazda_premacy_specs",
+        "yad2_il_mazda_premacy_sales"
       ],
       "field_sources": {
         "body_type": [
-          "icar_il_mazda_premacy_cp"
+          "icar_il_mazda_premacy_specs"
         ],
         "seats": [
-          "icar_il_mazda_premacy_cp"
+          "icar_il_mazda_premacy_specs"
         ],
         "engine": [
-          "icar_il_mazda_premacy_cp",
-          "auto_il_mazda_history"
+          "icar_il_mazda_premacy_specs"
         ],
         "transmission": [
-          "icar_il_mazda_premacy_cp"
+          "icar_il_mazda_premacy_specs"
         ],
         "fuel_type": [
-          "icar_il_mazda_premacy_cp"
+          "icar_il_mazda_premacy_specs"
         ],
         "drivetrain": [
-          "icar_il_mazda_premacy_cp"
+          "icar_il_mazda_premacy_specs"
         ],
         "generation": [
-          "icar_il_mazda_premacy_cp"
+          "icar_il_mazda_premacy_specs"
         ],
         "year_start": [
-          "icar_il_mazda_premacy_cp"
+          "icar_il_mazda_premacy_specs"
         ],
         "year_end": [
-          "icar_il_mazda_premacy_cp"
+          "icar_il_mazda_premacy_specs"
         ],
         "trim": []
       },
@@ -250093,59 +250263,127 @@
       "model": "Premacy",
       "global_model_name": "Mazda Premacy",
       "official_marketed_name_il": "Mazda 5",
-      "local_brand_name_il": "Mazda",
+      "local_brand_name_il": null,
       "alternate_names": [
         "Mazda5"
       ],
       "rebadged_as": null,
       "year_start": 2005,
-      "year_end": 2010,
+      "year_end": 2007,
       "generation": "CR (2nd Gen)",
       "body_type": "MPV",
       "seats": 7,
-      "engine": "2.0L Petrol",
-      "transmission": "Automatic",
+      "engine": "2.0L petrol",
+      "transmission": "4-speed automatic",
       "fuel_type": "Petrol",
       "drivetrain": "FWD",
       "trim": null,
       "market_scope": "IL-confirmed",
       "market_name_confidence": "confirmed",
       "confidence_level": "high",
-      "source_basis": "The 2nd generation of the Premacy (CR) was renamed and marketed globally and in Israel entirely as the 'Mazda 5' (while retaining the Premacy name in Japan). Sold in IL with a 2.0L petrol engine and standard 7 seats. Transmission evolved from 4-speed to 5-speed automatic during this period.",
+      "source_basis": "The second-generation Premacy was designated the CR generation and officially marketed in Israel as the 'Mazda 5'. The pre-facelift model featured a 4-speed automatic transmission and a highly popular 7-seat configuration.",
       "source_ids": [
-        "icar_il_mazda_5_cr"
+        "auto_co_il_mazda5_cr",
+        "icar_il_mazda5_specs"
       ],
       "field_sources": {
         "body_type": [
-          "icar_il_mazda_5_cr"
+          "auto_co_il_mazda5_cr"
         ],
         "seats": [
-          "icar_il_mazda_5_cr"
+          "auto_co_il_mazda5_cr",
+          "icar_il_mazda5_specs"
         ],
         "engine": [
-          "icar_il_mazda_5_cr"
+          "auto_co_il_mazda5_cr"
         ],
         "transmission": [
-          "icar_il_mazda_5_cr"
+          "auto_co_il_mazda5_cr",
+          "icar_il_mazda5_specs"
         ],
         "fuel_type": [
-          "icar_il_mazda_5_cr"
+          "auto_co_il_mazda5_cr"
         ],
         "drivetrain": [
-          "icar_il_mazda_5_cr"
+          "auto_co_il_mazda5_cr"
         ],
         "generation": [
-          "icar_il_mazda_5_cr"
+          "auto_co_il_mazda5_cr",
+          "icar_il_mazda5_specs"
         ],
         "year_start": [
-          "icar_il_mazda_5_cr"
+          "auto_co_il_mazda5_cr"
         ],
         "year_end": [
-          "icar_il_mazda_5_cr"
+          "auto_co_il_mazda5_cr"
         ],
         "trim": []
       },
-      "variant_id": "mazda_premacy_2005_2010_il_confirmed_cr_2nd_gen_2_0l_petrol_automatic_mpv_petrol"
+      "variant_id": "mazda_premacy_2005_2007_il_confirmed_cr_2nd_gen_2_0l_petrol_4_speed_automatic_mpv_petrol"
+    },
+    {
+      "candidate_index": 3,
+      "make": "Mazda",
+      "model": "Premacy",
+      "global_model_name": "Mazda Premacy",
+      "official_marketed_name_il": "Mazda 5",
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Mazda5"
+      ],
+      "rebadged_as": null,
+      "year_start": 2008,
+      "year_end": 2010,
+      "generation": "CR (2nd Gen)",
+      "body_type": "MPV",
+      "seats": 7,
+      "engine": "2.0L petrol",
+      "transmission": "5-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "The facelifted CR generation (marketed as Mazda 5 in IL) introduced a 5-speed automatic transmission starting around 2008, paired with the existing 2.0L MZR engine.",
+      "source_ids": [
+        "auto_co_il_mazda5_cr",
+        "icar_il_mazda5_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "auto_co_il_mazda5_cr"
+        ],
+        "seats": [
+          "auto_co_il_mazda5_cr",
+          "icar_il_mazda5_specs"
+        ],
+        "engine": [
+          "auto_co_il_mazda5_cr"
+        ],
+        "transmission": [
+          "auto_co_il_mazda5_cr",
+          "icar_il_mazda5_specs"
+        ],
+        "fuel_type": [
+          "auto_co_il_mazda5_cr"
+        ],
+        "drivetrain": [
+          "auto_co_il_mazda5_cr"
+        ],
+        "generation": [
+          "auto_co_il_mazda5_cr",
+          "icar_il_mazda5_specs"
+        ],
+        "year_start": [
+          "auto_co_il_mazda5_cr"
+        ],
+        "year_end": [
+          "auto_co_il_mazda5_cr"
+        ],
+        "trim": []
+      },
+      "variant_id": "mazda_premacy_2008_2010_il_confirmed_cr_2nd_gen_2_0l_petrol_5_speed_automatic_mpv_petrol"
     },
     {
       "candidate_index": 0,
@@ -250153,17 +250391,17 @@
       "model": "Space Star",
       "global_model_name": "Mitsubishi Mirage",
       "official_marketed_name_il": "Mitsubishi Space Star",
-      "local_brand_name_il": null,
+      "local_brand_name_il": "Mitsubishi",
       "alternate_names": [
-        "Mirage"
+        "Mitsubishi Mirage"
       ],
       "rebadged_as": null,
       "year_start": 2013,
       "year_end": 2016,
-      "generation": "6th Gen (A00)",
+      "generation": "6th Gen (Pre-facelift)",
       "body_type": "Hatchback",
       "seats": 5,
-      "engine": "1.0L petrol, 71 hp",
+      "engine": "1.0L Petrol (71 hp)",
       "transmission": "5-speed manual",
       "fuel_type": "Petrol",
       "drivetrain": "FWD",
@@ -250171,43 +250409,43 @@
       "market_scope": "IL-confirmed",
       "market_name_confidence": "confirmed",
       "confidence_level": "high",
-      "source_basis": "Confirmed by iCar and Israeli historical specs. 1.0L manual was introduced as the entry-level option at launch in late 2013.",
+      "source_basis": "Israeli launch reports (2013) confirm the base 1.0L manual variant was sold under the Space Star name. Marketed globally as the Mirage.",
       "source_ids": [
-        "icar_il_space_star_generations"
+        "cartube_il_spacestar_launch_2013"
       ],
       "field_sources": {
         "body_type": [
-          "icar_il_space_star_generations"
+          "cartube_il_spacestar_launch_2013"
         ],
         "seats": [
-          "icar_il_space_star_generations"
+          "cartube_il_spacestar_launch_2013"
         ],
         "engine": [
-          "icar_il_space_star_generations"
+          "cartube_il_spacestar_launch_2013"
         ],
         "transmission": [
-          "icar_il_space_star_generations"
+          "cartube_il_spacestar_launch_2013"
         ],
         "fuel_type": [
-          "icar_il_space_star_generations"
+          "cartube_il_spacestar_launch_2013"
         ],
         "drivetrain": [
-          "icar_il_space_star_generations"
+          "cartube_il_spacestar_launch_2013"
         ],
         "generation": [
-          "icar_il_space_star_generations"
+          "cartube_il_spacestar_launch_2013"
         ],
         "year_start": [
-          "icar_il_space_star_generations"
+          "cartube_il_spacestar_launch_2013"
         ],
         "year_end": [
-          "icar_il_space_star_generations"
+          "icar_il_spacestar_facelift_2016"
         ],
         "trim": [
-          "icar_il_space_star_generations"
+          "cartube_il_spacestar_launch_2013"
         ]
       },
-      "variant_id": "mitsubishi_space_star_2013_2016_il_confirmed_6th_gen_a00_1_0l_petrol_71_hp_5_speed_manual_hatchback_petrol"
+      "variant_id": "mitsubishi_space_star_2013_2016_il_confirmed_6th_gen_pre_facelift_1_0l_petrol_71_hp_5_speed_manual_hatchback_petrol"
     },
     {
       "candidate_index": 1,
@@ -250215,63 +250453,61 @@
       "model": "Space Star",
       "global_model_name": "Mitsubishi Mirage",
       "official_marketed_name_il": "Mitsubishi Space Star",
-      "local_brand_name_il": null,
+      "local_brand_name_il": "Mitsubishi",
       "alternate_names": [
-        "Mirage"
+        "Mitsubishi Mirage"
       ],
       "rebadged_as": null,
       "year_start": 2013,
       "year_end": 2016,
-      "generation": "6th Gen (A00)",
+      "generation": "6th Gen (Pre-facelift)",
       "body_type": "Hatchback",
       "seats": 5,
-      "engine": "1.2L petrol, 80 hp",
+      "engine": "1.2L Petrol (80 hp)",
       "transmission": "CVT",
       "fuel_type": "Petrol",
       "drivetrain": "FWD",
-      "trim": "",
+      "trim": "Instyle",
       "market_scope": "IL-confirmed",
       "market_name_confidence": "confirmed",
       "confidence_level": "high",
-      "source_basis": "The primary powertrain for the Space Star in Israel. Pre-facelift model. Trims typically included Instyle and Premium.",
+      "source_basis": "The 1.2L CVT was the primary variant in the Israeli market upon launch. Known as Space Star locally.",
       "source_ids": [
-        "colmobil_il_space_star_archive",
-        "icar_il_space_star_generations"
+        "cartube_il_spacestar_launch_2013"
       ],
       "field_sources": {
         "body_type": [
-          "colmobil_il_space_star_archive",
-          "icar_il_space_star_generations"
+          "cartube_il_spacestar_launch_2013"
         ],
         "seats": [
-          "icar_il_space_star_generations"
+          "cartube_il_spacestar_launch_2013"
         ],
         "engine": [
-          "colmobil_il_space_star_archive",
-          "icar_il_space_star_generations"
+          "cartube_il_spacestar_launch_2013"
         ],
         "transmission": [
-          "colmobil_il_space_star_archive",
-          "icar_il_space_star_generations"
+          "cartube_il_spacestar_launch_2013"
         ],
         "fuel_type": [
-          "colmobil_il_space_star_archive"
+          "cartube_il_spacestar_launch_2013"
         ],
         "drivetrain": [
-          "icar_il_space_star_generations"
+          "cartube_il_spacestar_launch_2013"
         ],
         "generation": [
-          "icar_il_space_star_generations"
+          "cartube_il_spacestar_launch_2013"
         ],
         "year_start": [
-          "icar_il_space_star_generations"
+          "cartube_il_spacestar_launch_2013"
         ],
         "year_end": [
-          "icar_il_space_star_generations"
+          "icar_il_spacestar_facelift_2016"
         ],
-        "trim": []
+        "trim": [
+          "cartube_il_spacestar_launch_2013"
+        ]
       },
-      "variant_id": "mitsubishi_space_star_2013_2016_il_confirmed_6th_gen_a00_1_2l_petrol_80_hp_cvt_hatchback_petrol"
+      "variant_id": "mitsubishi_space_star_2013_2016_il_confirmed_6th_gen_pre_facelift_1_2l_petrol_80_hp_cvt_hatchback_petrol"
     },
     {
       "candidate_index": 2,
@@ -250279,63 +250515,61 @@
       "model": "Space Star",
       "global_model_name": "Mitsubishi Mirage",
       "official_marketed_name_il": "Mitsubishi Space Star",
-      "local_brand_name_il": null,
+      "local_brand_name_il": "Mitsubishi",
       "alternate_names": [
-        "Mirage"
+        "Mitsubishi Mirage"
       ],
       "rebadged_as": null,
       "year_start": 2016,
       "year_end": 2020,
-      "generation": "6th Gen (A00) 1st Facelift",
+      "generation": "6th Gen (1st Facelift)",
       "body_type": "Hatchback",
       "seats": 5,
-      "engine": "1.2L petrol, 80 hp",
+      "engine": "1.2L Petrol (80 hp)",
       "transmission": "CVT",
       "fuel_type": "Petrol",
       "drivetrain": "FWD",
-      "trim": "",
+      "trim": "Supreme",
       "market_scope": "IL-confirmed",
       "market_name_confidence": "confirmed",
       "confidence_level": "high",
-      "source_basis": "First major facelift in the IL market. Maintained the 1.2L CVT powertrain. Marketed trims included Instyle, Premium, and Supreme.",
+      "source_basis": "First facelift arrived in Israel around 2016. Maintained the 1.2L 80hp engine paired with CVT. Trims included Instyle, Supreme, and Premium.",
       "source_ids": [
-        "colmobil_il_space_star_archive",
-        "icar_il_space_star_generations"
+        "icar_il_spacestar_facelift_2016"
       ],
       "field_sources": {
         "body_type": [
-          "colmobil_il_space_star_archive"
+          "icar_il_spacestar_facelift_2016"
         ],
         "seats": [
-          "icar_il_space_star_generations"
+          "icar_il_spacestar_facelift_2016"
         ],
         "engine": [
-          "colmobil_il_space_star_archive",
-          "icar_il_space_star_generations"
+          "icar_il_spacestar_facelift_2016"
         ],
         "transmission": [
-          "colmobil_il_space_star_archive",
-          "icar_il_space_star_generations"
+          "icar_il_spacestar_facelift_2016"
         ],
         "fuel_type": [
-          "colmobil_il_space_star_archive"
+          "icar_il_spacestar_facelift_2016"
         ],
         "drivetrain": [
-          "icar_il_space_star_generations"
+          "icar_il_spacestar_facelift_2016"
         ],
         "generation": [
-          "icar_il_space_star_generations"
+          "icar_il_spacestar_facelift_2016"
         ],
         "year_start": [
-          "icar_il_space_star_generations"
+          "icar_il_spacestar_facelift_2016"
         ],
         "year_end": [
-          "icar_il_space_star_generations",
-          "cartube_il_space_star_2020_facelift"
+          "colmobil_il_spacestar_specs_2020_onward"
         ],
-        "trim": []
+        "trim": [
+          "icar_il_spacestar_facelift_2016"
+        ]
       },
-      "variant_id": "mitsubishi_space_star_2016_2020_il_confirmed_6th_gen_a00_1st_facelift_1_2l_petrol_80_hp_cvt_hatchback_petrol"
+      "variant_id": "mitsubishi_space_star_2016_2020_il_confirmed_6th_gen_1st_facelift_1_2l_petrol_80_hp_cvt_hatchback_petrol"
     },
     {
       "candidate_index": 3,
@@ -250343,248 +250577,61 @@
       "model": "Space Star",
       "global_model_name": "Mitsubishi Mirage",
       "official_marketed_name_il": "Mitsubishi Space Star",
-      "local_brand_name_il": null,
+      "local_brand_name_il": "Mitsubishi",
       "alternate_names": [
-        "Mirage"
+        "Mitsubishi Mirage"
       ],
       "rebadged_as": null,
       "year_start": 2020,
-      "year_end": 2025,
-      "generation": "6th Gen (A00) 2nd Facelift",
+      "year_end": 2026,
+      "generation": "6th Gen (2nd Facelift)",
       "body_type": "Hatchback",
       "seats": 5,
-      "engine": "1.2L petrol, 80 hp",
+      "engine": "1.2L Petrol (71 hp)",
       "transmission": "CVT",
       "fuel_type": "Petrol",
       "drivetrain": "FWD",
-      "trim": "",
+      "trim": "Premium",
       "market_scope": "IL-confirmed",
       "market_name_confidence": "confirmed",
       "confidence_level": "high",
-      "source_basis": "Second major facelift featuring the Dynamic Shield front design. Launched in IL in early 2020. Exclusively 1.2L CVT. Trims include Instyle, Supreme, and Premium.",
+      "source_basis": "Second major facelift (Dynamic Shield design) launched in 2020. Later models detuned to 71 hp for emissions. Verified via official Colmobil Israeli specs.",
       "source_ids": [
-        "cartube_il_space_star_2020_facelift",
-        "colmobil_il_space_star_archive",
-        "icar_il_space_star_generations"
+        "colmobil_il_spacestar_specs_2020_onward"
       ],
       "field_sources": {
         "body_type": [
-          "cartube_il_space_star_2020_facelift",
-          "colmobil_il_space_star_archive"
+          "colmobil_il_spacestar_specs_2020_onward"
         ],
         "seats": [
-          "icar_il_space_star_generations"
+          "colmobil_il_spacestar_specs_2020_onward"
         ],
         "engine": [
-          "cartube_il_space_star_2020_facelift",
-          "colmobil_il_space_star_archive"
+          "colmobil_il_spacestar_specs_2020_onward"
         ],
         "transmission": [
-          "cartube_il_space_star_2020_facelift",
-          "colmobil_il_space_star_archive"
+          "colmobil_il_spacestar_specs_2020_onward"
         ],
         "fuel_type": [
-          "cartube_il_space_star_2020_facelift"
+          "colmobil_il_spacestar_specs_2020_onward"
         ],
         "drivetrain": [
-          "cartube_il_space_star_2020_facelift"
+          "colmobil_il_spacestar_specs_2020_onward"
         ],
         "generation": [
-          "cartube_il_space_star_2020_facelift"
+          "colmobil_il_spacestar_specs_2020_onward"
         ],
         "year_start": [
-          "cartube_il_space_star_2020_facelift"
+          "colmobil_il_spacestar_specs_2020_onward"
         ],
         "year_end": [
-          "colmobil_il_space_star_archive"
-        ],
-        "trim": []
-      },
-      "variant_id": "mitsubishi_space_star_2020_2025_il_confirmed_6th_gen_a00_2nd_facelift_1_2l_petrol_80_hp_cvt_hatchback_petrol"
-    },
-    {
-      "candidate_index": 0,
-      "make": "Mitsubishi",
-      "model": "Colt",
-      "global_model_name": "Mitsubishi Colt",
-      "official_marketed_name_il": "Mitsubishi Colt",
-      "local_brand_name_il": "Mitsubishi",
-      "alternate_names": [],
-      "rebadged_as": null,
-      "year_start": 2004,
-      "year_end": 2008,
-      "generation": "6th Gen (Z30) Pre-facelift",
-      "body_type": "Hatchback",
-      "seats": 5,
-      "engine": "1.3L petrol, 95 hp",
-      "transmission": "6-speed AMT",
-      "fuel_type": "Petrol",
-      "drivetrain": "FWD",
-      "trim": "Instyle",
-      "market_scope": "IL-confirmed",
-      "market_name_confidence": "confirmed",
-      "confidence_level": "high",
-      "source_basis": "Israeli auto catalogs and listings confirm the 1.3L 95hp with a 6-speed robotic (AMT) gearbox for the pre-facelift Colt in the Israeli market. 'Invite' and 'Instyle' trims were common.",
-      "source_ids": [
-        "auto_il_colt_catalog",
-        "yad2_il_colt_archive",
-        "parkers_uk_mitsubishi_colt"
-      ],
-      "field_sources": {
-        "body_type": [
-          "auto_il_colt_catalog",
-          "parkers_uk_mitsubishi_colt"
-        ],
-        "seats": [
-          "parkers_uk_mitsubishi_colt"
-        ],
-        "engine": [
-          "auto_il_colt_catalog",
-          "parkers_uk_mitsubishi_colt"
-        ],
-        "transmission": [
-          "auto_il_colt_catalog",
-          "yad2_il_colt_archive"
-        ],
-        "fuel_type": [
-          "auto_il_colt_catalog"
-        ],
-        "drivetrain": [
-          "parkers_uk_mitsubishi_colt"
-        ],
-        "generation": [
-          "parkers_uk_mitsubishi_colt"
-        ],
-        "year_start": [
-          "auto_il_colt_catalog"
-        ],
-        "year_end": [
-          "auto_il_colt_catalog"
+          "colmobil_il_spacestar_specs_2020_onward"
         ],
         "trim": [
-          "yad2_il_colt_archive"
+          "colmobil_il_spacestar_specs_2020_onward"
         ]
       },
-      "variant_id": "mitsubishi_colt_2004_2008_il_confirmed_6th_gen_z30_pre_facelift_1_3l_petrol_95_hp_6_speed_amt_hatchback_petrol"
-    },
-    {
-      "candidate_index": 1,
-      "make": "Mitsubishi",
-      "model": "Colt",
-      "global_model_name": "Mitsubishi Colt",
-      "official_marketed_name_il": "Mitsubishi Colt",
-      "local_brand_name_il": "Mitsubishi",
-      "alternate_names": [],
-      "rebadged_as": null,
-      "year_start": 2009,
-      "year_end": 2012,
-      "generation": "6th Gen (Z30) Facelift",
-      "body_type": "Hatchback",
-      "seats": 5,
-      "engine": "1.3L petrol, 95 hp",
-      "transmission": null,
-      "fuel_type": "Petrol",
-      "drivetrain": "FWD",
-      "trim": null,
-      "market_scope": "IL-confirmed",
-      "market_name_confidence": "confirmed",
-      "confidence_level": "medium",
-      "source_basis": "Facelifted Colt marketed in Israel up to ~2012. Engine remained 1.3L 95hp, but transmission options shifted. Exact automatic transmission type (AMT vs CVT vs Manual-only imports) for the IL market in these later years is difficult to definitively confirm without spec sheet contradiction, so transmission is left null.",
-      "source_ids": [
-        "auto_il_colt_catalog",
-        "parkers_uk_mitsubishi_colt"
-      ],
-      "field_sources": {
-        "body_type": [
-          "auto_il_colt_catalog",
-          "parkers_uk_mitsubishi_colt"
-        ],
-        "seats": [
-          "parkers_uk_mitsubishi_colt"
-        ],
-        "engine": [
-          "auto_il_colt_catalog",
-          "parkers_uk_mitsubishi_colt"
-        ],
-        "transmission": [],
-        "fuel_type": [
-          "auto_il_colt_catalog"
-        ],
-        "drivetrain": [
-          "parkers_uk_mitsubishi_colt"
-        ],
-        "generation": [
-          "parkers_uk_mitsubishi_colt"
-        ],
-        "year_start": [
-          "auto_il_colt_catalog"
-        ],
-        "year_end": [
-          "auto_il_colt_catalog"
-        ],
-        "trim": []
-      },
-      "variant_id": "mitsubishi_colt_2009_2012_il_confirmed_6th_gen_z30_facelift_1_3l_petrol_95_hp_unknown_transmission_hatchback_petrol"
-    },
-    {
-      "candidate_index": 2,
-      "make": "Mitsubishi",
-      "model": "Colt",
-      "global_model_name": "Mitsubishi Colt CZT",
-      "official_marketed_name_il": "Mitsubishi Colt CZT",
-      "local_brand_name_il": "Mitsubishi",
-      "alternate_names": [],
-      "rebadged_as": null,
-      "year_start": 2005,
-      "year_end": 2008,
-      "generation": "6th Gen (Z30) Pre-facelift",
-      "body_type": "Hatchback",
-      "seats": 5,
-      "engine": "1.5L turbo petrol, 150 hp",
-      "transmission": "5-speed manual",
-      "fuel_type": "Petrol",
-      "drivetrain": "FWD",
-      "trim": "CZT",
-      "market_scope": "IL-likely",
-      "market_name_confidence": "likely",
-      "confidence_level": "medium",
-      "source_basis": "Global Z30 performance variant (CZT) 3-door hatchback. Verified via global technical sources. Plausible for IL enthusiast market (some units privately imported or sold in small batches) but high-volume official IL marketing is unconfirmed.",
-      "source_ids": [
-        "parkers_uk_mitsubishi_colt"
-      ],
-      "field_sources": {
-        "body_type": [
-          "parkers_uk_mitsubishi_colt"
-        ],
-        "seats": [
-          "parkers_uk_mitsubishi_colt"
-        ],
-        "engine": [
-          "parkers_uk_mitsubishi_colt"
-        ],
-        "transmission": [
-          "parkers_uk_mitsubishi_colt"
-        ],
-        "fuel_type": [
-          "parkers_uk_mitsubishi_colt"
-        ],
-        "drivetrain": [
-          "parkers_uk_mitsubishi_colt"
-        ],
-        "generation": [
-          "parkers_uk_mitsubishi_colt"
-        ],
-        "year_start": [
-          "parkers_uk_mitsubishi_colt"
-        ],
-        "year_end": [
-          "parkers_uk_mitsubishi_colt"
-        ],
-        "trim": [
-          "parkers_uk_mitsubishi_colt"
-        ]
-      },
-      "variant_id": "mitsubishi_colt_2005_2008_il_likely_6th_gen_z30_pre_facelift_1_5l_turbo_petrol_150_hp_5_speed_manual_hatchback_petrol"
+      "variant_id": "mitsubishi_space_star_2020_2026_il_confirmed_6th_gen_2nd_facelift_1_2l_petrol_71_hp_cvt_hatchback_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -468595,17 +468642,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 2041,
-    "variants": 2041,
+    "total_variants": 2042,
+    "variants": 2042,
     "verified": 788,
-    "partial": 1253,
+    "partial": 1254,
     "makes_count": 44,
-    "models_count": 565,
-    "processed_seeds": 562,
+    "models_count": 564,
+    "processed_seeds": 561,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-23T01:35:51.789527+00:00"
+    "last_updated_at": "2026-05-23T01:36:18.425546+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
