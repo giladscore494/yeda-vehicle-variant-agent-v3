@@ -593,7 +593,8 @@
       "suzuki__swift__1990__2026__il",
       "suzuki__alto__1990__2014__il",
       "suzuki__splash__2008__2014__il",
-      "suzuki__baleno__1996__2002__il"
+      "suzuki__baleno__1996__2002__il",
+      "suzuki__baleno__2016__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1046,8 +1047,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "suzuki__baleno__1996__2002__il",
-    "next_seed_id": "suzuki__baleno__2016__2026__il",
+    "last_completed_seed_id": "suzuki__baleno__2016__2026__il",
+    "next_seed_id": "suzuki__ignis__2000__2008__il",
     "run_history": [],
     "failed_details": [
       {
@@ -3067,6 +3068,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T02:09:41.048197+00:00"
+      },
+      "suzuki__baleno__2016__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 2,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T02:10:18.137233+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -255738,6 +255747,128 @@
         ]
       },
       "variant_id": "suzuki_baleno_1996_2002_il_confirmed_1st_gen_sy_1_6l_petrol_g16b_4_speed_automatic_hatchback_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Suzuki",
+      "model": "Baleno",
+      "global_model_name": "Suzuki Baleno",
+      "official_marketed_name_il": "Suzuki Baleno",
+      "local_brand_name_il": "Suzuki",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2016,
+      "year_end": 2020,
+      "generation": "WB",
+      "body_type": "Hatchback",
+      "seats": 5,
+      "engine": "1.2L K12C Dualjet, 90 hp",
+      "transmission": "CVT",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "GLX",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Cartube and iCar Israel confirm the launch of the Baleno in June 2016 with a 1.2L Dualjet engine (90 hp) paired with a CVT transmission, offered primarily in the GLX trim. Sold in Israel until approximately 2020.",
+      "source_ids": [
+        "cartube_il_baleno_launch_2016",
+        "icar_il_suzuki_baleno"
+      ],
+      "field_sources": {
+        "body_type": [
+          "cartube_il_baleno_launch_2016"
+        ],
+        "seats": [
+          "icar_il_suzuki_baleno"
+        ],
+        "engine": [
+          "cartube_il_baleno_launch_2016"
+        ],
+        "transmission": [
+          "cartube_il_baleno_launch_2016"
+        ],
+        "fuel_type": [
+          "icar_il_suzuki_baleno"
+        ],
+        "drivetrain": [
+          "cartube_il_baleno_launch_2016"
+        ],
+        "generation": [
+          "icar_il_suzuki_baleno"
+        ],
+        "year_start": [
+          "cartube_il_baleno_launch_2016"
+        ],
+        "year_end": [
+          "icar_il_suzuki_baleno"
+        ],
+        "trim": [
+          "cartube_il_baleno_launch_2016"
+        ]
+      },
+      "variant_id": "suzuki_baleno_2016_2020_il_confirmed_wb_1_2l_k12c_dualjet_90_hp_cvt_hatchback_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Suzuki",
+      "model": "Baleno",
+      "global_model_name": "Suzuki Baleno",
+      "official_marketed_name_il": "Suzuki Baleno",
+      "local_brand_name_il": "Suzuki",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2016,
+      "year_end": 2020,
+      "generation": "WB",
+      "body_type": "Hatchback",
+      "seats": 5,
+      "engine": "1.2L K12C Dualjet, 90 hp",
+      "transmission": "5-speed manual",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "GLS",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli market sources note the availability of a 5-speed manual version at the June 2016 launch, typically offered in the base GLS trim.",
+      "source_ids": [
+        "cartube_il_baleno_launch_2016",
+        "icar_il_suzuki_baleno"
+      ],
+      "field_sources": {
+        "body_type": [
+          "cartube_il_baleno_launch_2016"
+        ],
+        "seats": [
+          "icar_il_suzuki_baleno"
+        ],
+        "engine": [
+          "cartube_il_baleno_launch_2016"
+        ],
+        "transmission": [
+          "cartube_il_baleno_launch_2016"
+        ],
+        "fuel_type": [
+          "icar_il_suzuki_baleno"
+        ],
+        "drivetrain": [
+          "cartube_il_baleno_launch_2016"
+        ],
+        "generation": [
+          "icar_il_suzuki_baleno"
+        ],
+        "year_start": [
+          "cartube_il_baleno_launch_2016"
+        ],
+        "year_end": [
+          "icar_il_suzuki_baleno"
+        ],
+        "trim": [
+          "cartube_il_baleno_launch_2016"
+        ]
+      },
+      "variant_id": "suzuki_baleno_2016_2020_il_confirmed_wb_1_2l_k12c_dualjet_90_hp_5_speed_manual_hatchback_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -473748,17 +473879,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 2120,
-    "variants": 2120,
+    "total_variants": 2122,
+    "variants": 2122,
     "verified": 788,
-    "partial": 1332,
+    "partial": 1334,
     "makes_count": 45,
     "models_count": 586,
-    "processed_seeds": 584,
+    "processed_seeds": 585,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-23T02:09:41.055601+00:00"
+    "last_updated_at": "2026-05-23T02:10:18.142218+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
