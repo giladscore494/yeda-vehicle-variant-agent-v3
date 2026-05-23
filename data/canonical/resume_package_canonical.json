@@ -625,7 +625,8 @@
       "subaru__ascent__2019__2026__il",
       "isuzu__mu-x__2015__2026__il",
       "isuzu__trooper__1990__2005__il",
-      "isuzu__rodeo__1998__2004__il"
+      "isuzu__rodeo__1998__2004__il",
+      "hyundai__creta__2020__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1078,8 +1079,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "isuzu__rodeo__1998__2004__il",
-    "next_seed_id": "hyundai__creta__2020__2026__il",
+    "last_completed_seed_id": "hyundai__creta__2020__2026__il",
+    "next_seed_id": "kia__picanto__2004__2026__il",
     "run_history": [],
     "failed_details": [
       {
@@ -1839,28 +1840,12 @@
         "resolved_at": "2026-05-14T12:58:43.961353+00:00"
       },
       "hyundai__creta__2020__2026__il": {
-        "seed_id": "hyundai__creta__2020__2026__il",
-        "variants_added_to_canonical": 0,
-        "variants_deduped_or_merged": 0,
-        "dedupe_proof": [],
-        "no_variants_reason": "model_not_sold_in_market",
-        "marked_processed": false,
-        "status": "reset_for_rerun",
-        "resolved_at": "2026-05-16T19:14:19.181237+00:00",
-        "zero_variant_resolution": {
-          "resolved": true,
-          "reason": "model_not_sold_in_market",
-          "proof_status": "invalid_placeholder_sources",
-          "source_ids": [
-            "src_1",
-            "src_2",
-            "src_3"
-          ],
-          "source_basis": "Official Israeli importer data (Colmobil / Hyundai Israel) and local automotive databases (Autoboom, Auto.co.il) confirm that the Hyundai Creta is not officially marketed in Israel. The B-SUV segment in Israel is instead covered by the Hyundai Venue and Hyundai Kona. Autoboom explicitly lists the 2nd generation (2020-present) as 'Not available in Israel'.",
-          "confidence": "high"
-        },
-        "reset_reason": "placeholder_source_ids_invalidated_zero_variant_closure",
-        "reset_at": "2026-05-16T19:31:44.831757+00:00"
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 2,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T02:57:34.076880+00:00"
       },
       "haval__h6__2022__2026__il": {
         "seed_id": "haval__h6__2022__2026__il",
@@ -263502,6 +263487,130 @@
         "trim": []
       },
       "variant_id": "isuzu_rodeo_1998_2003_global_reference_only_2nd_gen_2_2l_inline_4_petrol_5_speed_manual_suv_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Hyundai",
+      "model": "Creta",
+      "global_model_name": "Hyundai Creta",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Hyundai ix25",
+        "Hyundai Cantus"
+      ],
+      "rebadged_as": null,
+      "year_start": 2020,
+      "year_end": 2026,
+      "generation": "2nd Gen (SU2)",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "1.5L Smartstream MPi petrol, 115 hp",
+      "transmission": "CVT",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "Israeli marketed name not confirmed; the Hyundai Creta is not officially imported by the Israeli distributor (Colmobil), which offers the Venue, Bayon, and Kona in this segment instead. Global 1.5L MPi specification used as reference only.",
+      "source_ids": [
+        "hyundai_global_creta_su2_specs",
+        "cartube_il_hyundai_israel_catalog"
+      ],
+      "field_sources": {
+        "body_type": [
+          "hyundai_global_creta_su2_specs"
+        ],
+        "seats": [
+          "hyundai_global_creta_su2_specs"
+        ],
+        "engine": [
+          "hyundai_global_creta_su2_specs"
+        ],
+        "transmission": [
+          "hyundai_global_creta_su2_specs"
+        ],
+        "fuel_type": [
+          "hyundai_global_creta_su2_specs"
+        ],
+        "drivetrain": [
+          "hyundai_global_creta_su2_specs"
+        ],
+        "generation": [
+          "hyundai_global_creta_su2_specs"
+        ],
+        "year_start": [
+          "hyundai_global_creta_su2_specs"
+        ],
+        "year_end": [
+          "hyundai_global_creta_su2_specs"
+        ],
+        "trim": []
+      },
+      "variant_id": "hyundai_creta_2020_2026_global_reference_only_2nd_gen_su2_1_5l_smartstream_mpi_petrol_115_hp_cvt_suv_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Hyundai",
+      "model": "Creta",
+      "global_model_name": "Hyundai Creta",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Hyundai ix25",
+        "Hyundai Cantus"
+      ],
+      "rebadged_as": null,
+      "year_start": 2020,
+      "year_end": 2024,
+      "generation": "2nd Gen (SU2)",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "1.4L Kappa T-GDi petrol, 140 hp",
+      "transmission": "7-speed DCT",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "Israeli marketed name not confirmed; absence of official IL import noted via local catalogs. Global 1.4L Turbo specification (pre-facelift) used as reference only.",
+      "source_ids": [
+        "hyundai_global_creta_su2_specs",
+        "cartube_il_hyundai_israel_catalog"
+      ],
+      "field_sources": {
+        "body_type": [
+          "hyundai_global_creta_su2_specs"
+        ],
+        "seats": [
+          "hyundai_global_creta_su2_specs"
+        ],
+        "engine": [
+          "hyundai_global_creta_su2_specs"
+        ],
+        "transmission": [
+          "hyundai_global_creta_su2_specs"
+        ],
+        "fuel_type": [
+          "hyundai_global_creta_su2_specs"
+        ],
+        "drivetrain": [
+          "hyundai_global_creta_su2_specs"
+        ],
+        "generation": [
+          "hyundai_global_creta_su2_specs"
+        ],
+        "year_start": [
+          "hyundai_global_creta_su2_specs"
+        ],
+        "year_end": [
+          "hyundai_global_creta_su2_specs"
+        ],
+        "trim": []
+      },
+      "variant_id": "hyundai_creta_2020_2024_global_reference_only_2nd_gen_su2_1_4l_kappa_t_gdi_petrol_140_hp_7_speed_dct_suv_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -481512,17 +481621,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 2243,
-    "variants": 2243,
+    "total_variants": 2245,
+    "variants": 2245,
     "verified": 788,
-    "partial": 1455,
+    "partial": 1457,
     "makes_count": 46,
-    "models_count": 615,
-    "processed_seeds": 616,
+    "models_count": 616,
+    "processed_seeds": 617,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-23T02:56:52.593054+00:00"
+    "last_updated_at": "2026-05-23T02:57:34.081569+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
