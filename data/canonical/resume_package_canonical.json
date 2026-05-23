@@ -586,7 +586,8 @@
       "mitsubishi__l200__1990__2026__il",
       "mitsubishi__grandis__2004__2011__il",
       "mitsubishi__attrage__2014__2026__il",
-      "mitsubishi__galant__1990__2012__il"
+      "mitsubishi__galant__1990__2012__il",
+      "mitsubishi__carisma__1995__2004__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1039,8 +1040,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "mitsubishi__galant__1990__2012__il",
-    "next_seed_id": "mitsubishi__carisma__1995__2004__il",
+    "last_completed_seed_id": "mitsubishi__carisma__1995__2004__il",
+    "next_seed_id": "mitsubishi__space_wagon__1990__2003__il",
     "run_history": [],
     "failed_details": [
       {
@@ -3004,6 +3005,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T02:04:04.145043+00:00"
+      },
+      "mitsubishi__carisma__1995__2004__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 4,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T02:04:54.027931+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -254018,6 +254027,250 @@
         "trim": []
       },
       "variant_id": "mitsubishi_galant_2004_2008_il_confirmed_9th_gen_2_4l_4_cylinder_mivec_petrol_165_hp_4_speed_automatic_sedan_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Mitsubishi",
+      "model": "Carisma",
+      "global_model_name": "Carisma",
+      "official_marketed_name_il": "Mitsubishi Carisma",
+      "local_brand_name_il": "Mitsubishi",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 1995,
+      "year_end": 1999,
+      "generation": "1st Gen (DA) Pre-facelift",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "1.6L 4-cylinder petrol",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Confirmed via Israeli iCar and Auto.co.il archives. 1.6L automatic sedan was the primary family configuration sold in Israel between 1996-1999 prior to the facelift. Common trims included GLX, but omitted here to prevent over-specification.",
+      "source_ids": [
+        "icar_il_mitsubishi_carisma_catalog",
+        "auto_il_archive_carisma_DA",
+        "auto_data_net_carisma_DA"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_mitsubishi_carisma_catalog",
+          "auto_il_archive_carisma_DA"
+        ],
+        "seats": [
+          "auto_data_net_carisma_DA"
+        ],
+        "engine": [
+          "icar_il_mitsubishi_carisma_catalog",
+          "auto_il_archive_carisma_DA"
+        ],
+        "transmission": [
+          "icar_il_mitsubishi_carisma_catalog"
+        ],
+        "fuel_type": [
+          "icar_il_mitsubishi_carisma_catalog"
+        ],
+        "drivetrain": [
+          "auto_data_net_carisma_DA"
+        ],
+        "generation": [
+          "auto_data_net_carisma_DA",
+          "auto_il_archive_carisma_DA"
+        ],
+        "year_start": [
+          "auto_data_net_carisma_DA"
+        ],
+        "year_end": [
+          "auto_data_net_carisma_DA"
+        ],
+        "trim": []
+      },
+      "variant_id": "mitsubishi_carisma_1995_1999_il_confirmed_1st_gen_da_pre_facelift_1_6l_4_cylinder_petrol_4_speed_automatic_sedan_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Mitsubishi",
+      "model": "Carisma",
+      "global_model_name": "Carisma",
+      "official_marketed_name_il": "Mitsubishi Carisma",
+      "local_brand_name_il": "Mitsubishi",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 1995,
+      "year_end": 1999,
+      "generation": "1st Gen (DA) Pre-facelift",
+      "body_type": "Hatchback",
+      "seats": 5,
+      "engine": "1.6L 4-cylinder petrol",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "IL market historical used car catalogs (iCar) show both sedan and 5-door hatchback configurations were sold with the 1.6L petrol engine.",
+      "source_ids": [
+        "icar_il_mitsubishi_carisma_catalog",
+        "auto_data_net_carisma_DA"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_mitsubishi_carisma_catalog",
+          "auto_data_net_carisma_DA"
+        ],
+        "seats": [
+          "auto_data_net_carisma_DA"
+        ],
+        "engine": [
+          "icar_il_mitsubishi_carisma_catalog"
+        ],
+        "transmission": [
+          "icar_il_mitsubishi_carisma_catalog"
+        ],
+        "fuel_type": [
+          "icar_il_mitsubishi_carisma_catalog"
+        ],
+        "drivetrain": [
+          "auto_data_net_carisma_DA"
+        ],
+        "generation": [
+          "auto_data_net_carisma_DA"
+        ],
+        "year_start": [
+          "auto_data_net_carisma_DA"
+        ],
+        "year_end": [
+          "auto_data_net_carisma_DA"
+        ],
+        "trim": []
+      },
+      "variant_id": "mitsubishi_carisma_1995_1999_il_confirmed_1st_gen_da_pre_facelift_1_6l_4_cylinder_petrol_4_speed_automatic_hatchback_petrol"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Mitsubishi",
+      "model": "Carisma",
+      "global_model_name": "Carisma",
+      "official_marketed_name_il": "Mitsubishi Carisma",
+      "local_brand_name_il": "Mitsubishi",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 1999,
+      "year_end": 2004,
+      "generation": "1st Gen (DA) Facelift",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "1.6L 4-cylinder petrol",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Facelifted version continued in the Israeli market primarily as a 1.6L automatic sedan until it was replaced by the Lancer in 2004.",
+      "source_ids": [
+        "icar_il_mitsubishi_carisma_catalog",
+        "auto_data_net_carisma_DA"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_mitsubishi_carisma_catalog"
+        ],
+        "seats": [
+          "auto_data_net_carisma_DA"
+        ],
+        "engine": [
+          "icar_il_mitsubishi_carisma_catalog"
+        ],
+        "transmission": [
+          "icar_il_mitsubishi_carisma_catalog"
+        ],
+        "fuel_type": [
+          "icar_il_mitsubishi_carisma_catalog"
+        ],
+        "drivetrain": [
+          "auto_data_net_carisma_DA"
+        ],
+        "generation": [
+          "auto_data_net_carisma_DA"
+        ],
+        "year_start": [
+          "auto_data_net_carisma_DA"
+        ],
+        "year_end": [
+          "icar_il_mitsubishi_carisma_catalog",
+          "auto_data_net_carisma_DA"
+        ],
+        "trim": []
+      },
+      "variant_id": "mitsubishi_carisma_1999_2004_il_confirmed_1st_gen_da_facelift_1_6l_4_cylinder_petrol_4_speed_automatic_sedan_petrol"
+    },
+    {
+      "candidate_index": 3,
+      "make": "Mitsubishi",
+      "model": "Carisma",
+      "global_model_name": "Carisma",
+      "official_marketed_name_il": "Mitsubishi Carisma",
+      "local_brand_name_il": "Mitsubishi",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 1999,
+      "year_end": 2004,
+      "generation": "1st Gen (DA) Facelift",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "1.8L GDI 4-cylinder petrol",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "The 1.8L Gasoline Direct Injection (GDI) engine was introduced to the Israeli market during the facelift period as a higher-tier option.",
+      "source_ids": [
+        "icar_il_mitsubishi_carisma_catalog",
+        "auto_il_archive_carisma_DA",
+        "auto_data_net_carisma_DA"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_mitsubishi_carisma_catalog"
+        ],
+        "seats": [
+          "auto_data_net_carisma_DA"
+        ],
+        "engine": [
+          "icar_il_mitsubishi_carisma_catalog",
+          "auto_il_archive_carisma_DA"
+        ],
+        "transmission": [
+          "icar_il_mitsubishi_carisma_catalog"
+        ],
+        "fuel_type": [
+          "icar_il_mitsubishi_carisma_catalog"
+        ],
+        "drivetrain": [
+          "auto_data_net_carisma_DA"
+        ],
+        "generation": [
+          "auto_data_net_carisma_DA"
+        ],
+        "year_start": [
+          "auto_data_net_carisma_DA"
+        ],
+        "year_end": [
+          "icar_il_mitsubishi_carisma_catalog"
+        ],
+        "trim": []
+      },
+      "variant_id": "mitsubishi_carisma_1999_2004_il_confirmed_1st_gen_da_facelift_1_8l_gdi_4_cylinder_petrol_4_speed_automatic_sedan_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -472028,17 +472281,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 2094,
-    "variants": 2094,
+    "total_variants": 2098,
+    "variants": 2098,
     "verified": 788,
-    "partial": 1306,
+    "partial": 1310,
     "makes_count": 44,
-    "models_count": 579,
-    "processed_seeds": 577,
+    "models_count": 580,
+    "processed_seeds": 578,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-23T02:04:04.149783+00:00"
+    "last_updated_at": "2026-05-23T02:04:54.032506+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
