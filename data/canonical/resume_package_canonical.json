@@ -671,7 +671,8 @@
       "hyundai__nexo__2019__2026__il",
       "mg__mg4__2022__2026__il",
       "mg__zs_ev__2020__2026__il",
-      "mg__hs__2020__2026__il"
+      "mg__hs__2020__2026__il",
+      "mg__marvel_r__2021__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1122,8 +1123,8 @@
     "failed_seed_ids": [],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "mg__hs__2020__2026__il",
-    "next_seed_id": "mg__marvel_r__2021__2026__il",
+    "last_completed_seed_id": "mg__marvel_r__2021__2026__il",
+    "next_seed_id": "mg__cyberster__2024__2026__il",
     "run_history": [],
     "failed_details": [
       {
@@ -3745,6 +3746,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T04:05:03.442065+00:00"
+      },
+      "mg__marvel_r__2021__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 2,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T04:05:34.829244+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -274588,6 +274597,134 @@
         "trim": []
       },
       "variant_id": "mg_hs_2023_2026_il_confirmed_1st_gen_as23_1_5l_turbo_162_hp_7_speed_dct_suv_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "MG",
+      "model": "Marvel R",
+      "global_model_name": "MG Marvel R",
+      "official_marketed_name_il": "MG Marvel R",
+      "local_brand_name_il": "MG",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2021,
+      "year_end": 2026,
+      "generation": "1st Gen",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "Dual rear electric motors, 180 hp (132 kW)",
+      "transmission": "2-speed automatic",
+      "fuel_type": "Electric",
+      "drivetrain": "RWD",
+      "trim": "Luxury",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli importer (Lubinski) launched the MG Marvel R in May 2023. The Luxury trim features a dual-motor RWD setup with the unique 2-speed rear axle transmission. Year bounds reflect global generation span overlapping the seed.",
+      "source_ids": [
+        "cartube_il_mg_marvel_r_launch_2023",
+        "lubinski_mg_israel_official"
+      ],
+      "field_sources": {
+        "body_type": [
+          "lubinski_mg_israel_official"
+        ],
+        "seats": [
+          "lubinski_mg_israel_official"
+        ],
+        "engine": [
+          "cartube_il_mg_marvel_r_launch_2023",
+          "lubinski_mg_israel_official"
+        ],
+        "transmission": [
+          "cartube_il_mg_marvel_r_launch_2023",
+          "lubinski_mg_israel_official"
+        ],
+        "fuel_type": [
+          "cartube_il_mg_marvel_r_launch_2023",
+          "lubinski_mg_israel_official"
+        ],
+        "drivetrain": [
+          "cartube_il_mg_marvel_r_launch_2023",
+          "lubinski_mg_israel_official"
+        ],
+        "generation": [
+          "cartube_il_mg_marvel_r_launch_2023"
+        ],
+        "year_start": [
+          "lubinski_mg_israel_official"
+        ],
+        "year_end": [],
+        "trim": [
+          "cartube_il_mg_marvel_r_launch_2023",
+          "lubinski_mg_israel_official"
+        ]
+      },
+      "variant_id": "mg_marvel_r_2021_2026_il_confirmed_1st_gen_dual_rear_electric_motors_180_hp_132_kw_2_speed_automatic_suv_electric"
+    },
+    {
+      "candidate_index": 1,
+      "make": "MG",
+      "model": "Marvel R",
+      "global_model_name": "MG Marvel R",
+      "official_marketed_name_il": "MG Marvel R",
+      "local_brand_name_il": "MG",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2021,
+      "year_end": 2026,
+      "generation": "1st Gen",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "Tri-motor electric setup, 288 hp (212 kW)",
+      "transmission": "2-speed automatic",
+      "fuel_type": "Electric",
+      "drivetrain": "AWD",
+      "trim": "Performance",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli official sources confirm the top-tier 'Performance' trim features a tri-motor AWD setup producing 288 hp. Sold alongside the RWD version from 2023 onwards in Israel.",
+      "source_ids": [
+        "cartube_il_mg_marvel_r_launch_2023",
+        "lubinski_mg_israel_official"
+      ],
+      "field_sources": {
+        "body_type": [
+          "lubinski_mg_israel_official"
+        ],
+        "seats": [
+          "lubinski_mg_israel_official"
+        ],
+        "engine": [
+          "cartube_il_mg_marvel_r_launch_2023",
+          "lubinski_mg_israel_official"
+        ],
+        "transmission": [
+          "cartube_il_mg_marvel_r_launch_2023",
+          "lubinski_mg_israel_official"
+        ],
+        "fuel_type": [
+          "cartube_il_mg_marvel_r_launch_2023",
+          "lubinski_mg_israel_official"
+        ],
+        "drivetrain": [
+          "cartube_il_mg_marvel_r_launch_2023",
+          "lubinski_mg_israel_official"
+        ],
+        "generation": [
+          "cartube_il_mg_marvel_r_launch_2023"
+        ],
+        "year_start": [
+          "lubinski_mg_israel_official"
+        ],
+        "year_end": [],
+        "trim": [
+          "cartube_il_mg_marvel_r_launch_2023",
+          "lubinski_mg_israel_official"
+        ]
+      },
+      "variant_id": "mg_marvel_r_2021_2026_il_confirmed_1st_gen_tri_motor_electric_setup_288_hp_212_kw_2_speed_automatic_suv_electric"
     }
   ],
   "accumulated_clean_export": {
@@ -492598,17 +492735,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 2417,
-    "variants": 2417,
+    "total_variants": 2419,
+    "variants": 2419,
     "verified": 788,
-    "partial": 1629,
+    "partial": 1631,
     "makes_count": 51,
-    "models_count": 663,
-    "processed_seeds": 662,
+    "models_count": 664,
+    "processed_seeds": 663,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 0,
-    "last_updated_at": "2026-05-23T04:05:03.451360+00:00"
+    "last_updated_at": "2026-05-23T04:05:34.834673+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
