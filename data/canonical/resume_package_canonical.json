@@ -685,7 +685,8 @@
       "xpeng__g9__2023__2026__il",
       "xpeng__g6__2024__2026__il",
       "nio__et5__2023__2026__il",
-      "nio__el6__2024__2026__il"
+      "nio__el6__2024__2026__il",
+      "nio__el7__2024__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1136,8 +1137,8 @@
     "failed_seed_ids": [],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "nio__el6__2024__2026__il",
-    "next_seed_id": "nio__el7__2024__2026__il",
+    "last_completed_seed_id": "nio__el7__2024__2026__il",
+    "next_seed_id": "lynk_&_co__01__2023__2026__il",
     "run_history": [],
     "failed_details": [
       {
@@ -3871,6 +3872,14 @@
         "merged_count": 1,
         "warnings": [],
         "resolved_at": "2026-05-23T04:14:50.356902+00:00"
+      },
+      "nio__el7__2024__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 2,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T04:15:27.466956+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -276433,6 +276442,146 @@
       },
       "variant_id": "nio_el6_2024_2026_il_confirmed_2nd_gen_nt2_0_dual_electric_motors_489_hp_360_kw_single_speed_ev_suv_electric",
       "updated_at": "2026-05-23T04:14:50.359341+00:00"
+    },
+    {
+      "candidate_index": 0,
+      "make": "NIO",
+      "model": "EL7",
+      "global_model_name": "NIO ES7",
+      "official_marketed_name_il": "NIO EL7",
+      "local_brand_name_il": "NIO",
+      "alternate_names": [
+        "ES7"
+      ],
+      "rebadged_as": null,
+      "year_start": 2023,
+      "year_end": 2026,
+      "generation": "1st Gen (NT2.0)",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "Dual Electric Motors, 480 kW (653 hp), 75 kWh Battery",
+      "transmission": "Single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "AWD",
+      "trim": "75kWh",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli importer (Delek Motors) launched the EL7 in late 2023. Sold with the 75kWh standard range battery.",
+      "source_ids": [
+        "delek_motors_nio_il_official",
+        "cartube_il_nio_launch_2023",
+        "icar_il_nio_el7_catalog"
+      ],
+      "field_sources": {
+        "body_type": [
+          "delek_motors_nio_il_official",
+          "icar_il_nio_el7_catalog"
+        ],
+        "seats": [
+          "delek_motors_nio_il_official",
+          "icar_il_nio_el7_catalog"
+        ],
+        "engine": [
+          "delek_motors_nio_il_official",
+          "cartube_il_nio_launch_2023"
+        ],
+        "transmission": [
+          "delek_motors_nio_il_official"
+        ],
+        "fuel_type": [
+          "delek_motors_nio_il_official",
+          "icar_il_nio_el7_catalog"
+        ],
+        "drivetrain": [
+          "delek_motors_nio_il_official"
+        ],
+        "generation": [
+          "delek_motors_nio_il_official"
+        ],
+        "year_start": [
+          "cartube_il_nio_launch_2023",
+          "icar_il_nio_el7_catalog"
+        ],
+        "year_end": [
+          "icar_il_nio_el7_catalog"
+        ],
+        "trim": [
+          "cartube_il_nio_launch_2023",
+          "icar_il_nio_el7_catalog"
+        ]
+      },
+      "variant_id": "nio_el7_2023_2026_il_confirmed_1st_gen_nt2_0_dual_electric_motors_480_kw_653_hp_75_kwh_battery_single_speed_ev_suv_electric"
+    },
+    {
+      "candidate_index": 1,
+      "make": "NIO",
+      "model": "EL7",
+      "global_model_name": "NIO ES7",
+      "official_marketed_name_il": "NIO EL7",
+      "local_brand_name_il": "NIO",
+      "alternate_names": [
+        "ES7"
+      ],
+      "rebadged_as": null,
+      "year_start": 2023,
+      "year_end": 2026,
+      "generation": "1st Gen (NT2.0)",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "Dual Electric Motors, 480 kW (653 hp), 100 kWh Battery",
+      "transmission": "Single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "AWD",
+      "trim": "100kWh",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli importer (Delek Motors) launched the EL7 in late 2023. Sold with the 100kWh long range battery. Powertrain output matches the 75kWh variant, differentiated by battery capacity.",
+      "source_ids": [
+        "delek_motors_nio_il_official",
+        "cartube_il_nio_launch_2023",
+        "icar_il_nio_el7_catalog"
+      ],
+      "field_sources": {
+        "body_type": [
+          "delek_motors_nio_il_official",
+          "icar_il_nio_el7_catalog"
+        ],
+        "seats": [
+          "delek_motors_nio_il_official",
+          "icar_il_nio_el7_catalog"
+        ],
+        "engine": [
+          "delek_motors_nio_il_official",
+          "cartube_il_nio_launch_2023"
+        ],
+        "transmission": [
+          "delek_motors_nio_il_official"
+        ],
+        "fuel_type": [
+          "delek_motors_nio_il_official",
+          "icar_il_nio_el7_catalog"
+        ],
+        "drivetrain": [
+          "delek_motors_nio_il_official"
+        ],
+        "generation": [
+          "delek_motors_nio_il_official"
+        ],
+        "year_start": [
+          "cartube_il_nio_launch_2023",
+          "icar_il_nio_el7_catalog"
+        ],
+        "year_end": [
+          "icar_il_nio_el7_catalog"
+        ],
+        "trim": [
+          "cartube_il_nio_launch_2023",
+          "icar_il_nio_el7_catalog"
+        ]
+      },
+      "variant_id": "nio_el7_2023_2026_il_confirmed_1st_gen_nt2_0_dual_electric_motors_480_kw_653_hp_100_kwh_battery_single_speed_ev_suv_electric"
     }
   ],
   "accumulated_clean_export": {
@@ -494443,17 +494592,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 2444,
-    "variants": 2444,
+    "total_variants": 2446,
+    "variants": 2446,
     "verified": 788,
-    "partial": 1656,
+    "partial": 1658,
     "makes_count": 56,
-    "models_count": 677,
-    "processed_seeds": 676,
+    "models_count": 678,
+    "processed_seeds": 677,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 0,
-    "last_updated_at": "2026-05-23T04:14:50.365278+00:00"
+    "last_updated_at": "2026-05-23T04:15:27.473946+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
