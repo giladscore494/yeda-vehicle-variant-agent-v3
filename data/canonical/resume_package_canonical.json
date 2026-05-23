@@ -562,7 +562,8 @@
       "mazda__cx-5__2012__2026__il",
       "mazda__cx-50__2023__2026__il",
       "mazda__cx-60__2022__2026__il",
-      "mazda__cx-7__2006__2012__il"
+      "mazda__cx-7__2006__2012__il",
+      "mazda__cx-80__2024__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1015,8 +1016,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "mazda__cx-7__2006__2012__il",
-    "next_seed_id": "mazda__cx-80__2024__2026__il",
+    "last_completed_seed_id": "mazda__cx-80__2024__2026__il",
+    "next_seed_id": "mazda__cx-9__2007__2023__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2771,15 +2772,15 @@
         "added_count": 3,
         "merged_count": 0,
         "warnings": [],
-        "resolved_at": "2026-05-23T01:25:54.962394+00:00"
+        "resolved_at": "2026-05-23T01:25:45.577213+00:00"
       },
       "mazda__cx-60__2022__2026__il": {
         "status": "resolved",
         "resolution_type": "variants_added",
-        "added_count": 4,
+        "added_count": 3,
         "merged_count": 0,
         "warnings": [],
-        "resolved_at": "2026-05-23T01:26:49.606822+00:00"
+        "resolved_at": "2026-05-23T01:26:23.682507+00:00"
       },
       "mazda__cx-7__2006__2012__il": {
         "status": "resolved",
@@ -2787,7 +2788,15 @@
         "added_count": 2,
         "merged_count": 0,
         "warnings": [],
-        "resolved_at": "2026-05-23T01:27:34.919753+00:00"
+        "resolved_at": "2026-05-23T01:27:05.565309+00:00"
+      },
+      "mazda__cx-80__2024__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 2,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T01:27:45.141130+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -247928,7 +247937,7 @@
       "generation": "1st Gen",
       "body_type": "SUV",
       "seats": 5,
-      "engine": "2.5L Skyactiv-G 4-cylinder",
+      "engine": "2.5L Skyactiv-G I4, 187 hp",
       "transmission": "6-speed automatic",
       "fuel_type": "Petrol",
       "drivetrain": "AWD",
@@ -247936,44 +247945,42 @@
       "market_scope": "global-reference-only",
       "market_name_confidence": "unknown",
       "confidence_level": "medium",
-      "source_basis": "Israeli marketed name not confirmed; global model name used as reference only. Official manufacturer documentation confirms body style and powertrain with specific NA engine and transmission. IL-market availability not officially confirmed by main importer Delek Motors; marked global-reference-only.",
+      "source_basis": "Israeli marketed name not confirmed; global model name used as reference only. Model is primarily manufactured for the North American and Chinese markets; official import to Israel by Delek Motors is unverified. Specs based on US market data.",
       "source_ids": [
-        "mazda_usa_global_cx50",
-        "icar_il_mazda_models"
+        "mazda_usa_official_cx50_2023",
+        "israel_auto_news_mazda_search"
       ],
       "field_sources": {
         "body_type": [
-          "mazda_usa_global_cx50"
+          "mazda_usa_official_cx50_2023"
         ],
         "seats": [
-          "mazda_usa_global_cx50"
+          "mazda_usa_official_cx50_2023"
         ],
         "engine": [
-          "mazda_usa_global_cx50"
+          "mazda_usa_official_cx50_2023"
         ],
         "transmission": [
-          "mazda_usa_global_cx50"
+          "mazda_usa_official_cx50_2023"
         ],
         "fuel_type": [
-          "mazda_usa_global_cx50"
+          "mazda_usa_official_cx50_2023"
         ],
         "drivetrain": [
-          "mazda_usa_global_cx50"
+          "mazda_usa_official_cx50_2023"
         ],
         "generation": [
-          "mazda_usa_global_cx50"
+          "mazda_usa_official_cx50_2023"
         ],
         "year_start": [
-          "mazda_usa_global_cx50"
+          "mazda_usa_official_cx50_2023"
         ],
-        "year_end": [
-          "mazda_usa_global_cx50"
-        ],
+        "year_end": [],
         "trim": [
-          "mazda_usa_global_cx50"
+          "mazda_usa_official_cx50_2023"
         ]
       },
-      "variant_id": "mazda_cx_50_2023_2026_global_reference_only_1st_gen_2_5l_skyactiv_g_4_cylinder_6_speed_automatic_suv_petrol"
+      "variant_id": "mazda_cx_50_2023_2026_global_reference_only_1st_gen_2_5l_skyactiv_g_i4_187_hp_6_speed_automatic_suv_petrol"
     },
     {
       "candidate_index": 1,
@@ -247989,7 +247996,7 @@
       "generation": "1st Gen",
       "body_type": "SUV",
       "seats": 5,
-      "engine": "2.5L Skyactiv-G Turbo 4-cylinder",
+      "engine": "2.5L Skyactiv-G Turbo I4, 256 hp",
       "transmission": "6-speed automatic",
       "fuel_type": "Petrol",
       "drivetrain": "AWD",
@@ -247997,44 +248004,41 @@
       "market_scope": "global-reference-only",
       "market_name_confidence": "unknown",
       "confidence_level": "medium",
-      "source_basis": "Israeli marketed name not confirmed; global model name used as reference only. Official manufacturer documentation confirms body style and powertrain with specific Turbo engine and transmission. IL-market availability not officially confirmed by main importer Delek Motors; marked global-reference-only.",
+      "source_basis": "Israeli marketed name not confirmed; global model name used as reference only. Global specs list the 2.5L turbocharged engine variant as a distinct powertrain option.",
       "source_ids": [
-        "mazda_usa_global_cx50",
-        "icar_il_mazda_models"
+        "mazda_usa_official_cx50_2023"
       ],
       "field_sources": {
         "body_type": [
-          "mazda_usa_global_cx50"
+          "mazda_usa_official_cx50_2023"
         ],
         "seats": [
-          "mazda_usa_global_cx50"
+          "mazda_usa_official_cx50_2023"
         ],
         "engine": [
-          "mazda_usa_global_cx50"
+          "mazda_usa_official_cx50_2023"
         ],
         "transmission": [
-          "mazda_usa_global_cx50"
+          "mazda_usa_official_cx50_2023"
         ],
         "fuel_type": [
-          "mazda_usa_global_cx50"
+          "mazda_usa_official_cx50_2023"
         ],
         "drivetrain": [
-          "mazda_usa_global_cx50"
+          "mazda_usa_official_cx50_2023"
         ],
         "generation": [
-          "mazda_usa_global_cx50"
+          "mazda_usa_official_cx50_2023"
         ],
         "year_start": [
-          "mazda_usa_global_cx50"
+          "mazda_usa_official_cx50_2023"
         ],
-        "year_end": [
-          "mazda_usa_global_cx50"
-        ],
+        "year_end": [],
         "trim": [
-          "mazda_usa_global_cx50"
+          "mazda_usa_official_cx50_2023"
         ]
       },
-      "variant_id": "mazda_cx_50_2023_2026_global_reference_only_1st_gen_2_5l_skyactiv_g_turbo_4_cylinder_6_speed_automatic_suv_petrol"
+      "variant_id": "mazda_cx_50_2023_2026_global_reference_only_1st_gen_2_5l_skyactiv_g_turbo_i4_256_hp_6_speed_automatic_suv_petrol"
     },
     {
       "candidate_index": 2,
@@ -248045,57 +248049,54 @@
       "local_brand_name_il": null,
       "alternate_names": [],
       "rebadged_as": null,
-      "year_start": 2025,
+      "year_start": 2024,
       "year_end": 2026,
       "generation": "1st Gen",
       "body_type": "SUV",
       "seats": 5,
-      "engine": "2.5L 4-cylinder Hybrid",
+      "engine": "2.5L Hybrid (THS), 219 hp",
       "transmission": "e-CVT",
       "fuel_type": "Hybrid",
       "drivetrain": "AWD",
-      "trim": "2.5 Hybrid",
+      "trim": "Hybrid",
       "market_scope": "global-reference-only",
       "market_name_confidence": "unknown",
       "confidence_level": "medium",
-      "source_basis": "Israeli marketed name not confirmed; global model name used as reference only. Global automotive sources confirm the addition of a hybrid powertrain for the 2025 model year. IL-market availability not officially confirmed; marked global-reference-only.",
+      "source_basis": "Israeli marketed name not confirmed; global model name used as reference only. Hybrid variant was introduced globally for the 2025 model year (arriving late 2024) utilizing a Toyota-sourced hybrid system.",
       "source_ids": [
-        "car_and_driver_cx50_hybrid",
-        "icar_il_mazda_models"
+        "mazda_usa_cx50_hybrid_2025"
       ],
       "field_sources": {
         "body_type": [
-          "car_and_driver_cx50_hybrid"
+          "mazda_usa_official_cx50_2023"
         ],
         "seats": [
-          "car_and_driver_cx50_hybrid"
+          "mazda_usa_official_cx50_2023"
         ],
         "engine": [
-          "car_and_driver_cx50_hybrid"
+          "mazda_usa_cx50_hybrid_2025"
         ],
         "transmission": [
-          "car_and_driver_cx50_hybrid"
+          "mazda_usa_cx50_hybrid_2025"
         ],
         "fuel_type": [
-          "car_and_driver_cx50_hybrid"
+          "mazda_usa_cx50_hybrid_2025"
         ],
         "drivetrain": [
-          "car_and_driver_cx50_hybrid"
+          "mazda_usa_official_cx50_2023"
         ],
         "generation": [
-          "car_and_driver_cx50_hybrid"
+          "mazda_usa_official_cx50_2023"
         ],
         "year_start": [
-          "car_and_driver_cx50_hybrid"
+          "mazda_usa_cx50_hybrid_2025"
         ],
-        "year_end": [
-          "car_and_driver_cx50_hybrid"
-        ],
+        "year_end": [],
         "trim": [
-          "car_and_driver_cx50_hybrid"
+          "mazda_usa_cx50_hybrid_2025"
         ]
       },
-      "variant_id": "mazda_cx_50_2025_2026_global_reference_only_1st_gen_2_5l_4_cylinder_hybrid_e_cvt_suv_hybrid"
+      "variant_id": "mazda_cx_50_2024_2026_global_reference_only_1st_gen_2_5l_hybrid_ths_219_hp_e_cvt_suv_hybrid"
     },
     {
       "candidate_index": 0,
@@ -248111,50 +248112,50 @@
       "generation": "1st Gen (KH)",
       "body_type": "SUV",
       "seats": 5,
-      "engine": "2.5L e-Skyactiv PHEV, 327 hp",
+      "engine": "2.5L e-Skyactiv PHEV",
       "transmission": "8-speed automatic",
       "fuel_type": "Plug-in Hybrid",
       "drivetrain": "AWD",
-      "trim": null,
+      "trim": "",
       "market_scope": "IL-confirmed",
       "market_name_confidence": "confirmed",
       "confidence_level": "high",
-      "source_basis": "Mazda Israel official site and local automotive news (Cartube) confirm the CX-60 was launched in Israel with the 2.5L PHEV powertrain. Trims marketed in IL include Premium, Exclusive, Homura, and Takumi (noted here for reference, trim field kept clean).",
+      "source_basis": "IL-market sources (iCar, Cartube) confirm the Mazda CX-60 was launched in Israel in late 2022 with the 2.5L 327hp PHEV powertrain and AWD. Trims available in IL include Premium, Exclusive, Homura, and Takumi (noted here for reference, left out of clean trim string).",
       "source_ids": [
-        "mazda_il_official_cx60",
-        "cartube_il_mazda_cx60_launch_2023"
+        "icar_il_mazda_cx60_phev",
+        "cartube_il_mazda_cx60_launch"
       ],
       "field_sources": {
         "body_type": [
-          "mazda_il_official_cx60"
+          "icar_il_mazda_cx60_phev"
         ],
         "seats": [
-          "mazda_il_official_cx60"
+          "icar_il_mazda_cx60_phev"
         ],
         "engine": [
-          "mazda_il_official_cx60",
-          "cartube_il_mazda_cx60_launch_2023"
+          "icar_il_mazda_cx60_phev",
+          "cartube_il_mazda_cx60_launch"
         ],
         "transmission": [
-          "mazda_il_official_cx60"
+          "icar_il_mazda_cx60_phev"
         ],
         "fuel_type": [
-          "mazda_il_official_cx60"
+          "icar_il_mazda_cx60_phev",
+          "cartube_il_mazda_cx60_launch"
         ],
         "drivetrain": [
-          "mazda_il_official_cx60"
+          "icar_il_mazda_cx60_phev"
         ],
         "generation": [
-          "cartube_il_mazda_cx60_launch_2023",
-          "mazda_global_press_cx60"
+          "cartube_il_mazda_cx60_launch"
         ],
         "year_start": [
-          "cartube_il_mazda_cx60_launch_2023"
+          "cartube_il_mazda_cx60_launch"
         ],
         "year_end": [],
         "trim": []
       },
-      "variant_id": "mazda_cx_60_2022_2026_il_confirmed_1st_gen_kh_2_5l_e_skyactiv_phev_327_hp_8_speed_automatic_suv_plug_in_hybrid"
+      "variant_id": "mazda_cx_60_2022_2026_il_confirmed_1st_gen_kh_2_5l_e_skyactiv_phev_8_speed_automatic_suv_plug_in_hybrid"
     },
     {
       "candidate_index": 1,
@@ -248170,45 +248171,45 @@
       "generation": "1st Gen (KH)",
       "body_type": "SUV",
       "seats": 5,
-      "engine": "3.3L e-Skyactiv D turbo diesel MHEV, 200/254 hp",
+      "engine": "3.3L e-Skyactiv G Turbo MHEV inline-6",
       "transmission": "8-speed automatic",
       "fuel_type": "Mild Hybrid",
       "drivetrain": "AWD",
-      "trim": null,
+      "trim": "",
       "market_scope": "global-reference-only",
       "market_name_confidence": "unknown",
       "confidence_level": "medium",
-      "source_basis": "Global Mazda PR confirms the 3.3L diesel mild-hybrid variant for Europe and other global markets. No evidence of Israeli market availability found.",
+      "source_basis": "Global manufacturer data confirms 3.3L Mild Hybrid inline-6 petrol model. Israeli marketed name and full local availability not firmly confirmed in consulted IL sources; maintained as global-reference.",
       "source_ids": [
-        "mazda_global_press_cx60"
+        "mazda_global_cx60_specs"
       ],
       "field_sources": {
         "body_type": [
-          "mazda_global_press_cx60"
+          "mazda_global_cx60_specs"
         ],
         "seats": [],
         "engine": [
-          "mazda_global_press_cx60"
+          "mazda_global_cx60_specs"
         ],
         "transmission": [
-          "mazda_global_press_cx60"
+          "mazda_global_cx60_specs"
         ],
         "fuel_type": [
-          "mazda_global_press_cx60"
+          "mazda_global_cx60_specs"
         ],
         "drivetrain": [
-          "mazda_global_press_cx60"
+          "mazda_global_cx60_specs"
         ],
         "generation": [
-          "mazda_global_press_cx60"
+          "mazda_global_cx60_specs"
         ],
         "year_start": [
-          "mazda_global_press_cx60"
+          "mazda_global_cx60_specs"
         ],
         "year_end": [],
         "trim": []
       },
-      "variant_id": "mazda_cx_60_2022_2026_global_reference_only_1st_gen_kh_3_3l_e_skyactiv_d_turbo_diesel_mhev_200_254_hp_8_speed_automatic_suv_mild_hybrid"
+      "variant_id": "mazda_cx_60_2022_2026_global_reference_only_1st_gen_kh_3_3l_e_skyactiv_g_turbo_mhev_inline_6_8_speed_automatic_suv_mild_hybrid"
     },
     {
       "candidate_index": 2,
@@ -248219,104 +248220,50 @@
       "local_brand_name_il": null,
       "alternate_names": [],
       "rebadged_as": null,
-      "year_start": 2023,
-      "year_end": 2026,
-      "generation": "1st Gen (KH)",
-      "body_type": "SUV",
-      "seats": 5,
-      "engine": "3.3L e-Skyactiv G turbo petrol MHEV, 284 hp",
-      "transmission": "8-speed automatic",
-      "fuel_type": "Mild Hybrid",
-      "drivetrain": "AWD",
-      "trim": null,
-      "market_scope": "global-reference-only",
-      "market_name_confidence": "unknown",
-      "confidence_level": "medium",
-      "source_basis": "Global Mazda PR confirms 3.3L petrol mild-hybrid availability in select markets (e.g., Australia). IL availability not confirmed.",
-      "source_ids": [
-        "mazda_global_press_cx60"
-      ],
-      "field_sources": {
-        "body_type": [
-          "mazda_global_press_cx60"
-        ],
-        "seats": [],
-        "engine": [
-          "mazda_global_press_cx60"
-        ],
-        "transmission": [
-          "mazda_global_press_cx60"
-        ],
-        "fuel_type": [
-          "mazda_global_press_cx60"
-        ],
-        "drivetrain": [
-          "mazda_global_press_cx60"
-        ],
-        "generation": [
-          "mazda_global_press_cx60"
-        ],
-        "year_start": [
-          "mazda_global_press_cx60"
-        ],
-        "year_end": [],
-        "trim": []
-      },
-      "variant_id": "mazda_cx_60_2023_2026_global_reference_only_1st_gen_kh_3_3l_e_skyactiv_g_turbo_petrol_mhev_284_hp_8_speed_automatic_suv_mild_hybrid"
-    },
-    {
-      "candidate_index": 3,
-      "make": "Mazda",
-      "model": "CX-60",
-      "global_model_name": "Mazda CX-60",
-      "official_marketed_name_il": null,
-      "local_brand_name_il": null,
-      "alternate_names": [],
-      "rebadged_as": null,
       "year_start": 2022,
       "year_end": 2026,
       "generation": "1st Gen (KH)",
       "body_type": "SUV",
       "seats": 5,
-      "engine": "2.5L e-Skyactiv G petrol, 188 hp",
+      "engine": "3.3L e-Skyactiv D Turbo MHEV inline-6",
       "transmission": "8-speed automatic",
-      "fuel_type": "Petrol",
+      "fuel_type": "Mild Hybrid",
       "drivetrain": "RWD",
-      "trim": null,
+      "trim": "",
       "market_scope": "global-reference-only",
       "market_name_confidence": "unknown",
       "confidence_level": "medium",
-      "source_basis": "Global manufacturer documentation confirms naturally aspirated 2.5L RWD variant for specific global regions (e.g., Japan, Australia). Not marketed in IL.",
+      "source_basis": "European and global manufacturer sources confirm 3.3L inline-6 diesel mild-hybrid variant in RWD configuration. Not confirmed for IL market.",
       "source_ids": [
-        "mazda_global_press_cx60"
+        "mazda_eu_press_cx60_diesel"
       ],
       "field_sources": {
         "body_type": [
-          "mazda_global_press_cx60"
+          "mazda_eu_press_cx60_diesel"
         ],
         "seats": [],
         "engine": [
-          "mazda_global_press_cx60"
+          "mazda_eu_press_cx60_diesel"
         ],
         "transmission": [
-          "mazda_global_press_cx60"
+          "mazda_eu_press_cx60_diesel"
         ],
         "fuel_type": [
-          "mazda_global_press_cx60"
+          "mazda_eu_press_cx60_diesel"
         ],
         "drivetrain": [
-          "mazda_global_press_cx60"
+          "mazda_eu_press_cx60_diesel"
         ],
         "generation": [
-          "mazda_global_press_cx60"
+          "mazda_eu_press_cx60_diesel"
         ],
         "year_start": [
-          "mazda_global_press_cx60"
+          "mazda_eu_press_cx60_diesel"
         ],
         "year_end": [],
         "trim": []
       },
-      "variant_id": "mazda_cx_60_2022_2026_global_reference_only_1st_gen_kh_2_5l_e_skyactiv_g_petrol_188_hp_8_speed_automatic_suv_petrol"
+      "variant_id": "mazda_cx_60_2022_2026_global_reference_only_1st_gen_kh_3_3l_e_skyactiv_d_turbo_mhev_inline_6_8_speed_automatic_suv_mild_hybrid"
     },
     {
       "candidate_index": 0,
@@ -248324,15 +248271,15 @@
       "model": "CX-7",
       "global_model_name": "Mazda CX-7",
       "official_marketed_name_il": "Mazda CX-7",
-      "local_brand_name_il": "Mazda",
+      "local_brand_name_il": null,
       "alternate_names": [],
       "rebadged_as": null,
       "year_start": 2007,
       "year_end": 2012,
-      "generation": "ER",
+      "generation": "1st Gen (ER)",
       "body_type": "SUV",
       "seats": 5,
-      "engine": "2.3L MZR L3-VDT DISI Turbo, 238 hp",
+      "engine": "2.3L DISI Turbo petrol",
       "transmission": "6-speed automatic",
       "fuel_type": "Petrol",
       "drivetrain": "AWD",
@@ -248340,46 +248287,44 @@
       "market_scope": "IL-confirmed",
       "market_name_confidence": "confirmed",
       "confidence_level": "high",
-      "source_basis": "Israeli market review (Auto.co.il) and used car listings (Yad2) confirm the 2.3L Turbo AWD was the initial launch variant in Israel, spanning from 2007 to 2012. Marketed simply as Mazda CX-7, typically offered in high equipment levels (Luxury/Premium).",
+      "source_basis": "Israeli auto catalogs (iCar/Auto.co.il) confirm the CX-7 was introduced in Israel in 2007 with the 2.3L turbocharged engine and AWD.",
       "source_ids": [
-        "auto_il_mazda_cx7_review_2007",
-        "yad2_il_mazda_cx7_listings"
+        "icar_il_mazda_cx7",
+        "auto_il_mazda_cx7_review"
       ],
       "field_sources": {
         "body_type": [
-          "auto_il_mazda_cx7_review_2007"
+          "icar_il_mazda_cx7"
         ],
         "seats": [
-          "auto_il_mazda_cx7_review_2007"
+          "icar_il_mazda_cx7"
         ],
         "engine": [
-          "auto_il_mazda_cx7_review_2007",
-          "yad2_il_mazda_cx7_listings"
+          "icar_il_mazda_cx7",
+          "auto_il_mazda_cx7_review"
         ],
         "transmission": [
-          "auto_il_mazda_cx7_review_2007"
+          "icar_il_mazda_cx7"
         ],
         "fuel_type": [
-          "yad2_il_mazda_cx7_listings"
+          "auto_il_mazda_cx7_review"
         ],
         "drivetrain": [
-          "auto_il_mazda_cx7_review_2007",
-          "yad2_il_mazda_cx7_listings"
+          "icar_il_mazda_cx7",
+          "auto_il_mazda_cx7_review"
         ],
         "generation": [
-          "auto_il_mazda_cx7_review_2007"
+          "auto_il_mazda_cx7_review"
         ],
         "year_start": [
-          "auto_il_mazda_cx7_review_2007",
-          "yad2_il_mazda_cx7_listings"
+          "icar_il_mazda_cx7"
         ],
         "year_end": [
-          "auto_il_mazda_cx7_review_2007",
-          "yad2_il_mazda_cx7_listings"
+          "icar_il_mazda_cx7"
         ],
         "trim": []
       },
-      "variant_id": "mazda_cx_7_2007_2012_il_confirmed_er_2_3l_mzr_l3_vdt_disi_turbo_238_hp_6_speed_automatic_suv_petrol"
+      "variant_id": "mazda_cx_7_2007_2012_il_confirmed_1st_gen_er_2_3l_disi_turbo_petrol_6_speed_automatic_suv_petrol"
     },
     {
       "candidate_index": 1,
@@ -248387,15 +248332,15 @@
       "model": "CX-7",
       "global_model_name": "Mazda CX-7",
       "official_marketed_name_il": "Mazda CX-7",
-      "local_brand_name_il": "Mazda",
+      "local_brand_name_il": null,
       "alternate_names": [],
       "rebadged_as": null,
       "year_start": 2010,
       "year_end": 2012,
-      "generation": "ER",
+      "generation": "1st Gen (ER)",
       "body_type": "SUV",
       "seats": 5,
-      "engine": "2.5L MZR L5-VE naturally aspirated, 163 hp",
+      "engine": "2.5L petrol",
       "transmission": "5-speed automatic",
       "fuel_type": "Petrol",
       "drivetrain": "FWD",
@@ -248403,46 +248348,166 @@
       "market_scope": "IL-confirmed",
       "market_name_confidence": "confirmed",
       "confidence_level": "high",
-      "source_basis": "Israeli publication Cartube and Yad2 listings explicitly confirm the introduction of the 2.5L FWD powertrain in early 2010 for the Israeli market to offer a more economical alternative to the 2.3L Turbo.",
+      "source_basis": "Israeli sources indicate the introduction of the naturally aspirated 2.5L FWD model during the 2010 facelift to offer a more accessible variant.",
       "source_ids": [
-        "cartube_il_mazda_cx7_25_launch_2010",
-        "yad2_il_mazda_cx7_listings",
-        "auto_il_mazda_cx7_review_2007"
+        "icar_il_mazda_cx7",
+        "auto_il_mazda_cx7_review"
       ],
       "field_sources": {
         "body_type": [
-          "auto_il_mazda_cx7_review_2007"
+          "icar_il_mazda_cx7"
         ],
         "seats": [
-          "auto_il_mazda_cx7_review_2007"
+          "icar_il_mazda_cx7"
         ],
         "engine": [
-          "cartube_il_mazda_cx7_25_launch_2010",
-          "yad2_il_mazda_cx7_listings"
+          "icar_il_mazda_cx7",
+          "auto_il_mazda_cx7_review"
         ],
         "transmission": [
-          "cartube_il_mazda_cx7_25_launch_2010"
+          "icar_il_mazda_cx7"
         ],
         "fuel_type": [
-          "yad2_il_mazda_cx7_listings"
+          "auto_il_mazda_cx7_review"
         ],
         "drivetrain": [
-          "cartube_il_mazda_cx7_25_launch_2010",
-          "yad2_il_mazda_cx7_listings"
+          "icar_il_mazda_cx7",
+          "auto_il_mazda_cx7_review"
         ],
         "generation": [
-          "auto_il_mazda_cx7_review_2007"
+          "auto_il_mazda_cx7_review"
         ],
         "year_start": [
-          "cartube_il_mazda_cx7_25_launch_2010"
+          "icar_il_mazda_cx7"
         ],
         "year_end": [
-          "cartube_il_mazda_cx7_25_launch_2010",
-          "yad2_il_mazda_cx7_listings"
+          "icar_il_mazda_cx7"
         ],
         "trim": []
       },
-      "variant_id": "mazda_cx_7_2010_2012_il_confirmed_er_2_5l_mzr_l5_ve_naturally_aspirated_163_hp_5_speed_automatic_suv_petrol"
+      "variant_id": "mazda_cx_7_2010_2012_il_confirmed_1st_gen_er_2_5l_petrol_5_speed_automatic_suv_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Mazda",
+      "model": "CX-80",
+      "global_model_name": "Mazda CX-80",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2024,
+      "year_end": 2026,
+      "generation": "1st Gen",
+      "body_type": "SUV",
+      "seats": 7,
+      "engine": "2.5L e-Skyactiv PHEV, 327 hp",
+      "transmission": "8-speed automatic",
+      "fuel_type": "Plug-in Hybrid",
+      "drivetrain": "AWD",
+      "trim": "e-Skyactiv PHEV",
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "Global launch specs (April 2024). Israeli automotive press reports state it is currently unknown if the CX-80 will be marketed in Israel because the closely related CX-90 is already sold there. Provided as global reference.",
+      "source_ids": [
+        "cartube_il_mazda_cx80_reveal_2024",
+        "mazda_europe_cx80_press_release"
+      ],
+      "field_sources": {
+        "body_type": [
+          "cartube_il_mazda_cx80_reveal_2024",
+          "mazda_europe_cx80_press_release"
+        ],
+        "seats": [
+          "cartube_il_mazda_cx80_reveal_2024",
+          "mazda_europe_cx80_press_release"
+        ],
+        "engine": [
+          "mazda_europe_cx80_press_release"
+        ],
+        "transmission": [
+          "mazda_europe_cx80_press_release"
+        ],
+        "fuel_type": [
+          "mazda_europe_cx80_press_release"
+        ],
+        "drivetrain": [
+          "mazda_europe_cx80_press_release"
+        ],
+        "generation": [
+          "cartube_il_mazda_cx80_reveal_2024"
+        ],
+        "year_start": [
+          "mazda_europe_cx80_press_release"
+        ],
+        "year_end": [],
+        "trim": [
+          "mazda_europe_cx80_press_release"
+        ]
+      },
+      "variant_id": "mazda_cx_80_2024_2026_global_reference_only_1st_gen_2_5l_e_skyactiv_phev_327_hp_8_speed_automatic_suv_plug_in_hybrid"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Mazda",
+      "model": "CX-80",
+      "global_model_name": "Mazda CX-80",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2024,
+      "year_end": 2026,
+      "generation": "1st Gen",
+      "body_type": "SUV",
+      "seats": 7,
+      "engine": "3.3L e-Skyactiv D inline-6 turbo diesel mild-hybrid, 254 hp",
+      "transmission": "8-speed automatic",
+      "fuel_type": "Diesel",
+      "drivetrain": "AWD",
+      "trim": "e-Skyactiv D",
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "Global launch specs for the European market. Israeli availability is unconfirmed; the local importer primarily markets the CX-90 in this segment. Provided as global reference.",
+      "source_ids": [
+        "cartube_il_mazda_cx80_reveal_2024",
+        "mazda_europe_cx80_press_release"
+      ],
+      "field_sources": {
+        "body_type": [
+          "cartube_il_mazda_cx80_reveal_2024",
+          "mazda_europe_cx80_press_release"
+        ],
+        "seats": [
+          "cartube_il_mazda_cx80_reveal_2024",
+          "mazda_europe_cx80_press_release"
+        ],
+        "engine": [
+          "mazda_europe_cx80_press_release"
+        ],
+        "transmission": [
+          "mazda_europe_cx80_press_release"
+        ],
+        "fuel_type": [
+          "mazda_europe_cx80_press_release"
+        ],
+        "drivetrain": [
+          "mazda_europe_cx80_press_release"
+        ],
+        "generation": [
+          "cartube_il_mazda_cx80_reveal_2024"
+        ],
+        "year_start": [
+          "mazda_europe_cx80_press_release"
+        ],
+        "year_end": [],
+        "trim": [
+          "mazda_europe_cx80_press_release"
+        ]
+      },
+      "variant_id": "mazda_cx_80_2024_2026_global_reference_only_1st_gen_3_3l_e_skyactiv_d_inline_6_turbo_diesel_mild_hybrid_254_hp_8_speed_automatic_suv_diesel"
     }
   ],
   "accumulated_clean_export": {
@@ -466453,17 +466518,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 2007,
-    "variants": 2007,
+    "total_variants": 2008,
+    "variants": 2008,
     "verified": 788,
-    "partial": 1219,
+    "partial": 1220,
     "makes_count": 43,
-    "models_count": 556,
-    "processed_seeds": 553,
+    "models_count": 557,
+    "processed_seeds": 554,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-23T01:27:34.926015+00:00"
+    "last_updated_at": "2026-05-23T01:27:45.149190+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
