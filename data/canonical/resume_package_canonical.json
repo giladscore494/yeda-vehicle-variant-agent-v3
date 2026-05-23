@@ -840,7 +840,8 @@
       "renault__talisman__2015__2022__il",
       "renault__captur__2013__2026__il",
       "renault__kadjar__2015__2022__il",
-      "renault__arkana__2021__2026__il"
+      "renault__arkana__2021__2026__il",
+      "renault__austral__2022__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1292,8 +1293,8 @@
     "failed_seed_ids": [],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "renault__arkana__2021__2026__il",
-    "next_seed_id": "renault__austral__2022__2026__il",
+    "last_completed_seed_id": "renault__austral__2022__2026__il",
+    "next_seed_id": "renault__symbioz__2024__2026__il",
     "run_history": [],
     "failed_details": [],
     "needs_retry_seed_ids": [
@@ -5260,6 +5261,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T21:09:53.265878+00:00"
+      },
+      "renault__austral__2022__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 3,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T21:10:30.518300+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -317325,6 +317334,201 @@
         "trim": []
       },
       "variant_id": "renault_arkana_2022_2026_il_confirmed_1st_gen_cmf_b_1_6l_e_tech_145_hp_multi_mode_automatic_coupe_suv_hybrid"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Renault",
+      "model": "Austral",
+      "global_model_name": "Renault Austral",
+      "official_marketed_name_il": "Renault Austral",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2023,
+      "year_end": 2026,
+      "generation": "1st Gen",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "1.3L turbo Mild Hybrid, 140 hp",
+      "transmission": "CVT",
+      "fuel_type": "Mild Hybrid",
+      "drivetrain": "FWD",
+      "trim": "Equilibre",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli marketed name confirmed as Renault Austral. IL-market launch in early 2023 confirmed by Cartube and iCar. Base Equilibre trim uses a 140hp 1.3L mild-hybrid turbo with X-Tronic CVT.",
+      "source_ids": [
+        "renault_il_austral_official",
+        "cartube_il_renault_austral_launch_2023",
+        "icar_il_renault_austral_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "renault_il_austral_official"
+        ],
+        "seats": [
+          "icar_il_renault_austral_specs"
+        ],
+        "engine": [
+          "renault_il_austral_official",
+          "cartube_il_renault_austral_launch_2023"
+        ],
+        "transmission": [
+          "renault_il_austral_official",
+          "cartube_il_renault_austral_launch_2023"
+        ],
+        "fuel_type": [
+          "renault_il_austral_official",
+          "icar_il_renault_austral_specs"
+        ],
+        "drivetrain": [
+          "cartube_il_renault_austral_launch_2023"
+        ],
+        "generation": [
+          "icar_il_renault_austral_specs"
+        ],
+        "year_start": [
+          "cartube_il_renault_austral_launch_2023"
+        ],
+        "year_end": [
+          "icar_il_renault_austral_specs"
+        ],
+        "trim": [
+          "renault_il_austral_official",
+          "cartube_il_renault_austral_launch_2023"
+        ]
+      },
+      "variant_id": "renault_austral_2023_2026_il_confirmed_1st_gen_1_3l_turbo_mild_hybrid_140_hp_cvt_suv_mild_hybrid"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Renault",
+      "model": "Austral",
+      "global_model_name": "Renault Austral",
+      "official_marketed_name_il": "Renault Austral",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2023,
+      "year_end": 2026,
+      "generation": "1st Gen",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "1.3L turbo Mild Hybrid, 160 hp",
+      "transmission": "CVT",
+      "fuel_type": "Mild Hybrid",
+      "drivetrain": "FWD",
+      "trim": "Techno",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli marketed name confirmed. Mid-tier IL variant features the uprated 160hp 1.3L mild-hybrid engine. Trims include Techno and Iconic; Techno listed as representative.",
+      "source_ids": [
+        "renault_il_austral_official",
+        "cartube_il_renault_austral_launch_2023",
+        "icar_il_renault_austral_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "renault_il_austral_official"
+        ],
+        "seats": [
+          "icar_il_renault_austral_specs"
+        ],
+        "engine": [
+          "renault_il_austral_official",
+          "cartube_il_renault_austral_launch_2023"
+        ],
+        "transmission": [
+          "renault_il_austral_official"
+        ],
+        "fuel_type": [
+          "renault_il_austral_official"
+        ],
+        "drivetrain": [
+          "cartube_il_renault_austral_launch_2023"
+        ],
+        "generation": [
+          "icar_il_renault_austral_specs"
+        ],
+        "year_start": [
+          "cartube_il_renault_austral_launch_2023"
+        ],
+        "year_end": [
+          "icar_il_renault_austral_specs"
+        ],
+        "trim": [
+          "renault_il_austral_official"
+        ]
+      },
+      "variant_id": "renault_austral_2023_2026_il_confirmed_1st_gen_1_3l_turbo_mild_hybrid_160_hp_cvt_suv_mild_hybrid"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Renault",
+      "model": "Austral",
+      "global_model_name": "Renault Austral",
+      "official_marketed_name_il": "Renault Austral",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2023,
+      "year_end": 2026,
+      "generation": "1st Gen",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "1.2L turbo E-Tech Hybrid, 200 hp",
+      "transmission": "Multi-mode automatic",
+      "fuel_type": "Hybrid",
+      "drivetrain": "FWD",
+      "trim": "Iconic",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli marketed name confirmed. Top powertrain in Israel is the 200hp E-Tech full hybrid system. Features smart multi-mode dog-box automatic transmission. Trims offered include Techno, Iconic, and Esprit Alpine packages.",
+      "source_ids": [
+        "renault_il_austral_official",
+        "cartube_il_renault_austral_launch_2023",
+        "icar_il_renault_austral_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "renault_il_austral_official"
+        ],
+        "seats": [
+          "icar_il_renault_austral_specs"
+        ],
+        "engine": [
+          "renault_il_austral_official",
+          "cartube_il_renault_austral_launch_2023"
+        ],
+        "transmission": [
+          "renault_il_austral_official",
+          "cartube_il_renault_austral_launch_2023"
+        ],
+        "fuel_type": [
+          "renault_il_austral_official",
+          "icar_il_renault_austral_specs"
+        ],
+        "drivetrain": [
+          "cartube_il_renault_austral_launch_2023"
+        ],
+        "generation": [
+          "icar_il_renault_austral_specs"
+        ],
+        "year_start": [
+          "cartube_il_renault_austral_launch_2023"
+        ],
+        "year_end": [
+          "icar_il_renault_austral_specs"
+        ],
+        "trim": [
+          "renault_il_austral_official",
+          "cartube_il_renault_austral_launch_2023"
+        ]
+      },
+      "variant_id": "renault_austral_2023_2026_il_confirmed_1st_gen_1_2l_turbo_e_tech_hybrid_200_hp_multi_mode_automatic_suv_hybrid"
     }
   ],
   "accumulated_clean_export": {
@@ -535335,17 +535539,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 3085,
-    "variants": 3085,
+    "total_variants": 3088,
+    "variants": 3088,
     "verified": 788,
-    "partial": 2297,
+    "partial": 2300,
     "makes_count": 73,
-    "models_count": 831,
-    "processed_seeds": 831,
+    "models_count": 832,
+    "processed_seeds": 832,
     "needs_retry_seeds": 2,
     "total_seeds": 993,
     "unresolved": 0,
-    "last_updated_at": "2026-05-23T21:09:53.274547+00:00"
+    "last_updated_at": "2026-05-23T21:10:30.529084+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
