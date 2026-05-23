@@ -558,7 +558,8 @@
       "mazda__121__1990__2002__il",
       "mazda__mpv__1993__2016__il",
       "mazda__cx-3__2015__2024__il",
-      "mazda__cx-30__2019__2026__il"
+      "mazda__cx-30__2019__2026__il",
+      "mazda__cx-5__2012__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1011,8 +1012,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "mazda__cx-30__2019__2026__il",
-    "next_seed_id": "mazda__cx-5__2012__2026__il",
+    "last_completed_seed_id": "mazda__cx-5__2012__2026__il",
+    "next_seed_id": "mazda__cx-50__2023__2026__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2740,18 +2741,26 @@
       "mazda__cx-3__2015__2024__il": {
         "status": "resolved",
         "resolution_type": "variants_added",
-        "added_count": 4,
+        "added_count": 2,
         "merged_count": 0,
         "warnings": [],
-        "resolved_at": "2026-05-23T01:23:36.874237+00:00"
+        "resolved_at": "2026-05-23T01:23:19.759305+00:00"
       },
       "mazda__cx-30__2019__2026__il": {
         "status": "resolved",
         "resolution_type": "variants_added",
-        "added_count": 2,
+        "added_count": 3,
         "merged_count": 0,
         "warnings": [],
-        "resolved_at": "2026-05-23T01:24:24.873226+00:00"
+        "resolved_at": "2026-05-23T01:24:11.014887+00:00"
+      },
+      "mazda__cx-5__2012__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 5,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T01:25:02.447308+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -247259,7 +247268,7 @@
       "model": "CX-3",
       "global_model_name": "Mazda CX-3",
       "official_marketed_name_il": "Mazda CX-3",
-      "local_brand_name_il": null,
+      "local_brand_name_il": "Mazda",
       "alternate_names": [],
       "rebadged_as": null,
       "year_start": 2017,
@@ -247271,50 +247280,47 @@
       "transmission": "6-speed automatic",
       "fuel_type": "Petrol",
       "drivetrain": "FWD",
-      "trim": null,
+      "trim": "Zoom",
       "market_scope": "IL-confirmed",
       "market_name_confidence": "confirmed",
       "confidence_level": "high",
-      "source_basis": "IL-confirmed: Official Israeli importer (Delek Motors) and local reviews confirm the CX-3 launched in Israel in 2017 (delayed from global 2015 launch) with the 2.0L 156hp Skyactiv-G engine, FWD, and 6-speed automatic. Trims such as Zoom and Pure White noted but not included in trim string. Marketed explicitly as Mazda CX-3.",
+      "source_basis": "Israeli automotive sources (Cartube, iCar) confirm the 2.0L FWD variant was launched in Israel in 2017. Trims sold include Zoom, Sport, and Pure White. Trim listed here is Zoom.",
       "source_ids": [
-        "mazda_il_official_cx3",
-        "cartube_il_cx3_2017",
-        "global_cx3_dk_specs"
+        "cartube_il_mazda_cx3_2017",
+        "icar_il_mazda_cx3"
       ],
       "field_sources": {
         "body_type": [
-          "mazda_il_official_cx3",
-          "global_cx3_dk_specs"
+          "icar_il_mazda_cx3"
         ],
         "seats": [
-          "mazda_il_official_cx3"
+          "icar_il_mazda_cx3"
         ],
         "engine": [
-          "mazda_il_official_cx3",
-          "cartube_il_cx3_2017"
+          "cartube_il_mazda_cx3_2017"
         ],
         "transmission": [
-          "mazda_il_official_cx3",
-          "cartube_il_cx3_2017"
+          "cartube_il_mazda_cx3_2017",
+          "icar_il_mazda_cx3"
         ],
         "fuel_type": [
-          "mazda_il_official_cx3",
-          "global_cx3_dk_specs"
+          "cartube_il_mazda_cx3_2017"
         ],
         "drivetrain": [
-          "mazda_il_official_cx3",
-          "cartube_il_cx3_2017"
+          "cartube_il_mazda_cx3_2017"
         ],
         "generation": [
-          "global_cx3_dk_specs"
+          "icar_il_mazda_cx3"
         ],
         "year_start": [
-          "cartube_il_cx3_2017"
+          "cartube_il_mazda_cx3_2017"
         ],
         "year_end": [
-          "mazda_il_official_cx3"
+          "icar_il_mazda_cx3"
         ],
-        "trim": []
+        "trim": [
+          "icar_il_mazda_cx3"
+        ]
       },
       "variant_id": "mazda_cx_3_2017_2024_il_confirmed_1st_gen_dk_2_0l_skyactiv_g_6_speed_automatic_suv_petrol"
     },
@@ -247324,7 +247330,7 @@
       "model": "CX-3",
       "global_model_name": "Mazda CX-3",
       "official_marketed_name_il": "Mazda CX-3",
-      "local_brand_name_il": null,
+      "local_brand_name_il": "Mazda",
       "alternate_names": [],
       "rebadged_as": null,
       "year_start": 2021,
@@ -247336,238 +247342,118 @@
       "transmission": "6-speed automatic",
       "fuel_type": "Petrol",
       "drivetrain": "FWD",
-      "trim": null,
+      "trim": "Zoom",
       "market_scope": "IL-confirmed",
       "market_name_confidence": "confirmed",
       "confidence_level": "high",
-      "source_basis": "IL-confirmed: Israeli market sources confirm the introduction of the entry-level 1.5L (116hp) Skyactiv-G engine in early 2021, paired with FWD and a 6-speed automatic.",
+      "source_basis": "Cartube and iCar confirm a new 1.5L base engine variant was introduced to the Israeli market in 2021 to lower the entry price point. Trims included Zoom, Urban, and Modern.",
       "source_ids": [
-        "mazda_il_official_cx3",
-        "cartube_il_cx3_15L"
+        "cartube_il_mazda_cx3_15L_2021",
+        "icar_il_mazda_cx3"
       ],
       "field_sources": {
         "body_type": [
-          "mazda_il_official_cx3"
+          "icar_il_mazda_cx3"
         ],
         "seats": [
-          "mazda_il_official_cx3"
+          "icar_il_mazda_cx3"
         ],
         "engine": [
-          "mazda_il_official_cx3",
-          "cartube_il_cx3_15L"
+          "cartube_il_mazda_cx3_15L_2021"
         ],
         "transmission": [
-          "mazda_il_official_cx3",
-          "cartube_il_cx3_15L"
+          "cartube_il_mazda_cx3_15L_2021",
+          "icar_il_mazda_cx3"
         ],
         "fuel_type": [
-          "mazda_il_official_cx3"
+          "cartube_il_mazda_cx3_15L_2021"
         ],
         "drivetrain": [
-          "mazda_il_official_cx3"
+          "cartube_il_mazda_cx3_15L_2021"
         ],
         "generation": [
-          "global_cx3_dk_specs"
+          "icar_il_mazda_cx3"
         ],
         "year_start": [
-          "cartube_il_cx3_15L"
+          "cartube_il_mazda_cx3_15L_2021"
         ],
         "year_end": [
-          "mazda_il_official_cx3"
+          "icar_il_mazda_cx3"
         ],
-        "trim": []
+        "trim": [
+          "icar_il_mazda_cx3"
+        ]
       },
       "variant_id": "mazda_cx_3_2021_2024_il_confirmed_1st_gen_dk_1_5l_skyactiv_g_6_speed_automatic_suv_petrol"
-    },
-    {
-      "candidate_index": 2,
-      "make": "Mazda",
-      "model": "CX-3",
-      "global_model_name": "Mazda CX-3",
-      "official_marketed_name_il": null,
-      "local_brand_name_il": null,
-      "alternate_names": [],
-      "rebadged_as": null,
-      "year_start": 2015,
-      "year_end": 2018,
-      "generation": "1st Gen (DK)",
-      "body_type": "SUV",
-      "seats": 5,
-      "engine": "1.5L Skyactiv-D",
-      "transmission": "6-speed automatic",
-      "fuel_type": "Diesel",
-      "drivetrain": "FWD",
-      "trim": null,
-      "market_scope": "global-reference-only",
-      "market_name_confidence": "unknown",
-      "confidence_level": "medium",
-      "source_basis": "Global reference: The 1.5L diesel was available globally from launch until replaced by the 1.8L diesel. Israeli marketed name not confirmed; global model name used as reference only. Diesels were typically not imported to Israel for this model.",
-      "source_ids": [
-        "global_cx3_dk_specs"
-      ],
-      "field_sources": {
-        "body_type": [
-          "global_cx3_dk_specs"
-        ],
-        "seats": [
-          "global_cx3_dk_specs"
-        ],
-        "engine": [
-          "global_cx3_dk_specs"
-        ],
-        "transmission": [
-          "global_cx3_dk_specs"
-        ],
-        "fuel_type": [
-          "global_cx3_dk_specs"
-        ],
-        "drivetrain": [
-          "global_cx3_dk_specs"
-        ],
-        "generation": [
-          "global_cx3_dk_specs"
-        ],
-        "year_start": [
-          "global_cx3_dk_specs"
-        ],
-        "year_end": [
-          "global_cx3_dk_specs"
-        ],
-        "trim": []
-      },
-      "variant_id": "mazda_cx_3_2015_2018_global_reference_only_1st_gen_dk_1_5l_skyactiv_d_6_speed_automatic_suv_diesel"
-    },
-    {
-      "candidate_index": 3,
-      "make": "Mazda",
-      "model": "CX-3",
-      "global_model_name": "Mazda CX-3",
-      "official_marketed_name_il": null,
-      "local_brand_name_il": null,
-      "alternate_names": [],
-      "rebadged_as": null,
-      "year_start": 2015,
-      "year_end": 2024,
-      "generation": "1st Gen (DK)",
-      "body_type": "SUV",
-      "seats": 5,
-      "engine": "2.0L Skyactiv-G",
-      "transmission": "6-speed automatic",
-      "fuel_type": "Petrol",
-      "drivetrain": "AWD",
-      "trim": null,
-      "market_scope": "global-reference-only",
-      "market_name_confidence": "unknown",
-      "confidence_level": "medium",
-      "source_basis": "Global reference: i-ACTIV AWD versions of the 2.0L model are available in global markets. Israeli marketed name not confirmed; global model name used as reference only, as local focus was strictly FWD.",
-      "source_ids": [
-        "global_cx3_dk_specs"
-      ],
-      "field_sources": {
-        "body_type": [
-          "global_cx3_dk_specs"
-        ],
-        "seats": [
-          "global_cx3_dk_specs"
-        ],
-        "engine": [
-          "global_cx3_dk_specs"
-        ],
-        "transmission": [
-          "global_cx3_dk_specs"
-        ],
-        "fuel_type": [
-          "global_cx3_dk_specs"
-        ],
-        "drivetrain": [
-          "global_cx3_dk_specs"
-        ],
-        "generation": [
-          "global_cx3_dk_specs"
-        ],
-        "year_start": [
-          "global_cx3_dk_specs"
-        ],
-        "year_end": [
-          "global_cx3_dk_specs"
-        ],
-        "trim": []
-      },
-      "variant_id": "mazda_cx_3_2015_2024_global_reference_only_1st_gen_dk_2_0l_skyactiv_g_6_speed_automatic_suv_petrol"
     },
     {
       "candidate_index": 0,
       "make": "Mazda",
       "model": "CX-30",
-      "global_model_name": "CX-30",
+      "global_model_name": "Mazda CX-30",
       "official_marketed_name_il": "Mazda CX-30",
       "local_brand_name_il": "Mazda",
       "alternate_names": [],
       "rebadged_as": null,
       "year_start": 2019,
-      "year_end": 2026,
+      "year_end": 2021,
       "generation": "1st Gen (DM)",
-      "body_type": "Crossover SUV",
+      "body_type": "SUV",
       "seats": 5,
       "engine": "2.0L Skyactiv-G, 165 hp",
       "transmission": "6-speed automatic",
-      "fuel_type": "Mild Hybrid",
+      "fuel_type": "Petrol",
       "drivetrain": "FWD",
-      "trim": "",
+      "trim": null,
       "market_scope": "IL-confirmed",
       "market_name_confidence": "confirmed",
       "confidence_level": "high",
-      "source_basis": "Confirmed by Israeli importer Delek Motors and automotive sites (iCar, Cartube). Launched in IL in late 2019. The 2.0L 165hp engine is the primary powertrain, transitioning to e-Skyactiv G (Mild Hybrid) in later model years. Trims offered in IL include Comfort, Executive, and Premium.",
+      "source_basis": "IL market launch in late 2019 with 2.0L Skyactiv-G petrol engine, 6-speed auto, FWD. Trims included Comfort, Executive, and Premium. Replaced by the mild-hybrid version in late 2021.",
       "source_ids": [
-        "delek_motors_il_cx30_specs",
-        "icar_il_mazda_cx30_catalog",
-        "cartube_il_mazda_cx30_launch_2019"
+        "mazda_il_official_cx30",
+        "icar_il_cx30_specs"
       ],
       "field_sources": {
         "body_type": [
-          "delek_motors_il_cx30_specs",
-          "icar_il_mazda_cx30_catalog"
+          "mazda_il_official_cx30",
+          "icar_il_cx30_specs"
         ],
         "seats": [
-          "delek_motors_il_cx30_specs",
-          "icar_il_mazda_cx30_catalog"
+          "icar_il_cx30_specs"
         ],
         "engine": [
-          "delek_motors_il_cx30_specs",
-          "icar_il_mazda_cx30_catalog",
-          "cartube_il_mazda_cx30_launch_2019"
+          "mazda_il_official_cx30",
+          "icar_il_cx30_specs"
         ],
         "transmission": [
-          "delek_motors_il_cx30_specs",
-          "icar_il_mazda_cx30_catalog",
-          "cartube_il_mazda_cx30_launch_2019"
+          "mazda_il_official_cx30"
         ],
         "fuel_type": [
-          "delek_motors_il_cx30_specs",
-          "icar_il_mazda_cx30_catalog"
+          "mazda_il_official_cx30",
+          "icar_il_cx30_specs"
         ],
         "drivetrain": [
-          "delek_motors_il_cx30_specs",
-          "icar_il_mazda_cx30_catalog"
+          "mazda_il_official_cx30",
+          "icar_il_cx30_specs"
         ],
         "generation": [
-          "cartube_il_mazda_cx30_launch_2019"
+          "icar_il_cx30_specs"
         ],
         "year_start": [
-          "cartube_il_mazda_cx30_launch_2019"
+          "icar_il_cx30_specs"
         ],
         "year_end": [
-          "icar_il_mazda_cx30_catalog"
+          "cartube_il_cx30_2_5_launch"
         ],
         "trim": []
       },
-      "variant_id": "mazda_cx_30_2019_2026_il_confirmed_1st_gen_dm_2_0l_skyactiv_g_165_hp_6_speed_automatic_crossover_suv_mild_hybrid"
+      "variant_id": "mazda_cx_30_2019_2021_il_confirmed_1st_gen_dm_2_0l_skyactiv_g_165_hp_6_speed_automatic_suv_petrol"
     },
     {
       "candidate_index": 1,
       "make": "Mazda",
       "model": "CX-30",
-      "global_model_name": "CX-30",
+      "global_model_name": "Mazda CX-30",
       "official_marketed_name_il": "Mazda CX-30",
       "local_brand_name_il": "Mazda",
       "alternate_names": [],
@@ -247575,61 +247461,412 @@
       "year_start": 2021,
       "year_end": 2026,
       "generation": "1st Gen (DM)",
-      "body_type": "Crossover SUV",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "2.0L e-Skyactiv G, 165 hp",
+      "transmission": "6-speed automatic",
+      "fuel_type": "Mild Hybrid",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "In late 2021, Mazda Israel updated the 2.0L engine to the e-Skyactiv G version featuring a 24V mild-hybrid (M-Hybrid) system to improve efficiency. FWD and 6-speed auto remained standard.",
+      "source_ids": [
+        "mazda_il_official_cx30",
+        "cartube_il_cx30_2_5_launch"
+      ],
+      "field_sources": {
+        "body_type": [
+          "mazda_il_official_cx30"
+        ],
+        "seats": [
+          "icar_il_cx30_specs"
+        ],
+        "engine": [
+          "mazda_il_official_cx30",
+          "cartube_il_cx30_2_5_launch"
+        ],
+        "transmission": [
+          "mazda_il_official_cx30"
+        ],
+        "fuel_type": [
+          "mazda_il_official_cx30",
+          "cartube_il_cx30_2_5_launch"
+        ],
+        "drivetrain": [
+          "mazda_il_official_cx30"
+        ],
+        "generation": [
+          "icar_il_cx30_specs"
+        ],
+        "year_start": [
+          "cartube_il_cx30_2_5_launch"
+        ],
+        "year_end": [
+          "mazda_il_official_cx30"
+        ],
+        "trim": []
+      },
+      "variant_id": "mazda_cx_30_2021_2026_il_confirmed_1st_gen_dm_2_0l_e_skyactiv_g_165_hp_6_speed_automatic_suv_mild_hybrid"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Mazda",
+      "model": "CX-30",
+      "global_model_name": "Mazda CX-30",
+      "official_marketed_name_il": "Mazda CX-30",
+      "local_brand_name_il": "Mazda",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2021,
+      "year_end": 2026,
+      "generation": "1st Gen (DM)",
+      "body_type": "SUV",
       "seats": 5,
       "engine": "2.5L Skyactiv-G, 195 hp",
       "transmission": "6-speed automatic",
       "fuel_type": "Petrol",
       "drivetrain": "FWD",
-      "trim": "",
+      "trim": null,
       "market_scope": "IL-confirmed",
       "market_name_confidence": "confirmed",
       "confidence_level": "high",
-      "source_basis": "The 2.5-liter engine variant (195 hp) was added to the Israeli market in 2021 as a more powerful option, generally offered in higher trims such as Premium and Premium Black. Confirmed by Cartube.co.il and Delek Motors IL spec sheets.",
+      "source_basis": "Introduced to the Israeli market in January 2021, featuring the larger 2.5L engine with 195 hp, paired with FWD and a 6-speed automatic. Offered in higher-tier trims like Executive, Premium, and Premium Black.",
       "source_ids": [
-        "delek_motors_il_cx30_specs",
-        "icar_il_mazda_cx30_catalog",
-        "cartube_il_mazda_cx30_25_launch_2021"
+        "mazda_il_official_cx30",
+        "cartube_il_cx30_2_5_launch"
       ],
       "field_sources": {
         "body_type": [
-          "delek_motors_il_cx30_specs",
-          "icar_il_mazda_cx30_catalog"
+          "mazda_il_official_cx30"
         ],
         "seats": [
-          "delek_motors_il_cx30_specs",
-          "icar_il_mazda_cx30_catalog"
+          "icar_il_cx30_specs"
         ],
         "engine": [
-          "delek_motors_il_cx30_specs",
-          "icar_il_mazda_cx30_catalog",
-          "cartube_il_mazda_cx30_25_launch_2021"
+          "mazda_il_official_cx30",
+          "cartube_il_cx30_2_5_launch"
         ],
         "transmission": [
-          "delek_motors_il_cx30_specs",
-          "icar_il_mazda_cx30_catalog",
-          "cartube_il_mazda_cx30_25_launch_2021"
+          "mazda_il_official_cx30"
         ],
         "fuel_type": [
-          "delek_motors_il_cx30_specs",
-          "icar_il_mazda_cx30_catalog"
+          "mazda_il_official_cx30",
+          "cartube_il_cx30_2_5_launch"
         ],
         "drivetrain": [
-          "delek_motors_il_cx30_specs",
-          "icar_il_mazda_cx30_catalog"
+          "mazda_il_official_cx30"
         ],
         "generation": [
-          "cartube_il_mazda_cx30_launch_2019"
+          "icar_il_cx30_specs"
         ],
         "year_start": [
-          "cartube_il_mazda_cx30_25_launch_2021"
+          "cartube_il_cx30_2_5_launch"
         ],
         "year_end": [
-          "icar_il_mazda_cx30_catalog"
+          "mazda_il_official_cx30"
         ],
         "trim": []
       },
-      "variant_id": "mazda_cx_30_2021_2026_il_confirmed_1st_gen_dm_2_5l_skyactiv_g_195_hp_6_speed_automatic_crossover_suv_petrol"
+      "variant_id": "mazda_cx_30_2021_2026_il_confirmed_1st_gen_dm_2_5l_skyactiv_g_195_hp_6_speed_automatic_suv_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Mazda",
+      "model": "CX-5",
+      "global_model_name": "Mazda CX-5",
+      "official_marketed_name_il": "Mazda CX-5",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2012,
+      "year_end": 2017,
+      "generation": "1G (KE)",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "2.0L Skyactiv-G petrol",
+      "transmission": "6-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli specifications from iCar and Delek Motors confirm the 1st generation KE was sold in Israel starting 2012, primarily with the 2.0L Skyactiv-G engine, 6-speed auto, and FWD configuration. Trims included Executive and Luxury.",
+      "source_ids": [
+        "delek_motors_il_cx5_official",
+        "icar_il_mazda_cx5_history"
+      ],
+      "field_sources": {
+        "body_type": [
+          "delek_motors_il_cx5_official"
+        ],
+        "seats": [
+          "icar_il_mazda_cx5_history"
+        ],
+        "engine": [
+          "delek_motors_il_cx5_official",
+          "icar_il_mazda_cx5_history"
+        ],
+        "transmission": [
+          "delek_motors_il_cx5_official"
+        ],
+        "fuel_type": [
+          "delek_motors_il_cx5_official"
+        ],
+        "drivetrain": [
+          "icar_il_mazda_cx5_history"
+        ],
+        "generation": [
+          "icar_il_mazda_cx5_history"
+        ],
+        "year_start": [
+          "icar_il_mazda_cx5_history"
+        ],
+        "year_end": [
+          "icar_il_mazda_cx5_history"
+        ],
+        "trim": []
+      },
+      "variant_id": "mazda_cx_5_2012_2017_il_confirmed_1g_ke_2_0l_skyactiv_g_petrol_6_speed_automatic_suv_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Mazda",
+      "model": "CX-5",
+      "global_model_name": "Mazda CX-5",
+      "official_marketed_name_il": "Mazda CX-5",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2014,
+      "year_end": 2017,
+      "generation": "1G (KE)",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "2.5L Skyactiv-G petrol",
+      "transmission": "6-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "AWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "The 2.5L engine variant was introduced to the Israeli market later in the KE generation's lifecycle (around 2014) and was typically paired with an AWD system in higher trim levels like Premium.",
+      "source_ids": [
+        "icar_il_mazda_cx5_history"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_mazda_cx5_history"
+        ],
+        "seats": [
+          "icar_il_mazda_cx5_history"
+        ],
+        "engine": [
+          "icar_il_mazda_cx5_history"
+        ],
+        "transmission": [
+          "icar_il_mazda_cx5_history"
+        ],
+        "fuel_type": [
+          "icar_il_mazda_cx5_history"
+        ],
+        "drivetrain": [
+          "icar_il_mazda_cx5_history"
+        ],
+        "generation": [
+          "icar_il_mazda_cx5_history"
+        ],
+        "year_start": [
+          "icar_il_mazda_cx5_history"
+        ],
+        "year_end": [
+          "icar_il_mazda_cx5_history"
+        ],
+        "trim": []
+      },
+      "variant_id": "mazda_cx_5_2014_2017_il_confirmed_1g_ke_2_5l_skyactiv_g_petrol_6_speed_automatic_suv_petrol"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Mazda",
+      "model": "CX-5",
+      "global_model_name": "Mazda CX-5",
+      "official_marketed_name_il": "Mazda CX-5",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2017,
+      "year_end": 2026,
+      "generation": "2G (KF)",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "2.0L Skyactiv-G petrol",
+      "transmission": "6-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "2nd generation (KF) launched in Israel in 2017. The 2.0L FWD remains the high-volume seller, available in trims such as Executive, Luxury, and later Black Edition.",
+      "source_ids": [
+        "delek_motors_il_cx5_official",
+        "icar_il_mazda_cx5_history"
+      ],
+      "field_sources": {
+        "body_type": [
+          "delek_motors_il_cx5_official"
+        ],
+        "seats": [
+          "icar_il_mazda_cx5_history"
+        ],
+        "engine": [
+          "delek_motors_il_cx5_official",
+          "icar_il_mazda_cx5_history"
+        ],
+        "transmission": [
+          "delek_motors_il_cx5_official"
+        ],
+        "fuel_type": [
+          "delek_motors_il_cx5_official"
+        ],
+        "drivetrain": [
+          "icar_il_mazda_cx5_history"
+        ],
+        "generation": [
+          "icar_il_mazda_cx5_history"
+        ],
+        "year_start": [
+          "icar_il_mazda_cx5_history"
+        ],
+        "year_end": [
+          "icar_il_mazda_cx5_history"
+        ],
+        "trim": []
+      },
+      "variant_id": "mazda_cx_5_2017_2026_il_confirmed_2g_kf_2_0l_skyactiv_g_petrol_6_speed_automatic_suv_petrol"
+    },
+    {
+      "candidate_index": 3,
+      "make": "Mazda",
+      "model": "CX-5",
+      "global_model_name": "Mazda CX-5",
+      "official_marketed_name_il": "Mazda CX-5",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2017,
+      "year_end": 2026,
+      "generation": "2G (KF)",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "2.5L Skyactiv-G petrol",
+      "transmission": "6-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "AWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "The 2.5L engine in the 2nd Gen KF is offered in the Israeli market, commonly paired with AWD in higher tier trims like Signature and Premium.",
+      "source_ids": [
+        "delek_motors_il_cx5_official",
+        "icar_il_mazda_cx5_history"
+      ],
+      "field_sources": {
+        "body_type": [
+          "delek_motors_il_cx5_official"
+        ],
+        "seats": [
+          "icar_il_mazda_cx5_history"
+        ],
+        "engine": [
+          "delek_motors_il_cx5_official",
+          "icar_il_mazda_cx5_history"
+        ],
+        "transmission": [
+          "delek_motors_il_cx5_official"
+        ],
+        "fuel_type": [
+          "delek_motors_il_cx5_official"
+        ],
+        "drivetrain": [
+          "icar_il_mazda_cx5_history"
+        ],
+        "generation": [
+          "icar_il_mazda_cx5_history"
+        ],
+        "year_start": [
+          "icar_il_mazda_cx5_history"
+        ],
+        "year_end": [
+          "icar_il_mazda_cx5_history"
+        ],
+        "trim": []
+      },
+      "variant_id": "mazda_cx_5_2017_2026_il_confirmed_2g_kf_2_5l_skyactiv_g_petrol_6_speed_automatic_suv_petrol"
+    },
+    {
+      "candidate_index": 4,
+      "make": "Mazda",
+      "model": "CX-5",
+      "global_model_name": "Mazda CX-5",
+      "official_marketed_name_il": "Mazda CX-5",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2023,
+      "year_end": 2026,
+      "generation": "2G (KF)",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "2.0L e-Skyactiv G MHEV",
+      "transmission": "6-speed automatic",
+      "fuel_type": "Mild Hybrid",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Cartube IL and Delek Motors confirm the introduction of the 2.0L mild-hybrid (MHEV) powertrain in 2023 for the Israeli market as part of model updates.",
+      "source_ids": [
+        "delek_motors_il_cx5_official",
+        "cartube_il_cx5_mhev_2023"
+      ],
+      "field_sources": {
+        "body_type": [
+          "delek_motors_il_cx5_official"
+        ],
+        "seats": [
+          "delek_motors_il_cx5_official"
+        ],
+        "engine": [
+          "cartube_il_cx5_mhev_2023"
+        ],
+        "transmission": [
+          "delek_motors_il_cx5_official"
+        ],
+        "fuel_type": [
+          "cartube_il_cx5_mhev_2023"
+        ],
+        "drivetrain": [
+          "delek_motors_il_cx5_official"
+        ],
+        "generation": [
+          "cartube_il_cx5_mhev_2023"
+        ],
+        "year_start": [
+          "cartube_il_cx5_mhev_2023"
+        ],
+        "year_end": [
+          "cartube_il_cx5_mhev_2023"
+        ],
+        "trim": []
+      },
+      "variant_id": "mazda_cx_5_2023_2026_il_confirmed_2g_kf_2_0l_e_skyactiv_g_mhev_6_speed_automatic_suv_mild_hybrid"
     }
   ],
   "accumulated_clean_export": {
@@ -465640,17 +465877,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1994,
-    "variants": 1994,
+    "total_variants": 1998,
+    "variants": 1998,
     "verified": 788,
-    "partial": 1206,
+    "partial": 1210,
     "makes_count": 43,
-    "models_count": 552,
-    "processed_seeds": 549,
+    "models_count": 553,
+    "processed_seeds": 550,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-23T01:24:24.881242+00:00"
+    "last_updated_at": "2026-05-23T01:25:02.453112+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
