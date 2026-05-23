@@ -833,7 +833,8 @@
       "renault__symbol__1999__2012__il",
       "renault__megane__1996__2026__il",
       "renault__megane_e-tech__2022__2026__il",
-      "renault__megane_rs__2004__2023__il"
+      "renault__megane_rs__2004__2023__il",
+      "renault__fluence__2009__2017__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1285,8 +1286,8 @@
     "failed_seed_ids": [],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "renault__megane_rs__2004__2023__il",
-    "next_seed_id": "renault__fluence__2009__2017__il",
+    "last_completed_seed_id": "renault__fluence__2009__2017__il",
+    "next_seed_id": "renault__laguna__1994__2015__il",
     "run_history": [],
     "failed_details": [],
     "needs_retry_seed_ids": [
@@ -5197,6 +5198,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T21:03:57.638893+00:00"
+      },
+      "renault__fluence__2009__2017__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 6,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T21:04:51.042707+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -315539,6 +315548,365 @@
         ]
       },
       "variant_id": "renault_megane_rs_2019_2023_il_confirmed_4th_gen_megane_iv_bfb_1_8l_turbo_300_hp_6_speed_edc_hatchback_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Renault",
+      "model": "Fluence",
+      "global_model_name": "Renault Fluence",
+      "official_marketed_name_il": "Renault Fluence",
+      "local_brand_name_il": "Renault",
+      "alternate_names": [
+        "Samsung SM3"
+      ],
+      "rebadged_as": null,
+      "year_start": 2009,
+      "year_end": 2012,
+      "generation": "1st Gen (Phase 1)",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "1.6L Petrol, 110 hp",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Early phase 1 naturally aspirated 1.6L petrol with the 4-speed AL4/DP0 transmission. Highly common fleet and family car in IL. Trims typically included Authentique, Expression.",
+      "source_ids": [
+        "icar_il_renault_fluence_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_renault_fluence_specs"
+        ],
+        "seats": [
+          "icar_il_renault_fluence_specs"
+        ],
+        "engine": [
+          "icar_il_renault_fluence_specs"
+        ],
+        "transmission": [
+          "icar_il_renault_fluence_specs"
+        ],
+        "fuel_type": [
+          "icar_il_renault_fluence_specs"
+        ],
+        "drivetrain": [
+          "icar_il_renault_fluence_specs"
+        ],
+        "generation": [
+          "icar_il_renault_fluence_specs"
+        ],
+        "year_start": [
+          "icar_il_renault_fluence_specs"
+        ],
+        "year_end": [
+          "auto_il_fluence_facelift_2013"
+        ],
+        "trim": []
+      },
+      "variant_id": "renault_fluence_2009_2012_il_confirmed_1st_gen_phase_1_1_6l_petrol_110_hp_4_speed_automatic_sedan_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Renault",
+      "model": "Fluence",
+      "global_model_name": "Renault Fluence",
+      "official_marketed_name_il": "Renault Fluence",
+      "local_brand_name_il": "Renault",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2011,
+      "year_end": 2012,
+      "generation": "1st Gen (Phase 1)",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "1.5L Turbo Diesel (dCi), 110 hp",
+      "transmission": "6-speed EDC",
+      "fuel_type": "Diesel",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Introduced in Israel around 2011, the 1.5 dCi paired with the EDC dual-clutch transmission became a massive success for high-mileage drivers.",
+      "source_ids": [
+        "cartube_il_fluence_15_edc",
+        "icar_il_renault_fluence_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_renault_fluence_specs"
+        ],
+        "seats": [
+          "icar_il_renault_fluence_specs"
+        ],
+        "engine": [
+          "cartube_il_fluence_15_edc",
+          "icar_il_renault_fluence_specs"
+        ],
+        "transmission": [
+          "cartube_il_fluence_15_edc",
+          "icar_il_renault_fluence_specs"
+        ],
+        "fuel_type": [
+          "cartube_il_fluence_15_edc"
+        ],
+        "drivetrain": [
+          "cartube_il_fluence_15_edc"
+        ],
+        "generation": [
+          "icar_il_renault_fluence_specs"
+        ],
+        "year_start": [
+          "cartube_il_fluence_15_edc"
+        ],
+        "year_end": [
+          "auto_il_fluence_facelift_2013"
+        ],
+        "trim": []
+      },
+      "variant_id": "renault_fluence_2011_2012_il_confirmed_1st_gen_phase_1_1_5l_turbo_diesel_dci_110_hp_6_speed_edc_sedan_diesel"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Renault",
+      "model": "Fluence",
+      "global_model_name": "Renault Fluence Z.E.",
+      "official_marketed_name_il": "Renault Fluence Z.E.",
+      "local_brand_name_il": "Renault",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2011,
+      "year_end": 2013,
+      "generation": "1st Gen (Phase 1)",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "Electric Motor, 95 hp",
+      "transmission": "Single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Fully electric version heavily marketed in Israel through the Better Place project with swappable batteries. Sold until Better Place collapsed in 2013.",
+      "source_ids": [
+        "ynet_il_better_place_fluence_ze",
+        "icar_il_renault_fluence_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_renault_fluence_specs"
+        ],
+        "seats": [
+          "icar_il_renault_fluence_specs"
+        ],
+        "engine": [
+          "ynet_il_better_place_fluence_ze"
+        ],
+        "transmission": [
+          "ynet_il_better_place_fluence_ze"
+        ],
+        "fuel_type": [
+          "ynet_il_better_place_fluence_ze"
+        ],
+        "drivetrain": [
+          "ynet_il_better_place_fluence_ze"
+        ],
+        "generation": [
+          "icar_il_renault_fluence_specs"
+        ],
+        "year_start": [
+          "ynet_il_better_place_fluence_ze"
+        ],
+        "year_end": [
+          "ynet_il_better_place_fluence_ze"
+        ],
+        "trim": []
+      },
+      "variant_id": "renault_fluence_2011_2013_il_confirmed_1st_gen_phase_1_electric_motor_95_hp_single_speed_ev_sedan_electric"
+    },
+    {
+      "candidate_index": 3,
+      "make": "Renault",
+      "model": "Fluence",
+      "global_model_name": "Renault Fluence",
+      "official_marketed_name_il": "Renault Fluence",
+      "local_brand_name_il": "Renault",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2013,
+      "year_end": 2017,
+      "generation": "1st Gen (Phase 2)",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "1.6L Petrol, 115 hp",
+      "transmission": "CVT",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "The 2013 facelift introduced a Nissan-sourced 115hp 1.6L engine paired with a CVT, replacing the older 110hp/4-speed combination.",
+      "source_ids": [
+        "auto_il_fluence_facelift_2013",
+        "icar_il_renault_fluence_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_renault_fluence_specs"
+        ],
+        "seats": [
+          "icar_il_renault_fluence_specs"
+        ],
+        "engine": [
+          "auto_il_fluence_facelift_2013"
+        ],
+        "transmission": [
+          "auto_il_fluence_facelift_2013"
+        ],
+        "fuel_type": [
+          "auto_il_fluence_facelift_2013"
+        ],
+        "drivetrain": [
+          "icar_il_renault_fluence_specs"
+        ],
+        "generation": [
+          "auto_il_fluence_facelift_2013"
+        ],
+        "year_start": [
+          "auto_il_fluence_facelift_2013"
+        ],
+        "year_end": [
+          "icar_il_renault_fluence_specs"
+        ],
+        "trim": []
+      },
+      "variant_id": "renault_fluence_2013_2017_il_confirmed_1st_gen_phase_2_1_6l_petrol_115_hp_cvt_sedan_petrol"
+    },
+    {
+      "candidate_index": 4,
+      "make": "Renault",
+      "model": "Fluence",
+      "global_model_name": "Renault Fluence",
+      "official_marketed_name_il": "Renault Fluence",
+      "local_brand_name_il": "Renault",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2013,
+      "year_end": 2017,
+      "generation": "1st Gen (Phase 2)",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "1.5L Turbo Diesel (dCi), 110 hp",
+      "transmission": "6-speed EDC",
+      "fuel_type": "Diesel",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Facelifted version continued offering the successful 1.5 dCi engine with the 6-speed EDC dual-clutch transmission.",
+      "source_ids": [
+        "auto_il_fluence_facelift_2013",
+        "icar_il_renault_fluence_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_renault_fluence_specs"
+        ],
+        "seats": [
+          "icar_il_renault_fluence_specs"
+        ],
+        "engine": [
+          "auto_il_fluence_facelift_2013",
+          "icar_il_renault_fluence_specs"
+        ],
+        "transmission": [
+          "auto_il_fluence_facelift_2013",
+          "icar_il_renault_fluence_specs"
+        ],
+        "fuel_type": [
+          "auto_il_fluence_facelift_2013",
+          "icar_il_renault_fluence_specs"
+        ],
+        "drivetrain": [
+          "icar_il_renault_fluence_specs"
+        ],
+        "generation": [
+          "auto_il_fluence_facelift_2013"
+        ],
+        "year_start": [
+          "auto_il_fluence_facelift_2013"
+        ],
+        "year_end": [
+          "icar_il_renault_fluence_specs"
+        ],
+        "trim": []
+      },
+      "variant_id": "renault_fluence_2013_2017_il_confirmed_1st_gen_phase_2_1_5l_turbo_diesel_dci_110_hp_6_speed_edc_sedan_diesel"
+    },
+    {
+      "candidate_index": 5,
+      "make": "Renault",
+      "model": "Fluence",
+      "global_model_name": "Renault Fluence",
+      "official_marketed_name_il": "Renault Fluence",
+      "local_brand_name_il": "Renault",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2010,
+      "year_end": 2015,
+      "generation": "1st Gen",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "2.0L Petrol, 143 hp",
+      "transmission": "CVT",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "More powerful 2.0-liter petrol unit paired with a CVT was offered in Israel alongside the 1.6L model, typically in higher trims like Privilege.",
+      "source_ids": [
+        "icar_il_renault_fluence_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_renault_fluence_specs"
+        ],
+        "seats": [
+          "icar_il_renault_fluence_specs"
+        ],
+        "engine": [
+          "icar_il_renault_fluence_specs"
+        ],
+        "transmission": [
+          "icar_il_renault_fluence_specs"
+        ],
+        "fuel_type": [
+          "icar_il_renault_fluence_specs"
+        ],
+        "drivetrain": [
+          "icar_il_renault_fluence_specs"
+        ],
+        "generation": [
+          "icar_il_renault_fluence_specs"
+        ],
+        "year_start": [
+          "icar_il_renault_fluence_specs"
+        ],
+        "year_end": [
+          "icar_il_renault_fluence_specs"
+        ],
+        "trim": []
+      },
+      "variant_id": "renault_fluence_2010_2015_il_confirmed_1st_gen_2_0l_petrol_143_hp_cvt_sedan_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -533549,17 +533917,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 3057,
-    "variants": 3057,
+    "total_variants": 3063,
+    "variants": 3063,
     "verified": 788,
-    "partial": 2269,
+    "partial": 2275,
     "makes_count": 73,
-    "models_count": 824,
-    "processed_seeds": 824,
+    "models_count": 825,
+    "processed_seeds": 825,
     "needs_retry_seeds": 2,
     "total_seeds": 993,
     "unresolved": 0,
-    "last_updated_at": "2026-05-23T21:03:57.648554+00:00"
+    "last_updated_at": "2026-05-23T21:04:51.052822+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
