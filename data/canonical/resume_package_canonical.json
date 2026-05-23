@@ -548,7 +548,8 @@
       "nissan__sunny__1990__2006__il",
       "nissan__terrano__1990__2006__il",
       "nissan__200sx__1994__2002__il",
-      "nissan__altima__2013__2020__il"
+      "nissan__altima__2013__2020__il",
+      "mazda__mazda2__2007__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1001,8 +1002,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "nissan__altima__2013__2020__il",
-    "next_seed_id": "mazda__mazda2__2007__2026__il",
+    "last_completed_seed_id": "mazda__mazda2__2007__2026__il",
+    "next_seed_id": "mazda__mazda3__2003__2026__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2662,6 +2663,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T01:15:09.167743+00:00"
+      },
+      "mazda__mazda2__2007__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 5,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T01:15:56.459757+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -244501,6 +244510,303 @@
         ]
       },
       "variant_id": "nissan_altima_2019_2024_il_confirmed_l34_6th_gen_2_5l_direct_injection_petrol_4_cylinder_pr25dd_188_hp_cvt_sedan_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Mazda",
+      "model": "Mazda2",
+      "global_model_name": "Mazda2",
+      "official_marketed_name_il": "Mazda 2",
+      "local_brand_name_il": "מאזדה",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2007,
+      "year_end": 2014,
+      "generation": "DE (2nd Gen)",
+      "body_type": "Hatchback",
+      "seats": 5,
+      "engine": "1.5L MZR ZY-VE petrol",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli specifications confirm the DE generation Mazda 2 5-door hatchback was imported with the 1.5L MZR engine and 4-speed automatic.",
+      "source_ids": [
+        "icar_il_mazda2_de_hatchback"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_mazda2_de_hatchback"
+        ],
+        "seats": [
+          "icar_il_mazda2_de_hatchback"
+        ],
+        "engine": [
+          "icar_il_mazda2_de_hatchback"
+        ],
+        "transmission": [
+          "icar_il_mazda2_de_hatchback"
+        ],
+        "fuel_type": [
+          "icar_il_mazda2_de_hatchback"
+        ],
+        "drivetrain": [
+          "icar_il_mazda2_de_hatchback"
+        ],
+        "generation": [
+          "icar_il_mazda2_de_hatchback"
+        ],
+        "year_start": [
+          "icar_il_mazda2_de_hatchback"
+        ],
+        "year_end": [
+          "icar_il_mazda2_de_hatchback"
+        ],
+        "trim": []
+      },
+      "variant_id": "mazda_mazda2_2007_2014_il_confirmed_de_2nd_gen_1_5l_mzr_zy_ve_petrol_4_speed_automatic_hatchback_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Mazda",
+      "model": "Mazda2",
+      "global_model_name": "Mazda2",
+      "official_marketed_name_il": "Mazda 2 Sedan",
+      "local_brand_name_il": "מאזדה",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2011,
+      "year_end": 2015,
+      "generation": "DE (2nd Gen)",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "1.5L MZR ZY-VE petrol",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "IL sources show a sedan variant of the DE generation introduced later in Israel, explicitly marketed as Mazda 2 Sedan, sharing the same 1.5L powertrain.",
+      "source_ids": [
+        "icar_il_mazda2_de_sedan",
+        "icar_il_mazda2_de_hatchback"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_mazda2_de_sedan"
+        ],
+        "seats": [
+          "icar_il_mazda2_de_hatchback"
+        ],
+        "engine": [
+          "icar_il_mazda2_de_hatchback"
+        ],
+        "transmission": [
+          "icar_il_mazda2_de_hatchback"
+        ],
+        "fuel_type": [
+          "icar_il_mazda2_de_hatchback"
+        ],
+        "drivetrain": [
+          "icar_il_mazda2_de_hatchback"
+        ],
+        "generation": [
+          "icar_il_mazda2_de_sedan"
+        ],
+        "year_start": [
+          "icar_il_mazda2_de_sedan"
+        ],
+        "year_end": [
+          "icar_il_mazda2_de_sedan"
+        ],
+        "trim": []
+      },
+      "variant_id": "mazda_mazda2_2011_2015_il_confirmed_de_2nd_gen_1_5l_mzr_zy_ve_petrol_4_speed_automatic_sedan_petrol"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Mazda",
+      "model": "Mazda2",
+      "global_model_name": "Mazda2",
+      "official_marketed_name_il": "Mazda 2",
+      "local_brand_name_il": "מאזדה",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2015,
+      "year_end": 2026,
+      "generation": "DJ (3rd Gen)",
+      "body_type": "Hatchback",
+      "seats": 5,
+      "engine": "1.5L SkyActiv-G petrol",
+      "transmission": "6-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Official importer Delek Motors currently markets the DJ generation 5-door hatchback with the 1.5L SkyActiv-G and 6-speed auto. Common trims like Pure Black, Comfort, and Dynamic exist but are grouped here by powertrain.",
+      "source_ids": [
+        "delek_motors_il_mazda2",
+        "cartube_il_mazda2_dj_demio"
+      ],
+      "field_sources": {
+        "body_type": [
+          "delek_motors_il_mazda2"
+        ],
+        "seats": [
+          "delek_motors_il_mazda2"
+        ],
+        "engine": [
+          "delek_motors_il_mazda2"
+        ],
+        "transmission": [
+          "delek_motors_il_mazda2"
+        ],
+        "fuel_type": [
+          "delek_motors_il_mazda2"
+        ],
+        "drivetrain": [
+          "delek_motors_il_mazda2"
+        ],
+        "generation": [
+          "delek_motors_il_mazda2",
+          "cartube_il_mazda2_dj_demio"
+        ],
+        "year_start": [
+          "cartube_il_mazda2_dj_demio"
+        ],
+        "year_end": [
+          "delek_motors_il_mazda2"
+        ],
+        "trim": []
+      },
+      "variant_id": "mazda_mazda2_2015_2026_il_confirmed_dj_3rd_gen_1_5l_skyactiv_g_petrol_6_speed_automatic_hatchback_petrol"
+    },
+    {
+      "candidate_index": 3,
+      "make": "Mazda",
+      "model": "Mazda2",
+      "global_model_name": "Mazda2",
+      "official_marketed_name_il": "Mazda 2 Demio",
+      "local_brand_name_il": "מאזדה",
+      "alternate_names": [
+        "Mazda2 Sedan"
+      ],
+      "rebadged_as": null,
+      "year_start": 2015,
+      "year_end": 2021,
+      "generation": "DJ (3rd Gen)",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "1.5L SkyActiv-G petrol",
+      "transmission": "6-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "The sedan variant of the DJ generation was explicitly marketed in Israel as 'Mazda 2 Demio' to distinguish it from the hatchback. Standardized 1.5L SkyActiv powertrain.",
+      "source_ids": [
+        "cartube_il_mazda2_dj_demio"
+      ],
+      "field_sources": {
+        "body_type": [
+          "cartube_il_mazda2_dj_demio"
+        ],
+        "seats": [
+          "cartube_il_mazda2_dj_demio"
+        ],
+        "engine": [
+          "cartube_il_mazda2_dj_demio"
+        ],
+        "transmission": [
+          "cartube_il_mazda2_dj_demio"
+        ],
+        "fuel_type": [
+          "cartube_il_mazda2_dj_demio"
+        ],
+        "drivetrain": [
+          "cartube_il_mazda2_dj_demio"
+        ],
+        "generation": [
+          "cartube_il_mazda2_dj_demio"
+        ],
+        "year_start": [
+          "cartube_il_mazda2_dj_demio"
+        ],
+        "year_end": [
+          "cartube_il_mazda2_dj_demio"
+        ],
+        "trim": []
+      },
+      "variant_id": "mazda_mazda2_2015_2021_il_confirmed_dj_3rd_gen_1_5l_skyactiv_g_petrol_6_speed_automatic_sedan_petrol"
+    },
+    {
+      "candidate_index": 4,
+      "make": "Mazda",
+      "model": "Mazda2",
+      "global_model_name": "Mazda2 Hybrid",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Toyota Yaris OEM"
+      ],
+      "rebadged_as": null,
+      "year_start": 2022,
+      "year_end": 2026,
+      "generation": "XP210",
+      "body_type": "Hatchback",
+      "seats": 5,
+      "engine": "1.5L Hybrid (Toyota M15A-FXE)",
+      "transmission": "e-CVT",
+      "fuel_type": "Hybrid",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "In Europe, Mazda sells a rebadged Toyota Yaris as the Mazda2 Hybrid for emissions compliance. IL market continues selling standard DJ generation (SkyActiv) instead of this Yaris rebadge.",
+      "source_ids": [
+        "global_mazda2_hybrid_xp210"
+      ],
+      "field_sources": {
+        "body_type": [
+          "global_mazda2_hybrid_xp210"
+        ],
+        "seats": [
+          "global_mazda2_hybrid_xp210"
+        ],
+        "engine": [
+          "global_mazda2_hybrid_xp210"
+        ],
+        "transmission": [
+          "global_mazda2_hybrid_xp210"
+        ],
+        "fuel_type": [
+          "global_mazda2_hybrid_xp210"
+        ],
+        "drivetrain": [
+          "global_mazda2_hybrid_xp210"
+        ],
+        "generation": [
+          "global_mazda2_hybrid_xp210"
+        ],
+        "year_start": [
+          "global_mazda2_hybrid_xp210"
+        ],
+        "year_end": [
+          "global_mazda2_hybrid_xp210"
+        ],
+        "trim": []
+      },
+      "variant_id": "mazda_mazda2_2022_2026_global_reference_only_xp210_1_5l_hybrid_toyota_m15a_fxe_e_cvt_hatchback_hybrid"
     }
   ],
   "accumulated_clean_export": {
@@ -462511,17 +462817,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1945,
-    "variants": 1945,
+    "total_variants": 1950,
+    "variants": 1950,
     "verified": 788,
-    "partial": 1157,
-    "makes_count": 42,
-    "models_count": 542,
-    "processed_seeds": 539,
+    "partial": 1162,
+    "makes_count": 43,
+    "models_count": 543,
+    "processed_seeds": 540,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-23T01:15:09.172218+00:00"
+    "last_updated_at": "2026-05-23T01:15:56.465633+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
