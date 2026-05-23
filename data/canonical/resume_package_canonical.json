@@ -683,7 +683,8 @@
       "zeekr__007__2024__2026__il",
       "xpeng__p7__2023__2026__il",
       "xpeng__g9__2023__2026__il",
-      "xpeng__g6__2024__2026__il"
+      "xpeng__g6__2024__2026__il",
+      "nio__et5__2023__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1134,8 +1135,8 @@
     "failed_seed_ids": [],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "xpeng__g6__2024__2026__il",
-    "next_seed_id": "nio__et5__2023__2026__il",
+    "last_completed_seed_id": "nio__et5__2023__2026__il",
+    "next_seed_id": "nio__el6__2024__2026__il",
     "run_history": [],
     "failed_details": [
       {
@@ -3853,6 +3854,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T04:13:30.746197+00:00"
+      },
+      "nio__et5__2023__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 1,
+        "merged_count": 1,
+        "warnings": [],
+        "resolved_at": "2026-05-23T04:14:15.696663+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -276285,6 +276294,71 @@
         ]
       },
       "variant_id": "xpeng_g6_2024_2026_il_confirmed_1st_gen_dual_electric_motors_476_hp_350_kw_87_5_kwh_ncm_battery_single_speed_ev_suv_electric"
+    },
+    {
+      "candidate_index": 0,
+      "make": "NIO",
+      "model": "ET5",
+      "global_model_name": "NIO ET5",
+      "official_marketed_name_il": "NIO ET5",
+      "local_brand_name_il": "NIO",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2023,
+      "year_end": 2026,
+      "generation": "1st Gen",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "Dual Electric Motor, 360 kW (482 hp)",
+      "transmission": "Single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "AWD",
+      "trim": "75 kWh",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli auto publications (e.g., Cartube.co.il) and official importer Delek Motors confirm the NIO ET5 launch in Israel in late 2023. Sold with the standard range 75kWh battery featuring a 360kW dual-motor AWD setup.",
+      "source_ids": [
+        "nio_il_official_importer_delek",
+        "cartube_il_nio_et5_launch_2023",
+        "ev_database_global_nio_et5"
+      ],
+      "field_sources": {
+        "body_type": [
+          "ev_database_global_nio_et5"
+        ],
+        "seats": [
+          "ev_database_global_nio_et5"
+        ],
+        "engine": [
+          "cartube_il_nio_et5_launch_2023",
+          "nio_il_official_importer_delek"
+        ],
+        "transmission": [
+          "ev_database_global_nio_et5"
+        ],
+        "fuel_type": [
+          "nio_il_official_importer_delek"
+        ],
+        "drivetrain": [
+          "nio_il_official_importer_delek",
+          "cartube_il_nio_et5_launch_2023"
+        ],
+        "generation": [
+          "ev_database_global_nio_et5"
+        ],
+        "year_start": [
+          "cartube_il_nio_et5_launch_2023"
+        ],
+        "year_end": [
+          "nio_il_official_importer_delek"
+        ],
+        "trim": [
+          "cartube_il_nio_et5_launch_2023"
+        ]
+      },
+      "variant_id": "nio_et5_2023_2026_il_confirmed_1st_gen_dual_electric_motor_360_kw_482_hp_single_speed_ev_sedan_electric",
+      "updated_at": "2026-05-23T04:14:15.698839+00:00"
     }
   ],
   "accumulated_clean_export": {
@@ -494295,17 +494369,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 2442,
-    "variants": 2442,
+    "total_variants": 2443,
+    "variants": 2443,
     "verified": 788,
-    "partial": 1654,
-    "makes_count": 55,
-    "models_count": 675,
-    "processed_seeds": 674,
+    "partial": 1655,
+    "makes_count": 56,
+    "models_count": 676,
+    "processed_seeds": 675,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 0,
-    "last_updated_at": "2026-05-23T04:13:30.756039+00:00"
+    "last_updated_at": "2026-05-23T04:14:15.705284+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
