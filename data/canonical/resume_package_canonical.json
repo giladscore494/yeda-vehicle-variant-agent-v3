@@ -547,7 +547,8 @@
       "nissan__nv200__2010__2022__il",
       "nissan__sunny__1990__2006__il",
       "nissan__terrano__1990__2006__il",
-      "nissan__200sx__1994__2002__il"
+      "nissan__200sx__1994__2002__il",
+      "nissan__altima__2013__2020__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1000,8 +1001,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "nissan__200sx__1994__2002__il",
-    "next_seed_id": "nissan__altima__2013__2020__il",
+    "last_completed_seed_id": "nissan__altima__2013__2020__il",
+    "next_seed_id": "mazda__mazda2__2007__2026__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2653,6 +2654,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T01:14:20.683873+00:00"
+      },
+      "nissan__altima__2013__2020__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 2,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T01:15:09.167743+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -244364,6 +244373,134 @@
         "trim": []
       },
       "variant_id": "nissan_200sx_1999_2002_global_reference_only_s15_2_0l_sr20det_turbo_petrol_6_speed_manual_coupe_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Nissan",
+      "model": "Altima",
+      "global_model_name": "Nissan Altima",
+      "official_marketed_name_il": "Nissan Altima",
+      "local_brand_name_il": "Nissan",
+      "alternate_names": [
+        "ניסאן אלטימה"
+      ],
+      "rebadged_as": null,
+      "year_start": 2013,
+      "year_end": 2018,
+      "generation": "L33 (5th Gen)",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "2.5L naturally aspirated petrol 4-cylinder (QR25DE), 182 hp",
+      "transmission": "CVT",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "SV",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli automotive sources confirm the 5th generation (L33) Altima was officially marketed in Israel starting around 2014 with the 2.5L QR25DE engine, CVT transmission, and primarily the SV and SL trims. Represented here with standard SV trim. Global start year for L33 is 2013.",
+      "source_ids": [
+        "icar_il_altima_l33",
+        "cartube_il_altima_2014"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_altima_l33"
+        ],
+        "seats": [
+          "icar_il_altima_l33"
+        ],
+        "engine": [
+          "icar_il_altima_l33",
+          "cartube_il_altima_2014"
+        ],
+        "transmission": [
+          "icar_il_altima_l33",
+          "cartube_il_altima_2014"
+        ],
+        "fuel_type": [
+          "icar_il_altima_l33",
+          "cartube_il_altima_2014"
+        ],
+        "drivetrain": [
+          "icar_il_altima_l33"
+        ],
+        "generation": [
+          "icar_il_altima_l33"
+        ],
+        "year_start": [
+          "icar_il_altima_l33"
+        ],
+        "year_end": [
+          "icar_il_altima_l33"
+        ],
+        "trim": [
+          "icar_il_altima_l33"
+        ]
+      },
+      "variant_id": "nissan_altima_2013_2018_il_confirmed_l33_5th_gen_2_5l_naturally_aspirated_petrol_4_cylinder_qr25de_182_hp_cvt_sedan_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Nissan",
+      "model": "Altima",
+      "global_model_name": "Nissan Altima",
+      "official_marketed_name_il": "Nissan Altima",
+      "local_brand_name_il": "Nissan",
+      "alternate_names": [
+        "ניסאן אלטימה"
+      ],
+      "rebadged_as": null,
+      "year_start": 2019,
+      "year_end": 2024,
+      "generation": "L34 (6th Gen)",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "2.5L direct-injection petrol 4-cylinder (PR25DD), 188 hp",
+      "transmission": "CVT",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "SV",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Official IL market launch late 2019 for the 6th gen model. Specs confirm 2.5L DI engine, 188 hp, FWD, Xtronic CVT. Available trims in Israel included SV and SL.",
+      "source_ids": [
+        "gear_il_altima_2019"
+      ],
+      "field_sources": {
+        "body_type": [
+          "gear_il_altima_2019"
+        ],
+        "seats": [
+          "gear_il_altima_2019"
+        ],
+        "engine": [
+          "gear_il_altima_2019"
+        ],
+        "transmission": [
+          "gear_il_altima_2019"
+        ],
+        "fuel_type": [
+          "gear_il_altima_2019"
+        ],
+        "drivetrain": [
+          "gear_il_altima_2019"
+        ],
+        "generation": [
+          "gear_il_altima_2019"
+        ],
+        "year_start": [
+          "gear_il_altima_2019"
+        ],
+        "year_end": [
+          "gear_il_altima_2019"
+        ],
+        "trim": [
+          "gear_il_altima_2019"
+        ]
+      },
+      "variant_id": "nissan_altima_2019_2024_il_confirmed_l34_6th_gen_2_5l_direct_injection_petrol_4_cylinder_pr25dd_188_hp_cvt_sedan_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -462374,17 +462511,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1943,
-    "variants": 1943,
+    "total_variants": 1945,
+    "variants": 1945,
     "verified": 788,
-    "partial": 1155,
+    "partial": 1157,
     "makes_count": 42,
-    "models_count": 541,
-    "processed_seeds": 538,
+    "models_count": 542,
+    "processed_seeds": 539,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-23T01:14:20.688622+00:00"
+    "last_updated_at": "2026-05-23T01:15:09.172218+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
