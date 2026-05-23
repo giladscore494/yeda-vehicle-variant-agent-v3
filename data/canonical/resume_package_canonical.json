@@ -553,7 +553,8 @@
       "mazda__mazda3__2003__2026__il",
       "mazda__mazda5__2005__2015__il",
       "mazda__mazda6__2002__2024__il",
-      "mazda__323__1990__2003__il"
+      "mazda__323__1990__2003__il",
+      "mazda__626__1990__2002__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1006,8 +1007,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "mazda__323__1990__2003__il",
-    "next_seed_id": "mazda__626__1990__2002__il",
+    "last_completed_seed_id": "mazda__626__1990__2002__il",
+    "next_seed_id": "mazda__121__1990__2002__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2707,6 +2708,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T01:19:54.696030+00:00"
+      },
+      "mazda__626__1990__2002__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 6,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T01:20:51.041864+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -246349,6 +246358,381 @@
         ]
       },
       "variant_id": "mazda_323_1998_2003_il_confirmed_bj_1_6l_petrol_4_speed_automatic_hatchback_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Mazda",
+      "model": "626",
+      "global_model_name": "Mazda 626 / Capella",
+      "official_marketed_name_il": "Mazda 626",
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Mazda Kronos"
+      ],
+      "rebadged_as": null,
+      "year_start": 1992,
+      "year_end": 1997,
+      "generation": "GE",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "1.8L petrol, 105 hp",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "LX",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli catalog sources confirm the GE generation 626 was launched in Israel in 1992 with 1.8L and 2.0L engines. Sedan body style and LX trim were standard for the 1.8L variant.",
+      "source_ids": [
+        "auto_il_mazda_626_history",
+        "yad2_car_catalog_mazda_626",
+        "mazda_global_archive_626"
+      ],
+      "field_sources": {
+        "body_type": [
+          "auto_il_mazda_626_history"
+        ],
+        "seats": [
+          "yad2_car_catalog_mazda_626"
+        ],
+        "engine": [
+          "yad2_car_catalog_mazda_626"
+        ],
+        "transmission": [
+          "yad2_car_catalog_mazda_626"
+        ],
+        "fuel_type": [
+          "yad2_car_catalog_mazda_626"
+        ],
+        "drivetrain": [
+          "yad2_car_catalog_mazda_626"
+        ],
+        "generation": [
+          "auto_il_mazda_626_history",
+          "mazda_global_archive_626"
+        ],
+        "year_start": [
+          "auto_il_mazda_626_history"
+        ],
+        "year_end": [
+          "auto_il_mazda_626_history"
+        ],
+        "trim": [
+          "yad2_car_catalog_mazda_626"
+        ]
+      },
+      "variant_id": "mazda_626_1992_1997_il_confirmed_ge_1_8l_petrol_105_hp_4_speed_automatic_sedan_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Mazda",
+      "model": "626",
+      "global_model_name": "Mazda 626 / Capella",
+      "official_marketed_name_il": "Mazda 626",
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Mazda Kronos"
+      ],
+      "rebadged_as": null,
+      "year_start": 1992,
+      "year_end": 1997,
+      "generation": "GE",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "2.0L petrol, 115 hp",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "GLX",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "The 2.0L GLX was the premier trim for the GE generation in Israel, confirmed by historical Israeli market reviews and used car specifications.",
+      "source_ids": [
+        "auto_il_mazda_626_history",
+        "yad2_car_catalog_mazda_626"
+      ],
+      "field_sources": {
+        "body_type": [
+          "auto_il_mazda_626_history"
+        ],
+        "seats": [
+          "yad2_car_catalog_mazda_626"
+        ],
+        "engine": [
+          "yad2_car_catalog_mazda_626"
+        ],
+        "transmission": [
+          "yad2_car_catalog_mazda_626"
+        ],
+        "fuel_type": [
+          "yad2_car_catalog_mazda_626"
+        ],
+        "drivetrain": [
+          "yad2_car_catalog_mazda_626"
+        ],
+        "generation": [
+          "auto_il_mazda_626_history"
+        ],
+        "year_start": [
+          "auto_il_mazda_626_history"
+        ],
+        "year_end": [
+          "auto_il_mazda_626_history"
+        ],
+        "trim": [
+          "yad2_car_catalog_mazda_626"
+        ]
+      },
+      "variant_id": "mazda_626_1992_1997_il_confirmed_ge_2_0l_petrol_115_hp_4_speed_automatic_sedan_petrol"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Mazda",
+      "model": "626",
+      "global_model_name": "Mazda 626 / Capella",
+      "official_marketed_name_il": "Mazda 626",
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Mazda Kronos"
+      ],
+      "rebadged_as": null,
+      "year_start": 1992,
+      "year_end": 1997,
+      "generation": "GE",
+      "body_type": "Hatchback",
+      "seats": 5,
+      "engine": "2.0L petrol, 115 hp",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "GLX",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "The 5-door Hatchback variant of the GE generation was a popular alternative to the sedan in Israel. Specs cross-verified with local used car listings.",
+      "source_ids": [
+        "auto_il_mazda_626_history",
+        "yad2_car_catalog_mazda_626"
+      ],
+      "field_sources": {
+        "body_type": [
+          "auto_il_mazda_626_history"
+        ],
+        "seats": [
+          "yad2_car_catalog_mazda_626"
+        ],
+        "engine": [
+          "yad2_car_catalog_mazda_626"
+        ],
+        "transmission": [
+          "yad2_car_catalog_mazda_626"
+        ],
+        "fuel_type": [
+          "yad2_car_catalog_mazda_626"
+        ],
+        "drivetrain": [
+          "yad2_car_catalog_mazda_626"
+        ],
+        "generation": [
+          "auto_il_mazda_626_history"
+        ],
+        "year_start": [
+          "auto_il_mazda_626_history"
+        ],
+        "year_end": [
+          "auto_il_mazda_626_history"
+        ],
+        "trim": [
+          "yad2_car_catalog_mazda_626"
+        ]
+      },
+      "variant_id": "mazda_626_1992_1997_il_confirmed_ge_2_0l_petrol_115_hp_4_speed_automatic_hatchback_petrol"
+    },
+    {
+      "candidate_index": 3,
+      "make": "Mazda",
+      "model": "626",
+      "global_model_name": "Mazda 626 / Capella",
+      "official_marketed_name_il": "Mazda 626",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 1997,
+      "year_end": 2002,
+      "generation": "GF",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "2.0L petrol, 136 hp",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "GLX",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "GF generation launched in Israel in 1997, featuring an updated 2.0L engine outputting 136 hp. Strongly documented in Israeli historic auto reviews and spec catalogs.",
+      "source_ids": [
+        "auto_il_mazda_626_history",
+        "yad2_car_catalog_mazda_626"
+      ],
+      "field_sources": {
+        "body_type": [
+          "auto_il_mazda_626_history"
+        ],
+        "seats": [
+          "yad2_car_catalog_mazda_626"
+        ],
+        "engine": [
+          "yad2_car_catalog_mazda_626"
+        ],
+        "transmission": [
+          "yad2_car_catalog_mazda_626"
+        ],
+        "fuel_type": [
+          "yad2_car_catalog_mazda_626"
+        ],
+        "drivetrain": [
+          "yad2_car_catalog_mazda_626"
+        ],
+        "generation": [
+          "auto_il_mazda_626_history",
+          "mazda_global_archive_626"
+        ],
+        "year_start": [
+          "auto_il_mazda_626_history"
+        ],
+        "year_end": [
+          "auto_il_mazda_626_history"
+        ],
+        "trim": [
+          "yad2_car_catalog_mazda_626"
+        ]
+      },
+      "variant_id": "mazda_626_1997_2002_il_confirmed_gf_2_0l_petrol_136_hp_4_speed_automatic_sedan_petrol"
+    },
+    {
+      "candidate_index": 4,
+      "make": "Mazda",
+      "model": "626",
+      "global_model_name": "Mazda 626 / Capella",
+      "official_marketed_name_il": "Mazda 626",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 1997,
+      "year_end": 2002,
+      "generation": "GF",
+      "body_type": "Hatchback",
+      "seats": 5,
+      "engine": "2.0L petrol, 136 hp",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "GLX",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "GF generation 5-door Hatchback with identical powertrain to the Sedan. Confirmed availability in Israel through historical listings.",
+      "source_ids": [
+        "auto_il_mazda_626_history",
+        "yad2_car_catalog_mazda_626"
+      ],
+      "field_sources": {
+        "body_type": [
+          "auto_il_mazda_626_history"
+        ],
+        "seats": [
+          "yad2_car_catalog_mazda_626"
+        ],
+        "engine": [
+          "yad2_car_catalog_mazda_626"
+        ],
+        "transmission": [
+          "yad2_car_catalog_mazda_626"
+        ],
+        "fuel_type": [
+          "yad2_car_catalog_mazda_626"
+        ],
+        "drivetrain": [
+          "yad2_car_catalog_mazda_626"
+        ],
+        "generation": [
+          "auto_il_mazda_626_history"
+        ],
+        "year_start": [
+          "auto_il_mazda_626_history"
+        ],
+        "year_end": [
+          "auto_il_mazda_626_history"
+        ],
+        "trim": [
+          "yad2_car_catalog_mazda_626"
+        ]
+      },
+      "variant_id": "mazda_626_1997_2002_il_confirmed_gf_2_0l_petrol_136_hp_4_speed_automatic_hatchback_petrol"
+    },
+    {
+      "candidate_index": 5,
+      "make": "Mazda",
+      "model": "626",
+      "global_model_name": "Mazda 626 Wagon",
+      "official_marketed_name_il": "Mazda 626",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 1998,
+      "year_end": 2002,
+      "generation": "GF",
+      "body_type": "Station Wagon",
+      "seats": 5,
+      "engine": "2.0L petrol, 136 hp",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "GLX",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "medium",
+      "source_basis": "The Station Wagon variant (often globally coded GW) was introduced slightly after the Sedan/Hatchback. Confirmed sold in Israel but in smaller numbers.",
+      "source_ids": [
+        "yad2_car_catalog_mazda_626",
+        "mazda_global_archive_626"
+      ],
+      "field_sources": {
+        "body_type": [
+          "yad2_car_catalog_mazda_626"
+        ],
+        "seats": [
+          "yad2_car_catalog_mazda_626"
+        ],
+        "engine": [
+          "yad2_car_catalog_mazda_626"
+        ],
+        "transmission": [
+          "yad2_car_catalog_mazda_626"
+        ],
+        "fuel_type": [
+          "yad2_car_catalog_mazda_626"
+        ],
+        "drivetrain": [
+          "yad2_car_catalog_mazda_626"
+        ],
+        "generation": [
+          "mazda_global_archive_626"
+        ],
+        "year_start": [
+          "yad2_car_catalog_mazda_626"
+        ],
+        "year_end": [
+          "yad2_car_catalog_mazda_626"
+        ],
+        "trim": [
+          "yad2_car_catalog_mazda_626"
+        ]
+      },
+      "variant_id": "mazda_626_1998_2002_il_confirmed_gf_2_0l_petrol_136_hp_4_speed_automatic_station_wagon_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -464359,17 +464743,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1974,
-    "variants": 1974,
+    "total_variants": 1980,
+    "variants": 1980,
     "verified": 788,
-    "partial": 1186,
+    "partial": 1192,
     "makes_count": 43,
-    "models_count": 547,
-    "processed_seeds": 544,
+    "models_count": 548,
+    "processed_seeds": 545,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-23T01:19:54.701404+00:00"
+    "last_updated_at": "2026-05-23T01:20:51.046956+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
