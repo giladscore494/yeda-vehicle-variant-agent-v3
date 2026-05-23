@@ -675,7 +675,8 @@
       "mg__marvel_r__2021__2026__il",
       "mg__cyberster__2024__2026__il",
       "omoda__c5__2023__2026__il",
-      "omoda__e5__2024__2026__il"
+      "omoda__e5__2024__2026__il",
+      "jaecoo__j7__2024__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1126,8 +1127,8 @@
     "failed_seed_ids": [],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "omoda__e5__2024__2026__il",
-    "next_seed_id": "jaecoo__j7__2024__2026__il",
+    "last_completed_seed_id": "jaecoo__j7__2024__2026__il",
+    "next_seed_id": "jaecoo__j8__2025__2026__il",
     "run_history": [],
     "failed_details": [
       {
@@ -3781,6 +3782,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T04:07:43.919002+00:00"
+      },
+      "jaecoo__j7__2024__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 2,
+        "merged_count": 1,
+        "warnings": [],
+        "resolved_at": "2026-05-23T04:08:38.910546+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -275047,6 +275056,124 @@
         "trim": []
       },
       "variant_id": "omoda_e5_2024_2026_il_likely_1st_gen_electric_204_hp_150_kw_single_speed_ev_suv_electric"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Jaecoo",
+      "model": "J7",
+      "global_model_name": "J7",
+      "official_marketed_name_il": "Jaecoo J7",
+      "local_brand_name_il": "Jaecoo",
+      "alternate_names": [
+        "Chery Explore 06",
+        "Chery Tansuo 06"
+      ],
+      "rebadged_as": null,
+      "year_start": 2024,
+      "year_end": 2026,
+      "generation": "1st Gen",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "1.6L Turbo Petrol, 147 hp",
+      "transmission": "7-speed DCT",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "Executive",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Official Colmobil Israel data and IL automotive portals confirm the J7 is marketed in Israel with a 1.6L turbo engine detuned to 147 hp and a 7-speed DCT. Trims include Executive and Titanium for the FWD version.",
+      "source_ids": [
+        "colmobil_il_jaecoo_j7_2024",
+        "cartube_il_jaecoo_j7_launch",
+        "icar_il_jaecoo_j7_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "colmobil_il_jaecoo_j7_2024"
+        ],
+        "seats": [
+          "icar_il_jaecoo_j7_specs"
+        ],
+        "engine": [
+          "cartube_il_jaecoo_j7_launch",
+          "colmobil_il_jaecoo_j7_2024"
+        ],
+        "transmission": [
+          "colmobil_il_jaecoo_j7_2024",
+          "icar_il_jaecoo_j7_specs"
+        ],
+        "fuel_type": [
+          "colmobil_il_jaecoo_j7_2024"
+        ],
+        "drivetrain": [
+          "colmobil_il_jaecoo_j7_2024",
+          "cartube_il_jaecoo_j7_launch"
+        ],
+        "generation": [
+          "cartube_il_jaecoo_j7_launch"
+        ],
+        "year_start": [
+          "cartube_il_jaecoo_j7_launch"
+        ],
+        "year_end": [],
+        "trim": [
+          "cartube_il_jaecoo_j7_launch",
+          "colmobil_il_jaecoo_j7_2024"
+        ]
+      },
+      "variant_id": "jaecoo_j7_2024_2026_il_confirmed_1st_gen_1_6l_turbo_petrol_147_hp_7_speed_dct_suv_petrol",
+      "updated_at": "2026-05-23T04:08:38.912327+00:00"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Jaecoo",
+      "model": "J7",
+      "global_model_name": "J7 PHEV",
+      "official_marketed_name_il": "Jaecoo J7 PHEV",
+      "local_brand_name_il": "Jaecoo",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2025,
+      "year_end": 2026,
+      "generation": "1st Gen",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "1.5L Turbo Plug-in Hybrid, 342 hp",
+      "transmission": "DHT",
+      "fuel_type": "Plug-in Hybrid",
+      "drivetrain": "FWD",
+      "trim": "PHEV",
+      "market_scope": "IL-likely",
+      "market_name_confidence": "likely",
+      "confidence_level": "medium",
+      "source_basis": "A PHEV version is confirmed globally and mentioned by the Israeli importer as an upcoming addition for late 2024/2025. Technical details are based on global pre-launch disclosures.",
+      "source_ids": [
+        "cartube_il_jaecoo_j7_launch"
+      ],
+      "field_sources": {
+        "body_type": [
+          "cartube_il_jaecoo_j7_launch"
+        ],
+        "seats": [],
+        "engine": [
+          "cartube_il_jaecoo_j7_launch"
+        ],
+        "transmission": [],
+        "fuel_type": [
+          "cartube_il_jaecoo_j7_launch"
+        ],
+        "drivetrain": [],
+        "generation": [
+          "cartube_il_jaecoo_j7_launch"
+        ],
+        "year_start": [
+          "cartube_il_jaecoo_j7_launch"
+        ],
+        "year_end": [],
+        "trim": []
+      },
+      "variant_id": "jaecoo_j7_2025_2026_il_likely_1st_gen_1_5l_turbo_plug_in_hybrid_342_hp_dht_suv_plug_in_hybrid"
     }
   ],
   "accumulated_clean_export": {
@@ -493057,17 +493184,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 2424,
-    "variants": 2424,
+    "total_variants": 2426,
+    "variants": 2426,
     "verified": 788,
-    "partial": 1636,
-    "makes_count": 52,
-    "models_count": 667,
-    "processed_seeds": 666,
+    "partial": 1638,
+    "makes_count": 53,
+    "models_count": 668,
+    "processed_seeds": 667,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 0,
-    "last_updated_at": "2026-05-23T04:07:43.926882+00:00"
+    "last_updated_at": "2026-05-23T04:08:38.917976+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
