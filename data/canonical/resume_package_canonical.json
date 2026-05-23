@@ -831,7 +831,8 @@
       "renault__twingo__1993__2026__il",
       "renault__clio__1991__2026__il",
       "renault__symbol__1999__2012__il",
-      "renault__megane__1996__2026__il"
+      "renault__megane__1996__2026__il",
+      "renault__megane_e-tech__2022__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1283,8 +1284,8 @@
     "failed_seed_ids": [],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "renault__megane__1996__2026__il",
-    "next_seed_id": "renault__megane_e-tech__2022__2026__il",
+    "last_completed_seed_id": "renault__megane_e-tech__2022__2026__il",
+    "next_seed_id": "renault__megane_rs__2004__2023__il",
     "run_history": [],
     "failed_details": [],
     "needs_retry_seed_ids": [
@@ -5179,6 +5180,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T20:56:37.241691+00:00"
+      },
+      "renault__megane_e-tech__2022__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 1,
+        "merged_count": 1,
+        "warnings": [],
+        "resolved_at": "2026-05-23T21:03:09.755993+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -315268,6 +315277,70 @@
         "trim": []
       },
       "variant_id": "renault_megane_2022_2026_il_confirmed_mk5_single_electric_motor_160kw_single_speed_ev_hatchback_electric"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Renault",
+      "model": "Megane E-Tech",
+      "global_model_name": "Megane E-Tech Electric",
+      "official_marketed_name_il": "Renault Megane E-Tech",
+      "local_brand_name_il": "Renault",
+      "alternate_names": [
+        "Megane E-Tech 100% Electric"
+      ],
+      "rebadged_as": null,
+      "year_start": 2022,
+      "year_end": 2026,
+      "generation": "1st Gen (CMF-EV)",
+      "body_type": "Hatchback",
+      "seats": 5,
+      "engine": "Single electric motor, 220 hp, 60 kWh battery",
+      "transmission": "Single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "FWD",
+      "trim": "Techno",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli official importer (Freesbe) and local launch reports confirm the EV60 powertrain (220 hp) in Techno trim for the IL market starting early 2023 (global generation from 2022).",
+      "source_ids": [
+        "freesbe_renault_il_official",
+        "cartube_il_megane_etech_2023"
+      ],
+      "field_sources": {
+        "body_type": [
+          "freesbe_renault_il_official"
+        ],
+        "seats": [
+          "freesbe_renault_il_official"
+        ],
+        "engine": [
+          "freesbe_renault_il_official",
+          "cartube_il_megane_etech_2023"
+        ],
+        "transmission": [
+          "freesbe_renault_il_official"
+        ],
+        "fuel_type": [
+          "freesbe_renault_il_official"
+        ],
+        "drivetrain": [
+          "freesbe_renault_il_official"
+        ],
+        "generation": [
+          "cartube_il_megane_etech_2023"
+        ],
+        "year_start": [
+          "cartube_il_megane_etech_2023"
+        ],
+        "year_end": [],
+        "trim": [
+          "freesbe_renault_il_official",
+          "cartube_il_megane_etech_2023"
+        ]
+      },
+      "variant_id": "renault_megane_e_tech_2022_2026_il_confirmed_1st_gen_cmf_ev_single_electric_motor_220_hp_60_kwh_battery_single_speed_ev_hatchback_electric",
+      "updated_at": "2026-05-23T21:03:09.757694+00:00"
     }
   ],
   "accumulated_clean_export": {
@@ -533278,17 +533351,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 3053,
-    "variants": 3053,
+    "total_variants": 3054,
+    "variants": 3054,
     "verified": 788,
-    "partial": 2265,
+    "partial": 2266,
     "makes_count": 73,
-    "models_count": 822,
-    "processed_seeds": 822,
+    "models_count": 823,
+    "processed_seeds": 823,
     "needs_retry_seeds": 2,
     "total_seeds": 993,
     "unresolved": 0,
-    "last_updated_at": "2026-05-23T20:56:37.254071+00:00"
+    "last_updated_at": "2026-05-23T21:03:09.766399+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
