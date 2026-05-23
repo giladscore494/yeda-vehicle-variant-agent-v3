@@ -845,7 +845,8 @@
       "renault__symbioz__2024__2026__il",
       "renault__rafale__2024__2026__il",
       "renault__koleos__2008__2024__il",
-      "renault__scenic__1996__2024__il"
+      "renault__scenic__1996__2024__il",
+      "renault__scenic_e-tech__2024__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1297,8 +1298,8 @@
     "failed_seed_ids": [],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "renault__scenic__1996__2024__il",
-    "next_seed_id": "renault__scenic_e-tech__2024__2026__il",
+    "last_completed_seed_id": "renault__scenic_e-tech__2024__2026__il",
+    "next_seed_id": "renault__grand_scenic__2004__2022__il",
     "run_history": [],
     "failed_details": [],
     "needs_retry_seed_ids": [
@@ -5305,6 +5306,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T21:13:25.343087+00:00"
+      },
+      "renault__scenic_e-tech__2024__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 2,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T21:14:01.248397+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -318264,6 +318273,128 @@
         "trim": []
       },
       "variant_id": "renault_scenic_2024_2024_il_likely_5th_gen_160_kw_electric_motor_220_hp_single_speed_ev_suv_electric"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Renault",
+      "model": "Scenic E-Tech",
+      "global_model_name": "Renault Scenic E-Tech",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": "Renault",
+      "alternate_names": [
+        "Scenic E-Tech 100% electric",
+        "Scenic EV"
+      ],
+      "rebadged_as": null,
+      "year_start": 2024,
+      "year_end": 2026,
+      "generation": "5th Gen (CMF-EV)",
+      "body_type": "SUV/Crossover",
+      "seats": 5,
+      "engine": "125 kW (170 hp) electric motor, 60 kWh battery",
+      "transmission": "single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "FWD",
+      "trim": "60 kWh",
+      "market_scope": "IL-likely",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "Global manufacturer press release confirms technical specifications for the CMF-EV platform 60 kWh variant. Israeli auto publications have previewed the model, but exact local trim combinations and marketed name from importer Freesbe are not fully confirmed. Marked IL-likely.",
+      "source_ids": [
+        "renault_media_global_scenic_etech_2024",
+        "cartube_il_scenic_etech_2024_preview"
+      ],
+      "field_sources": {
+        "body_type": [
+          "renault_media_global_scenic_etech_2024"
+        ],
+        "seats": [
+          "renault_media_global_scenic_etech_2024"
+        ],
+        "engine": [
+          "renault_media_global_scenic_etech_2024"
+        ],
+        "transmission": [
+          "renault_media_global_scenic_etech_2024"
+        ],
+        "fuel_type": [
+          "renault_media_global_scenic_etech_2024"
+        ],
+        "drivetrain": [
+          "renault_media_global_scenic_etech_2024"
+        ],
+        "generation": [
+          "renault_media_global_scenic_etech_2024"
+        ],
+        "year_start": [
+          "renault_media_global_scenic_etech_2024",
+          "cartube_il_scenic_etech_2024_preview"
+        ],
+        "year_end": [],
+        "trim": []
+      },
+      "variant_id": "renault_scenic_e_tech_2024_2026_il_likely_5th_gen_cmf_ev_125_kw_170_hp_electric_motor_60_kwh_battery_single_speed_ev_suv_crossover_electric"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Renault",
+      "model": "Scenic E-Tech",
+      "global_model_name": "Renault Scenic E-Tech",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": "Renault",
+      "alternate_names": [
+        "Scenic E-Tech 100% electric",
+        "Scenic EV"
+      ],
+      "rebadged_as": null,
+      "year_start": 2024,
+      "year_end": 2026,
+      "generation": "5th Gen (CMF-EV)",
+      "body_type": "SUV/Crossover",
+      "seats": 5,
+      "engine": "160 kW (220 hp) electric motor, 87 kWh battery",
+      "transmission": "single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "FWD",
+      "trim": "87 kWh Long Range",
+      "market_scope": "IL-likely",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "Global documentation outlines the long-range 87 kWh variant as the premium powertrain for the new Scenic. Placed as IL-likely due to Israeli market anticipation, though exact final trim designation by local importer remains unverified.",
+      "source_ids": [
+        "renault_media_global_scenic_etech_2024",
+        "cartube_il_scenic_etech_2024_preview"
+      ],
+      "field_sources": {
+        "body_type": [
+          "renault_media_global_scenic_etech_2024"
+        ],
+        "seats": [
+          "renault_media_global_scenic_etech_2024"
+        ],
+        "engine": [
+          "renault_media_global_scenic_etech_2024"
+        ],
+        "transmission": [
+          "renault_media_global_scenic_etech_2024"
+        ],
+        "fuel_type": [
+          "renault_media_global_scenic_etech_2024"
+        ],
+        "drivetrain": [
+          "renault_media_global_scenic_etech_2024"
+        ],
+        "generation": [
+          "renault_media_global_scenic_etech_2024"
+        ],
+        "year_start": [
+          "renault_media_global_scenic_etech_2024",
+          "cartube_il_scenic_etech_2024_preview"
+        ],
+        "year_end": [],
+        "trim": []
+      },
+      "variant_id": "renault_scenic_e_tech_2024_2026_il_likely_5th_gen_cmf_ev_160_kw_220_hp_electric_motor_87_kwh_battery_single_speed_ev_suv_crossover_electric"
     }
   ],
   "accumulated_clean_export": {
@@ -536274,17 +536405,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 3100,
-    "variants": 3100,
+    "total_variants": 3102,
+    "variants": 3102,
     "verified": 788,
-    "partial": 2312,
+    "partial": 2314,
     "makes_count": 73,
-    "models_count": 836,
-    "processed_seeds": 836,
+    "models_count": 837,
+    "processed_seeds": 837,
     "needs_retry_seeds": 2,
     "total_seeds": 993,
     "unresolved": 0,
-    "last_updated_at": "2026-05-23T21:13:25.354150+00:00"
+    "last_updated_at": "2026-05-23T21:14:01.256287+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
