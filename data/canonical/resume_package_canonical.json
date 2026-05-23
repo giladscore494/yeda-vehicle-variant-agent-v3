@@ -842,7 +842,8 @@
       "renault__kadjar__2015__2022__il",
       "renault__arkana__2021__2026__il",
       "renault__austral__2022__2026__il",
-      "renault__symbioz__2024__2026__il"
+      "renault__symbioz__2024__2026__il",
+      "renault__rafale__2024__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1294,8 +1295,8 @@
     "failed_seed_ids": [],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "renault__symbioz__2024__2026__il",
-    "next_seed_id": "renault__rafale__2024__2026__il",
+    "last_completed_seed_id": "renault__rafale__2024__2026__il",
+    "next_seed_id": "renault__koleos__2008__2024__il",
     "run_history": [],
     "failed_details": [],
     "needs_retry_seed_ids": [
@@ -5278,6 +5279,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T21:11:04.957009+00:00"
+      },
+      "renault__rafale__2024__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 2,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T21:11:41.490493+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -317601,6 +317610,126 @@
         "trim": []
       },
       "variant_id": "renault_symbioz_2024_2026_il_likely_1st_gen_cmf_b_1_6l_e_tech_full_hybrid_145_hp_multi_mode_automatic_suv_hybrid"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Renault",
+      "model": "Rafale",
+      "global_model_name": "Renault Rafale",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2024,
+      "year_end": 2026,
+      "generation": "1st Gen",
+      "body_type": "Coupe SUV",
+      "seats": 5,
+      "engine": "1.2L Turbo E-Tech Full Hybrid, 200 hp",
+      "transmission": "Multi-mode automatic",
+      "fuel_type": "Hybrid",
+      "drivetrain": "FWD",
+      "trim": "Esprit Alpine",
+      "market_scope": "IL-likely",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "Global debut confirmed for 2024 model year; heavily covered by Israeli auto press (Cartube) as a future model for Israel, but official Israeli launch name/trim and final pricing are pending. Global specs used.",
+      "source_ids": [
+        "renault_global_media_rafale_2023",
+        "cartube_il_rafale_reveal_2023"
+      ],
+      "field_sources": {
+        "body_type": [
+          "renault_global_media_rafale_2023",
+          "cartube_il_rafale_reveal_2023"
+        ],
+        "seats": [
+          "renault_global_media_rafale_2023"
+        ],
+        "engine": [
+          "renault_global_media_rafale_2023",
+          "cartube_il_rafale_reveal_2023"
+        ],
+        "transmission": [
+          "renault_global_media_rafale_2023"
+        ],
+        "fuel_type": [
+          "renault_global_media_rafale_2023",
+          "cartube_il_rafale_reveal_2023"
+        ],
+        "drivetrain": [
+          "renault_global_media_rafale_2023"
+        ],
+        "generation": [
+          "renault_global_media_rafale_2023"
+        ],
+        "year_start": [
+          "renault_global_media_rafale_2023"
+        ],
+        "year_end": [],
+        "trim": [
+          "renault_global_media_rafale_2023"
+        ]
+      },
+      "variant_id": "renault_rafale_2024_2026_il_likely_1st_gen_1_2l_turbo_e_tech_full_hybrid_200_hp_multi_mode_automatic_coupe_suv_hybrid"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Renault",
+      "model": "Rafale",
+      "global_model_name": "Renault Rafale",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2024,
+      "year_end": 2026,
+      "generation": "1st Gen",
+      "body_type": "Coupe SUV",
+      "seats": 5,
+      "engine": "1.2L Turbo E-Tech Plug-in Hybrid, 300 hp",
+      "transmission": "Multi-mode automatic",
+      "fuel_type": "Plug-in Hybrid",
+      "drivetrain": "AWD",
+      "trim": "Atelier Alpine",
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "High-performance PHEV variant with a rear electric motor creating an AWD setup. Confirmed globally but its viability and expected import status for the Israeli market is less clear than the 200hp HEV.",
+      "source_ids": [
+        "renault_global_media_rafale_2023"
+      ],
+      "field_sources": {
+        "body_type": [
+          "renault_global_media_rafale_2023"
+        ],
+        "seats": [
+          "renault_global_media_rafale_2023"
+        ],
+        "engine": [
+          "renault_global_media_rafale_2023"
+        ],
+        "transmission": [
+          "renault_global_media_rafale_2023"
+        ],
+        "fuel_type": [
+          "renault_global_media_rafale_2023"
+        ],
+        "drivetrain": [
+          "renault_global_media_rafale_2023"
+        ],
+        "generation": [
+          "renault_global_media_rafale_2023"
+        ],
+        "year_start": [
+          "renault_global_media_rafale_2023"
+        ],
+        "year_end": [],
+        "trim": [
+          "renault_global_media_rafale_2023"
+        ]
+      },
+      "variant_id": "renault_rafale_2024_2026_global_reference_only_1st_gen_1_2l_turbo_e_tech_plug_in_hybrid_300_hp_multi_mode_automatic_coupe_suv_plug_in_hybrid"
     }
   ],
   "accumulated_clean_export": {
@@ -535611,17 +535740,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 3089,
-    "variants": 3089,
+    "total_variants": 3091,
+    "variants": 3091,
     "verified": 788,
-    "partial": 2301,
+    "partial": 2303,
     "makes_count": 73,
-    "models_count": 833,
-    "processed_seeds": 833,
+    "models_count": 834,
+    "processed_seeds": 834,
     "needs_retry_seeds": 2,
     "total_seeds": 993,
     "unresolved": 0,
-    "last_updated_at": "2026-05-23T21:11:04.966806+00:00"
+    "last_updated_at": "2026-05-23T21:11:41.502959+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
