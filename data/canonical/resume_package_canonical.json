@@ -624,7 +624,8 @@
       "subaru__justy__1990__2007__il",
       "subaru__ascent__2019__2026__il",
       "isuzu__mu-x__2015__2026__il",
-      "isuzu__trooper__1990__2005__il"
+      "isuzu__trooper__1990__2005__il",
+      "isuzu__rodeo__1998__2004__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1077,8 +1078,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "isuzu__trooper__1990__2005__il",
-    "next_seed_id": "isuzu__rodeo__1998__2004__il",
+    "last_completed_seed_id": "isuzu__rodeo__1998__2004__il",
+    "next_seed_id": "hyundai__creta__2020__2026__il",
     "run_history": [],
     "failed_details": [
       {
@@ -3346,6 +3347,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T02:46:33.135921+00:00"
+      },
+      "isuzu__rodeo__1998__2004__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 3,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T02:56:52.586311+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -263308,6 +263317,191 @@
         "trim": []
       },
       "variant_id": "isuzu_trooper_1990_1991_il_likely_1st_gen_2_8l_4jb1_t_turbo_diesel_5_speed_manual_suv_diesel"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Isuzu",
+      "model": "Rodeo",
+      "global_model_name": "Isuzu Rodeo",
+      "official_marketed_name_il": "Isuzu Rodeo",
+      "local_brand_name_il": "Isuzu",
+      "alternate_names": [
+        "Isuzu Wizard",
+        "Opel Frontera",
+        "Holden Frontera"
+      ],
+      "rebadged_as": null,
+      "year_start": 2002,
+      "year_end": 2004,
+      "generation": "2nd Gen",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "3.2L V6 Petrol",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "4WD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli automotive catalogs (Auto.co.il) and pricing lists confirm official import of the 2nd Gen Isuzu Rodeo SUV to Israel specifically between 2002 and 2004. Marketed heavily with the 3.2L V6, 4-speed auto, and 4x4 to compete in the mid-size SUV segment.",
+      "source_ids": [
+        "auto_co_il_isuzu_rodeo_catalog",
+        "yad2_il_isuzu_rodeo_listings"
+      ],
+      "field_sources": {
+        "body_type": [
+          "auto_co_il_isuzu_rodeo_catalog"
+        ],
+        "seats": [
+          "auto_co_il_isuzu_rodeo_catalog"
+        ],
+        "engine": [
+          "auto_co_il_isuzu_rodeo_catalog",
+          "yad2_il_isuzu_rodeo_listings"
+        ],
+        "transmission": [
+          "auto_co_il_isuzu_rodeo_catalog"
+        ],
+        "fuel_type": [
+          "auto_co_il_isuzu_rodeo_catalog"
+        ],
+        "drivetrain": [
+          "auto_co_il_isuzu_rodeo_catalog",
+          "yad2_il_isuzu_rodeo_listings"
+        ],
+        "generation": [
+          "edmunds_global_rodeo_1998_2004"
+        ],
+        "year_start": [
+          "auto_co_il_isuzu_rodeo_catalog",
+          "yad2_il_isuzu_rodeo_listings"
+        ],
+        "year_end": [
+          "auto_co_il_isuzu_rodeo_catalog",
+          "yad2_il_isuzu_rodeo_listings"
+        ],
+        "trim": []
+      },
+      "variant_id": "isuzu_rodeo_2002_2004_il_confirmed_2nd_gen_3_2l_v6_petrol_4_speed_automatic_suv_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Isuzu",
+      "model": "Rodeo",
+      "global_model_name": "Isuzu Rodeo",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Isuzu Wizard"
+      ],
+      "rebadged_as": null,
+      "year_start": 1998,
+      "year_end": 2001,
+      "generation": "2nd Gen",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "3.2L V6 Petrol",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "4WD",
+      "trim": null,
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "Global 2nd Gen Rodeo debuted in 1998. However, UMI officially commenced Rodeo imports to Israel around 2002. Models from 1998-2001 are noted as global-reference-only due to lack of standard official Israeli retail presence prior to the facelift.",
+      "source_ids": [
+        "edmunds_global_rodeo_1998_2004"
+      ],
+      "field_sources": {
+        "body_type": [
+          "edmunds_global_rodeo_1998_2004"
+        ],
+        "seats": [
+          "edmunds_global_rodeo_1998_2004"
+        ],
+        "engine": [
+          "edmunds_global_rodeo_1998_2004"
+        ],
+        "transmission": [
+          "edmunds_global_rodeo_1998_2004"
+        ],
+        "fuel_type": [
+          "edmunds_global_rodeo_1998_2004"
+        ],
+        "drivetrain": [
+          "edmunds_global_rodeo_1998_2004"
+        ],
+        "generation": [
+          "edmunds_global_rodeo_1998_2004"
+        ],
+        "year_start": [
+          "edmunds_global_rodeo_1998_2004"
+        ],
+        "year_end": [
+          "edmunds_global_rodeo_1998_2004"
+        ],
+        "trim": []
+      },
+      "variant_id": "isuzu_rodeo_1998_2001_global_reference_only_2nd_gen_3_2l_v6_petrol_4_speed_automatic_suv_petrol"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Isuzu",
+      "model": "Rodeo",
+      "global_model_name": "Isuzu Rodeo",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 1998,
+      "year_end": 2003,
+      "generation": "2nd Gen",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "2.2L Inline-4 Petrol",
+      "transmission": "5-speed manual",
+      "fuel_type": "Petrol",
+      "drivetrain": "RWD",
+      "trim": null,
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "Global standard 4-cylinder engine (X22SE) typically paired with RWD (2WD) and manual transmission. This base variant is not confirmed for the Israeli market, which predominantly received the high-spec V6 4WD.",
+      "source_ids": [
+        "edmunds_global_rodeo_1998_2004"
+      ],
+      "field_sources": {
+        "body_type": [
+          "edmunds_global_rodeo_1998_2004"
+        ],
+        "seats": [
+          "edmunds_global_rodeo_1998_2004"
+        ],
+        "engine": [
+          "edmunds_global_rodeo_1998_2004"
+        ],
+        "transmission": [
+          "edmunds_global_rodeo_1998_2004"
+        ],
+        "fuel_type": [
+          "edmunds_global_rodeo_1998_2004"
+        ],
+        "drivetrain": [
+          "edmunds_global_rodeo_1998_2004"
+        ],
+        "generation": [
+          "edmunds_global_rodeo_1998_2004"
+        ],
+        "year_start": [
+          "edmunds_global_rodeo_1998_2004"
+        ],
+        "year_end": [
+          "edmunds_global_rodeo_1998_2004"
+        ],
+        "trim": []
+      },
+      "variant_id": "isuzu_rodeo_1998_2003_global_reference_only_2nd_gen_2_2l_inline_4_petrol_5_speed_manual_suv_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -481318,17 +481512,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 2240,
-    "variants": 2240,
+    "total_variants": 2243,
+    "variants": 2243,
     "verified": 788,
-    "partial": 1452,
+    "partial": 1455,
     "makes_count": 46,
-    "models_count": 614,
-    "processed_seeds": 615,
+    "models_count": 615,
+    "processed_seeds": 616,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-23T02:46:33.142279+00:00"
+    "last_updated_at": "2026-05-23T02:56:52.593054+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
