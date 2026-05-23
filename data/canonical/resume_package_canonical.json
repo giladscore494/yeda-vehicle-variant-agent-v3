@@ -680,7 +680,8 @@
       "jaecoo__j8__2025__2026__il",
       "zeekr__001__2023__2026__il",
       "zeekr__x__2024__2026__il",
-      "zeekr__007__2024__2026__il"
+      "zeekr__007__2024__2026__il",
+      "xpeng__p7__2023__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1131,8 +1132,8 @@
     "failed_seed_ids": [],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "zeekr__007__2024__2026__il",
-    "next_seed_id": "xpeng__p7__2023__2026__il",
+    "last_completed_seed_id": "xpeng__p7__2023__2026__il",
+    "next_seed_id": "xpeng__g9__2023__2026__il",
     "run_history": [],
     "failed_details": [
       {
@@ -3826,6 +3827,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T04:11:37.699670+00:00"
+      },
+      "xpeng__p7__2023__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 2,
+        "merged_count": 1,
+        "warnings": [],
+        "resolved_at": "2026-05-23T04:12:11.390501+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -275722,6 +275731,146 @@
         ]
       },
       "variant_id": "zeekr_007_2024_2026_il_likely_1st_gen_pma2_dual_electric_motors_475_kw_636_hp_single_speed_ev_sedan_electric"
+    },
+    {
+      "candidate_index": 0,
+      "make": "XPeng",
+      "model": "P7",
+      "global_model_name": "XPeng P7",
+      "official_marketed_name_il": "XPeng P7",
+      "local_brand_name_il": "אקספנג",
+      "alternate_names": [
+        "XPeng P7i"
+      ],
+      "rebadged_as": null,
+      "year_start": 2023,
+      "year_end": 2026,
+      "generation": "1st Gen",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "Single electric motor, 276 hp",
+      "transmission": "Single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "RWD",
+      "trim": "Long Range",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli official importer (Freesbe) lists the P7 Long Range RWD version starting late 2023. Verified specs via Cartube and iCar Israel.",
+      "source_ids": [
+        "xpeng_il_official",
+        "cartube_il_xpeng_launch_2023",
+        "icar_il_xpeng_p7"
+      ],
+      "field_sources": {
+        "body_type": [
+          "xpeng_il_official",
+          "icar_il_xpeng_p7"
+        ],
+        "seats": [
+          "xpeng_il_official",
+          "icar_il_xpeng_p7"
+        ],
+        "engine": [
+          "xpeng_il_official",
+          "cartube_il_xpeng_launch_2023",
+          "icar_il_xpeng_p7"
+        ],
+        "transmission": [
+          "xpeng_il_official"
+        ],
+        "fuel_type": [
+          "xpeng_il_official"
+        ],
+        "drivetrain": [
+          "xpeng_il_official",
+          "cartube_il_xpeng_launch_2023"
+        ],
+        "generation": [
+          "cartube_il_xpeng_launch_2023"
+        ],
+        "year_start": [
+          "cartube_il_xpeng_launch_2023"
+        ],
+        "year_end": [
+          "xpeng_il_official"
+        ],
+        "trim": [
+          "xpeng_il_official",
+          "icar_il_xpeng_p7"
+        ]
+      },
+      "variant_id": "xpeng_p7_2023_2026_il_confirmed_1st_gen_single_electric_motor_276_hp_single_speed_ev_sedan_electric"
+    },
+    {
+      "candidate_index": 1,
+      "make": "XPeng",
+      "model": "P7",
+      "global_model_name": "XPeng P7",
+      "official_marketed_name_il": "XPeng P7",
+      "local_brand_name_il": "אקספנג",
+      "alternate_names": [
+        "XPeng P7i"
+      ],
+      "rebadged_as": null,
+      "year_start": 2023,
+      "year_end": 2026,
+      "generation": "1st Gen",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "Dual electric motors, 473 hp",
+      "transmission": "Single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "AWD",
+      "trim": "Performance",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli official importer (Freesbe) lists the P7 Performance AWD variant alongside the Long Range. Dual motor producing 473 hp confirmed in local specs.",
+      "source_ids": [
+        "xpeng_il_official",
+        "cartube_il_xpeng_launch_2023",
+        "icar_il_xpeng_p7"
+      ],
+      "field_sources": {
+        "body_type": [
+          "xpeng_il_official",
+          "icar_il_xpeng_p7"
+        ],
+        "seats": [
+          "xpeng_il_official"
+        ],
+        "engine": [
+          "xpeng_il_official",
+          "cartube_il_xpeng_launch_2023",
+          "icar_il_xpeng_p7"
+        ],
+        "transmission": [
+          "xpeng_il_official"
+        ],
+        "fuel_type": [
+          "xpeng_il_official"
+        ],
+        "drivetrain": [
+          "xpeng_il_official",
+          "cartube_il_xpeng_launch_2023"
+        ],
+        "generation": [
+          "cartube_il_xpeng_launch_2023"
+        ],
+        "year_start": [
+          "cartube_il_xpeng_launch_2023"
+        ],
+        "year_end": [
+          "xpeng_il_official"
+        ],
+        "trim": [
+          "xpeng_il_official",
+          "icar_il_xpeng_p7"
+        ]
+      },
+      "variant_id": "xpeng_p7_2023_2026_il_confirmed_1st_gen_dual_electric_motors_473_hp_single_speed_ev_sedan_electric",
+      "updated_at": "2026-05-23T04:12:11.392134+00:00"
     }
   ],
   "accumulated_clean_export": {
@@ -493732,17 +493881,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 2434,
-    "variants": 2434,
+    "total_variants": 2436,
+    "variants": 2436,
     "verified": 788,
-    "partial": 1646,
-    "makes_count": 54,
-    "models_count": 672,
-    "processed_seeds": 671,
+    "partial": 1648,
+    "makes_count": 55,
+    "models_count": 673,
+    "processed_seeds": 672,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 0,
-    "last_updated_at": "2026-05-23T04:11:37.705158+00:00"
+    "last_updated_at": "2026-05-23T04:12:11.398109+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
