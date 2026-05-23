@@ -545,7 +545,8 @@
       "nissan__370z__2009__2020__il",
       "nissan__kicks__2020__2026__il",
       "nissan__nv200__2010__2022__il",
-      "nissan__sunny__1990__2006__il"
+      "nissan__sunny__1990__2006__il",
+      "nissan__terrano__1990__2006__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -998,8 +999,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "nissan__sunny__1990__2006__il",
-    "next_seed_id": "nissan__terrano__1990__2006__il",
+    "last_completed_seed_id": "nissan__terrano__1990__2006__il",
+    "next_seed_id": "nissan__200sx__1994__2002__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2635,6 +2636,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T01:12:39.140698+00:00"
+      },
+      "nissan__terrano__1990__2006__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 5,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T01:13:38.590459+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -243841,6 +243850,323 @@
         ]
       },
       "variant_id": "nissan_sunny_2000_2006_il_confirmed_n16_1_8l_4_cylinder_petrol_114_hp_4_speed_automatic_sedan_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Nissan",
+      "model": "Terrano",
+      "global_model_name": "Terrano II",
+      "official_marketed_name_il": "Terrano",
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Terrano 2"
+      ],
+      "rebadged_as": null,
+      "year_start": 1993,
+      "year_end": 1996,
+      "generation": "R20",
+      "body_type": "SUV",
+      "seats": 7,
+      "engine": "2.7L Turbo Diesel (TD27T)",
+      "transmission": "5-speed manual",
+      "fuel_type": "Diesel",
+      "drivetrain": "4WD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli automotive archives (Auto.co.il) and price lists confirm early R20 models were sold as 'Terrano' in Israel with the 100hp non-intercooled 2.7 TD engine. Available in 3-door and 5-door (7 seats).",
+      "source_ids": [
+        "auto_il_terrano_review",
+        "levi_itzhak_terrano_specs",
+        "nissan_global_r20_archive"
+      ],
+      "field_sources": {
+        "body_type": [
+          "auto_il_terrano_review",
+          "nissan_global_r20_archive"
+        ],
+        "seats": [
+          "nissan_global_r20_archive"
+        ],
+        "engine": [
+          "auto_il_terrano_review",
+          "levi_itzhak_terrano_specs"
+        ],
+        "transmission": [
+          "auto_il_terrano_review"
+        ],
+        "fuel_type": [
+          "levi_itzhak_terrano_specs"
+        ],
+        "drivetrain": [
+          "auto_il_terrano_review"
+        ],
+        "generation": [
+          "auto_il_terrano_review",
+          "nissan_global_r20_archive"
+        ],
+        "year_start": [
+          "auto_il_terrano_review"
+        ],
+        "year_end": [
+          "auto_il_terrano_review"
+        ],
+        "trim": []
+      },
+      "variant_id": "nissan_terrano_1993_1996_il_confirmed_r20_2_7l_turbo_diesel_td27t_5_speed_manual_suv_diesel"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Nissan",
+      "model": "Terrano",
+      "global_model_name": "Terrano II",
+      "official_marketed_name_il": "Terrano",
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Terrano 2"
+      ],
+      "rebadged_as": null,
+      "year_start": 1996,
+      "year_end": 2006,
+      "generation": "R20",
+      "body_type": "SUV",
+      "seats": 7,
+      "engine": "2.7L Turbo Diesel Intercooled (TD27Ti)",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Diesel",
+      "drivetrain": "4WD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "The facelifted R20 with the 125hp intercooled 2.7L TDi and automatic transmission was one of the most popular 4x4s in Israel during the late 90s and early 2000s. Confirmed by Israeli price lists and reviews.",
+      "source_ids": [
+        "auto_il_terrano_review",
+        "levi_itzhak_terrano_specs",
+        "nissan_global_r20_archive"
+      ],
+      "field_sources": {
+        "body_type": [
+          "auto_il_terrano_review"
+        ],
+        "seats": [
+          "nissan_global_r20_archive"
+        ],
+        "engine": [
+          "auto_il_terrano_review",
+          "levi_itzhak_terrano_specs"
+        ],
+        "transmission": [
+          "auto_il_terrano_review",
+          "levi_itzhak_terrano_specs"
+        ],
+        "fuel_type": [
+          "levi_itzhak_terrano_specs"
+        ],
+        "drivetrain": [
+          "auto_il_terrano_review"
+        ],
+        "generation": [
+          "auto_il_terrano_review",
+          "nissan_global_r20_archive"
+        ],
+        "year_start": [
+          "auto_il_terrano_review"
+        ],
+        "year_end": [
+          "auto_il_terrano_review",
+          "levi_itzhak_terrano_specs"
+        ],
+        "trim": []
+      },
+      "variant_id": "nissan_terrano_1996_2006_il_confirmed_r20_2_7l_turbo_diesel_intercooled_td27ti_4_speed_automatic_suv_diesel"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Nissan",
+      "model": "Terrano",
+      "global_model_name": "Terrano II",
+      "official_marketed_name_il": "Terrano",
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Terrano 2"
+      ],
+      "rebadged_as": null,
+      "year_start": 2000,
+      "year_end": 2006,
+      "generation": "R20",
+      "body_type": "SUV",
+      "seats": 7,
+      "engine": "3.0L Turbo Diesel (ZD30DDTi)",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Diesel",
+      "drivetrain": "4WD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Introduction of the 154hp 3.0L ZD30 engine to the Terrano lineup. Highly documented in Israeli market sources as the premium engine option for the R20's later years.",
+      "source_ids": [
+        "auto_il_terrano_review",
+        "levi_itzhak_terrano_specs",
+        "nissan_global_r20_archive"
+      ],
+      "field_sources": {
+        "body_type": [
+          "auto_il_terrano_review"
+        ],
+        "seats": [
+          "nissan_global_r20_archive"
+        ],
+        "engine": [
+          "auto_il_terrano_review",
+          "levi_itzhak_terrano_specs",
+          "nissan_global_r20_archive"
+        ],
+        "transmission": [
+          "auto_il_terrano_review"
+        ],
+        "fuel_type": [
+          "levi_itzhak_terrano_specs"
+        ],
+        "drivetrain": [
+          "auto_il_terrano_review"
+        ],
+        "generation": [
+          "auto_il_terrano_review",
+          "nissan_global_r20_archive"
+        ],
+        "year_start": [
+          "auto_il_terrano_review",
+          "nissan_global_r20_archive"
+        ],
+        "year_end": [
+          "auto_il_terrano_review",
+          "levi_itzhak_terrano_specs"
+        ],
+        "trim": []
+      },
+      "variant_id": "nissan_terrano_2000_2006_il_confirmed_r20_3_0l_turbo_diesel_zd30ddti_4_speed_automatic_suv_diesel"
+    },
+    {
+      "candidate_index": 3,
+      "make": "Nissan",
+      "model": "Terrano",
+      "global_model_name": "Terrano II",
+      "official_marketed_name_il": "Terrano",
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Terrano 2"
+      ],
+      "rebadged_as": null,
+      "year_start": 1993,
+      "year_end": 2002,
+      "generation": "R20",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "2.4L Petrol (KA24E)",
+      "transmission": "5-speed manual",
+      "fuel_type": "Petrol",
+      "drivetrain": "4WD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "medium",
+      "source_basis": "Petrol variant (KA24E engine) was less common than the diesels in Israel but officially marketed. Discontinued in IL earlier than the diesel models. Manual transmission was standard for this engine in IL.",
+      "source_ids": [
+        "auto_il_terrano_review",
+        "levi_itzhak_terrano_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "auto_il_terrano_review"
+        ],
+        "seats": [],
+        "engine": [
+          "auto_il_terrano_review",
+          "levi_itzhak_terrano_specs"
+        ],
+        "transmission": [
+          "auto_il_terrano_review"
+        ],
+        "fuel_type": [
+          "levi_itzhak_terrano_specs"
+        ],
+        "drivetrain": [
+          "auto_il_terrano_review"
+        ],
+        "generation": [
+          "auto_il_terrano_review"
+        ],
+        "year_start": [
+          "levi_itzhak_terrano_specs"
+        ],
+        "year_end": [
+          "levi_itzhak_terrano_specs"
+        ],
+        "trim": []
+      },
+      "variant_id": "nissan_terrano_1993_2002_il_confirmed_r20_2_4l_petrol_ka24e_5_speed_manual_suv_petrol"
+    },
+    {
+      "candidate_index": 4,
+      "make": "Nissan",
+      "model": "Terrano",
+      "global_model_name": "Pathfinder",
+      "official_marketed_name_il": "Terrano",
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Terrano I"
+      ],
+      "rebadged_as": null,
+      "year_start": 1990,
+      "year_end": 1995,
+      "generation": "WD21",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "2.4L Petrol",
+      "transmission": "5-speed manual",
+      "fuel_type": "Petrol",
+      "drivetrain": "4WD",
+      "trim": null,
+      "market_scope": "IL-likely",
+      "market_name_confidence": "likely",
+      "confidence_level": "medium",
+      "source_basis": "First generation WD21 (sold globally as Pathfinder/Terrano). Sold in Israel prior to the R20's dominance, mostly early 90s models. Often referred to as 'Terrano I'. Global specs confirm WD21 generation; IL availability supported by early used car history mentions.",
+      "source_ids": [
+        "auto_il_terrano_review",
+        "nissan_global_r20_archive"
+      ],
+      "field_sources": {
+        "body_type": [
+          "nissan_global_r20_archive"
+        ],
+        "seats": [],
+        "engine": [
+          "nissan_global_r20_archive"
+        ],
+        "transmission": [
+          "nissan_global_r20_archive"
+        ],
+        "fuel_type": [
+          "nissan_global_r20_archive"
+        ],
+        "drivetrain": [
+          "nissan_global_r20_archive"
+        ],
+        "generation": [
+          "nissan_global_r20_archive"
+        ],
+        "year_start": [
+          "nissan_global_r20_archive"
+        ],
+        "year_end": [
+          "nissan_global_r20_archive"
+        ],
+        "trim": []
+      },
+      "variant_id": "nissan_terrano_1990_1995_il_likely_wd21_2_4l_petrol_5_speed_manual_suv_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -461851,17 +462177,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1935,
-    "variants": 1935,
+    "total_variants": 1940,
+    "variants": 1940,
     "verified": 788,
-    "partial": 1147,
+    "partial": 1152,
     "makes_count": 42,
-    "models_count": 539,
-    "processed_seeds": 536,
+    "models_count": 540,
+    "processed_seeds": 537,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-23T01:12:39.145293+00:00"
+    "last_updated_at": "2026-05-23T01:13:38.596415+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
