@@ -581,7 +581,8 @@
       "mitsubishi__outlander__2003__2026__il",
       "mitsubishi__eclipse_cross__2017__2026__il",
       "mitsubishi__pajero__1990__2021__il",
-      "mitsubishi__i-miev__2011__2021__il"
+      "mitsubishi__i-miev__2011__2021__il",
+      "mitsubishi__pajero_sport__2000__2020__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1034,8 +1035,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "mitsubishi__pajero__1990__2021__il",
-    "next_seed_id": "mitsubishi__pajero_sport__2000__2020__il",
+    "last_completed_seed_id": "mitsubishi__pajero_sport__2000__2020__il",
+    "next_seed_id": "mitsubishi__l200__1990__2026__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2959,6 +2960,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T01:45:05.821178+00:00"
+      },
+      "mitsubishi__pajero_sport__2000__2020__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 4,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T01:48:00.834138+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -252916,6 +252925,263 @@
         "trim": []
       },
       "variant_id": "mitsubishi_i_miev_2011_2015_il_confirmed_1st_gen_ha3w_47_kw_64_hp_y4f1_synchronous_electric_motor_single_speed_ev_hatchback_electric"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Mitsubishi",
+      "model": "Pajero Sport",
+      "global_model_name": "Pajero Sport",
+      "official_marketed_name_il": "Pajero Sport",
+      "local_brand_name_il": "Mitsubishi",
+      "alternate_names": [
+        "Challenger",
+        "Montero Sport",
+        "Nativa"
+      ],
+      "rebadged_as": null,
+      "year_start": 2000,
+      "year_end": 2008,
+      "generation": "1st Gen (PA)",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "2.5L Turbo Diesel, 115 hp",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Diesel",
+      "drivetrain": "4WD",
+      "trim": "GLS",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli databases (KML, Yad2) confirm the 1st Generation Pajero Sport was officially sold in Israel with the 2.5L Turbo Diesel until approximately 2008.",
+      "source_ids": [
+        "kml_il_pajero_sport_gen1",
+        "yad2_il_pajero_sport_archive",
+        "global_mitsubishi_archive_pajero_sport"
+      ],
+      "field_sources": {
+        "body_type": [
+          "kml_il_pajero_sport_gen1",
+          "global_mitsubishi_archive_pajero_sport"
+        ],
+        "seats": [
+          "global_mitsubishi_archive_pajero_sport"
+        ],
+        "engine": [
+          "kml_il_pajero_sport_gen1"
+        ],
+        "transmission": [
+          "kml_il_pajero_sport_gen1",
+          "yad2_il_pajero_sport_archive"
+        ],
+        "fuel_type": [
+          "kml_il_pajero_sport_gen1"
+        ],
+        "drivetrain": [
+          "kml_il_pajero_sport_gen1"
+        ],
+        "generation": [
+          "global_mitsubishi_archive_pajero_sport"
+        ],
+        "year_start": [
+          "kml_il_pajero_sport_gen1"
+        ],
+        "year_end": [
+          "kml_il_pajero_sport_gen1"
+        ],
+        "trim": [
+          "kml_il_pajero_sport_gen1"
+        ]
+      },
+      "variant_id": "mitsubishi_pajero_sport_2000_2008_il_confirmed_1st_gen_pa_2_5l_turbo_diesel_115_hp_4_speed_automatic_suv_diesel"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Mitsubishi",
+      "model": "Pajero Sport",
+      "global_model_name": "Pajero Sport",
+      "official_marketed_name_il": "Pajero Sport",
+      "local_brand_name_il": "Mitsubishi",
+      "alternate_names": [
+        "Challenger",
+        "Montero Sport",
+        "Nativa"
+      ],
+      "rebadged_as": null,
+      "year_start": 2000,
+      "year_end": 2006,
+      "generation": "1st Gen (PA)",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "3.0L V6 Petrol, 170 hp",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "4WD",
+      "trim": "GLS",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "KML and Yad2 Israeli listings confirm the 3.0L V6 Petrol engine variant was officially available in Israel during the 1st generation.",
+      "source_ids": [
+        "kml_il_pajero_sport_gen1",
+        "yad2_il_pajero_sport_archive",
+        "global_mitsubishi_archive_pajero_sport"
+      ],
+      "field_sources": {
+        "body_type": [
+          "kml_il_pajero_sport_gen1"
+        ],
+        "seats": [
+          "global_mitsubishi_archive_pajero_sport"
+        ],
+        "engine": [
+          "kml_il_pajero_sport_gen1",
+          "global_mitsubishi_archive_pajero_sport"
+        ],
+        "transmission": [
+          "kml_il_pajero_sport_gen1"
+        ],
+        "fuel_type": [
+          "kml_il_pajero_sport_gen1"
+        ],
+        "drivetrain": [
+          "kml_il_pajero_sport_gen1"
+        ],
+        "generation": [
+          "global_mitsubishi_archive_pajero_sport"
+        ],
+        "year_start": [
+          "kml_il_pajero_sport_gen1"
+        ],
+        "year_end": [
+          "kml_il_pajero_sport_gen1"
+        ],
+        "trim": [
+          "kml_il_pajero_sport_gen1"
+        ]
+      },
+      "variant_id": "mitsubishi_pajero_sport_2000_2006_il_confirmed_1st_gen_pa_3_0l_v6_petrol_170_hp_4_speed_automatic_suv_petrol"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Mitsubishi",
+      "model": "Pajero Sport",
+      "global_model_name": "Pajero Sport",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Challenger",
+        "Pajero Dakar"
+      ],
+      "rebadged_as": null,
+      "year_start": 2008,
+      "year_end": 2015,
+      "generation": "2nd Gen (PB/PC)",
+      "body_type": "SUV",
+      "seats": 7,
+      "engine": "2.5L DI-D Turbo Diesel, 178 hp",
+      "transmission": "5-speed automatic",
+      "fuel_type": "Diesel",
+      "drivetrain": "4WD",
+      "trim": null,
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "Official global specs verify the 2nd Generation (PB/PC) Pajero Sport. Official IL-market availability for this generation is not verified, as the local importer primarily focused on the full-size Pajero (V80) and Outlander during these years.",
+      "source_ids": [
+        "global_mitsubishi_archive_pajero_sport"
+      ],
+      "field_sources": {
+        "body_type": [
+          "global_mitsubishi_archive_pajero_sport"
+        ],
+        "seats": [
+          "global_mitsubishi_archive_pajero_sport"
+        ],
+        "engine": [
+          "global_mitsubishi_archive_pajero_sport"
+        ],
+        "transmission": [
+          "global_mitsubishi_archive_pajero_sport"
+        ],
+        "fuel_type": [
+          "global_mitsubishi_archive_pajero_sport"
+        ],
+        "drivetrain": [
+          "global_mitsubishi_archive_pajero_sport"
+        ],
+        "generation": [
+          "global_mitsubishi_archive_pajero_sport"
+        ],
+        "year_start": [
+          "global_mitsubishi_archive_pajero_sport"
+        ],
+        "year_end": [
+          "global_mitsubishi_archive_pajero_sport"
+        ],
+        "trim": []
+      },
+      "variant_id": "mitsubishi_pajero_sport_2008_2015_global_reference_only_2nd_gen_pb_pc_2_5l_di_d_turbo_diesel_178_hp_5_speed_automatic_suv_diesel"
+    },
+    {
+      "candidate_index": 3,
+      "make": "Mitsubishi",
+      "model": "Pajero Sport",
+      "global_model_name": "Pajero Sport",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Montero Sport",
+        "Shogun Sport"
+      ],
+      "rebadged_as": null,
+      "year_start": 2015,
+      "year_end": 2020,
+      "generation": "3rd Gen (QE)",
+      "body_type": "SUV",
+      "seats": 7,
+      "engine": "2.4L MIVEC Turbo Diesel, 181 hp",
+      "transmission": "8-speed automatic",
+      "fuel_type": "Diesel",
+      "drivetrain": "4WD",
+      "trim": null,
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "Official global specs verify the 3rd Generation (QE) Pajero Sport. It was not officially imported into Israel due to internal brand positioning clashes with the standard Pajero and Outlander.",
+      "source_ids": [
+        "global_mitsubishi_archive_pajero_sport"
+      ],
+      "field_sources": {
+        "body_type": [
+          "global_mitsubishi_archive_pajero_sport"
+        ],
+        "seats": [
+          "global_mitsubishi_archive_pajero_sport"
+        ],
+        "engine": [
+          "global_mitsubishi_archive_pajero_sport"
+        ],
+        "transmission": [
+          "global_mitsubishi_archive_pajero_sport"
+        ],
+        "fuel_type": [
+          "global_mitsubishi_archive_pajero_sport"
+        ],
+        "drivetrain": [
+          "global_mitsubishi_archive_pajero_sport"
+        ],
+        "generation": [
+          "global_mitsubishi_archive_pajero_sport"
+        ],
+        "year_start": [
+          "global_mitsubishi_archive_pajero_sport"
+        ],
+        "year_end": [
+          "global_mitsubishi_archive_pajero_sport"
+        ],
+        "trim": []
+      },
+      "variant_id": "mitsubishi_pajero_sport_2015_2020_global_reference_only_3rd_gen_qe_2_4l_mivec_turbo_diesel_181_hp_8_speed_automatic_suv_diesel"
     }
   ],
   "accumulated_clean_export": {
@@ -470926,17 +471192,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 2077,
-    "variants": 2077,
+    "total_variants": 2081,
+    "variants": 2081,
     "verified": 788,
-    "partial": 1289,
+    "partial": 1293,
     "makes_count": 44,
-    "models_count": 574,
-    "processed_seeds": 572,
+    "models_count": 575,
+    "processed_seeds": 573,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-23T01:45:05.827074+00:00"
+    "last_updated_at": "2026-05-23T01:48:00.841682+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
