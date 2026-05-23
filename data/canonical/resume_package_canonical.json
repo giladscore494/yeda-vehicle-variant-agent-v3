@@ -846,7 +846,8 @@
       "renault__rafale__2024__2026__il",
       "renault__koleos__2008__2024__il",
       "renault__scenic__1996__2024__il",
-      "renault__scenic_e-tech__2024__2026__il"
+      "renault__scenic_e-tech__2024__2026__il",
+      "renault__grand_scenic__2004__2022__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1298,8 +1299,8 @@
     "failed_seed_ids": [],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "renault__scenic_e-tech__2024__2026__il",
-    "next_seed_id": "renault__grand_scenic__2004__2022__il",
+    "last_completed_seed_id": "renault__grand_scenic__2004__2022__il",
+    "next_seed_id": "renault__espace__1991__2023__il",
     "run_history": [],
     "failed_details": [],
     "needs_retry_seed_ids": [
@@ -5314,6 +5315,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T21:14:01.248397+00:00"
+      },
+      "renault__grand_scenic__2004__2022__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 5,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T21:14:58.357749+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -318395,6 +318404,318 @@
         "trim": []
       },
       "variant_id": "renault_scenic_e_tech_2024_2026_il_likely_5th_gen_cmf_ev_160_kw_220_hp_electric_motor_87_kwh_battery_single_speed_ev_suv_crossover_electric"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Renault",
+      "model": "Grand Scenic",
+      "global_model_name": "Renault Grand Scénic II",
+      "official_marketed_name_il": "Renault Grand Scenic",
+      "local_brand_name_il": "רנו",
+      "alternate_names": [
+        "גרנד סניק"
+      ],
+      "rebadged_as": null,
+      "year_start": 2004,
+      "year_end": 2009,
+      "generation": "2nd Gen (Phase 1 & 2)",
+      "body_type": "MPV",
+      "seats": 7,
+      "engine": "2.0L Petrol, 135 hp",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "Privilege",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli specifications (iCar) confirm the second-generation Grand Scenic was sold primarily as a 7-seater with a 2.0L petrol engine and a 4-speed DP0 automatic transmission in Israel.",
+      "source_ids": [
+        "icar_il_renault_grand_scenic"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_renault_grand_scenic"
+        ],
+        "seats": [
+          "icar_il_renault_grand_scenic"
+        ],
+        "engine": [
+          "icar_il_renault_grand_scenic"
+        ],
+        "transmission": [
+          "icar_il_renault_grand_scenic"
+        ],
+        "fuel_type": [
+          "icar_il_renault_grand_scenic"
+        ],
+        "drivetrain": [
+          "icar_il_renault_grand_scenic"
+        ],
+        "generation": [
+          "icar_il_renault_grand_scenic"
+        ],
+        "year_start": [
+          "icar_il_renault_grand_scenic"
+        ],
+        "year_end": [
+          "icar_il_renault_grand_scenic"
+        ],
+        "trim": [
+          "icar_il_renault_grand_scenic"
+        ]
+      },
+      "variant_id": "renault_grand_scenic_2004_2009_il_confirmed_2nd_gen_phase_1_2_2_0l_petrol_135_hp_4_speed_automatic_mpv_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Renault",
+      "model": "Grand Scenic",
+      "global_model_name": "Renault Grand Scénic III",
+      "official_marketed_name_il": "Renault Grand Scenic",
+      "local_brand_name_il": "רנו",
+      "alternate_names": [
+        "גרנד סניק 3"
+      ],
+      "rebadged_as": null,
+      "year_start": 2009,
+      "year_end": 2012,
+      "generation": "3rd Gen",
+      "body_type": "MPV",
+      "seats": 7,
+      "engine": "2.0L Petrol, 140 hp",
+      "transmission": "CVT",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "Expression",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli specs confirm the initial phase of the Gen 3 Grand Scenic in Israel utilized a 2.0L Nissan-derived engine paired with a CVT.",
+      "source_ids": [
+        "icar_il_renault_grand_scenic",
+        "cartube_il_grand_scenic_gen3"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_renault_grand_scenic"
+        ],
+        "seats": [
+          "icar_il_renault_grand_scenic"
+        ],
+        "engine": [
+          "icar_il_renault_grand_scenic"
+        ],
+        "transmission": [
+          "icar_il_renault_grand_scenic",
+          "cartube_il_grand_scenic_gen3"
+        ],
+        "fuel_type": [
+          "icar_il_renault_grand_scenic"
+        ],
+        "drivetrain": [
+          "icar_il_renault_grand_scenic"
+        ],
+        "generation": [
+          "icar_il_renault_grand_scenic",
+          "cartube_il_grand_scenic_gen3"
+        ],
+        "year_start": [
+          "icar_il_renault_grand_scenic"
+        ],
+        "year_end": [
+          "cartube_il_grand_scenic_gen3"
+        ],
+        "trim": []
+      },
+      "variant_id": "renault_grand_scenic_2009_2012_il_confirmed_3rd_gen_2_0l_petrol_140_hp_cvt_mpv_petrol"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Renault",
+      "model": "Grand Scenic",
+      "global_model_name": "Renault Grand Scénic III Phase 2",
+      "official_marketed_name_il": "Renault Grand Scenic",
+      "local_brand_name_il": "רנו",
+      "alternate_names": [
+        "גרנד סניק דיזל"
+      ],
+      "rebadged_as": null,
+      "year_start": 2012,
+      "year_end": 2016,
+      "generation": "3rd Gen",
+      "body_type": "MPV",
+      "seats": 7,
+      "engine": "1.5L Turbo Diesel (dCi), 110 hp",
+      "transmission": "6-speed DCT",
+      "fuel_type": "Diesel",
+      "drivetrain": "FWD",
+      "trim": "Privilege",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Cartube.co.il and iCar confirm the highly popular 1.5 dCi variant mated to a 6-speed EDC (DCT) was introduced to the Israeli market in 2012, replacing the 2.0L petrol as the primary seller.",
+      "source_ids": [
+        "icar_il_renault_grand_scenic",
+        "cartube_il_grand_scenic_gen3"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_renault_grand_scenic"
+        ],
+        "seats": [
+          "icar_il_renault_grand_scenic"
+        ],
+        "engine": [
+          "cartube_il_grand_scenic_gen3"
+        ],
+        "transmission": [
+          "cartube_il_grand_scenic_gen3"
+        ],
+        "fuel_type": [
+          "cartube_il_grand_scenic_gen3"
+        ],
+        "drivetrain": [
+          "icar_il_renault_grand_scenic"
+        ],
+        "generation": [
+          "cartube_il_grand_scenic_gen3"
+        ],
+        "year_start": [
+          "cartube_il_grand_scenic_gen3"
+        ],
+        "year_end": [
+          "icar_il_renault_grand_scenic"
+        ],
+        "trim": []
+      },
+      "variant_id": "renault_grand_scenic_2012_2016_il_confirmed_3rd_gen_1_5l_turbo_diesel_dci_110_hp_6_speed_dct_mpv_diesel"
+    },
+    {
+      "candidate_index": 3,
+      "make": "Renault",
+      "model": "Grand Scenic",
+      "global_model_name": "Renault Grand Scénic IV",
+      "official_marketed_name_il": "Renault Grand Scenic",
+      "local_brand_name_il": "רנו",
+      "alternate_names": [
+        "גרנד סניק 4"
+      ],
+      "rebadged_as": null,
+      "year_start": 2017,
+      "year_end": 2019,
+      "generation": "4th Gen",
+      "body_type": "MPV",
+      "seats": 7,
+      "engine": "1.5L Turbo Diesel (dCi), 110 hp",
+      "transmission": "7-speed DCT",
+      "fuel_type": "Diesel",
+      "drivetrain": "FWD",
+      "trim": "Intens",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Gear.co.il and iCar confirm the 4th generation launched in Israel in 2017 with a 1.5 dCi engine paired with an EDC transmission, marketed heavily for its 20-inch standard wheels and 7-seat configuration.",
+      "source_ids": [
+        "icar_il_renault_grand_scenic",
+        "gear_il_grand_scenic_gen4"
+      ],
+      "field_sources": {
+        "body_type": [
+          "gear_il_grand_scenic_gen4"
+        ],
+        "seats": [
+          "gear_il_grand_scenic_gen4"
+        ],
+        "engine": [
+          "gear_il_grand_scenic_gen4"
+        ],
+        "transmission": [
+          "gear_il_grand_scenic_gen4"
+        ],
+        "fuel_type": [
+          "gear_il_grand_scenic_gen4"
+        ],
+        "drivetrain": [
+          "gear_il_grand_scenic_gen4"
+        ],
+        "generation": [
+          "gear_il_grand_scenic_gen4"
+        ],
+        "year_start": [
+          "gear_il_grand_scenic_gen4"
+        ],
+        "year_end": [
+          "icar_il_renault_grand_scenic"
+        ],
+        "trim": [
+          "gear_il_grand_scenic_gen4"
+        ]
+      },
+      "variant_id": "renault_grand_scenic_2017_2019_il_confirmed_4th_gen_1_5l_turbo_diesel_dci_110_hp_7_speed_dct_mpv_diesel"
+    },
+    {
+      "candidate_index": 4,
+      "make": "Renault",
+      "model": "Grand Scenic",
+      "global_model_name": "Renault Grand Scénic IV",
+      "official_marketed_name_il": "Renault Grand Scenic",
+      "local_brand_name_il": "רנו",
+      "alternate_names": [
+        "גרנד סניק 1.3"
+      ],
+      "rebadged_as": null,
+      "year_start": 2019,
+      "year_end": 2022,
+      "generation": "4th Gen",
+      "body_type": "MPV",
+      "seats": 7,
+      "engine": "1.3L Turbo Petrol (TCe), 140 hp",
+      "transmission": "7-speed DCT",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "Executive",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli specifications confirm the transition of the Gen 4 Grand Scenic to the newer 1.33L TCe petrol engine (140hp/160hp, co-developed with Daimler) mated to the 7-speed EDC starting around 2019.",
+      "source_ids": [
+        "icar_il_renault_grand_scenic",
+        "gear_il_grand_scenic_gen4"
+      ],
+      "field_sources": {
+        "body_type": [
+          "gear_il_grand_scenic_gen4"
+        ],
+        "seats": [
+          "gear_il_grand_scenic_gen4"
+        ],
+        "engine": [
+          "icar_il_renault_grand_scenic"
+        ],
+        "transmission": [
+          "icar_il_renault_grand_scenic"
+        ],
+        "fuel_type": [
+          "icar_il_renault_grand_scenic"
+        ],
+        "drivetrain": [
+          "icar_il_renault_grand_scenic"
+        ],
+        "generation": [
+          "gear_il_grand_scenic_gen4"
+        ],
+        "year_start": [
+          "icar_il_renault_grand_scenic"
+        ],
+        "year_end": [
+          "icar_il_renault_grand_scenic"
+        ],
+        "trim": [
+          "icar_il_renault_grand_scenic"
+        ]
+      },
+      "variant_id": "renault_grand_scenic_2019_2022_il_confirmed_4th_gen_1_3l_turbo_petrol_tce_140_hp_7_speed_dct_mpv_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -536405,17 +536726,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 3102,
-    "variants": 3102,
+    "total_variants": 3107,
+    "variants": 3107,
     "verified": 788,
-    "partial": 2314,
+    "partial": 2319,
     "makes_count": 73,
-    "models_count": 837,
-    "processed_seeds": 837,
+    "models_count": 838,
+    "processed_seeds": 838,
     "needs_retry_seeds": 2,
     "total_seeds": 993,
     "unresolved": 0,
-    "last_updated_at": "2026-05-23T21:14:01.256287+00:00"
+    "last_updated_at": "2026-05-23T21:14:58.369680+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
