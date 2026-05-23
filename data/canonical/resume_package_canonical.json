@@ -844,7 +844,8 @@
       "renault__austral__2022__2026__il",
       "renault__symbioz__2024__2026__il",
       "renault__rafale__2024__2026__il",
-      "renault__koleos__2008__2024__il"
+      "renault__koleos__2008__2024__il",
+      "renault__scenic__1996__2024__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1296,8 +1297,8 @@
     "failed_seed_ids": [],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "renault__koleos__2008__2024__il",
-    "next_seed_id": "renault__scenic__1996__2024__il",
+    "last_completed_seed_id": "renault__scenic__1996__2024__il",
+    "next_seed_id": "renault__scenic_e-tech__2024__2026__il",
     "run_history": [],
     "failed_details": [],
     "needs_retry_seed_ids": [
@@ -5296,6 +5297,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T21:12:27.418814+00:00"
+      },
+      "renault__scenic__1996__2024__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 5,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T21:13:25.343087+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -317963,6 +317972,298 @@
         ]
       },
       "variant_id": "renault_koleos_2021_2024_il_confirmed_2nd_gen_hc_1_3l_tce_turbo_petrol_160_hp_7_speed_dct_suv_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Renault",
+      "model": "Scenic",
+      "global_model_name": "Renault Megane Scenic",
+      "official_marketed_name_il": "Renault Scenic",
+      "local_brand_name_il": "רנו",
+      "alternate_names": [
+        "Megane Scenic"
+      ],
+      "rebadged_as": null,
+      "year_start": 1996,
+      "year_end": 2003,
+      "generation": "1st Gen",
+      "body_type": "MPV",
+      "seats": 5,
+      "engine": "1.6L petrol, 107 hp",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Confirmed in IL market by iCar historical data. Initially carried the Megane prefix before becoming a standalone nameplate. Primarily sold with 1.6L and 2.0L petrol engines paired to a 4-speed automatic.",
+      "source_ids": [
+        "icar_il_renault_scenic_gen1_2"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_renault_scenic_gen1_2"
+        ],
+        "seats": [
+          "icar_il_renault_scenic_gen1_2"
+        ],
+        "engine": [
+          "icar_il_renault_scenic_gen1_2"
+        ],
+        "transmission": [
+          "icar_il_renault_scenic_gen1_2"
+        ],
+        "fuel_type": [
+          "icar_il_renault_scenic_gen1_2"
+        ],
+        "drivetrain": [
+          "icar_il_renault_scenic_gen1_2"
+        ],
+        "generation": [
+          "icar_il_renault_scenic_gen1_2"
+        ],
+        "year_start": [
+          "icar_il_renault_scenic_gen1_2"
+        ],
+        "year_end": [
+          "icar_il_renault_scenic_gen1_2"
+        ],
+        "trim": []
+      },
+      "variant_id": "renault_scenic_1996_2003_il_confirmed_1st_gen_1_6l_petrol_107_hp_4_speed_automatic_mpv_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Renault",
+      "model": "Scenic",
+      "global_model_name": "Renault Scenic",
+      "official_marketed_name_il": "Renault Scenic",
+      "local_brand_name_il": "רנו",
+      "alternate_names": [
+        "Renault Grand Scenic"
+      ],
+      "rebadged_as": null,
+      "year_start": 2003,
+      "year_end": 2009,
+      "generation": "2nd Gen",
+      "body_type": "MPV",
+      "seats": 5,
+      "engine": "2.0L petrol, 136 hp",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "iCar specs confirm the 2nd generation was sold in IL in both 5-seat (Scenic) and 7-seat (Grand Scenic) configurations. The 2.0L petrol with a 4-speed automatic was a standard high-trim powertrain.",
+      "source_ids": [
+        "icar_il_renault_scenic_gen1_2"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_renault_scenic_gen1_2"
+        ],
+        "seats": [
+          "icar_il_renault_scenic_gen1_2"
+        ],
+        "engine": [
+          "icar_il_renault_scenic_gen1_2"
+        ],
+        "transmission": [
+          "icar_il_renault_scenic_gen1_2"
+        ],
+        "fuel_type": [
+          "icar_il_renault_scenic_gen1_2"
+        ],
+        "drivetrain": [
+          "icar_il_renault_scenic_gen1_2"
+        ],
+        "generation": [
+          "icar_il_renault_scenic_gen1_2"
+        ],
+        "year_start": [
+          "icar_il_renault_scenic_gen1_2"
+        ],
+        "year_end": [
+          "icar_il_renault_scenic_gen1_2"
+        ],
+        "trim": []
+      },
+      "variant_id": "renault_scenic_2003_2009_il_confirmed_2nd_gen_2_0l_petrol_136_hp_4_speed_automatic_mpv_petrol"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Renault",
+      "model": "Scenic",
+      "global_model_name": "Renault Grand Scenic",
+      "official_marketed_name_il": "Renault Grand Scenic",
+      "local_brand_name_il": "רנו",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2009,
+      "year_end": 2016,
+      "generation": "3rd Gen",
+      "body_type": "MPV",
+      "seats": 7,
+      "engine": "1.5L dCi turbodiesel, 110 hp",
+      "transmission": "6-speed EDC",
+      "fuel_type": "Diesel",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Cartube coverage of the 3rd gen highlights the massive popularity of the Grand Scenic (7-seater) equipped with the 1.5L dCi diesel and EDC transmission in the Israeli fleet market.",
+      "source_ids": [
+        "cartube_il_grand_scenic_diesel"
+      ],
+      "field_sources": {
+        "body_type": [
+          "cartube_il_grand_scenic_diesel"
+        ],
+        "seats": [
+          "cartube_il_grand_scenic_diesel"
+        ],
+        "engine": [
+          "cartube_il_grand_scenic_diesel"
+        ],
+        "transmission": [
+          "cartube_il_grand_scenic_diesel"
+        ],
+        "fuel_type": [
+          "cartube_il_grand_scenic_diesel"
+        ],
+        "drivetrain": [
+          "cartube_il_grand_scenic_diesel"
+        ],
+        "generation": [
+          "cartube_il_grand_scenic_diesel"
+        ],
+        "year_start": [
+          "cartube_il_grand_scenic_diesel"
+        ],
+        "year_end": [
+          "cartube_il_grand_scenic_diesel"
+        ],
+        "trim": []
+      },
+      "variant_id": "renault_scenic_2009_2016_il_confirmed_3rd_gen_1_5l_dci_turbodiesel_110_hp_6_speed_edc_mpv_diesel"
+    },
+    {
+      "candidate_index": 3,
+      "make": "Renault",
+      "model": "Scenic",
+      "global_model_name": "Renault Grand Scenic",
+      "official_marketed_name_il": "Renault Grand Scenic",
+      "local_brand_name_il": "רנו",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2016,
+      "year_end": 2022,
+      "generation": "4th Gen",
+      "body_type": "MPV",
+      "seats": 7,
+      "engine": "1.3L TCe turbo petrol, 140 hp",
+      "transmission": "7-speed EDC",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "Intens",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Cartube explicitly detailed the IL launch of the 4th Gen Grand Scenic featuring the 1.3L TCe engine and 7-speed EDC in trim levels like Intens and Executive.",
+      "source_ids": [
+        "cartube_il_grand_scenic_gen4_tce"
+      ],
+      "field_sources": {
+        "body_type": [
+          "cartube_il_grand_scenic_gen4_tce"
+        ],
+        "seats": [
+          "cartube_il_grand_scenic_gen4_tce"
+        ],
+        "engine": [
+          "cartube_il_grand_scenic_gen4_tce"
+        ],
+        "transmission": [
+          "cartube_il_grand_scenic_gen4_tce"
+        ],
+        "fuel_type": [
+          "cartube_il_grand_scenic_gen4_tce"
+        ],
+        "drivetrain": [
+          "cartube_il_grand_scenic_gen4_tce"
+        ],
+        "generation": [
+          "cartube_il_grand_scenic_gen4_tce"
+        ],
+        "year_start": [
+          "cartube_il_grand_scenic_gen4_tce"
+        ],
+        "year_end": [
+          "cartube_il_grand_scenic_gen4_tce"
+        ],
+        "trim": [
+          "cartube_il_grand_scenic_gen4_tce"
+        ]
+      },
+      "variant_id": "renault_scenic_2016_2022_il_confirmed_4th_gen_1_3l_tce_turbo_petrol_140_hp_7_speed_edc_mpv_petrol"
+    },
+    {
+      "candidate_index": 4,
+      "make": "Renault",
+      "model": "Scenic",
+      "global_model_name": "Renault Scenic E-Tech",
+      "official_marketed_name_il": "Renault Scenic E-Tech",
+      "local_brand_name_il": "רנו",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2024,
+      "year_end": 2024,
+      "generation": "5th Gen",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "160 kW electric motor, 220 hp",
+      "transmission": "single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-likely",
+      "market_name_confidence": "likely",
+      "confidence_level": "medium",
+      "source_basis": "Auto.co.il reported on the global unveiling of the 5th generation fully electric SUV iteration (Scenic E-Tech), slated for Israeli market launch around 2024. Marked IL-likely as full local specs and trims were pending final delivery.",
+      "source_ids": [
+        "auto_il_scenic_etech"
+      ],
+      "field_sources": {
+        "body_type": [
+          "auto_il_scenic_etech"
+        ],
+        "seats": [],
+        "engine": [
+          "auto_il_scenic_etech"
+        ],
+        "transmission": [
+          "auto_il_scenic_etech"
+        ],
+        "fuel_type": [
+          "auto_il_scenic_etech"
+        ],
+        "drivetrain": [
+          "auto_il_scenic_etech"
+        ],
+        "generation": [
+          "auto_il_scenic_etech"
+        ],
+        "year_start": [
+          "auto_il_scenic_etech"
+        ],
+        "year_end": [],
+        "trim": []
+      },
+      "variant_id": "renault_scenic_2024_2024_il_likely_5th_gen_160_kw_electric_motor_220_hp_single_speed_ev_suv_electric"
     }
   ],
   "accumulated_clean_export": {
@@ -535973,17 +536274,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 3095,
-    "variants": 3095,
+    "total_variants": 3100,
+    "variants": 3100,
     "verified": 788,
-    "partial": 2307,
+    "partial": 2312,
     "makes_count": 73,
-    "models_count": 835,
-    "processed_seeds": 835,
+    "models_count": 836,
+    "processed_seeds": 836,
     "needs_retry_seeds": 2,
     "total_seeds": 993,
     "unresolved": 0,
-    "last_updated_at": "2026-05-23T21:12:27.430011+00:00"
+    "last_updated_at": "2026-05-23T21:13:25.354150+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
