@@ -537,7 +537,8 @@
       "nissan__maxima__1995__2008__il",
       "nissan__sentra__2013__2026__il",
       "nissan__navara__1998__2026__il",
-      "nissan__ariya__2022__2026__il"
+      "nissan__ariya__2022__2026__il",
+      "nissan__pathfinder__1998__2020__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -990,8 +991,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "nissan__ariya__2022__2026__il",
-    "next_seed_id": "nissan__pathfinder__1998__2020__il",
+    "last_completed_seed_id": "nissan__pathfinder__1998__2020__il",
+    "next_seed_id": "nissan__murano__2005__2020__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2563,6 +2564,14 @@
         "merged_count": 1,
         "warnings": [],
         "resolved_at": "2026-05-23T01:05:53.930249+00:00"
+      },
+      "nissan__pathfinder__1998__2020__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 4,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T01:06:48.920490+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -242264,6 +242273,238 @@
         ]
       },
       "variant_id": "nissan_ariya_2023_2026_il_confirmed_1st_gen_fe0_87_kwh_electric_306_hp_single_speed_ev_suv_electric"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Nissan",
+      "model": "Pathfinder",
+      "global_model_name": "Nissan Pathfinder",
+      "official_marketed_name_il": "Nissan Pathfinder",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2001,
+      "year_end": 2004,
+      "generation": "R50",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "3.5L VQ35DE V6",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "4WD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "medium",
+      "source_basis": "IL market historical specs confirm the R50 generation was sold in Israel, primarily updated to the 3.5L V6 engine for the later years of its lifecycle.",
+      "source_ids": [
+        "auto_il_nissan_pathfinder_r50"
+      ],
+      "field_sources": {
+        "body_type": [
+          "auto_il_nissan_pathfinder_r50"
+        ],
+        "seats": [],
+        "engine": [
+          "auto_il_nissan_pathfinder_r50"
+        ],
+        "transmission": [
+          "auto_il_nissan_pathfinder_r50"
+        ],
+        "fuel_type": [
+          "auto_il_nissan_pathfinder_r50"
+        ],
+        "drivetrain": [
+          "auto_il_nissan_pathfinder_r50"
+        ],
+        "generation": [
+          "auto_il_nissan_pathfinder_r50"
+        ],
+        "year_start": [
+          "auto_il_nissan_pathfinder_r50"
+        ],
+        "year_end": [
+          "auto_il_nissan_pathfinder_r50"
+        ],
+        "trim": []
+      },
+      "variant_id": "nissan_pathfinder_2001_2004_il_confirmed_r50_3_5l_vq35de_v6_4_speed_automatic_suv_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Nissan",
+      "model": "Pathfinder",
+      "global_model_name": "Nissan Pathfinder",
+      "official_marketed_name_il": "Nissan Pathfinder",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2005,
+      "year_end": 2014,
+      "generation": "R51",
+      "body_type": "SUV",
+      "seats": 7,
+      "engine": "2.5L YD25DDTi dCi",
+      "transmission": "5-speed automatic",
+      "fuel_type": "Diesel",
+      "drivetrain": "4WD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "iCar Israel confirms the 2005-2014 R51 generation was heavily marketed as a 7-seat 4WD SUV with the 2.5L turbodiesel engine.",
+      "source_ids": [
+        "icar_il_nissan_pathfinder_r51"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_nissan_pathfinder_r51"
+        ],
+        "seats": [
+          "icar_il_nissan_pathfinder_r51"
+        ],
+        "engine": [
+          "icar_il_nissan_pathfinder_r51"
+        ],
+        "transmission": [
+          "icar_il_nissan_pathfinder_r51"
+        ],
+        "fuel_type": [
+          "icar_il_nissan_pathfinder_r51"
+        ],
+        "drivetrain": [
+          "icar_il_nissan_pathfinder_r51"
+        ],
+        "generation": [
+          "icar_il_nissan_pathfinder_r51"
+        ],
+        "year_start": [
+          "icar_il_nissan_pathfinder_r51"
+        ],
+        "year_end": [
+          "icar_il_nissan_pathfinder_r51"
+        ],
+        "trim": []
+      },
+      "variant_id": "nissan_pathfinder_2005_2014_il_confirmed_r51_2_5l_yd25ddti_dci_5_speed_automatic_suv_diesel"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Nissan",
+      "model": "Pathfinder",
+      "global_model_name": "Nissan Pathfinder",
+      "official_marketed_name_il": "Nissan Pathfinder",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2010,
+      "year_end": 2014,
+      "generation": "R51",
+      "body_type": "SUV",
+      "seats": 7,
+      "engine": "3.0L V9X dCi V6",
+      "transmission": "7-speed automatic",
+      "fuel_type": "Diesel",
+      "drivetrain": "4WD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Auto.co.il and iCar confirm the introduction of the 3.0L V6 diesel engine to the Israeli market during the R51's facelift lifecycle.",
+      "source_ids": [
+        "icar_il_nissan_pathfinder_r51",
+        "auto_il_nissan_pathfinder_r51_30dci"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_nissan_pathfinder_r51"
+        ],
+        "seats": [
+          "icar_il_nissan_pathfinder_r51"
+        ],
+        "engine": [
+          "auto_il_nissan_pathfinder_r51_30dci",
+          "icar_il_nissan_pathfinder_r51"
+        ],
+        "transmission": [
+          "auto_il_nissan_pathfinder_r51_30dci"
+        ],
+        "fuel_type": [
+          "auto_il_nissan_pathfinder_r51_30dci"
+        ],
+        "drivetrain": [
+          "icar_il_nissan_pathfinder_r51"
+        ],
+        "generation": [
+          "icar_il_nissan_pathfinder_r51"
+        ],
+        "year_start": [
+          "auto_il_nissan_pathfinder_r51_30dci"
+        ],
+        "year_end": [
+          "icar_il_nissan_pathfinder_r51"
+        ],
+        "trim": []
+      },
+      "variant_id": "nissan_pathfinder_2010_2014_il_confirmed_r51_3_0l_v9x_dci_v6_7_speed_automatic_suv_diesel"
+    },
+    {
+      "candidate_index": 3,
+      "make": "Nissan",
+      "model": "Pathfinder",
+      "global_model_name": "Nissan Pathfinder",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2013,
+      "year_end": 2020,
+      "generation": "R52",
+      "body_type": "SUV",
+      "seats": 7,
+      "engine": "3.5L VQ35DE V6",
+      "transmission": "CVT",
+      "fuel_type": "Petrol",
+      "drivetrain": "AWD",
+      "trim": null,
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "Global documentation confirms R52 specifications; however, official Israeli import effectively ceased after the R51, being indirectly substituted by other Nissan unibody SUVs. IL marketed name not officially confirmed.",
+      "source_ids": [
+        "nissan_global_pathfinder_r52"
+      ],
+      "field_sources": {
+        "body_type": [
+          "nissan_global_pathfinder_r52"
+        ],
+        "seats": [
+          "nissan_global_pathfinder_r52"
+        ],
+        "engine": [
+          "nissan_global_pathfinder_r52"
+        ],
+        "transmission": [
+          "nissan_global_pathfinder_r52"
+        ],
+        "fuel_type": [
+          "nissan_global_pathfinder_r52"
+        ],
+        "drivetrain": [
+          "nissan_global_pathfinder_r52"
+        ],
+        "generation": [
+          "nissan_global_pathfinder_r52"
+        ],
+        "year_start": [
+          "nissan_global_pathfinder_r52"
+        ],
+        "year_end": [
+          "nissan_global_pathfinder_r52"
+        ],
+        "trim": []
+      },
+      "variant_id": "nissan_pathfinder_2013_2020_global_reference_only_r52_3_5l_vq35de_v6_cvt_suv_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -460274,17 +460515,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1910,
-    "variants": 1910,
+    "total_variants": 1914,
+    "variants": 1914,
     "verified": 788,
-    "partial": 1122,
+    "partial": 1126,
     "makes_count": 42,
-    "models_count": 531,
-    "processed_seeds": 528,
+    "models_count": 532,
+    "processed_seeds": 529,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-23T01:05:53.935554+00:00"
+    "last_updated_at": "2026-05-23T01:06:48.925118+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
