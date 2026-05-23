@@ -542,7 +542,8 @@
       "nissan__murano__2005__2020__il",
       "nissan__patrol__1992__2020__il",
       "nissan__gt-r__2009__2024__il",
-      "nissan__370z__2009__2020__il"
+      "nissan__370z__2009__2020__il",
+      "nissan__kicks__2020__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -995,8 +996,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "nissan__370z__2009__2020__il",
-    "next_seed_id": "nissan__kicks__2020__2026__il",
+    "last_completed_seed_id": "nissan__kicks__2020__2026__il",
+    "next_seed_id": "nissan__nv200__2010__2022__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2608,6 +2609,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T01:09:45.756200+00:00"
+      },
+      "nissan__kicks__2020__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 3,
+        "merged_count": 1,
+        "warnings": [],
+        "resolved_at": "2026-05-23T01:10:37.841507+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -243261,6 +243270,184 @@
         ]
       },
       "variant_id": "nissan_370z_2009_2020_global_reference_only_z34_3_7l_v6_nismo_344_350_hp_6_speed_manual_coupe_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Nissan",
+      "model": "Kicks",
+      "global_model_name": "Nissan Kicks (P15)",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2020,
+      "year_end": 2024,
+      "generation": "1st Gen (P15)",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "1.6L I4 Petrol (122 hp)",
+      "transmission": "CVT",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "Global references for North/South American markets. Nissan Israel markets the Juke in this segment; Kicks is not officially sold in Israel. Provided as global reference.",
+      "source_ids": [
+        "nissan_global_kicks_p15_specs",
+        "il_market_nissan_analysis"
+      ],
+      "field_sources": {
+        "body_type": [
+          "nissan_global_kicks_p15_specs"
+        ],
+        "seats": [
+          "nissan_global_kicks_p15_specs"
+        ],
+        "engine": [
+          "nissan_global_kicks_p15_specs"
+        ],
+        "transmission": [
+          "nissan_global_kicks_p15_specs"
+        ],
+        "fuel_type": [
+          "nissan_global_kicks_p15_specs"
+        ],
+        "drivetrain": [
+          "nissan_global_kicks_p15_specs"
+        ],
+        "generation": [
+          "nissan_global_kicks_p15_specs"
+        ],
+        "year_start": [
+          "nissan_global_kicks_p15_specs"
+        ],
+        "year_end": [
+          "nissan_global_kicks_p15_specs"
+        ],
+        "trim": []
+      },
+      "variant_id": "nissan_kicks_2020_2024_global_reference_only_1st_gen_p15_1_6l_i4_petrol_122_hp_cvt_suv_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Nissan",
+      "model": "Kicks",
+      "global_model_name": "Nissan Kicks e-Power (P15)",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2020,
+      "year_end": 2024,
+      "generation": "1st Gen (P15)",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "1.2L I3 e-Power",
+      "transmission": "e-CVT",
+      "fuel_type": "Hybrid",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "Global specs for e-Power variant sold in Asia/LatAm. Israeli market relies on Juke Hybrid (E-Tech) instead.",
+      "source_ids": [
+        "nissan_global_kicks_epower_specs",
+        "il_market_nissan_analysis"
+      ],
+      "field_sources": {
+        "body_type": [
+          "nissan_global_kicks_epower_specs"
+        ],
+        "seats": [
+          "nissan_global_kicks_epower_specs"
+        ],
+        "engine": [
+          "nissan_global_kicks_epower_specs"
+        ],
+        "transmission": [
+          "nissan_global_kicks_epower_specs"
+        ],
+        "fuel_type": [
+          "nissan_global_kicks_epower_specs"
+        ],
+        "drivetrain": [
+          "nissan_global_kicks_epower_specs"
+        ],
+        "generation": [
+          "nissan_global_kicks_epower_specs"
+        ],
+        "year_start": [
+          "nissan_global_kicks_epower_specs"
+        ],
+        "year_end": [
+          "nissan_global_kicks_epower_specs"
+        ],
+        "trim": []
+      },
+      "variant_id": "nissan_kicks_2020_2024_global_reference_only_1st_gen_p15_1_2l_i3_e_power_e_cvt_suv_hybrid"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Nissan",
+      "model": "Kicks",
+      "global_model_name": "Nissan Kicks (P16)",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2025,
+      "year_end": 2026,
+      "generation": "2nd Gen (P16)",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "2.0L I4 Petrol (141 hp)",
+      "transmission": "CVT",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "All-new second generation introduced for the 2025 model year in North America. Base FWD variant. Not confirmed for Israel.",
+      "source_ids": [
+        "nissan_global_kicks_p16_specs",
+        "il_market_nissan_analysis"
+      ],
+      "field_sources": {
+        "body_type": [
+          "nissan_global_kicks_p16_specs"
+        ],
+        "seats": [
+          "nissan_global_kicks_p16_specs"
+        ],
+        "engine": [
+          "nissan_global_kicks_p16_specs"
+        ],
+        "transmission": [
+          "nissan_global_kicks_p16_specs"
+        ],
+        "fuel_type": [
+          "nissan_global_kicks_p16_specs"
+        ],
+        "drivetrain": [
+          "nissan_global_kicks_p16_specs"
+        ],
+        "generation": [
+          "nissan_global_kicks_p16_specs"
+        ],
+        "year_start": [
+          "nissan_global_kicks_p16_specs"
+        ],
+        "year_end": [
+          "nissan_global_kicks_p16_specs"
+        ],
+        "trim": []
+      },
+      "variant_id": "nissan_kicks_2025_2026_global_reference_only_2nd_gen_p16_2_0l_i4_petrol_141_hp_cvt_suv_petrol",
+      "updated_at": "2026-05-23T01:10:37.842659+00:00"
     }
   ],
   "accumulated_clean_export": {
@@ -461271,17 +461458,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1926,
-    "variants": 1926,
+    "total_variants": 1929,
+    "variants": 1929,
     "verified": 788,
-    "partial": 1138,
+    "partial": 1141,
     "makes_count": 42,
-    "models_count": 536,
-    "processed_seeds": 533,
+    "models_count": 537,
+    "processed_seeds": 534,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-23T01:09:45.764105+00:00"
+    "last_updated_at": "2026-05-23T01:10:37.846669+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
