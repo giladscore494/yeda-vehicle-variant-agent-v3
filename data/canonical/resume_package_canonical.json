@@ -599,7 +599,8 @@
       "suzuki__ignis__2016__2026__il",
       "suzuki__vitara__1990__2026__il",
       "suzuki__grand_vitara__1998__2015__il",
-      "suzuki__grand_vitara__2022__2026__il"
+      "suzuki__grand_vitara__2022__2026__il",
+      "suzuki__sx4__2006__2014__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1052,8 +1053,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "suzuki__grand_vitara__2022__2026__il",
-    "next_seed_id": "suzuki__sx4__2006__2014__il",
+    "last_completed_seed_id": "suzuki__sx4__2006__2014__il",
+    "next_seed_id": "suzuki__s-cross__2013__2026__il",
     "run_history": [],
     "failed_details": [
       {
@@ -3121,6 +3122,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T02:14:51.682841+00:00"
+      },
+      "suzuki__sx4__2006__2014__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 3,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T02:15:38.945042+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -257378,6 +257387,209 @@
         "trim": []
       },
       "variant_id": "suzuki_grand_vitara_2022_2026_global_reference_only_global_c_platform_1_5l_m15d_fxe_strong_hybrid_116_hp_e_cvt_suv_hybrid"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Suzuki",
+      "model": "SX4",
+      "global_model_name": "Suzuki SX4",
+      "official_marketed_name_il": "Suzuki SX4",
+      "local_brand_name_il": "Suzuki",
+      "alternate_names": [
+        "Suzuki SX4 Hatchback"
+      ],
+      "rebadged_as": "Fiat Sedici",
+      "year_start": 2007,
+      "year_end": 2014,
+      "generation": "1st Gen (GY/EY/RW)",
+      "body_type": "Hatchback",
+      "seats": 5,
+      "engine": "1.6L VVT petrol",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "GLX",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "IL market catalogs (iCar, Yad2) confirm the 5-door hatchback was sold in Israel starting circa 2007 with a 1.6L petrol engine (initially 107 hp, upgraded to ~120 hp post-facelift) and 4-speed automatic. Marketed explicitly as 'Suzuki SX4'.",
+      "source_ids": [
+        "icar_il_catalog_sx4",
+        "yad2_il_pricelist_sx4",
+        "cartube_il_review_sx4"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_catalog_sx4",
+          "yad2_il_pricelist_sx4"
+        ],
+        "seats": [
+          "icar_il_catalog_sx4"
+        ],
+        "engine": [
+          "icar_il_catalog_sx4",
+          "cartube_il_review_sx4"
+        ],
+        "transmission": [
+          "icar_il_catalog_sx4",
+          "yad2_il_pricelist_sx4"
+        ],
+        "fuel_type": [
+          "icar_il_catalog_sx4"
+        ],
+        "drivetrain": [
+          "icar_il_catalog_sx4"
+        ],
+        "generation": [
+          "yad2_il_pricelist_sx4",
+          "cartube_il_review_sx4"
+        ],
+        "year_start": [
+          "icar_il_catalog_sx4",
+          "yad2_il_pricelist_sx4"
+        ],
+        "year_end": [
+          "icar_il_catalog_sx4",
+          "yad2_il_pricelist_sx4"
+        ],
+        "trim": [
+          "icar_il_catalog_sx4",
+          "yad2_il_pricelist_sx4"
+        ]
+      },
+      "variant_id": "suzuki_sx4_2007_2014_il_confirmed_1st_gen_gy_ey_rw_1_6l_vvt_petrol_4_speed_automatic_hatchback_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Suzuki",
+      "model": "SX4",
+      "global_model_name": "Suzuki SX4",
+      "official_marketed_name_il": "Suzuki SX4",
+      "local_brand_name_il": "Suzuki",
+      "alternate_names": [
+        "Suzuki SX4 Sedan"
+      ],
+      "rebadged_as": null,
+      "year_start": 2008,
+      "year_end": 2014,
+      "generation": "1st Gen (GY/EY/RW)",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "1.6L VVT petrol",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "GLX",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Introduced in Israel around 2008, the 4-door sedan variant was highly popular as a family car. It shared the 1.6L powertrain and FWD layout with the hatchback. Confirmed via iCar and Yad2.",
+      "source_ids": [
+        "icar_il_catalog_sx4",
+        "yad2_il_pricelist_sx4"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_catalog_sx4",
+          "yad2_il_pricelist_sx4"
+        ],
+        "seats": [
+          "icar_il_catalog_sx4"
+        ],
+        "engine": [
+          "icar_il_catalog_sx4"
+        ],
+        "transmission": [
+          "icar_il_catalog_sx4",
+          "yad2_il_pricelist_sx4"
+        ],
+        "fuel_type": [
+          "icar_il_catalog_sx4"
+        ],
+        "drivetrain": [
+          "icar_il_catalog_sx4"
+        ],
+        "generation": [
+          "yad2_il_pricelist_sx4"
+        ],
+        "year_start": [
+          "icar_il_catalog_sx4",
+          "yad2_il_pricelist_sx4"
+        ],
+        "year_end": [
+          "icar_il_catalog_sx4",
+          "yad2_il_pricelist_sx4"
+        ],
+        "trim": [
+          "icar_il_catalog_sx4"
+        ]
+      },
+      "variant_id": "suzuki_sx4_2008_2014_il_confirmed_1st_gen_gy_ey_rw_1_6l_vvt_petrol_4_speed_automatic_sedan_petrol"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Suzuki",
+      "model": "SX4",
+      "global_model_name": "Suzuki SX4",
+      "official_marketed_name_il": "Suzuki SX4",
+      "local_brand_name_il": "Suzuki",
+      "alternate_names": [
+        "Suzuki SX4 Hatchback"
+      ],
+      "rebadged_as": null,
+      "year_start": 2007,
+      "year_end": 2014,
+      "generation": "1st Gen (GY/EY/RW)",
+      "body_type": "Hatchback",
+      "seats": 5,
+      "engine": "1.6L VVT petrol",
+      "transmission": "5-speed manual",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "GLA",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "medium",
+      "source_basis": "Manual transmission models were offered in Israel alongside the automatic, typically in the base GLA trim. Sourced from Yad2 historical listings and spec archives.",
+      "source_ids": [
+        "icar_il_catalog_sx4",
+        "yad2_il_pricelist_sx4"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_catalog_sx4",
+          "yad2_il_pricelist_sx4"
+        ],
+        "seats": [
+          "icar_il_catalog_sx4"
+        ],
+        "engine": [
+          "icar_il_catalog_sx4"
+        ],
+        "transmission": [
+          "icar_il_catalog_sx4",
+          "yad2_il_pricelist_sx4"
+        ],
+        "fuel_type": [
+          "icar_il_catalog_sx4"
+        ],
+        "drivetrain": [
+          "icar_il_catalog_sx4"
+        ],
+        "generation": [
+          "yad2_il_pricelist_sx4"
+        ],
+        "year_start": [
+          "yad2_il_pricelist_sx4"
+        ],
+        "year_end": [
+          "yad2_il_pricelist_sx4"
+        ],
+        "trim": [
+          "yad2_il_pricelist_sx4"
+        ]
+      },
+      "variant_id": "suzuki_sx4_2007_2014_il_confirmed_1st_gen_gy_ey_rw_1_6l_vvt_petrol_5_speed_manual_hatchback_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -475388,17 +475600,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 2146,
-    "variants": 2146,
+    "total_variants": 2149,
+    "variants": 2149,
     "verified": 788,
-    "partial": 1358,
+    "partial": 1361,
     "makes_count": 45,
-    "models_count": 589,
-    "processed_seeds": 590,
+    "models_count": 590,
+    "processed_seeds": 591,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-23T02:14:51.691070+00:00"
+    "last_updated_at": "2026-05-23T02:15:38.949928+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
