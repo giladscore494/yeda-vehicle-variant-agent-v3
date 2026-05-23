@@ -24,6 +24,7 @@ from engine.state import (
 )
 from engine.audit import audit_canonical
 from engine.batch import run_batch
+from engine.retry_failed import retry_failed_seed as _retry_failed_seed
 
 st.set_page_config(page_title="Yeda v3", layout="wide")
 st.title("🚗 Yeda Vehicle Variant Agent v3")
@@ -188,14 +189,13 @@ with tab_manual:
             if st.button("🔍 Dry-run failed seed"):
                 from engine.run_seed import run_seed
                 from engine.decision import decide_seed_result
-                from engine.retry_failed import retry_failed_seed as _retry_fn
 
                 seed = find_seed_by_id(seeds, selected_failed)
                 if seed:
                     with st.spinner("Running dry-run retry..."):
                         seed_result = run_seed(seed, selected_failed, dry_run=True)
                         decision = decide_seed_result(seed_result)
-                        result = _retry_fn(
+                        result = _retry_failed_seed(
                             seed_id=selected_failed,
                             decision=decision,
                             canonical=canonical,
@@ -210,7 +210,6 @@ with tab_manual:
             if st.button("▶️ Retry failed seed and save"):
                 from engine.run_seed import run_seed
                 from engine.decision import decide_seed_result
-                from engine.retry_failed import retry_failed_seed as _retry_fn
 
                 seed = find_seed_by_id(seeds, selected_failed)
                 if seed:
@@ -218,7 +217,7 @@ with tab_manual:
                         seed_result = run_seed(seed, selected_failed, dry_run=False)
                         decision = decide_seed_result(seed_result)
                         push_enabled_retry = st.session_state.get("push_enabled", False)
-                        result = _retry_fn(
+                        result = _retry_failed_seed(
                             seed_id=selected_failed,
                             decision=decision,
                             canonical=canonical,

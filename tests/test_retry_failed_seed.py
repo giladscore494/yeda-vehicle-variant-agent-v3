@@ -366,10 +366,9 @@ class TestRetryDoesNotMoveCursor:
 class TestRetryRejectsInvalidAccept:
     """ACCEPT_VARIANTS with 0 added and 0 merged must be rejected."""
 
-    def test_zero_mutation_accept_rejected(self):
+    def test_zero_mutation_accept_with_existing_variant(self):
+        """ACCEPT_VARIANTS that produces a merge (not 0/0) is allowed."""
         canonical = _make_canonical()
-        # Add a variant that already exists — so it will "merge" with 0 fields changed
-        # Actually, to trigger 0/0, provide variants that already exist with same variant_id
         existing_vid = "v1"  # already in canonical
         variants = [
             {
@@ -386,6 +385,7 @@ class TestRetryRejectsInvalidAccept:
             variants_to_add=variants,
         )
 
+        # This should succeed because merging an existing variant counts as merged=1
         result = retry_failed_seed(
             seed_id=SEED_IDS[0],
             decision=decision,
@@ -393,12 +393,8 @@ class TestRetryRejectsInvalidAccept:
             seeds=SEEDS,
             dry_run=False,
         )
-
-        # The merge would produce merged=1 (since v1 exists and will be merged)
-        # Actually _merge_variant will merge it. Let's check with truly empty variants
-        # Actually with the existing variant_id, it will still count as merged=1
-        # Test with empty variants_to_add list instead
-        pass
+        assert result["ok"] is True
+        assert result["merged_count"] == 1
 
     def test_empty_variants_accept_rejected(self):
         canonical = _make_canonical()
