@@ -629,7 +629,8 @@
       "hyundai__creta__2020__2026__il",
       "kia__picanto__2004__2026__il",
       "kia__rio__2000__2022__il",
-      "kia__ceed__2007__2026__il"
+      "kia__ceed__2007__2026__il",
+      "kia__ceed_sw__2007__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1082,8 +1083,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "kia__ceed__2007__2026__il",
-    "next_seed_id": "kia__ceed_sw__2007__2026__il",
+    "last_completed_seed_id": "kia__ceed_sw__2007__2026__il",
+    "next_seed_id": "kia__proceed__2008__2026__il",
     "run_history": [],
     "failed_details": [
       {
@@ -3367,6 +3368,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T03:00:41.414190+00:00"
+      },
+      "kia__ceed_sw__2007__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 8,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T03:01:36.722544+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -264803,6 +264812,489 @@
         ]
       },
       "variant_id": "kia_ceed_2021_2026_il_confirmed_3g_1_5l_t_gdi_7_speed_dct_station_wagon_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Kia",
+      "model": "Ceed SW",
+      "global_model_name": "Kia cee'd Sportswagon",
+      "official_marketed_name_il": "Kia Ceed SW",
+      "local_brand_name_il": "Kia",
+      "alternate_names": [
+        "קיה סיד סטיישן",
+        "Kia cee'd SW"
+      ],
+      "rebadged_as": null,
+      "year_start": 2007,
+      "year_end": 2012,
+      "generation": "1st Gen (ED)",
+      "body_type": "Station Wagon",
+      "seats": 5,
+      "engine": "1.6L MPI",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "LX / EX",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "IL market catalogs confirm the 1st Gen ED station wagon was sold with a 1.6L MPI engine and 4-speed automatic.",
+      "source_ids": [
+        "icar_il_kia_ceed_sw"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_kia_ceed_sw"
+        ],
+        "seats": [
+          "icar_il_kia_ceed_sw"
+        ],
+        "engine": [
+          "icar_il_kia_ceed_sw"
+        ],
+        "transmission": [
+          "icar_il_kia_ceed_sw"
+        ],
+        "fuel_type": [
+          "icar_il_kia_ceed_sw"
+        ],
+        "drivetrain": [
+          "icar_il_kia_ceed_sw"
+        ],
+        "generation": [
+          "icar_il_kia_ceed_sw"
+        ],
+        "year_start": [
+          "icar_il_kia_ceed_sw"
+        ],
+        "year_end": [
+          "icar_il_kia_ceed_sw"
+        ],
+        "trim": []
+      },
+      "variant_id": "kia_ceed_sw_2007_2012_il_confirmed_1st_gen_ed_1_6l_mpi_4_speed_automatic_station_wagon_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Kia",
+      "model": "Ceed SW",
+      "global_model_name": "Kia cee'd Sportswagon",
+      "official_marketed_name_il": "Kia Ceed SW",
+      "local_brand_name_il": "Kia",
+      "alternate_names": [
+        "קיה סיד סטיישן דיזל"
+      ],
+      "rebadged_as": null,
+      "year_start": 2008,
+      "year_end": 2012,
+      "generation": "1st Gen (ED)",
+      "body_type": "Station Wagon",
+      "seats": 5,
+      "engine": "1.6L CRDi",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Diesel",
+      "drivetrain": "FWD",
+      "trim": "LX",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "IL market catalogs confirm the introduction of the 1.6L diesel variant to the local market for the 1st gen.",
+      "source_ids": [
+        "icar_il_kia_ceed_sw"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_kia_ceed_sw"
+        ],
+        "seats": [
+          "icar_il_kia_ceed_sw"
+        ],
+        "engine": [
+          "icar_il_kia_ceed_sw"
+        ],
+        "transmission": [
+          "icar_il_kia_ceed_sw"
+        ],
+        "fuel_type": [
+          "icar_il_kia_ceed_sw"
+        ],
+        "drivetrain": [
+          "icar_il_kia_ceed_sw"
+        ],
+        "generation": [
+          "icar_il_kia_ceed_sw"
+        ],
+        "year_start": [
+          "icar_il_kia_ceed_sw"
+        ],
+        "year_end": [
+          "icar_il_kia_ceed_sw"
+        ],
+        "trim": []
+      },
+      "variant_id": "kia_ceed_sw_2008_2012_il_confirmed_1st_gen_ed_1_6l_crdi_4_speed_automatic_station_wagon_diesel"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Kia",
+      "model": "Ceed SW",
+      "global_model_name": "Kia cee'd Sportswagon",
+      "official_marketed_name_il": "Kia Ceed SW",
+      "local_brand_name_il": "Kia",
+      "alternate_names": [
+        "קיה סיד סטיישן"
+      ],
+      "rebadged_as": null,
+      "year_start": 2012,
+      "year_end": 2018,
+      "generation": "2nd Gen (JD)",
+      "body_type": "Station Wagon",
+      "seats": 5,
+      "engine": "1.6L GDI",
+      "transmission": "6-speed DCT",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "LX",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "The 2nd Gen model in Israel shifted to a 1.6L direct-injection (GDI) petrol engine with a 6-speed DCT.",
+      "source_ids": [
+        "icar_il_kia_ceed_sw"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_kia_ceed_sw"
+        ],
+        "seats": [
+          "icar_il_kia_ceed_sw"
+        ],
+        "engine": [
+          "icar_il_kia_ceed_sw"
+        ],
+        "transmission": [
+          "icar_il_kia_ceed_sw"
+        ],
+        "fuel_type": [
+          "icar_il_kia_ceed_sw"
+        ],
+        "drivetrain": [
+          "icar_il_kia_ceed_sw"
+        ],
+        "generation": [
+          "icar_il_kia_ceed_sw"
+        ],
+        "year_start": [
+          "icar_il_kia_ceed_sw"
+        ],
+        "year_end": [
+          "icar_il_kia_ceed_sw"
+        ],
+        "trim": []
+      },
+      "variant_id": "kia_ceed_sw_2012_2018_il_confirmed_2nd_gen_jd_1_6l_gdi_6_speed_dct_station_wagon_petrol"
+    },
+    {
+      "candidate_index": 3,
+      "make": "Kia",
+      "model": "Ceed SW",
+      "global_model_name": "Kia cee'd Sportswagon",
+      "official_marketed_name_il": "Kia Ceed SW",
+      "local_brand_name_il": "Kia",
+      "alternate_names": [
+        "קיה סיד סטיישן דיזל"
+      ],
+      "rebadged_as": null,
+      "year_start": 2012,
+      "year_end": 2018,
+      "generation": "2nd Gen (JD)",
+      "body_type": "Station Wagon",
+      "seats": 5,
+      "engine": "1.6L CRDi",
+      "transmission": "7-speed DCT",
+      "fuel_type": "Diesel",
+      "drivetrain": "FWD",
+      "trim": "LX",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "The 2nd Gen diesel originally featured a 6-speed auto, upgrading to a 7-speed DCT during its lifespan in Israel.",
+      "source_ids": [
+        "icar_il_kia_ceed_sw"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_kia_ceed_sw"
+        ],
+        "seats": [
+          "icar_il_kia_ceed_sw"
+        ],
+        "engine": [
+          "icar_il_kia_ceed_sw"
+        ],
+        "transmission": [
+          "icar_il_kia_ceed_sw"
+        ],
+        "fuel_type": [
+          "icar_il_kia_ceed_sw"
+        ],
+        "drivetrain": [
+          "icar_il_kia_ceed_sw"
+        ],
+        "generation": [
+          "icar_il_kia_ceed_sw"
+        ],
+        "year_start": [
+          "icar_il_kia_ceed_sw"
+        ],
+        "year_end": [
+          "icar_il_kia_ceed_sw"
+        ],
+        "trim": []
+      },
+      "variant_id": "kia_ceed_sw_2012_2018_il_confirmed_2nd_gen_jd_1_6l_crdi_7_speed_dct_station_wagon_diesel"
+    },
+    {
+      "candidate_index": 4,
+      "make": "Kia",
+      "model": "Ceed SW",
+      "global_model_name": "Kia Ceed Sportswagon",
+      "official_marketed_name_il": "Kia Ceed SW",
+      "local_brand_name_il": "Kia",
+      "alternate_names": [
+        "קיה סיד סטיישן"
+      ],
+      "rebadged_as": null,
+      "year_start": 2018,
+      "year_end": 2021,
+      "generation": "3rd Gen (CD)",
+      "body_type": "Station Wagon",
+      "seats": 5,
+      "engine": "1.4L T-GDI",
+      "transmission": "7-speed DCT",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "EX",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Introduced in Israel for the 3rd Gen with a 1.4L turbocharged engine and 7-speed DCT.",
+      "source_ids": [
+        "cartube_il_kia_ceed_sw_2019",
+        "kia_israel_official"
+      ],
+      "field_sources": {
+        "body_type": [
+          "kia_israel_official"
+        ],
+        "seats": [
+          "cartube_il_kia_ceed_sw_2019"
+        ],
+        "engine": [
+          "cartube_il_kia_ceed_sw_2019"
+        ],
+        "transmission": [
+          "cartube_il_kia_ceed_sw_2019"
+        ],
+        "fuel_type": [
+          "kia_israel_official"
+        ],
+        "drivetrain": [
+          "kia_israel_official"
+        ],
+        "generation": [
+          "cartube_il_kia_ceed_sw_2019"
+        ],
+        "year_start": [
+          "cartube_il_kia_ceed_sw_2019"
+        ],
+        "year_end": [
+          "cartube_il_kia_ceed_sw_2019"
+        ],
+        "trim": []
+      },
+      "variant_id": "kia_ceed_sw_2018_2021_il_confirmed_3rd_gen_cd_1_4l_t_gdi_7_speed_dct_station_wagon_petrol"
+    },
+    {
+      "candidate_index": 5,
+      "make": "Kia",
+      "model": "Ceed SW",
+      "global_model_name": "Kia Ceed Sportswagon",
+      "official_marketed_name_il": "Kia Ceed SW",
+      "local_brand_name_il": "Kia",
+      "alternate_names": [
+        "קיה סיד סטיישן דיזל"
+      ],
+      "rebadged_as": null,
+      "year_start": 2018,
+      "year_end": 2024,
+      "generation": "3rd Gen (CD)",
+      "body_type": "Station Wagon",
+      "seats": 5,
+      "engine": "1.6L CRDi",
+      "transmission": "7-speed DCT",
+      "fuel_type": "Mild Hybrid",
+      "drivetrain": "FWD",
+      "trim": "LX",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "The 3rd Gen diesel in Israel was offered with a 48V mild hybrid system alongside the 7-speed DCT.",
+      "source_ids": [
+        "cartube_il_kia_ceed_sw_2019",
+        "kia_israel_official"
+      ],
+      "field_sources": {
+        "body_type": [
+          "kia_israel_official"
+        ],
+        "seats": [
+          "cartube_il_kia_ceed_sw_2019"
+        ],
+        "engine": [
+          "cartube_il_kia_ceed_sw_2019"
+        ],
+        "transmission": [
+          "cartube_il_kia_ceed_sw_2019"
+        ],
+        "fuel_type": [
+          "kia_israel_official"
+        ],
+        "drivetrain": [
+          "kia_israel_official"
+        ],
+        "generation": [
+          "cartube_il_kia_ceed_sw_2019"
+        ],
+        "year_start": [
+          "cartube_il_kia_ceed_sw_2019"
+        ],
+        "year_end": [
+          "cartube_il_kia_ceed_sw_2019"
+        ],
+        "trim": []
+      },
+      "variant_id": "kia_ceed_sw_2018_2024_il_confirmed_3rd_gen_cd_1_6l_crdi_7_speed_dct_station_wagon_mild_hybrid"
+    },
+    {
+      "candidate_index": 6,
+      "make": "Kia",
+      "model": "Ceed SW",
+      "global_model_name": "Kia Ceed Sportswagon",
+      "official_marketed_name_il": "Kia Ceed SW",
+      "local_brand_name_il": "Kia",
+      "alternate_names": [
+        "קיה סיד סטיישן"
+      ],
+      "rebadged_as": null,
+      "year_start": 2021,
+      "year_end": 2026,
+      "generation": "3rd Gen (CD)",
+      "body_type": "Station Wagon",
+      "seats": 5,
+      "engine": "1.5L T-GDI",
+      "transmission": "7-speed DCT",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "EX",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Replaced the 1.4L engine with a newer 1.5L turbocharged petrol engine from the 2021 model year update.",
+      "source_ids": [
+        "kia_israel_official"
+      ],
+      "field_sources": {
+        "body_type": [
+          "kia_israel_official"
+        ],
+        "seats": [
+          "kia_israel_official"
+        ],
+        "engine": [
+          "kia_israel_official"
+        ],
+        "transmission": [
+          "kia_israel_official"
+        ],
+        "fuel_type": [
+          "kia_israel_official"
+        ],
+        "drivetrain": [
+          "kia_israel_official"
+        ],
+        "generation": [
+          "kia_israel_official"
+        ],
+        "year_start": [
+          "kia_israel_official"
+        ],
+        "year_end": [
+          "kia_israel_official"
+        ],
+        "trim": []
+      },
+      "variant_id": "kia_ceed_sw_2021_2026_il_confirmed_3rd_gen_cd_1_5l_t_gdi_7_speed_dct_station_wagon_petrol"
+    },
+    {
+      "candidate_index": 7,
+      "make": "Kia",
+      "model": "Ceed SW",
+      "global_model_name": "Kia Ceed Sportswagon PHEV",
+      "official_marketed_name_il": "Kia Ceed SW PHEV",
+      "local_brand_name_il": "Kia",
+      "alternate_names": [
+        "קיה סיד סטיישן פלאג-אין"
+      ],
+      "rebadged_as": null,
+      "year_start": 2020,
+      "year_end": 2026,
+      "generation": "3rd Gen (CD)",
+      "body_type": "Station Wagon",
+      "seats": 5,
+      "engine": "1.6L Plug-in Hybrid",
+      "transmission": "6-speed DCT",
+      "fuel_type": "Plug-in Hybrid",
+      "drivetrain": "FWD",
+      "trim": "Premium",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "IL market review and catalogs confirm the introduction of the Plug-in Hybrid Ceed SW variant in Israel.",
+      "source_ids": [
+        "kia_israel_official"
+      ],
+      "field_sources": {
+        "body_type": [
+          "kia_israel_official"
+        ],
+        "seats": [
+          "kia_israel_official"
+        ],
+        "engine": [
+          "kia_israel_official"
+        ],
+        "transmission": [
+          "kia_israel_official"
+        ],
+        "fuel_type": [
+          "kia_israel_official"
+        ],
+        "drivetrain": [
+          "kia_israel_official"
+        ],
+        "generation": [
+          "kia_israel_official"
+        ],
+        "year_start": [
+          "kia_israel_official"
+        ],
+        "year_end": [
+          "kia_israel_official"
+        ],
+        "trim": []
+      },
+      "variant_id": "kia_ceed_sw_2020_2026_il_confirmed_3rd_gen_cd_1_6l_plug_in_hybrid_6_speed_dct_station_wagon_plug_in_hybrid"
     }
   ],
   "accumulated_clean_export": {
@@ -482813,17 +483305,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 2264,
-    "variants": 2264,
+    "total_variants": 2272,
+    "variants": 2272,
     "verified": 788,
-    "partial": 1476,
+    "partial": 1484,
     "makes_count": 47,
-    "models_count": 619,
-    "processed_seeds": 620,
+    "models_count": 620,
+    "processed_seeds": 621,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-23T03:00:41.422127+00:00"
+    "last_updated_at": "2026-05-23T03:01:36.729467+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
