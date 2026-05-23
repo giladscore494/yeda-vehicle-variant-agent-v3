@@ -565,8 +565,7 @@
       "mazda__cx-7__2006__2012__il",
       "mazda__cx-80__2024__2026__il",
       "mazda__cx-9__2007__2023__il",
-      "mazda__mx-5__1998__2026__il",
-      "mazda__mx-30__2020__2026__il"
+      "mazda__mx-5__1998__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -2815,15 +2814,7 @@
         "added_count": 5,
         "merged_count": 0,
         "warnings": [],
-        "resolved_at": "2026-05-23T01:29:56.765527+00:00"
-      },
-      "mazda__mx-30__2020__2026__il": {
-        "status": "resolved",
-        "resolution_type": "variants_added",
-        "added_count": 3,
-        "merged_count": 0,
-        "warnings": [],
-        "resolved_at": "2026-05-23T01:30:40.510968+00:00"
+        "resolved_at": "2026-05-23T01:30:48.965182+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -249018,184 +249009,300 @@
     {
       "candidate_index": 0,
       "make": "Mazda",
-      "model": "MX-30",
-      "global_model_name": "Mazda MX-30 EV",
-      "official_marketed_name_il": "Mazda MX-30",
+      "model": "MX-5",
+      "global_model_name": "Mazda MX-5",
+      "official_marketed_name_il": "Mazda MX-5",
       "local_brand_name_il": null,
       "alternate_names": [
-        "MX-30 e-Skyactiv"
+        "Miata",
+        "Roadster"
       ],
       "rebadged_as": null,
-      "year_start": 2020,
+      "year_start": 2015,
       "year_end": 2026,
-      "generation": "DR",
-      "body_type": "Crossover SUV",
-      "seats": 5,
-      "engine": "e-Skyactiv EV, 35.5 kWh battery, 145 hp",
-      "transmission": "single-speed EV",
-      "fuel_type": "Electric",
-      "drivetrain": "FWD",
-      "trim": "",
+      "generation": "ND (4th Gen)",
+      "body_type": "Roadster",
+      "seats": 2,
+      "engine": "2.0L Skyactiv-G Petrol",
+      "transmission": "6-speed manual",
+      "fuel_type": "Petrol",
+      "drivetrain": "RWD",
+      "trim": null,
       "market_scope": "IL-confirmed",
       "market_name_confidence": "confirmed",
       "confidence_level": "high",
-      "source_basis": "Israeli auto sites (Cartube, iCar) confirm official launch of the electric MX-30 by Delek Motors (Mazda's IL importer) with the 35.5 kWh battery and 145 hp motor.",
+      "source_basis": "Delek Motors (official Israeli importer) confirms the ND generation soft-top Roadster is marketed as 'Mazda MX-5' with the 2.0L Skyactiv-G engine and 6-speed manual transmission.",
       "source_ids": [
-        "cartube_il_mazda_mx30_ev_launch",
-        "icar_il_mazda_mx30"
+        "delek_mazda_il_mx5_official",
+        "cartube_il_mazda_mx5_nd_launch"
       ],
       "field_sources": {
         "body_type": [
-          "cartube_il_mazda_mx30_ev_launch"
+          "delek_mazda_il_mx5_official"
         ],
         "seats": [
-          "icar_il_mazda_mx30"
+          "delek_mazda_il_mx5_official"
         ],
         "engine": [
-          "cartube_il_mazda_mx30_ev_launch",
-          "icar_il_mazda_mx30"
+          "delek_mazda_il_mx5_official",
+          "cartube_il_mazda_mx5_nd_launch"
         ],
         "transmission": [
-          "cartube_il_mazda_mx30_ev_launch"
+          "delek_mazda_il_mx5_official"
         ],
         "fuel_type": [
-          "cartube_il_mazda_mx30_ev_launch"
+          "delek_mazda_il_mx5_official"
         ],
         "drivetrain": [
-          "cartube_il_mazda_mx30_ev_launch"
+          "delek_mazda_il_mx5_official"
         ],
         "generation": [
-          "icar_il_mazda_mx30"
+          "delek_mazda_il_mx5_official",
+          "cartube_il_mazda_mx5_nd_launch"
         ],
         "year_start": [
-          "cartube_il_mazda_mx30_ev_launch"
+          "cartube_il_mazda_mx5_nd_launch"
         ],
         "year_end": [
-          "icar_il_mazda_mx30"
+          "delek_mazda_il_mx5_official"
         ],
         "trim": []
       },
-      "variant_id": "mazda_mx_30_2020_2026_il_confirmed_dr_e_skyactiv_ev_35_5_kwh_battery_145_hp_single_speed_ev_crossover_suv_electric"
+      "variant_id": "mazda_mx_5_2015_2026_il_confirmed_nd_4th_gen_2_0l_skyactiv_g_petrol_6_speed_manual_roadster_petrol"
     },
     {
       "candidate_index": 1,
       "make": "Mazda",
-      "model": "MX-30",
-      "global_model_name": "Mazda MX-30 e-Skyactiv R-EV",
-      "official_marketed_name_il": null,
+      "model": "MX-5",
+      "global_model_name": "Mazda MX-5 RF",
+      "official_marketed_name_il": "Mazda MX-5 RF",
       "local_brand_name_il": null,
       "alternate_names": [
-        "MX-30 R-EV"
+        "Miata RF",
+        "Retractable Fastback"
       ],
       "rebadged_as": null,
-      "year_start": 2023,
+      "year_start": 2017,
       "year_end": 2026,
-      "generation": "DR",
-      "body_type": "Crossover SUV",
-      "seats": 5,
-      "engine": "e-Skyactiv R-EV (830cc rotary generator + 170 hp electric motor)",
-      "transmission": "single-speed EV",
-      "fuel_type": "Plug-in Hybrid",
-      "drivetrain": "FWD",
-      "trim": "",
-      "market_scope": "global-reference-only",
-      "market_name_confidence": "unknown",
+      "generation": "ND (4th Gen)",
+      "body_type": "Roadster",
+      "seats": 2,
+      "engine": "2.0L Skyactiv-G Petrol",
+      "transmission": "6-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "RWD",
+      "trim": "RF",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
       "confidence_level": "high",
-      "source_basis": "Global manufacturer press release confirms the plug-in hybrid rotary range extender model from 2023 onwards. Official IL-market availability not confirmed.",
+      "source_basis": "Israeli importer site and local reviews confirm the introduction and ongoing sales of the MX-5 RF (Retractable Fastback) with the 2.0L engine paired with a 6-speed automatic transmission.",
       "source_ids": [
-        "mazda_global_mx30_rev_2023"
+        "delek_mazda_il_mx5_official",
+        "cartube_il_mazda_mx5_nd_launch"
       ],
       "field_sources": {
         "body_type": [
-          "mazda_global_mx30_rev_2023"
+          "delek_mazda_il_mx5_official"
         ],
         "seats": [
-          "mazda_global_mx30_rev_2023"
+          "delek_mazda_il_mx5_official"
         ],
         "engine": [
-          "mazda_global_mx30_rev_2023"
+          "delek_mazda_il_mx5_official"
         ],
         "transmission": [
-          "mazda_global_mx30_rev_2023"
+          "delek_mazda_il_mx5_official",
+          "cartube_il_mazda_mx5_nd_launch"
         ],
         "fuel_type": [
-          "mazda_global_mx30_rev_2023"
+          "delek_mazda_il_mx5_official"
         ],
         "drivetrain": [
-          "mazda_global_mx30_rev_2023"
+          "delek_mazda_il_mx5_official"
         ],
         "generation": [
-          "mazda_global_mx30_rev_2023"
+          "cartube_il_mazda_mx5_nd_launch"
         ],
         "year_start": [
-          "mazda_global_mx30_rev_2023"
+          "cartube_il_mazda_mx5_nd_launch"
         ],
         "year_end": [
-          "mazda_global_mx30_rev_2023"
+          "delek_mazda_il_mx5_official"
         ],
-        "trim": []
+        "trim": [
+          "delek_mazda_il_mx5_official",
+          "cartube_il_mazda_mx5_nd_launch"
+        ]
       },
-      "variant_id": "mazda_mx_30_2023_2026_global_reference_only_dr_e_skyactiv_r_ev_830cc_rotary_generator_170_hp_electric_motor_single_speed_ev_crossover_suv_plug_in_hybrid"
+      "variant_id": "mazda_mx_5_2017_2026_il_confirmed_nd_4th_gen_2_0l_skyactiv_g_petrol_6_speed_automatic_roadster_petrol"
     },
     {
       "candidate_index": 2,
       "make": "Mazda",
-      "model": "MX-30",
-      "global_model_name": "Mazda MX-30 e-Skyactiv G",
-      "official_marketed_name_il": null,
+      "model": "MX-5",
+      "global_model_name": "Mazda MX-5",
+      "official_marketed_name_il": "Mazda MX-5",
       "local_brand_name_il": null,
       "alternate_names": [
-        "MX-30 MHEV"
+        "Miata"
       ],
       "rebadged_as": null,
-      "year_start": 2020,
-      "year_end": 2026,
-      "generation": "DR",
-      "body_type": "Crossover SUV",
-      "seats": 5,
-      "engine": "2.0L e-Skyactiv G Mild Hybrid, 156 hp",
+      "year_start": 2006,
+      "year_end": 2015,
+      "generation": "NC (3rd Gen)",
+      "body_type": "Roadster",
+      "seats": 2,
+      "engine": "2.0L MZR Petrol",
       "transmission": "6-speed automatic",
-      "fuel_type": "Mild Hybrid",
-      "drivetrain": "FWD",
-      "trim": "",
-      "market_scope": "global-reference-only",
-      "market_name_confidence": "unknown",
+      "fuel_type": "Petrol",
+      "drivetrain": "RWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
       "confidence_level": "high",
-      "source_basis": "Global documentation confirms a mild-hybrid 2.0L version for select markets (e.g., Japan, Australia). Not confirmed for the Israeli market.",
+      "source_basis": "iCar Israel specifications verify the NC generation was officially marketed in Israel from 2006 to 2015, primarily featuring the 2.0L MZR engine paired with an automatic transmission.",
       "source_ids": [
-        "mazda_global_mx30_mhev"
+        "icar_il_mazda_mx5_nc_history"
       ],
       "field_sources": {
         "body_type": [
-          "mazda_global_mx30_mhev"
+          "icar_il_mazda_mx5_nc_history"
         ],
-        "seats": [
-          "mazda_global_mx30_mhev"
-        ],
+        "seats": [],
         "engine": [
-          "mazda_global_mx30_mhev"
+          "icar_il_mazda_mx5_nc_history"
         ],
         "transmission": [
-          "mazda_global_mx30_mhev"
+          "icar_il_mazda_mx5_nc_history"
         ],
         "fuel_type": [
-          "mazda_global_mx30_mhev"
+          "icar_il_mazda_mx5_nc_history"
         ],
         "drivetrain": [
-          "mazda_global_mx30_mhev"
+          "icar_il_mazda_mx5_nc_history"
         ],
         "generation": [
-          "mazda_global_mx30_mhev"
+          "icar_il_mazda_mx5_nc_history"
         ],
         "year_start": [
-          "mazda_global_mx30_mhev"
+          "icar_il_mazda_mx5_nc_history"
         ],
         "year_end": [
-          "mazda_global_mx30_mhev"
+          "icar_il_mazda_mx5_nc_history"
         ],
         "trim": []
       },
-      "variant_id": "mazda_mx_30_2020_2026_global_reference_only_dr_2_0l_e_skyactiv_g_mild_hybrid_156_hp_6_speed_automatic_crossover_suv_mild_hybrid"
+      "variant_id": "mazda_mx_5_2006_2015_il_confirmed_nc_3rd_gen_2_0l_mzr_petrol_6_speed_automatic_roadster_petrol"
+    },
+    {
+      "candidate_index": 3,
+      "make": "Mazda",
+      "model": "MX-5",
+      "global_model_name": "Mazda MX-5",
+      "official_marketed_name_il": "Mazda MX-5",
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Miata"
+      ],
+      "rebadged_as": null,
+      "year_start": 2006,
+      "year_end": 2015,
+      "generation": "NC (3rd Gen)",
+      "body_type": "Roadster",
+      "seats": 2,
+      "engine": "2.0L MZR Petrol",
+      "transmission": "6-speed manual",
+      "fuel_type": "Petrol",
+      "drivetrain": "RWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "iCar Israel data confirms manual transmission variants of the NC generation 2.0L were imported to the Israeli market alongside automatic versions.",
+      "source_ids": [
+        "icar_il_mazda_mx5_nc_history"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_mazda_mx5_nc_history"
+        ],
+        "seats": [],
+        "engine": [
+          "icar_il_mazda_mx5_nc_history"
+        ],
+        "transmission": [
+          "icar_il_mazda_mx5_nc_history"
+        ],
+        "fuel_type": [
+          "icar_il_mazda_mx5_nc_history"
+        ],
+        "drivetrain": [
+          "icar_il_mazda_mx5_nc_history"
+        ],
+        "generation": [
+          "icar_il_mazda_mx5_nc_history"
+        ],
+        "year_start": [
+          "icar_il_mazda_mx5_nc_history"
+        ],
+        "year_end": [
+          "icar_il_mazda_mx5_nc_history"
+        ],
+        "trim": []
+      },
+      "variant_id": "mazda_mx_5_2006_2015_il_confirmed_nc_3rd_gen_2_0l_mzr_petrol_6_speed_manual_roadster_petrol"
+    },
+    {
+      "candidate_index": 4,
+      "make": "Mazda",
+      "model": "MX-5",
+      "global_model_name": "Mazda MX-5",
+      "official_marketed_name_il": "Mazda MX-5",
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Miata"
+      ],
+      "rebadged_as": null,
+      "year_start": 1998,
+      "year_end": 2005,
+      "generation": "NB (2nd Gen)",
+      "body_type": "Roadster",
+      "seats": 2,
+      "engine": "1.8L Petrol",
+      "transmission": "6-speed manual",
+      "fuel_type": "Petrol",
+      "drivetrain": "RWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "medium",
+      "source_basis": "Israeli used-car listings and historical market records indicate the NB generation (1998-2005) was sold in Israel, prominently featuring the 1.8L naturally aspirated engine and 6-speed manual gearbox.",
+      "source_ids": [
+        "yad2_il_mazda_mx5_nb"
+      ],
+      "field_sources": {
+        "body_type": [],
+        "seats": [],
+        "engine": [
+          "yad2_il_mazda_mx5_nb"
+        ],
+        "transmission": [
+          "yad2_il_mazda_mx5_nb"
+        ],
+        "fuel_type": [],
+        "drivetrain": [],
+        "generation": [
+          "yad2_il_mazda_mx5_nb"
+        ],
+        "year_start": [
+          "yad2_il_mazda_mx5_nb"
+        ],
+        "year_end": [
+          "yad2_il_mazda_mx5_nb"
+        ],
+        "trim": []
+      },
+      "variant_id": "mazda_mx_5_1998_2005_il_confirmed_nb_2nd_gen_1_8l_petrol_6_speed_manual_roadster_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -467206,17 +467313,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 2019,
-    "variants": 2019,
+    "total_variants": 2021,
+    "variants": 2021,
     "verified": 788,
-    "partial": 1231,
+    "partial": 1233,
     "makes_count": 43,
-    "models_count": 560,
-    "processed_seeds": 557,
+    "models_count": 559,
+    "processed_seeds": 556,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-23T01:30:40.516098+00:00"
+    "last_updated_at": "2026-05-23T01:30:48.969630+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
