@@ -686,7 +686,8 @@
       "xpeng__g6__2024__2026__il",
       "nio__et5__2023__2026__il",
       "nio__el6__2024__2026__il",
-      "nio__el7__2024__2026__il"
+      "nio__el7__2024__2026__il",
+      "lynk_&_co__01__2023__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1137,8 +1138,8 @@
     "failed_seed_ids": [],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "nio__el7__2024__2026__il",
-    "next_seed_id": "lynk_&_co__01__2023__2026__il",
+    "last_completed_seed_id": "lynk_&_co__01__2023__2026__il",
+    "next_seed_id": "lynk_&_co__02__2024__2026__il",
     "run_history": [],
     "failed_details": [
       {
@@ -3880,6 +3881,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T04:15:27.466956+00:00"
+      },
+      "lynk_&_co__01__2023__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 1,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T04:16:01.039974+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -276582,6 +276591,69 @@
         ]
       },
       "variant_id": "nio_el7_2023_2026_il_confirmed_1st_gen_nt2_0_dual_electric_motors_480_kw_653_hp_100_kwh_battery_single_speed_ev_suv_electric"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Lynk & Co",
+      "model": "01",
+      "global_model_name": "Lynk & Co 01",
+      "official_marketed_name_il": "Lynk & Co 01",
+      "local_brand_name_il": "Lynk & Co",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2023,
+      "year_end": 2026,
+      "generation": "1st Gen (CMA)",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "1.5L 3-cylinder turbo PHEV, 261 hp",
+      "transmission": "7-speed DCT",
+      "fuel_type": "Plug-in Hybrid",
+      "drivetrain": "FWD",
+      "trim": "PHEV",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Official Israeli launch in early 2023 by importer Meir Group confirms the Lynk & Co 01 is marketed exclusively as a 1.5L PHEV with a system output of 261 hp and a 7-speed dual-clutch transmission. Market availability continues through current years.",
+      "source_ids": [
+        "icar_il_lynkco_01_2023",
+        "cartube_il_lynkco_01_launch_2023"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_lynkco_01_2023"
+        ],
+        "seats": [
+          "icar_il_lynkco_01_2023"
+        ],
+        "engine": [
+          "icar_il_lynkco_01_2023",
+          "cartube_il_lynkco_01_launch_2023"
+        ],
+        "transmission": [
+          "icar_il_lynkco_01_2023",
+          "cartube_il_lynkco_01_launch_2023"
+        ],
+        "fuel_type": [
+          "icar_il_lynkco_01_2023"
+        ],
+        "drivetrain": [
+          "icar_il_lynkco_01_2023"
+        ],
+        "generation": [
+          "cartube_il_lynkco_01_launch_2023"
+        ],
+        "year_start": [
+          "cartube_il_lynkco_01_launch_2023"
+        ],
+        "year_end": [
+          "icar_il_lynkco_01_2023"
+        ],
+        "trim": [
+          "icar_il_lynkco_01_2023"
+        ]
+      },
+      "variant_id": "lynk_co_01_2023_2026_il_confirmed_1st_gen_cma_1_5l_3_cylinder_turbo_phev_261_hp_7_speed_dct_suv_plug_in_hybrid"
     }
   ],
   "accumulated_clean_export": {
@@ -494592,17 +494664,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 2446,
-    "variants": 2446,
+    "total_variants": 2447,
+    "variants": 2447,
     "verified": 788,
-    "partial": 1658,
-    "makes_count": 56,
-    "models_count": 678,
-    "processed_seeds": 677,
+    "partial": 1659,
+    "makes_count": 57,
+    "models_count": 679,
+    "processed_seeds": 678,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 0,
-    "last_updated_at": "2026-05-23T04:15:27.473946+00:00"
+    "last_updated_at": "2026-05-23T04:16:01.047994+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
