@@ -590,7 +590,8 @@
       "mitsubishi__carisma__1995__2004__il",
       "mitsubishi__space_wagon__1990__2003__il",
       "mitsubishi__3000gt__1992__1999__il",
-      "suzuki__swift__1990__2026__il"
+      "suzuki__swift__1990__2026__il",
+      "suzuki__alto__1990__2014__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1043,8 +1044,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "suzuki__swift__1990__2026__il",
-    "next_seed_id": "suzuki__alto__1990__2014__il",
+    "last_completed_seed_id": "suzuki__alto__1990__2014__il",
+    "next_seed_id": "suzuki__splash__2008__2014__il",
     "run_history": [],
     "failed_details": [
       {
@@ -3040,6 +3041,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T02:07:21.631557+00:00"
+      },
+      "suzuki__alto__1990__2014__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 2,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T02:08:11.480691+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -255111,6 +255120,152 @@
         "trim": []
       },
       "variant_id": "suzuki_swift_2024_2026_il_confirmed_global_5th_gen_a0l_1_2l_mild_hybrid_3_cylinder_82_hp_cvt_hatchback_mild_hybrid"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Suzuki",
+      "model": "Alto",
+      "global_model_name": "Suzuki Alto",
+      "official_marketed_name_il": "Suzuki Alto",
+      "local_brand_name_il": "Suzuki",
+      "alternate_names": [
+        "Maruti Suzuki A-Star",
+        "Nissan Pixo"
+      ],
+      "rebadged_as": null,
+      "year_start": 2009,
+      "year_end": 2014,
+      "generation": "7th Gen",
+      "body_type": "Hatchback",
+      "seats": 4,
+      "engine": "1.0L K10B 3-cylinder petrol, 68 hp",
+      "transmission": "5-speed manual",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "GL",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli auto catalogs (iCar, Auto.co.il) and reviews (Cartube) strongly confirm the 7th Gen Suzuki Alto was marketed in Israel under its global name from 2009 to 2014. Verified as a 5-door hatchback with a 1.0L 3-cylinder engine, 4-seat configuration, and FWD. The manual transmission variant was typically sold in the GL trim.",
+      "source_ids": [
+        "icar_il_suzuki_alto_7g",
+        "cartube_il_alto_2009",
+        "auto_il_alto_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_suzuki_alto_7g"
+        ],
+        "seats": [
+          "icar_il_suzuki_alto_7g",
+          "cartube_il_alto_2009"
+        ],
+        "engine": [
+          "icar_il_suzuki_alto_7g",
+          "cartube_il_alto_2009",
+          "auto_il_alto_specs"
+        ],
+        "transmission": [
+          "icar_il_suzuki_alto_7g",
+          "cartube_il_alto_2009"
+        ],
+        "fuel_type": [
+          "icar_il_suzuki_alto_7g",
+          "auto_il_alto_specs"
+        ],
+        "drivetrain": [
+          "icar_il_suzuki_alto_7g"
+        ],
+        "generation": [
+          "icar_il_suzuki_alto_7g",
+          "auto_il_alto_specs"
+        ],
+        "year_start": [
+          "icar_il_suzuki_alto_7g",
+          "cartube_il_alto_2009"
+        ],
+        "year_end": [
+          "icar_il_suzuki_alto_7g",
+          "cartube_il_alto_2009"
+        ],
+        "trim": [
+          "icar_il_suzuki_alto_7g"
+        ]
+      },
+      "variant_id": "suzuki_alto_2009_2014_il_confirmed_7th_gen_1_0l_k10b_3_cylinder_petrol_68_hp_5_speed_manual_hatchback_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Suzuki",
+      "model": "Alto",
+      "global_model_name": "Suzuki Alto",
+      "official_marketed_name_il": "Suzuki Alto",
+      "local_brand_name_il": "Suzuki",
+      "alternate_names": [
+        "Maruti Suzuki A-Star",
+        "Nissan Pixo"
+      ],
+      "rebadged_as": null,
+      "year_start": 2009,
+      "year_end": 2014,
+      "generation": "7th Gen",
+      "body_type": "Hatchback",
+      "seats": 4,
+      "engine": "1.0L K10B 3-cylinder petrol, 68 hp",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "GLX",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Confirmed via Israeli sources (iCar, Auto.co.il, Cartube). The automatic variant of the 7th Gen Alto in Israel featured a 4-speed gearbox, paired exclusively with the same 1.0L 68hp K10B engine, and was most commonly marketed in the higher-spec GLX trim.",
+      "source_ids": [
+        "icar_il_suzuki_alto_7g",
+        "cartube_il_alto_2009",
+        "auto_il_alto_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_suzuki_alto_7g"
+        ],
+        "seats": [
+          "icar_il_suzuki_alto_7g",
+          "cartube_il_alto_2009"
+        ],
+        "engine": [
+          "icar_il_suzuki_alto_7g",
+          "cartube_il_alto_2009",
+          "auto_il_alto_specs"
+        ],
+        "transmission": [
+          "icar_il_suzuki_alto_7g",
+          "cartube_il_alto_2009"
+        ],
+        "fuel_type": [
+          "icar_il_suzuki_alto_7g",
+          "auto_il_alto_specs"
+        ],
+        "drivetrain": [
+          "icar_il_suzuki_alto_7g"
+        ],
+        "generation": [
+          "icar_il_suzuki_alto_7g",
+          "auto_il_alto_specs"
+        ],
+        "year_start": [
+          "icar_il_suzuki_alto_7g",
+          "cartube_il_alto_2009"
+        ],
+        "year_end": [
+          "icar_il_suzuki_alto_7g",
+          "cartube_il_alto_2009"
+        ],
+        "trim": [
+          "icar_il_suzuki_alto_7g"
+        ]
+      },
+      "variant_id": "suzuki_alto_2009_2014_il_confirmed_7th_gen_1_0l_k10b_3_cylinder_petrol_68_hp_4_speed_automatic_hatchback_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -473121,17 +473276,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 2111,
-    "variants": 2111,
+    "total_variants": 2113,
+    "variants": 2113,
     "verified": 788,
-    "partial": 1323,
+    "partial": 1325,
     "makes_count": 45,
-    "models_count": 583,
-    "processed_seeds": 581,
+    "models_count": 584,
+    "processed_seeds": 582,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-23T02:07:21.638695+00:00"
+    "last_updated_at": "2026-05-23T02:08:11.485644+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
