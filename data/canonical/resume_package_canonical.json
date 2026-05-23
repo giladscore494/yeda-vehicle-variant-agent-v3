@@ -546,7 +546,8 @@
       "nissan__kicks__2020__2026__il",
       "nissan__nv200__2010__2022__il",
       "nissan__sunny__1990__2006__il",
-      "nissan__terrano__1990__2006__il"
+      "nissan__terrano__1990__2006__il",
+      "nissan__200sx__1994__2002__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -999,8 +1000,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "nissan__terrano__1990__2006__il",
-    "next_seed_id": "nissan__200sx__1994__2002__il",
+    "last_completed_seed_id": "nissan__200sx__1994__2002__il",
+    "next_seed_id": "nissan__altima__2013__2020__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2644,6 +2645,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T01:13:38.590459+00:00"
+      },
+      "nissan__200sx__1994__2002__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 3,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T01:14:20.683873+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -244167,6 +244176,194 @@
         "trim": []
       },
       "variant_id": "nissan_terrano_1990_1995_il_likely_wd21_2_4l_petrol_5_speed_manual_suv_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Nissan",
+      "model": "200SX",
+      "global_model_name": "Nissan Silvia (S14)",
+      "official_marketed_name_il": "Nissan 200SX",
+      "local_brand_name_il": "Nissan",
+      "alternate_names": [
+        "Silvia"
+      ],
+      "rebadged_as": null,
+      "year_start": 1994,
+      "year_end": 1999,
+      "generation": "S14",
+      "body_type": "Coupe",
+      "seats": 4,
+      "engine": "2.0L SR20DET turbo petrol",
+      "transmission": "5-speed manual",
+      "fuel_type": "Petrol",
+      "drivetrain": "RWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli enthusiast history and import records confirm the S14 generation (European spec LHD) was officially sold in Israel as the Nissan 200SX. Engine is the SR20DET.",
+      "source_ids": [
+        "israel_mot_nissan_history",
+        "nissan_euro_s14_data"
+      ],
+      "field_sources": {
+        "body_type": [
+          "israel_mot_nissan_history",
+          "nissan_euro_s14_data"
+        ],
+        "seats": [
+          "nissan_euro_s14_data"
+        ],
+        "engine": [
+          "israel_mot_nissan_history",
+          "nissan_euro_s14_data"
+        ],
+        "transmission": [
+          "nissan_euro_s14_data"
+        ],
+        "fuel_type": [
+          "nissan_euro_s14_data"
+        ],
+        "drivetrain": [
+          "israel_mot_nissan_history"
+        ],
+        "generation": [
+          "israel_mot_nissan_history",
+          "nissan_euro_s14_data"
+        ],
+        "year_start": [
+          "nissan_euro_s14_data"
+        ],
+        "year_end": [
+          "nissan_euro_s14_data"
+        ],
+        "trim": []
+      },
+      "variant_id": "nissan_200sx_1994_1999_il_confirmed_s14_2_0l_sr20det_turbo_petrol_5_speed_manual_coupe_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Nissan",
+      "model": "200SX",
+      "global_model_name": "Nissan Silvia (S14)",
+      "official_marketed_name_il": "Nissan 200SX",
+      "local_brand_name_il": "Nissan",
+      "alternate_names": [
+        "Silvia"
+      ],
+      "rebadged_as": null,
+      "year_start": 1994,
+      "year_end": 1999,
+      "generation": "S14",
+      "body_type": "Coupe",
+      "seats": 4,
+      "engine": "2.0L SR20DET turbo petrol",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "RWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "S14 generation 200SX in Israel and Europe was also offered with a 4-speed automatic transmission alongside the manual.",
+      "source_ids": [
+        "israel_mot_nissan_history",
+        "nissan_euro_s14_data"
+      ],
+      "field_sources": {
+        "body_type": [
+          "israel_mot_nissan_history",
+          "nissan_euro_s14_data"
+        ],
+        "seats": [
+          "nissan_euro_s14_data"
+        ],
+        "engine": [
+          "israel_mot_nissan_history",
+          "nissan_euro_s14_data"
+        ],
+        "transmission": [
+          "nissan_euro_s14_data"
+        ],
+        "fuel_type": [
+          "nissan_euro_s14_data"
+        ],
+        "drivetrain": [
+          "israel_mot_nissan_history"
+        ],
+        "generation": [
+          "israel_mot_nissan_history",
+          "nissan_euro_s14_data"
+        ],
+        "year_start": [
+          "nissan_euro_s14_data"
+        ],
+        "year_end": [
+          "nissan_euro_s14_data"
+        ],
+        "trim": []
+      },
+      "variant_id": "nissan_200sx_1994_1999_il_confirmed_s14_2_0l_sr20det_turbo_petrol_4_speed_automatic_coupe_petrol"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Nissan",
+      "model": "200SX",
+      "global_model_name": "Nissan Silvia (S15)",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Silvia"
+      ],
+      "rebadged_as": null,
+      "year_start": 1999,
+      "year_end": 2002,
+      "generation": "S15",
+      "body_type": "Coupe",
+      "seats": 4,
+      "engine": "2.0L SR20DET turbo petrol",
+      "transmission": "6-speed manual",
+      "fuel_type": "Petrol",
+      "drivetrain": "RWD",
+      "trim": null,
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "The S15 generation was badged as the 200SX in markets like Australia and New Zealand. It was never officially imported to Israel as it was exclusively produced in RHD. Included to cover the 1999-2002 period.",
+      "source_ids": [
+        "nissan_adm_s15_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "nissan_adm_s15_specs"
+        ],
+        "seats": [
+          "nissan_adm_s15_specs"
+        ],
+        "engine": [
+          "nissan_adm_s15_specs"
+        ],
+        "transmission": [
+          "nissan_adm_s15_specs"
+        ],
+        "fuel_type": [
+          "nissan_adm_s15_specs"
+        ],
+        "drivetrain": [
+          "nissan_adm_s15_specs"
+        ],
+        "generation": [
+          "nissan_adm_s15_specs"
+        ],
+        "year_start": [
+          "nissan_adm_s15_specs"
+        ],
+        "year_end": [
+          "nissan_adm_s15_specs"
+        ],
+        "trim": []
+      },
+      "variant_id": "nissan_200sx_1999_2002_global_reference_only_s15_2_0l_sr20det_turbo_petrol_6_speed_manual_coupe_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -462177,17 +462374,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1940,
-    "variants": 1940,
+    "total_variants": 1943,
+    "variants": 1943,
     "verified": 788,
-    "partial": 1152,
+    "partial": 1155,
     "makes_count": 42,
-    "models_count": 540,
-    "processed_seeds": 537,
+    "models_count": 541,
+    "processed_seeds": 538,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-23T01:13:38.596415+00:00"
+    "last_updated_at": "2026-05-23T01:14:20.688622+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
