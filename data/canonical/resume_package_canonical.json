@@ -564,7 +564,8 @@
       "mazda__cx-60__2022__2026__il",
       "mazda__cx-7__2006__2012__il",
       "mazda__cx-80__2024__2026__il",
-      "mazda__cx-9__2007__2023__il"
+      "mazda__cx-9__2007__2023__il",
+      "mazda__cx-90__2023__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1017,8 +1018,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "mazda__cx-9__2007__2023__il",
-    "next_seed_id": "mazda__cx-90__2023__2026__il",
+    "last_completed_seed_id": "mazda__cx-90__2023__2026__il",
+    "next_seed_id": "mazda__mx-5__1998__2026__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2806,6 +2807,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T01:28:22.538997+00:00"
+      },
+      "mazda__cx-90__2023__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 2,
+        "merged_count": 1,
+        "warnings": [],
+        "resolved_at": "2026-05-23T01:29:05.152794+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -248641,6 +248650,119 @@
         ]
       },
       "variant_id": "mazda_cx_9_2016_2023_il_confirmed_2nd_gen_tc_2_5l_skyactiv_g_turbo_6_speed_automatic_suv_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Mazda",
+      "model": "CX-90",
+      "global_model_name": "Mazda CX-90",
+      "official_marketed_name_il": "Mazda CX-90",
+      "local_brand_name_il": "Mazda",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2023,
+      "year_end": 2026,
+      "generation": "1st Gen",
+      "body_type": "SUV",
+      "seats": 8,
+      "engine": "3.3L e-Skyactiv G Turbo I6, 345 hp",
+      "transmission": "8-speed automatic",
+      "fuel_type": "Mild Hybrid",
+      "drivetrain": "AWD",
+      "trim": "Exclusive",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli automotive sources (Cartube, Auto.co.il) confirm the CX-90 was launched in Israel in late 2023 with the High-Output 3.3L inline-6 mild-hybrid engine. The Exclusive trim is configured with 8 seats.",
+      "source_ids": [
+        "cartube_il_mazda_cx90_launch",
+        "auto_co_il_mazda_cx90_catalog"
+      ],
+      "field_sources": {
+        "body_type": [
+          "cartube_il_mazda_cx90_launch"
+        ],
+        "seats": [
+          "cartube_il_mazda_cx90_launch"
+        ],
+        "engine": [
+          "cartube_il_mazda_cx90_launch",
+          "auto_co_il_mazda_cx90_catalog"
+        ],
+        "transmission": [
+          "cartube_il_mazda_cx90_launch"
+        ],
+        "fuel_type": [
+          "cartube_il_mazda_cx90_launch"
+        ],
+        "drivetrain": [
+          "cartube_il_mazda_cx90_launch"
+        ],
+        "generation": [
+          "auto_co_il_mazda_cx90_catalog"
+        ],
+        "year_start": [
+          "cartube_il_mazda_cx90_launch"
+        ],
+        "year_end": [],
+        "trim": [
+          "cartube_il_mazda_cx90_launch"
+        ]
+      },
+      "variant_id": "mazda_cx_90_2023_2026_il_confirmed_1st_gen_3_3l_e_skyactiv_g_turbo_i6_345_hp_8_speed_automatic_suv_mild_hybrid",
+      "updated_at": "2026-05-23T01:29:05.154613+00:00"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Mazda",
+      "model": "CX-90",
+      "global_model_name": "Mazda CX-90",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2023,
+      "year_end": 2026,
+      "generation": "1st Gen",
+      "body_type": "SUV",
+      "seats": null,
+      "engine": "2.5L e-Skyactiv PHEV, 323 hp",
+      "transmission": "8-speed automatic",
+      "fuel_type": "Plug-in Hybrid",
+      "drivetrain": "AWD",
+      "trim": null,
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "Global press details confirm a 2.5L Plug-in Hybrid variant for the CX-90. Israeli market availability of the PHEV powertrain is not yet fully confirmed in mainstream spec sheets compared to the prominent 3.3L MHEV.",
+      "source_ids": [
+        "mazda_global_cx90_phev"
+      ],
+      "field_sources": {
+        "body_type": [
+          "mazda_global_cx90_phev"
+        ],
+        "seats": [],
+        "engine": [
+          "mazda_global_cx90_phev"
+        ],
+        "transmission": [
+          "mazda_global_cx90_phev"
+        ],
+        "fuel_type": [
+          "mazda_global_cx90_phev"
+        ],
+        "drivetrain": [
+          "mazda_global_cx90_phev"
+        ],
+        "generation": [],
+        "year_start": [
+          "mazda_global_cx90_phev"
+        ],
+        "year_end": [],
+        "trim": []
+      },
+      "variant_id": "mazda_cx_90_2023_2026_global_reference_only_1st_gen_2_5l_e_skyactiv_phev_323_hp_8_speed_automatic_suv_plug_in_hybrid"
     }
   ],
   "accumulated_clean_export": {
@@ -466651,17 +466773,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 2010,
-    "variants": 2010,
+    "total_variants": 2012,
+    "variants": 2012,
     "verified": 788,
-    "partial": 1222,
+    "partial": 1224,
     "makes_count": 43,
-    "models_count": 558,
-    "processed_seeds": 555,
+    "models_count": 559,
+    "processed_seeds": 556,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-23T01:28:22.546174+00:00"
+    "last_updated_at": "2026-05-23T01:29:05.161178+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
