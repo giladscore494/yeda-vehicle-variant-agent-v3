@@ -665,7 +665,9 @@
       "kgm_/_ssangyong__actyon__2006__2018__il",
       "kgm_/_ssangyong__rodius__2005__2019__il",
       "mg__mg3__2013__2023__il",
-      "mg__mg3_hybrid+__2024__2026__il"
+      "mg__mg3_hybrid+__2024__2026__il",
+      "mg__mg5__2022__2026__il",
+      "mg__zs__2019__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1114,12 +1116,13 @@
       "geely__coolray__2023__2026__il"
     ],
     "failed_seed_ids": [
-      "hyundai__nexo__2019__2026__il"
+      "hyundai__nexo__2019__2026__il",
+      "mg__mg4__2022__2026__il"
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "mg__mg3_hybrid+__2024__2026__il",
-    "next_seed_id": "mg__mg4__2022__2026__il",
+    "last_completed_seed_id": "mg__zs__2019__2026__il",
+    "next_seed_id": "mg__zs_ev__2020__2026__il",
     "run_history": [],
     "failed_details": [
       {
@@ -3691,6 +3694,28 @@
         "merged_count": 2,
         "warnings": [],
         "resolved_at": "2026-05-23T03:30:08.232697+00:00"
+      },
+      "mg__mg4__2022__2026__il": {
+        "status": "failed_transient",
+        "reason": "runner_failed",
+        "error_summary": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_requests_per_model_per_day, limit: 250, model: gemini-3.1-pro\\nPlease retry in 20h13m42.99858298s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_requests_per_model_per_day', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.1-pro'}, 'quotaValue': '250'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '72822s'}]}}",
+        "last_attempt_at": "2026-05-23T03:46:17.030310+00:00"
+      },
+      "mg__mg5__2022__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 1,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T03:47:11.416005+00:00"
+      },
+      "mg__zs__2019__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 5,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T03:48:52.259178+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -273519,6 +273544,383 @@
       },
       "variant_id": "mg_mg3_hybrid_2024_2026_il_confirmed_3rd_gen_1_5l_atkinson_cycle_hybrid_194_hp_combined_3_speed_automatic_hatchback_hybrid",
       "updated_at": "2026-05-23T03:30:08.233954+00:00"
+    },
+    {
+      "candidate_index": 0,
+      "make": "MG",
+      "model": "MG5",
+      "global_model_name": "MG5 EV",
+      "official_marketed_name_il": "MG5",
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "MG5 Electric",
+        "MG 5 EV"
+      ],
+      "rebadged_as": null,
+      "year_start": 2023,
+      "year_end": 2026,
+      "generation": "1st Gen Facelift",
+      "body_type": "Station Wagon",
+      "seats": 5,
+      "engine": "156 hp single electric motor (61.1 kWh battery)",
+      "transmission": "Single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "FWD",
+      "trim": "Luxury",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli importer Lubinski and local automotive press (Cartube) confirmed the launch of the facelifted MG5 Electric Station Wagon in Israel in January 2023, offered exclusively in the Luxury trim with a 156 hp electric motor and 61.1 kWh Long Range battery.",
+      "source_ids": [
+        "cartube_il_mg5_launch_2023",
+        "lubinski_il_mg5_official"
+      ],
+      "field_sources": {
+        "body_type": [
+          "cartube_il_mg5_launch_2023",
+          "lubinski_il_mg5_official"
+        ],
+        "seats": [
+          "cartube_il_mg5_launch_2023"
+        ],
+        "engine": [
+          "cartube_il_mg5_launch_2023",
+          "lubinski_il_mg5_official"
+        ],
+        "transmission": [
+          "cartube_il_mg5_launch_2023",
+          "lubinski_il_mg5_official"
+        ],
+        "fuel_type": [
+          "cartube_il_mg5_launch_2023",
+          "lubinski_il_mg5_official"
+        ],
+        "drivetrain": [
+          "cartube_il_mg5_launch_2023",
+          "lubinski_il_mg5_official"
+        ],
+        "generation": [
+          "cartube_il_mg5_launch_2023"
+        ],
+        "year_start": [
+          "cartube_il_mg5_launch_2023"
+        ],
+        "year_end": [
+          "lubinski_il_mg5_official"
+        ],
+        "trim": [
+          "cartube_il_mg5_launch_2023"
+        ]
+      },
+      "variant_id": "mg_mg5_2023_2026_il_confirmed_1st_gen_facelift_156_hp_single_electric_motor_61_1_kwh_battery_single_speed_ev_station_wagon_electric"
+    },
+    {
+      "candidate_index": 0,
+      "make": "MG",
+      "model": "ZS",
+      "global_model_name": "MG ZS",
+      "official_marketed_name_il": "MG ZS",
+      "local_brand_name_il": "MG",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2018,
+      "year_end": 2021,
+      "generation": "1st Gen",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "1.0L Turbo petrol, 111 hp",
+      "transmission": "6-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "Net Up",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "IL market sources confirm the pre-facelift petrol MG ZS was imported to Israel initially with the 1.0L Turbo engine.",
+      "source_ids": [
+        "icar_il_mg_zs_petrol"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_mg_zs_petrol"
+        ],
+        "seats": [
+          "icar_il_mg_zs_petrol"
+        ],
+        "engine": [
+          "icar_il_mg_zs_petrol"
+        ],
+        "transmission": [
+          "icar_il_mg_zs_petrol"
+        ],
+        "fuel_type": [
+          "icar_il_mg_zs_petrol"
+        ],
+        "drivetrain": [
+          "icar_il_mg_zs_petrol"
+        ],
+        "generation": [
+          "icar_il_mg_zs_petrol"
+        ],
+        "year_start": [
+          "icar_il_mg_zs_petrol"
+        ],
+        "year_end": [
+          "icar_il_mg_zs_petrol"
+        ],
+        "trim": [
+          "icar_il_mg_zs_petrol"
+        ]
+      },
+      "variant_id": "mg_zs_2018_2021_il_confirmed_1st_gen_1_0l_turbo_petrol_111_hp_6_speed_automatic_suv_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "MG",
+      "model": "ZS",
+      "global_model_name": "MG ZS EV",
+      "official_marketed_name_il": "MG ZS EV",
+      "local_brand_name_il": "MG",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2019,
+      "year_end": 2021,
+      "generation": "1st Gen",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "Single electric motor, 143 hp (105 kW)",
+      "transmission": "Single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "FWD",
+      "trim": "Net Up S",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "IL-market catalogs confirm the initial launch of the ZS EV in Israel in 2019 featured a 44.5 kWh battery and 143hp motor.",
+      "source_ids": [
+        "lubinski_mg_israel_official",
+        "icar_il_mg_zs_petrol"
+      ],
+      "field_sources": {
+        "body_type": [
+          "lubinski_mg_israel_official"
+        ],
+        "seats": [
+          "lubinski_mg_israel_official"
+        ],
+        "engine": [
+          "lubinski_mg_israel_official",
+          "icar_il_mg_zs_petrol"
+        ],
+        "transmission": [
+          "lubinski_mg_israel_official"
+        ],
+        "fuel_type": [
+          "lubinski_mg_israel_official"
+        ],
+        "drivetrain": [
+          "lubinski_mg_israel_official"
+        ],
+        "generation": [
+          "icar_il_mg_zs_petrol"
+        ],
+        "year_start": [
+          "icar_il_mg_zs_petrol"
+        ],
+        "year_end": [
+          "cartube_il_mg_zs_ev_2022"
+        ],
+        "trim": [
+          "icar_il_mg_zs_petrol"
+        ]
+      },
+      "variant_id": "mg_zs_2019_2021_il_confirmed_1st_gen_single_electric_motor_143_hp_105_kw_single_speed_ev_suv_electric"
+    },
+    {
+      "candidate_index": 2,
+      "make": "MG",
+      "model": "ZS",
+      "global_model_name": "MG ZS EV",
+      "official_marketed_name_il": "MG ZS EV",
+      "local_brand_name_il": "MG",
+      "alternate_names": [
+        "ZS EV Standard Range"
+      ],
+      "rebadged_as": null,
+      "year_start": 2022,
+      "year_end": 2026,
+      "generation": "1st Gen Facelift",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "Single electric motor, 177 hp (130 kW), Standard Range (50.3 kWh)",
+      "transmission": "Single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "FWD",
+      "trim": "Net Up",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli official importer data and automotive reviews confirm the 2022 facelift Standard Range uses a 177hp motor and 50.3kWh battery.",
+      "source_ids": [
+        "lubinski_mg_israel_official",
+        "cartube_il_mg_zs_ev_2022"
+      ],
+      "field_sources": {
+        "body_type": [
+          "lubinski_mg_israel_official"
+        ],
+        "seats": [
+          "lubinski_mg_israel_official"
+        ],
+        "engine": [
+          "lubinski_mg_israel_official",
+          "cartube_il_mg_zs_ev_2022"
+        ],
+        "transmission": [
+          "lubinski_mg_israel_official"
+        ],
+        "fuel_type": [
+          "lubinski_mg_israel_official"
+        ],
+        "drivetrain": [
+          "lubinski_mg_israel_official"
+        ],
+        "generation": [
+          "cartube_il_mg_zs_ev_2022"
+        ],
+        "year_start": [
+          "cartube_il_mg_zs_ev_2022"
+        ],
+        "year_end": [
+          "lubinski_mg_israel_official"
+        ],
+        "trim": [
+          "lubinski_mg_israel_official"
+        ]
+      },
+      "variant_id": "mg_zs_2022_2026_il_confirmed_1st_gen_facelift_single_electric_motor_177_hp_130_kw_standard_range_50_3_kwh_single_speed_ev_suv_electric"
+    },
+    {
+      "candidate_index": 3,
+      "make": "MG",
+      "model": "ZS",
+      "global_model_name": "MG ZS EV",
+      "official_marketed_name_il": "MG ZS EV",
+      "local_brand_name_il": "MG",
+      "alternate_names": [
+        "ZS EV Long Range"
+      ],
+      "rebadged_as": null,
+      "year_start": 2022,
+      "year_end": 2026,
+      "generation": "1st Gen Facelift",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "Single electric motor, 156 hp (115 kW), Long Range (70 kWh)",
+      "transmission": "Single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "FWD",
+      "trim": "Net Up",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli official importer confirms the 2022 facelift Long Range uniquely features a 156hp motor combined with the larger 70kWh battery.",
+      "source_ids": [
+        "lubinski_mg_israel_official",
+        "cartube_il_mg_zs_ev_2022"
+      ],
+      "field_sources": {
+        "body_type": [
+          "lubinski_mg_israel_official"
+        ],
+        "seats": [
+          "lubinski_mg_israel_official"
+        ],
+        "engine": [
+          "lubinski_mg_israel_official",
+          "cartube_il_mg_zs_ev_2022"
+        ],
+        "transmission": [
+          "lubinski_mg_israel_official"
+        ],
+        "fuel_type": [
+          "lubinski_mg_israel_official"
+        ],
+        "drivetrain": [
+          "lubinski_mg_israel_official"
+        ],
+        "generation": [
+          "cartube_il_mg_zs_ev_2022"
+        ],
+        "year_start": [
+          "cartube_il_mg_zs_ev_2022"
+        ],
+        "year_end": [
+          "lubinski_mg_israel_official"
+        ],
+        "trim": [
+          "lubinski_mg_israel_official"
+        ]
+      },
+      "variant_id": "mg_zs_2022_2026_il_confirmed_1st_gen_facelift_single_electric_motor_156_hp_115_kw_long_range_70_kwh_single_speed_ev_suv_electric"
+    },
+    {
+      "candidate_index": 4,
+      "make": "MG",
+      "model": "ZS",
+      "global_model_name": "MG ZS",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": "MG",
+      "alternate_names": [
+        "MG ZS Hybrid+"
+      ],
+      "rebadged_as": null,
+      "year_start": 2024,
+      "year_end": 2026,
+      "generation": "2nd Gen",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "1.5L e:HEV hybrid, 196 hp combined",
+      "transmission": "3-speed DHT",
+      "fuel_type": "Hybrid",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-likely",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "The all-new 2nd Gen Hybrid+ launched globally in late 2024. IL marketed name not officially confirmed yet in historical catalogs; model used as a strong likelihood given the importer's rapid rollout history. IL confirmation lacking.",
+      "source_ids": [
+        "global_mg_zs_hybrid_2024"
+      ],
+      "field_sources": {
+        "body_type": [
+          "global_mg_zs_hybrid_2024"
+        ],
+        "seats": [
+          "global_mg_zs_hybrid_2024"
+        ],
+        "engine": [
+          "global_mg_zs_hybrid_2024"
+        ],
+        "transmission": [
+          "global_mg_zs_hybrid_2024"
+        ],
+        "fuel_type": [
+          "global_mg_zs_hybrid_2024"
+        ],
+        "drivetrain": [
+          "global_mg_zs_hybrid_2024"
+        ],
+        "generation": [
+          "global_mg_zs_hybrid_2024"
+        ],
+        "year_start": [
+          "global_mg_zs_hybrid_2024"
+        ],
+        "year_end": [],
+        "trim": []
+      },
+      "variant_id": "mg_zs_2024_2026_il_likely_2nd_gen_1_5l_e_hev_hybrid_196_hp_combined_3_speed_dht_suv_hybrid"
     }
   ],
   "accumulated_clean_export": {
@@ -491529,17 +491931,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 2401,
-    "variants": 2401,
+    "total_variants": 2407,
+    "variants": 2407,
     "verified": 788,
-    "partial": 1613,
+    "partial": 1619,
     "makes_count": 51,
-    "models_count": 657,
-    "processed_seeds": 656,
+    "models_count": 659,
+    "processed_seeds": 658,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
-    "unresolved": 1,
-    "last_updated_at": "2026-05-23T03:30:08.237657+00:00"
+    "unresolved": 2,
+    "last_updated_at": "2026-05-23T03:48:52.270703+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
