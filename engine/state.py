@@ -2,18 +2,131 @@
 from __future__ import annotations
 
 import json
+import os
+import shutil
+import tempfile
 from pathlib import Path
 
 
+class CanonicalCorruptionError(Exception):
+    """Raised when a canonical JSON file exists but contains invalid JSON."""
+
+    def __init__(self, path: Path, size: int, line: int, column: int,
+                 pos: int, message: str | None = None):
+        self.path = path
+        self.size = size
+        self.line = line
+        self.column = column
+        self.pos = pos
+        msg = (
+            message
+            or (
+                f"Canonical JSON is corrupted at {path} "
+                f"(size={size}, line={line}, col={column}, pos={pos}). "
+                "Restore from backup before running."
+            )
+        )
+        super().__init__(msg)
+
+
 def load_canonical(path: str | Path) -> dict:
-    """Load canonical JSON from disk. Raises on missing/invalid."""
+    """Load canonical JSON from disk.
+
+    Raises FileNotFoundError when the file is missing.
+    Raises CanonicalCorruptionError when the file contains invalid JSON.
+    Raises ValueError when the root element is not a dict.
+    """
     p = Path(path)
     if not p.exists():
         raise FileNotFoundError(f"Canonical file not found: {p}")
-    data = json.loads(p.read_text(encoding="utf-8"))
+    text = p.read_text(encoding="utf-8")
+    try:
+        data = json.loads(text)
+    except json.JSONDecodeError as exc:
+        raise CanonicalCorruptionError(
+            path=p,
+            size=len(text),
+            line=exc.lineno,
+            column=exc.colno,
+            pos=exc.pos,
+        ) from exc
     if not isinstance(data, dict):
         raise ValueError("Canonical root is not a JSON object")
     return data
+
+
+def load_canonical_with_recovery(
+    path: str | Path,
+    backup_path: str | Path | None = None,
+) -> dict:
+    """Load canonical, falling back to backup on corruption.
+
+    Returns the canonical dict.  When recovery from backup occurs the dict
+    includes a ``_recovery`` key with metadata about the restore.
+
+    Raises CanonicalCorruptionError when neither the primary nor the backup
+    file contains valid JSON.
+    """
+    p = Path(path)
+    try:
+        return load_canonical(p)
+    except CanonicalCorruptionError:
+        if backup_path is None:
+            raise
+        bp = Path(backup_path)
+        if not bp.exists():
+            raise
+
+        # Validate backup
+        try:
+            backup_data = load_canonical(bp)
+        except (CanonicalCorruptionError, ValueError, FileNotFoundError):
+            raise CanonicalCorruptionError(
+                path=p,
+                size=p.stat().st_size if p.exists() else 0,
+                line=0,
+                column=0,
+                pos=0,
+                message=(
+                    f"Canonical JSON is corrupted at {p} and backup at {bp} "
+                    "is also invalid. Manual intervention required."
+                ),
+            )
+
+        # Restore backup to canonical path using atomic replace
+        fd, tmp_path = tempfile.mkstemp(
+            prefix=".canonical_restore_", suffix=".json", dir=str(p.parent),
+        )
+        try:
+            with os.fdopen(fd, "w", encoding="utf-8") as fh:
+                json.dump(backup_data, fh, ensure_ascii=False, indent=2)
+                fh.flush()
+                os.fsync(fh.fileno())
+            os.replace(tmp_path, str(p))
+        finally:
+            if os.path.exists(tmp_path):
+                try:
+                    os.unlink(tmp_path)
+                except OSError:
+                    pass
+
+        # Fsync parent directory
+        try:
+            dir_fd = os.open(str(p.parent), os.O_RDONLY)
+            try:
+                os.fsync(dir_fd)
+            finally:
+                os.close(dir_fd)
+        except OSError:
+            pass
+
+        # Reload restored canonical
+        restored = load_canonical(p)
+        restored["_recovery"] = {
+            "restored_from": str(bp),
+            "original_path": str(p),
+        }
+        return restored
 
 
 def get_all_variants(canonical: dict) -> list[dict]:
