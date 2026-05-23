@@ -592,7 +592,8 @@
       "mitsubishi__3000gt__1992__1999__il",
       "suzuki__swift__1990__2026__il",
       "suzuki__alto__1990__2014__il",
-      "suzuki__splash__2008__2014__il"
+      "suzuki__splash__2008__2014__il",
+      "suzuki__baleno__1996__2002__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1045,8 +1046,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "suzuki__splash__2008__2014__il",
-    "next_seed_id": "suzuki__baleno__1996__2002__il",
+    "last_completed_seed_id": "suzuki__baleno__1996__2002__il",
+    "next_seed_id": "suzuki__baleno__2016__2026__il",
     "run_history": [],
     "failed_details": [
       {
@@ -3058,6 +3059,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T02:08:52.399317+00:00"
+      },
+      "suzuki__baleno__1996__2002__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 4,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T02:09:41.048197+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -255465,6 +255474,270 @@
         ]
       },
       "variant_id": "suzuki_splash_2012_2014_il_confirmed_1st_gen_1_2l_k12b_vvt_inline_4_petrol_94_hp_5_speed_manual_hatchback_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Suzuki",
+      "model": "Baleno",
+      "global_model_name": "Suzuki Cultus Crescent",
+      "official_marketed_name_il": "Suzuki Baleno",
+      "local_brand_name_il": "Suzuki",
+      "alternate_names": [
+        "Suzuki Esteem"
+      ],
+      "rebadged_as": null,
+      "year_start": 1996,
+      "year_end": 2002,
+      "generation": "1st Gen (SY)",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "1.6L Petrol (G16B)",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "GLX",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "IL-market sources (iCar, Auto.co.il, Yad2) confirm the 1.6L Sedan with 4-speed automatic as the most popular variant of the Baleno in Israel during this period. Marketed locally strictly as Suzuki Baleno.",
+      "source_ids": [
+        "icar_il_suzuki_baleno_1995_2002",
+        "yad2_il_suzuki_baleno_listings",
+        "auto_il_suzuki_baleno_history"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_suzuki_baleno_1995_2002",
+          "yad2_il_suzuki_baleno_listings"
+        ],
+        "seats": [
+          "auto_il_suzuki_baleno_history"
+        ],
+        "engine": [
+          "icar_il_suzuki_baleno_1995_2002",
+          "auto_il_suzuki_baleno_history"
+        ],
+        "transmission": [
+          "icar_il_suzuki_baleno_1995_2002",
+          "yad2_il_suzuki_baleno_listings"
+        ],
+        "fuel_type": [
+          "icar_il_suzuki_baleno_1995_2002"
+        ],
+        "drivetrain": [
+          "auto_il_suzuki_baleno_history"
+        ],
+        "generation": [
+          "auto_il_suzuki_baleno_history"
+        ],
+        "year_start": [
+          "icar_il_suzuki_baleno_1995_2002",
+          "auto_il_suzuki_baleno_history"
+        ],
+        "year_end": [
+          "icar_il_suzuki_baleno_1995_2002",
+          "auto_il_suzuki_baleno_history"
+        ],
+        "trim": [
+          "icar_il_suzuki_baleno_1995_2002",
+          "yad2_il_suzuki_baleno_listings"
+        ]
+      },
+      "variant_id": "suzuki_baleno_1996_2002_il_confirmed_1st_gen_sy_1_6l_petrol_g16b_4_speed_automatic_sedan_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Suzuki",
+      "model": "Baleno",
+      "global_model_name": "Suzuki Cultus Crescent",
+      "official_marketed_name_il": "Suzuki Baleno",
+      "local_brand_name_il": "Suzuki",
+      "alternate_names": [
+        "Suzuki Esteem"
+      ],
+      "rebadged_as": null,
+      "year_start": 1996,
+      "year_end": 2002,
+      "generation": "1st Gen (SY)",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "1.6L Petrol (G16B)",
+      "transmission": "5-speed manual",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "GLX",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "IL-market sources confirm the availability of a 5-speed manual transmission for the standard 1.6L GLX Sedan, though it was less common than the automatic.",
+      "source_ids": [
+        "icar_il_suzuki_baleno_1995_2002",
+        "yad2_il_suzuki_baleno_listings"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_suzuki_baleno_1995_2002",
+          "yad2_il_suzuki_baleno_listings"
+        ],
+        "seats": [
+          "icar_il_suzuki_baleno_1995_2002"
+        ],
+        "engine": [
+          "icar_il_suzuki_baleno_1995_2002"
+        ],
+        "transmission": [
+          "icar_il_suzuki_baleno_1995_2002",
+          "yad2_il_suzuki_baleno_listings"
+        ],
+        "fuel_type": [
+          "icar_il_suzuki_baleno_1995_2002"
+        ],
+        "drivetrain": [
+          "icar_il_suzuki_baleno_1995_2002"
+        ],
+        "generation": [
+          "auto_il_suzuki_baleno_history"
+        ],
+        "year_start": [
+          "icar_il_suzuki_baleno_1995_2002"
+        ],
+        "year_end": [
+          "icar_il_suzuki_baleno_1995_2002"
+        ],
+        "trim": [
+          "yad2_il_suzuki_baleno_listings"
+        ]
+      },
+      "variant_id": "suzuki_baleno_1996_2002_il_confirmed_1st_gen_sy_1_6l_petrol_g16b_5_speed_manual_sedan_petrol"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Suzuki",
+      "model": "Baleno",
+      "global_model_name": "Suzuki Cultus Crescent Wagon",
+      "official_marketed_name_il": "Suzuki Baleno",
+      "local_brand_name_il": "Suzuki",
+      "alternate_names": [
+        "Suzuki Esteem Wagon"
+      ],
+      "rebadged_as": null,
+      "year_start": 1996,
+      "year_end": 2002,
+      "generation": "1st Gen (SY)",
+      "body_type": "Estate",
+      "seats": 5,
+      "engine": "1.6L Petrol (G16B)",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "GLX",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Estate (Station Wagon) body type confirmed for the Israeli market via historical spec sheets and used listings. 1.6L Automatic was the core powertrain.",
+      "source_ids": [
+        "icar_il_suzuki_baleno_1995_2002",
+        "yad2_il_suzuki_baleno_listings",
+        "auto_il_suzuki_baleno_history"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_suzuki_baleno_1995_2002",
+          "auto_il_suzuki_baleno_history"
+        ],
+        "seats": [
+          "auto_il_suzuki_baleno_history"
+        ],
+        "engine": [
+          "icar_il_suzuki_baleno_1995_2002"
+        ],
+        "transmission": [
+          "icar_il_suzuki_baleno_1995_2002"
+        ],
+        "fuel_type": [
+          "icar_il_suzuki_baleno_1995_2002"
+        ],
+        "drivetrain": [
+          "auto_il_suzuki_baleno_history"
+        ],
+        "generation": [
+          "auto_il_suzuki_baleno_history"
+        ],
+        "year_start": [
+          "icar_il_suzuki_baleno_1995_2002"
+        ],
+        "year_end": [
+          "icar_il_suzuki_baleno_1995_2002"
+        ],
+        "trim": [
+          "yad2_il_suzuki_baleno_listings"
+        ]
+      },
+      "variant_id": "suzuki_baleno_1996_2002_il_confirmed_1st_gen_sy_1_6l_petrol_g16b_4_speed_automatic_estate_petrol"
+    },
+    {
+      "candidate_index": 3,
+      "make": "Suzuki",
+      "model": "Baleno",
+      "global_model_name": "Suzuki Cultus Crescent",
+      "official_marketed_name_il": "Suzuki Baleno",
+      "local_brand_name_il": "Suzuki",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 1996,
+      "year_end": 2002,
+      "generation": "1st Gen (SY)",
+      "body_type": "Hatchback",
+      "seats": 5,
+      "engine": "1.6L Petrol (G16B)",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "GLX",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "3-door Hatchback variant confirmed for the IL market. Less common than Sedan, but actively sold and listed in Israeli used car databases with the 1.6L Automatic combination.",
+      "source_ids": [
+        "icar_il_suzuki_baleno_1995_2002",
+        "yad2_il_suzuki_baleno_listings",
+        "auto_il_suzuki_baleno_history"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_suzuki_baleno_1995_2002",
+          "yad2_il_suzuki_baleno_listings"
+        ],
+        "seats": [
+          "auto_il_suzuki_baleno_history"
+        ],
+        "engine": [
+          "icar_il_suzuki_baleno_1995_2002"
+        ],
+        "transmission": [
+          "icar_il_suzuki_baleno_1995_2002",
+          "yad2_il_suzuki_baleno_listings"
+        ],
+        "fuel_type": [
+          "icar_il_suzuki_baleno_1995_2002"
+        ],
+        "drivetrain": [
+          "auto_il_suzuki_baleno_history"
+        ],
+        "generation": [
+          "auto_il_suzuki_baleno_history"
+        ],
+        "year_start": [
+          "icar_il_suzuki_baleno_1995_2002"
+        ],
+        "year_end": [
+          "icar_il_suzuki_baleno_1995_2002"
+        ],
+        "trim": [
+          "yad2_il_suzuki_baleno_listings"
+        ]
+      },
+      "variant_id": "suzuki_baleno_1996_2002_il_confirmed_1st_gen_sy_1_6l_petrol_g16b_4_speed_automatic_hatchback_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -473475,17 +473748,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 2116,
-    "variants": 2116,
+    "total_variants": 2120,
+    "variants": 2120,
     "verified": 788,
-    "partial": 1328,
+    "partial": 1332,
     "makes_count": 45,
-    "models_count": 585,
-    "processed_seeds": 583,
+    "models_count": 586,
+    "processed_seeds": 584,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-23T02:08:52.406496+00:00"
+    "last_updated_at": "2026-05-23T02:09:41.055601+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
