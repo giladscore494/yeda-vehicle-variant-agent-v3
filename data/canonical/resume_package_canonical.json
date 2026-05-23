@@ -587,7 +587,8 @@
       "mitsubishi__grandis__2004__2011__il",
       "mitsubishi__attrage__2014__2026__il",
       "mitsubishi__galant__1990__2012__il",
-      "mitsubishi__carisma__1995__2004__il"
+      "mitsubishi__carisma__1995__2004__il",
+      "mitsubishi__space_wagon__1990__2003__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1040,8 +1041,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "mitsubishi__carisma__1995__2004__il",
-    "next_seed_id": "mitsubishi__space_wagon__1990__2003__il",
+    "last_completed_seed_id": "mitsubishi__space_wagon__1990__2003__il",
+    "next_seed_id": "mitsubishi__3000gt__1992__1999__il",
     "run_history": [],
     "failed_details": [
       {
@@ -3013,6 +3014,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T02:04:54.027931+00:00"
+      },
+      "mitsubishi__space_wagon__1990__2003__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 2,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T02:05:26.521337+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -254271,6 +254280,140 @@
         "trim": []
       },
       "variant_id": "mitsubishi_carisma_1999_2004_il_confirmed_1st_gen_da_facelift_1_8l_gdi_4_cylinder_petrol_4_speed_automatic_sedan_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Mitsubishi",
+      "model": "Space Wagon",
+      "global_model_name": "Chariot (2nd Gen)",
+      "official_marketed_name_il": "Space Wagon",
+      "local_brand_name_il": "Mitsubishi",
+      "alternate_names": [
+        "Chariot",
+        "Nimbus",
+        "Expo"
+      ],
+      "rebadged_as": null,
+      "year_start": 1991,
+      "year_end": 1997,
+      "generation": "2nd Gen",
+      "body_type": "MPV",
+      "seats": 7,
+      "engine": "2.0L 4G63 Petrol",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "GLX",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli price lists and auto history confirm the 2nd Generation Chariot was marketed locally as 'Space Wagon' as a 7-seat MPV primarily with a 2.0L petrol engine and automatic transmission.",
+      "source_ids": [
+        "levi_itzhak_il_mitsubishi_spacewagon",
+        "cartube_il_mitsubishi_history",
+        "mitsubishi_global_chariot_archive"
+      ],
+      "field_sources": {
+        "body_type": [
+          "cartube_il_mitsubishi_history"
+        ],
+        "seats": [
+          "levi_itzhak_il_mitsubishi_spacewagon"
+        ],
+        "engine": [
+          "levi_itzhak_il_mitsubishi_spacewagon",
+          "mitsubishi_global_chariot_archive"
+        ],
+        "transmission": [
+          "levi_itzhak_il_mitsubishi_spacewagon"
+        ],
+        "fuel_type": [
+          "mitsubishi_global_chariot_archive"
+        ],
+        "drivetrain": [
+          "mitsubishi_global_chariot_archive"
+        ],
+        "generation": [
+          "mitsubishi_global_chariot_archive",
+          "cartube_il_mitsubishi_history"
+        ],
+        "year_start": [
+          "levi_itzhak_il_mitsubishi_spacewagon"
+        ],
+        "year_end": [
+          "levi_itzhak_il_mitsubishi_spacewagon"
+        ],
+        "trim": [
+          "levi_itzhak_il_mitsubishi_spacewagon"
+        ]
+      },
+      "variant_id": "mitsubishi_space_wagon_1991_1997_il_confirmed_2nd_gen_2_0l_4g63_petrol_4_speed_automatic_mpv_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Mitsubishi",
+      "model": "Space Wagon",
+      "global_model_name": "Chariot Grandis (3rd Gen)",
+      "official_marketed_name_il": "Space Wagon",
+      "local_brand_name_il": "Mitsubishi",
+      "alternate_names": [
+        "Chariot Grandis",
+        "Nimbus"
+      ],
+      "rebadged_as": null,
+      "year_start": 1998,
+      "year_end": 2003,
+      "generation": "3rd Gen",
+      "body_type": "MPV",
+      "seats": 7,
+      "engine": "2.4L 4G64 GDI Petrol",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "GLX",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli used car archives and price lists confirm the 3rd Generation (globally known as Chariot Grandis) continued as 'Space Wagon' in Israel from 1998, strongly identified by its 2.4L GDI engine.",
+      "source_ids": [
+        "levi_itzhak_il_mitsubishi_spacewagon",
+        "cartube_il_mitsubishi_history",
+        "mitsubishi_global_chariot_archive"
+      ],
+      "field_sources": {
+        "body_type": [
+          "cartube_il_mitsubishi_history"
+        ],
+        "seats": [
+          "levi_itzhak_il_mitsubishi_spacewagon"
+        ],
+        "engine": [
+          "levi_itzhak_il_mitsubishi_spacewagon",
+          "mitsubishi_global_chariot_archive"
+        ],
+        "transmission": [
+          "levi_itzhak_il_mitsubishi_spacewagon"
+        ],
+        "fuel_type": [
+          "mitsubishi_global_chariot_archive"
+        ],
+        "drivetrain": [
+          "mitsubishi_global_chariot_archive"
+        ],
+        "generation": [
+          "mitsubishi_global_chariot_archive"
+        ],
+        "year_start": [
+          "levi_itzhak_il_mitsubishi_spacewagon"
+        ],
+        "year_end": [
+          "levi_itzhak_il_mitsubishi_spacewagon"
+        ],
+        "trim": [
+          "levi_itzhak_il_mitsubishi_spacewagon"
+        ]
+      },
+      "variant_id": "mitsubishi_space_wagon_1998_2003_il_confirmed_3rd_gen_2_4l_4g64_gdi_petrol_4_speed_automatic_mpv_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -472281,17 +472424,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 2098,
-    "variants": 2098,
+    "total_variants": 2100,
+    "variants": 2100,
     "verified": 788,
-    "partial": 1310,
+    "partial": 1312,
     "makes_count": 44,
-    "models_count": 580,
-    "processed_seeds": 578,
+    "models_count": 581,
+    "processed_seeds": 579,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-23T02:04:54.032506+00:00"
+    "last_updated_at": "2026-05-23T02:05:26.526005+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
