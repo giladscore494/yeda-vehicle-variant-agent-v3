@@ -6,7 +6,7 @@
     "schema_version": "batch_state_v1",
     "market": "IL",
     "created_at": "2026-05-08T16:44:55.429137+00:00",
-    "updated_at": "2026-05-16T19:50:49.827146+00:00",
+    "updated_at": "2026-05-23T20:04:58.165067+00:00",
     "last_batch_id": "e92f0fef-de4e-42a7-95c1-e7d10c53cb6b",
     "total_seeds": 993,
     "processed_seed_ids": [
@@ -1243,7 +1243,8 @@
       "volkswagen__golf_plus__2005__2020__il",
       "gac_-_aion__aion_y__2023__2026__il",
       "gac_-_aion__aion_v__2024__2026__il",
-      "geely__coolray__2023__2026__il"
+      "geely__coolray__2023__2026__il",
+      "hyundai__creta__2020__2026__il"
     ],
     "failed_seed_ids": [
       "mini__clubman__2007__2024__il"
@@ -1253,17 +1254,10 @@
     "last_completed_seed_id": "peugeot__106__1991__2003__il",
     "next_seed_id": "peugeot__208__2012__2026__il",
     "run_history": [],
-    "failed_details": [
-      {
-        "seed_id": "hyundai__nexo__2019__2026__il",
-        "reason": "zero_variants_without_explanation_after_retries",
-        "created_at": "2026-05-10T12:57:31.358172+00:00"
-      }
-    ],
+    "failed_details": [],
     "needs_retry_seed_ids": [
       "fiat__freemont__2011__2016__il",
-      "ford__ecosport__2013__2022__il",
-      "hyundai__creta__2020__2026__il"
+      "ford__ecosport__2013__2022__il"
     ],
     "false_processed_seed_ids": [
       "bmw__850i__2018__2026__il",
@@ -1302,7 +1296,6 @@
       "hyundai__bayon__2021__2026__il",
       "hyundai__casper__2022__2026__il",
       "hyundai__coupe__1996__2009__il",
-      "hyundai__creta__2020__2026__il",
       "hyundai__elantra__1990__2026__il",
       "hyundai__excel__1990__1998__il",
       "hyundai__getz__2002__2011__il",
@@ -523968,10 +523961,10 @@
     "makes_count": 72,
     "models_count": 788,
     "processed_seeds": 788,
-    "needs_retry_seeds": 3,
+    "needs_retry_seeds": 2,
     "total_seeds": 993,
-    "unresolved": 1,
-    "last_updated_at": "2026-05-23T19:24:42.262540+00:00"
+    "unresolved": 0,
+    "last_updated_at": "2026-05-23T20:04:58.165067+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
