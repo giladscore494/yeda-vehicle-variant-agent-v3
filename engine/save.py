@@ -9,7 +9,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from engine.audit import audit_canonical
-from engine.state import load_canonical
+from engine.state import load_canonical, CanonicalCorruptionError
 
 
 def _refresh_counts(canonical: dict) -> None:
@@ -49,6 +49,18 @@ def _refresh_counts(canonical: dict) -> None:
     }
 
 
+def _fsync_directory(dir_path: str | Path) -> None:
+    """Best-effort fsync of a directory to persist metadata changes."""
+    try:
+        dir_fd = os.open(str(dir_path), os.O_RDONLY)
+        try:
+            os.fsync(dir_fd)
+        finally:
+            os.close(dir_fd)
+    except OSError:
+        pass
+
+
 def save_canonical_atomic(
     canonical: dict,
     path: str | Path,
@@ -56,7 +68,7 @@ def save_canonical_atomic(
     push_to_github: bool = False,
     newly_added_variant_ids: list[str] | None = None,
 ) -> dict:
-    """Atomic save: audit -> write tmp -> reload tmp -> replace -> reload -> audit -> push.
+    """Atomic save: audit -> write tmp -> fsync -> reload tmp -> replace -> reload -> audit -> push.
 
     Returns dict with keys: ok, path, error, push_result.
     """
@@ -74,18 +86,24 @@ def save_canonical_atomic(
     if not ok:
         return {"ok": False, "path": str(p), "error": f"pre-save audit failed: {errs}"}
 
-    # Backup
+    # Backup — only if current canonical on disk is valid JSON
     if p.exists():
         backup_p = p.with_name(p.stem + "_backup_previous.json")
-        shutil.copy2(p, backup_p)
+        try:
+            load_canonical(p)  # validate current canonical before backing up
+            shutil.copy2(p, backup_p)
+        except (CanonicalCorruptionError, ValueError):
+            pass  # never overwrite a good backup with corrupted canonical
 
-    # Write to temp file
+    # Write to temp file with fsync
     fd, tmp_path = tempfile.mkstemp(
         prefix=".canonical_", suffix=".json", dir=str(p.parent)
     )
     try:
         with os.fdopen(fd, "w", encoding="utf-8") as fh:
             json.dump(canonical, fh, ensure_ascii=False, indent=2)
+            fh.flush()
+            os.fsync(fh.fileno())
 
         # Reload and validate temp file
         try:
@@ -102,6 +120,9 @@ def save_canonical_atomic(
 
         # Atomic replace
         os.replace(tmp_path, str(p))
+
+        # Fsync parent directory to persist the rename
+        _fsync_directory(p.parent)
     finally:
         if os.path.exists(tmp_path):
             try:
@@ -125,11 +146,11 @@ def save_canonical_atomic(
 
     result: dict = {"ok": True, "path": str(p), "error": None, "push_result": None}
 
-    # Optional GitHub push
+    # Optional GitHub push — use post-save reloaded canonical
     if push_to_github:
         try:
             from storage.github_canonical_store import push_canonical
-            push_result = push_canonical(canonical)
+            push_result = push_canonical(reloaded)
             result["push_result"] = push_result
             if not push_result.get("ok"):
                 result["push_warning"] = push_result.get("error", "push failed")

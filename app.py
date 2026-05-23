@@ -13,12 +13,14 @@ import streamlit as st
 from core.config import config_summary, CANONICAL_RESUME_PATH
 from engine.state import (
     load_canonical,
+    load_canonical_with_recovery,
     load_seeds,
     get_all_variants,
     get_batch_state,
     ensure_batch_state_fields,
     find_seed_by_id,
     seed_id_from_seed,
+    CanonicalCorruptionError,
 )
 from engine.audit import audit_canonical
 from engine.batch import run_batch
@@ -38,12 +40,29 @@ with st.sidebar:
 
 # ---------- Load data ----------
 try:
-    canonical = load_canonical(CANONICAL_RESUME_PATH)
+    canonical = load_canonical_with_recovery(
+        CANONICAL_RESUME_PATH,
+        backup_path=cfg.get("backup_path"),
+    )
+    if "_recovery" in canonical:
+        st.warning(
+            f"⚠️ Canonical was corrupted and restored from backup: "
+            f"{canonical['_recovery']['restored_from']}"
+        )
+        del canonical["_recovery"]
     ensure_batch_state_fields(canonical)
     bs = get_batch_state(canonical)
     all_variants = get_all_variants(canonical)
     seeds = load_seeds("data/seeds/vehicle_model_seeds_il.json")
     data_loaded = True
+except CanonicalCorruptionError as exc:
+    st.error(
+        "🛑 Canonical JSON is corrupted. Restore from backup before running.\n\n"
+        f"**Path:** `{exc.path}`\n\n"
+        f"**Size:** {exc.size} bytes\n\n"
+        f"**Line:** {exc.line}, **Column:** {exc.column}, **Position:** {exc.pos}"
+    )
+    data_loaded = False
 except Exception as exc:
     st.error(f"Failed to load data: {exc}")
     data_loaded = False
