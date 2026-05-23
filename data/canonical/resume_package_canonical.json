@@ -538,7 +538,8 @@
       "nissan__sentra__2013__2026__il",
       "nissan__navara__1998__2026__il",
       "nissan__ariya__2022__2026__il",
-      "nissan__pathfinder__1998__2020__il"
+      "nissan__pathfinder__1998__2020__il",
+      "nissan__murano__2005__2020__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -991,8 +992,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "nissan__pathfinder__1998__2020__il",
-    "next_seed_id": "nissan__murano__2005__2020__il",
+    "last_completed_seed_id": "nissan__murano__2005__2020__il",
+    "next_seed_id": "nissan__patrol__1992__2020__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2572,6 +2573,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T01:06:48.920490+00:00"
+      },
+      "nissan__murano__2005__2020__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 3,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T01:07:33.569269+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -242505,6 +242514,178 @@
         "trim": []
       },
       "variant_id": "nissan_pathfinder_2013_2020_global_reference_only_r52_3_5l_vq35de_v6_cvt_suv_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Nissan",
+      "model": "Murano",
+      "global_model_name": "Murano",
+      "official_marketed_name_il": "Nissan Murano",
+      "local_brand_name_il": "Nissan",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2005,
+      "year_end": 2008,
+      "generation": "Z50",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "3.5L V6 Petrol, ~234 hp",
+      "transmission": "CVT",
+      "fuel_type": "Petrol",
+      "drivetrain": "AWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli catalog source (iCar) confirms the 1st generation (Z50) Murano was sold in Israel from approx 2005 to 2008 with a 3.5L V6 engine, CVT (Xtronic), and AWD.",
+      "source_ids": [
+        "icar_il_nissan_murano_z50"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_nissan_murano_z50"
+        ],
+        "seats": [
+          "icar_il_nissan_murano_z50"
+        ],
+        "engine": [
+          "icar_il_nissan_murano_z50"
+        ],
+        "transmission": [
+          "icar_il_nissan_murano_z50"
+        ],
+        "fuel_type": [
+          "icar_il_nissan_murano_z50"
+        ],
+        "drivetrain": [
+          "icar_il_nissan_murano_z50"
+        ],
+        "generation": [
+          "icar_il_nissan_murano_z50"
+        ],
+        "year_start": [
+          "icar_il_nissan_murano_z50"
+        ],
+        "year_end": [
+          "icar_il_nissan_murano_z50"
+        ],
+        "trim": []
+      },
+      "variant_id": "nissan_murano_2005_2008_il_confirmed_z50_3_5l_v6_petrol_234_hp_cvt_suv_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Nissan",
+      "model": "Murano",
+      "global_model_name": "Murano",
+      "official_marketed_name_il": "Nissan Murano",
+      "local_brand_name_il": "Nissan",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2008,
+      "year_end": 2014,
+      "generation": "Z51",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "3.5L V6 Petrol, ~256 hp",
+      "transmission": "CVT",
+      "fuel_type": "Petrol",
+      "drivetrain": "AWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Second generation (Z51) confirmed for IL market (2008-2014) by iCar specs. Continued to feature the 3.5L VQ35DE V6, Xtronic CVT, and All-Mode AWD system.",
+      "source_ids": [
+        "icar_il_nissan_murano_z51"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_nissan_murano_z51"
+        ],
+        "seats": [
+          "icar_il_nissan_murano_z51"
+        ],
+        "engine": [
+          "icar_il_nissan_murano_z51"
+        ],
+        "transmission": [
+          "icar_il_nissan_murano_z51"
+        ],
+        "fuel_type": [
+          "icar_il_nissan_murano_z51"
+        ],
+        "drivetrain": [
+          "icar_il_nissan_murano_z51"
+        ],
+        "generation": [
+          "icar_il_nissan_murano_z51"
+        ],
+        "year_start": [
+          "icar_il_nissan_murano_z51"
+        ],
+        "year_end": [
+          "icar_il_nissan_murano_z51"
+        ],
+        "trim": []
+      },
+      "variant_id": "nissan_murano_2008_2014_il_confirmed_z51_3_5l_v6_petrol_256_hp_cvt_suv_petrol"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Nissan",
+      "model": "Murano",
+      "global_model_name": "Murano",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2015,
+      "year_end": 2020,
+      "generation": "Z52",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "3.5L V6 Petrol, 260 hp",
+      "transmission": "CVT",
+      "fuel_type": "Petrol",
+      "drivetrain": "AWD",
+      "trim": null,
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "Third generation (Z52) specs gathered from global manufacturer press releases. Official, continuous Israeli import by Carasso Motors is unconfirmed post-2014; variant provided as global reference.",
+      "source_ids": [
+        "nissan_global_murano_z52_press"
+      ],
+      "field_sources": {
+        "body_type": [
+          "nissan_global_murano_z52_press"
+        ],
+        "seats": [
+          "nissan_global_murano_z52_press"
+        ],
+        "engine": [
+          "nissan_global_murano_z52_press"
+        ],
+        "transmission": [
+          "nissan_global_murano_z52_press"
+        ],
+        "fuel_type": [
+          "nissan_global_murano_z52_press"
+        ],
+        "drivetrain": [
+          "nissan_global_murano_z52_press"
+        ],
+        "generation": [
+          "nissan_global_murano_z52_press"
+        ],
+        "year_start": [
+          "nissan_global_murano_z52_press"
+        ],
+        "year_end": [],
+        "trim": []
+      },
+      "variant_id": "nissan_murano_2015_2020_global_reference_only_z52_3_5l_v6_petrol_260_hp_cvt_suv_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -460515,17 +460696,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1914,
-    "variants": 1914,
+    "total_variants": 1917,
+    "variants": 1917,
     "verified": 788,
-    "partial": 1126,
+    "partial": 1129,
     "makes_count": 42,
-    "models_count": 532,
-    "processed_seeds": 529,
+    "models_count": 533,
+    "processed_seeds": 530,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-23T01:06:48.925118+00:00"
+    "last_updated_at": "2026-05-23T01:07:33.573746+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
