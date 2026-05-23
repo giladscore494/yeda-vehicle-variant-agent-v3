@@ -540,7 +540,8 @@
       "nissan__ariya__2022__2026__il",
       "nissan__pathfinder__1998__2020__il",
       "nissan__murano__2005__2020__il",
-      "nissan__patrol__1992__2020__il"
+      "nissan__patrol__1992__2020__il",
+      "nissan__gt-r__2009__2024__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -993,8 +994,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "nissan__patrol__1992__2020__il",
-    "next_seed_id": "nissan__gt-r__2009__2024__il",
+    "last_completed_seed_id": "nissan__gt-r__2009__2024__il",
+    "next_seed_id": "nissan__370z__2009__2020__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2590,6 +2591,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T01:08:15.466024+00:00"
+      },
+      "nissan__gt-r__2009__2024__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 2,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T01:08:58.390496+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -242876,6 +242885,134 @@
         "trim": []
       },
       "variant_id": "nissan_patrol_2010_2020_global_reference_only_y62_5_6l_vk56vd_v8_petrol_400_hp_7_speed_automatic_suv_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Nissan",
+      "model": "GT-R",
+      "global_model_name": "Nissan GT-R",
+      "official_marketed_name_il": "ניסאן GT-R",
+      "local_brand_name_il": "ניסאן",
+      "alternate_names": [
+        "GTR"
+      ],
+      "rebadged_as": null,
+      "year_start": 2011,
+      "year_end": 2016,
+      "generation": "R35",
+      "body_type": "Coupe",
+      "seats": 4,
+      "engine": "3.8L V6 Twin-Turbo, 550 hp",
+      "transmission": "6-speed DCT",
+      "fuel_type": "Petrol",
+      "drivetrain": "AWD",
+      "trim": "Premium Edition",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "IL marketed name confirmed. Carasso Motors officially launched the GT-R in Israel in 2011. Specs align with European mid-cycle update featuring 550 PS (545 hp).",
+      "source_ids": [
+        "auto_il_gtr_launch_2011",
+        "icar_il_nissan_gtr_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_nissan_gtr_specs"
+        ],
+        "seats": [
+          "icar_il_nissan_gtr_specs"
+        ],
+        "engine": [
+          "auto_il_gtr_launch_2011",
+          "icar_il_nissan_gtr_specs"
+        ],
+        "transmission": [
+          "icar_il_nissan_gtr_specs"
+        ],
+        "fuel_type": [
+          "icar_il_nissan_gtr_specs"
+        ],
+        "drivetrain": [
+          "icar_il_nissan_gtr_specs"
+        ],
+        "generation": [
+          "auto_il_gtr_launch_2011"
+        ],
+        "year_start": [
+          "auto_il_gtr_launch_2011"
+        ],
+        "year_end": [
+          "icar_il_nissan_gtr_specs"
+        ],
+        "trim": [
+          "auto_il_gtr_launch_2011"
+        ]
+      },
+      "variant_id": "nissan_gt_r_2011_2016_il_confirmed_r35_3_8l_v6_twin_turbo_550_hp_6_speed_dct_coupe_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Nissan",
+      "model": "GT-R",
+      "global_model_name": "Nissan GT-R",
+      "official_marketed_name_il": "ניסאן GT-R",
+      "local_brand_name_il": "ניסאן",
+      "alternate_names": [
+        "GTR"
+      ],
+      "rebadged_as": null,
+      "year_start": 2017,
+      "year_end": 2024,
+      "generation": "R35",
+      "body_type": "Coupe",
+      "seats": 4,
+      "engine": "3.8L V6 Twin-Turbo, 570 hp",
+      "transmission": "6-speed DCT",
+      "fuel_type": "Petrol",
+      "drivetrain": "AWD",
+      "trim": "Black Edition",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "IL marketed name confirmed. 2017 facelift model officially launched in Israel featuring updated 570 PS engine output and revised front styling.",
+      "source_ids": [
+        "cartube_il_gtr_2017",
+        "icar_il_nissan_gtr_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_nissan_gtr_specs"
+        ],
+        "seats": [
+          "icar_il_nissan_gtr_specs"
+        ],
+        "engine": [
+          "cartube_il_gtr_2017",
+          "icar_il_nissan_gtr_specs"
+        ],
+        "transmission": [
+          "icar_il_nissan_gtr_specs"
+        ],
+        "fuel_type": [
+          "icar_il_nissan_gtr_specs"
+        ],
+        "drivetrain": [
+          "icar_il_nissan_gtr_specs"
+        ],
+        "generation": [
+          "cartube_il_gtr_2017"
+        ],
+        "year_start": [
+          "cartube_il_gtr_2017"
+        ],
+        "year_end": [
+          "icar_il_nissan_gtr_specs"
+        ],
+        "trim": [
+          "cartube_il_gtr_2017"
+        ]
+      },
+      "variant_id": "nissan_gt_r_2017_2024_il_confirmed_r35_3_8l_v6_twin_turbo_570_hp_6_speed_dct_coupe_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -460886,17 +461023,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1920,
-    "variants": 1920,
+    "total_variants": 1922,
+    "variants": 1922,
     "verified": 788,
-    "partial": 1132,
+    "partial": 1134,
     "makes_count": 42,
-    "models_count": 534,
-    "processed_seeds": 531,
+    "models_count": 535,
+    "processed_seeds": 532,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-23T01:08:15.471012+00:00"
+    "last_updated_at": "2026-05-23T01:08:58.396120+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
