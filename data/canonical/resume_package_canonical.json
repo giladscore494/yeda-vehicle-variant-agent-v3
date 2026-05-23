@@ -681,7 +681,8 @@
       "zeekr__001__2023__2026__il",
       "zeekr__x__2024__2026__il",
       "zeekr__007__2024__2026__il",
-      "xpeng__p7__2023__2026__il"
+      "xpeng__p7__2023__2026__il",
+      "xpeng__g9__2023__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1132,8 +1133,8 @@
     "failed_seed_ids": [],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "xpeng__p7__2023__2026__il",
-    "next_seed_id": "xpeng__g9__2023__2026__il",
+    "last_completed_seed_id": "xpeng__g9__2023__2026__il",
+    "next_seed_id": "xpeng__g6__2024__2026__il",
     "run_history": [],
     "failed_details": [
       {
@@ -3835,6 +3836,14 @@
         "merged_count": 1,
         "warnings": [],
         "resolved_at": "2026-05-23T04:12:11.390501+00:00"
+      },
+      "xpeng__g9__2023__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 3,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T04:12:52.907925+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -275871,6 +275880,210 @@
       },
       "variant_id": "xpeng_p7_2023_2026_il_confirmed_1st_gen_dual_electric_motors_473_hp_single_speed_ev_sedan_electric",
       "updated_at": "2026-05-23T04:12:11.392134+00:00"
+    },
+    {
+      "candidate_index": 0,
+      "make": "XPeng",
+      "model": "G9",
+      "global_model_name": "XPeng G9",
+      "official_marketed_name_il": "XPeng G9",
+      "local_brand_name_il": "XPeng",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2023,
+      "year_end": 2026,
+      "generation": "1st Gen",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "Single electric motor, 313 hp, 78.2 kWh battery",
+      "transmission": "single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "RWD",
+      "trim": "Standard Range",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "XPeng officially launched in Israel in November 2023 by importer Freesbe. Standard Range RWD model confirmed via official importer specs and Israeli auto media (Cartube/iCar).",
+      "source_ids": [
+        "xpeng_il_official_g9_specs_2023",
+        "cartube_il_xpeng_launch_2023",
+        "icar_il_xpeng_g9"
+      ],
+      "field_sources": {
+        "body_type": [
+          "xpeng_il_official_g9_specs_2023",
+          "icar_il_xpeng_g9"
+        ],
+        "seats": [
+          "xpeng_il_official_g9_specs_2023"
+        ],
+        "engine": [
+          "xpeng_il_official_g9_specs_2023",
+          "cartube_il_xpeng_launch_2023"
+        ],
+        "transmission": [
+          "xpeng_il_official_g9_specs_2023"
+        ],
+        "fuel_type": [
+          "xpeng_il_official_g9_specs_2023",
+          "icar_il_xpeng_g9"
+        ],
+        "drivetrain": [
+          "xpeng_il_official_g9_specs_2023",
+          "cartube_il_xpeng_launch_2023"
+        ],
+        "generation": [
+          "icar_il_xpeng_g9"
+        ],
+        "year_start": [
+          "cartube_il_xpeng_launch_2023",
+          "icar_il_xpeng_g9"
+        ],
+        "year_end": [
+          "icar_il_xpeng_g9"
+        ],
+        "trim": [
+          "xpeng_il_official_g9_specs_2023",
+          "cartube_il_xpeng_launch_2023"
+        ]
+      },
+      "variant_id": "xpeng_g9_2023_2026_il_confirmed_1st_gen_single_electric_motor_313_hp_78_2_kwh_battery_single_speed_ev_suv_electric"
+    },
+    {
+      "candidate_index": 1,
+      "make": "XPeng",
+      "model": "G9",
+      "global_model_name": "XPeng G9",
+      "official_marketed_name_il": "XPeng G9",
+      "local_brand_name_il": "XPeng",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2023,
+      "year_end": 2026,
+      "generation": "1st Gen",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "Single electric motor, 313 hp, 98 kWh battery",
+      "transmission": "single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "RWD",
+      "trim": "Long Range",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "XPeng officially launched in Israel in November 2023. Long Range RWD model with larger 98 kWh battery confirmed via official importer specs and Israeli auto media (Cartube/iCar).",
+      "source_ids": [
+        "xpeng_il_official_g9_specs_2023",
+        "cartube_il_xpeng_launch_2023",
+        "icar_il_xpeng_g9"
+      ],
+      "field_sources": {
+        "body_type": [
+          "xpeng_il_official_g9_specs_2023",
+          "icar_il_xpeng_g9"
+        ],
+        "seats": [
+          "xpeng_il_official_g9_specs_2023"
+        ],
+        "engine": [
+          "xpeng_il_official_g9_specs_2023",
+          "cartube_il_xpeng_launch_2023"
+        ],
+        "transmission": [
+          "xpeng_il_official_g9_specs_2023"
+        ],
+        "fuel_type": [
+          "xpeng_il_official_g9_specs_2023",
+          "icar_il_xpeng_g9"
+        ],
+        "drivetrain": [
+          "xpeng_il_official_g9_specs_2023",
+          "cartube_il_xpeng_launch_2023"
+        ],
+        "generation": [
+          "icar_il_xpeng_g9"
+        ],
+        "year_start": [
+          "cartube_il_xpeng_launch_2023",
+          "icar_il_xpeng_g9"
+        ],
+        "year_end": [
+          "icar_il_xpeng_g9"
+        ],
+        "trim": [
+          "xpeng_il_official_g9_specs_2023",
+          "cartube_il_xpeng_launch_2023"
+        ]
+      },
+      "variant_id": "xpeng_g9_2023_2026_il_confirmed_1st_gen_single_electric_motor_313_hp_98_kwh_battery_single_speed_ev_suv_electric"
+    },
+    {
+      "candidate_index": 2,
+      "make": "XPeng",
+      "model": "G9",
+      "global_model_name": "XPeng G9",
+      "official_marketed_name_il": "XPeng G9",
+      "local_brand_name_il": "XPeng",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2023,
+      "year_end": 2026,
+      "generation": "1st Gen",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "Dual electric motors, 551 hp, 98 kWh battery",
+      "transmission": "single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "AWD",
+      "trim": "Performance",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "XPeng officially launched in Israel in November 2023. Top-spec Performance AWD model confirmed via official importer specs and Israeli auto media (Cartube/iCar).",
+      "source_ids": [
+        "xpeng_il_official_g9_specs_2023",
+        "cartube_il_xpeng_launch_2023",
+        "icar_il_xpeng_g9"
+      ],
+      "field_sources": {
+        "body_type": [
+          "xpeng_il_official_g9_specs_2023",
+          "icar_il_xpeng_g9"
+        ],
+        "seats": [
+          "xpeng_il_official_g9_specs_2023"
+        ],
+        "engine": [
+          "xpeng_il_official_g9_specs_2023",
+          "cartube_il_xpeng_launch_2023"
+        ],
+        "transmission": [
+          "xpeng_il_official_g9_specs_2023"
+        ],
+        "fuel_type": [
+          "xpeng_il_official_g9_specs_2023",
+          "icar_il_xpeng_g9"
+        ],
+        "drivetrain": [
+          "xpeng_il_official_g9_specs_2023",
+          "cartube_il_xpeng_launch_2023"
+        ],
+        "generation": [
+          "icar_il_xpeng_g9"
+        ],
+        "year_start": [
+          "cartube_il_xpeng_launch_2023",
+          "icar_il_xpeng_g9"
+        ],
+        "year_end": [
+          "icar_il_xpeng_g9"
+        ],
+        "trim": [
+          "xpeng_il_official_g9_specs_2023",
+          "cartube_il_xpeng_launch_2023"
+        ]
+      },
+      "variant_id": "xpeng_g9_2023_2026_il_confirmed_1st_gen_dual_electric_motors_551_hp_98_kwh_battery_single_speed_ev_suv_electric"
     }
   ],
   "accumulated_clean_export": {
@@ -493881,17 +494094,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 2436,
-    "variants": 2436,
+    "total_variants": 2439,
+    "variants": 2439,
     "verified": 788,
-    "partial": 1648,
+    "partial": 1651,
     "makes_count": 55,
-    "models_count": 673,
-    "processed_seeds": 672,
+    "models_count": 674,
+    "processed_seeds": 673,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 0,
-    "last_updated_at": "2026-05-23T04:12:11.398109+00:00"
+    "last_updated_at": "2026-05-23T04:12:52.913188+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
