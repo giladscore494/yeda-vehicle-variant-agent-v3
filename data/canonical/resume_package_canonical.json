@@ -554,7 +554,8 @@
       "mazda__mazda5__2005__2015__il",
       "mazda__mazda6__2002__2024__il",
       "mazda__323__1990__2003__il",
-      "mazda__626__1990__2002__il"
+      "mazda__626__1990__2002__il",
+      "mazda__121__1990__2002__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1007,8 +1008,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "mazda__626__1990__2002__il",
-    "next_seed_id": "mazda__121__1990__2002__il",
+    "last_completed_seed_id": "mazda__121__1990__2002__il",
+    "next_seed_id": "mazda__mpv__1993__2016__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2716,6 +2717,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T01:21:00.000194+00:00"
+      },
+      "mazda__121__1990__2002__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 3,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T01:21:51.879256+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -246743,6 +246752,188 @@
         ]
       },
       "variant_id": "mazda_626_1998_2002_il_confirmed_gw_6th_gen_2_0l_petrol_4_speed_automatic_station_wagon_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Mazda",
+      "model": "121",
+      "global_model_name": "Autozam Revue",
+      "official_marketed_name_il": "Mazda 121",
+      "local_brand_name_il": "Mazda",
+      "alternate_names": [
+        "Mazda 121 Bimba",
+        "מאזדה 121"
+      ],
+      "rebadged_as": null,
+      "year_start": 1990,
+      "year_end": 1996,
+      "generation": "DB",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "1.3L B3 16V petrol, 72 hp",
+      "transmission": "5-speed manual",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli sources (iCar, Auto.co.il) confirm the DB generation was sold in Israel as the 'Mazda 121' (affectionately known locally as 'Bimba'). Powered by a 1.3L engine with manual transmission.",
+      "source_ids": [
+        "icar_il_mazda_121_db_specs",
+        "auto_il_mazda_121_bimba"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_mazda_121_db_specs"
+        ],
+        "seats": [],
+        "engine": [
+          "icar_il_mazda_121_db_specs"
+        ],
+        "transmission": [
+          "icar_il_mazda_121_db_specs"
+        ],
+        "fuel_type": [
+          "icar_il_mazda_121_db_specs"
+        ],
+        "drivetrain": [
+          "icar_il_mazda_121_db_specs"
+        ],
+        "generation": [
+          "icar_il_mazda_121_db_specs",
+          "auto_il_mazda_121_bimba"
+        ],
+        "year_start": [
+          "icar_il_mazda_121_db_specs",
+          "auto_il_mazda_121_bimba"
+        ],
+        "year_end": [
+          "icar_il_mazda_121_db_specs",
+          "auto_il_mazda_121_bimba"
+        ],
+        "trim": []
+      },
+      "variant_id": "mazda_121_1990_1996_il_confirmed_db_1_3l_b3_16v_petrol_72_hp_5_speed_manual_sedan_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Mazda",
+      "model": "121",
+      "global_model_name": "Autozam Revue",
+      "official_marketed_name_il": "Mazda 121",
+      "local_brand_name_il": "Mazda",
+      "alternate_names": [
+        "Mazda 121 Bimba",
+        "מאזדה 121"
+      ],
+      "rebadged_as": null,
+      "year_start": 1990,
+      "year_end": 1996,
+      "generation": "DB",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "1.3L B3 16V petrol, 72 hp",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli sources confirm the automatic variant of the DB 1.3L was highly popular in Israel.",
+      "source_ids": [
+        "icar_il_mazda_121_db_specs",
+        "auto_il_mazda_121_bimba"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_mazda_121_db_specs"
+        ],
+        "seats": [],
+        "engine": [
+          "icar_il_mazda_121_db_specs"
+        ],
+        "transmission": [
+          "icar_il_mazda_121_db_specs"
+        ],
+        "fuel_type": [
+          "icar_il_mazda_121_db_specs"
+        ],
+        "drivetrain": [
+          "icar_il_mazda_121_db_specs"
+        ],
+        "generation": [
+          "icar_il_mazda_121_db_specs",
+          "auto_il_mazda_121_bimba"
+        ],
+        "year_start": [
+          "icar_il_mazda_121_db_specs",
+          "auto_il_mazda_121_bimba"
+        ],
+        "year_end": [
+          "icar_il_mazda_121_db_specs",
+          "auto_il_mazda_121_bimba"
+        ],
+        "trim": []
+      },
+      "variant_id": "mazda_121_1990_1996_il_confirmed_db_1_3l_b3_16v_petrol_72_hp_4_speed_automatic_sedan_petrol"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Mazda",
+      "model": "121",
+      "global_model_name": "Mazda 121 (Europe)",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": "Ford Fiesta Mk4",
+      "year_start": 1996,
+      "year_end": 2002,
+      "generation": "JASM/JBSM",
+      "body_type": "Hatchback",
+      "seats": 5,
+      "engine": "1.25L Zetec 16V petrol, 75 hp",
+      "transmission": "5-speed manual",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "The 1996-2002 Mazda 121 was a rebadged Ford Fiesta sold in European markets. In Israel, this generation was skipped in favor of the Mazda Demio (DW). Israeli marketed name not confirmed; global model name used as reference only.",
+      "source_ids": [
+        "parkers_uk_mazda_121_96"
+      ],
+      "field_sources": {
+        "body_type": [
+          "parkers_uk_mazda_121_96"
+        ],
+        "seats": [],
+        "engine": [
+          "parkers_uk_mazda_121_96"
+        ],
+        "transmission": [
+          "parkers_uk_mazda_121_96"
+        ],
+        "fuel_type": [
+          "parkers_uk_mazda_121_96"
+        ],
+        "drivetrain": [
+          "parkers_uk_mazda_121_96"
+        ],
+        "generation": [
+          "parkers_uk_mazda_121_96"
+        ],
+        "year_start": [
+          "parkers_uk_mazda_121_96"
+        ],
+        "year_end": [
+          "parkers_uk_mazda_121_96"
+        ],
+        "trim": []
+      },
+      "variant_id": "mazda_121_1996_2002_global_reference_only_jasm_jbsm_1_25l_zetec_16v_petrol_75_hp_5_speed_manual_hatchback_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -464753,17 +464944,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1980,
-    "variants": 1980,
+    "total_variants": 1983,
+    "variants": 1983,
     "verified": 788,
-    "partial": 1192,
+    "partial": 1195,
     "makes_count": 43,
-    "models_count": 548,
-    "processed_seeds": 545,
+    "models_count": 549,
+    "processed_seeds": 546,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-23T01:21:00.005101+00:00"
+    "last_updated_at": "2026-05-23T01:21:51.886878+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
