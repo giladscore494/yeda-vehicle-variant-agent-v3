@@ -674,7 +674,8 @@
       "mg__hs__2020__2026__il",
       "mg__marvel_r__2021__2026__il",
       "mg__cyberster__2024__2026__il",
-      "omoda__c5__2023__2026__il"
+      "omoda__c5__2023__2026__il",
+      "omoda__e5__2024__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1125,8 +1126,8 @@
     "failed_seed_ids": [],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "omoda__c5__2023__2026__il",
-    "next_seed_id": "omoda__e5__2024__2026__il",
+    "last_completed_seed_id": "omoda__e5__2024__2026__il",
+    "next_seed_id": "jaecoo__j7__2024__2026__il",
     "run_history": [],
     "failed_details": [
       {
@@ -3772,6 +3773,14 @@
         "merged_count": 2,
         "warnings": [],
         "resolved_at": "2026-05-23T04:07:10.088286+00:00"
+      },
+      "omoda__e5__2024__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 1,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T04:07:43.919002+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -274980,6 +274989,64 @@
         "trim": []
       },
       "variant_id": "omoda_c5_2023_2026_global_reference_only_1st_gen_t1x_1_5l_turbo_petrol_147_hp_cvt_crossover_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Omoda",
+      "model": "E5",
+      "global_model_name": "Omoda E5",
+      "official_marketed_name_il": "Omoda E5",
+      "local_brand_name_il": "Omoda",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2024,
+      "year_end": 2026,
+      "generation": "1st Gen",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "Electric, 204 hp (150 kW)",
+      "transmission": "single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-likely",
+      "market_name_confidence": "likely",
+      "confidence_level": "high",
+      "source_basis": "Israeli automotive sources (Cartube) report Colmobil's introduction of the Omoda brand to Israel, featuring the E5 electric SUV. Specifications match the global 61 kWh, 204 hp FWD EV configuration. The ICE equivalent is sold separately in Israel as the Chery FX by a different importer. Marked IL-likely as exact sales start dates may overlap late 2024 or 2025.",
+      "source_ids": [
+        "cartube_il_omoda_e5_preview",
+        "omoda_global_e5_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "cartube_il_omoda_e5_preview"
+        ],
+        "seats": [
+          "omoda_global_e5_specs"
+        ],
+        "engine": [
+          "omoda_global_e5_specs"
+        ],
+        "transmission": [
+          "omoda_global_e5_specs"
+        ],
+        "fuel_type": [
+          "cartube_il_omoda_e5_preview",
+          "omoda_global_e5_specs"
+        ],
+        "drivetrain": [
+          "omoda_global_e5_specs"
+        ],
+        "generation": [
+          "omoda_global_e5_specs"
+        ],
+        "year_start": [
+          "cartube_il_omoda_e5_preview"
+        ],
+        "year_end": [],
+        "trim": []
+      },
+      "variant_id": "omoda_e5_2024_2026_il_likely_1st_gen_electric_204_hp_150_kw_single_speed_ev_suv_electric"
     }
   ],
   "accumulated_clean_export": {
@@ -492990,17 +493057,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 2423,
-    "variants": 2423,
+    "total_variants": 2424,
+    "variants": 2424,
     "verified": 788,
-    "partial": 1635,
+    "partial": 1636,
     "makes_count": 52,
-    "models_count": 666,
-    "processed_seeds": 665,
+    "models_count": 667,
+    "processed_seeds": 666,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 0,
-    "last_updated_at": "2026-05-23T04:07:10.094376+00:00"
+    "last_updated_at": "2026-05-23T04:07:43.926882+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
