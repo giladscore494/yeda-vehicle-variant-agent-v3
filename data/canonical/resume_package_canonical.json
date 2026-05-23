@@ -634,7 +634,8 @@
       "kia__proceed__2008__2026__il",
       "kia__xceed__2019__2026__il",
       "kia__forte__2008__2020__il",
-      "kia__stonic__2017__2026__il"
+      "kia__stonic__2017__2026__il",
+      "kia__seltos__2019__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1087,8 +1088,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "kia__stonic__2017__2026__il",
-    "next_seed_id": "kia__seltos__2019__2026__il",
+    "last_completed_seed_id": "kia__seltos__2019__2026__il",
+    "next_seed_id": "kia__sportage__1993__2026__il",
     "run_history": [],
     "failed_details": [
       {
@@ -3412,6 +3413,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T03:05:15.355394+00:00"
+      },
+      "kia__seltos__2019__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 2,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T03:06:05.506324+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -266391,6 +266400,127 @@
         "trim": []
       },
       "variant_id": "kia_stonic_2021_2026_il_confirmed_1st_gen_yb_facelift_1_0l_t_gdi_mhev_120_hp_7_speed_dct_crossover_mild_hybrid"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Kia",
+      "model": "Seltos",
+      "global_model_name": "Kia Seltos",
+      "official_marketed_name_il": "Kia Seltos",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2020,
+      "year_end": 2023,
+      "generation": "1st Gen (SP2)",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "2.0L NA Petrol, 149 hp",
+      "transmission": "CVT",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "EX",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "IL market launch in August 2020 confirmed Seltos with 2.0L naturally aspirated engine (149 hp) and CVT (IVT) transmission in FWD. Packages/editions noted: Urban, EX, Premium.",
+      "source_ids": [
+        "cartube_il_kia_seltos_launch_2020",
+        "kia_israel_official_seltos_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "cartube_il_kia_seltos_launch_2020",
+          "kia_israel_official_seltos_specs"
+        ],
+        "seats": [
+          "kia_israel_official_seltos_specs"
+        ],
+        "engine": [
+          "cartube_il_kia_seltos_launch_2020"
+        ],
+        "transmission": [
+          "cartube_il_kia_seltos_launch_2020",
+          "kia_israel_official_seltos_specs"
+        ],
+        "fuel_type": [
+          "kia_israel_official_seltos_specs"
+        ],
+        "drivetrain": [
+          "cartube_il_kia_seltos_launch_2020",
+          "kia_israel_official_seltos_specs"
+        ],
+        "generation": [
+          "cartube_il_kia_seltos_launch_2020"
+        ],
+        "year_start": [
+          "cartube_il_kia_seltos_launch_2020"
+        ],
+        "year_end": [
+          "gear_il_kia_seltos_facelift_2023"
+        ],
+        "trim": [
+          "cartube_il_kia_seltos_launch_2020"
+        ]
+      },
+      "variant_id": "kia_seltos_2020_2023_il_confirmed_1st_gen_sp2_2_0l_na_petrol_149_hp_cvt_suv_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Kia",
+      "model": "Seltos",
+      "global_model_name": "Kia Seltos",
+      "official_marketed_name_il": "Kia Seltos",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2023,
+      "year_end": 2026,
+      "generation": "1st Gen (SP2) Facelift",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "2.0L NA Petrol, 149 hp",
+      "transmission": "CVT",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "EX",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Facelifted Seltos arrived in IL in late 2023. Retained the 2.0L NA powertrain and FWD layout. Trims continued include EX and Premium.",
+      "source_ids": [
+        "gear_il_kia_seltos_facelift_2023",
+        "kia_israel_official_seltos_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "kia_israel_official_seltos_specs"
+        ],
+        "seats": [
+          "kia_israel_official_seltos_specs"
+        ],
+        "engine": [
+          "gear_il_kia_seltos_facelift_2023"
+        ],
+        "transmission": [
+          "kia_israel_official_seltos_specs"
+        ],
+        "fuel_type": [
+          "kia_israel_official_seltos_specs"
+        ],
+        "drivetrain": [
+          "kia_israel_official_seltos_specs"
+        ],
+        "generation": [
+          "gear_il_kia_seltos_facelift_2023"
+        ],
+        "year_start": [
+          "gear_il_kia_seltos_facelift_2023"
+        ],
+        "year_end": [],
+        "trim": []
+      },
+      "variant_id": "kia_seltos_2023_2026_il_confirmed_1st_gen_sp2_facelift_2_0l_na_petrol_149_hp_cvt_suv_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -484401,17 +484531,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 2289,
-    "variants": 2289,
+    "total_variants": 2291,
+    "variants": 2291,
     "verified": 788,
-    "partial": 1501,
+    "partial": 1503,
     "makes_count": 47,
-    "models_count": 624,
-    "processed_seeds": 625,
+    "models_count": 625,
+    "processed_seeds": 626,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-23T03:05:15.360809+00:00"
+    "last_updated_at": "2026-05-23T03:06:05.511443+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
