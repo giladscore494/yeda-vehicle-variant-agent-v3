@@ -567,7 +567,9 @@
       "mazda__cx-9__2007__2023__il",
       "mazda__mx-5__1998__2026__il",
       "mazda__mx-30__2020__2026__il",
-      "mazda__rx-8__2003__2012__il"
+      "mazda__rx-8__2003__2012__il",
+      "mazda__tribute__2001__2011__il",
+      "mazda__premacy__1999__2010__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -2829,10 +2831,26 @@
       "mazda__rx-8__2003__2012__il": {
         "status": "resolved",
         "resolution_type": "variants_added",
+        "added_count": 3,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T01:32:32.700839+00:00"
+      },
+      "mazda__tribute__2001__2011__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
         "added_count": 4,
         "merged_count": 0,
         "warnings": [],
-        "resolved_at": "2026-05-23T01:33:32.507084+00:00"
+        "resolved_at": "2026-05-23T01:33:25.356261+00:00"
+      },
+      "mazda__premacy__1999__2010__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 3,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T01:34:10.459005+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -249695,252 +249713,421 @@
     {
       "candidate_index": 0,
       "make": "Mazda",
-      "model": "RX-8",
-      "global_model_name": "Mazda RX-8",
-      "official_marketed_name_il": "Mazda RX-8",
+      "model": "Tribute",
+      "global_model_name": "Mazda Tribute",
+      "official_marketed_name_il": "Mazda Tribute",
       "local_brand_name_il": "Mazda",
       "alternate_names": [],
       "rebadged_as": null,
-      "year_start": 2003,
-      "year_end": 2008,
-      "generation": "SE3P (Series I)",
-      "body_type": "Coupe",
-      "seats": 4,
-      "engine": "1.3L 13B-MSP Renesis Wankel Rotary (192 hp)",
-      "transmission": "5-speed manual",
+      "year_start": 2001,
+      "year_end": 2004,
+      "generation": "1st Gen",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "2.0L I4 Petrol",
+      "transmission": "4-speed automatic",
       "fuel_type": "Petrol",
-      "drivetrain": "RWD",
-      "trim": "Standard Power",
+      "drivetrain": "4WD",
+      "trim": "",
       "market_scope": "IL-confirmed",
       "market_name_confidence": "confirmed",
       "confidence_level": "high",
-      "source_basis": "Israeli automotive archives (iCar, Auto.co.il) confirm the Series I was officially imported to Israel featuring the 192 hp standard power Wankel engine with a 5-speed manual.",
+      "source_basis": "Israeli market sources confirm the official marketed name as Mazda Tribute for the early 1st generation. 2.0L engine paired with 4-speed auto and 4WD was a standard configuration sold in IL.",
       "source_ids": [
-        "icar_il_rx8_specs",
-        "auto_il_rx8_archive"
+        "icar_il_mazda_tribute_1st_gen",
+        "auto_co_il_mazda_tribute_review"
       ],
       "field_sources": {
         "body_type": [
-          "icar_il_rx8_specs"
+          "icar_il_mazda_tribute_1st_gen"
         ],
         "seats": [
-          "icar_il_rx8_specs"
+          "auto_co_il_mazda_tribute_review"
         ],
         "engine": [
-          "icar_il_rx8_specs",
-          "auto_il_rx8_archive"
+          "icar_il_mazda_tribute_1st_gen",
+          "auto_co_il_mazda_tribute_review"
         ],
         "transmission": [
-          "icar_il_rx8_specs"
+          "icar_il_mazda_tribute_1st_gen"
         ],
         "fuel_type": [
-          "icar_il_rx8_specs"
+          "auto_co_il_mazda_tribute_review"
         ],
         "drivetrain": [
-          "icar_il_rx8_specs"
+          "icar_il_mazda_tribute_1st_gen"
         ],
         "generation": [
-          "mazda_global_rx8_specs"
+          "auto_co_il_mazda_tribute_review"
         ],
         "year_start": [
-          "auto_il_rx8_archive",
-          "mazda_global_rx8_specs"
+          "icar_il_mazda_tribute_1st_gen"
         ],
         "year_end": [
-          "auto_il_rx8_archive",
-          "mazda_global_rx8_specs"
+          "icar_il_mazda_tribute_1st_gen"
         ],
-        "trim": [
-          "icar_il_rx8_specs"
-        ]
+        "trim": []
       },
-      "variant_id": "mazda_rx_8_2003_2008_il_confirmed_se3p_series_i_1_3l_13b_msp_renesis_wankel_rotary_192_hp_5_speed_manual_coupe_petrol"
+      "variant_id": "mazda_tribute_2001_2004_il_confirmed_1st_gen_2_0l_i4_petrol_4_speed_automatic_suv_petrol"
     },
     {
       "candidate_index": 1,
       "make": "Mazda",
-      "model": "RX-8",
-      "global_model_name": "Mazda RX-8",
-      "official_marketed_name_il": "Mazda RX-8",
+      "model": "Tribute",
+      "global_model_name": "Mazda Tribute",
+      "official_marketed_name_il": "Mazda Tribute",
       "local_brand_name_il": "Mazda",
       "alternate_names": [],
       "rebadged_as": null,
-      "year_start": 2003,
-      "year_end": 2008,
-      "generation": "SE3P (Series I)",
-      "body_type": "Coupe",
-      "seats": 4,
-      "engine": "1.3L 13B-MSP Renesis Wankel Rotary (192 hp)",
+      "year_start": 2001,
+      "year_end": 2006,
+      "generation": "1st Gen",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "3.0L V6 Petrol",
       "transmission": "4-speed automatic",
       "fuel_type": "Petrol",
-      "drivetrain": "RWD",
-      "trim": "Standard Power",
+      "drivetrain": "4WD",
+      "trim": "",
       "market_scope": "IL-confirmed",
       "market_name_confidence": "confirmed",
       "confidence_level": "high",
-      "source_basis": "Israeli specifications list an automatic option for the 192 hp standard power variant during the Series I lifecycle.",
+      "source_basis": "Israeli automotive catalogs confirm the 3.0L V6 engine was imported and sold alongside the 4-cylinder option. Marketed simply as Mazda Tribute V6.",
       "source_ids": [
-        "icar_il_rx8_specs",
-        "auto_il_rx8_archive"
+        "icar_il_mazda_tribute_1st_gen",
+        "auto_co_il_mazda_tribute_review"
       ],
       "field_sources": {
         "body_type": [
-          "icar_il_rx8_specs"
+          "icar_il_mazda_tribute_1st_gen"
         ],
         "seats": [
-          "icar_il_rx8_specs"
+          "auto_co_il_mazda_tribute_review"
         ],
         "engine": [
-          "icar_il_rx8_specs",
-          "auto_il_rx8_archive"
+          "icar_il_mazda_tribute_1st_gen",
+          "auto_co_il_mazda_tribute_review"
         ],
         "transmission": [
-          "icar_il_rx8_specs"
+          "icar_il_mazda_tribute_1st_gen"
         ],
         "fuel_type": [
-          "icar_il_rx8_specs"
+          "auto_co_il_mazda_tribute_review"
         ],
         "drivetrain": [
-          "icar_il_rx8_specs"
+          "icar_il_mazda_tribute_1st_gen"
         ],
         "generation": [
-          "mazda_global_rx8_specs"
+          "auto_co_il_mazda_tribute_review"
         ],
         "year_start": [
-          "auto_il_rx8_archive",
-          "mazda_global_rx8_specs"
+          "icar_il_mazda_tribute_1st_gen"
         ],
         "year_end": [
-          "auto_il_rx8_archive",
-          "mazda_global_rx8_specs"
+          "icar_il_mazda_tribute_1st_gen"
         ],
-        "trim": [
-          "icar_il_rx8_specs"
-        ]
+        "trim": []
       },
-      "variant_id": "mazda_rx_8_2003_2008_il_confirmed_se3p_series_i_1_3l_13b_msp_renesis_wankel_rotary_192_hp_4_speed_automatic_coupe_petrol"
+      "variant_id": "mazda_tribute_2001_2006_il_confirmed_1st_gen_3_0l_v6_petrol_4_speed_automatic_suv_petrol"
     },
     {
       "candidate_index": 2,
       "make": "Mazda",
-      "model": "RX-8",
-      "global_model_name": "Mazda RX-8",
-      "official_marketed_name_il": "Mazda RX-8",
+      "model": "Tribute",
+      "global_model_name": "Mazda Tribute",
+      "official_marketed_name_il": "Mazda Tribute",
       "local_brand_name_il": "Mazda",
       "alternate_names": [],
       "rebadged_as": null,
-      "year_start": 2003,
-      "year_end": 2008,
-      "generation": "SE3P (Series I)",
-      "body_type": "Coupe",
-      "seats": 4,
-      "engine": "1.3L 13B-MSP Renesis Wankel Rotary (231 hp)",
-      "transmission": "6-speed manual",
+      "year_start": 2004,
+      "year_end": 2006,
+      "generation": "1st Gen",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "2.3L I4 Petrol",
+      "transmission": "4-speed automatic",
       "fuel_type": "Petrol",
-      "drivetrain": "RWD",
-      "trim": "High Power",
+      "drivetrain": "4WD",
+      "trim": "",
       "market_scope": "IL-confirmed",
       "market_name_confidence": "confirmed",
       "confidence_level": "high",
-      "source_basis": "Israeli sources confirm the High Power 231 hp version of the Series I was sold in IL exclusively with a 6-speed manual.",
+      "source_basis": "IL market sources show the 2.0L engine was replaced by the 2.3L I4 engine around 2004 as part of the mid-cycle update. IL-confirmed via local spec databases.",
       "source_ids": [
-        "icar_il_rx8_specs",
-        "auto_il_rx8_archive"
+        "icar_il_mazda_tribute_1st_gen",
+        "auto_co_il_mazda_tribute_review"
       ],
       "field_sources": {
         "body_type": [
-          "icar_il_rx8_specs"
+          "icar_il_mazda_tribute_1st_gen"
         ],
         "seats": [
-          "icar_il_rx8_specs"
+          "auto_co_il_mazda_tribute_review"
         ],
         "engine": [
-          "icar_il_rx8_specs",
-          "auto_il_rx8_archive"
+          "icar_il_mazda_tribute_1st_gen",
+          "auto_co_il_mazda_tribute_review"
         ],
         "transmission": [
-          "icar_il_rx8_specs"
+          "icar_il_mazda_tribute_1st_gen"
         ],
         "fuel_type": [
-          "icar_il_rx8_specs"
+          "auto_co_il_mazda_tribute_review"
         ],
         "drivetrain": [
-          "icar_il_rx8_specs"
+          "icar_il_mazda_tribute_1st_gen"
         ],
         "generation": [
-          "mazda_global_rx8_specs"
+          "auto_co_il_mazda_tribute_review"
         ],
         "year_start": [
-          "auto_il_rx8_archive",
-          "mazda_global_rx8_specs"
+          "icar_il_mazda_tribute_1st_gen"
         ],
         "year_end": [
-          "auto_il_rx8_archive",
-          "mazda_global_rx8_specs"
+          "icar_il_mazda_tribute_1st_gen"
         ],
-        "trim": [
-          "icar_il_rx8_specs"
-        ]
+        "trim": []
       },
-      "variant_id": "mazda_rx_8_2003_2008_il_confirmed_se3p_series_i_1_3l_13b_msp_renesis_wankel_rotary_231_hp_6_speed_manual_coupe_petrol"
+      "variant_id": "mazda_tribute_2004_2006_il_confirmed_1st_gen_2_3l_i4_petrol_4_speed_automatic_suv_petrol"
     },
     {
       "candidate_index": 3,
       "make": "Mazda",
-      "model": "RX-8",
-      "global_model_name": "Mazda RX-8",
+      "model": "Tribute",
+      "global_model_name": "Mazda Tribute",
       "official_marketed_name_il": null,
       "local_brand_name_il": null,
       "alternate_names": [],
       "rebadged_as": null,
-      "year_start": 2009,
-      "year_end": 2012,
-      "generation": "SE3P (Series II)",
-      "body_type": "Coupe",
-      "seats": 4,
-      "engine": "1.3L 13B-MSP Renesis Wankel Rotary (231 hp)",
-      "transmission": "6-speed manual",
+      "year_start": 2008,
+      "year_end": 2011,
+      "generation": "2nd Gen",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "2.5L I4 Petrol",
+      "transmission": "6-speed automatic",
       "fuel_type": "Petrol",
-      "drivetrain": "RWD",
-      "trim": "High Power",
+      "drivetrain": "4WD",
+      "trim": "",
       "market_scope": "global-reference-only",
       "market_name_confidence": "unknown",
       "confidence_level": "medium",
-      "source_basis": "Global manufacturer specs confirm the Series II generation (facelift) from 2009 to 2012. Israeli marketed name not confirmed; availability in Israel for the facelift period is undocumented in main official importer price lists, so marked as global-reference-only.",
+      "source_basis": "2nd Generation Mazda Tribute is verified via global sources. No evidence found for official marketing of the 2nd Gen in Israel, as the local market heavily shifted focus to the newer CX-7. Israeli marketed name not confirmed; global model name used as reference only.",
       "source_ids": [
-        "mazda_global_rx8_specs"
+        "mazda_global_tribute_2nd_gen_specs"
       ],
       "field_sources": {
         "body_type": [
-          "mazda_global_rx8_specs"
+          "mazda_global_tribute_2nd_gen_specs"
         ],
-        "seats": [
-          "mazda_global_rx8_specs"
-        ],
+        "seats": [],
         "engine": [
-          "mazda_global_rx8_specs"
+          "mazda_global_tribute_2nd_gen_specs"
         ],
         "transmission": [
-          "mazda_global_rx8_specs"
+          "mazda_global_tribute_2nd_gen_specs"
         ],
         "fuel_type": [
-          "mazda_global_rx8_specs"
+          "mazda_global_tribute_2nd_gen_specs"
         ],
         "drivetrain": [
-          "mazda_global_rx8_specs"
+          "mazda_global_tribute_2nd_gen_specs"
         ],
         "generation": [
-          "mazda_global_rx8_specs"
+          "mazda_global_tribute_2nd_gen_specs"
         ],
         "year_start": [
-          "mazda_global_rx8_specs"
+          "mazda_global_tribute_2nd_gen_specs"
         ],
         "year_end": [
-          "mazda_global_rx8_specs"
+          "mazda_global_tribute_2nd_gen_specs"
         ],
         "trim": []
       },
-      "variant_id": "mazda_rx_8_2009_2012_global_reference_only_se3p_series_ii_1_3l_13b_msp_renesis_wankel_rotary_231_hp_6_speed_manual_coupe_petrol"
+      "variant_id": "mazda_tribute_2008_2011_global_reference_only_2nd_gen_2_5l_i4_petrol_6_speed_automatic_suv_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Mazda",
+      "model": "Premacy",
+      "global_model_name": "Mazda Premacy",
+      "official_marketed_name_il": "Mazda Premacy",
+      "local_brand_name_il": "Mazda",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 1999,
+      "year_end": 2005,
+      "generation": "CP (1st Gen)",
+      "body_type": "MPV",
+      "seats": 5,
+      "engine": "1.8L Petrol",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli car databases (iCar, Auto.co.il) confirm the CP generation was sold heavily in Israel as the Mazda Premacy. The 1.8L petrol engine with a 4-speed automatic transmission and a 5-seat configuration was the dominant variant. Common trim noted in IL market: GLX.",
+      "source_ids": [
+        "icar_il_mazda_premacy_cp",
+        "auto_il_mazda_history"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_mazda_premacy_cp"
+        ],
+        "seats": [
+          "icar_il_mazda_premacy_cp",
+          "auto_il_mazda_history"
+        ],
+        "engine": [
+          "icar_il_mazda_premacy_cp",
+          "auto_il_mazda_history"
+        ],
+        "transmission": [
+          "icar_il_mazda_premacy_cp",
+          "auto_il_mazda_history"
+        ],
+        "fuel_type": [
+          "icar_il_mazda_premacy_cp"
+        ],
+        "drivetrain": [
+          "icar_il_mazda_premacy_cp"
+        ],
+        "generation": [
+          "icar_il_mazda_premacy_cp",
+          "auto_il_mazda_history"
+        ],
+        "year_start": [
+          "icar_il_mazda_premacy_cp"
+        ],
+        "year_end": [
+          "icar_il_mazda_premacy_cp"
+        ],
+        "trim": []
+      },
+      "variant_id": "mazda_premacy_1999_2005_il_confirmed_cp_1st_gen_1_8l_petrol_4_speed_automatic_mpv_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Mazda",
+      "model": "Premacy",
+      "global_model_name": "Mazda Premacy",
+      "official_marketed_name_il": "Mazda Premacy",
+      "local_brand_name_il": "Mazda",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2002,
+      "year_end": 2005,
+      "generation": "CP (1st Gen)",
+      "body_type": "MPV",
+      "seats": 5,
+      "engine": "2.0L Petrol",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli market data confirms the addition of the 2.0L petrol engine later in the CP generation's lifespan. Also featured the 4-speed automatic and 5-seat layout.",
+      "source_ids": [
+        "icar_il_mazda_premacy_cp",
+        "auto_il_mazda_history"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_mazda_premacy_cp"
+        ],
+        "seats": [
+          "icar_il_mazda_premacy_cp"
+        ],
+        "engine": [
+          "icar_il_mazda_premacy_cp",
+          "auto_il_mazda_history"
+        ],
+        "transmission": [
+          "icar_il_mazda_premacy_cp"
+        ],
+        "fuel_type": [
+          "icar_il_mazda_premacy_cp"
+        ],
+        "drivetrain": [
+          "icar_il_mazda_premacy_cp"
+        ],
+        "generation": [
+          "icar_il_mazda_premacy_cp"
+        ],
+        "year_start": [
+          "icar_il_mazda_premacy_cp"
+        ],
+        "year_end": [
+          "icar_il_mazda_premacy_cp"
+        ],
+        "trim": []
+      },
+      "variant_id": "mazda_premacy_2002_2005_il_confirmed_cp_1st_gen_2_0l_petrol_4_speed_automatic_mpv_petrol"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Mazda",
+      "model": "Premacy",
+      "global_model_name": "Mazda Premacy",
+      "official_marketed_name_il": "Mazda 5",
+      "local_brand_name_il": "Mazda",
+      "alternate_names": [
+        "Mazda5"
+      ],
+      "rebadged_as": null,
+      "year_start": 2005,
+      "year_end": 2010,
+      "generation": "CR (2nd Gen)",
+      "body_type": "MPV",
+      "seats": 7,
+      "engine": "2.0L Petrol",
+      "transmission": "Automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "The 2nd generation of the Premacy (CR) was renamed and marketed globally and in Israel entirely as the 'Mazda 5' (while retaining the Premacy name in Japan). Sold in IL with a 2.0L petrol engine and standard 7 seats. Transmission evolved from 4-speed to 5-speed automatic during this period.",
+      "source_ids": [
+        "icar_il_mazda_5_cr"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_mazda_5_cr"
+        ],
+        "seats": [
+          "icar_il_mazda_5_cr"
+        ],
+        "engine": [
+          "icar_il_mazda_5_cr"
+        ],
+        "transmission": [
+          "icar_il_mazda_5_cr"
+        ],
+        "fuel_type": [
+          "icar_il_mazda_5_cr"
+        ],
+        "drivetrain": [
+          "icar_il_mazda_5_cr"
+        ],
+        "generation": [
+          "icar_il_mazda_5_cr"
+        ],
+        "year_start": [
+          "icar_il_mazda_5_cr"
+        ],
+        "year_end": [
+          "icar_il_mazda_5_cr"
+        ],
+        "trim": []
+      },
+      "variant_id": "mazda_premacy_2005_2010_il_confirmed_cr_2nd_gen_2_0l_petrol_automatic_mpv_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -467951,17 +468138,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 2031,
-    "variants": 2031,
+    "total_variants": 2034,
+    "variants": 2034,
     "verified": 788,
-    "partial": 1243,
+    "partial": 1246,
     "makes_count": 43,
-    "models_count": 561,
-    "processed_seeds": 558,
+    "models_count": 563,
+    "processed_seeds": 560,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-23T01:33:32.511302+00:00"
+    "last_updated_at": "2026-05-23T01:34:10.463038+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
