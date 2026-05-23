@@ -598,7 +598,8 @@
       "suzuki__ignis__2000__2008__il",
       "suzuki__ignis__2016__2026__il",
       "suzuki__vitara__1990__2026__il",
-      "suzuki__grand_vitara__1998__2015__il"
+      "suzuki__grand_vitara__1998__2015__il",
+      "suzuki__grand_vitara__2022__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1051,8 +1052,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "suzuki__grand_vitara__1998__2015__il",
-    "next_seed_id": "suzuki__grand_vitara__2022__2026__il",
+    "last_completed_seed_id": "suzuki__grand_vitara__2022__2026__il",
+    "next_seed_id": "suzuki__sx4__2006__2014__il",
     "run_history": [],
     "failed_details": [
       {
@@ -3112,6 +3113,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T02:14:05.215057+00:00"
+      },
+      "suzuki__grand_vitara__2022__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 3,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T02:14:51.682841+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -257180,6 +257189,195 @@
         "trim": []
       },
       "variant_id": "suzuki_grand_vitara_2008_2015_il_confirmed_2nd_gen_jt_2_4l_petrol_166_hp_4_speed_automatic_suv_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Suzuki",
+      "model": "Grand Vitara",
+      "global_model_name": "Grand Vitara",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Maruti Suzuki Grand Vitara"
+      ],
+      "rebadged_as": "Toyota Urban Cruiser Hyryder",
+      "year_start": 2022,
+      "year_end": 2026,
+      "generation": "Global C-Platform",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "1.5L K15C Mild Hybrid, 103 hp",
+      "transmission": "6-speed automatic",
+      "fuel_type": "Mild Hybrid",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "Israeli marketed name not confirmed; global model name used as reference only. 2022+ Grand Vitara is manufactured in India for emerging markets; Suzuki Israel's official lineup features the Hungarian-built standard Vitara instead. Specs based on GCC/Global export data.",
+      "source_ids": [
+        "suzuki_india_grand_vitara_specs",
+        "suzuki_gcc_grand_vitara_2023",
+        "suzuki_israel_official_lineup_2024"
+      ],
+      "field_sources": {
+        "body_type": [
+          "suzuki_india_grand_vitara_specs",
+          "suzuki_gcc_grand_vitara_2023"
+        ],
+        "seats": [
+          "suzuki_india_grand_vitara_specs"
+        ],
+        "engine": [
+          "suzuki_india_grand_vitara_specs",
+          "suzuki_gcc_grand_vitara_2023"
+        ],
+        "transmission": [
+          "suzuki_india_grand_vitara_specs",
+          "suzuki_gcc_grand_vitara_2023"
+        ],
+        "fuel_type": [
+          "suzuki_india_grand_vitara_specs"
+        ],
+        "drivetrain": [
+          "suzuki_india_grand_vitara_specs",
+          "suzuki_gcc_grand_vitara_2023"
+        ],
+        "generation": [
+          "suzuki_india_grand_vitara_specs"
+        ],
+        "year_start": [
+          "suzuki_india_grand_vitara_specs"
+        ],
+        "year_end": [
+          "suzuki_india_grand_vitara_specs"
+        ],
+        "trim": []
+      },
+      "variant_id": "suzuki_grand_vitara_2022_2026_global_reference_only_global_c_platform_1_5l_k15c_mild_hybrid_103_hp_6_speed_automatic_suv_mild_hybrid"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Suzuki",
+      "model": "Grand Vitara",
+      "global_model_name": "Grand Vitara",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Maruti Suzuki Grand Vitara"
+      ],
+      "rebadged_as": "Toyota Urban Cruiser Hyryder",
+      "year_start": 2022,
+      "year_end": 2026,
+      "generation": "Global C-Platform",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "1.5L K15C Mild Hybrid, 103 hp",
+      "transmission": "5-speed manual",
+      "fuel_type": "Mild Hybrid",
+      "drivetrain": "AWD",
+      "trim": null,
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "Israeli marketed name not confirmed; global model name used as reference only. AllGrip AWD variant is typically paired globally with a manual transmission for this engine. Not confirmed for IL market.",
+      "source_ids": [
+        "suzuki_india_grand_vitara_specs",
+        "suzuki_gcc_grand_vitara_2023",
+        "suzuki_israel_official_lineup_2024"
+      ],
+      "field_sources": {
+        "body_type": [
+          "suzuki_india_grand_vitara_specs"
+        ],
+        "seats": [
+          "suzuki_india_grand_vitara_specs"
+        ],
+        "engine": [
+          "suzuki_india_grand_vitara_specs"
+        ],
+        "transmission": [
+          "suzuki_india_grand_vitara_specs"
+        ],
+        "fuel_type": [
+          "suzuki_india_grand_vitara_specs"
+        ],
+        "drivetrain": [
+          "suzuki_india_grand_vitara_specs"
+        ],
+        "generation": [
+          "suzuki_india_grand_vitara_specs"
+        ],
+        "year_start": [
+          "suzuki_india_grand_vitara_specs"
+        ],
+        "year_end": [
+          "suzuki_india_grand_vitara_specs"
+        ],
+        "trim": []
+      },
+      "variant_id": "suzuki_grand_vitara_2022_2026_global_reference_only_global_c_platform_1_5l_k15c_mild_hybrid_103_hp_5_speed_manual_suv_mild_hybrid"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Suzuki",
+      "model": "Grand Vitara",
+      "global_model_name": "Grand Vitara",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Maruti Suzuki Grand Vitara"
+      ],
+      "rebadged_as": "Toyota Urban Cruiser Hyryder",
+      "year_start": 2022,
+      "year_end": 2026,
+      "generation": "Global C-Platform",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "1.5L M15D-FXE Strong Hybrid, 116 hp",
+      "transmission": "e-CVT",
+      "fuel_type": "Hybrid",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "Israeli marketed name not confirmed; global model name used as reference only. Toyota-sourced strong hybrid powertrain export variant. Absence in IL market cross-checked against official Israeli lineup.",
+      "source_ids": [
+        "suzuki_india_grand_vitara_specs",
+        "suzuki_israel_official_lineup_2024"
+      ],
+      "field_sources": {
+        "body_type": [
+          "suzuki_india_grand_vitara_specs"
+        ],
+        "seats": [
+          "suzuki_india_grand_vitara_specs"
+        ],
+        "engine": [
+          "suzuki_india_grand_vitara_specs"
+        ],
+        "transmission": [
+          "suzuki_india_grand_vitara_specs"
+        ],
+        "fuel_type": [
+          "suzuki_india_grand_vitara_specs"
+        ],
+        "drivetrain": [
+          "suzuki_india_grand_vitara_specs"
+        ],
+        "generation": [
+          "suzuki_india_grand_vitara_specs"
+        ],
+        "year_start": [
+          "suzuki_india_grand_vitara_specs"
+        ],
+        "year_end": [
+          "suzuki_india_grand_vitara_specs"
+        ],
+        "trim": []
+      },
+      "variant_id": "suzuki_grand_vitara_2022_2026_global_reference_only_global_c_platform_1_5l_m15d_fxe_strong_hybrid_116_hp_e_cvt_suv_hybrid"
     }
   ],
   "accumulated_clean_export": {
@@ -475190,17 +475388,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 2143,
-    "variants": 2143,
+    "total_variants": 2146,
+    "variants": 2146,
     "verified": 788,
-    "partial": 1355,
+    "partial": 1358,
     "makes_count": 45,
     "models_count": 589,
-    "processed_seeds": 589,
+    "processed_seeds": 590,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-23T02:14:05.221054+00:00"
+    "last_updated_at": "2026-05-23T02:14:51.691070+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
