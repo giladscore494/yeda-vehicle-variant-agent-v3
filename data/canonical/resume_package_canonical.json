@@ -580,7 +580,8 @@
       "mitsubishi__eclipse_cross__2017__2026__il",
       "mitsubishi__pajero__1990__2021__il",
       "mitsubishi__pajero_sport__2000__2020__il",
-      "mitsubishi__l200__1990__2026__il"
+      "mitsubishi__l200__1990__2026__il",
+      "mitsubishi__grandis__2004__2011__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -2950,6 +2951,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T01:43:52.370566+00:00"
+      },
+      "mitsubishi__grandis__2004__2011__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 1,
+        "merged_count": 1,
+        "warnings": [],
+        "resolved_at": "2026-05-23T01:44:26.289168+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -252899,6 +252908,75 @@
         ]
       },
       "variant_id": "mitsubishi_l200_2019_2024_il_confirmed_5th_gen_kj_kk_kl_facelift_2_4l_mivec_turbo_diesel_4n15_6_speed_automatic_double_cab_pickup_diesel"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Mitsubishi",
+      "model": "Grandis",
+      "global_model_name": "Mitsubishi Grandis",
+      "official_marketed_name_il": "Mitsubishi Grandis",
+      "local_brand_name_il": "Mitsubishi",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2004,
+      "year_end": 2011,
+      "generation": "1st Gen",
+      "body_type": "MPV",
+      "seats": 7,
+      "engine": "2.4L MIVEC 4-cylinder, 165 hp",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "Executive",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "IL-market sources (Auto.co.il, KML, Yad2) confirm the Mitsubishi Grandis was imported and sold in Israel exclusively with the 2.4L MIVEC petrol engine and 4-speed automatic transmission. 'Executive' was one of the primary trims. 7 seats standard in Israel.",
+      "source_ids": [
+        "auto_co_il_mitsubishi_grandis",
+        "kml_il_mitsubishi_grandis",
+        "yad2_il_mitsubishi_grandis"
+      ],
+      "field_sources": {
+        "body_type": [
+          "auto_co_il_mitsubishi_grandis"
+        ],
+        "seats": [
+          "auto_co_il_mitsubishi_grandis"
+        ],
+        "engine": [
+          "auto_co_il_mitsubishi_grandis",
+          "kml_il_mitsubishi_grandis"
+        ],
+        "transmission": [
+          "auto_co_il_mitsubishi_grandis",
+          "kml_il_mitsubishi_grandis"
+        ],
+        "fuel_type": [
+          "auto_co_il_mitsubishi_grandis",
+          "kml_il_mitsubishi_grandis"
+        ],
+        "drivetrain": [
+          "auto_co_il_mitsubishi_grandis"
+        ],
+        "generation": [
+          "yad2_il_mitsubishi_grandis"
+        ],
+        "year_start": [
+          "auto_co_il_mitsubishi_grandis",
+          "kml_il_mitsubishi_grandis"
+        ],
+        "year_end": [
+          "auto_co_il_mitsubishi_grandis",
+          "kml_il_mitsubishi_grandis"
+        ],
+        "trim": [
+          "auto_co_il_mitsubishi_grandis",
+          "yad2_il_mitsubishi_grandis"
+        ]
+      },
+      "variant_id": "mitsubishi_grandis_2004_2011_il_confirmed_1st_gen_2_4l_mivec_4_cylinder_165_hp_4_speed_automatic_mpv_petrol",
+      "updated_at": "2026-05-23T01:44:26.290920+00:00"
     }
   ],
   "accumulated_clean_export": {
@@ -470909,17 +470987,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 2077,
-    "variants": 2077,
+    "total_variants": 2078,
+    "variants": 2078,
     "verified": 788,
-    "partial": 1289,
+    "partial": 1290,
     "makes_count": 44,
-    "models_count": 573,
-    "processed_seeds": 571,
+    "models_count": 574,
+    "processed_seeds": 572,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-23T01:43:52.374916+00:00"
+    "last_updated_at": "2026-05-23T01:44:26.294677+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
