@@ -667,7 +667,10 @@
       "mg__mg3__2013__2023__il",
       "mg__mg3_hybrid+__2024__2026__il",
       "mg__mg5__2022__2026__il",
-      "mg__zs__2019__2026__il"
+      "mg__zs__2019__2026__il",
+      "hyundai__nexo__2019__2026__il",
+      "mg__mg4__2022__2026__il",
+      "mg__zs_ev__2020__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1115,14 +1118,11 @@
       "gac_-_aion__aion_v__2024__2026__il",
       "geely__coolray__2023__2026__il"
     ],
-    "failed_seed_ids": [
-      "hyundai__nexo__2019__2026__il",
-      "mg__mg4__2022__2026__il"
-    ],
+    "failed_seed_ids": [],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "mg__zs__2019__2026__il",
-    "next_seed_id": "mg__zs_ev__2020__2026__il",
+    "last_completed_seed_id": "mg__zs_ev__2020__2026__il",
+    "next_seed_id": "mg__hs__2020__2026__il",
     "run_history": [],
     "failed_details": [
       {
@@ -3696,10 +3696,13 @@
         "resolved_at": "2026-05-23T03:30:08.232697+00:00"
       },
       "mg__mg4__2022__2026__il": {
-        "status": "failed_transient",
-        "reason": "runner_failed",
-        "error_summary": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_requests_per_model_per_day, limit: 250, model: gemini-3.1-pro\\nPlease retry in 20h13m42.99858298s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_requests_per_model_per_day', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.1-pro'}, 'quotaValue': '250'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '72822s'}]}}",
-        "last_attempt_at": "2026-05-23T03:46:17.030310+00:00"
+        "status": "resolved",
+        "resolution_type": "variants_added_after_failed_retry",
+        "added_count": 4,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T04:03:02.489137+00:00",
+        "retry_source": "failed_seed_retry"
       },
       "mg__mg5__2022__2026__il": {
         "status": "resolved",
@@ -3716,6 +3719,23 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T03:48:52.259178+00:00"
+      },
+      "hyundai__nexo__2019__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added_after_failed_retry",
+        "added_count": 1,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T04:01:47.148978+00:00",
+        "retry_source": "failed_seed_retry"
+      },
+      "mg__zs_ev__2020__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 3,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T04:04:07.961044+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -273921,6 +273941,524 @@
         "trim": []
       },
       "variant_id": "mg_zs_2024_2026_il_likely_2nd_gen_1_5l_e_hev_hybrid_196_hp_combined_3_speed_dht_suv_hybrid"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Hyundai",
+      "model": "Nexo",
+      "global_model_name": "Hyundai Nexo",
+      "official_marketed_name_il": "Hyundai Nexo",
+      "local_brand_name_il": "Hyundai",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2019,
+      "year_end": 2026,
+      "generation": "1st Gen (FE)",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "Hydrogen Fuel Cell, 120 kW (163 hp) electric motor",
+      "transmission": "single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli importer Colmobil introduced the Nexo in 2021/2022 as part of a pilot hydrogen infrastructure project with Sonol. Registered and officially marketed in Israel primarily for fleet/pilot use. Global specs confirm FWD and single-speed FCEV powertrain.",
+      "source_ids": [
+        "cartube_il_nexo_hydrogen_2022",
+        "hyundai_global_nexo_pr"
+      ],
+      "field_sources": {
+        "body_type": [
+          "hyundai_global_nexo_pr"
+        ],
+        "seats": [
+          "hyundai_global_nexo_pr"
+        ],
+        "engine": [
+          "cartube_il_nexo_hydrogen_2022",
+          "hyundai_global_nexo_pr"
+        ],
+        "transmission": [
+          "hyundai_global_nexo_pr"
+        ],
+        "fuel_type": [
+          "cartube_il_nexo_hydrogen_2022",
+          "hyundai_global_nexo_pr"
+        ],
+        "drivetrain": [
+          "hyundai_global_nexo_pr"
+        ],
+        "generation": [
+          "hyundai_global_nexo_pr"
+        ],
+        "year_start": [
+          "hyundai_global_nexo_pr"
+        ],
+        "year_end": [
+          "hyundai_global_nexo_pr"
+        ],
+        "trim": []
+      },
+      "variant_id": "hyundai_nexo_2019_2026_il_confirmed_1st_gen_fe_hydrogen_fuel_cell_120_kw_163_hp_electric_motor_single_speed_ev_suv_electric"
+    },
+    {
+      "candidate_index": 0,
+      "make": "MG",
+      "model": "MG4",
+      "global_model_name": "MG4 EV",
+      "official_marketed_name_il": "MG4",
+      "local_brand_name_il": "MG",
+      "alternate_names": [
+        "MG Mulan"
+      ],
+      "rebadged_as": null,
+      "year_start": 2023,
+      "year_end": 2026,
+      "generation": "1st Gen (MSP)",
+      "body_type": "Hatchback",
+      "seats": 5,
+      "engine": "Single Electric Motor, 125 kW (170 hp), 51 kWh LFP Battery",
+      "transmission": "single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "RWD",
+      "trim": "Standard",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "IL importer and spec sites confirm the Standard trim with 51 kWh battery and 170 hp motor launched in Israel in 2023.",
+      "source_ids": [
+        "lubinski_il_mg4_official",
+        "cartube_il_mg4_launch_2023",
+        "icar_il_mg4_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "lubinski_il_mg4_official",
+          "icar_il_mg4_specs"
+        ],
+        "seats": [
+          "lubinski_il_mg4_official",
+          "icar_il_mg4_specs"
+        ],
+        "engine": [
+          "lubinski_il_mg4_official",
+          "cartube_il_mg4_launch_2023"
+        ],
+        "transmission": [
+          "lubinski_il_mg4_official",
+          "icar_il_mg4_specs"
+        ],
+        "fuel_type": [
+          "lubinski_il_mg4_official",
+          "icar_il_mg4_specs"
+        ],
+        "drivetrain": [
+          "lubinski_il_mg4_official",
+          "icar_il_mg4_specs"
+        ],
+        "generation": [
+          "cartube_il_mg4_launch_2023"
+        ],
+        "year_start": [
+          "cartube_il_mg4_launch_2023"
+        ],
+        "year_end": [
+          "lubinski_il_mg4_official"
+        ],
+        "trim": [
+          "lubinski_il_mg4_official"
+        ]
+      },
+      "variant_id": "mg_mg4_2023_2026_il_confirmed_1st_gen_msp_single_electric_motor_125_kw_170_hp_51_kwh_lfp_battery_single_speed_ev_hatchback_electric"
+    },
+    {
+      "candidate_index": 1,
+      "make": "MG",
+      "model": "MG4",
+      "global_model_name": "MG4 EV",
+      "official_marketed_name_il": "MG4",
+      "local_brand_name_il": "MG",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2023,
+      "year_end": 2026,
+      "generation": "1st Gen (MSP)",
+      "body_type": "Hatchback",
+      "seats": 5,
+      "engine": "Single Electric Motor, 150 kW (204 hp), 64 kWh NMC Battery",
+      "transmission": "single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "RWD",
+      "trim": "Luxury",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Confirmed as the core 64 kWh offering in Israel, available in Comfort and Luxury trims. Listed here under Luxury to distinguish the 204 hp RWD powertrain.",
+      "source_ids": [
+        "lubinski_il_mg4_official",
+        "cartube_il_mg4_launch_2023",
+        "icar_il_mg4_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "lubinski_il_mg4_official",
+          "icar_il_mg4_specs"
+        ],
+        "seats": [
+          "lubinski_il_mg4_official",
+          "icar_il_mg4_specs"
+        ],
+        "engine": [
+          "lubinski_il_mg4_official",
+          "cartube_il_mg4_launch_2023"
+        ],
+        "transmission": [
+          "lubinski_il_mg4_official",
+          "icar_il_mg4_specs"
+        ],
+        "fuel_type": [
+          "lubinski_il_mg4_official",
+          "icar_il_mg4_specs"
+        ],
+        "drivetrain": [
+          "lubinski_il_mg4_official",
+          "icar_il_mg4_specs"
+        ],
+        "generation": [
+          "cartube_il_mg4_launch_2023"
+        ],
+        "year_start": [
+          "cartube_il_mg4_launch_2023"
+        ],
+        "year_end": [
+          "lubinski_il_mg4_official"
+        ],
+        "trim": [
+          "lubinski_il_mg4_official"
+        ]
+      },
+      "variant_id": "mg_mg4_2023_2026_il_confirmed_1st_gen_msp_single_electric_motor_150_kw_204_hp_64_kwh_nmc_battery_single_speed_ev_hatchback_electric"
+    },
+    {
+      "candidate_index": 2,
+      "make": "MG",
+      "model": "MG4",
+      "global_model_name": "MG4 EV",
+      "official_marketed_name_il": "MG4",
+      "local_brand_name_il": "MG",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2023,
+      "year_end": 2026,
+      "generation": "1st Gen (MSP)",
+      "body_type": "Hatchback",
+      "seats": 5,
+      "engine": "Single Electric Motor, 180 kW (245 hp), 77 kWh NMC Battery",
+      "transmission": "single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "RWD",
+      "trim": "Extended Range",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Longer range version introduced to IL market with upgraded 245 hp motor and 77 kWh battery.",
+      "source_ids": [
+        "lubinski_il_mg4_official",
+        "cartube_il_mg4_launch_2023",
+        "icar_il_mg4_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "lubinski_il_mg4_official"
+        ],
+        "seats": [
+          "lubinski_il_mg4_official"
+        ],
+        "engine": [
+          "lubinski_il_mg4_official",
+          "cartube_il_mg4_launch_2023"
+        ],
+        "transmission": [
+          "lubinski_il_mg4_official"
+        ],
+        "fuel_type": [
+          "lubinski_il_mg4_official"
+        ],
+        "drivetrain": [
+          "lubinski_il_mg4_official"
+        ],
+        "generation": [
+          "cartube_il_mg4_launch_2023"
+        ],
+        "year_start": [
+          "cartube_il_mg4_launch_2023"
+        ],
+        "year_end": [
+          "lubinski_il_mg4_official"
+        ],
+        "trim": [
+          "lubinski_il_mg4_official"
+        ]
+      },
+      "variant_id": "mg_mg4_2023_2026_il_confirmed_1st_gen_msp_single_electric_motor_180_kw_245_hp_77_kwh_nmc_battery_single_speed_ev_hatchback_electric"
+    },
+    {
+      "candidate_index": 3,
+      "make": "MG",
+      "model": "MG4",
+      "global_model_name": "MG4 EV",
+      "official_marketed_name_il": "MG4",
+      "local_brand_name_il": "MG",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2023,
+      "year_end": 2026,
+      "generation": "1st Gen (MSP)",
+      "body_type": "Hatchback",
+      "seats": 5,
+      "engine": "Dual Electric Motor, 320 kW (435 hp), 64 kWh NMC Battery",
+      "transmission": "single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "AWD",
+      "trim": "X-Power",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "High-performance variant sold in Israel, verified by official importer site and local automotive reviews.",
+      "source_ids": [
+        "lubinski_il_mg4_official",
+        "cartube_il_mg4_launch_2023",
+        "icar_il_mg4_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "lubinski_il_mg4_official"
+        ],
+        "seats": [
+          "lubinski_il_mg4_official"
+        ],
+        "engine": [
+          "lubinski_il_mg4_official",
+          "cartube_il_mg4_launch_2023"
+        ],
+        "transmission": [
+          "lubinski_il_mg4_official"
+        ],
+        "fuel_type": [
+          "lubinski_il_mg4_official"
+        ],
+        "drivetrain": [
+          "lubinski_il_mg4_official",
+          "cartube_il_mg4_launch_2023"
+        ],
+        "generation": [
+          "cartube_il_mg4_launch_2023"
+        ],
+        "year_start": [
+          "cartube_il_mg4_launch_2023"
+        ],
+        "year_end": [
+          "lubinski_il_mg4_official"
+        ],
+        "trim": [
+          "lubinski_il_mg4_official"
+        ]
+      },
+      "variant_id": "mg_mg4_2023_2026_il_confirmed_1st_gen_msp_dual_electric_motor_320_kw_435_hp_64_kwh_nmc_battery_single_speed_ev_hatchback_electric"
+    },
+    {
+      "candidate_index": 0,
+      "make": "MG",
+      "model": "ZS EV",
+      "global_model_name": "MG ZS EV",
+      "official_marketed_name_il": "MG ZS EV",
+      "local_brand_name_il": "MG",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2020,
+      "year_end": 2021,
+      "generation": "1st Gen",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "105 kW (143 hp) Electric Motor, 44.5 kWh Battery",
+      "transmission": "single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "FWD",
+      "trim": "NET UP",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "IL importer (Lubinski) and local auto portals confirm the pre-facelift ZS EV was launched in Israel in late 2019 for the 2020 model year with a 44.5 kWh battery and NET UP trim.",
+      "source_ids": [
+        "lubinski_mg_il_official",
+        "cartube_il_mg_zs_ev_2019"
+      ],
+      "field_sources": {
+        "body_type": [
+          "lubinski_mg_il_official"
+        ],
+        "seats": [
+          "cartube_il_mg_zs_ev_2019"
+        ],
+        "engine": [
+          "cartube_il_mg_zs_ev_2019",
+          "lubinski_mg_il_official"
+        ],
+        "transmission": [
+          "lubinski_mg_il_official"
+        ],
+        "fuel_type": [
+          "lubinski_mg_il_official"
+        ],
+        "drivetrain": [
+          "lubinski_mg_il_official"
+        ],
+        "generation": [
+          "cartube_il_mg_zs_ev_2019"
+        ],
+        "year_start": [
+          "cartube_il_mg_zs_ev_2019"
+        ],
+        "year_end": [
+          "cartube_il_mg_zs_ev_2019",
+          "icar_il_mg_zs_ev_facelift_2022"
+        ],
+        "trim": [
+          "cartube_il_mg_zs_ev_2019",
+          "lubinski_mg_il_official"
+        ]
+      },
+      "variant_id": "mg_zs_ev_2020_2021_il_confirmed_1st_gen_105_kw_143_hp_electric_motor_44_5_kwh_battery_single_speed_ev_suv_electric"
+    },
+    {
+      "candidate_index": 1,
+      "make": "MG",
+      "model": "ZS EV",
+      "global_model_name": "MG ZS EV",
+      "official_marketed_name_il": "MG ZS EV",
+      "local_brand_name_il": "MG",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2022,
+      "year_end": 2026,
+      "generation": "1st Gen Facelift",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "130 kW (177 hp) Electric Motor, 50.3 kWh Battery (Standard Range)",
+      "transmission": "single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "FWD",
+      "trim": "NET UP",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "IL market sources confirm the introduction of the facelifted ZS EV in early 2022 with two battery options. This variant covers the Standard Range (50.3 kWh) model producing 177 hp.",
+      "source_ids": [
+        "lubinski_mg_il_official",
+        "icar_il_mg_zs_ev_facelift_2022"
+      ],
+      "field_sources": {
+        "body_type": [
+          "lubinski_mg_il_official"
+        ],
+        "seats": [
+          "icar_il_mg_zs_ev_facelift_2022"
+        ],
+        "engine": [
+          "lubinski_mg_il_official",
+          "icar_il_mg_zs_ev_facelift_2022"
+        ],
+        "transmission": [
+          "lubinski_mg_il_official"
+        ],
+        "fuel_type": [
+          "lubinski_mg_il_official"
+        ],
+        "drivetrain": [
+          "lubinski_mg_il_official"
+        ],
+        "generation": [
+          "icar_il_mg_zs_ev_facelift_2022"
+        ],
+        "year_start": [
+          "icar_il_mg_zs_ev_facelift_2022"
+        ],
+        "year_end": [
+          "lubinski_mg_il_official",
+          "icar_il_mg_zs_ev_facelift_2022"
+        ],
+        "trim": [
+          "lubinski_mg_il_official",
+          "icar_il_mg_zs_ev_facelift_2022"
+        ]
+      },
+      "variant_id": "mg_zs_ev_2022_2026_il_confirmed_1st_gen_facelift_130_kw_177_hp_electric_motor_50_3_kwh_battery_standard_range_single_speed_ev_suv_electric"
+    },
+    {
+      "candidate_index": 2,
+      "make": "MG",
+      "model": "ZS EV",
+      "global_model_name": "MG ZS EV",
+      "official_marketed_name_il": "MG ZS EV",
+      "local_brand_name_il": "MG",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2022,
+      "year_end": 2026,
+      "generation": "1st Gen Facelift",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "115 kW (156 hp) Electric Motor, 70 kWh Battery (Long Range)",
+      "transmission": "single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "FWD",
+      "trim": "NET UP",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "IL market sources confirm the facelifted ZS EV Long Range variant arrived in 2022 alongside the Standard Range. The larger 70 kWh battery variant features a slightly lower-output 156 hp motor.",
+      "source_ids": [
+        "lubinski_mg_il_official",
+        "icar_il_mg_zs_ev_facelift_2022"
+      ],
+      "field_sources": {
+        "body_type": [
+          "lubinski_mg_il_official"
+        ],
+        "seats": [
+          "icar_il_mg_zs_ev_facelift_2022"
+        ],
+        "engine": [
+          "lubinski_mg_il_official",
+          "icar_il_mg_zs_ev_facelift_2022"
+        ],
+        "transmission": [
+          "lubinski_mg_il_official"
+        ],
+        "fuel_type": [
+          "lubinski_mg_il_official"
+        ],
+        "drivetrain": [
+          "lubinski_mg_il_official"
+        ],
+        "generation": [
+          "icar_il_mg_zs_ev_facelift_2022"
+        ],
+        "year_start": [
+          "icar_il_mg_zs_ev_facelift_2022"
+        ],
+        "year_end": [
+          "lubinski_mg_il_official",
+          "icar_il_mg_zs_ev_facelift_2022"
+        ],
+        "trim": [
+          "lubinski_mg_il_official",
+          "icar_il_mg_zs_ev_facelift_2022"
+        ]
+      },
+      "variant_id": "mg_zs_ev_2022_2026_il_confirmed_1st_gen_facelift_115_kw_156_hp_electric_motor_70_kwh_battery_long_range_single_speed_ev_suv_electric"
     }
   ],
   "accumulated_clean_export": {
@@ -491931,17 +492469,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 2407,
-    "variants": 2407,
+    "total_variants": 2415,
+    "variants": 2415,
     "verified": 788,
-    "partial": 1619,
+    "partial": 1627,
     "makes_count": 51,
-    "models_count": 659,
-    "processed_seeds": 658,
+    "models_count": 662,
+    "processed_seeds": 661,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
-    "unresolved": 2,
-    "last_updated_at": "2026-05-23T03:48:52.270703+00:00"
+    "unresolved": 0,
+    "last_updated_at": "2026-05-23T04:04:07.969343+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
