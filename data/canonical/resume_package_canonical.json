@@ -583,7 +583,8 @@
       "mitsubishi__pajero__1990__2021__il",
       "mitsubishi__i-miev__2011__2021__il",
       "mitsubishi__pajero_sport__2000__2020__il",
-      "mitsubishi__l200__1990__2026__il"
+      "mitsubishi__l200__1990__2026__il",
+      "mitsubishi__grandis__2004__2011__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1036,8 +1037,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "mitsubishi__l200__1990__2026__il",
-    "next_seed_id": "mitsubishi__grandis__2004__2011__il",
+    "last_completed_seed_id": "mitsubishi__grandis__2004__2011__il",
+    "next_seed_id": "mitsubishi__attrage__2014__2026__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2977,6 +2978,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T01:49:07.607143+00:00"
+      },
+      "mitsubishi__grandis__2004__2011__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 1,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T02:02:24.986919+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -253481,6 +253490,71 @@
         "trim": []
       },
       "variant_id": "mitsubishi_l200_2019_2024_il_confirmed_5th_gen_facelift_2_2l_di_d_turbo_diesel_150_hp_6_speed_automatic_pickup_diesel"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Mitsubishi",
+      "model": "Grandis",
+      "global_model_name": "Grandis",
+      "official_marketed_name_il": "Mitsubishi Grandis",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2004,
+      "year_end": 2011,
+      "generation": "1st Gen",
+      "body_type": "MPV",
+      "seats": 7,
+      "engine": "2.4L 4G69 MIVEC inline-4, 165 hp",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "2.4",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli automotive portals (iCar, Auto.co.il) and used car listings (Yad2) confirm the Grandis was marketed in Israel almost exclusively with the 2.4L MIVEC petrol engine and 4-speed automatic transmission. Trims offered in Israel included Invite, Instyle, and Executive, which all shared this powertrain.",
+      "source_ids": [
+        "icar_il_mitsubishi_grandis",
+        "auto_co_il_grandis",
+        "yad2_il_grandis_listings"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_mitsubishi_grandis"
+        ],
+        "seats": [
+          "icar_il_mitsubishi_grandis"
+        ],
+        "engine": [
+          "icar_il_mitsubishi_grandis",
+          "auto_co_il_grandis"
+        ],
+        "transmission": [
+          "icar_il_mitsubishi_grandis",
+          "auto_co_il_grandis"
+        ],
+        "fuel_type": [
+          "icar_il_mitsubishi_grandis"
+        ],
+        "drivetrain": [
+          "icar_il_mitsubishi_grandis"
+        ],
+        "generation": [
+          "auto_co_il_grandis"
+        ],
+        "year_start": [
+          "icar_il_mitsubishi_grandis"
+        ],
+        "year_end": [
+          "icar_il_mitsubishi_grandis"
+        ],
+        "trim": [
+          "yad2_il_grandis_listings",
+          "auto_co_il_grandis"
+        ]
+      },
+      "variant_id": "mitsubishi_grandis_2004_2011_il_confirmed_1st_gen_2_4l_4g69_mivec_inline_4_165_hp_4_speed_automatic_mpv_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -471491,17 +471565,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 2086,
-    "variants": 2086,
+    "total_variants": 2087,
+    "variants": 2087,
     "verified": 788,
-    "partial": 1298,
+    "partial": 1299,
     "makes_count": 44,
-    "models_count": 576,
-    "processed_seeds": 574,
+    "models_count": 577,
+    "processed_seeds": 575,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-23T01:49:07.612427+00:00"
+    "last_updated_at": "2026-05-23T02:02:24.995162+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
