@@ -641,7 +641,8 @@
       "kia__niro__2016__2026__il",
       "kia__niro_plus__2022__2026__il",
       "kia__carnival__1998__2026__il",
-      "kia__soul__2009__2020__il"
+      "kia__soul__2009__2020__il",
+      "kia__venga__2009__2019__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1094,8 +1095,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "kia__soul__2009__2020__il",
-    "next_seed_id": "kia__venga__2009__2019__il",
+    "last_completed_seed_id": "kia__venga__2009__2019__il",
+    "next_seed_id": "kia__carens__2000__2019__il",
     "run_history": [],
     "failed_details": [
       {
@@ -3475,6 +3476,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T03:11:53.787168+00:00"
+      },
+      "kia__venga__2009__2019__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 3,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T03:12:44.938723+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -268784,6 +268793,191 @@
         "trim": []
       },
       "variant_id": "kia_soul_2020_2020_global_reference_only_3rd_gen_sk3_electric_motor_204_hp_single_speed_ev_hatchback_electric"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Kia",
+      "model": "Venga",
+      "global_model_name": "Kia Venga",
+      "official_marketed_name_il": "Kia Venga",
+      "local_brand_name_il": "Kia",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2009,
+      "year_end": 2014,
+      "generation": "1st Gen (YN)",
+      "body_type": "Mini MPV",
+      "seats": 5,
+      "engine": "1.6L MPI petrol, 125 hp",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli automotive catalogs (Auto.co.il) and reviews confirm the YN generation Venga was marketed in Israel with the 1.6L 125hp engine and 4-speed automatic transmission prior to the facelift. Common IL trims (LX, EX) are noted but omitted from the trim field to avoid mixing. Marketed officially as Kia Venga.",
+      "source_ids": [
+        "auto_il_kia_venga_catalog",
+        "cartube_il_kia_venga_review",
+        "kia_europe_venga_press"
+      ],
+      "field_sources": {
+        "body_type": [
+          "auto_il_kia_venga_catalog"
+        ],
+        "seats": [
+          "kia_europe_venga_press"
+        ],
+        "engine": [
+          "auto_il_kia_venga_catalog",
+          "cartube_il_kia_venga_review"
+        ],
+        "transmission": [
+          "auto_il_kia_venga_catalog",
+          "cartube_il_kia_venga_review"
+        ],
+        "fuel_type": [
+          "auto_il_kia_venga_catalog",
+          "kia_europe_venga_press"
+        ],
+        "drivetrain": [
+          "cartube_il_kia_venga_review"
+        ],
+        "generation": [
+          "cartube_il_kia_venga_review",
+          "kia_europe_venga_press"
+        ],
+        "year_start": [
+          "auto_il_kia_venga_catalog"
+        ],
+        "year_end": [
+          "auto_il_kia_venga_catalog"
+        ],
+        "trim": []
+      },
+      "variant_id": "kia_venga_2009_2014_il_confirmed_1st_gen_yn_1_6l_mpi_petrol_125_hp_4_speed_automatic_mini_mpv_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Kia",
+      "model": "Venga",
+      "global_model_name": "Kia Venga",
+      "official_marketed_name_il": "Kia Venga",
+      "local_brand_name_il": "Kia",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2015,
+      "year_end": 2019,
+      "generation": "1st Gen Facelift (YN)",
+      "body_type": "Mini MPV",
+      "seats": 5,
+      "engine": "1.6L MPI petrol, 125 hp",
+      "transmission": "6-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "The 2015 facelift introduced a new 6-speed automatic transmission replacing the outdated 4-speed, maintaining the 1.6L engine. Confirmed by Israeli auto reviews and catalogs. Note: IL imports tapered off before the official global end of production in 2019, but global technical boundaries are used for year_end.",
+      "source_ids": [
+        "auto_il_kia_venga_catalog",
+        "cartube_il_kia_venga_review",
+        "kia_europe_venga_press"
+      ],
+      "field_sources": {
+        "body_type": [
+          "auto_il_kia_venga_catalog"
+        ],
+        "seats": [
+          "kia_europe_venga_press"
+        ],
+        "engine": [
+          "auto_il_kia_venga_catalog",
+          "cartube_il_kia_venga_review"
+        ],
+        "transmission": [
+          "auto_il_kia_venga_catalog",
+          "cartube_il_kia_venga_review"
+        ],
+        "fuel_type": [
+          "auto_il_kia_venga_catalog"
+        ],
+        "drivetrain": [
+          "cartube_il_kia_venga_review"
+        ],
+        "generation": [
+          "cartube_il_kia_venga_review",
+          "kia_europe_venga_press"
+        ],
+        "year_start": [
+          "cartube_il_kia_venga_review"
+        ],
+        "year_end": [
+          "kia_europe_venga_press"
+        ],
+        "trim": []
+      },
+      "variant_id": "kia_venga_2015_2019_il_confirmed_1st_gen_facelift_yn_1_6l_mpi_petrol_125_hp_6_speed_automatic_mini_mpv_petrol"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Kia",
+      "model": "Venga",
+      "global_model_name": "Kia Venga",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2009,
+      "year_end": 2019,
+      "generation": "1st Gen (YN)",
+      "body_type": "Mini MPV",
+      "seats": 5,
+      "engine": "1.4L MPI petrol, 90 hp",
+      "transmission": "5-speed manual",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "Entry-level global powertrain widely available in Europe. Excluded from IL-confirmed status due to lack of direct Israeli catalog evidence; Israeli market focused heavily on the 1.6L automatic variants.",
+      "source_ids": [
+        "kia_europe_venga_press"
+      ],
+      "field_sources": {
+        "body_type": [
+          "kia_europe_venga_press"
+        ],
+        "seats": [
+          "kia_europe_venga_press"
+        ],
+        "engine": [
+          "kia_europe_venga_press"
+        ],
+        "transmission": [
+          "kia_europe_venga_press"
+        ],
+        "fuel_type": [
+          "kia_europe_venga_press"
+        ],
+        "drivetrain": [
+          "kia_europe_venga_press"
+        ],
+        "generation": [
+          "kia_europe_venga_press"
+        ],
+        "year_start": [
+          "kia_europe_venga_press"
+        ],
+        "year_end": [
+          "kia_europe_venga_press"
+        ],
+        "trim": []
+      },
+      "variant_id": "kia_venga_2009_2019_global_reference_only_1st_gen_yn_1_4l_mpi_petrol_90_hp_5_speed_manual_mini_mpv_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -486794,17 +486988,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 2327,
-    "variants": 2327,
+    "total_variants": 2330,
+    "variants": 2330,
     "verified": 788,
-    "partial": 1539,
+    "partial": 1542,
     "makes_count": 47,
-    "models_count": 631,
-    "processed_seeds": 632,
+    "models_count": 632,
+    "processed_seeds": 633,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-23T03:11:53.792803+00:00"
+    "last_updated_at": "2026-05-23T03:12:44.945395+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
