@@ -848,7 +848,8 @@
       "renault__scenic__1996__2024__il",
       "renault__scenic_e-tech__2024__2026__il",
       "renault__grand_scenic__2004__2022__il",
-      "renault__espace__1991__2023__il"
+      "renault__espace__1991__2023__il",
+      "renault__zoe__2013__2024__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1300,8 +1301,8 @@
     "failed_seed_ids": [],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "renault__espace__1991__2023__il",
-    "next_seed_id": "renault__zoe__2013__2024__il",
+    "last_completed_seed_id": "renault__zoe__2013__2024__il",
+    "next_seed_id": "renault__kangoo__1997__2026__il",
     "run_history": [],
     "failed_details": [],
     "needs_retry_seed_ids": [
@@ -5332,6 +5333,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T21:15:48.322723+00:00"
+      },
+      "renault__zoe__2013__2024__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 3,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T21:16:38.306540+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -318961,6 +318970,198 @@
         "trim": []
       },
       "variant_id": "renault_espace_2017_2023_global_reference_only_5th_gen_jfc_1_8l_tce_turbopetrol_7_speed_dct_mpv_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Renault",
+      "model": "Zoe",
+      "global_model_name": "Renault Zoe Phase 1",
+      "official_marketed_name_il": "Renault Zoe",
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Zoe Z.E. 40"
+      ],
+      "rebadged_as": null,
+      "year_start": 2015,
+      "year_end": 2019,
+      "generation": "1st Gen (Phase 1)",
+      "body_type": "Hatchback",
+      "seats": 5,
+      "engine": "Electric R90 (92 hp, 41 kWh)",
+      "transmission": "Single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "FWD",
+      "trim": "Intens",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli sources (iCar) confirm the Phase 1 Zoe was officially imported starting around 2015/2016, with significant volume from 2017 using the Z.E. 40 (41 kWh) battery and 92 hp motor in Intens trim.",
+      "source_ids": [
+        "icar_il_renault_zoe_history"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_renault_zoe_history"
+        ],
+        "seats": [
+          "icar_il_renault_zoe_history"
+        ],
+        "engine": [
+          "icar_il_renault_zoe_history"
+        ],
+        "transmission": [
+          "icar_il_renault_zoe_history"
+        ],
+        "fuel_type": [
+          "icar_il_renault_zoe_history"
+        ],
+        "drivetrain": [
+          "icar_il_renault_zoe_history"
+        ],
+        "generation": [
+          "icar_il_renault_zoe_history"
+        ],
+        "year_start": [
+          "icar_il_renault_zoe_history"
+        ],
+        "year_end": [
+          "icar_il_renault_zoe_history"
+        ],
+        "trim": [
+          "icar_il_renault_zoe_history"
+        ]
+      },
+      "variant_id": "renault_zoe_2015_2019_il_confirmed_1st_gen_phase_1_electric_r90_92_hp_41_kwh_single_speed_ev_hatchback_electric"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Renault",
+      "model": "Zoe",
+      "global_model_name": "Renault Zoe Phase 2",
+      "official_marketed_name_il": "Renault Zoe",
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Zoe Z.E. 50"
+      ],
+      "rebadged_as": null,
+      "year_start": 2020,
+      "year_end": 2024,
+      "generation": "1st Gen (Phase 2)",
+      "body_type": "Hatchback",
+      "seats": 5,
+      "engine": "Electric R110 (108 hp, 52 kWh)",
+      "transmission": "Single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "FWD",
+      "trim": "Zen",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Cartube IL and iCar confirm Phase 2 (Z.E. 50) launched in Israel in 2020. The base Zen trim features the R110 motor with 108 hp and 52 kWh battery.",
+      "source_ids": [
+        "cartube_il_zoe_ze50_2020",
+        "icar_il_renault_zoe_history"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_renault_zoe_history"
+        ],
+        "seats": [
+          "icar_il_renault_zoe_history"
+        ],
+        "engine": [
+          "cartube_il_zoe_ze50_2020",
+          "icar_il_renault_zoe_history"
+        ],
+        "transmission": [
+          "icar_il_renault_zoe_history"
+        ],
+        "fuel_type": [
+          "icar_il_renault_zoe_history"
+        ],
+        "drivetrain": [
+          "icar_il_renault_zoe_history"
+        ],
+        "generation": [
+          "cartube_il_zoe_ze50_2020",
+          "icar_il_renault_zoe_history"
+        ],
+        "year_start": [
+          "cartube_il_zoe_ze50_2020"
+        ],
+        "year_end": [
+          "icar_il_renault_zoe_history"
+        ],
+        "trim": [
+          "cartube_il_zoe_ze50_2020"
+        ]
+      },
+      "variant_id": "renault_zoe_2020_2024_il_confirmed_1st_gen_phase_2_electric_r110_108_hp_52_kwh_single_speed_ev_hatchback_electric"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Renault",
+      "model": "Zoe",
+      "global_model_name": "Renault Zoe Phase 2",
+      "official_marketed_name_il": "Renault Zoe",
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Zoe Z.E. 50"
+      ],
+      "rebadged_as": null,
+      "year_start": 2020,
+      "year_end": 2024,
+      "generation": "1st Gen (Phase 2)",
+      "body_type": "Hatchback",
+      "seats": 5,
+      "engine": "Electric R135 (135 hp, 52 kWh)",
+      "transmission": "Single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "FWD",
+      "trim": "Intens",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Cartube IL confirms the upper tier of the Phase 2 (Z.E. 50) launched in Israel is the Intens trim, equipped with the more powerful R135 motor producing 135 hp.",
+      "source_ids": [
+        "cartube_il_zoe_ze50_2020",
+        "icar_il_renault_zoe_history"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_renault_zoe_history"
+        ],
+        "seats": [
+          "icar_il_renault_zoe_history"
+        ],
+        "engine": [
+          "cartube_il_zoe_ze50_2020",
+          "icar_il_renault_zoe_history"
+        ],
+        "transmission": [
+          "icar_il_renault_zoe_history"
+        ],
+        "fuel_type": [
+          "icar_il_renault_zoe_history"
+        ],
+        "drivetrain": [
+          "icar_il_renault_zoe_history"
+        ],
+        "generation": [
+          "cartube_il_zoe_ze50_2020",
+          "icar_il_renault_zoe_history"
+        ],
+        "year_start": [
+          "cartube_il_zoe_ze50_2020"
+        ],
+        "year_end": [
+          "icar_il_renault_zoe_history"
+        ],
+        "trim": [
+          "cartube_il_zoe_ze50_2020"
+        ]
+      },
+      "variant_id": "renault_zoe_2020_2024_il_confirmed_1st_gen_phase_2_electric_r135_135_hp_52_kwh_single_speed_ev_hatchback_electric"
     }
   ],
   "accumulated_clean_export": {
@@ -536971,17 +537172,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 3111,
-    "variants": 3111,
+    "total_variants": 3114,
+    "variants": 3114,
     "verified": 788,
-    "partial": 2323,
+    "partial": 2326,
     "makes_count": 73,
-    "models_count": 839,
-    "processed_seeds": 839,
+    "models_count": 840,
+    "processed_seeds": 840,
     "needs_retry_seeds": 2,
     "total_seeds": 993,
     "unresolved": 0,
-    "last_updated_at": "2026-05-23T21:15:48.334906+00:00"
+    "last_updated_at": "2026-05-23T21:16:38.317536+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
