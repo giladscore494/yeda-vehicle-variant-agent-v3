@@ -541,7 +541,8 @@
       "nissan__pathfinder__1998__2020__il",
       "nissan__murano__2005__2020__il",
       "nissan__patrol__1992__2020__il",
-      "nissan__gt-r__2009__2024__il"
+      "nissan__gt-r__2009__2024__il",
+      "nissan__370z__2009__2020__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -994,8 +995,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "nissan__gt-r__2009__2024__il",
-    "next_seed_id": "nissan__370z__2009__2020__il",
+    "last_completed_seed_id": "nissan__370z__2009__2020__il",
+    "next_seed_id": "nissan__kicks__2020__2026__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2599,6 +2600,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T01:08:58.390496+00:00"
+      },
+      "nissan__370z__2009__2020__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 4,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T01:09:45.756200+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -243013,6 +243022,245 @@
         ]
       },
       "variant_id": "nissan_gt_r_2017_2024_il_confirmed_r35_3_8l_v6_twin_turbo_570_hp_6_speed_dct_coupe_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Nissan",
+      "model": "370Z",
+      "global_model_name": "Nissan 370Z",
+      "official_marketed_name_il": "Nissan 370Z",
+      "local_brand_name_il": "Nissan",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2010,
+      "year_end": 2020,
+      "generation": "Z34",
+      "body_type": "Coupe",
+      "seats": 2,
+      "engine": "3.7L V6 (VQ37VHR)",
+      "transmission": "7-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "RWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli specs (iCar) confirm the Nissan 370Z was marketed in Israel starting roughly 2010 until 2020 as a Coupe with the 3.7L V6 and 7-speed automatic transmission. Global generation code is Z34.",
+      "source_ids": [
+        "icar_il_nissan_370z",
+        "cartube_il_nissan_370z"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_nissan_370z"
+        ],
+        "seats": [
+          "icar_il_nissan_370z"
+        ],
+        "engine": [
+          "icar_il_nissan_370z",
+          "cartube_il_nissan_370z"
+        ],
+        "transmission": [
+          "icar_il_nissan_370z"
+        ],
+        "fuel_type": [
+          "icar_il_nissan_370z"
+        ],
+        "drivetrain": [
+          "icar_il_nissan_370z"
+        ],
+        "generation": [
+          "cartube_il_nissan_370z",
+          "nissan_global_z34_specs"
+        ],
+        "year_start": [
+          "icar_il_nissan_370z"
+        ],
+        "year_end": [
+          "icar_il_nissan_370z"
+        ],
+        "trim": []
+      },
+      "variant_id": "nissan_370z_2010_2020_il_confirmed_z34_3_7l_v6_vq37vhr_7_speed_automatic_coupe_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Nissan",
+      "model": "370Z",
+      "global_model_name": "Nissan 370Z",
+      "official_marketed_name_il": "Nissan 370Z",
+      "local_brand_name_il": "Nissan",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2010,
+      "year_end": 2020,
+      "generation": "Z34",
+      "body_type": "Coupe",
+      "seats": 2,
+      "engine": "3.7L V6 (VQ37VHR)",
+      "transmission": "6-speed manual",
+      "fuel_type": "Petrol",
+      "drivetrain": "RWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli catalog data confirms the availability of the 6-speed manual variant of the 370Z Coupe alongside the automatic.",
+      "source_ids": [
+        "icar_il_nissan_370z"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_nissan_370z"
+        ],
+        "seats": [
+          "icar_il_nissan_370z"
+        ],
+        "engine": [
+          "icar_il_nissan_370z"
+        ],
+        "transmission": [
+          "icar_il_nissan_370z"
+        ],
+        "fuel_type": [
+          "icar_il_nissan_370z"
+        ],
+        "drivetrain": [
+          "icar_il_nissan_370z"
+        ],
+        "generation": [
+          "nissan_global_z34_specs"
+        ],
+        "year_start": [
+          "icar_il_nissan_370z"
+        ],
+        "year_end": [
+          "icar_il_nissan_370z"
+        ],
+        "trim": []
+      },
+      "variant_id": "nissan_370z_2010_2020_il_confirmed_z34_3_7l_v6_vq37vhr_6_speed_manual_coupe_petrol"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Nissan",
+      "model": "370Z",
+      "global_model_name": "Nissan 370Z",
+      "official_marketed_name_il": "Nissan 370Z",
+      "local_brand_name_il": "Nissan",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2010,
+      "year_end": 2015,
+      "generation": "Z34",
+      "body_type": "Roadster",
+      "seats": 2,
+      "engine": "3.7L V6 (VQ37VHR)",
+      "transmission": "7-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "RWD",
+      "trim": null,
+      "market_scope": "IL-likely",
+      "market_name_confidence": "likely",
+      "confidence_level": "medium",
+      "source_basis": "The Roadster (convertible) variant was available globally; Israeli portals reference it, but import years and consistency are less heavily documented than the core Coupe model. Marked as IL-likely.",
+      "source_ids": [
+        "icar_il_nissan_370z",
+        "nissan_global_z34_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_nissan_370z",
+          "nissan_global_z34_specs"
+        ],
+        "seats": [
+          "nissan_global_z34_specs"
+        ],
+        "engine": [
+          "nissan_global_z34_specs"
+        ],
+        "transmission": [
+          "nissan_global_z34_specs"
+        ],
+        "fuel_type": [
+          "nissan_global_z34_specs"
+        ],
+        "drivetrain": [
+          "nissan_global_z34_specs"
+        ],
+        "generation": [
+          "nissan_global_z34_specs"
+        ],
+        "year_start": [
+          "icar_il_nissan_370z"
+        ],
+        "year_end": [
+          "icar_il_nissan_370z"
+        ],
+        "trim": []
+      },
+      "variant_id": "nissan_370z_2010_2015_il_likely_z34_3_7l_v6_vq37vhr_7_speed_automatic_roadster_petrol"
+    },
+    {
+      "candidate_index": 3,
+      "make": "Nissan",
+      "model": "370Z",
+      "global_model_name": "Nissan 370Z Nismo",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2009,
+      "year_end": 2020,
+      "generation": "Z34",
+      "body_type": "Coupe",
+      "seats": 2,
+      "engine": "3.7L V6 Nismo (344-350 hp)",
+      "transmission": "6-speed manual",
+      "fuel_type": "Petrol",
+      "drivetrain": "RWD",
+      "trim": "Nismo",
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "high",
+      "source_basis": "Nismo performance variant is well documented globally. Official and continuous import by the Israeli distributor is unconfirmed; included as global reference only.",
+      "source_ids": [
+        "nissan_global_z34_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "nissan_global_z34_specs"
+        ],
+        "seats": [
+          "nissan_global_z34_specs"
+        ],
+        "engine": [
+          "nissan_global_z34_specs"
+        ],
+        "transmission": [
+          "nissan_global_z34_specs"
+        ],
+        "fuel_type": [
+          "nissan_global_z34_specs"
+        ],
+        "drivetrain": [
+          "nissan_global_z34_specs"
+        ],
+        "generation": [
+          "nissan_global_z34_specs"
+        ],
+        "year_start": [
+          "nissan_global_z34_specs"
+        ],
+        "year_end": [
+          "nissan_global_z34_specs"
+        ],
+        "trim": [
+          "nissan_global_z34_specs"
+        ]
+      },
+      "variant_id": "nissan_370z_2009_2020_global_reference_only_z34_3_7l_v6_nismo_344_350_hp_6_speed_manual_coupe_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -461023,17 +461271,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1922,
-    "variants": 1922,
+    "total_variants": 1926,
+    "variants": 1926,
     "verified": 788,
-    "partial": 1134,
+    "partial": 1138,
     "makes_count": 42,
-    "models_count": 535,
-    "processed_seeds": 532,
+    "models_count": 536,
+    "processed_seeds": 533,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-23T01:08:58.396120+00:00"
+    "last_updated_at": "2026-05-23T01:09:45.764105+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
