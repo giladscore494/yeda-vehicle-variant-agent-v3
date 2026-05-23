@@ -99,7 +99,7 @@ def run_batch(
             }
 
         # Advance cursor
-        if decision.action in ("ACCEPT_VARIANTS", "CLOSE_NO_VARIANTS_PROVEN", "MANUAL_REVIEW"):
+        if decision.action in ("ACCEPT_VARIANTS", "CLOSE_NO_VARIANTS_PROVEN", "MANUAL_REVIEW", "FAIL_TRANSIENT"):
             if is_current_next:
                 advance_cursor(canonical, seeds, seed_id)
 
