@@ -181,7 +181,7 @@ def audit_canonical(
         if not isinstance(sa_entry, dict):
             continue
         res_type = sa_entry.get("resolution_type", "")
-        if res_type == "variants_added":
+        if res_type in ("variants_added", "variants_added_after_failed_retry"):
             ac = sa_entry.get("added_count") or 0
             mc = sa_entry.get("merged_count") or 0
             if ac + mc == 0:
