@@ -539,7 +539,8 @@
       "nissan__navara__1998__2026__il",
       "nissan__ariya__2022__2026__il",
       "nissan__pathfinder__1998__2020__il",
-      "nissan__murano__2005__2020__il"
+      "nissan__murano__2005__2020__il",
+      "nissan__patrol__1992__2020__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -992,8 +993,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "nissan__murano__2005__2020__il",
-    "next_seed_id": "nissan__patrol__1992__2020__il",
+    "last_completed_seed_id": "nissan__patrol__1992__2020__il",
+    "next_seed_id": "nissan__gt-r__2009__2024__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2581,6 +2582,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T01:07:33.569269+00:00"
+      },
+      "nissan__patrol__1992__2020__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 3,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T01:08:15.466024+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -242686,6 +242695,187 @@
         "trim": []
       },
       "variant_id": "nissan_murano_2015_2020_global_reference_only_z52_3_5l_v6_petrol_260_hp_cvt_suv_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Nissan",
+      "model": "Patrol",
+      "global_model_name": "Nissan Patrol Y60",
+      "official_marketed_name_il": "Nissan Patrol",
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Nissan Patrol GR"
+      ],
+      "rebadged_as": null,
+      "year_start": 1992,
+      "year_end": 1997,
+      "generation": "Y60",
+      "body_type": "SUV",
+      "seats": 7,
+      "engine": "2.8L RD28T Turbo Diesel, 115 hp",
+      "transmission": "5-speed manual",
+      "fuel_type": "Diesel",
+      "drivetrain": "4WD",
+      "trim": "",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "IL market presence heavily confirmed by used car listings and historical off-road archives in Israel. The 2.8L turbo diesel with manual transmission was the standard spec imported during the 90s.",
+      "source_ids": [
+        "yad2_il_nissan_patrol_archive"
+      ],
+      "field_sources": {
+        "body_type": [
+          "yad2_il_nissan_patrol_archive"
+        ],
+        "seats": [
+          "yad2_il_nissan_patrol_archive"
+        ],
+        "engine": [
+          "yad2_il_nissan_patrol_archive"
+        ],
+        "transmission": [
+          "yad2_il_nissan_patrol_archive"
+        ],
+        "fuel_type": [
+          "yad2_il_nissan_patrol_archive"
+        ],
+        "drivetrain": [
+          "yad2_il_nissan_patrol_archive"
+        ],
+        "generation": [
+          "yad2_il_nissan_patrol_archive"
+        ],
+        "year_start": [
+          "yad2_il_nissan_patrol_archive"
+        ],
+        "year_end": [
+          "yad2_il_nissan_patrol_archive"
+        ],
+        "trim": []
+      },
+      "variant_id": "nissan_patrol_1992_1997_il_confirmed_y60_2_8l_rd28t_turbo_diesel_115_hp_5_speed_manual_suv_diesel"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Nissan",
+      "model": "Patrol",
+      "global_model_name": "Nissan Patrol Y61",
+      "official_marketed_name_il": "Nissan Patrol",
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Nissan Patrol GR"
+      ],
+      "rebadged_as": null,
+      "year_start": 1998,
+      "year_end": 2010,
+      "generation": "Y61",
+      "body_type": "SUV",
+      "seats": 7,
+      "engine": "3.0L ZD30 Turbo Diesel, 158 hp",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Diesel",
+      "drivetrain": "4WD",
+      "trim": "Elegance",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Confirmed by iCar.co.il for the 2000-2010 model years officially imported to Israel. The 3.0L turbo diesel replaced the early 2.8L variants and was predominantly sold as an automatic in the 7-seat configuration.",
+      "source_ids": [
+        "icar_il_nissan_patrol_y61_specs",
+        "yad2_il_nissan_patrol_archive"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_nissan_patrol_y61_specs"
+        ],
+        "seats": [
+          "icar_il_nissan_patrol_y61_specs"
+        ],
+        "engine": [
+          "icar_il_nissan_patrol_y61_specs"
+        ],
+        "transmission": [
+          "icar_il_nissan_patrol_y61_specs"
+        ],
+        "fuel_type": [
+          "icar_il_nissan_patrol_y61_specs"
+        ],
+        "drivetrain": [
+          "icar_il_nissan_patrol_y61_specs"
+        ],
+        "generation": [
+          "icar_il_nissan_patrol_y61_specs"
+        ],
+        "year_start": [
+          "icar_il_nissan_patrol_y61_specs"
+        ],
+        "year_end": [
+          "icar_il_nissan_patrol_y61_specs"
+        ],
+        "trim": [
+          "icar_il_nissan_patrol_y61_specs"
+        ]
+      },
+      "variant_id": "nissan_patrol_1998_2010_il_confirmed_y61_3_0l_zd30_turbo_diesel_158_hp_4_speed_automatic_suv_diesel"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Nissan",
+      "model": "Patrol",
+      "global_model_name": "Nissan Patrol Y62",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2010,
+      "year_end": 2020,
+      "generation": "Y62",
+      "body_type": "SUV",
+      "seats": 8,
+      "engine": "5.6L VK56VD V8 Petrol, 400 hp",
+      "transmission": "7-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "4WD",
+      "trim": "",
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "The Y62 generation was largely focused on the Middle East, US, and Australian markets with large displacement V8 petrol engines and was not officially imported into Israel by the primary dealer. Included for timeline completion as global reference only.",
+      "source_ids": [
+        "nissan_global_patrol_y62_press"
+      ],
+      "field_sources": {
+        "body_type": [
+          "nissan_global_patrol_y62_press"
+        ],
+        "seats": [
+          "nissan_global_patrol_y62_press"
+        ],
+        "engine": [
+          "nissan_global_patrol_y62_press"
+        ],
+        "transmission": [
+          "nissan_global_patrol_y62_press"
+        ],
+        "fuel_type": [
+          "nissan_global_patrol_y62_press"
+        ],
+        "drivetrain": [
+          "nissan_global_patrol_y62_press"
+        ],
+        "generation": [
+          "nissan_global_patrol_y62_press"
+        ],
+        "year_start": [
+          "nissan_global_patrol_y62_press"
+        ],
+        "year_end": [
+          "nissan_global_patrol_y62_press"
+        ],
+        "trim": []
+      },
+      "variant_id": "nissan_patrol_2010_2020_global_reference_only_y62_5_6l_vk56vd_v8_petrol_400_hp_7_speed_automatic_suv_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -460696,17 +460886,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1917,
-    "variants": 1917,
+    "total_variants": 1920,
+    "variants": 1920,
     "verified": 788,
-    "partial": 1129,
+    "partial": 1132,
     "makes_count": 42,
-    "models_count": 533,
-    "processed_seeds": 530,
+    "models_count": 534,
+    "processed_seeds": 531,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-23T01:07:33.573746+00:00"
+    "last_updated_at": "2026-05-23T01:08:15.471012+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
