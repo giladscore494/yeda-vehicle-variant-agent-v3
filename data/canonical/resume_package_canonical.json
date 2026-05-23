@@ -550,7 +550,8 @@
       "nissan__200sx__1994__2002__il",
       "nissan__altima__2013__2020__il",
       "mazda__mazda2__2007__2026__il",
-      "mazda__mazda3__2003__2026__il"
+      "mazda__mazda3__2003__2026__il",
+      "mazda__mazda5__2005__2015__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1003,8 +1004,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "mazda__mazda3__2003__2026__il",
-    "next_seed_id": "mazda__mazda5__2005__2015__il",
+    "last_completed_seed_id": "mazda__mazda5__2005__2015__il",
+    "next_seed_id": "mazda__mazda6__2002__2024__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2680,6 +2681,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T01:17:05.669325+00:00"
+      },
+      "mazda__mazda5__2005__2015__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 2,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T01:17:43.052486+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -245250,6 +245259,133 @@
         ]
       },
       "variant_id": "mazda_mazda3_2021_2026_il_confirmed_bp_2_0l_e_skyactiv_mhev_165_hp_6_speed_automatic_hatchback_mild_hybrid"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Mazda",
+      "model": "Mazda5",
+      "global_model_name": "Mazda5",
+      "official_marketed_name_il": "Mazda5",
+      "local_brand_name_il": "Mazda",
+      "alternate_names": [
+        "Mazda 5",
+        "Mazda Premacy"
+      ],
+      "rebadged_as": null,
+      "year_start": 2005,
+      "year_end": 2010,
+      "generation": "CR (1st Gen)",
+      "body_type": "MPV",
+      "seats": 7,
+      "engine": "2.0L MZR Petrol, 145 hp",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "IL-market specs confirm 2.0L MZR engine for CR generation, initially equipped with a 4-speed automatic (upgraded to 5-speed in the 2008 facelift). Trims noted in IL: Executive, Luxury. Standard 7 seats.",
+      "source_ids": [
+        "icar_il_mazda5_cr_2005_2010"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_mazda5_cr_2005_2010"
+        ],
+        "seats": [
+          "icar_il_mazda5_cr_2005_2010"
+        ],
+        "engine": [
+          "icar_il_mazda5_cr_2005_2010"
+        ],
+        "transmission": [
+          "icar_il_mazda5_cr_2005_2010"
+        ],
+        "fuel_type": [
+          "icar_il_mazda5_cr_2005_2010"
+        ],
+        "drivetrain": [
+          "icar_il_mazda5_cr_2005_2010"
+        ],
+        "generation": [
+          "icar_il_mazda5_cr_2005_2010"
+        ],
+        "year_start": [
+          "icar_il_mazda5_cr_2005_2010"
+        ],
+        "year_end": [
+          "icar_il_mazda5_cr_2005_2010"
+        ],
+        "trim": []
+      },
+      "variant_id": "mazda_mazda5_2005_2010_il_confirmed_cr_1st_gen_2_0l_mzr_petrol_145_hp_4_speed_automatic_mpv_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Mazda",
+      "model": "Mazda5",
+      "global_model_name": "Mazda5",
+      "official_marketed_name_il": "Mazda5",
+      "local_brand_name_il": "Mazda",
+      "alternate_names": [
+        "Mazda 5",
+        "Mazda Premacy"
+      ],
+      "rebadged_as": null,
+      "year_start": 2010,
+      "year_end": 2015,
+      "generation": "CW (2nd Gen)",
+      "body_type": "MPV",
+      "seats": 7,
+      "engine": "2.0L MZR Petrol, 144 hp",
+      "transmission": "5-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "IL-market specs and reviews confirm CW generation launch in 2010. Re-used the 2.0L MZR engine mated to a 5-speed automatic. Marketed largely in Executive and Luxury trims.",
+      "source_ids": [
+        "auto_co_il_mazda5_cw_2010",
+        "cartube_il_mazda5_cw_review"
+      ],
+      "field_sources": {
+        "body_type": [
+          "auto_co_il_mazda5_cw_2010",
+          "cartube_il_mazda5_cw_review"
+        ],
+        "seats": [
+          "auto_co_il_mazda5_cw_2010",
+          "cartube_il_mazda5_cw_review"
+        ],
+        "engine": [
+          "auto_co_il_mazda5_cw_2010",
+          "cartube_il_mazda5_cw_review"
+        ],
+        "transmission": [
+          "auto_co_il_mazda5_cw_2010",
+          "cartube_il_mazda5_cw_review"
+        ],
+        "fuel_type": [
+          "auto_co_il_mazda5_cw_2010"
+        ],
+        "drivetrain": [
+          "auto_co_il_mazda5_cw_2010"
+        ],
+        "generation": [
+          "auto_co_il_mazda5_cw_2010"
+        ],
+        "year_start": [
+          "auto_co_il_mazda5_cw_2010"
+        ],
+        "year_end": [
+          "auto_co_il_mazda5_cw_2010"
+        ],
+        "trim": []
+      },
+      "variant_id": "mazda_mazda5_2010_2015_il_confirmed_cw_2nd_gen_2_0l_mzr_petrol_144_hp_5_speed_automatic_mpv_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -463260,17 +463396,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1957,
-    "variants": 1957,
+    "total_variants": 1959,
+    "variants": 1959,
     "verified": 788,
-    "partial": 1169,
+    "partial": 1171,
     "makes_count": 43,
-    "models_count": 544,
-    "processed_seeds": 541,
+    "models_count": 545,
+    "processed_seeds": 542,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-23T01:17:05.676825+00:00"
+    "last_updated_at": "2026-05-23T01:17:43.059513+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
