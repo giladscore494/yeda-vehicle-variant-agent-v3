@@ -535,7 +535,8 @@
       "nissan__almera__1995__2012__il",
       "nissan__primera__1990__2008__il",
       "nissan__maxima__1995__2008__il",
-      "nissan__sentra__2013__2026__il"
+      "nissan__sentra__2013__2026__il",
+      "nissan__navara__1998__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -988,8 +989,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "nissan__sentra__2013__2026__il",
-    "next_seed_id": "nissan__navara__1998__2026__il",
+    "last_completed_seed_id": "nissan__navara__1998__2026__il",
+    "next_seed_id": "nissan__ariya__2022__2026__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2545,6 +2546,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T01:04:11.324361+00:00"
+      },
+      "nissan__navara__1998__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 4,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T01:05:01.346286+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -241822,6 +241831,242 @@
         ]
       },
       "variant_id": "nissan_sentra_2020_2026_il_confirmed_b18_2_0l_petrol_149_hp_cvt_sedan_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Nissan",
+      "model": "Navara",
+      "global_model_name": "Nissan Navara (D22)",
+      "official_marketed_name_il": "Nissan Winner",
+      "local_brand_name_il": "Nissan",
+      "alternate_names": [
+        "Nissan Pickup",
+        "Nissan Frontier"
+      ],
+      "rebadged_as": null,
+      "year_start": 1998,
+      "year_end": 2005,
+      "generation": "D22",
+      "body_type": "Pickup",
+      "seats": 5,
+      "engine": "2.5L Turbo Diesel, 104-133 hp",
+      "transmission": "5-speed manual",
+      "fuel_type": "Diesel",
+      "drivetrain": "4WD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Marketed in Israel as Nissan Winner (and occasionally referred to as Pickup). Confirmed D22 generation with 2.5L diesel engine and manual transmission by IL pricing catalogs.",
+      "source_ids": [
+        "icar_il_nissan_winner_d22",
+        "yad2_il_nissan_pickup_archive"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_nissan_winner_d22"
+        ],
+        "seats": [],
+        "engine": [
+          "icar_il_nissan_winner_d22"
+        ],
+        "transmission": [
+          "icar_il_nissan_winner_d22"
+        ],
+        "fuel_type": [
+          "icar_il_nissan_winner_d22"
+        ],
+        "drivetrain": [
+          "icar_il_nissan_winner_d22"
+        ],
+        "generation": [
+          "icar_il_nissan_winner_d22"
+        ],
+        "year_start": [
+          "icar_il_nissan_winner_d22"
+        ],
+        "year_end": [
+          "icar_il_nissan_winner_d22"
+        ],
+        "trim": []
+      },
+      "variant_id": "nissan_navara_1998_2005_il_confirmed_d22_2_5l_turbo_diesel_104_133_hp_5_speed_manual_pickup_diesel"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Nissan",
+      "model": "Navara",
+      "global_model_name": "Nissan Navara (D40)",
+      "official_marketed_name_il": "Nissan Navara",
+      "local_brand_name_il": "Nissan",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2005,
+      "year_end": 2015,
+      "generation": "D40",
+      "body_type": "Pickup",
+      "seats": 5,
+      "engine": "2.5L YD25DDTi Turbo Diesel, 174-190 hp",
+      "transmission": "5-speed automatic",
+      "fuel_type": "Diesel",
+      "drivetrain": "4WD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Highly popular generation in Israel; sold officially as Navara. Common spec includes 2.5L diesel and 5-speed auto. Facelift arrived in 2010 bumping power to 190hp.",
+      "source_ids": [
+        "icar_il_nissan_navara_d40"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_nissan_navara_d40"
+        ],
+        "seats": [
+          "icar_il_nissan_navara_d40"
+        ],
+        "engine": [
+          "icar_il_nissan_navara_d40"
+        ],
+        "transmission": [
+          "icar_il_nissan_navara_d40"
+        ],
+        "fuel_type": [
+          "icar_il_nissan_navara_d40"
+        ],
+        "drivetrain": [
+          "icar_il_nissan_navara_d40"
+        ],
+        "generation": [
+          "icar_il_nissan_navara_d40"
+        ],
+        "year_start": [
+          "icar_il_nissan_navara_d40"
+        ],
+        "year_end": [
+          "icar_il_nissan_navara_d40"
+        ],
+        "trim": []
+      },
+      "variant_id": "nissan_navara_2005_2015_il_confirmed_d40_2_5l_yd25ddti_turbo_diesel_174_190_hp_5_speed_automatic_pickup_diesel"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Nissan",
+      "model": "Navara",
+      "global_model_name": "Nissan Navara (D40)",
+      "official_marketed_name_il": "Nissan Navara",
+      "local_brand_name_il": "Nissan",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2010,
+      "year_end": 2015,
+      "generation": "D40",
+      "body_type": "Pickup",
+      "seats": 5,
+      "engine": "3.0L V6 dCi Turbo Diesel, 231 hp",
+      "transmission": "7-speed automatic",
+      "fuel_type": "Diesel",
+      "drivetrain": "4WD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "medium",
+      "source_basis": "Top tier engine option introduced later in the D40 lifecycle. Confirmed by Israeli auto sources for the local market, generally associated with higher trim levels.",
+      "source_ids": [
+        "icar_il_nissan_navara_d40"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_nissan_navara_d40"
+        ],
+        "seats": [
+          "icar_il_nissan_navara_d40"
+        ],
+        "engine": [
+          "icar_il_nissan_navara_d40"
+        ],
+        "transmission": [
+          "icar_il_nissan_navara_d40"
+        ],
+        "fuel_type": [
+          "icar_il_nissan_navara_d40"
+        ],
+        "drivetrain": [
+          "icar_il_nissan_navara_d40"
+        ],
+        "generation": [
+          "icar_il_nissan_navara_d40"
+        ],
+        "year_start": [
+          "icar_il_nissan_navara_d40"
+        ],
+        "year_end": [
+          "icar_il_nissan_navara_d40"
+        ],
+        "trim": []
+      },
+      "variant_id": "nissan_navara_2010_2015_il_confirmed_d40_3_0l_v6_dci_turbo_diesel_231_hp_7_speed_automatic_pickup_diesel"
+    },
+    {
+      "candidate_index": 3,
+      "make": "Nissan",
+      "model": "Navara",
+      "global_model_name": "Nissan Navara (D23) NP300",
+      "official_marketed_name_il": "Nissan Navara",
+      "local_brand_name_il": "Nissan",
+      "alternate_names": [
+        "Nissan NP300 Navara"
+      ],
+      "rebadged_as": null,
+      "year_start": 2016,
+      "year_end": 2022,
+      "generation": "D23",
+      "body_type": "Pickup",
+      "seats": 5,
+      "engine": "2.3L dCi Twin-Turbo Diesel, 190 hp",
+      "transmission": "7-speed automatic",
+      "fuel_type": "Diesel",
+      "drivetrain": "4WD",
+      "trim": "Tekna",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "D23 generation launched in IL with the 2.3L twin-turbo diesel. Marketing shifted away from Israel around 2022 when European supply (Barcelona plant) ended. Trims included Acenta and Tekna.",
+      "source_ids": [
+        "cartube_il_nissan_navara_d23"
+      ],
+      "field_sources": {
+        "body_type": [
+          "cartube_il_nissan_navara_d23"
+        ],
+        "seats": [],
+        "engine": [
+          "cartube_il_nissan_navara_d23"
+        ],
+        "transmission": [
+          "cartube_il_nissan_navara_d23"
+        ],
+        "fuel_type": [
+          "cartube_il_nissan_navara_d23"
+        ],
+        "drivetrain": [
+          "cartube_il_nissan_navara_d23"
+        ],
+        "generation": [
+          "cartube_il_nissan_navara_d23"
+        ],
+        "year_start": [
+          "cartube_il_nissan_navara_d23"
+        ],
+        "year_end": [
+          "cartube_il_nissan_navara_d23"
+        ],
+        "trim": [
+          "cartube_il_nissan_navara_d23"
+        ]
+      },
+      "variant_id": "nissan_navara_2016_2022_il_confirmed_d23_2_3l_dci_twin_turbo_diesel_190_hp_7_speed_automatic_pickup_diesel"
     }
   ],
   "accumulated_clean_export": {
@@ -459832,17 +460077,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1903,
-    "variants": 1903,
+    "total_variants": 1907,
+    "variants": 1907,
     "verified": 788,
-    "partial": 1115,
+    "partial": 1119,
     "makes_count": 42,
-    "models_count": 529,
-    "processed_seeds": 526,
+    "models_count": 530,
+    "processed_seeds": 527,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-23T01:04:11.332812+00:00"
+    "last_updated_at": "2026-05-23T01:05:01.352792+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
