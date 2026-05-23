@@ -637,7 +637,8 @@
       "kia__stonic__2017__2026__il",
       "kia__seltos__2019__2026__il",
       "kia__sportage__1993__2026__il",
-      "kia__sorento__2002__2026__il"
+      "kia__sorento__2002__2026__il",
+      "kia__niro__2016__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1090,8 +1091,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "kia__sorento__2002__2026__il",
-    "next_seed_id": "kia__niro__2016__2026__il",
+    "last_completed_seed_id": "kia__niro__2016__2026__il",
+    "next_seed_id": "kia__niro_plus__2022__2026__il",
     "run_history": [],
     "failed_details": [
       {
@@ -3439,6 +3440,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T03:08:24.339811+00:00"
+      },
+      "kia__niro__2016__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 6,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T03:09:20.385807+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -267534,6 +267543,384 @@
         ]
       },
       "variant_id": "kia_sorento_2020_2026_il_confirmed_4th_gen_mq4_1_6l_turbo_hev_6_speed_automatic_suv_hybrid"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Kia",
+      "model": "Niro",
+      "global_model_name": "Niro (DE)",
+      "official_marketed_name_il": "קיה נירו",
+      "local_brand_name_il": "קיה",
+      "alternate_names": [
+        "Kia Niro HEV"
+      ],
+      "rebadged_as": null,
+      "year_start": 2016,
+      "year_end": 2022,
+      "generation": "1st Gen (DE)",
+      "body_type": "SUV/Crossover",
+      "seats": 5,
+      "engine": "1.6L GDI HEV, 141 hp",
+      "transmission": "6-speed DCT",
+      "fuel_type": "Hybrid",
+      "drivetrain": "FWD",
+      "trim": "LX / EX",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli automotive sources (Cartube, iCar) confirm launch in late 2016 of the 1st Gen Niro HEV with 1.6L and 6-speed DCT.",
+      "source_ids": [
+        "kia_israel_official_site",
+        "cartube_il_niro_2016",
+        "icar_il_niro_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "kia_israel_official_site",
+          "icar_il_niro_specs"
+        ],
+        "seats": [
+          "icar_il_niro_specs"
+        ],
+        "engine": [
+          "cartube_il_niro_2016",
+          "icar_il_niro_specs"
+        ],
+        "transmission": [
+          "cartube_il_niro_2016",
+          "icar_il_niro_specs"
+        ],
+        "fuel_type": [
+          "cartube_il_niro_2016"
+        ],
+        "drivetrain": [
+          "icar_il_niro_specs"
+        ],
+        "generation": [
+          "cartube_il_niro_2016"
+        ],
+        "year_start": [
+          "cartube_il_niro_2016"
+        ],
+        "year_end": [
+          "icar_il_niro_specs"
+        ],
+        "trim": [
+          "icar_il_niro_specs"
+        ]
+      },
+      "variant_id": "kia_niro_2016_2022_il_confirmed_1st_gen_de_1_6l_gdi_hev_141_hp_6_speed_dct_suv_crossover_hybrid"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Kia",
+      "model": "Niro",
+      "global_model_name": "Niro PHEV (DE)",
+      "official_marketed_name_il": "קיה נירו פלאג-אין",
+      "local_brand_name_il": "קיה",
+      "alternate_names": [
+        "Kia Niro PHEV"
+      ],
+      "rebadged_as": null,
+      "year_start": 2019,
+      "year_end": 2022,
+      "generation": "1st Gen (DE)",
+      "body_type": "SUV/Crossover",
+      "seats": 5,
+      "engine": "1.6L GDI PHEV, 141 hp",
+      "transmission": "6-speed DCT",
+      "fuel_type": "Plug-in Hybrid",
+      "drivetrain": "FWD",
+      "trim": "LX / EX",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Plug-in hybrid variant added to the IL market around 2019, highly successful in fleets.",
+      "source_ids": [
+        "kia_israel_official_site",
+        "icar_il_niro_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "kia_israel_official_site"
+        ],
+        "seats": [
+          "icar_il_niro_specs"
+        ],
+        "engine": [
+          "icar_il_niro_specs",
+          "kia_israel_official_site"
+        ],
+        "transmission": [
+          "icar_il_niro_specs"
+        ],
+        "fuel_type": [
+          "kia_israel_official_site"
+        ],
+        "drivetrain": [
+          "icar_il_niro_specs"
+        ],
+        "generation": [
+          "icar_il_niro_specs"
+        ],
+        "year_start": [
+          "icar_il_niro_specs"
+        ],
+        "year_end": [
+          "icar_il_niro_specs"
+        ],
+        "trim": [
+          "icar_il_niro_specs"
+        ]
+      },
+      "variant_id": "kia_niro_2019_2022_il_confirmed_1st_gen_de_1_6l_gdi_phev_141_hp_6_speed_dct_suv_crossover_plug_in_hybrid"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Kia",
+      "model": "Niro",
+      "global_model_name": "e-Niro (DE)",
+      "official_marketed_name_il": "קיה נירו EV",
+      "local_brand_name_il": "קיה",
+      "alternate_names": [
+        "Kia e-Niro"
+      ],
+      "rebadged_as": null,
+      "year_start": 2021,
+      "year_end": 2022,
+      "generation": "1st Gen (DE)",
+      "body_type": "SUV/Crossover",
+      "seats": 5,
+      "engine": "Single electric motor, 204 hp (64 kWh)",
+      "transmission": "Single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "FWD",
+      "trim": "EX",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Fully electric version introduced in IL late in the 1st Gen lifecycle with the 64 kWh 204 hp battery pack.",
+      "source_ids": [
+        "kia_israel_official_site",
+        "icar_il_niro_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "kia_israel_official_site"
+        ],
+        "seats": [
+          "icar_il_niro_specs"
+        ],
+        "engine": [
+          "icar_il_niro_specs"
+        ],
+        "transmission": [
+          "icar_il_niro_specs"
+        ],
+        "fuel_type": [
+          "kia_israel_official_site"
+        ],
+        "drivetrain": [
+          "icar_il_niro_specs"
+        ],
+        "generation": [
+          "icar_il_niro_specs"
+        ],
+        "year_start": [
+          "icar_il_niro_specs"
+        ],
+        "year_end": [
+          "icar_il_niro_specs"
+        ],
+        "trim": [
+          "icar_il_niro_specs"
+        ]
+      },
+      "variant_id": "kia_niro_2021_2022_il_confirmed_1st_gen_de_single_electric_motor_204_hp_64_kwh_single_speed_ev_suv_crossover_electric"
+    },
+    {
+      "candidate_index": 3,
+      "make": "Kia",
+      "model": "Niro",
+      "global_model_name": "Niro (SG2)",
+      "official_marketed_name_il": "קיה נירו",
+      "local_brand_name_il": "קיה",
+      "alternate_names": [
+        "Niro HEV Plus",
+        "New Niro"
+      ],
+      "rebadged_as": null,
+      "year_start": 2023,
+      "year_end": 2026,
+      "generation": "2nd Gen (SG2)",
+      "body_type": "SUV/Crossover",
+      "seats": 5,
+      "engine": "1.6L GDI HEV, 141 hp",
+      "transmission": "6-speed DCT",
+      "fuel_type": "Hybrid",
+      "drivetrain": "FWD",
+      "trim": "EX",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "2nd generation (SG2) arrived in Israel in early 2023. Confirmed via official importer and local reviews.",
+      "source_ids": [
+        "kia_israel_official_site",
+        "cartube_il_niro_sg2_2023",
+        "icar_il_niro_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "kia_israel_official_site"
+        ],
+        "seats": [
+          "icar_il_niro_specs"
+        ],
+        "engine": [
+          "cartube_il_niro_sg2_2023",
+          "kia_israel_official_site"
+        ],
+        "transmission": [
+          "cartube_il_niro_sg2_2023"
+        ],
+        "fuel_type": [
+          "kia_israel_official_site"
+        ],
+        "drivetrain": [
+          "icar_il_niro_specs"
+        ],
+        "generation": [
+          "cartube_il_niro_sg2_2023"
+        ],
+        "year_start": [
+          "cartube_il_niro_sg2_2023"
+        ],
+        "year_end": [
+          "kia_israel_official_site"
+        ],
+        "trim": [
+          "icar_il_niro_specs"
+        ]
+      },
+      "variant_id": "kia_niro_2023_2026_il_confirmed_2nd_gen_sg2_1_6l_gdi_hev_141_hp_6_speed_dct_suv_crossover_hybrid"
+    },
+    {
+      "candidate_index": 4,
+      "make": "Kia",
+      "model": "Niro",
+      "global_model_name": "Niro PHEV (SG2)",
+      "official_marketed_name_il": "קיה נירו פלאג-אין",
+      "local_brand_name_il": "קיה",
+      "alternate_names": [
+        "New Niro PHEV"
+      ],
+      "rebadged_as": null,
+      "year_start": 2023,
+      "year_end": 2026,
+      "generation": "2nd Gen (SG2)",
+      "body_type": "SUV/Crossover",
+      "seats": 5,
+      "engine": "1.6L GDI PHEV, 183 hp",
+      "transmission": "6-speed DCT",
+      "fuel_type": "Plug-in Hybrid",
+      "drivetrain": "FWD",
+      "trim": "EX",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "2nd Gen PHEV power increased to 183 hp combined. Confirmed available in IL.",
+      "source_ids": [
+        "kia_israel_official_site",
+        "cartube_il_niro_sg2_2023"
+      ],
+      "field_sources": {
+        "body_type": [
+          "kia_israel_official_site"
+        ],
+        "seats": [],
+        "engine": [
+          "cartube_il_niro_sg2_2023"
+        ],
+        "transmission": [
+          "cartube_il_niro_sg2_2023"
+        ],
+        "fuel_type": [
+          "kia_israel_official_site"
+        ],
+        "drivetrain": [
+          "kia_israel_official_site"
+        ],
+        "generation": [
+          "cartube_il_niro_sg2_2023"
+        ],
+        "year_start": [
+          "cartube_il_niro_sg2_2023"
+        ],
+        "year_end": [
+          "kia_israel_official_site"
+        ],
+        "trim": []
+      },
+      "variant_id": "kia_niro_2023_2026_il_confirmed_2nd_gen_sg2_1_6l_gdi_phev_183_hp_6_speed_dct_suv_crossover_plug_in_hybrid"
+    },
+    {
+      "candidate_index": 5,
+      "make": "Kia",
+      "model": "Niro",
+      "global_model_name": "Niro EV (SG2)",
+      "official_marketed_name_il": "קיה נירו EV",
+      "local_brand_name_il": "קיה",
+      "alternate_names": [
+        "New Niro EV"
+      ],
+      "rebadged_as": null,
+      "year_start": 2023,
+      "year_end": 2026,
+      "generation": "2nd Gen (SG2)",
+      "body_type": "SUV/Crossover",
+      "seats": 5,
+      "engine": "Single electric motor, 204 hp (64.8 kWh)",
+      "transmission": "Single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "2nd Gen pure electric model confirmed by Israeli sources and official importer site with 64.8 kWh battery.",
+      "source_ids": [
+        "kia_israel_official_site",
+        "cartube_il_niro_sg2_2023"
+      ],
+      "field_sources": {
+        "body_type": [
+          "kia_israel_official_site"
+        ],
+        "seats": [],
+        "engine": [
+          "cartube_il_niro_sg2_2023"
+        ],
+        "transmission": [
+          "cartube_il_niro_sg2_2023"
+        ],
+        "fuel_type": [
+          "kia_israel_official_site"
+        ],
+        "drivetrain": [
+          "kia_israel_official_site"
+        ],
+        "generation": [
+          "cartube_il_niro_sg2_2023"
+        ],
+        "year_start": [
+          "cartube_il_niro_sg2_2023"
+        ],
+        "year_end": [
+          "kia_israel_official_site"
+        ],
+        "trim": []
+      },
+      "variant_id": "kia_niro_2023_2026_il_confirmed_2nd_gen_sg2_single_electric_motor_204_hp_64_8_kwh_single_speed_ev_suv_crossover_electric"
     }
   ],
   "accumulated_clean_export": {
@@ -485544,17 +485931,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 2307,
-    "variants": 2307,
+    "total_variants": 2313,
+    "variants": 2313,
     "verified": 788,
-    "partial": 1519,
+    "partial": 1525,
     "makes_count": 47,
-    "models_count": 627,
-    "processed_seeds": 628,
+    "models_count": 628,
+    "processed_seeds": 629,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-23T03:08:24.348543+00:00"
+    "last_updated_at": "2026-05-23T03:09:20.391328+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
