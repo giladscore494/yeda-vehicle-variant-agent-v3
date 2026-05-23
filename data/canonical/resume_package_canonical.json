@@ -551,7 +551,8 @@
       "nissan__altima__2013__2020__il",
       "mazda__mazda2__2007__2026__il",
       "mazda__mazda3__2003__2026__il",
-      "mazda__mazda5__2005__2015__il"
+      "mazda__mazda5__2005__2015__il",
+      "mazda__mazda6__2002__2024__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1004,8 +1005,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "mazda__mazda5__2005__2015__il",
-    "next_seed_id": "mazda__mazda6__2002__2024__il",
+    "last_completed_seed_id": "mazda__mazda6__2002__2024__il",
+    "next_seed_id": "mazda__323__1990__2003__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2689,6 +2690,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T01:17:43.052486+00:00"
+      },
+      "mazda__mazda6__2002__2024__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 7,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T01:18:41.178673+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -245386,6 +245395,440 @@
         "trim": []
       },
       "variant_id": "mazda_mazda5_2010_2015_il_confirmed_cw_2nd_gen_2_0l_mzr_petrol_144_hp_5_speed_automatic_mpv_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Mazda",
+      "model": "Mazda6",
+      "global_model_name": "Mazda6",
+      "official_marketed_name_il": "Mazda 6",
+      "local_brand_name_il": "Mazda",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2002,
+      "year_end": 2007,
+      "generation": "GG",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "2.0L MZR Petrol",
+      "transmission": "Automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "Executive",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "IL market catalogs (iCar) confirm the GG generation was sold prominently with the 2.0L MZR engine. Early models had 4-speed auto, later upgraded to 5-speed.",
+      "source_ids": [
+        "icar_mazda_6_gg_il"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_mazda_6_gg_il"
+        ],
+        "seats": [
+          "icar_mazda_6_gg_il"
+        ],
+        "engine": [
+          "icar_mazda_6_gg_il"
+        ],
+        "transmission": [
+          "icar_mazda_6_gg_il"
+        ],
+        "fuel_type": [
+          "icar_mazda_6_gg_il"
+        ],
+        "drivetrain": [
+          "icar_mazda_6_gg_il"
+        ],
+        "generation": [
+          "icar_mazda_6_gg_il"
+        ],
+        "year_start": [
+          "icar_mazda_6_gg_il"
+        ],
+        "year_end": [
+          "icar_mazda_6_gg_il"
+        ],
+        "trim": [
+          "icar_mazda_6_gg_il"
+        ]
+      },
+      "variant_id": "mazda_mazda6_2002_2007_il_confirmed_gg_2_0l_mzr_petrol_automatic_sedan_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Mazda",
+      "model": "Mazda6",
+      "global_model_name": "Mazda6",
+      "official_marketed_name_il": "Mazda 6",
+      "local_brand_name_il": "Mazda",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2002,
+      "year_end": 2007,
+      "generation": "GG",
+      "body_type": "Hatchback",
+      "seats": 5,
+      "engine": "2.3L MZR Petrol",
+      "transmission": "Automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "Premium",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "IL catalogs document the 2.3L engine paired with the 5-door Hatchback variant under the 'Premium' trim during the GG generation.",
+      "source_ids": [
+        "icar_mazda_6_gg_il"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_mazda_6_gg_il"
+        ],
+        "seats": [
+          "icar_mazda_6_gg_il"
+        ],
+        "engine": [
+          "icar_mazda_6_gg_il"
+        ],
+        "transmission": [
+          "icar_mazda_6_gg_il"
+        ],
+        "fuel_type": [
+          "icar_mazda_6_gg_il"
+        ],
+        "drivetrain": [
+          "icar_mazda_6_gg_il"
+        ],
+        "generation": [
+          "icar_mazda_6_gg_il"
+        ],
+        "year_start": [
+          "icar_mazda_6_gg_il"
+        ],
+        "year_end": [
+          "icar_mazda_6_gg_il"
+        ],
+        "trim": [
+          "icar_mazda_6_gg_il"
+        ]
+      },
+      "variant_id": "mazda_mazda6_2002_2007_il_confirmed_gg_2_3l_mzr_petrol_automatic_hatchback_petrol"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Mazda",
+      "model": "Mazda6",
+      "global_model_name": "Mazda6",
+      "official_marketed_name_il": "Mazda 6",
+      "local_brand_name_il": "Mazda",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2008,
+      "year_end": 2012,
+      "generation": "GH",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "2.0L MZR Petrol",
+      "transmission": "5-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "Luxury",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Confirmed via iCar IL for the GH generation replacing the GG in 2008. Used the 2.0L MZR (and later DISI) coupled with a 5-speed auto.",
+      "source_ids": [
+        "icar_mazda_6_gh_il"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_mazda_6_gh_il"
+        ],
+        "seats": [
+          "icar_mazda_6_gh_il"
+        ],
+        "engine": [
+          "icar_mazda_6_gh_il"
+        ],
+        "transmission": [
+          "icar_mazda_6_gh_il"
+        ],
+        "fuel_type": [
+          "icar_mazda_6_gh_il"
+        ],
+        "drivetrain": [
+          "icar_mazda_6_gh_il"
+        ],
+        "generation": [
+          "icar_mazda_6_gh_il"
+        ],
+        "year_start": [
+          "icar_mazda_6_gh_il"
+        ],
+        "year_end": [
+          "icar_mazda_6_gh_il"
+        ],
+        "trim": [
+          "icar_mazda_6_gh_il"
+        ]
+      },
+      "variant_id": "mazda_mazda6_2008_2012_il_confirmed_gh_2_0l_mzr_petrol_5_speed_automatic_sedan_petrol"
+    },
+    {
+      "candidate_index": 3,
+      "make": "Mazda",
+      "model": "Mazda6",
+      "global_model_name": "Mazda6",
+      "official_marketed_name_il": "Mazda 6",
+      "local_brand_name_il": "Mazda",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2008,
+      "year_end": 2012,
+      "generation": "GH",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "2.5L MZR Petrol",
+      "transmission": "5-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "Premium",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "The 2.5L MZR (replacing the previous 2.3L) was introduced for the GH generation in Israel mostly under the Premium trim level.",
+      "source_ids": [
+        "icar_mazda_6_gh_il"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_mazda_6_gh_il"
+        ],
+        "seats": [
+          "icar_mazda_6_gh_il"
+        ],
+        "engine": [
+          "icar_mazda_6_gh_il"
+        ],
+        "transmission": [
+          "icar_mazda_6_gh_il"
+        ],
+        "fuel_type": [
+          "icar_mazda_6_gh_il"
+        ],
+        "drivetrain": [
+          "icar_mazda_6_gh_il"
+        ],
+        "generation": [
+          "icar_mazda_6_gh_il"
+        ],
+        "year_start": [
+          "icar_mazda_6_gh_il"
+        ],
+        "year_end": [
+          "icar_mazda_6_gh_il"
+        ],
+        "trim": [
+          "icar_mazda_6_gh_il"
+        ]
+      },
+      "variant_id": "mazda_mazda6_2008_2012_il_confirmed_gh_2_5l_mzr_petrol_5_speed_automatic_sedan_petrol"
+    },
+    {
+      "candidate_index": 4,
+      "make": "Mazda",
+      "model": "Mazda6",
+      "global_model_name": "Mazda6",
+      "official_marketed_name_il": "Mazda 6",
+      "local_brand_name_il": "Mazda",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2013,
+      "year_end": 2024,
+      "generation": "GJ",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "2.0L Skyactiv-G Petrol",
+      "transmission": "6-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "Luxury",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Official IL importer and Cartube confirm the GJ generation utilizes the 2.0L Skyactiv-G engine paired with a 6-speed auto.",
+      "source_ids": [
+        "cartube_mazda_6_gj_il",
+        "delek_motors_mazda_il_official"
+      ],
+      "field_sources": {
+        "body_type": [
+          "cartube_mazda_6_gj_il",
+          "delek_motors_mazda_il_official"
+        ],
+        "seats": [
+          "cartube_mazda_6_gj_il"
+        ],
+        "engine": [
+          "cartube_mazda_6_gj_il",
+          "delek_motors_mazda_il_official"
+        ],
+        "transmission": [
+          "cartube_mazda_6_gj_il",
+          "delek_motors_mazda_il_official"
+        ],
+        "fuel_type": [
+          "cartube_mazda_6_gj_il",
+          "delek_motors_mazda_il_official"
+        ],
+        "drivetrain": [
+          "cartube_mazda_6_gj_il"
+        ],
+        "generation": [
+          "cartube_mazda_6_gj_il"
+        ],
+        "year_start": [
+          "cartube_mazda_6_gj_il",
+          "delek_motors_mazda_il_official"
+        ],
+        "year_end": [
+          "cartube_mazda_6_gj_il",
+          "delek_motors_mazda_il_official"
+        ],
+        "trim": [
+          "delek_motors_mazda_il_official"
+        ]
+      },
+      "variant_id": "mazda_mazda6_2013_2024_il_confirmed_gj_2_0l_skyactiv_g_petrol_6_speed_automatic_sedan_petrol"
+    },
+    {
+      "candidate_index": 5,
+      "make": "Mazda",
+      "model": "Mazda6",
+      "global_model_name": "Mazda6",
+      "official_marketed_name_il": "Mazda 6",
+      "local_brand_name_il": "Mazda",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2013,
+      "year_end": 2024,
+      "generation": "GJ",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "2.5L Skyactiv-G Petrol",
+      "transmission": "6-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "Signature",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "The 2.5L Skyactiv-G represents the upper engine tier for the Mazda 6 GJ in Israel, frequently offered in Signature and Premium trims.",
+      "source_ids": [
+        "cartube_mazda_6_gj_il",
+        "delek_motors_mazda_il_official"
+      ],
+      "field_sources": {
+        "body_type": [
+          "cartube_mazda_6_gj_il",
+          "delek_motors_mazda_il_official"
+        ],
+        "seats": [
+          "cartube_mazda_6_gj_il"
+        ],
+        "engine": [
+          "cartube_mazda_6_gj_il",
+          "delek_motors_mazda_il_official"
+        ],
+        "transmission": [
+          "cartube_mazda_6_gj_il",
+          "delek_motors_mazda_il_official"
+        ],
+        "fuel_type": [
+          "cartube_mazda_6_gj_il",
+          "delek_motors_mazda_il_official"
+        ],
+        "drivetrain": [
+          "cartube_mazda_6_gj_il"
+        ],
+        "generation": [
+          "cartube_mazda_6_gj_il"
+        ],
+        "year_start": [
+          "cartube_mazda_6_gj_il",
+          "delek_motors_mazda_il_official"
+        ],
+        "year_end": [
+          "cartube_mazda_6_gj_il",
+          "delek_motors_mazda_il_official"
+        ],
+        "trim": [
+          "delek_motors_mazda_il_official"
+        ]
+      },
+      "variant_id": "mazda_mazda6_2013_2024_il_confirmed_gj_2_5l_skyactiv_g_petrol_6_speed_automatic_sedan_petrol"
+    },
+    {
+      "candidate_index": 6,
+      "make": "Mazda",
+      "model": "Mazda6",
+      "global_model_name": "Mazda6",
+      "official_marketed_name_il": "Mazda 6",
+      "local_brand_name_il": "Mazda",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2013,
+      "year_end": 2024,
+      "generation": "GJ",
+      "body_type": "Wagon",
+      "seats": 5,
+      "engine": "2.5L Skyactiv-G Petrol",
+      "transmission": "6-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "Premium",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "The Wagon (Estate) version of the GJ was marketed in Israel, notably offered with the 2.5L engine in high trim configurations.",
+      "source_ids": [
+        "cartube_mazda_6_gj_il"
+      ],
+      "field_sources": {
+        "body_type": [
+          "cartube_mazda_6_gj_il"
+        ],
+        "seats": [
+          "cartube_mazda_6_gj_il"
+        ],
+        "engine": [
+          "cartube_mazda_6_gj_il"
+        ],
+        "transmission": [
+          "cartube_mazda_6_gj_il"
+        ],
+        "fuel_type": [
+          "cartube_mazda_6_gj_il"
+        ],
+        "drivetrain": [
+          "cartube_mazda_6_gj_il"
+        ],
+        "generation": [
+          "cartube_mazda_6_gj_il"
+        ],
+        "year_start": [
+          "cartube_mazda_6_gj_il"
+        ],
+        "year_end": [
+          "cartube_mazda_6_gj_il"
+        ],
+        "trim": [
+          "cartube_mazda_6_gj_il"
+        ]
+      },
+      "variant_id": "mazda_mazda6_2013_2024_il_confirmed_gj_2_5l_skyactiv_g_petrol_6_speed_automatic_wagon_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -463396,17 +463839,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1959,
-    "variants": 1959,
+    "total_variants": 1966,
+    "variants": 1966,
     "verified": 788,
-    "partial": 1171,
+    "partial": 1178,
     "makes_count": 43,
-    "models_count": 545,
-    "processed_seeds": 542,
+    "models_count": 546,
+    "processed_seeds": 543,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-23T01:17:43.059513+00:00"
+    "last_updated_at": "2026-05-23T01:18:41.184215+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
