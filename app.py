@@ -165,6 +165,78 @@ with tab_manual:
         for sid in manual_seeds[:20]:
             st.write(f"- `{sid}`")
 
+# ==================== Failed Seed Retry ====================
+with tab_manual:
+    st.divider()
+    st.subheader("🔁 Retry Failed Seeds")
+
+    failed_seeds = bs.get("failed_seed_ids") or []
+    if failed_seeds:
+        st.write(f"**Failed seeds ({len(failed_seeds)}):**")
+        for fs in failed_seeds:
+            st.write(f"- `{fs}`")
+
+        selected_failed = st.selectbox(
+            "Select failed seed to retry",
+            options=failed_seeds,
+            key="retry_failed_select",
+        )
+
+        col_retry_dry, col_retry_save = st.columns(2)
+
+        with col_retry_dry:
+            if st.button("🔍 Dry-run failed seed"):
+                from engine.run_seed import run_seed
+                from engine.decision import decide_seed_result
+                from engine.retry_failed import retry_failed_seed as _retry_fn
+
+                seed = find_seed_by_id(seeds, selected_failed)
+                if seed:
+                    with st.spinner("Running dry-run retry..."):
+                        seed_result = run_seed(seed, selected_failed, dry_run=True)
+                        decision = decide_seed_result(seed_result)
+                        result = _retry_fn(
+                            seed_id=selected_failed,
+                            decision=decision,
+                            canonical=canonical,
+                            seeds=seeds,
+                            dry_run=True,
+                        )
+                        st.json(result)
+                else:
+                    st.error(f"Seed not found in catalog: {selected_failed}")
+
+        with col_retry_save:
+            if st.button("▶️ Retry failed seed and save"):
+                from engine.run_seed import run_seed
+                from engine.decision import decide_seed_result
+                from engine.retry_failed import retry_failed_seed as _retry_fn
+
+                seed = find_seed_by_id(seeds, selected_failed)
+                if seed:
+                    with st.spinner("Running retry..."):
+                        seed_result = run_seed(seed, selected_failed, dry_run=False)
+                        decision = decide_seed_result(seed_result)
+                        push_enabled_retry = st.session_state.get("push_enabled", False)
+                        result = _retry_fn(
+                            seed_id=selected_failed,
+                            decision=decision,
+                            canonical=canonical,
+                            seeds=seeds,
+                            dry_run=False,
+                            push_to_github=push_enabled_retry,
+                            canonical_path=CANONICAL_RESUME_PATH,
+                        )
+                        if result.get("ok"):
+                            st.success("✅ Retry completed!")
+                        else:
+                            st.error(f"❌ Retry failed: {result.get('error')}")
+                        st.json(result)
+                else:
+                    st.error(f"Seed not found in catalog: {selected_failed}")
+    else:
+        st.info("No failed seeds to retry.")
+
 # ==================== Diagnostics ====================
 with tab_diag:
     st.subheader("Audit")
