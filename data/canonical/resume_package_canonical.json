@@ -835,7 +835,8 @@
       "renault__megane_e-tech__2022__2026__il",
       "renault__megane_rs__2004__2023__il",
       "renault__fluence__2009__2017__il",
-      "renault__laguna__1994__2015__il"
+      "renault__laguna__1994__2015__il",
+      "renault__latitude__2010__2015__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1287,8 +1288,8 @@
     "failed_seed_ids": [],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "renault__laguna__1994__2015__il",
-    "next_seed_id": "renault__latitude__2010__2015__il",
+    "last_completed_seed_id": "renault__latitude__2010__2015__il",
+    "next_seed_id": "renault__talisman__2015__2022__il",
     "run_history": [],
     "failed_details": [],
     "needs_retry_seed_ids": [
@@ -5215,6 +5216,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T21:05:42.009395+00:00"
+      },
+      "renault__latitude__2010__2015__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 2,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T21:06:34.784057+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -316251,6 +316260,134 @@
         ]
       },
       "variant_id": "renault_laguna_2009_2012_il_confirmed_laguna_iii_2_0l_turbo_petrol_6_speed_automatic_coupe_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Renault",
+      "model": "Latitude",
+      "global_model_name": "Renault Latitude",
+      "official_marketed_name_il": "Renault Latitude",
+      "local_brand_name_il": "Renault",
+      "alternate_names": [
+        "Renault Samsung SM5"
+      ],
+      "rebadged_as": null,
+      "year_start": 2011,
+      "year_end": 2015,
+      "generation": "L43",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "2.0L petrol, 140 hp",
+      "transmission": "CVT",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "IL market launch in 2011 confirmed. Engine and CVT powertrain specified for Israel. Noted trims: Expression, Privilege, Executive.",
+      "source_ids": [
+        "icar_il_renault_latitude",
+        "cartube_il_latitude_launch_2011"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_renault_latitude"
+        ],
+        "seats": [
+          "icar_il_renault_latitude"
+        ],
+        "engine": [
+          "icar_il_renault_latitude",
+          "cartube_il_latitude_launch_2011"
+        ],
+        "transmission": [
+          "icar_il_renault_latitude",
+          "cartube_il_latitude_launch_2011"
+        ],
+        "fuel_type": [
+          "icar_il_renault_latitude"
+        ],
+        "drivetrain": [
+          "icar_il_renault_latitude"
+        ],
+        "generation": [
+          "cartube_il_latitude_launch_2011"
+        ],
+        "year_start": [
+          "icar_il_renault_latitude",
+          "cartube_il_latitude_launch_2011"
+        ],
+        "year_end": [
+          "icar_il_renault_latitude"
+        ],
+        "trim": []
+      },
+      "variant_id": "renault_latitude_2011_2015_il_confirmed_l43_2_0l_petrol_140_hp_cvt_sedan_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Renault",
+      "model": "Latitude",
+      "global_model_name": "Renault Latitude",
+      "official_marketed_name_il": "Renault Latitude",
+      "local_brand_name_il": "Renault",
+      "alternate_names": [
+        "Renault Samsung SM5"
+      ],
+      "rebadged_as": null,
+      "year_start": 2011,
+      "year_end": 2015,
+      "generation": "L43",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "2.0L dCi turbo diesel, 175 hp",
+      "transmission": "6-speed automatic",
+      "fuel_type": "Diesel",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Confirmed flagship diesel variant for the Israeli market. Noted trims typically included Privilege or Executive.",
+      "source_ids": [
+        "icar_il_renault_latitude",
+        "cartube_il_latitude_launch_2011"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_renault_latitude"
+        ],
+        "seats": [
+          "icar_il_renault_latitude"
+        ],
+        "engine": [
+          "icar_il_renault_latitude",
+          "cartube_il_latitude_launch_2011"
+        ],
+        "transmission": [
+          "icar_il_renault_latitude",
+          "cartube_il_latitude_launch_2011"
+        ],
+        "fuel_type": [
+          "icar_il_renault_latitude"
+        ],
+        "drivetrain": [
+          "icar_il_renault_latitude"
+        ],
+        "generation": [
+          "cartube_il_latitude_launch_2011"
+        ],
+        "year_start": [
+          "icar_il_renault_latitude",
+          "cartube_il_latitude_launch_2011"
+        ],
+        "year_end": [
+          "icar_il_renault_latitude"
+        ],
+        "trim": []
+      },
+      "variant_id": "renault_latitude_2011_2015_il_confirmed_l43_2_0l_dci_turbo_diesel_175_hp_6_speed_automatic_sedan_diesel"
     }
   ],
   "accumulated_clean_export": {
@@ -534261,17 +534398,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 3068,
-    "variants": 3068,
+    "total_variants": 3070,
+    "variants": 3070,
     "verified": 788,
-    "partial": 2280,
+    "partial": 2282,
     "makes_count": 73,
-    "models_count": 826,
-    "processed_seeds": 826,
+    "models_count": 827,
+    "processed_seeds": 827,
     "needs_retry_seeds": 2,
     "total_seeds": 993,
     "unresolved": 0,
-    "last_updated_at": "2026-05-23T21:05:42.018323+00:00"
+    "last_updated_at": "2026-05-23T21:06:34.794059+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
