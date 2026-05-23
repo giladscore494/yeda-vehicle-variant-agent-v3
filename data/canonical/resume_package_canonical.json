@@ -631,7 +631,8 @@
       "kia__rio__2000__2022__il",
       "kia__ceed__2007__2026__il",
       "kia__ceed_sw__2007__2026__il",
-      "kia__proceed__2008__2026__il"
+      "kia__proceed__2008__2026__il",
+      "kia__xceed__2019__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1084,8 +1085,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "kia__proceed__2008__2026__il",
-    "next_seed_id": "kia__xceed__2019__2026__il",
+    "last_completed_seed_id": "kia__xceed__2019__2026__il",
+    "next_seed_id": "kia__forte__2008__2020__il",
     "run_history": [],
     "failed_details": [
       {
@@ -3385,6 +3386,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T03:02:16.846910+00:00"
+      },
+      "kia__xceed__2019__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 3,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T03:02:57.650268+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -265488,6 +265497,198 @@
         ]
       },
       "variant_id": "kia_proceed_2018_2026_global_reference_only_cd_3rd_gen_1_6l_t_gdi_petrol_204_hp_7_speed_dct_shooting_brake_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Kia",
+      "model": "XCeed",
+      "global_model_name": "Kia XCeed",
+      "official_marketed_name_il": "Kia XCeed",
+      "local_brand_name_il": "קיה",
+      "alternate_names": [
+        "קיה אקסיד"
+      ],
+      "rebadged_as": null,
+      "year_start": 2019,
+      "year_end": 2021,
+      "generation": "1st Gen (CD)",
+      "body_type": "Crossover",
+      "seats": 5,
+      "engine": "1.4L T-GDI petrol, 140 hp",
+      "transmission": "7-speed DCT",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli automotive sources (Cartube, iCar) confirm launch in late 2019 with the 1.4L turbo petrol engine. Trims included EX and Premium. Replaced by 1.5L around 2021.",
+      "source_ids": [
+        "cartube_il_kia_xceed_launch_2019",
+        "icar_il_kia_xceed_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "cartube_il_kia_xceed_launch_2019"
+        ],
+        "seats": [
+          "icar_il_kia_xceed_specs"
+        ],
+        "engine": [
+          "cartube_il_kia_xceed_launch_2019",
+          "icar_il_kia_xceed_specs"
+        ],
+        "transmission": [
+          "cartube_il_kia_xceed_launch_2019"
+        ],
+        "fuel_type": [
+          "cartube_il_kia_xceed_launch_2019"
+        ],
+        "drivetrain": [
+          "cartube_il_kia_xceed_launch_2019"
+        ],
+        "generation": [
+          "cartube_il_kia_xceed_launch_2019"
+        ],
+        "year_start": [
+          "cartube_il_kia_xceed_launch_2019"
+        ],
+        "year_end": [
+          "icar_il_kia_xceed_specs"
+        ],
+        "trim": []
+      },
+      "variant_id": "kia_xceed_2019_2021_il_confirmed_1st_gen_cd_1_4l_t_gdi_petrol_140_hp_7_speed_dct_crossover_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Kia",
+      "model": "XCeed",
+      "global_model_name": "Kia XCeed",
+      "official_marketed_name_il": "Kia XCeed",
+      "local_brand_name_il": "קיה",
+      "alternate_names": [
+        "קיה אקסיד"
+      ],
+      "rebadged_as": null,
+      "year_start": 2021,
+      "year_end": 2026,
+      "generation": "1st Gen (CD)",
+      "body_type": "Crossover",
+      "seats": 5,
+      "engine": "1.5L T-GDI petrol, 160 hp",
+      "transmission": "7-speed DCT",
+      "fuel_type": "Mild Hybrid",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Kia Israel official price list and specs confirm the shift from 1.4L to the 1.5L T-GDI with a 48V mild-hybrid (MHEV) system starting around 2021, remaining through the 2023 facelift. Trims include EX and Premium.",
+      "source_ids": [
+        "icar_il_kia_xceed_specs",
+        "kia_israel_official_pricelist_2023"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_kia_xceed_specs"
+        ],
+        "seats": [
+          "icar_il_kia_xceed_specs"
+        ],
+        "engine": [
+          "icar_il_kia_xceed_specs",
+          "kia_israel_official_pricelist_2023"
+        ],
+        "transmission": [
+          "icar_il_kia_xceed_specs",
+          "kia_israel_official_pricelist_2023"
+        ],
+        "fuel_type": [
+          "icar_il_kia_xceed_specs",
+          "kia_israel_official_pricelist_2023"
+        ],
+        "drivetrain": [
+          "icar_il_kia_xceed_specs"
+        ],
+        "generation": [
+          "icar_il_kia_xceed_specs"
+        ],
+        "year_start": [
+          "icar_il_kia_xceed_specs"
+        ],
+        "year_end": [
+          "kia_israel_official_pricelist_2023"
+        ],
+        "trim": []
+      },
+      "variant_id": "kia_xceed_2021_2026_il_confirmed_1st_gen_cd_1_5l_t_gdi_petrol_160_hp_7_speed_dct_crossover_mild_hybrid"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Kia",
+      "model": "XCeed",
+      "global_model_name": "Kia XCeed",
+      "official_marketed_name_il": "Kia XCeed",
+      "local_brand_name_il": "קיה",
+      "alternate_names": [
+        "קיה אקסיד"
+      ],
+      "rebadged_as": null,
+      "year_start": 2021,
+      "year_end": 2026,
+      "generation": "1st Gen (CD)",
+      "body_type": "Crossover",
+      "seats": 5,
+      "engine": "1.6L GDI PHEV, 141 hp",
+      "transmission": "6-speed DCT",
+      "fuel_type": "Plug-in Hybrid",
+      "drivetrain": "FWD",
+      "trim": "Premium",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Official Kia Israel documentation confirms the Plug-in Hybrid (PHEV) version combining a 1.6L engine with an electric motor, marketed predominantly in the Premium trim level from 2021 onwards.",
+      "source_ids": [
+        "icar_il_kia_xceed_specs",
+        "kia_israel_official_pricelist_2023"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_kia_xceed_specs"
+        ],
+        "seats": [
+          "icar_il_kia_xceed_specs"
+        ],
+        "engine": [
+          "icar_il_kia_xceed_specs",
+          "kia_israel_official_pricelist_2023"
+        ],
+        "transmission": [
+          "icar_il_kia_xceed_specs",
+          "kia_israel_official_pricelist_2023"
+        ],
+        "fuel_type": [
+          "icar_il_kia_xceed_specs",
+          "kia_israel_official_pricelist_2023"
+        ],
+        "drivetrain": [
+          "icar_il_kia_xceed_specs"
+        ],
+        "generation": [
+          "icar_il_kia_xceed_specs"
+        ],
+        "year_start": [
+          "icar_il_kia_xceed_specs"
+        ],
+        "year_end": [
+          "kia_israel_official_pricelist_2023"
+        ],
+        "trim": [
+          "kia_israel_official_pricelist_2023"
+        ]
+      },
+      "variant_id": "kia_xceed_2021_2026_il_confirmed_1st_gen_cd_1_6l_gdi_phev_141_hp_6_speed_dct_crossover_plug_in_hybrid"
     }
   ],
   "accumulated_clean_export": {
@@ -483498,17 +483699,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 2275,
-    "variants": 2275,
+    "total_variants": 2278,
+    "variants": 2278,
     "verified": 788,
-    "partial": 1487,
+    "partial": 1490,
     "makes_count": 47,
-    "models_count": 621,
-    "processed_seeds": 622,
+    "models_count": 622,
+    "processed_seeds": 623,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-23T03:02:16.853305+00:00"
+    "last_updated_at": "2026-05-23T03:02:57.656283+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
