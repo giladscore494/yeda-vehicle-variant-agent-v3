@@ -832,7 +832,8 @@
       "renault__clio__1991__2026__il",
       "renault__symbol__1999__2012__il",
       "renault__megane__1996__2026__il",
-      "renault__megane_e-tech__2022__2026__il"
+      "renault__megane_e-tech__2022__2026__il",
+      "renault__megane_rs__2004__2023__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1284,8 +1285,8 @@
     "failed_seed_ids": [],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "renault__megane_e-tech__2022__2026__il",
-    "next_seed_id": "renault__megane_rs__2004__2023__il",
+    "last_completed_seed_id": "renault__megane_rs__2004__2023__il",
+    "next_seed_id": "renault__fluence__2009__2017__il",
     "run_history": [],
     "failed_details": [],
     "needs_retry_seed_ids": [
@@ -5188,6 +5189,14 @@
         "merged_count": 1,
         "warnings": [],
         "resolved_at": "2026-05-23T21:03:09.755993+00:00"
+      },
+      "renault__megane_rs__2004__2023__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 3,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T21:03:57.638893+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -315341,6 +315350,195 @@
       },
       "variant_id": "renault_megane_e_tech_2022_2026_il_confirmed_1st_gen_cmf_ev_single_electric_motor_220_hp_60_kwh_battery_single_speed_ev_hatchback_electric",
       "updated_at": "2026-05-23T21:03:09.757694+00:00"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Renault",
+      "model": "Megane RS",
+      "global_model_name": "Renault Mégane III R.S.",
+      "official_marketed_name_il": "Renault Megane RS",
+      "local_brand_name_il": "רנו",
+      "alternate_names": [
+        "Megane Coupe RS",
+        "Megane Sport"
+      ],
+      "rebadged_as": null,
+      "year_start": 2010,
+      "year_end": 2016,
+      "generation": "3rd Gen (Megane III X95)",
+      "body_type": "Hatchback",
+      "seats": 5,
+      "engine": "2.0L Turbo",
+      "transmission": "6-speed manual",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "RS Cup",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Confirmed by iCar.co.il and Auto.co.il. Gen 3 (Megane III) RS was imported mainly in the 3-door hatchback/coupe body style with a 2.0L turbo (250/265/275 hp) and a 6-speed manual. Often sold with the 'Cup' chassis package.",
+      "source_ids": [
+        "icar_il_megane_rs_gen3",
+        "auto_il_megane_rs_archive"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_megane_rs_gen3"
+        ],
+        "seats": [
+          "icar_il_megane_rs_gen3"
+        ],
+        "engine": [
+          "icar_il_megane_rs_gen3"
+        ],
+        "transmission": [
+          "icar_il_megane_rs_gen3"
+        ],
+        "fuel_type": [
+          "icar_il_megane_rs_gen3"
+        ],
+        "drivetrain": [
+          "icar_il_megane_rs_gen3"
+        ],
+        "generation": [
+          "icar_il_megane_rs_gen3",
+          "auto_il_megane_rs_archive"
+        ],
+        "year_start": [
+          "icar_il_megane_rs_gen3"
+        ],
+        "year_end": [
+          "icar_il_megane_rs_gen3"
+        ],
+        "trim": [
+          "auto_il_megane_rs_archive"
+        ]
+      },
+      "variant_id": "renault_megane_rs_2010_2016_il_confirmed_3rd_gen_megane_iii_x95_2_0l_turbo_6_speed_manual_hatchback_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Renault",
+      "model": "Megane RS",
+      "global_model_name": "Renault Mégane IV R.S.",
+      "official_marketed_name_il": "Renault Megane RS",
+      "local_brand_name_il": "רנו",
+      "alternate_names": [
+        "Megane 4 RS"
+      ],
+      "rebadged_as": null,
+      "year_start": 2018,
+      "year_end": 2020,
+      "generation": "4th Gen (Megane IV BFB)",
+      "body_type": "Hatchback",
+      "seats": 5,
+      "engine": "1.8L Turbo (280 hp)",
+      "transmission": "6-speed EDC",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "RS 280",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Confirmed by CarTube IL. Introduced in Israel in 2018 as a 5-door hatchback with the 1.8L 280hp engine paired to the 6-speed EDC dual-clutch transmission.",
+      "source_ids": [
+        "cartube_il_megane_rs_280",
+        "auto_il_megane_rs_archive"
+      ],
+      "field_sources": {
+        "body_type": [
+          "cartube_il_megane_rs_280"
+        ],
+        "seats": [],
+        "engine": [
+          "cartube_il_megane_rs_280"
+        ],
+        "transmission": [
+          "cartube_il_megane_rs_280"
+        ],
+        "fuel_type": [
+          "cartube_il_megane_rs_280"
+        ],
+        "drivetrain": [
+          "cartube_il_megane_rs_280"
+        ],
+        "generation": [
+          "cartube_il_megane_rs_280"
+        ],
+        "year_start": [
+          "cartube_il_megane_rs_280"
+        ],
+        "year_end": [
+          "cartube_il_megane_rs_280"
+        ],
+        "trim": [
+          "cartube_il_megane_rs_280"
+        ]
+      },
+      "variant_id": "renault_megane_rs_2018_2020_il_confirmed_4th_gen_megane_iv_bfb_1_8l_turbo_280_hp_6_speed_edc_hatchback_petrol"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Renault",
+      "model": "Megane RS",
+      "global_model_name": "Renault Mégane IV R.S. Trophy",
+      "official_marketed_name_il": "Renault Megane RS Trophy",
+      "local_brand_name_il": "רנו",
+      "alternate_names": [
+        "Megane RS 300"
+      ],
+      "rebadged_as": null,
+      "year_start": 2019,
+      "year_end": 2023,
+      "generation": "4th Gen (Megane IV BFB)",
+      "body_type": "Hatchback",
+      "seats": 5,
+      "engine": "1.8L Turbo (300 hp)",
+      "transmission": "6-speed EDC",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "RS Trophy",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "CarTube IL confirms the import of the 'Trophy' version with a 300hp output from the 1.8L turbo, EDC transmission, and standard 5-door hatchback body starting around 2019/2020.",
+      "source_ids": [
+        "cartube_il_megane_rs_trophy",
+        "auto_il_megane_rs_archive"
+      ],
+      "field_sources": {
+        "body_type": [
+          "cartube_il_megane_rs_trophy"
+        ],
+        "seats": [
+          "cartube_il_megane_rs_trophy"
+        ],
+        "engine": [
+          "cartube_il_megane_rs_trophy"
+        ],
+        "transmission": [
+          "cartube_il_megane_rs_trophy"
+        ],
+        "fuel_type": [
+          "cartube_il_megane_rs_trophy"
+        ],
+        "drivetrain": [
+          "cartube_il_megane_rs_trophy"
+        ],
+        "generation": [
+          "cartube_il_megane_rs_trophy"
+        ],
+        "year_start": [
+          "cartube_il_megane_rs_trophy"
+        ],
+        "year_end": [
+          "cartube_il_megane_rs_trophy"
+        ],
+        "trim": [
+          "cartube_il_megane_rs_trophy"
+        ]
+      },
+      "variant_id": "renault_megane_rs_2019_2023_il_confirmed_4th_gen_megane_iv_bfb_1_8l_turbo_300_hp_6_speed_edc_hatchback_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -533351,17 +533549,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 3054,
-    "variants": 3054,
+    "total_variants": 3057,
+    "variants": 3057,
     "verified": 788,
-    "partial": 2266,
+    "partial": 2269,
     "makes_count": 73,
-    "models_count": 823,
-    "processed_seeds": 823,
+    "models_count": 824,
+    "processed_seeds": 824,
     "needs_retry_seeds": 2,
     "total_seeds": 993,
     "unresolved": 0,
-    "last_updated_at": "2026-05-23T21:03:09.766399+00:00"
+    "last_updated_at": "2026-05-23T21:03:57.648554+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
