@@ -556,7 +556,8 @@
       "mazda__323__1990__2003__il",
       "mazda__626__1990__2002__il",
       "mazda__121__1990__2002__il",
-      "mazda__mpv__1993__2016__il"
+      "mazda__mpv__1993__2016__il",
+      "mazda__cx-3__2015__2024__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1009,8 +1010,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "mazda__mpv__1993__2016__il",
-    "next_seed_id": "mazda__cx-3__2015__2024__il",
+    "last_completed_seed_id": "mazda__cx-3__2015__2024__il",
+    "next_seed_id": "mazda__cx-30__2019__2026__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2730,10 +2731,18 @@
       "mazda__mpv__1993__2016__il": {
         "status": "resolved",
         "resolution_type": "variants_added",
-        "added_count": 4,
+        "added_count": 5,
         "merged_count": 0,
         "warnings": [],
-        "resolved_at": "2026-05-23T01:22:45.896201+00:00"
+        "resolved_at": "2026-05-23T01:22:40.346884+00:00"
+      },
+      "mazda__cx-3__2015__2024__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 2,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T01:23:19.759305+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -246948,12 +246957,12 @@
       "candidate_index": 0,
       "make": "Mazda",
       "model": "MPV",
-      "global_model_name": "Mazda MPV",
+      "global_model_name": "Mazda MPV (LV)",
       "official_marketed_name_il": "Mazda MPV",
       "local_brand_name_il": "Mazda",
       "alternate_names": [],
       "rebadged_as": null,
-      "year_start": 1989,
+      "year_start": 1993,
       "year_end": 1999,
       "generation": "1st Gen (LV)",
       "body_type": "Minivan",
@@ -246966,47 +246975,47 @@
       "market_scope": "IL-confirmed",
       "market_name_confidence": "confirmed",
       "confidence_level": "high",
-      "source_basis": "Historical Israeli automotive market data confirms the 1st generation LV was sold in Israel featuring the 3.0L V6 and Rear-Wheel Drive layout.",
+      "source_basis": "Israeli automotive archives confirm the 1st Gen (LV) RWD MPV was sold in Israel until 1999, primarily equipped with the 3.0L V6 petrol engine.",
       "source_ids": [
-        "auto_il_mazda_mpv_history"
+        "auto_il_mazda_mpv_archive"
       ],
       "field_sources": {
         "body_type": [
-          "auto_il_mazda_mpv_history"
+          "auto_il_mazda_mpv_archive"
         ],
         "seats": [
-          "auto_il_mazda_mpv_history"
+          "auto_il_mazda_mpv_archive"
         ],
         "engine": [
-          "auto_il_mazda_mpv_history"
+          "auto_il_mazda_mpv_archive"
         ],
         "transmission": [
-          "auto_il_mazda_mpv_history"
+          "auto_il_mazda_mpv_archive"
         ],
         "fuel_type": [
-          "auto_il_mazda_mpv_history"
+          "auto_il_mazda_mpv_archive"
         ],
         "drivetrain": [
-          "auto_il_mazda_mpv_history"
+          "auto_il_mazda_mpv_archive"
         ],
         "generation": [
-          "auto_il_mazda_mpv_history"
+          "auto_il_mazda_mpv_archive"
         ],
         "year_start": [
-          "auto_il_mazda_mpv_history"
+          "auto_il_mazda_mpv_archive"
         ],
         "year_end": [
-          "auto_il_mazda_mpv_history"
+          "auto_il_mazda_mpv_archive"
         ],
         "trim": []
       },
-      "variant_id": "mazda_mpv_1989_1999_il_confirmed_1st_gen_lv_3_0l_v6_petrol_4_speed_automatic_minivan_petrol"
+      "variant_id": "mazda_mpv_1993_1999_il_confirmed_1st_gen_lv_3_0l_v6_petrol_4_speed_automatic_minivan_petrol"
     },
     {
       "candidate_index": 1,
       "make": "Mazda",
       "model": "MPV",
-      "global_model_name": "Mazda MPV",
+      "global_model_name": "Mazda MPV (LW)",
       "official_marketed_name_il": "Mazda MPV",
       "local_brand_name_il": "Mazda",
       "alternate_names": [],
@@ -247016,59 +247025,56 @@
       "generation": "2nd Gen (LW)",
       "body_type": "Minivan",
       "seats": 7,
-      "engine": "2.5L V6 Petrol, 170 hp",
+      "engine": "2.5L V6 Petrol",
       "transmission": "4-speed automatic",
       "fuel_type": "Petrol",
       "drivetrain": "FWD",
-      "trim": null,
+      "trim": "GLX",
       "market_scope": "IL-confirmed",
       "market_name_confidence": "confirmed",
       "confidence_level": "high",
-      "source_basis": "iCar.co.il and Auto.co.il specs confirm the initial 2nd Generation MPV in Israel was sold with a 2.5L V6 and front-wheel drive before the 2002 facelift.",
+      "source_basis": "iCar Israel confirms the 2nd Gen FWD MPV launched with a 2.5L V6 engine (approx 170 hp) prior to the 2002 facelift.",
       "source_ids": [
-        "icar_il_mazda_mpv_lw",
-        "auto_il_mazda_mpv_history"
+        "icar_il_mazda_mpv_1999_2006",
+        "auto_il_mazda_mpv_archive"
       ],
       "field_sources": {
         "body_type": [
-          "icar_il_mazda_mpv_lw"
+          "icar_il_mazda_mpv_1999_2006"
         ],
         "seats": [
-          "icar_il_mazda_mpv_lw"
+          "icar_il_mazda_mpv_1999_2006"
         ],
         "engine": [
-          "icar_il_mazda_mpv_lw",
-          "auto_il_mazda_mpv_history"
+          "icar_il_mazda_mpv_1999_2006"
         ],
         "transmission": [
-          "icar_il_mazda_mpv_lw",
-          "auto_il_mazda_mpv_history"
+          "icar_il_mazda_mpv_1999_2006"
         ],
         "fuel_type": [
-          "icar_il_mazda_mpv_lw"
+          "icar_il_mazda_mpv_1999_2006"
         ],
         "drivetrain": [
-          "icar_il_mazda_mpv_lw"
+          "icar_il_mazda_mpv_1999_2006"
         ],
         "generation": [
-          "icar_il_mazda_mpv_lw",
-          "auto_il_mazda_mpv_history"
+          "icar_il_mazda_mpv_1999_2006"
         ],
         "year_start": [
-          "icar_il_mazda_mpv_lw"
+          "icar_il_mazda_mpv_1999_2006"
         ],
         "year_end": [
-          "icar_il_mazda_mpv_lw"
+          "icar_il_mazda_mpv_1999_2006"
         ],
         "trim": []
       },
-      "variant_id": "mazda_mpv_1999_2002_il_confirmed_2nd_gen_lw_2_5l_v6_petrol_170_hp_4_speed_automatic_minivan_petrol"
+      "variant_id": "mazda_mpv_1999_2002_il_confirmed_2nd_gen_lw_2_5l_v6_petrol_4_speed_automatic_minivan_petrol"
     },
     {
       "candidate_index": 2,
       "make": "Mazda",
       "model": "MPV",
-      "global_model_name": "Mazda MPV",
+      "global_model_name": "Mazda MPV (LW)",
       "official_marketed_name_il": "Mazda MPV",
       "local_brand_name_il": "Mazda",
       "alternate_names": [],
@@ -247078,7 +247084,7 @@
       "generation": "2nd Gen (LW)",
       "body_type": "Minivan",
       "seats": 7,
-      "engine": "3.0L V6 Petrol, 200 hp",
+      "engine": "3.0L V6 Petrol",
       "transmission": "5-speed automatic",
       "fuel_type": "Petrol",
       "drivetrain": "FWD",
@@ -247086,55 +247092,109 @@
       "market_scope": "IL-confirmed",
       "market_name_confidence": "confirmed",
       "confidence_level": "high",
-      "source_basis": "Israeli market catalogs indicate the 2002 facelift replaced the 2.5L engine with a 3.0L V6 and introduced a 5-speed automatic transmission. Sold until 2006 when Delek Motors shifted focus to the Mazda 5.",
+      "source_basis": "iCar Israel states the 3.0L V6 (approx 200 hp) with 5-speed automatic was introduced for the Israeli market around 2002.",
       "source_ids": [
-        "icar_il_mazda_mpv_lw",
-        "auto_il_mazda_mpv_history"
+        "icar_il_mazda_mpv_1999_2006"
       ],
       "field_sources": {
         "body_type": [
-          "icar_il_mazda_mpv_lw"
+          "icar_il_mazda_mpv_1999_2006"
         ],
         "seats": [
-          "icar_il_mazda_mpv_lw"
+          "icar_il_mazda_mpv_1999_2006"
         ],
         "engine": [
-          "icar_il_mazda_mpv_lw",
-          "auto_il_mazda_mpv_history"
+          "icar_il_mazda_mpv_1999_2006"
         ],
         "transmission": [
-          "icar_il_mazda_mpv_lw",
-          "auto_il_mazda_mpv_history"
+          "icar_il_mazda_mpv_1999_2006"
         ],
         "fuel_type": [
-          "icar_il_mazda_mpv_lw"
+          "icar_il_mazda_mpv_1999_2006"
         ],
         "drivetrain": [
-          "icar_il_mazda_mpv_lw"
+          "icar_il_mazda_mpv_1999_2006"
         ],
         "generation": [
-          "icar_il_mazda_mpv_lw",
-          "auto_il_mazda_mpv_history"
+          "icar_il_mazda_mpv_1999_2006"
         ],
         "year_start": [
-          "icar_il_mazda_mpv_lw"
+          "icar_il_mazda_mpv_1999_2006"
         ],
         "year_end": [
-          "icar_il_mazda_mpv_lw"
+          "icar_il_mazda_mpv_1999_2006"
         ],
         "trim": []
       },
-      "variant_id": "mazda_mpv_2002_2006_il_confirmed_2nd_gen_lw_3_0l_v6_petrol_200_hp_5_speed_automatic_minivan_petrol"
+      "variant_id": "mazda_mpv_2002_2006_il_confirmed_2nd_gen_lw_3_0l_v6_petrol_5_speed_automatic_minivan_petrol"
     },
     {
       "candidate_index": 3,
       "make": "Mazda",
       "model": "MPV",
-      "global_model_name": "Mazda MPV",
+      "global_model_name": "Mazda MPV (LW)",
+      "official_marketed_name_il": "Mazda MPV",
+      "local_brand_name_il": "Mazda",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2004,
+      "year_end": 2006,
+      "generation": "2nd Gen (LW)",
+      "body_type": "Minivan",
+      "seats": 7,
+      "engine": "2.3L I4 Petrol",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli sources note the addition of the 2.3L inline-4 engine (approx 141 hp) in the later years of the LW generation to offer a more economical option.",
+      "source_ids": [
+        "icar_il_mazda_mpv_1999_2006"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_mazda_mpv_1999_2006"
+        ],
+        "seats": [
+          "icar_il_mazda_mpv_1999_2006"
+        ],
+        "engine": [
+          "icar_il_mazda_mpv_1999_2006"
+        ],
+        "transmission": [
+          "icar_il_mazda_mpv_1999_2006"
+        ],
+        "fuel_type": [
+          "icar_il_mazda_mpv_1999_2006"
+        ],
+        "drivetrain": [
+          "icar_il_mazda_mpv_1999_2006"
+        ],
+        "generation": [
+          "icar_il_mazda_mpv_1999_2006"
+        ],
+        "year_start": [
+          "icar_il_mazda_mpv_1999_2006"
+        ],
+        "year_end": [
+          "icar_il_mazda_mpv_1999_2006"
+        ],
+        "trim": []
+      },
+      "variant_id": "mazda_mpv_2004_2006_il_confirmed_2nd_gen_lw_2_3l_i4_petrol_4_speed_automatic_minivan_petrol"
+    },
+    {
+      "candidate_index": 4,
+      "make": "Mazda",
+      "model": "MPV",
+      "global_model_name": "Mazda MPV (LY)",
       "official_marketed_name_il": null,
       "local_brand_name_il": null,
       "alternate_names": [
-        "Mazda 8"
+        "Mazda8"
       ],
       "rebadged_as": null,
       "year_start": 2006,
@@ -247142,7 +247202,7 @@
       "generation": "3rd Gen (LY)",
       "body_type": "Minivan",
       "seats": 8,
-      "engine": "2.3L Inline-4 Petrol",
+      "engine": "2.3L I4 Petrol",
       "transmission": "5-speed automatic",
       "fuel_type": "Petrol",
       "drivetrain": "FWD",
@@ -247150,41 +247210,163 @@
       "market_scope": "global-reference-only",
       "market_name_confidence": "unknown",
       "confidence_level": "medium",
-      "source_basis": "The 3rd generation LY model was mainly sold in JDM and select Asian markets (sometimes as Mazda 8). It was not officially imported to Israel, where the Mazda 5 and later CX-9 served the family segments. Included as global reference.",
+      "source_basis": "The 3rd generation (LY) was discontinued in many western markets (including Israel, which shifted to the Mazda5 and CX-9) but continued in JDM and select Asian markets until 2016. Listed as global-reference-only.",
       "source_ids": [
-        "global_mazda_mpv_ly_specs"
+        "mazda_global_mpv_ly_specs"
       ],
       "field_sources": {
         "body_type": [
-          "global_mazda_mpv_ly_specs"
+          "mazda_global_mpv_ly_specs"
         ],
-        "seats": [
-          "global_mazda_mpv_ly_specs"
-        ],
+        "seats": [],
         "engine": [
-          "global_mazda_mpv_ly_specs"
+          "mazda_global_mpv_ly_specs"
         ],
         "transmission": [
-          "global_mazda_mpv_ly_specs"
+          "mazda_global_mpv_ly_specs"
         ],
         "fuel_type": [
-          "global_mazda_mpv_ly_specs"
+          "mazda_global_mpv_ly_specs"
         ],
         "drivetrain": [
-          "global_mazda_mpv_ly_specs"
+          "mazda_global_mpv_ly_specs"
         ],
         "generation": [
-          "global_mazda_mpv_ly_specs"
+          "mazda_global_mpv_ly_specs"
         ],
         "year_start": [
-          "global_mazda_mpv_ly_specs"
+          "mazda_global_mpv_ly_specs"
         ],
         "year_end": [
-          "global_mazda_mpv_ly_specs"
+          "mazda_global_mpv_ly_specs"
         ],
         "trim": []
       },
-      "variant_id": "mazda_mpv_2006_2016_global_reference_only_3rd_gen_ly_2_3l_inline_4_petrol_5_speed_automatic_minivan_petrol"
+      "variant_id": "mazda_mpv_2006_2016_global_reference_only_3rd_gen_ly_2_3l_i4_petrol_5_speed_automatic_minivan_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Mazda",
+      "model": "CX-3",
+      "global_model_name": "Mazda CX-3",
+      "official_marketed_name_il": "Mazda CX-3",
+      "local_brand_name_il": "Mazda",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2017,
+      "year_end": 2024,
+      "generation": "1st Gen (DK)",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "2.0L Skyactiv-G",
+      "transmission": "6-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "Zoom",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli automotive sources (Cartube, iCar) confirm the 2.0L FWD variant was launched in Israel in 2017. Trims sold include Zoom, Sport, and Pure White. Trim listed here is Zoom.",
+      "source_ids": [
+        "cartube_il_mazda_cx3_2017",
+        "icar_il_mazda_cx3"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_mazda_cx3"
+        ],
+        "seats": [
+          "icar_il_mazda_cx3"
+        ],
+        "engine": [
+          "cartube_il_mazda_cx3_2017"
+        ],
+        "transmission": [
+          "cartube_il_mazda_cx3_2017",
+          "icar_il_mazda_cx3"
+        ],
+        "fuel_type": [
+          "cartube_il_mazda_cx3_2017"
+        ],
+        "drivetrain": [
+          "cartube_il_mazda_cx3_2017"
+        ],
+        "generation": [
+          "icar_il_mazda_cx3"
+        ],
+        "year_start": [
+          "cartube_il_mazda_cx3_2017"
+        ],
+        "year_end": [
+          "icar_il_mazda_cx3"
+        ],
+        "trim": [
+          "icar_il_mazda_cx3"
+        ]
+      },
+      "variant_id": "mazda_cx_3_2017_2024_il_confirmed_1st_gen_dk_2_0l_skyactiv_g_6_speed_automatic_suv_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Mazda",
+      "model": "CX-3",
+      "global_model_name": "Mazda CX-3",
+      "official_marketed_name_il": "Mazda CX-3",
+      "local_brand_name_il": "Mazda",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2021,
+      "year_end": 2024,
+      "generation": "1st Gen (DK)",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "1.5L Skyactiv-G",
+      "transmission": "6-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "Zoom",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Cartube and iCar confirm a new 1.5L base engine variant was introduced to the Israeli market in 2021 to lower the entry price point. Trims included Zoom, Urban, and Modern.",
+      "source_ids": [
+        "cartube_il_mazda_cx3_15L_2021",
+        "icar_il_mazda_cx3"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_mazda_cx3"
+        ],
+        "seats": [
+          "icar_il_mazda_cx3"
+        ],
+        "engine": [
+          "cartube_il_mazda_cx3_15L_2021"
+        ],
+        "transmission": [
+          "cartube_il_mazda_cx3_15L_2021",
+          "icar_il_mazda_cx3"
+        ],
+        "fuel_type": [
+          "cartube_il_mazda_cx3_15L_2021"
+        ],
+        "drivetrain": [
+          "cartube_il_mazda_cx3_15L_2021"
+        ],
+        "generation": [
+          "icar_il_mazda_cx3"
+        ],
+        "year_start": [
+          "cartube_il_mazda_cx3_15L_2021"
+        ],
+        "year_end": [
+          "icar_il_mazda_cx3"
+        ],
+        "trim": [
+          "icar_il_mazda_cx3"
+        ]
+      },
+      "variant_id": "mazda_cx_3_2021_2024_il_confirmed_1st_gen_dk_1_5l_skyactiv_g_6_speed_automatic_suv_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -465195,17 +465377,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1987,
-    "variants": 1987,
+    "total_variants": 1990,
+    "variants": 1990,
     "verified": 788,
-    "partial": 1199,
+    "partial": 1202,
     "makes_count": 43,
-    "models_count": 550,
-    "processed_seeds": 547,
+    "models_count": 551,
+    "processed_seeds": 548,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-23T01:22:45.903630+00:00"
+    "last_updated_at": "2026-05-23T01:23:19.764574+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
