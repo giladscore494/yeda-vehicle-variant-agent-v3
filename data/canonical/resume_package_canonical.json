@@ -565,7 +565,8 @@
       "mazda__cx-7__2006__2012__il",
       "mazda__cx-80__2024__2026__il",
       "mazda__cx-9__2007__2023__il",
-      "mazda__mx-5__1998__2026__il"
+      "mazda__mx-5__1998__2026__il",
+      "mazda__mx-30__2020__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -2815,6 +2816,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T01:30:48.965182+00:00"
+      },
+      "mazda__mx-30__2020__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 3,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T01:31:38.612748+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -249303,6 +249312,186 @@
         "trim": []
       },
       "variant_id": "mazda_mx_5_1998_2005_il_confirmed_nb_2nd_gen_1_8l_petrol_6_speed_manual_roadster_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Mazda",
+      "model": "MX-30",
+      "global_model_name": "Mazda MX-30",
+      "official_marketed_name_il": "Mazda MX-30",
+      "local_brand_name_il": "Mazda",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2020,
+      "year_end": 2026,
+      "generation": "1st Gen (DR)",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "e-Skyactiv EV (105 kW / 145 hp, 35.5 kWh battery)",
+      "transmission": "single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Confirmed via Israeli automotive portals (Auto.co.il, iCar) as available via parallel import in Israel under the name Mazda MX-30. Equipped with the standard 35.5 kWh e-Skyactiv EV powertrain.",
+      "source_ids": [
+        "auto_co_il_mx30_ev",
+        "icar_co_il_mx30_catalog",
+        "mazda_eu_mx30_press"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_co_il_mx30_catalog"
+        ],
+        "seats": [
+          "icar_co_il_mx30_catalog"
+        ],
+        "engine": [
+          "auto_co_il_mx30_ev",
+          "mazda_eu_mx30_press"
+        ],
+        "transmission": [
+          "auto_co_il_mx30_ev",
+          "mazda_eu_mx30_press"
+        ],
+        "fuel_type": [
+          "auto_co_il_mx30_ev",
+          "mazda_eu_mx30_press"
+        ],
+        "drivetrain": [
+          "mazda_eu_mx30_press"
+        ],
+        "generation": [
+          "mazda_eu_mx30_press"
+        ],
+        "year_start": [
+          "icar_co_il_mx30_catalog",
+          "mazda_eu_mx30_press"
+        ],
+        "year_end": [
+          "mazda_eu_mx30_press"
+        ],
+        "trim": []
+      },
+      "variant_id": "mazda_mx_30_2020_2026_il_confirmed_1st_gen_dr_e_skyactiv_ev_105_kw_145_hp_35_5_kwh_battery_single_speed_ev_suv_electric"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Mazda",
+      "model": "MX-30",
+      "global_model_name": "Mazda MX-30 e-Skyactiv R-EV",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2023,
+      "year_end": 2026,
+      "generation": "1st Gen (DR)",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "e-Skyactiv R-EV (830cc Rotary Generator + 125 kW / 170 hp Electric Motor)",
+      "transmission": "single-speed EV",
+      "fuel_type": "Plug-in Hybrid",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "Global introduction of rotary PHEV variant in 2023. Israeli marketed name not confirmed; global model name used as reference only.",
+      "source_ids": [
+        "mazda_eu_mx30_press"
+      ],
+      "field_sources": {
+        "body_type": [
+          "mazda_eu_mx30_press"
+        ],
+        "seats": [
+          "mazda_eu_mx30_press"
+        ],
+        "engine": [
+          "mazda_eu_mx30_press"
+        ],
+        "transmission": [
+          "mazda_eu_mx30_press"
+        ],
+        "fuel_type": [
+          "mazda_eu_mx30_press"
+        ],
+        "drivetrain": [
+          "mazda_eu_mx30_press"
+        ],
+        "generation": [
+          "mazda_eu_mx30_press"
+        ],
+        "year_start": [
+          "mazda_eu_mx30_press"
+        ],
+        "year_end": [
+          "mazda_eu_mx30_press"
+        ],
+        "trim": []
+      },
+      "variant_id": "mazda_mx_30_2023_2026_global_reference_only_1st_gen_dr_e_skyactiv_r_ev_830cc_rotary_generator_125_kw_170_hp_electric_motor_single_speed_ev_suv_plug_in_hybrid"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Mazda",
+      "model": "MX-30",
+      "global_model_name": "Mazda MX-30 e-Skyactiv G",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2020,
+      "year_end": 2026,
+      "generation": "1st Gen (DR)",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "2.0L e-Skyactiv G M-Hybrid (156 hp)",
+      "transmission": "6-speed automatic",
+      "fuel_type": "Mild Hybrid",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "Sold in markets like Japan and Australia. Israeli marketed name not confirmed; global model name used as reference only.",
+      "source_ids": [
+        "mazda_eu_mx30_press"
+      ],
+      "field_sources": {
+        "body_type": [
+          "mazda_eu_mx30_press"
+        ],
+        "seats": [
+          "mazda_eu_mx30_press"
+        ],
+        "engine": [
+          "mazda_eu_mx30_press"
+        ],
+        "transmission": [
+          "mazda_eu_mx30_press"
+        ],
+        "fuel_type": [
+          "mazda_eu_mx30_press"
+        ],
+        "drivetrain": [
+          "mazda_eu_mx30_press"
+        ],
+        "generation": [
+          "mazda_eu_mx30_press"
+        ],
+        "year_start": [
+          "mazda_eu_mx30_press"
+        ],
+        "year_end": [
+          "mazda_eu_mx30_press"
+        ],
+        "trim": []
+      },
+      "variant_id": "mazda_mx_30_2020_2026_global_reference_only_1st_gen_dr_2_0l_e_skyactiv_g_m_hybrid_156_hp_6_speed_automatic_suv_mild_hybrid"
     }
   ],
   "accumulated_clean_export": {
@@ -467313,17 +467502,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 2021,
-    "variants": 2021,
+    "total_variants": 2024,
+    "variants": 2024,
     "verified": 788,
-    "partial": 1233,
+    "partial": 1236,
     "makes_count": 43,
-    "models_count": 559,
-    "processed_seeds": 556,
+    "models_count": 560,
+    "processed_seeds": 557,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-23T01:30:48.969630+00:00"
+    "last_updated_at": "2026-05-23T01:31:38.616708+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
