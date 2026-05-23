@@ -841,7 +841,8 @@
       "renault__captur__2013__2026__il",
       "renault__kadjar__2015__2022__il",
       "renault__arkana__2021__2026__il",
-      "renault__austral__2022__2026__il"
+      "renault__austral__2022__2026__il",
+      "renault__symbioz__2024__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1293,8 +1294,8 @@
     "failed_seed_ids": [],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "renault__austral__2022__2026__il",
-    "next_seed_id": "renault__symbioz__2024__2026__il",
+    "last_completed_seed_id": "renault__symbioz__2024__2026__il",
+    "next_seed_id": "renault__rafale__2024__2026__il",
     "run_history": [],
     "failed_details": [],
     "needs_retry_seed_ids": [
@@ -5269,6 +5270,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T21:10:30.518300+00:00"
+      },
+      "renault__symbioz__2024__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 1,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T21:11:04.957009+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -317529,6 +317538,69 @@
         ]
       },
       "variant_id": "renault_austral_2023_2026_il_confirmed_1st_gen_1_2l_turbo_e_tech_hybrid_200_hp_multi_mode_automatic_suv_hybrid"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Renault",
+      "model": "Symbioz",
+      "global_model_name": "Renault Symbioz",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2024,
+      "year_end": 2026,
+      "generation": "1st Gen (CMF-B)",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "1.6L E-Tech Full Hybrid, 145 hp",
+      "transmission": "Multi-mode automatic",
+      "fuel_type": "Hybrid",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-likely",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "Global launch in 2024 with E-Tech Hybrid 145 powertrain. Israeli automotive press (Cartube) covered the model extensively with expectations for late 2024/early 2025 arrival, but exact local marketed name and trims are pending official importer release. Mapped as IL-likely based on global specs.",
+      "source_ids": [
+        "cartube_il_symbioz_reveal_2024",
+        "renault_global_symbioz_press_2024"
+      ],
+      "field_sources": {
+        "body_type": [
+          "cartube_il_symbioz_reveal_2024",
+          "renault_global_symbioz_press_2024"
+        ],
+        "seats": [
+          "renault_global_symbioz_press_2024"
+        ],
+        "engine": [
+          "cartube_il_symbioz_reveal_2024",
+          "renault_global_symbioz_press_2024"
+        ],
+        "transmission": [
+          "cartube_il_symbioz_reveal_2024",
+          "renault_global_symbioz_press_2024"
+        ],
+        "fuel_type": [
+          "cartube_il_symbioz_reveal_2024",
+          "renault_global_symbioz_press_2024"
+        ],
+        "drivetrain": [
+          "renault_global_symbioz_press_2024"
+        ],
+        "generation": [
+          "cartube_il_symbioz_reveal_2024",
+          "renault_global_symbioz_press_2024"
+        ],
+        "year_start": [
+          "cartube_il_symbioz_reveal_2024",
+          "renault_global_symbioz_press_2024"
+        ],
+        "year_end": [],
+        "trim": []
+      },
+      "variant_id": "renault_symbioz_2024_2026_il_likely_1st_gen_cmf_b_1_6l_e_tech_full_hybrid_145_hp_multi_mode_automatic_suv_hybrid"
     }
   ],
   "accumulated_clean_export": {
@@ -535539,17 +535611,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 3088,
-    "variants": 3088,
+    "total_variants": 3089,
+    "variants": 3089,
     "verified": 788,
-    "partial": 2300,
+    "partial": 2301,
     "makes_count": 73,
-    "models_count": 832,
-    "processed_seeds": 832,
+    "models_count": 833,
+    "processed_seeds": 833,
     "needs_retry_seeds": 2,
     "total_seeds": 993,
     "unresolved": 0,
-    "last_updated_at": "2026-05-23T21:10:30.529084+00:00"
+    "last_updated_at": "2026-05-23T21:11:04.966806+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
