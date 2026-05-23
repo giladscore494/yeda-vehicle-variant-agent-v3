@@ -847,7 +847,8 @@
       "renault__koleos__2008__2024__il",
       "renault__scenic__1996__2024__il",
       "renault__scenic_e-tech__2024__2026__il",
-      "renault__grand_scenic__2004__2022__il"
+      "renault__grand_scenic__2004__2022__il",
+      "renault__espace__1991__2023__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1299,8 +1300,8 @@
     "failed_seed_ids": [],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "renault__grand_scenic__2004__2022__il",
-    "next_seed_id": "renault__espace__1991__2023__il",
+    "last_completed_seed_id": "renault__espace__1991__2023__il",
+    "next_seed_id": "renault__zoe__2013__2024__il",
     "run_history": [],
     "failed_details": [],
     "needs_retry_seed_ids": [
@@ -5323,6 +5324,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T21:14:58.357749+00:00"
+      },
+      "renault__espace__1991__2023__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 4,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T21:15:48.322723+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -318716,6 +318725,242 @@
         ]
       },
       "variant_id": "renault_grand_scenic_2019_2022_il_confirmed_4th_gen_1_3l_turbo_petrol_tce_140_hp_7_speed_dct_mpv_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Renault",
+      "model": "Espace",
+      "global_model_name": "Renault Espace",
+      "official_marketed_name_il": "Renault Espace",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 1998,
+      "year_end": 2002,
+      "generation": "3rd Gen (JE0)",
+      "body_type": "MPV",
+      "seats": 7,
+      "engine": "2.0L 16V petrol",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli catalog Auto.co.il confirms the 3rd generation JE0 Espace was marketed in Israel with the 2.0L 16V engine and 4-speed automatic.",
+      "source_ids": [
+        "auto_il_renault_espace_gen3"
+      ],
+      "field_sources": {
+        "body_type": [
+          "auto_il_renault_espace_gen3"
+        ],
+        "seats": [
+          "auto_il_renault_espace_gen3"
+        ],
+        "engine": [
+          "auto_il_renault_espace_gen3"
+        ],
+        "transmission": [
+          "auto_il_renault_espace_gen3"
+        ],
+        "fuel_type": [
+          "auto_il_renault_espace_gen3"
+        ],
+        "drivetrain": [
+          "auto_il_renault_espace_gen3"
+        ],
+        "generation": [
+          "auto_il_renault_espace_gen3"
+        ],
+        "year_start": [
+          "auto_il_renault_espace_gen3"
+        ],
+        "year_end": [
+          "auto_il_renault_espace_gen3"
+        ],
+        "trim": []
+      },
+      "variant_id": "renault_espace_1998_2002_il_confirmed_3rd_gen_je0_2_0l_16v_petrol_4_speed_automatic_mpv_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Renault",
+      "model": "Espace",
+      "global_model_name": "Renault Espace",
+      "official_marketed_name_il": "Renault Espace",
+      "local_brand_name_il": null,
+      "alternate_names": [
+        "Renault Grand Espace"
+      ],
+      "rebadged_as": null,
+      "year_start": 2003,
+      "year_end": 2012,
+      "generation": "4th Gen (J81)",
+      "body_type": "MPV",
+      "seats": 7,
+      "engine": "2.0L Turbo petrol",
+      "transmission": "5-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "iCar Israel specs confirm the 4th generation Espace (J81) was sold in Israel prominently featuring the 2.0 Turbo (170 hp) engine mated to a 5-speed automatic.",
+      "source_ids": [
+        "icar_il_renault_espace_gen4"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_renault_espace_gen4"
+        ],
+        "seats": [
+          "icar_il_renault_espace_gen4"
+        ],
+        "engine": [
+          "icar_il_renault_espace_gen4"
+        ],
+        "transmission": [
+          "icar_il_renault_espace_gen4"
+        ],
+        "fuel_type": [
+          "icar_il_renault_espace_gen4"
+        ],
+        "drivetrain": [
+          "icar_il_renault_espace_gen4"
+        ],
+        "generation": [
+          "icar_il_renault_espace_gen4"
+        ],
+        "year_start": [
+          "icar_il_renault_espace_gen4"
+        ],
+        "year_end": [
+          "icar_il_renault_espace_gen4"
+        ],
+        "trim": []
+      },
+      "variant_id": "renault_espace_2003_2012_il_confirmed_4th_gen_j81_2_0l_turbo_petrol_5_speed_automatic_mpv_petrol"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Renault",
+      "model": "Espace",
+      "global_model_name": "Renault Espace",
+      "official_marketed_name_il": "Renault Espace",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2004,
+      "year_end": 2008,
+      "generation": "4th Gen (J81)",
+      "body_type": "MPV",
+      "seats": 7,
+      "engine": "3.5L V6 petrol",
+      "transmission": "5-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "Initiale",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "iCar Israel confirms the top-tier 3.5 V6 engine (241 hp, derived from Nissan) was offered in Israel, primarily under the high-end Initiale trim.",
+      "source_ids": [
+        "icar_il_renault_espace_gen4"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_renault_espace_gen4"
+        ],
+        "seats": [
+          "icar_il_renault_espace_gen4"
+        ],
+        "engine": [
+          "icar_il_renault_espace_gen4"
+        ],
+        "transmission": [
+          "icar_il_renault_espace_gen4"
+        ],
+        "fuel_type": [
+          "icar_il_renault_espace_gen4"
+        ],
+        "drivetrain": [
+          "icar_il_renault_espace_gen4"
+        ],
+        "generation": [
+          "icar_il_renault_espace_gen4"
+        ],
+        "year_start": [
+          "icar_il_renault_espace_gen4"
+        ],
+        "year_end": [
+          "icar_il_renault_espace_gen4"
+        ],
+        "trim": [
+          "icar_il_renault_espace_gen4"
+        ]
+      },
+      "variant_id": "renault_espace_2004_2008_il_confirmed_4th_gen_j81_3_5l_v6_petrol_5_speed_automatic_mpv_petrol"
+    },
+    {
+      "candidate_index": 3,
+      "make": "Renault",
+      "model": "Espace",
+      "global_model_name": "Renault Espace",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2017,
+      "year_end": 2023,
+      "generation": "5th Gen (JFC)",
+      "body_type": "MPV",
+      "seats": 7,
+      "engine": "1.8L TCe turbopetrol",
+      "transmission": "7-speed DCT",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "The 5th generation (JFC) transitioned to a crossover-style MPV but was not officially imported to Israel by the main distributor. Marketed name in IL not confirmed; using global model specs as reference only.",
+      "source_ids": [
+        "renault_global_espace_v_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "renault_global_espace_v_specs"
+        ],
+        "seats": [
+          "renault_global_espace_v_specs"
+        ],
+        "engine": [
+          "renault_global_espace_v_specs"
+        ],
+        "transmission": [
+          "renault_global_espace_v_specs"
+        ],
+        "fuel_type": [
+          "renault_global_espace_v_specs"
+        ],
+        "drivetrain": [
+          "renault_global_espace_v_specs"
+        ],
+        "generation": [
+          "renault_global_espace_v_specs"
+        ],
+        "year_start": [
+          "renault_global_espace_v_specs"
+        ],
+        "year_end": [
+          "renault_global_espace_v_specs"
+        ],
+        "trim": []
+      },
+      "variant_id": "renault_espace_2017_2023_global_reference_only_5th_gen_jfc_1_8l_tce_turbopetrol_7_speed_dct_mpv_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -536726,17 +536971,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 3107,
-    "variants": 3107,
+    "total_variants": 3111,
+    "variants": 3111,
     "verified": 788,
-    "partial": 2319,
+    "partial": 2323,
     "makes_count": 73,
-    "models_count": 838,
-    "processed_seeds": 838,
+    "models_count": 839,
+    "processed_seeds": 839,
     "needs_retry_seeds": 2,
     "total_seeds": 993,
     "unresolved": 0,
-    "last_updated_at": "2026-05-23T21:14:58.369680+00:00"
+    "last_updated_at": "2026-05-23T21:15:48.334906+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
