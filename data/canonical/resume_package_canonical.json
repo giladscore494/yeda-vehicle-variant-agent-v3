@@ -574,9 +574,9 @@
       "mitsubishi__colt__2004__2012__il",
       "mitsubishi__colt__2023__2026__il",
       "mitsubishi__lancer__1990__2017__il",
-      "mitsubishi__lancer_evolution__2003__2016__il",
-      "mitsubishi__asx__2010__2025__il",
-      "mitsubishi__outlander__2003__2026__il"
+      "mazda__cx-90__2023__2026__il",
+      "mazda__bt-50__2006__2020__il",
+      "mitsubishi__lancer_evolution__2003__2016__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1029,8 +1029,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "mazda__cx-9__2007__2023__il",
-    "next_seed_id": "mazda__cx-90__2023__2026__il",
+    "last_completed_seed_id": "mitsubishi__lancer_evolution__2003__2016__il",
+    "next_seed_id": "mitsubishi__asx__2010__2025__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2891,29 +2891,29 @@
         "warnings": [],
         "resolved_at": "2026-05-23T01:37:34.868444+00:00"
       },
+      "mazda__cx-90__2023__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 2,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T01:38:41.128054+00:00"
+      },
+      "mazda__bt-50__2006__2020__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 4,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T01:39:37.001933+00:00"
+      },
       "mitsubishi__lancer_evolution__2003__2016__il": {
         "status": "resolved",
         "resolution_type": "variants_added",
         "added_count": 4,
         "merged_count": 0,
         "warnings": [],
-        "resolved_at": "2026-05-23T01:38:22.015677+00:00"
-      },
-      "mitsubishi__asx__2010__2025__il": {
-        "status": "resolved",
-        "resolution_type": "variants_added",
-        "added_count": 4,
-        "merged_count": 0,
-        "warnings": [],
-        "resolved_at": "2026-05-23T01:39:21.770367+00:00"
-      },
-      "mitsubishi__outlander__2003__2026__il": {
-        "status": "resolved",
-        "resolution_type": "variants_added",
-        "added_count": 6,
-        "merged_count": 1,
-        "warnings": [],
-        "resolved_at": "2026-05-23T01:40:16.070756+00:00"
+        "resolved_at": "2026-05-23T01:40:28.501254+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -251184,22 +251184,384 @@
     },
     {
       "candidate_index": 0,
+      "make": "Mazda",
+      "model": "CX-90",
+      "global_model_name": "Mazda CX-90",
+      "official_marketed_name_il": "Mazda CX-90",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2023,
+      "year_end": 2026,
+      "generation": "1st Gen",
+      "body_type": "SUV",
+      "seats": 7,
+      "engine": "3.3L e-Skyactiv G Turbo MHEV, 345 hp",
+      "transmission": "8-speed automatic",
+      "fuel_type": "Mild Hybrid",
+      "drivetrain": "AWD",
+      "trim": "Exclusive",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli auto publications and importer data (Delek Motors) confirm the CX-90 is marketed in Israel with the 3.3L e-Skyactiv G Turbo mild-hybrid powertrain. Trims available in IL include Exclusive and Signature (Exclusive used as representative).",
+      "source_ids": [
+        "cartube_il_mazda_cx90_2023",
+        "delek_motors_il_cx90"
+      ],
+      "field_sources": {
+        "body_type": [
+          "cartube_il_mazda_cx90_2023"
+        ],
+        "seats": [
+          "cartube_il_mazda_cx90_2023"
+        ],
+        "engine": [
+          "cartube_il_mazda_cx90_2023",
+          "delek_motors_il_cx90"
+        ],
+        "transmission": [
+          "cartube_il_mazda_cx90_2023"
+        ],
+        "fuel_type": [
+          "cartube_il_mazda_cx90_2023",
+          "delek_motors_il_cx90"
+        ],
+        "drivetrain": [
+          "cartube_il_mazda_cx90_2023"
+        ],
+        "generation": [
+          "mazda_global_cx90_press"
+        ],
+        "year_start": [
+          "cartube_il_mazda_cx90_2023"
+        ],
+        "year_end": [],
+        "trim": [
+          "cartube_il_mazda_cx90_2023",
+          "delek_motors_il_cx90"
+        ]
+      },
+      "variant_id": "mazda_cx_90_2023_2026_il_confirmed_1st_gen_3_3l_e_skyactiv_g_turbo_mhev_345_hp_8_speed_automatic_suv_mild_hybrid"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Mazda",
+      "model": "CX-90",
+      "global_model_name": "Mazda CX-90",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2023,
+      "year_end": 2026,
+      "generation": "1st Gen",
+      "body_type": "SUV",
+      "seats": 8,
+      "engine": "2.5L e-Skyactiv PHEV, 327 hp",
+      "transmission": "8-speed automatic",
+      "fuel_type": "Plug-in Hybrid",
+      "drivetrain": "AWD",
+      "trim": null,
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "Global Mazda specifications detail the 2.5L PHEV variant. Exact Israeli marketed name and availability for the PHEV powertrain are not fully confirmed via primary local sources; global model specifications used as reference.",
+      "source_ids": [
+        "mazda_global_cx90_press"
+      ],
+      "field_sources": {
+        "body_type": [
+          "mazda_global_cx90_press"
+        ],
+        "seats": [
+          "mazda_global_cx90_press"
+        ],
+        "engine": [
+          "mazda_global_cx90_press"
+        ],
+        "transmission": [
+          "mazda_global_cx90_press"
+        ],
+        "fuel_type": [
+          "mazda_global_cx90_press"
+        ],
+        "drivetrain": [
+          "mazda_global_cx90_press"
+        ],
+        "generation": [
+          "mazda_global_cx90_press"
+        ],
+        "year_start": [
+          "mazda_global_cx90_press"
+        ],
+        "year_end": [],
+        "trim": []
+      },
+      "variant_id": "mazda_cx_90_2023_2026_global_reference_only_1st_gen_2_5l_e_skyactiv_phev_327_hp_8_speed_automatic_suv_plug_in_hybrid"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Mazda",
+      "model": "BT-50",
+      "global_model_name": "Mazda BT-50",
+      "official_marketed_name_il": "Mazda BT-50",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2006,
+      "year_end": 2011,
+      "generation": "1st Gen (J97M)",
+      "body_type": "Double Cab Pickup",
+      "seats": 5,
+      "engine": "2.5L MZR-CD Turbo Diesel, 143 hp",
+      "transmission": "5-speed manual",
+      "fuel_type": "Diesel",
+      "drivetrain": "4WD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Confirmed via IL used market listings (Yad2) and importer history. Sold in Israel mainly with the 2.5L diesel engine and offered in 2WD and 4WD layouts for commercial and agricultural use.",
+      "source_ids": [
+        "delek_motors_il_bt50_archive",
+        "yad2_il_bt50_commercial_listings",
+        "cartube_il_mazda_commercial_history"
+      ],
+      "field_sources": {
+        "body_type": [
+          "delek_motors_il_bt50_archive"
+        ],
+        "seats": [
+          "delek_motors_il_bt50_archive"
+        ],
+        "engine": [
+          "delek_motors_il_bt50_archive"
+        ],
+        "transmission": [
+          "delek_motors_il_bt50_archive",
+          "yad2_il_bt50_commercial_listings"
+        ],
+        "fuel_type": [
+          "delek_motors_il_bt50_archive"
+        ],
+        "drivetrain": [
+          "delek_motors_il_bt50_archive",
+          "yad2_il_bt50_commercial_listings"
+        ],
+        "generation": [
+          "cartube_il_mazda_commercial_history"
+        ],
+        "year_start": [
+          "delek_motors_il_bt50_archive",
+          "yad2_il_bt50_commercial_listings"
+        ],
+        "year_end": [
+          "delek_motors_il_bt50_archive",
+          "yad2_il_bt50_commercial_listings"
+        ],
+        "trim": []
+      },
+      "variant_id": "mazda_bt_50_2006_2011_il_confirmed_1st_gen_j97m_2_5l_mzr_cd_turbo_diesel_143_hp_5_speed_manual_double_cab_pickup_diesel"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Mazda",
+      "model": "BT-50",
+      "global_model_name": "Mazda BT-50",
+      "official_marketed_name_il": "Mazda BT-50",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2006,
+      "year_end": 2011,
+      "generation": "1st Gen (J97M)",
+      "body_type": "Double Cab Pickup",
+      "seats": 5,
+      "engine": "2.5L MZR-CD Turbo Diesel, 143 hp",
+      "transmission": "5-speed automatic",
+      "fuel_type": "Diesel",
+      "drivetrain": "RWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "The 5-speed automatic 2WD (RWD) variant was highly popular in Israel as a work vehicle. Confirmed by Israeli commercial used car datasets.",
+      "source_ids": [
+        "delek_motors_il_bt50_archive",
+        "yad2_il_bt50_commercial_listings"
+      ],
+      "field_sources": {
+        "body_type": [
+          "delek_motors_il_bt50_archive"
+        ],
+        "seats": [
+          "delek_motors_il_bt50_archive"
+        ],
+        "engine": [
+          "delek_motors_il_bt50_archive"
+        ],
+        "transmission": [
+          "delek_motors_il_bt50_archive",
+          "yad2_il_bt50_commercial_listings"
+        ],
+        "fuel_type": [
+          "delek_motors_il_bt50_archive"
+        ],
+        "drivetrain": [
+          "delek_motors_il_bt50_archive",
+          "yad2_il_bt50_commercial_listings"
+        ],
+        "generation": [
+          "cartube_il_mazda_commercial_history"
+        ],
+        "year_start": [
+          "delek_motors_il_bt50_archive",
+          "yad2_il_bt50_commercial_listings"
+        ],
+        "year_end": [
+          "delek_motors_il_bt50_archive",
+          "yad2_il_bt50_commercial_listings"
+        ],
+        "trim": []
+      },
+      "variant_id": "mazda_bt_50_2006_2011_il_confirmed_1st_gen_j97m_2_5l_mzr_cd_turbo_diesel_143_hp_5_speed_automatic_double_cab_pickup_diesel"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Mazda",
+      "model": "BT-50",
+      "global_model_name": "Mazda BT-50",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2011,
+      "year_end": 2020,
+      "generation": "2nd Gen (UP/UR)",
+      "body_type": "Double Cab Pickup",
+      "seats": 5,
+      "engine": "3.2L MZ-CD Turbo Diesel, 200 hp",
+      "transmission": "6-speed automatic",
+      "fuel_type": "Diesel",
+      "drivetrain": "4WD",
+      "trim": null,
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "Global Gen 2 (UP/UR) based on Ford Ranger T6. Delek Motors (Mazda Israel) largely ceased official import of the BT-50 after the 1st generation. Included as a global reference to complete the requested 2006-2020 seed range.",
+      "source_ids": [
+        "mazda_global_bt50_up_ur_specs",
+        "cartube_il_mazda_commercial_history"
+      ],
+      "field_sources": {
+        "body_type": [
+          "mazda_global_bt50_up_ur_specs"
+        ],
+        "seats": [
+          "mazda_global_bt50_up_ur_specs"
+        ],
+        "engine": [
+          "mazda_global_bt50_up_ur_specs"
+        ],
+        "transmission": [
+          "mazda_global_bt50_up_ur_specs"
+        ],
+        "fuel_type": [
+          "mazda_global_bt50_up_ur_specs"
+        ],
+        "drivetrain": [
+          "mazda_global_bt50_up_ur_specs"
+        ],
+        "generation": [
+          "mazda_global_bt50_up_ur_specs"
+        ],
+        "year_start": [
+          "mazda_global_bt50_up_ur_specs"
+        ],
+        "year_end": [
+          "mazda_global_bt50_up_ur_specs"
+        ],
+        "trim": []
+      },
+      "variant_id": "mazda_bt_50_2011_2020_global_reference_only_2nd_gen_up_ur_3_2l_mz_cd_turbo_diesel_200_hp_6_speed_automatic_double_cab_pickup_diesel"
+    },
+    {
+      "candidate_index": 3,
+      "make": "Mazda",
+      "model": "BT-50",
+      "global_model_name": "Mazda BT-50",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2011,
+      "year_end": 2020,
+      "generation": "2nd Gen (UP/UR)",
+      "body_type": "Double Cab Pickup",
+      "seats": 5,
+      "engine": "2.2L MZ-CD Turbo Diesel, 150 hp",
+      "transmission": "6-speed manual",
+      "fuel_type": "Diesel",
+      "drivetrain": "RWD",
+      "trim": null,
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "Global Gen 2 base engine variant. As with the 3.2L, official Israeli import is unconfirmed for this generation. Global specs listed for reference.",
+      "source_ids": [
+        "mazda_global_bt50_up_ur_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "mazda_global_bt50_up_ur_specs"
+        ],
+        "seats": [
+          "mazda_global_bt50_up_ur_specs"
+        ],
+        "engine": [
+          "mazda_global_bt50_up_ur_specs"
+        ],
+        "transmission": [
+          "mazda_global_bt50_up_ur_specs"
+        ],
+        "fuel_type": [
+          "mazda_global_bt50_up_ur_specs"
+        ],
+        "drivetrain": [
+          "mazda_global_bt50_up_ur_specs"
+        ],
+        "generation": [
+          "mazda_global_bt50_up_ur_specs"
+        ],
+        "year_start": [
+          "mazda_global_bt50_up_ur_specs"
+        ],
+        "year_end": [
+          "mazda_global_bt50_up_ur_specs"
+        ],
+        "trim": []
+      },
+      "variant_id": "mazda_bt_50_2011_2020_global_reference_only_2nd_gen_up_ur_2_2l_mz_cd_turbo_diesel_150_hp_6_speed_manual_double_cab_pickup_diesel"
+    },
+    {
+      "candidate_index": 0,
       "make": "Mitsubishi",
       "model": "Lancer Evolution",
       "global_model_name": "Lancer Evolution VIII",
       "official_marketed_name_il": "Lancer Evolution",
-      "local_brand_name_il": "Mitsubishi",
+      "local_brand_name_il": "מיצובישי",
       "alternate_names": [
         "Evo 8",
-        "Evolution 8"
+        "Lancer Evo VIII"
       ],
       "rebadged_as": null,
       "year_start": 2003,
       "year_end": 2005,
-      "generation": "VIII",
+      "generation": "VIII (CT9A)",
       "body_type": "Sedan",
       "seats": 5,
-      "engine": "2.0L turbo petrol",
+      "engine": "2.0L Turbo 4G63",
       "transmission": "5-speed manual",
       "fuel_type": "Petrol",
       "drivetrain": "AWD",
@@ -251207,43 +251569,44 @@
       "market_scope": "IL-confirmed",
       "market_name_confidence": "confirmed",
       "confidence_level": "high",
-      "source_basis": "IL automotive archives confirm the Evolution VIII was imported to Israel with the European specification 2.0L turbo (approx 265 hp) and 5-speed manual transmission.",
+      "source_basis": "IL market historical news (Auto.co.il) confirms official import of the Evolution VIII by Colmobil with 2.0L turbo and 5-speed manual. Global specs confirm CT9A generation and 4G63 engine.",
       "source_ids": [
-        "icar_il_evo_specs",
-        "global_mitsubishi_evo_archive"
+        "auto_il_mitsubishi_evo_8_9_history",
+        "global_mitsubishi_evo_specs"
       ],
       "field_sources": {
         "body_type": [
-          "icar_il_evo_specs"
+          "global_mitsubishi_evo_specs"
         ],
         "seats": [
-          "global_mitsubishi_evo_archive"
+          "global_mitsubishi_evo_specs"
         ],
         "engine": [
-          "icar_il_evo_specs",
-          "global_mitsubishi_evo_archive"
+          "auto_il_mitsubishi_evo_8_9_history",
+          "global_mitsubishi_evo_specs"
         ],
         "transmission": [
-          "global_mitsubishi_evo_archive"
+          "auto_il_mitsubishi_evo_8_9_history"
         ],
         "fuel_type": [
-          "icar_il_evo_specs"
+          "global_mitsubishi_evo_specs"
         ],
         "drivetrain": [
-          "global_mitsubishi_evo_archive"
+          "global_mitsubishi_evo_specs"
         ],
         "generation": [
-          "global_mitsubishi_evo_archive"
+          "auto_il_mitsubishi_evo_8_9_history",
+          "global_mitsubishi_evo_specs"
         ],
         "year_start": [
-          "global_mitsubishi_evo_archive"
+          "global_mitsubishi_evo_specs"
         ],
         "year_end": [
-          "global_mitsubishi_evo_archive"
+          "global_mitsubishi_evo_specs"
         ],
         "trim": []
       },
-      "variant_id": "mitsubishi_lancer_evolution_2003_2005_il_confirmed_viii_2_0l_turbo_petrol_5_speed_manual_sedan_petrol"
+      "variant_id": "mitsubishi_lancer_evolution_2003_2005_il_confirmed_viii_ct9a_2_0l_turbo_4g63_5_speed_manual_sedan_petrol"
     },
     {
       "candidate_index": 1,
@@ -251251,18 +251614,18 @@
       "model": "Lancer Evolution",
       "global_model_name": "Lancer Evolution IX",
       "official_marketed_name_il": "Lancer Evolution",
-      "local_brand_name_il": "Mitsubishi",
+      "local_brand_name_il": "מיצובישי",
       "alternate_names": [
         "Evo 9",
-        "Evolution 9"
+        "Lancer Evo IX"
       ],
       "rebadged_as": null,
       "year_start": 2005,
       "year_end": 2007,
-      "generation": "IX",
+      "generation": "IX (CT9A)",
       "body_type": "Sedan",
       "seats": 5,
-      "engine": "2.0L turbo petrol",
+      "engine": "2.0L Turbo MIVEC 4G63",
       "transmission": "6-speed manual",
       "fuel_type": "Petrol",
       "drivetrain": "AWD",
@@ -251270,43 +251633,44 @@
       "market_scope": "IL-confirmed",
       "market_name_confidence": "confirmed",
       "confidence_level": "high",
-      "source_basis": "Israeli road tests and spec catalogs confirm the Evolution IX was sold with the upgraded MIVEC 2.0L turbo engine and a 6-speed manual.",
+      "source_basis": "Israeli automotive archives confirm official local launch of Evolution IX featuring the MIVEC turbo engine and 6-speed manual transmission.",
       "source_ids": [
-        "auto_il_evo_ix_archive",
-        "icar_il_evo_specs"
+        "auto_il_mitsubishi_evo_8_9_history",
+        "global_mitsubishi_evo_specs"
       ],
       "field_sources": {
         "body_type": [
-          "icar_il_evo_specs"
+          "global_mitsubishi_evo_specs"
         ],
         "seats": [
-          "icar_il_evo_specs"
+          "global_mitsubishi_evo_specs"
         ],
         "engine": [
-          "auto_il_evo_ix_archive",
-          "icar_il_evo_specs"
+          "auto_il_mitsubishi_evo_8_9_history",
+          "global_mitsubishi_evo_specs"
         ],
         "transmission": [
-          "auto_il_evo_ix_archive"
+          "auto_il_mitsubishi_evo_8_9_history"
         ],
         "fuel_type": [
-          "icar_il_evo_specs"
+          "global_mitsubishi_evo_specs"
         ],
         "drivetrain": [
-          "auto_il_evo_ix_archive"
+          "global_mitsubishi_evo_specs"
         ],
         "generation": [
-          "auto_il_evo_ix_archive"
+          "auto_il_mitsubishi_evo_8_9_history",
+          "global_mitsubishi_evo_specs"
         ],
         "year_start": [
-          "global_mitsubishi_evo_archive"
+          "global_mitsubishi_evo_specs"
         ],
         "year_end": [
-          "global_mitsubishi_evo_archive"
+          "global_mitsubishi_evo_specs"
         ],
         "trim": []
       },
-      "variant_id": "mitsubishi_lancer_evolution_2005_2007_il_confirmed_ix_2_0l_turbo_petrol_6_speed_manual_sedan_petrol"
+      "variant_id": "mitsubishi_lancer_evolution_2005_2007_il_confirmed_ix_ct9a_2_0l_turbo_mivec_4g63_6_speed_manual_sedan_petrol"
     },
     {
       "candidate_index": 2,
@@ -251314,64 +251678,68 @@
       "model": "Lancer Evolution",
       "global_model_name": "Lancer Evolution X",
       "official_marketed_name_il": "Lancer Evolution",
-      "local_brand_name_il": "Mitsubishi",
+      "local_brand_name_il": "מיצובישי",
       "alternate_names": [
-        "Evo 10",
-        "Evolution 10"
+        "Evo X",
+        "Lancer Evo X"
       ],
       "rebadged_as": null,
       "year_start": 2007,
       "year_end": 2016,
-      "generation": "X",
+      "generation": "X (CZ4A)",
       "body_type": "Sedan",
       "seats": 5,
-      "engine": "2.0L turbo petrol",
-      "transmission": "6-speed DCT",
+      "engine": "2.0L Turbo 4B11T",
+      "transmission": "6-speed TC-SST",
       "fuel_type": "Petrol",
       "drivetrain": "AWD",
       "trim": null,
       "market_scope": "IL-confirmed",
       "market_name_confidence": "confirmed",
       "confidence_level": "high",
-      "source_basis": "Evolution X imported to Israel (officially launched locally in 2008). Sold primarily with the TC-SST (Twin Clutch Sportronic Shift Transmission).",
+      "source_basis": "Highly confirmed for IL market. Auto.co.il and iCar list the Evo X equipped with the Twin-Clutch Sportronic Shift Transmission (TC-SST) and 295 hp rating locally.",
       "source_ids": [
-        "auto_il_evo_x_review_2008",
-        "icar_il_evo_specs"
+        "auto_il_mitsubishi_evo_x_specs",
+        "icar_il_mitsubishi_evo_x",
+        "global_mitsubishi_evo_specs"
       ],
       "field_sources": {
         "body_type": [
-          "auto_il_evo_x_review_2008",
-          "icar_il_evo_specs"
+          "auto_il_mitsubishi_evo_x_specs"
         ],
         "seats": [
-          "icar_il_evo_specs"
+          "auto_il_mitsubishi_evo_x_specs"
         ],
         "engine": [
-          "auto_il_evo_x_review_2008",
-          "icar_il_evo_specs"
+          "auto_il_mitsubishi_evo_x_specs",
+          "icar_il_mitsubishi_evo_x"
         ],
         "transmission": [
-          "auto_il_evo_x_review_2008",
-          "icar_il_evo_specs"
+          "auto_il_mitsubishi_evo_x_specs",
+          "icar_il_mitsubishi_evo_x"
         ],
         "fuel_type": [
-          "icar_il_evo_specs"
+          "auto_il_mitsubishi_evo_x_specs"
         ],
         "drivetrain": [
-          "auto_il_evo_x_review_2008"
+          "auto_il_mitsubishi_evo_x_specs",
+          "icar_il_mitsubishi_evo_x"
         ],
         "generation": [
-          "auto_il_evo_x_review_2008"
+          "auto_il_mitsubishi_evo_x_specs",
+          "global_mitsubishi_evo_specs"
         ],
         "year_start": [
-          "global_mitsubishi_evo_archive"
+          "auto_il_mitsubishi_evo_x_specs",
+          "global_mitsubishi_evo_specs"
         ],
         "year_end": [
-          "global_mitsubishi_evo_archive"
+          "auto_il_mitsubishi_evo_x_specs",
+          "global_mitsubishi_evo_specs"
         ],
         "trim": []
       },
-      "variant_id": "mitsubishi_lancer_evolution_2007_2016_il_confirmed_x_2_0l_turbo_petrol_6_speed_dct_sedan_petrol"
+      "variant_id": "mitsubishi_lancer_evolution_2007_2016_il_confirmed_x_cz4a_2_0l_turbo_4b11t_6_speed_tc_sst_sedan_petrol"
     },
     {
       "candidate_index": 3,
@@ -251379,670 +251747,63 @@
       "model": "Lancer Evolution",
       "global_model_name": "Lancer Evolution X",
       "official_marketed_name_il": "Lancer Evolution",
-      "local_brand_name_il": "Mitsubishi",
+      "local_brand_name_il": "מיצובישי",
       "alternate_names": [
-        "Evo 10",
-        "Evolution 10"
+        "Evo X",
+        "Lancer Evo X"
       ],
       "rebadged_as": null,
       "year_start": 2007,
       "year_end": 2016,
-      "generation": "X",
+      "generation": "X (CZ4A)",
       "body_type": "Sedan",
       "seats": 5,
-      "engine": "2.0L turbo petrol",
+      "engine": "2.0L Turbo 4B11T",
       "transmission": "5-speed manual",
       "fuel_type": "Petrol",
       "drivetrain": "AWD",
       "trim": null,
       "market_scope": "IL-confirmed",
       "market_name_confidence": "confirmed",
-      "confidence_level": "high",
-      "source_basis": "Evolution X also offered globally and verified in IL specs with a traditional 5-speed manual transmission alongside the SST version.",
-      "source_ids": [
-        "auto_il_evo_x_review_2008",
-        "global_mitsubishi_evo_archive"
-      ],
-      "field_sources": {
-        "body_type": [
-          "auto_il_evo_x_review_2008"
-        ],
-        "seats": [
-          "global_mitsubishi_evo_archive"
-        ],
-        "engine": [
-          "auto_il_evo_x_review_2008"
-        ],
-        "transmission": [
-          "auto_il_evo_x_review_2008",
-          "global_mitsubishi_evo_archive"
-        ],
-        "fuel_type": [
-          "auto_il_evo_x_review_2008"
-        ],
-        "drivetrain": [
-          "auto_il_evo_x_review_2008"
-        ],
-        "generation": [
-          "auto_il_evo_x_review_2008"
-        ],
-        "year_start": [
-          "global_mitsubishi_evo_archive"
-        ],
-        "year_end": [
-          "global_mitsubishi_evo_archive"
-        ],
-        "trim": []
-      },
-      "variant_id": "mitsubishi_lancer_evolution_2007_2016_il_confirmed_x_2_0l_turbo_petrol_5_speed_manual_sedan_petrol"
-    },
-    {
-      "candidate_index": 0,
-      "make": "Mitsubishi",
-      "model": "ASX",
-      "global_model_name": "ASX",
-      "official_marketed_name_il": "Mitsubishi ASX",
-      "local_brand_name_il": "Mitsubishi",
-      "alternate_names": [
-        "Outlander Sport",
-        "RVR"
-      ],
-      "rebadged_as": null,
-      "year_start": 2017,
-      "year_end": 2019,
-      "generation": "1st Gen (Facelift)",
-      "body_type": "SUV",
-      "seats": 5,
-      "engine": "2.0L naturally aspirated petrol, 150 hp",
-      "transmission": "CVT",
-      "fuel_type": "Petrol",
-      "drivetrain": "FWD",
-      "trim": null,
-      "market_scope": "IL-confirmed",
-      "market_name_confidence": "confirmed",
-      "confidence_level": "high",
-      "source_basis": "IL market confirmed: officially launched in Israel in late 2017 (for MY2018) after years of delayed import. Marketed with a 2.0L FWD CVT powertrain. Local trims noted: Intense, Instyle, Premium.",
-      "source_ids": [
-        "cartube_il_asx_launch_2017"
-      ],
-      "field_sources": {
-        "body_type": [
-          "cartube_il_asx_launch_2017"
-        ],
-        "seats": [
-          "cartube_il_asx_launch_2017"
-        ],
-        "engine": [
-          "cartube_il_asx_launch_2017"
-        ],
-        "transmission": [
-          "cartube_il_asx_launch_2017"
-        ],
-        "fuel_type": [
-          "cartube_il_asx_launch_2017"
-        ],
-        "drivetrain": [
-          "cartube_il_asx_launch_2017"
-        ],
-        "generation": [
-          "cartube_il_asx_launch_2017"
-        ],
-        "year_start": [
-          "cartube_il_asx_launch_2017"
-        ],
-        "year_end": [
-          "cartube_il_asx_launch_2017",
-          "cartube_il_asx_facelift_2020"
-        ],
-        "trim": []
-      },
-      "variant_id": "mitsubishi_asx_2017_2019_il_confirmed_1st_gen_facelift_2_0l_naturally_aspirated_petrol_150_hp_cvt_suv_petrol"
-    },
-    {
-      "candidate_index": 1,
-      "make": "Mitsubishi",
-      "model": "ASX",
-      "global_model_name": "ASX",
-      "official_marketed_name_il": "Mitsubishi ASX",
-      "local_brand_name_il": "Mitsubishi",
-      "alternate_names": [
-        "Outlander Sport",
-        "RVR"
-      ],
-      "rebadged_as": null,
-      "year_start": 2020,
-      "year_end": 2024,
-      "generation": "1st Gen (2nd Facelift)",
-      "body_type": "SUV",
-      "seats": 5,
-      "engine": "2.0L naturally aspirated petrol, 150 hp",
-      "transmission": "CVT",
-      "fuel_type": "Petrol",
-      "drivetrain": "FWD",
-      "trim": null,
-      "market_scope": "IL-confirmed",
-      "market_name_confidence": "confirmed",
-      "confidence_level": "high",
-      "source_basis": "IL market confirmed: major exterior facelift ('Dynamic Shield') launched in Israel late 2019 for MY2020. Powertrain remained the same 2.0L CVT. Trims: Intense, Instyle, Premium.",
-      "source_ids": [
-        "cartube_il_asx_facelift_2020"
-      ],
-      "field_sources": {
-        "body_type": [
-          "cartube_il_asx_facelift_2020"
-        ],
-        "seats": [
-          "cartube_il_asx_facelift_2020"
-        ],
-        "engine": [
-          "cartube_il_asx_facelift_2020"
-        ],
-        "transmission": [
-          "cartube_il_asx_facelift_2020"
-        ],
-        "fuel_type": [
-          "cartube_il_asx_facelift_2020"
-        ],
-        "drivetrain": [
-          "cartube_il_asx_facelift_2020"
-        ],
-        "generation": [
-          "cartube_il_asx_facelift_2020"
-        ],
-        "year_start": [
-          "cartube_il_asx_facelift_2020"
-        ],
-        "year_end": [
-          "cartube_il_asx_facelift_2020"
-        ],
-        "trim": []
-      },
-      "variant_id": "mitsubishi_asx_2020_2024_il_confirmed_1st_gen_2nd_facelift_2_0l_naturally_aspirated_petrol_150_hp_cvt_suv_petrol"
-    },
-    {
-      "candidate_index": 2,
-      "make": "Mitsubishi",
-      "model": "ASX",
-      "global_model_name": "ASX",
-      "official_marketed_name_il": null,
-      "local_brand_name_il": null,
-      "alternate_names": [
-        "Outlander Sport",
-        "RVR"
-      ],
-      "rebadged_as": null,
-      "year_start": 2010,
-      "year_end": 2016,
-      "generation": "1st Gen",
-      "body_type": "SUV",
-      "seats": 5,
-      "engine": "1.6L naturally aspirated petrol, 117 hp",
-      "transmission": "5-speed manual",
-      "fuel_type": "Petrol",
-      "drivetrain": "FWD",
-      "trim": null,
-      "market_scope": "global-reference-only",
-      "market_name_confidence": "unknown",
       "confidence_level": "medium",
-      "source_basis": "Global reference only: The initial years of the Mitsubishi ASX were not officially imported to Israel due to lack of automatic transmission matched with suitable small-displacement engines. Represented here by standard European early spec.",
+      "source_basis": "The 5-speed manual version of the Evolution X was also available and imported to Israel alongside the primary TC-SST variant. Global specs confirm 5MT presence.",
       "source_ids": [
-        "mitsubishi_motors_global_asx_2010"
+        "auto_il_mitsubishi_evo_x_specs",
+        "global_mitsubishi_evo_specs"
       ],
       "field_sources": {
         "body_type": [
-          "mitsubishi_motors_global_asx_2010"
+          "auto_il_mitsubishi_evo_x_specs"
         ],
         "seats": [
-          "mitsubishi_motors_global_asx_2010"
+          "auto_il_mitsubishi_evo_x_specs"
         ],
         "engine": [
-          "mitsubishi_motors_global_asx_2010"
+          "auto_il_mitsubishi_evo_x_specs",
+          "global_mitsubishi_evo_specs"
         ],
         "transmission": [
-          "mitsubishi_motors_global_asx_2010"
+          "global_mitsubishi_evo_specs"
         ],
         "fuel_type": [
-          "mitsubishi_motors_global_asx_2010"
+          "auto_il_mitsubishi_evo_x_specs"
         ],
         "drivetrain": [
-          "mitsubishi_motors_global_asx_2010"
+          "auto_il_mitsubishi_evo_x_specs"
         ],
         "generation": [
-          "mitsubishi_motors_global_asx_2010"
+          "auto_il_mitsubishi_evo_x_specs",
+          "global_mitsubishi_evo_specs"
         ],
         "year_start": [
-          "mitsubishi_motors_global_asx_2010"
+          "global_mitsubishi_evo_specs"
         ],
         "year_end": [
-          "mitsubishi_motors_global_asx_2010"
+          "global_mitsubishi_evo_specs"
         ],
         "trim": []
       },
-      "variant_id": "mitsubishi_asx_2010_2016_global_reference_only_1st_gen_1_6l_naturally_aspirated_petrol_117_hp_5_speed_manual_suv_petrol"
-    },
-    {
-      "candidate_index": 3,
-      "make": "Mitsubishi",
-      "model": "ASX",
-      "global_model_name": "ASX",
-      "official_marketed_name_il": null,
-      "local_brand_name_il": null,
-      "alternate_names": [],
-      "rebadged_as": "Renault Captur",
-      "year_start": 2023,
-      "year_end": 2025,
-      "generation": "2nd Gen",
-      "body_type": "SUV",
-      "seats": 5,
-      "engine": "1.3L turbo mild-hybrid petrol, 140 hp",
-      "transmission": "7-speed DCT",
-      "fuel_type": "Mild Hybrid",
-      "drivetrain": "FWD",
-      "trim": null,
-      "market_scope": "global-reference-only",
-      "market_name_confidence": "unknown",
-      "confidence_level": "medium",
-      "source_basis": "Global reference only: 2nd Gen ASX based on Renault CMF-B platform (Captur clone). Released in Europe in 2023. Israeli importer delayed introduction, with 1st Gen models remaining on sale. Included for global completeness during the 2023-2025 window.",
-      "source_ids": [
-        "mitsubishi_europe_asx_2023"
-      ],
-      "field_sources": {
-        "body_type": [
-          "mitsubishi_europe_asx_2023"
-        ],
-        "seats": [
-          "mitsubishi_europe_asx_2023"
-        ],
-        "engine": [
-          "mitsubishi_europe_asx_2023"
-        ],
-        "transmission": [
-          "mitsubishi_europe_asx_2023"
-        ],
-        "fuel_type": [
-          "mitsubishi_europe_asx_2023"
-        ],
-        "drivetrain": [
-          "mitsubishi_europe_asx_2023"
-        ],
-        "generation": [
-          "mitsubishi_europe_asx_2023"
-        ],
-        "year_start": [
-          "mitsubishi_europe_asx_2023"
-        ],
-        "year_end": [
-          "mitsubishi_europe_asx_2023"
-        ],
-        "trim": []
-      },
-      "variant_id": "mitsubishi_asx_2023_2025_global_reference_only_2nd_gen_1_3l_turbo_mild_hybrid_petrol_140_hp_7_speed_dct_suv_mild_hybrid"
-    },
-    {
-      "candidate_index": 0,
-      "make": "Mitsubishi",
-      "model": "Outlander",
-      "global_model_name": "Mitsubishi Outlander",
-      "official_marketed_name_il": "מיצובישי אאוטלנדר",
-      "local_brand_name_il": "מיצובישי",
-      "alternate_names": [
-        "Mitsubishi Outlander"
-      ],
-      "rebadged_as": null,
-      "year_start": 2003,
-      "year_end": 2006,
-      "generation": "1st Gen (CU/ZE/ZF)",
-      "body_type": "SUV",
-      "seats": 5,
-      "engine": "2.4L Petrol 4G69",
-      "transmission": "4-speed automatic",
-      "fuel_type": "Petrol",
-      "drivetrain": "4WD",
-      "trim": "Sport",
-      "market_scope": "IL-confirmed",
-      "market_name_confidence": "confirmed",
-      "confidence_level": "high",
-      "source_basis": "Israeli marketed name confirmed by auto.co.il historical specs. 1st Gen arrived in IL mainly with 2.4L AWD 4-speed auto configuration.",
-      "source_ids": [
-        "auto_il_outlander_gen1",
-        "icar_il_outlander_history"
-      ],
-      "field_sources": {
-        "body_type": [
-          "auto_il_outlander_gen1"
-        ],
-        "seats": [
-          "icar_il_outlander_history"
-        ],
-        "engine": [
-          "auto_il_outlander_gen1"
-        ],
-        "transmission": [
-          "icar_il_outlander_history"
-        ],
-        "fuel_type": [
-          "auto_il_outlander_gen1"
-        ],
-        "drivetrain": [
-          "auto_il_outlander_gen1"
-        ],
-        "generation": [
-          "auto_il_outlander_gen1"
-        ],
-        "year_start": [
-          "icar_il_outlander_history"
-        ],
-        "year_end": [
-          "icar_il_outlander_history"
-        ],
-        "trim": [
-          "auto_il_outlander_gen1"
-        ]
-      },
-      "variant_id": "mitsubishi_outlander_2003_2006_il_confirmed_1st_gen_cu_ze_zf_2_4l_petrol_4g69_4_speed_automatic_suv_petrol"
-    },
-    {
-      "candidate_index": 1,
-      "make": "Mitsubishi",
-      "model": "Outlander",
-      "global_model_name": "Mitsubishi Outlander",
-      "official_marketed_name_il": "מיצובישי אאוטלנדר",
-      "local_brand_name_il": "מיצובישי",
-      "alternate_names": [],
-      "rebadged_as": null,
-      "year_start": 2007,
-      "year_end": 2012,
-      "generation": "2nd Gen (CW)",
-      "body_type": "SUV",
-      "seats": 7,
-      "engine": "2.4L Petrol 4B12",
-      "transmission": "CVT",
-      "fuel_type": "Petrol",
-      "drivetrain": "FWD",
-      "trim": "Instyle",
-      "market_scope": "IL-confirmed",
-      "market_name_confidence": "confirmed",
-      "confidence_level": "high",
-      "source_basis": "Israeli marketed name confirmed by icar.co.il. 2nd Gen featured popular 2.4L CVT 7-seater configurations.",
-      "source_ids": [
-        "icar_il_outlander_history",
-        "auto_il_outlander_gen1"
-      ],
-      "field_sources": {
-        "body_type": [
-          "icar_il_outlander_history"
-        ],
-        "seats": [
-          "icar_il_outlander_history"
-        ],
-        "engine": [
-          "icar_il_outlander_history"
-        ],
-        "transmission": [
-          "icar_il_outlander_history"
-        ],
-        "fuel_type": [
-          "icar_il_outlander_history"
-        ],
-        "drivetrain": [
-          "icar_il_outlander_history"
-        ],
-        "generation": [
-          "auto_il_outlander_gen1"
-        ],
-        "year_start": [
-          "icar_il_outlander_history"
-        ],
-        "year_end": [
-          "icar_il_outlander_history"
-        ],
-        "trim": [
-          "icar_il_outlander_history"
-        ]
-      },
-      "variant_id": "mitsubishi_outlander_2007_2012_il_confirmed_2nd_gen_cw_2_4l_petrol_4b12_cvt_suv_petrol"
-    },
-    {
-      "candidate_index": 2,
-      "make": "Mitsubishi",
-      "model": "Outlander",
-      "global_model_name": "Mitsubishi Outlander",
-      "official_marketed_name_il": "מיצובישי אאוטלנדר",
-      "local_brand_name_il": "מיצובישי",
-      "alternate_names": [],
-      "rebadged_as": null,
-      "year_start": 2013,
-      "year_end": 2021,
-      "generation": "3rd Gen (GF/GG)",
-      "body_type": "SUV",
-      "seats": 7,
-      "engine": "2.0L Petrol 4J11",
-      "transmission": "CVT",
-      "fuel_type": "Petrol",
-      "drivetrain": "FWD",
-      "trim": "Instyle",
-      "market_scope": "IL-confirmed",
-      "market_name_confidence": "confirmed",
-      "confidence_level": "high",
-      "source_basis": "Highly successful generation in Israel; IL marketed name confirmed by icar.co.il. 2.0L FWD 7-seater was the dominant volume seller.",
-      "source_ids": [
-        "icar_il_outlander_history"
-      ],
-      "field_sources": {
-        "body_type": [
-          "icar_il_outlander_history"
-        ],
-        "seats": [
-          "icar_il_outlander_history"
-        ],
-        "engine": [
-          "icar_il_outlander_history"
-        ],
-        "transmission": [
-          "icar_il_outlander_history"
-        ],
-        "fuel_type": [
-          "icar_il_outlander_history"
-        ],
-        "drivetrain": [
-          "icar_il_outlander_history"
-        ],
-        "generation": [
-          "icar_il_outlander_history"
-        ],
-        "year_start": [
-          "icar_il_outlander_history"
-        ],
-        "year_end": [
-          "icar_il_outlander_history"
-        ],
-        "trim": [
-          "icar_il_outlander_history"
-        ]
-      },
-      "variant_id": "mitsubishi_outlander_2013_2021_il_confirmed_3rd_gen_gf_gg_2_0l_petrol_4j11_cvt_suv_petrol"
-    },
-    {
-      "candidate_index": 3,
-      "make": "Mitsubishi",
-      "model": "Outlander",
-      "global_model_name": "Mitsubishi Outlander PHEV",
-      "official_marketed_name_il": "מיצובישי אאוטלנדר PHEV",
-      "local_brand_name_il": "מיצובישי",
-      "alternate_names": [],
-      "rebadged_as": null,
-      "year_start": 2014,
-      "year_end": 2021,
-      "generation": "3rd Gen (GF/GG)",
-      "body_type": "SUV",
-      "seats": 5,
-      "engine": "2.0L Plug-in Hybrid",
-      "transmission": "Single-speed EV",
-      "fuel_type": "Plug-in Hybrid",
-      "drivetrain": "4WD",
-      "trim": "Supreme",
-      "market_scope": "IL-confirmed",
-      "market_name_confidence": "confirmed",
-      "confidence_level": "high",
-      "source_basis": "IL marketed name confirmed by cartube.co.il historical launch data. Plug-in hybrid model featured 4WD and 5-seat layout in this generation.",
-      "source_ids": [
-        "cartube_il_outlander_phev",
-        "icar_il_outlander_history"
-      ],
-      "field_sources": {
-        "body_type": [
-          "icar_il_outlander_history"
-        ],
-        "seats": [
-          "icar_il_outlander_history"
-        ],
-        "engine": [
-          "cartube_il_outlander_phev"
-        ],
-        "transmission": [
-          "cartube_il_outlander_phev"
-        ],
-        "fuel_type": [
-          "cartube_il_outlander_phev"
-        ],
-        "drivetrain": [
-          "cartube_il_outlander_phev"
-        ],
-        "generation": [
-          "icar_il_outlander_history"
-        ],
-        "year_start": [
-          "icar_il_outlander_history"
-        ],
-        "year_end": [
-          "icar_il_outlander_history"
-        ],
-        "trim": [
-          "cartube_il_outlander_phev"
-        ]
-      },
-      "variant_id": "mitsubishi_outlander_2014_2021_il_confirmed_3rd_gen_gf_gg_2_0l_plug_in_hybrid_single_speed_ev_suv_plug_in_hybrid"
-    },
-    {
-      "candidate_index": 4,
-      "make": "Mitsubishi",
-      "model": "Outlander",
-      "global_model_name": "Mitsubishi Outlander",
-      "official_marketed_name_il": "מיצובישי אאוטלנדר",
-      "local_brand_name_il": "מיצובישי",
-      "alternate_names": [],
-      "rebadged_as": null,
-      "year_start": 2021,
-      "year_end": 2026,
-      "generation": "4th Gen (GN)",
-      "body_type": "SUV",
-      "seats": 7,
-      "engine": "2.5L Petrol PR25DD",
-      "transmission": "CVT",
-      "fuel_type": "Petrol",
-      "drivetrain": "FWD",
-      "trim": "Executive",
-      "market_scope": "IL-confirmed",
-      "market_name_confidence": "confirmed",
-      "confidence_level": "high",
-      "source_basis": "IL marketed name confirmed by Colmobil (official importer). 2.5L FWD Executive/Instyle represents the current standard variant.",
-      "source_ids": [
-        "colmobil_il_outlander_gen4_specs"
-      ],
-      "field_sources": {
-        "body_type": [
-          "colmobil_il_outlander_gen4_specs"
-        ],
-        "seats": [
-          "colmobil_il_outlander_gen4_specs"
-        ],
-        "engine": [
-          "colmobil_il_outlander_gen4_specs"
-        ],
-        "transmission": [
-          "colmobil_il_outlander_gen4_specs"
-        ],
-        "fuel_type": [
-          "colmobil_il_outlander_gen4_specs"
-        ],
-        "drivetrain": [
-          "colmobil_il_outlander_gen4_specs"
-        ],
-        "generation": [
-          "colmobil_il_outlander_gen4_specs"
-        ],
-        "year_start": [
-          "colmobil_il_outlander_gen4_specs"
-        ],
-        "year_end": [
-          "colmobil_il_outlander_gen4_specs"
-        ],
-        "trim": [
-          "colmobil_il_outlander_gen4_specs"
-        ]
-      },
-      "variant_id": "mitsubishi_outlander_2021_2026_il_confirmed_4th_gen_gn_2_5l_petrol_pr25dd_cvt_suv_petrol",
-      "updated_at": "2026-05-23T01:40:16.072291+00:00"
-    },
-    {
-      "candidate_index": 6,
-      "make": "Mitsubishi",
-      "model": "Outlander",
-      "global_model_name": "Mitsubishi Outlander PHEV",
-      "official_marketed_name_il": "מיצובישי אאוטלנדר PHEV",
-      "local_brand_name_il": "מיצובישי",
-      "alternate_names": [],
-      "rebadged_as": null,
-      "year_start": 2023,
-      "year_end": 2026,
-      "generation": "4th Gen (GN)",
-      "body_type": "SUV",
-      "seats": 7,
-      "engine": "2.4L Plug-in Hybrid",
-      "transmission": "Single-speed EV",
-      "fuel_type": "Plug-in Hybrid",
-      "drivetrain": "AWD",
-      "trim": "Supreme",
-      "market_scope": "IL-confirmed",
-      "market_name_confidence": "confirmed",
-      "confidence_level": "high",
-      "source_basis": "IL marketed name and PHEV specifications confirmed by cartube.co.il and official importer announcements for 4th Gen.",
-      "source_ids": [
-        "cartube_il_outlander_phev"
-      ],
-      "field_sources": {
-        "body_type": [
-          "cartube_il_outlander_phev"
-        ],
-        "seats": [
-          "cartube_il_outlander_phev"
-        ],
-        "engine": [
-          "cartube_il_outlander_phev"
-        ],
-        "transmission": [
-          "cartube_il_outlander_phev"
-        ],
-        "fuel_type": [
-          "cartube_il_outlander_phev"
-        ],
-        "drivetrain": [
-          "cartube_il_outlander_phev"
-        ],
-        "generation": [
-          "cartube_il_outlander_phev"
-        ],
-        "year_start": [
-          "cartube_il_outlander_phev"
-        ],
-        "year_end": [
-          "cartube_il_outlander_phev"
-        ],
-        "trim": [
-          "cartube_il_outlander_phev"
-        ]
-      },
-      "variant_id": "mitsubishi_outlander_2023_2026_il_confirmed_4th_gen_gn_2_4l_plug_in_hybrid_single_speed_ev_suv_plug_in_hybrid"
+      "variant_id": "mitsubishi_lancer_evolution_2007_2016_il_confirmed_x_cz4a_2_0l_turbo_4b11t_5_speed_manual_sedan_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -470053,17 +469814,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 2064,
-    "variants": 2064,
+    "total_variants": 2060,
+    "variants": 2060,
     "verified": 788,
-    "partial": 1276,
+    "partial": 1272,
     "makes_count": 44,
     "models_count": 569,
     "processed_seeds": 567,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-23T01:40:16.075466+00:00"
+    "last_updated_at": "2026-05-23T01:40:28.507493+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
