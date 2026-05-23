@@ -544,7 +544,8 @@
       "nissan__gt-r__2009__2024__il",
       "nissan__370z__2009__2020__il",
       "nissan__kicks__2020__2026__il",
-      "nissan__nv200__2010__2022__il"
+      "nissan__nv200__2010__2022__il",
+      "nissan__sunny__1990__2006__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -997,8 +998,8 @@
     ],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "nissan__nv200__2010__2022__il",
-    "next_seed_id": "nissan__sunny__1990__2006__il",
+    "last_completed_seed_id": "nissan__sunny__1990__2006__il",
+    "next_seed_id": "nissan__terrano__1990__2006__il",
     "run_history": [],
     "failed_details": [
       {
@@ -2626,6 +2627,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-23T01:11:19.582531+00:00"
+      },
+      "nissan__sunny__1990__2006__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 4,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-23T01:12:39.140698+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -243577,6 +243586,261 @@
         "trim": []
       },
       "variant_id": "nissan_nv200_2015_2021_il_confirmed_m20_80_kw_109_hp_electric_motor_single_speed_ev_van_electric"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Nissan",
+      "model": "Sunny",
+      "global_model_name": "Nissan Sunny",
+      "official_marketed_name_il": "Nissan Sunny",
+      "local_brand_name_il": "Nissan",
+      "alternate_names": [
+        "Nissan Pulsar"
+      ],
+      "rebadged_as": null,
+      "year_start": 1990,
+      "year_end": 1995,
+      "generation": "N14",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "1.6L 4-cylinder petrol",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "SLX",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "The N14 generation was directly marketed as Nissan Sunny in Israel and was highly popular in the 1.6L Sedan automatic configuration.",
+      "source_ids": [
+        "yad2_il_sunny_n14_history",
+        "nissan_global_heritage_sunny"
+      ],
+      "field_sources": {
+        "body_type": [
+          "yad2_il_sunny_n14_history"
+        ],
+        "seats": [
+          "nissan_global_heritage_sunny"
+        ],
+        "engine": [
+          "yad2_il_sunny_n14_history"
+        ],
+        "transmission": [
+          "yad2_il_sunny_n14_history"
+        ],
+        "fuel_type": [
+          "yad2_il_sunny_n14_history"
+        ],
+        "drivetrain": [
+          "nissan_global_heritage_sunny"
+        ],
+        "generation": [
+          "yad2_il_sunny_n14_history",
+          "nissan_global_heritage_sunny"
+        ],
+        "year_start": [
+          "yad2_il_sunny_n14_history"
+        ],
+        "year_end": [
+          "yad2_il_sunny_n14_history"
+        ],
+        "trim": [
+          "yad2_il_sunny_n14_history"
+        ]
+      },
+      "variant_id": "nissan_sunny_1990_1995_il_confirmed_n14_1_6l_4_cylinder_petrol_4_speed_automatic_sedan_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Nissan",
+      "model": "Sunny",
+      "global_model_name": "Nissan Sunny",
+      "official_marketed_name_il": "Nissan Sunny",
+      "local_brand_name_il": "Nissan",
+      "alternate_names": [
+        "Nissan Pulsar"
+      ],
+      "rebadged_as": null,
+      "year_start": 1990,
+      "year_end": 1995,
+      "generation": "N14",
+      "body_type": "Hatchback",
+      "seats": 5,
+      "engine": "1.6L 4-cylinder petrol",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "SLX",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli historical market data confirms the N14 generation was also sold in a 5-door Hatchback variant alongside the sedan under the Sunny name.",
+      "source_ids": [
+        "yad2_il_sunny_n14_history",
+        "nissan_global_heritage_sunny"
+      ],
+      "field_sources": {
+        "body_type": [
+          "yad2_il_sunny_n14_history"
+        ],
+        "seats": [
+          "nissan_global_heritage_sunny"
+        ],
+        "engine": [
+          "yad2_il_sunny_n14_history"
+        ],
+        "transmission": [
+          "yad2_il_sunny_n14_history"
+        ],
+        "fuel_type": [
+          "yad2_il_sunny_n14_history"
+        ],
+        "drivetrain": [
+          "nissan_global_heritage_sunny"
+        ],
+        "generation": [
+          "yad2_il_sunny_n14_history",
+          "nissan_global_heritage_sunny"
+        ],
+        "year_start": [
+          "yad2_il_sunny_n14_history"
+        ],
+        "year_end": [
+          "yad2_il_sunny_n14_history"
+        ],
+        "trim": [
+          "yad2_il_sunny_n14_history"
+        ]
+      },
+      "variant_id": "nissan_sunny_1990_1995_il_confirmed_n14_1_6l_4_cylinder_petrol_4_speed_automatic_hatchback_petrol"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Nissan",
+      "model": "Sunny",
+      "global_model_name": "Nissan Pulsar",
+      "official_marketed_name_il": "Nissan Almera",
+      "local_brand_name_il": "Nissan",
+      "alternate_names": [
+        "Nissan Sunny"
+      ],
+      "rebadged_as": null,
+      "year_start": 1995,
+      "year_end": 2000,
+      "generation": "N15",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "1.6L 4-cylinder petrol, 99 hp",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "The N15 generation, which continued the Sunny/Pulsar lineage globally, was explicitly renamed and marketed as Nissan Almera in Israel starting in 1995/1996.",
+      "source_ids": [
+        "icar_il_nissan_almera_n15",
+        "nissan_global_heritage_sunny"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_nissan_almera_n15"
+        ],
+        "seats": [
+          "nissan_global_heritage_sunny"
+        ],
+        "engine": [
+          "icar_il_nissan_almera_n15"
+        ],
+        "transmission": [
+          "icar_il_nissan_almera_n15"
+        ],
+        "fuel_type": [
+          "icar_il_nissan_almera_n15"
+        ],
+        "drivetrain": [
+          "nissan_global_heritage_sunny"
+        ],
+        "generation": [
+          "icar_il_nissan_almera_n15",
+          "nissan_global_heritage_sunny"
+        ],
+        "year_start": [
+          "icar_il_nissan_almera_n15"
+        ],
+        "year_end": [
+          "icar_il_nissan_almera_n15"
+        ],
+        "trim": []
+      },
+      "variant_id": "nissan_sunny_1995_2000_il_confirmed_n15_1_6l_4_cylinder_petrol_99_hp_4_speed_automatic_sedan_petrol"
+    },
+    {
+      "candidate_index": 3,
+      "make": "Nissan",
+      "model": "Sunny",
+      "global_model_name": "Nissan Sunny",
+      "official_marketed_name_il": "Nissan Almera",
+      "local_brand_name_il": "Nissan",
+      "alternate_names": [
+        "Nissan Bluebird Sylphy",
+        "Nissan Pulsar"
+      ],
+      "rebadged_as": null,
+      "year_start": 2000,
+      "year_end": 2006,
+      "generation": "N16",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "1.8L 4-cylinder petrol, 114 hp",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "Perfect",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "The N16 generation was marketed as Nissan Sunny in parts of Asia but continued to be badged as Nissan Almera in Israel. The 1.8L 'Perfect' trim was the predominant offering locally.",
+      "source_ids": [
+        "auto_il_almera_n16_perfect",
+        "nissan_global_heritage_sunny"
+      ],
+      "field_sources": {
+        "body_type": [
+          "auto_il_almera_n16_perfect"
+        ],
+        "seats": [
+          "nissan_global_heritage_sunny"
+        ],
+        "engine": [
+          "auto_il_almera_n16_perfect"
+        ],
+        "transmission": [
+          "auto_il_almera_n16_perfect"
+        ],
+        "fuel_type": [
+          "auto_il_almera_n16_perfect"
+        ],
+        "drivetrain": [
+          "nissan_global_heritage_sunny"
+        ],
+        "generation": [
+          "auto_il_almera_n16_perfect",
+          "nissan_global_heritage_sunny"
+        ],
+        "year_start": [
+          "auto_il_almera_n16_perfect"
+        ],
+        "year_end": [
+          "auto_il_almera_n16_perfect"
+        ],
+        "trim": [
+          "auto_il_almera_n16_perfect"
+        ]
+      },
+      "variant_id": "nissan_sunny_2000_2006_il_confirmed_n16_1_8l_4_cylinder_petrol_114_hp_4_speed_automatic_sedan_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -461587,17 +461851,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 1931,
-    "variants": 1931,
+    "total_variants": 1935,
+    "variants": 1935,
     "verified": 788,
-    "partial": 1143,
+    "partial": 1147,
     "makes_count": 42,
-    "models_count": 538,
-    "processed_seeds": 535,
+    "models_count": 539,
+    "processed_seeds": 536,
     "needs_retry_seeds": 3,
     "total_seeds": 993,
     "unresolved": 1,
-    "last_updated_at": "2026-05-23T01:11:19.588106+00:00"
+    "last_updated_at": "2026-05-23T01:12:39.145293+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
