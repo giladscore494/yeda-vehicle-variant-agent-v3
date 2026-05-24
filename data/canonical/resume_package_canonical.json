@@ -952,7 +952,8 @@
       "volvo__v90__2016__2026__il",
       "volvo__xc40__2017__2026__il",
       "volvo__xc60__2008__2026__il",
-      "volvo__xc90__2002__2026__il"
+      "volvo__xc90__2002__2026__il",
+      "volvo__c30__2006__2013__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1404,8 +1405,8 @@
     "failed_seed_ids": [],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "volvo__xc90__2002__2026__il",
-    "next_seed_id": "volvo__c30__2006__2013__il",
+    "last_completed_seed_id": "volvo__c30__2006__2013__il",
+    "next_seed_id": "volvo__c40__2021__2026__il",
     "run_history": [],
     "failed_details": [],
     "needs_retry_seed_ids": [
@@ -6245,6 +6246,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-24T22:44:33.404659+00:00"
+      },
+      "volvo__c30__2006__2013__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 3,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-24T22:45:13.170277+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -346902,6 +346911,200 @@
         ]
       },
       "variant_id": "volvo_xc90_2020_2026_il_confirmed_2nd_gen_spa_2_0l_turbo_petrol_mild_hybrid_250_hp_8_speed_automatic_suv_mild_hybrid"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Volvo",
+      "model": "C30",
+      "global_model_name": "Volvo C30",
+      "official_marketed_name_il": "Volvo C30",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2006,
+      "year_end": 2010,
+      "generation": "1st Gen",
+      "body_type": "Hatchback",
+      "seats": 4,
+      "engine": "2.4L 5-cylinder petrol, 170 hp",
+      "transmission": "5-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "2.4i",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli automotive spec databases (iCar, Auto.co.il) confirm the 2.4i 5-cylinder as the primary initial variant in Israel. Noted for strict 4-seat configuration. Discontinued locally around the 2010 facelift, replaced by the 2.0L.",
+      "source_ids": [
+        "icar_il_volvo_c30",
+        "auto_il_volvo_c30_review",
+        "volvo_global_c30_archive"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_volvo_c30",
+          "volvo_global_c30_archive"
+        ],
+        "seats": [
+          "icar_il_volvo_c30",
+          "volvo_global_c30_archive"
+        ],
+        "engine": [
+          "icar_il_volvo_c30",
+          "auto_il_volvo_c30_review"
+        ],
+        "transmission": [
+          "icar_il_volvo_c30"
+        ],
+        "fuel_type": [
+          "icar_il_volvo_c30"
+        ],
+        "drivetrain": [
+          "icar_il_volvo_c30"
+        ],
+        "generation": [
+          "volvo_global_c30_archive"
+        ],
+        "year_start": [
+          "icar_il_volvo_c30"
+        ],
+        "year_end": [
+          "icar_il_volvo_c30",
+          "auto_il_volvo_c30_review"
+        ],
+        "trim": [
+          "auto_il_volvo_c30_review"
+        ]
+      },
+      "variant_id": "volvo_c30_2006_2010_il_confirmed_1st_gen_2_4l_5_cylinder_petrol_170_hp_5_speed_automatic_hatchback_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Volvo",
+      "model": "C30",
+      "global_model_name": "Volvo C30",
+      "official_marketed_name_il": "Volvo C30",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2006,
+      "year_end": 2013,
+      "generation": "1st Gen",
+      "body_type": "Hatchback",
+      "seats": 4,
+      "engine": "2.5L 5-cylinder turbo petrol, 220-230 hp",
+      "transmission": "5-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "T5",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli sources confirm the T5 performance variant was marketed in Israel throughout the model's life cycle. Standard 5-speed Geartronic automatic in Israel. C30 model strictly featured a 4-seat layout globally.",
+      "source_ids": [
+        "icar_il_volvo_c30",
+        "auto_il_volvo_c30_review",
+        "volvo_global_c30_archive"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_volvo_c30"
+        ],
+        "seats": [
+          "volvo_global_c30_archive",
+          "icar_il_volvo_c30"
+        ],
+        "engine": [
+          "icar_il_volvo_c30",
+          "auto_il_volvo_c30_review"
+        ],
+        "transmission": [
+          "icar_il_volvo_c30"
+        ],
+        "fuel_type": [
+          "icar_il_volvo_c30"
+        ],
+        "drivetrain": [
+          "volvo_global_c30_archive"
+        ],
+        "generation": [
+          "volvo_global_c30_archive"
+        ],
+        "year_start": [
+          "icar_il_volvo_c30"
+        ],
+        "year_end": [
+          "icar_il_volvo_c30"
+        ],
+        "trim": [
+          "auto_il_volvo_c30_review",
+          "icar_il_volvo_c30"
+        ]
+      },
+      "variant_id": "volvo_c30_2006_2013_il_confirmed_1st_gen_2_5l_5_cylinder_turbo_petrol_220_230_hp_5_speed_automatic_hatchback_petrol"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Volvo",
+      "model": "C30",
+      "global_model_name": "Volvo C30",
+      "official_marketed_name_il": "Volvo C30",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2010,
+      "year_end": 2013,
+      "generation": "1st Gen",
+      "body_type": "Hatchback",
+      "seats": 4,
+      "engine": "2.0L 4-cylinder petrol, 145 hp",
+      "transmission": "6-speed DCT",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "2.0 Powershift",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Introduced around the 2010 model year facelift in Israel, replacing the 2.4i. Distinct for pairing the 2.0L naturally aspirated Ford-sourced engine with the 6-speed Powershift DCT.",
+      "source_ids": [
+        "icar_il_volvo_c30",
+        "auto_il_volvo_c30_review"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_volvo_c30"
+        ],
+        "seats": [
+          "icar_il_volvo_c30"
+        ],
+        "engine": [
+          "icar_il_volvo_c30",
+          "auto_il_volvo_c30_review"
+        ],
+        "transmission": [
+          "auto_il_volvo_c30_review"
+        ],
+        "fuel_type": [
+          "icar_il_volvo_c30"
+        ],
+        "drivetrain": [
+          "icar_il_volvo_c30"
+        ],
+        "generation": [
+          "icar_il_volvo_c30"
+        ],
+        "year_start": [
+          "icar_il_volvo_c30",
+          "auto_il_volvo_c30_review"
+        ],
+        "year_end": [
+          "icar_il_volvo_c30"
+        ],
+        "trim": [
+          "auto_il_volvo_c30_review"
+        ]
+      },
+      "variant_id": "volvo_c30_2010_2013_il_confirmed_1st_gen_2_0l_4_cylinder_petrol_145_hp_6_speed_dct_hatchback_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -564912,17 +565115,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 3549,
-    "variants": 3549,
+    "total_variants": 3552,
+    "variants": 3552,
     "verified": 788,
-    "partial": 2761,
+    "partial": 2764,
     "makes_count": 84,
-    "models_count": 941,
-    "processed_seeds": 943,
+    "models_count": 942,
+    "processed_seeds": 944,
     "needs_retry_seeds": 2,
     "total_seeds": 993,
     "unresolved": 0,
-    "last_updated_at": "2026-05-24T22:44:33.413713+00:00"
+    "last_updated_at": "2026-05-24T22:45:13.180233+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
