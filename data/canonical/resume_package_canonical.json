@@ -966,7 +966,8 @@
       "ford__ecosport__2013__2022__il",
       "jeep__wrangler__1990__2026__il",
       "jeep__grand_cherokee__1993__2026__il",
-      "jeep__cherokee__1990__2024__il"
+      "jeep__cherokee__1990__2024__il",
+      "jeep__compass__2007__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1418,8 +1419,8 @@
     "failed_seed_ids": [],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "jeep__cherokee__1990__2024__il",
-    "next_seed_id": "jeep__compass__2007__2026__il",
+    "last_completed_seed_id": "jeep__compass__2007__2026__il",
+    "next_seed_id": "jeep__renegade__2014__2024__il",
     "run_history": [],
     "failed_details": [],
     "needs_retry_seed_ids": [
@@ -6347,6 +6348,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-24T22:56:02.868902+00:00"
+      },
+      "jeep__compass__2007__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 6,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-24T22:56:58.569540+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -350423,6 +350432,365 @@
         "trim": []
       },
       "variant_id": "jeep_cherokee_2019_2023_il_confirmed_kl_2_0l_turbo_petrol_9_speed_automatic_suv_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Jeep",
+      "model": "Compass",
+      "global_model_name": "Jeep Compass (MK49)",
+      "official_marketed_name_il": "Jeep Compass",
+      "local_brand_name_il": "Jeep",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2007,
+      "year_end": 2016,
+      "generation": "1st Gen (MK49)",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "2.4L Petrol, 170 hp",
+      "transmission": "CVT",
+      "fuel_type": "Petrol",
+      "drivetrain": "4WD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "iCar Israel confirms the 1st Generation (MK49) Compass was sold in Israel initially with a 2.4L engine and CVT. Trims included Limited and Sport.",
+      "source_ids": [
+        "icar_il_jeep_compass_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_jeep_compass_specs"
+        ],
+        "seats": [
+          "icar_il_jeep_compass_specs"
+        ],
+        "engine": [
+          "icar_il_jeep_compass_specs"
+        ],
+        "transmission": [
+          "icar_il_jeep_compass_specs"
+        ],
+        "fuel_type": [
+          "icar_il_jeep_compass_specs"
+        ],
+        "drivetrain": [
+          "icar_il_jeep_compass_specs"
+        ],
+        "generation": [
+          "icar_il_jeep_compass_specs"
+        ],
+        "year_start": [
+          "icar_il_jeep_compass_specs"
+        ],
+        "year_end": [
+          "icar_il_jeep_compass_specs"
+        ],
+        "trim": []
+      },
+      "variant_id": "jeep_compass_2007_2016_il_confirmed_1st_gen_mk49_2_4l_petrol_170_hp_cvt_suv_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Jeep",
+      "model": "Compass",
+      "global_model_name": "Jeep Compass (MP/M6)",
+      "official_marketed_name_il": "Jeep Compass",
+      "local_brand_name_il": "Jeep",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2017,
+      "year_end": 2021,
+      "generation": "2nd Gen (MP/M6)",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "1.4L MultiAir Turbo, 140 hp",
+      "transmission": "7-speed DCT",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "CarTube IL and iCar detail the 2nd Gen launch in 2017, highlighting the 1.4L 140hp FWD variant mated to a dual-clutch transmission as the entry configuration.",
+      "source_ids": [
+        "cartube_il_compass_mp_launch_2017",
+        "icar_il_jeep_compass_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "cartube_il_compass_mp_launch_2017"
+        ],
+        "seats": [
+          "icar_il_jeep_compass_specs"
+        ],
+        "engine": [
+          "cartube_il_compass_mp_launch_2017"
+        ],
+        "transmission": [
+          "cartube_il_compass_mp_launch_2017"
+        ],
+        "fuel_type": [
+          "cartube_il_compass_mp_launch_2017"
+        ],
+        "drivetrain": [
+          "cartube_il_compass_mp_launch_2017"
+        ],
+        "generation": [
+          "cartube_il_compass_mp_launch_2017"
+        ],
+        "year_start": [
+          "cartube_il_compass_mp_launch_2017"
+        ],
+        "year_end": [
+          "icar_il_jeep_compass_specs"
+        ],
+        "trim": []
+      },
+      "variant_id": "jeep_compass_2017_2021_il_confirmed_2nd_gen_mp_m6_1_4l_multiair_turbo_140_hp_7_speed_dct_suv_petrol"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Jeep",
+      "model": "Compass",
+      "global_model_name": "Jeep Compass (MP/M6)",
+      "official_marketed_name_il": "Jeep Compass",
+      "local_brand_name_il": "Jeep",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2017,
+      "year_end": 2021,
+      "generation": "2nd Gen (MP/M6)",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "1.4L MultiAir Turbo, 170 hp",
+      "transmission": "9-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "AWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "CarTube IL launch report confirms the higher-tier 170hp AWD variant paired with a 9-speed automatic transmission for the pre-facelift 2nd generation in Israel.",
+      "source_ids": [
+        "cartube_il_compass_mp_launch_2017"
+      ],
+      "field_sources": {
+        "body_type": [
+          "cartube_il_compass_mp_launch_2017"
+        ],
+        "seats": [
+          "icar_il_jeep_compass_specs"
+        ],
+        "engine": [
+          "cartube_il_compass_mp_launch_2017"
+        ],
+        "transmission": [
+          "cartube_il_compass_mp_launch_2017"
+        ],
+        "fuel_type": [
+          "cartube_il_compass_mp_launch_2017"
+        ],
+        "drivetrain": [
+          "cartube_il_compass_mp_launch_2017"
+        ],
+        "generation": [
+          "cartube_il_compass_mp_launch_2017"
+        ],
+        "year_start": [
+          "cartube_il_compass_mp_launch_2017"
+        ],
+        "year_end": [
+          "icar_il_jeep_compass_specs"
+        ],
+        "trim": []
+      },
+      "variant_id": "jeep_compass_2017_2021_il_confirmed_2nd_gen_mp_m6_1_4l_multiair_turbo_170_hp_9_speed_automatic_suv_petrol"
+    },
+    {
+      "candidate_index": 3,
+      "make": "Jeep",
+      "model": "Compass",
+      "global_model_name": "Jeep Compass (MP/M6) Facelift",
+      "official_marketed_name_il": "Jeep Compass",
+      "local_brand_name_il": "Jeep",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2021,
+      "year_end": 2024,
+      "generation": "2nd Gen (MP/M6) Facelift",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "1.3L Turbo, 150 hp",
+      "transmission": "6-speed DCT",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Gear IL and iCar document the introduction of the 1.3L 150hp FWD turbo engine replacing the 1.4L during the facelift transition.",
+      "source_ids": [
+        "gear_il_compass_4xe_2021",
+        "icar_il_jeep_compass_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_jeep_compass_specs"
+        ],
+        "seats": [
+          "icar_il_jeep_compass_specs"
+        ],
+        "engine": [
+          "gear_il_compass_4xe_2021",
+          "icar_il_jeep_compass_specs"
+        ],
+        "transmission": [
+          "icar_il_jeep_compass_specs"
+        ],
+        "fuel_type": [
+          "icar_il_jeep_compass_specs"
+        ],
+        "drivetrain": [
+          "icar_il_jeep_compass_specs"
+        ],
+        "generation": [
+          "gear_il_compass_4xe_2021"
+        ],
+        "year_start": [
+          "gear_il_compass_4xe_2021"
+        ],
+        "year_end": [
+          "icar_il_jeep_compass_specs"
+        ],
+        "trim": []
+      },
+      "variant_id": "jeep_compass_2021_2024_il_confirmed_2nd_gen_mp_m6_facelift_1_3l_turbo_150_hp_6_speed_dct_suv_petrol"
+    },
+    {
+      "candidate_index": 4,
+      "make": "Jeep",
+      "model": "Compass",
+      "global_model_name": "Jeep Compass 4xe (MP/M6)",
+      "official_marketed_name_il": "Jeep Compass",
+      "local_brand_name_il": "Jeep",
+      "alternate_names": [
+        "Compass 4xe"
+      ],
+      "rebadged_as": null,
+      "year_start": 2021,
+      "year_end": 2026,
+      "generation": "2nd Gen (MP/M6) Facelift",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "1.3L Turbo PHEV, 190/240 hp",
+      "transmission": "6-speed automatic",
+      "fuel_type": "Plug-in Hybrid",
+      "drivetrain": "AWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Gear IL confirms the launch of the Plug-in Hybrid 4xe variant with AWD, available in both 190hp and 240hp tunes depending on the trim (Limited / Trailhawk).",
+      "source_ids": [
+        "gear_il_compass_4xe_2021",
+        "samelet_il_official_compass_2023"
+      ],
+      "field_sources": {
+        "body_type": [
+          "samelet_il_official_compass_2023"
+        ],
+        "seats": [
+          "samelet_il_official_compass_2023"
+        ],
+        "engine": [
+          "gear_il_compass_4xe_2021",
+          "samelet_il_official_compass_2023"
+        ],
+        "transmission": [
+          "gear_il_compass_4xe_2021"
+        ],
+        "fuel_type": [
+          "gear_il_compass_4xe_2021"
+        ],
+        "drivetrain": [
+          "gear_il_compass_4xe_2021",
+          "samelet_il_official_compass_2023"
+        ],
+        "generation": [
+          "gear_il_compass_4xe_2021"
+        ],
+        "year_start": [
+          "gear_il_compass_4xe_2021"
+        ],
+        "year_end": [
+          "samelet_il_official_compass_2023"
+        ],
+        "trim": []
+      },
+      "variant_id": "jeep_compass_2021_2026_il_confirmed_2nd_gen_mp_m6_facelift_1_3l_turbo_phev_190_240_hp_6_speed_automatic_suv_plug_in_hybrid"
+    },
+    {
+      "candidate_index": 5,
+      "make": "Jeep",
+      "model": "Compass",
+      "global_model_name": "Jeep Compass e-Hybrid (MP/M6)",
+      "official_marketed_name_il": "Jeep Compass",
+      "local_brand_name_il": "Jeep",
+      "alternate_names": [
+        "Compass e-Hybrid"
+      ],
+      "rebadged_as": null,
+      "year_start": 2022,
+      "year_end": 2026,
+      "generation": "2nd Gen (MP/M6) Facelift",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "1.5L e-Hybrid (MHEV), 130 hp",
+      "transmission": "7-speed DCT",
+      "fuel_type": "Mild Hybrid",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Official Samelet IL importer site lists the current e-Hybrid 1.5L MHEV FWD variant as the mainstream powertrain for the facelifted Compass in Israel.",
+      "source_ids": [
+        "samelet_il_official_compass_2023",
+        "icar_il_jeep_compass_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "samelet_il_official_compass_2023"
+        ],
+        "seats": [
+          "samelet_il_official_compass_2023"
+        ],
+        "engine": [
+          "samelet_il_official_compass_2023"
+        ],
+        "transmission": [
+          "samelet_il_official_compass_2023"
+        ],
+        "fuel_type": [
+          "samelet_il_official_compass_2023"
+        ],
+        "drivetrain": [
+          "samelet_il_official_compass_2023"
+        ],
+        "generation": [
+          "samelet_il_official_compass_2023"
+        ],
+        "year_start": [
+          "icar_il_jeep_compass_specs"
+        ],
+        "year_end": [
+          "samelet_il_official_compass_2023"
+        ],
+        "trim": []
+      },
+      "variant_id": "jeep_compass_2022_2026_il_confirmed_2nd_gen_mp_m6_facelift_1_5l_e_hybrid_mhev_130_hp_7_speed_dct_suv_mild_hybrid"
     }
   ],
   "accumulated_clean_export": {
@@ -568433,17 +568801,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 3605,
-    "variants": 3605,
+    "total_variants": 3611,
+    "variants": 3611,
     "verified": 788,
-    "partial": 2817,
+    "partial": 2823,
     "makes_count": 86,
-    "models_count": 955,
-    "processed_seeds": 957,
+    "models_count": 956,
+    "processed_seeds": 958,
     "needs_retry_seeds": 2,
     "total_seeds": 993,
     "unresolved": 0,
-    "last_updated_at": "2026-05-24T22:56:02.882199+00:00"
+    "last_updated_at": "2026-05-24T22:56:58.582267+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
