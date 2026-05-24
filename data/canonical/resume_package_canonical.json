@@ -1001,7 +1001,8 @@
       "rover__200__1990__1999__il",
       "rover__400__1990__1999__il",
       "mg_(british_era)__zr__2001__2005__il",
-      "mg_(british_era)__zs__2001__2005__il"
+      "mg_(british_era)__zs__2001__2005__il",
+      "mg_(british_era)__zt__2001__2005__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1453,8 +1454,8 @@
     "failed_seed_ids": [],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "mg_(british_era)__zs__2001__2005__il",
-    "next_seed_id": "mg_(british_era)__zt__2001__2005__il",
+    "last_completed_seed_id": "mg_(british_era)__zt__2001__2005__il",
+    "next_seed_id": "mg_(british_era)__tf__2002__2005__il",
     "run_history": [],
     "failed_details": [],
     "needs_retry_seed_ids": [
@@ -6672,6 +6673,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-24T23:20:47.292694+00:00"
+      },
+      "mg_(british_era)__zt__2001__2005__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 3,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-24T23:21:26.179954+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -357239,6 +357248,195 @@
         ]
       },
       "variant_id": "mg_zs_2001_2005_global_reference_only_1st_gen_2_5l_kv6_v6_petrol_177_hp_5_speed_manual_sedan_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "MG (British era)",
+      "model": "ZT",
+      "global_model_name": "MG ZT",
+      "official_marketed_name_il": "MG ZT",
+      "local_brand_name_il": "MG",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2001,
+      "year_end": 2005,
+      "generation": "1st Gen (RJ)",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "2.5L V6 petrol, 190 PS",
+      "transmission": "5-speed manual",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "190",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli catalog (Auto.co.il) confirms the manual 190 PS V6 was imported by Hamizrach alongside Rover 75. Globally known as ZT 190. Higher equipment often sold as ZT+.",
+      "source_ids": [
+        "auto_co_il_mg_zt_archive",
+        "parkers_uk_mg_zt_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "auto_co_il_mg_zt_archive",
+          "parkers_uk_mg_zt_specs"
+        ],
+        "seats": [
+          "parkers_uk_mg_zt_specs"
+        ],
+        "engine": [
+          "auto_co_il_mg_zt_archive",
+          "parkers_uk_mg_zt_specs"
+        ],
+        "transmission": [
+          "auto_co_il_mg_zt_archive",
+          "parkers_uk_mg_zt_specs"
+        ],
+        "fuel_type": [
+          "parkers_uk_mg_zt_specs"
+        ],
+        "drivetrain": [
+          "parkers_uk_mg_zt_specs"
+        ],
+        "generation": [
+          "parkers_uk_mg_zt_specs"
+        ],
+        "year_start": [
+          "auto_co_il_mg_zt_archive",
+          "parkers_uk_mg_zt_specs"
+        ],
+        "year_end": [
+          "auto_co_il_mg_zt_archive",
+          "parkers_uk_mg_zt_specs"
+        ],
+        "trim": [
+          "parkers_uk_mg_zt_specs"
+        ]
+      },
+      "variant_id": "mg_british_era_zt_2001_2005_il_confirmed_1st_gen_rj_2_5l_v6_petrol_190_ps_5_speed_manual_sedan_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "MG (British era)",
+      "model": "ZT",
+      "global_model_name": "MG ZT",
+      "official_marketed_name_il": "MG ZT",
+      "local_brand_name_il": "MG",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2001,
+      "year_end": 2005,
+      "generation": "1st Gen (RJ)",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "2.5L V6 petrol, 177 PS",
+      "transmission": "5-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "180",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Auto.co.il confirms the automatic version in Israel used the slightly detuned 177 PS engine (180 trim). Common global configuration for the Jatco 5-speed automatic variant.",
+      "source_ids": [
+        "auto_co_il_mg_zt_archive",
+        "parkers_uk_mg_zt_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "auto_co_il_mg_zt_archive"
+        ],
+        "seats": [
+          "parkers_uk_mg_zt_specs"
+        ],
+        "engine": [
+          "auto_co_il_mg_zt_archive",
+          "parkers_uk_mg_zt_specs"
+        ],
+        "transmission": [
+          "auto_co_il_mg_zt_archive",
+          "parkers_uk_mg_zt_specs"
+        ],
+        "fuel_type": [
+          "parkers_uk_mg_zt_specs"
+        ],
+        "drivetrain": [
+          "parkers_uk_mg_zt_specs"
+        ],
+        "generation": [
+          "parkers_uk_mg_zt_specs"
+        ],
+        "year_start": [
+          "auto_co_il_mg_zt_archive"
+        ],
+        "year_end": [
+          "auto_co_il_mg_zt_archive"
+        ],
+        "trim": [
+          "parkers_uk_mg_zt_specs"
+        ]
+      },
+      "variant_id": "mg_british_era_zt_2001_2005_il_confirmed_1st_gen_rj_2_5l_v6_petrol_177_ps_5_speed_automatic_sedan_petrol"
+    },
+    {
+      "candidate_index": 2,
+      "make": "MG (British era)",
+      "model": "ZT",
+      "global_model_name": "MG ZT",
+      "official_marketed_name_il": "MG ZT",
+      "local_brand_name_il": "MG",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2002,
+      "year_end": 2005,
+      "generation": "1st Gen (RJ)",
+      "body_type": "Sedan",
+      "seats": 5,
+      "engine": "1.8L Turbo petrol, 160 PS",
+      "transmission": "5-speed manual",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "160",
+      "market_scope": "IL-likely",
+      "market_name_confidence": "likely",
+      "confidence_level": "medium",
+      "source_basis": "Introduced in 2002 globally. The 1.8 K-Series Turbo engine was standard in later base models. IL-market confirmed mostly for V6 180/190; 1.8T marked as IL-likely pending exact local sales confirmation.",
+      "source_ids": [
+        "parkers_uk_mg_zt_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "parkers_uk_mg_zt_specs"
+        ],
+        "seats": [
+          "parkers_uk_mg_zt_specs"
+        ],
+        "engine": [
+          "parkers_uk_mg_zt_specs"
+        ],
+        "transmission": [
+          "parkers_uk_mg_zt_specs"
+        ],
+        "fuel_type": [
+          "parkers_uk_mg_zt_specs"
+        ],
+        "drivetrain": [
+          "parkers_uk_mg_zt_specs"
+        ],
+        "generation": [
+          "parkers_uk_mg_zt_specs"
+        ],
+        "year_start": [
+          "parkers_uk_mg_zt_specs"
+        ],
+        "year_end": [
+          "parkers_uk_mg_zt_specs"
+        ],
+        "trim": [
+          "parkers_uk_mg_zt_specs"
+        ]
+      },
+      "variant_id": "mg_british_era_zt_2002_2005_il_likely_1st_gen_rj_1_8l_turbo_petrol_160_ps_5_speed_manual_sedan_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -575249,17 +575447,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 3709,
-    "variants": 3709,
+    "total_variants": 3712,
+    "variants": 3712,
     "verified": 788,
-    "partial": 2921,
-    "makes_count": 93,
-    "models_count": 986,
-    "processed_seeds": 992,
+    "partial": 2924,
+    "makes_count": 94,
+    "models_count": 987,
+    "processed_seeds": 993,
     "needs_retry_seeds": 2,
     "total_seeds": 993,
     "unresolved": 0,
-    "last_updated_at": "2026-05-24T23:20:47.299310+00:00"
+    "last_updated_at": "2026-05-24T23:21:26.187799+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
