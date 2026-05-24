@@ -958,7 +958,8 @@
       "volvo__ex30__2023__2026__il",
       "volvo__ex90__2024__2026__il",
       "volvo__em90__2024__2026__il",
-      "volvo__850__1991__1997__il"
+      "volvo__850__1991__1997__il",
+      "saab__900__1990__1998__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1410,8 +1411,8 @@
     "failed_seed_ids": [],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "volvo__850__1991__1997__il",
-    "next_seed_id": "saab__900__1990__1998__il",
+    "last_completed_seed_id": "saab__900__1990__1998__il",
+    "next_seed_id": "saab__9000__1990__1998__il",
     "run_history": [],
     "failed_details": [],
     "needs_retry_seed_ids": [
@@ -6299,6 +6300,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-24T22:48:58.418077+00:00"
+      },
+      "saab__900__1990__1998__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 4,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-24T22:49:46.528250+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -348188,6 +348197,244 @@
         ]
       },
       "variant_id": "volvo_850_1994_1997_il_confirmed_1st_gen_p80_2_3l_inline_5_turbo_225_hp_4_speed_automatic_sedan_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Saab",
+      "model": "900",
+      "global_model_name": "Saab 900",
+      "official_marketed_name_il": "Saab 900",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 1990,
+      "year_end": 1993,
+      "generation": "1st Gen (Classic)",
+      "body_type": "Hatchback",
+      "seats": 5,
+      "engine": "2.0L inline-4 petrol",
+      "transmission": "3-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-likely",
+      "market_name_confidence": "likely",
+      "confidence_level": "medium",
+      "source_basis": "Global specs confirm 1st Gen 'Classic' produced until 1993 (hatchbacks). Known to be imported to Israel by UMI, though exact trims and widespread survival are unverified for this era. IL marketed name likely identical to global.",
+      "source_ids": [
+        "saab_global_archive_900_classic",
+        "israel_auto_history_saab_umi"
+      ],
+      "field_sources": {
+        "body_type": [
+          "saab_global_archive_900_classic"
+        ],
+        "seats": [
+          "saab_global_archive_900_classic"
+        ],
+        "engine": [
+          "saab_global_archive_900_classic"
+        ],
+        "transmission": [
+          "saab_global_archive_900_classic"
+        ],
+        "fuel_type": [
+          "saab_global_archive_900_classic"
+        ],
+        "drivetrain": [
+          "saab_global_archive_900_classic"
+        ],
+        "generation": [
+          "saab_global_archive_900_classic"
+        ],
+        "year_start": [
+          "saab_global_archive_900_classic"
+        ],
+        "year_end": [
+          "saab_global_archive_900_classic"
+        ],
+        "trim": []
+      },
+      "variant_id": "saab_900_1990_1993_il_likely_1st_gen_classic_2_0l_inline_4_petrol_3_speed_automatic_hatchback_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Saab",
+      "model": "900",
+      "global_model_name": "Saab 900",
+      "official_marketed_name_il": "Saab 900",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 1994,
+      "year_end": 1998,
+      "generation": "2nd Gen (NG)",
+      "body_type": "Hatchback",
+      "seats": 5,
+      "engine": "2.0L inline-4 petrol",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-likely",
+      "market_name_confidence": "likely",
+      "confidence_level": "medium",
+      "source_basis": "New Generation (NG) Saab 900 introduced in 1994 on GM2900 platform. The 2.0L naturally aspirated model was the base offering. Plausible for the Israeli market via importer UMI; marketed globally and locally as Saab 900.",
+      "source_ids": [
+        "saab_global_archive_900_ng",
+        "israel_auto_history_saab_umi"
+      ],
+      "field_sources": {
+        "body_type": [
+          "saab_global_archive_900_ng"
+        ],
+        "seats": [
+          "saab_global_archive_900_ng"
+        ],
+        "engine": [
+          "saab_global_archive_900_ng"
+        ],
+        "transmission": [
+          "saab_global_archive_900_ng"
+        ],
+        "fuel_type": [
+          "saab_global_archive_900_ng"
+        ],
+        "drivetrain": [
+          "saab_global_archive_900_ng"
+        ],
+        "generation": [
+          "saab_global_archive_900_ng"
+        ],
+        "year_start": [
+          "saab_global_archive_900_ng"
+        ],
+        "year_end": [
+          "saab_global_archive_900_ng"
+        ],
+        "trim": []
+      },
+      "variant_id": "saab_900_1994_1998_il_likely_2nd_gen_ng_2_0l_inline_4_petrol_4_speed_automatic_hatchback_petrol"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Saab",
+      "model": "900",
+      "global_model_name": "Saab 900",
+      "official_marketed_name_il": "Saab 900",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 1994,
+      "year_end": 1998,
+      "generation": "2nd Gen (NG)",
+      "body_type": "Hatchback",
+      "seats": 5,
+      "engine": "2.0L inline-4 turbo petrol",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "Turbo",
+      "market_scope": "IL-likely",
+      "market_name_confidence": "likely",
+      "confidence_level": "medium",
+      "source_basis": "The 2.0L Turbo was a flagship powertrain for the NG900 globally. Verified in global specs and recognized in Israeli automotive historical context for 1990s imported premium models. Marked IL-likely.",
+      "source_ids": [
+        "saab_global_archive_900_ng",
+        "israel_auto_history_saab_umi"
+      ],
+      "field_sources": {
+        "body_type": [
+          "saab_global_archive_900_ng"
+        ],
+        "seats": [
+          "saab_global_archive_900_ng"
+        ],
+        "engine": [
+          "saab_global_archive_900_ng"
+        ],
+        "transmission": [
+          "saab_global_archive_900_ng"
+        ],
+        "fuel_type": [
+          "saab_global_archive_900_ng"
+        ],
+        "drivetrain": [
+          "saab_global_archive_900_ng"
+        ],
+        "generation": [
+          "saab_global_archive_900_ng"
+        ],
+        "year_start": [
+          "saab_global_archive_900_ng"
+        ],
+        "year_end": [
+          "saab_global_archive_900_ng"
+        ],
+        "trim": [
+          "saab_global_archive_900_ng"
+        ]
+      },
+      "variant_id": "saab_900_1994_1998_il_likely_2nd_gen_ng_2_0l_inline_4_turbo_petrol_4_speed_automatic_hatchback_petrol"
+    },
+    {
+      "candidate_index": 3,
+      "make": "Saab",
+      "model": "900",
+      "global_model_name": "Saab 900",
+      "official_marketed_name_il": "Saab 900",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 1994,
+      "year_end": 1998,
+      "generation": "2nd Gen (NG)",
+      "body_type": "Hatchback",
+      "seats": 5,
+      "engine": "2.3L inline-4 petrol",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": null,
+      "market_scope": "IL-likely",
+      "market_name_confidence": "likely",
+      "confidence_level": "medium",
+      "source_basis": "The naturally aspirated 2.3L engine was a common option for the Saab 900 NG globally alongside the 2.0L. Plausible IL import under UMI. Trim unspecified as exact market packages varied.",
+      "source_ids": [
+        "saab_global_archive_900_ng",
+        "israel_auto_history_saab_umi"
+      ],
+      "field_sources": {
+        "body_type": [
+          "saab_global_archive_900_ng"
+        ],
+        "seats": [
+          "saab_global_archive_900_ng"
+        ],
+        "engine": [
+          "saab_global_archive_900_ng"
+        ],
+        "transmission": [
+          "saab_global_archive_900_ng"
+        ],
+        "fuel_type": [
+          "saab_global_archive_900_ng"
+        ],
+        "drivetrain": [
+          "saab_global_archive_900_ng"
+        ],
+        "generation": [
+          "saab_global_archive_900_ng"
+        ],
+        "year_start": [
+          "saab_global_archive_900_ng"
+        ],
+        "year_end": [
+          "saab_global_archive_900_ng"
+        ],
+        "trim": []
+      },
+      "variant_id": "saab_900_1994_1998_il_likely_2nd_gen_ng_2_3l_inline_4_petrol_4_speed_automatic_hatchback_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -566198,17 +566445,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 3568,
-    "variants": 3568,
+    "total_variants": 3572,
+    "variants": 3572,
     "verified": 788,
-    "partial": 2780,
-    "makes_count": 84,
-    "models_count": 947,
-    "processed_seeds": 949,
+    "partial": 2784,
+    "makes_count": 85,
+    "models_count": 948,
+    "processed_seeds": 950,
     "needs_retry_seeds": 2,
     "total_seeds": 993,
     "unresolved": 0,
-    "last_updated_at": "2026-05-24T22:48:58.426266+00:00"
+    "last_updated_at": "2026-05-24T22:49:46.537464+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
