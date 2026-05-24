@@ -962,7 +962,8 @@
       "saab__900__1990__1998__il",
       "saab__9000__1990__1998__il",
       "saab__9-3__1998__2014__il",
-      "saab__9-5__1997__2012__il"
+      "saab__9-5__1997__2012__il",
+      "ford__ecosport__2013__2022__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1414,8 +1415,8 @@
     "failed_seed_ids": [],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "saab__9-5__1997__2012__il",
-    "next_seed_id": "ford__ecosport__2013__2022__il",
+    "last_completed_seed_id": "ford__ecosport__2013__2022__il",
+    "next_seed_id": "jeep__wrangler__1990__2026__il",
     "run_history": [],
     "failed_details": [],
     "needs_retry_seed_ids": [
@@ -1742,28 +1743,12 @@
         "resolved_at": "2026-05-14T21:17:18.107399+00:00"
       },
       "ford__ecosport__2013__2022__il": {
-        "seed_id": "ford__ecosport__2013__2022__il",
-        "variants_added_to_canonical": 0,
-        "variants_deduped_or_merged": 0,
-        "dedupe_proof": [],
-        "no_variants_reason": "model_not_sold_in_market",
-        "marked_processed": false,
-        "status": "reset_for_rerun",
-        "resolved_at": "2026-05-16T18:32:54.510473+00:00",
-        "zero_variant_resolution": {
-          "resolved": true,
-          "reason": "model_not_sold_in_market",
-          "proof_status": "invalid_placeholder_sources",
-          "source_ids": [
-            "src_1",
-            "src_2",
-            "src_3"
-          ],
-          "source_basis": "Multiple Israeli automotive news sources confirm that the Ford EcoSport was never officially imported or sold in the Israeli market. The local importer (Delek Motors) considered importing it multiple times (in 2014, 2015, and 2017), but due to pricing issues and manufacturer constraints, it never reached the local market.",
-          "confidence": "high"
-        },
-        "reset_reason": "placeholder_source_ids_invalidated_zero_variant_closure",
-        "reset_at": "2026-05-16T19:31:44.831757+00:00"
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 1,
+        "merged_count": 1,
+        "warnings": [],
+        "resolved_at": "2026-05-24T22:53:12.031539+00:00"
       },
       "hyundai__i25__1994__2026__il": {
         "seed_id": "hyundai__i25__1994__2026__il",
@@ -349310,6 +349295,70 @@
         ]
       },
       "variant_id": "saab_9_5_2010_2012_il_confirmed_2nd_gen_ys3g_2_8l_v6_turbo_petrol_300_hp_6_speed_automatic_sedan_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Ford",
+      "model": "EcoSport",
+      "global_model_name": "Ford EcoSport",
+      "official_marketed_name_il": "Ford EcoSport",
+      "local_brand_name_il": "Ford",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2018,
+      "year_end": 2021,
+      "generation": "2nd Gen (B515) Facelift",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "1.0L EcoBoost Turbo Petrol, 125 hp",
+      "transmission": "6-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "Trend",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli automotive sources confirm the official launch of the facelifted Ford EcoSport by Delek Motors in June 2018, strictly equipped with the 1.0L EcoBoost 125hp engine and a 6-speed traditional automatic. 'Trend' was the entry-level trim.",
+      "source_ids": [
+        "cartube_il_ford_ecosport_2018",
+        "icar_il_ford_ecosport",
+        "ford_global_ecosport_b515"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_ford_ecosport"
+        ],
+        "seats": [
+          "icar_il_ford_ecosport"
+        ],
+        "engine": [
+          "cartube_il_ford_ecosport_2018"
+        ],
+        "transmission": [
+          "cartube_il_ford_ecosport_2018"
+        ],
+        "fuel_type": [
+          "icar_il_ford_ecosport"
+        ],
+        "drivetrain": [
+          "cartube_il_ford_ecosport_2018"
+        ],
+        "generation": [
+          "icar_il_ford_ecosport",
+          "ford_global_ecosport_b515"
+        ],
+        "year_start": [
+          "cartube_il_ford_ecosport_2018"
+        ],
+        "year_end": [
+          "icar_il_ford_ecosport"
+        ],
+        "trim": [
+          "cartube_il_ford_ecosport_2018"
+        ]
+      },
+      "variant_id": "ford_ecosport_2018_2021_il_confirmed_2nd_gen_b515_facelift_1_0l_ecoboost_turbo_petrol_125_hp_6_speed_automatic_suv_petrol",
+      "updated_at": "2026-05-24T22:53:12.033528+00:00"
     }
   ],
   "accumulated_clean_export": {
@@ -567320,17 +567369,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 3586,
-    "variants": 3586,
+    "total_variants": 3587,
+    "variants": 3587,
     "verified": 788,
-    "partial": 2798,
+    "partial": 2799,
     "makes_count": 85,
-    "models_count": 951,
-    "processed_seeds": 953,
+    "models_count": 952,
+    "processed_seeds": 954,
     "needs_retry_seeds": 2,
     "total_seeds": 993,
     "unresolved": 0,
-    "last_updated_at": "2026-05-24T22:52:36.701686+00:00"
+    "last_updated_at": "2026-05-24T22:53:12.039893+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
