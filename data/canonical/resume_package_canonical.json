@@ -963,7 +963,8 @@
       "saab__9000__1990__1998__il",
       "saab__9-3__1998__2014__il",
       "saab__9-5__1997__2012__il",
-      "ford__ecosport__2013__2022__il"
+      "ford__ecosport__2013__2022__il",
+      "jeep__wrangler__1990__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1415,8 +1416,8 @@
     "failed_seed_ids": [],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "ford__ecosport__2013__2022__il",
-    "next_seed_id": "jeep__wrangler__1990__2026__il",
+    "last_completed_seed_id": "jeep__wrangler__1990__2026__il",
+    "next_seed_id": "jeep__grand_cherokee__1993__2026__il",
     "run_history": [],
     "failed_details": [],
     "needs_retry_seed_ids": [
@@ -6320,6 +6321,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-24T22:52:36.690216+00:00"
+      },
+      "jeep__wrangler__1990__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 6,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-24T22:54:12.800508+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -349359,6 +349368,355 @@
       },
       "variant_id": "ford_ecosport_2018_2021_il_confirmed_2nd_gen_b515_facelift_1_0l_ecoboost_turbo_petrol_125_hp_6_speed_automatic_suv_petrol",
       "updated_at": "2026-05-24T22:53:12.033528+00:00"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Jeep",
+      "model": "Wrangler",
+      "global_model_name": "Jeep Wrangler JL",
+      "official_marketed_name_il": "Jeep Wrangler",
+      "local_brand_name_il": "Jeep",
+      "alternate_names": [
+        "Jeep Wrangler Unlimited"
+      ],
+      "rebadged_as": null,
+      "year_start": 2018,
+      "year_end": 2026,
+      "generation": "JL",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "2.0L Turbo Petrol, 272 hp",
+      "transmission": "8-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "4WD",
+      "trim": "",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "IL market sources (iCar, Cartube) explicitly confirm the JL generation in Israel was exclusively marketed with the 2.0L turbocharged engine for standard petrol models. Available in 2-door and 4-door (Unlimited). Trims like Sport, Sahara, Rubicon are available.",
+      "source_ids": [
+        "icar_il_jeep_wrangler_jl"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_jeep_wrangler_jl"
+        ],
+        "seats": [
+          "icar_il_jeep_wrangler_jl"
+        ],
+        "engine": [
+          "icar_il_jeep_wrangler_jl"
+        ],
+        "transmission": [
+          "icar_il_jeep_wrangler_jl"
+        ],
+        "fuel_type": [
+          "icar_il_jeep_wrangler_jl"
+        ],
+        "drivetrain": [
+          "icar_il_jeep_wrangler_jl"
+        ],
+        "generation": [
+          "icar_il_jeep_wrangler_jl"
+        ],
+        "year_start": [
+          "icar_il_jeep_wrangler_jl"
+        ],
+        "year_end": [
+          "icar_il_jeep_wrangler_jl"
+        ],
+        "trim": []
+      },
+      "variant_id": "jeep_wrangler_2018_2026_il_confirmed_jl_2_0l_turbo_petrol_272_hp_8_speed_automatic_suv_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Jeep",
+      "model": "Wrangler",
+      "global_model_name": "Jeep Wrangler JL 4xe",
+      "official_marketed_name_il": "Jeep Wrangler 4xe",
+      "local_brand_name_il": "Jeep",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2021,
+      "year_end": 2026,
+      "generation": "JL",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "2.0L Plug-in Hybrid, 380 hp",
+      "transmission": "8-speed automatic",
+      "fuel_type": "Plug-in Hybrid",
+      "drivetrain": "4WD",
+      "trim": "",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "The Wrangler 4xe (PHEV) was introduced to the Israeli market around 2021, combining the 2.0L turbo engine with dual electric motors. Officially sold alongside the standard 2.0L turbo.",
+      "source_ids": [
+        "icar_il_jeep_wrangler_jl"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_jeep_wrangler_jl"
+        ],
+        "seats": [
+          "icar_il_jeep_wrangler_jl"
+        ],
+        "engine": [
+          "icar_il_jeep_wrangler_jl"
+        ],
+        "transmission": [
+          "icar_il_jeep_wrangler_jl"
+        ],
+        "fuel_type": [
+          "icar_il_jeep_wrangler_jl"
+        ],
+        "drivetrain": [
+          "icar_il_jeep_wrangler_jl"
+        ],
+        "generation": [
+          "icar_il_jeep_wrangler_jl"
+        ],
+        "year_start": [
+          "icar_il_jeep_wrangler_jl"
+        ],
+        "year_end": [
+          "icar_il_jeep_wrangler_jl"
+        ],
+        "trim": []
+      },
+      "variant_id": "jeep_wrangler_2021_2026_il_confirmed_jl_2_0l_plug_in_hybrid_380_hp_8_speed_automatic_suv_plug_in_hybrid"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Jeep",
+      "model": "Wrangler",
+      "global_model_name": "Jeep Wrangler JK Pentastar",
+      "official_marketed_name_il": "Jeep Wrangler",
+      "local_brand_name_il": "Jeep",
+      "alternate_names": [
+        "Jeep Wrangler Unlimited"
+      ],
+      "rebadged_as": null,
+      "year_start": 2012,
+      "year_end": 2018,
+      "generation": "JK",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "3.6L V6 Pentastar, 284 hp",
+      "transmission": "5-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "4WD",
+      "trim": "",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Wrangler JK received the 3.6L Pentastar V6 and a 5-speed auto transmission globally and in IL starting in 2012. Confirmed by Cartube and iCar historical specs.",
+      "source_ids": [
+        "cartube_il_jeep_wrangler_jk"
+      ],
+      "field_sources": {
+        "body_type": [
+          "cartube_il_jeep_wrangler_jk"
+        ],
+        "seats": [],
+        "engine": [
+          "cartube_il_jeep_wrangler_jk"
+        ],
+        "transmission": [
+          "cartube_il_jeep_wrangler_jk"
+        ],
+        "fuel_type": [
+          "cartube_il_jeep_wrangler_jk"
+        ],
+        "drivetrain": [
+          "cartube_il_jeep_wrangler_jk"
+        ],
+        "generation": [
+          "cartube_il_jeep_wrangler_jk"
+        ],
+        "year_start": [
+          "cartube_il_jeep_wrangler_jk"
+        ],
+        "year_end": [
+          "cartube_il_jeep_wrangler_jk"
+        ],
+        "trim": []
+      },
+      "variant_id": "jeep_wrangler_2012_2018_il_confirmed_jk_3_6l_v6_pentastar_284_hp_5_speed_automatic_suv_petrol"
+    },
+    {
+      "candidate_index": 3,
+      "make": "Jeep",
+      "model": "Wrangler",
+      "global_model_name": "Jeep Wrangler JK EGH",
+      "official_marketed_name_il": "Jeep Wrangler",
+      "local_brand_name_il": "Jeep",
+      "alternate_names": [
+        "Jeep Wrangler Unlimited"
+      ],
+      "rebadged_as": null,
+      "year_start": 2007,
+      "year_end": 2011,
+      "generation": "JK",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "3.8L V6, 199 hp",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "4WD",
+      "trim": "",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "The initial JK generation (2007-2011) was sold in Israel featuring the 3.8L V6 engine and a 4-speed automatic transmission. Verified via Israeli automotive historical records.",
+      "source_ids": [
+        "cartube_il_jeep_wrangler_jk",
+        "gear_il_jeep_wrangler_tj_jk"
+      ],
+      "field_sources": {
+        "body_type": [
+          "cartube_il_jeep_wrangler_jk"
+        ],
+        "seats": [],
+        "engine": [
+          "cartube_il_jeep_wrangler_jk"
+        ],
+        "transmission": [
+          "cartube_il_jeep_wrangler_jk"
+        ],
+        "fuel_type": [
+          "cartube_il_jeep_wrangler_jk"
+        ],
+        "drivetrain": [
+          "cartube_il_jeep_wrangler_jk"
+        ],
+        "generation": [
+          "cartube_il_jeep_wrangler_jk"
+        ],
+        "year_start": [
+          "cartube_il_jeep_wrangler_jk"
+        ],
+        "year_end": [
+          "cartube_il_jeep_wrangler_jk"
+        ],
+        "trim": []
+      },
+      "variant_id": "jeep_wrangler_2007_2011_il_confirmed_jk_3_8l_v6_199_hp_4_speed_automatic_suv_petrol"
+    },
+    {
+      "candidate_index": 4,
+      "make": "Jeep",
+      "model": "Wrangler",
+      "global_model_name": "Jeep Wrangler JK CRD",
+      "official_marketed_name_il": "Jeep Wrangler",
+      "local_brand_name_il": "Jeep",
+      "alternate_names": [
+        "Jeep Wrangler Unlimited"
+      ],
+      "rebadged_as": null,
+      "year_start": 2007,
+      "year_end": 2018,
+      "generation": "JK",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "2.8L CRD Turbo Diesel, 177-200 hp",
+      "transmission": "5-speed automatic",
+      "fuel_type": "Diesel",
+      "drivetrain": "4WD",
+      "trim": "",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "medium",
+      "source_basis": "Diesel JK variants were sold in Israel, particularly favoured by off-road enthusiasts wanting range and torque. Often paired with 5-speed auto.",
+      "source_ids": [
+        "cartube_il_jeep_wrangler_jk"
+      ],
+      "field_sources": {
+        "body_type": [
+          "cartube_il_jeep_wrangler_jk"
+        ],
+        "seats": [],
+        "engine": [
+          "cartube_il_jeep_wrangler_jk"
+        ],
+        "transmission": [
+          "cartube_il_jeep_wrangler_jk"
+        ],
+        "fuel_type": [
+          "cartube_il_jeep_wrangler_jk"
+        ],
+        "drivetrain": [
+          "cartube_il_jeep_wrangler_jk"
+        ],
+        "generation": [
+          "cartube_il_jeep_wrangler_jk"
+        ],
+        "year_start": [
+          "cartube_il_jeep_wrangler_jk"
+        ],
+        "year_end": [
+          "cartube_il_jeep_wrangler_jk"
+        ],
+        "trim": []
+      },
+      "variant_id": "jeep_wrangler_2007_2018_il_confirmed_jk_2_8l_crd_turbo_diesel_177_200_hp_5_speed_automatic_suv_diesel"
+    },
+    {
+      "candidate_index": 5,
+      "make": "Jeep",
+      "model": "Wrangler",
+      "global_model_name": "Jeep Wrangler TJ",
+      "official_marketed_name_il": "Jeep Wrangler",
+      "local_brand_name_il": "Jeep",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2003,
+      "year_end": 2006,
+      "generation": "TJ",
+      "body_type": "SUV",
+      "seats": 4,
+      "engine": "4.0L AMC Inline-6, 190 hp",
+      "transmission": "4-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "4WD",
+      "trim": "",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "medium",
+      "source_basis": "Later TJ generation sold in Israel with the 4.0L straight-six and updated 4-speed automatic (replacing older 3-speed). Confirmed active in used car and off-road community listings in Israel.",
+      "source_ids": [
+        "gear_il_jeep_wrangler_tj_jk"
+      ],
+      "field_sources": {
+        "body_type": [
+          "gear_il_jeep_wrangler_tj_jk"
+        ],
+        "seats": [],
+        "engine": [
+          "gear_il_jeep_wrangler_tj_jk"
+        ],
+        "transmission": [
+          "gear_il_jeep_wrangler_tj_jk"
+        ],
+        "fuel_type": [
+          "gear_il_jeep_wrangler_tj_jk"
+        ],
+        "drivetrain": [
+          "gear_il_jeep_wrangler_tj_jk"
+        ],
+        "generation": [
+          "gear_il_jeep_wrangler_tj_jk"
+        ],
+        "year_start": [
+          "gear_il_jeep_wrangler_tj_jk"
+        ],
+        "year_end": [
+          "gear_il_jeep_wrangler_tj_jk"
+        ],
+        "trim": []
+      },
+      "variant_id": "jeep_wrangler_2003_2006_il_confirmed_tj_4_0l_amc_inline_6_190_hp_4_speed_automatic_suv_petrol"
     }
   ],
   "accumulated_clean_export": {
@@ -567369,17 +567727,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 3587,
-    "variants": 3587,
+    "total_variants": 3593,
+    "variants": 3593,
     "verified": 788,
-    "partial": 2799,
-    "makes_count": 85,
-    "models_count": 952,
-    "processed_seeds": 954,
+    "partial": 2805,
+    "makes_count": 86,
+    "models_count": 953,
+    "processed_seeds": 955,
     "needs_retry_seeds": 2,
     "total_seeds": 993,
     "unresolved": 0,
-    "last_updated_at": "2026-05-24T22:53:12.039893+00:00"
+    "last_updated_at": "2026-05-24T22:54:12.812506+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
