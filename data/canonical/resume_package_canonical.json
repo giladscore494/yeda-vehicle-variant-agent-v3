@@ -969,7 +969,8 @@
       "jeep__cherokee__1990__2024__il",
       "jeep__compass__2007__2026__il",
       "jeep__renegade__2014__2024__il",
-      "jeep__avenger__2023__2026__il"
+      "jeep__avenger__2023__2026__il",
+      "jeep__gladiator__2019__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1421,8 +1422,8 @@
     "failed_seed_ids": [],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "jeep__avenger__2023__2026__il",
-    "next_seed_id": "jeep__gladiator__2019__2026__il",
+    "last_completed_seed_id": "jeep__gladiator__2019__2026__il",
+    "next_seed_id": "jeep__commander__2006__2010__il",
     "run_history": [],
     "failed_details": [],
     "needs_retry_seed_ids": [
@@ -6374,6 +6375,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-24T22:58:35.208177+00:00"
+      },
+      "jeep__gladiator__2019__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 4,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-24T22:59:23.453372+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -351288,6 +351297,256 @@
         "trim": []
       },
       "variant_id": "jeep_avenger_2024_2026_il_likely_1st_gen_e_cmp2_1_2l_turbo_e_hybrid_100_hp_6_speed_dct_suv_mild_hybrid"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Jeep",
+      "model": "Gladiator",
+      "global_model_name": "Gladiator (JT)",
+      "official_marketed_name_il": "Jeep Gladiator",
+      "local_brand_name_il": "Jeep",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2019,
+      "year_end": 2026,
+      "generation": "JT",
+      "body_type": "Pickup",
+      "seats": 5,
+      "engine": "3.6L V6 Pentastar, 285 hp",
+      "transmission": "8-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "4WD",
+      "trim": "Rubicon",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli sources confirm the Jeep Gladiator (JT generation) is marketed officially in Israel, primarily in the Rubicon trim with the 3.6L Pentastar V6 and 8-speed automatic transmission. Global production began in 2019 for the 2020 model year.",
+      "source_ids": [
+        "icar_il_jeep_gladiator",
+        "cartube_il_gladiator_launch",
+        "jeep_global_gladiator_jt"
+      ],
+      "field_sources": {
+        "body_type": [
+          "icar_il_jeep_gladiator",
+          "jeep_global_gladiator_jt"
+        ],
+        "seats": [
+          "icar_il_jeep_gladiator"
+        ],
+        "engine": [
+          "icar_il_jeep_gladiator",
+          "cartube_il_gladiator_launch"
+        ],
+        "transmission": [
+          "icar_il_jeep_gladiator",
+          "cartube_il_gladiator_launch"
+        ],
+        "fuel_type": [
+          "icar_il_jeep_gladiator"
+        ],
+        "drivetrain": [
+          "icar_il_jeep_gladiator",
+          "jeep_global_gladiator_jt"
+        ],
+        "generation": [
+          "cartube_il_gladiator_launch",
+          "jeep_global_gladiator_jt"
+        ],
+        "year_start": [
+          "cartube_il_gladiator_launch",
+          "jeep_global_gladiator_jt"
+        ],
+        "year_end": [
+          "jeep_global_gladiator_jt"
+        ],
+        "trim": [
+          "icar_il_jeep_gladiator",
+          "cartube_il_gladiator_launch"
+        ]
+      },
+      "variant_id": "jeep_gladiator_2019_2026_il_confirmed_jt_3_6l_v6_pentastar_285_hp_8_speed_automatic_pickup_petrol"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Jeep",
+      "model": "Gladiator",
+      "global_model_name": "Gladiator (JT)",
+      "official_marketed_name_il": "Jeep Gladiator",
+      "local_brand_name_il": "Jeep",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2019,
+      "year_end": 2026,
+      "generation": "JT",
+      "body_type": "Pickup",
+      "seats": 5,
+      "engine": "3.6L V6 Pentastar, 285 hp",
+      "transmission": "8-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "4WD",
+      "trim": "Overland",
+      "market_scope": "IL-likely",
+      "market_name_confidence": "likely",
+      "confidence_level": "medium",
+      "source_basis": "Overland is a prominent luxury trim globally. Often imported into the Israeli market alongside or below the Rubicon, but primary focus in local reviews is the Rubicon. Marked as IL-likely.",
+      "source_ids": [
+        "jeep_global_gladiator_jt",
+        "icar_il_jeep_gladiator"
+      ],
+      "field_sources": {
+        "body_type": [
+          "jeep_global_gladiator_jt"
+        ],
+        "seats": [
+          "jeep_global_gladiator_jt"
+        ],
+        "engine": [
+          "jeep_global_gladiator_jt"
+        ],
+        "transmission": [
+          "jeep_global_gladiator_jt"
+        ],
+        "fuel_type": [
+          "jeep_global_gladiator_jt"
+        ],
+        "drivetrain": [
+          "jeep_global_gladiator_jt"
+        ],
+        "generation": [
+          "jeep_global_gladiator_jt"
+        ],
+        "year_start": [
+          "jeep_global_gladiator_jt"
+        ],
+        "year_end": [
+          "jeep_global_gladiator_jt"
+        ],
+        "trim": [
+          "jeep_global_gladiator_jt"
+        ]
+      },
+      "variant_id": "jeep_gladiator_2019_2026_il_likely_jt_3_6l_v6_pentastar_285_hp_8_speed_automatic_pickup_petrol"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Jeep",
+      "model": "Gladiator",
+      "global_model_name": "Gladiator (JT)",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2019,
+      "year_end": 2026,
+      "generation": "JT",
+      "body_type": "Pickup",
+      "seats": 5,
+      "engine": "3.6L V6 Pentastar, 285 hp",
+      "transmission": "8-speed automatic",
+      "fuel_type": "Petrol",
+      "drivetrain": "4WD",
+      "trim": "Mojave",
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "Mojave is a desert-rated variant available globally. Official import to Israel is not confirmed; provided for global reference.",
+      "source_ids": [
+        "jeep_global_gladiator_jt"
+      ],
+      "field_sources": {
+        "body_type": [
+          "jeep_global_gladiator_jt"
+        ],
+        "seats": [
+          "jeep_global_gladiator_jt"
+        ],
+        "engine": [
+          "jeep_global_gladiator_jt"
+        ],
+        "transmission": [
+          "jeep_global_gladiator_jt"
+        ],
+        "fuel_type": [
+          "jeep_global_gladiator_jt"
+        ],
+        "drivetrain": [
+          "jeep_global_gladiator_jt"
+        ],
+        "generation": [
+          "jeep_global_gladiator_jt"
+        ],
+        "year_start": [
+          "jeep_global_gladiator_jt"
+        ],
+        "year_end": [
+          "jeep_global_gladiator_jt"
+        ],
+        "trim": [
+          "jeep_global_gladiator_jt"
+        ]
+      },
+      "variant_id": "jeep_gladiator_2019_2026_global_reference_only_jt_3_6l_v6_pentastar_285_hp_8_speed_automatic_pickup_petrol"
+    },
+    {
+      "candidate_index": 3,
+      "make": "Jeep",
+      "model": "Gladiator",
+      "global_model_name": "Gladiator (JT)",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2021,
+      "year_end": 2023,
+      "generation": "JT",
+      "body_type": "Pickup",
+      "seats": 5,
+      "engine": "3.0L EcoDiesel V6, 260 hp",
+      "transmission": "8-speed automatic",
+      "fuel_type": "Diesel",
+      "drivetrain": "4WD",
+      "trim": "Rubicon",
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "high",
+      "source_basis": "Global manufacturer spec confirms a 3.0L EcoDiesel variant existed between 2021 and 2023 globally before being discontinued. Not officially imported by the Israeli main dealer.",
+      "source_ids": [
+        "jeep_global_gladiator_jt"
+      ],
+      "field_sources": {
+        "body_type": [
+          "jeep_global_gladiator_jt"
+        ],
+        "seats": [
+          "jeep_global_gladiator_jt"
+        ],
+        "engine": [
+          "jeep_global_gladiator_jt"
+        ],
+        "transmission": [
+          "jeep_global_gladiator_jt"
+        ],
+        "fuel_type": [
+          "jeep_global_gladiator_jt"
+        ],
+        "drivetrain": [
+          "jeep_global_gladiator_jt"
+        ],
+        "generation": [
+          "jeep_global_gladiator_jt"
+        ],
+        "year_start": [
+          "jeep_global_gladiator_jt"
+        ],
+        "year_end": [
+          "jeep_global_gladiator_jt"
+        ],
+        "trim": [
+          "jeep_global_gladiator_jt"
+        ]
+      },
+      "variant_id": "jeep_gladiator_2021_2023_global_reference_only_jt_3_0l_ecodiesel_v6_260_hp_8_speed_automatic_pickup_diesel"
     }
   ],
   "accumulated_clean_export": {
@@ -569298,17 +569557,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 3619,
-    "variants": 3619,
+    "total_variants": 3623,
+    "variants": 3623,
     "verified": 788,
-    "partial": 2831,
+    "partial": 2835,
     "makes_count": 86,
-    "models_count": 958,
-    "processed_seeds": 960,
+    "models_count": 959,
+    "processed_seeds": 961,
     "needs_retry_seeds": 2,
     "total_seeds": 993,
     "unresolved": 0,
-    "last_updated_at": "2026-05-24T22:58:35.217212+00:00"
+    "last_updated_at": "2026-05-24T22:59:23.466009+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
