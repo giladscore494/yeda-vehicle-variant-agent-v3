@@ -956,7 +956,8 @@
       "volvo__c30__2006__2013__il",
       "volvo__c40__2021__2026__il",
       "volvo__ex30__2023__2026__il",
-      "volvo__ex90__2024__2026__il"
+      "volvo__ex90__2024__2026__il",
+      "volvo__em90__2024__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1408,8 +1409,8 @@
     "failed_seed_ids": [],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "volvo__ex90__2024__2026__il",
-    "next_seed_id": "volvo__em90__2024__2026__il",
+    "last_completed_seed_id": "volvo__em90__2024__2026__il",
+    "next_seed_id": "volvo__850__1991__1997__il",
     "run_history": [],
     "failed_details": [],
     "needs_retry_seed_ids": [
@@ -6281,6 +6282,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-24T22:47:43.695961+00:00"
+      },
+      "volvo__em90__2024__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 1,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-24T22:48:10.683791+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -347850,6 +347859,66 @@
         ]
       },
       "variant_id": "volvo_ex90_2024_2026_global_reference_only_1st_gen_spa2_single_electric_motor_279_hp_single_speed_ev_suv_electric"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Volvo",
+      "model": "EM90",
+      "global_model_name": "Volvo EM90",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": "Volvo",
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2024,
+      "year_end": 2026,
+      "generation": "1st Gen",
+      "body_type": "MPV",
+      "seats": 6,
+      "engine": "Single Electric Motor, 116 kWh battery (200 kW / 268 hp)",
+      "transmission": "Single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "RWD",
+      "trim": null,
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "Model launched primarily for the Chinese market. No official evidence of availability or marketed name in Israel as of 2024. Specifications provided as global reference based on official global manufacturer data.",
+      "source_ids": [
+        "volvo_global_em90_pr_2023",
+        "motor1_volvo_em90_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "volvo_global_em90_pr_2023"
+        ],
+        "seats": [
+          "volvo_global_em90_pr_2023",
+          "motor1_volvo_em90_specs"
+        ],
+        "engine": [
+          "volvo_global_em90_pr_2023",
+          "motor1_volvo_em90_specs"
+        ],
+        "transmission": [
+          "volvo_global_em90_pr_2023"
+        ],
+        "fuel_type": [
+          "volvo_global_em90_pr_2023"
+        ],
+        "drivetrain": [
+          "volvo_global_em90_pr_2023",
+          "motor1_volvo_em90_specs"
+        ],
+        "generation": [
+          "volvo_global_em90_pr_2023"
+        ],
+        "year_start": [
+          "volvo_global_em90_pr_2023"
+        ],
+        "year_end": [],
+        "trim": []
+      },
+      "variant_id": "volvo_em90_2024_2026_global_reference_only_1st_gen_single_electric_motor_116_kwh_battery_200_kw_268_hp_single_speed_ev_mpv_electric"
     }
   ],
   "accumulated_clean_export": {
@@ -565860,17 +565929,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 3563,
-    "variants": 3563,
+    "total_variants": 3564,
+    "variants": 3564,
     "verified": 788,
-    "partial": 2775,
+    "partial": 2776,
     "makes_count": 84,
-    "models_count": 945,
-    "processed_seeds": 947,
+    "models_count": 946,
+    "processed_seeds": 948,
     "needs_retry_seeds": 2,
     "total_seeds": 993,
     "unresolved": 0,
-    "last_updated_at": "2026-05-24T22:47:43.705214+00:00"
+    "last_updated_at": "2026-05-24T22:48:10.694696+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
