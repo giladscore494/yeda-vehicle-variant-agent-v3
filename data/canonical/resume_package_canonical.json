@@ -968,7 +968,8 @@
       "jeep__grand_cherokee__1993__2026__il",
       "jeep__cherokee__1990__2024__il",
       "jeep__compass__2007__2026__il",
-      "jeep__renegade__2014__2024__il"
+      "jeep__renegade__2014__2024__il",
+      "jeep__avenger__2023__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1420,8 +1421,8 @@
     "failed_seed_ids": [],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "jeep__renegade__2014__2024__il",
-    "next_seed_id": "jeep__avenger__2023__2026__il",
+    "last_completed_seed_id": "jeep__avenger__2023__2026__il",
+    "next_seed_id": "jeep__gladiator__2019__2026__il",
     "run_history": [],
     "failed_details": [],
     "needs_retry_seed_ids": [
@@ -6365,6 +6366,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-24T22:57:51.405820+00:00"
+      },
+      "jeep__avenger__2023__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 3,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-24T22:58:35.208177+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -351097,6 +351106,188 @@
         "trim": []
       },
       "variant_id": "jeep_renegade_2022_2024_il_confirmed_1st_gen_facelift_bu_1_5l_e_hybrid_turbo_mhev_130_hp_7_speed_dct_suv_mild_hybrid"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Jeep",
+      "model": "Avenger",
+      "global_model_name": "Jeep Avenger",
+      "official_marketed_name_il": "Jeep Avenger",
+      "local_brand_name_il": "Jeep",
+      "alternate_names": [
+        "ג'יפ אוונג'ר"
+      ],
+      "rebadged_as": null,
+      "year_start": 2023,
+      "year_end": 2026,
+      "generation": "1st Gen (e-CMP2)",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "Single Electric Motor, 156 hp (54 kWh)",
+      "transmission": "Single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "FWD",
+      "trim": "Altitude",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Israeli importer site and local automotive reviews confirm the Avenger EV was the initial launch variant in late 2023. Higher 'Summit' trim also available in the IL market. EV specs verified.",
+      "source_ids": [
+        "jeep_il_official_2024",
+        "cartube_il_avenger_ev_launch"
+      ],
+      "field_sources": {
+        "body_type": [
+          "jeep_il_official_2024"
+        ],
+        "seats": [
+          "jeep_il_official_2024"
+        ],
+        "engine": [
+          "jeep_il_official_2024",
+          "cartube_il_avenger_ev_launch"
+        ],
+        "transmission": [
+          "jeep_il_official_2024",
+          "cartube_il_avenger_ev_launch"
+        ],
+        "fuel_type": [
+          "jeep_il_official_2024"
+        ],
+        "drivetrain": [
+          "cartube_il_avenger_ev_launch"
+        ],
+        "generation": [
+          "jeep_il_official_2024"
+        ],
+        "year_start": [
+          "cartube_il_avenger_ev_launch"
+        ],
+        "year_end": [],
+        "trim": [
+          "jeep_il_official_2024",
+          "cartube_il_avenger_ev_launch"
+        ]
+      },
+      "variant_id": "jeep_avenger_2023_2026_il_confirmed_1st_gen_e_cmp2_single_electric_motor_156_hp_54_kwh_single_speed_ev_suv_electric"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Jeep",
+      "model": "Avenger",
+      "global_model_name": "Jeep Avenger",
+      "official_marketed_name_il": "Jeep Avenger",
+      "local_brand_name_il": "Jeep",
+      "alternate_names": [
+        "ג'יפ אוונג'ר"
+      ],
+      "rebadged_as": null,
+      "year_start": 2024,
+      "year_end": 2026,
+      "generation": "1st Gen (e-CMP2)",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "1.2L Turbo 3-cylinder, 100 hp",
+      "transmission": "6-speed manual",
+      "fuel_type": "Petrol",
+      "drivetrain": "FWD",
+      "trim": "Altitude",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Cartube IL reports the launch of the 1.2L turbo petrol engine with manual transmission in Israel in March 2024. Offered in Altitude trim.",
+      "source_ids": [
+        "cartube_il_avenger_petrol_2024"
+      ],
+      "field_sources": {
+        "body_type": [
+          "jeep_il_official_2024"
+        ],
+        "seats": [
+          "cartube_il_avenger_petrol_2024"
+        ],
+        "engine": [
+          "cartube_il_avenger_petrol_2024"
+        ],
+        "transmission": [
+          "cartube_il_avenger_petrol_2024"
+        ],
+        "fuel_type": [
+          "cartube_il_avenger_petrol_2024"
+        ],
+        "drivetrain": [
+          "cartube_il_avenger_petrol_2024"
+        ],
+        "generation": [
+          "jeep_il_official_2024"
+        ],
+        "year_start": [
+          "cartube_il_avenger_petrol_2024"
+        ],
+        "year_end": [],
+        "trim": [
+          "cartube_il_avenger_petrol_2024"
+        ]
+      },
+      "variant_id": "jeep_avenger_2024_2026_il_confirmed_1st_gen_e_cmp2_1_2l_turbo_3_cylinder_100_hp_6_speed_manual_suv_petrol"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Jeep",
+      "model": "Avenger",
+      "global_model_name": "Jeep Avenger",
+      "official_marketed_name_il": "Jeep Avenger e-Hybrid",
+      "local_brand_name_il": "Jeep",
+      "alternate_names": [
+        "ג'יפ אוונג'ר הייבריד"
+      ],
+      "rebadged_as": null,
+      "year_start": 2024,
+      "year_end": 2026,
+      "generation": "1st Gen (e-CMP2)",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "1.2L Turbo e-Hybrid, 100 hp",
+      "transmission": "6-speed DCT",
+      "fuel_type": "Mild Hybrid",
+      "drivetrain": "FWD",
+      "trim": "Altitude",
+      "market_scope": "IL-likely",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "medium",
+      "source_basis": "The e-Hybrid (Mild Hybrid, MHEV) variant with 6-speed DCT was announced globally for 2024 and confirmed by IL sources to follow the petrol manual launch. Marked IL-likely pending full Israeli price-list integration.",
+      "source_ids": [
+        "cartube_il_avenger_petrol_2024"
+      ],
+      "field_sources": {
+        "body_type": [
+          "jeep_il_official_2024"
+        ],
+        "seats": [
+          "cartube_il_avenger_petrol_2024"
+        ],
+        "engine": [
+          "cartube_il_avenger_petrol_2024"
+        ],
+        "transmission": [
+          "cartube_il_avenger_petrol_2024"
+        ],
+        "fuel_type": [
+          "cartube_il_avenger_petrol_2024"
+        ],
+        "drivetrain": [
+          "cartube_il_avenger_petrol_2024"
+        ],
+        "generation": [
+          "jeep_il_official_2024"
+        ],
+        "year_start": [
+          "cartube_il_avenger_petrol_2024"
+        ],
+        "year_end": [],
+        "trim": []
+      },
+      "variant_id": "jeep_avenger_2024_2026_il_likely_1st_gen_e_cmp2_1_2l_turbo_e_hybrid_100_hp_6_speed_dct_suv_mild_hybrid"
     }
   ],
   "accumulated_clean_export": {
@@ -569107,17 +569298,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 3616,
-    "variants": 3616,
+    "total_variants": 3619,
+    "variants": 3619,
     "verified": 788,
-    "partial": 2828,
+    "partial": 2831,
     "makes_count": 86,
-    "models_count": 957,
-    "processed_seeds": 959,
+    "models_count": 958,
+    "processed_seeds": 960,
     "needs_retry_seeds": 2,
     "total_seeds": 993,
     "unresolved": 0,
-    "last_updated_at": "2026-05-24T22:57:51.415277+00:00"
+    "last_updated_at": "2026-05-24T22:58:35.217212+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
