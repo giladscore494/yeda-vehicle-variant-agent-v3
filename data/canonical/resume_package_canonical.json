@@ -953,7 +953,8 @@
       "volvo__xc40__2017__2026__il",
       "volvo__xc60__2008__2026__il",
       "volvo__xc90__2002__2026__il",
-      "volvo__c30__2006__2013__il"
+      "volvo__c30__2006__2013__il",
+      "volvo__c40__2021__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1405,8 +1406,8 @@
     "failed_seed_ids": [],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "volvo__c30__2006__2013__il",
-    "next_seed_id": "volvo__c40__2021__2026__il",
+    "last_completed_seed_id": "volvo__c40__2021__2026__il",
+    "next_seed_id": "volvo__ex30__2023__2026__il",
     "run_history": [],
     "failed_details": [],
     "needs_retry_seed_ids": [
@@ -6254,6 +6255,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-24T22:45:13.170277+00:00"
+      },
+      "volvo__c40__2021__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 5,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-24T22:46:09.959150+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -347105,6 +347114,329 @@
         ]
       },
       "variant_id": "volvo_c30_2010_2013_il_confirmed_1st_gen_2_0l_4_cylinder_petrol_145_hp_6_speed_dct_hatchback_petrol"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Volvo",
+      "model": "C40",
+      "global_model_name": "C40 Recharge",
+      "official_marketed_name_il": "Volvo C40 Recharge",
+      "local_brand_name_il": "Volvo",
+      "alternate_names": [
+        "Volvo EC40"
+      ],
+      "rebadged_as": null,
+      "year_start": 2022,
+      "year_end": 2023,
+      "generation": "1st Gen (CMA)",
+      "body_type": "Coupe SUV",
+      "seats": 5,
+      "engine": "Single Electric Motor, 231 hp",
+      "transmission": "Single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "FWD",
+      "trim": "Recharge Single Motor",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Confirmed launch in Israel in 2022 via Cartube and iCar; front-wheel drive initial version with 231hp and 69kWh battery.",
+      "source_ids": [
+        "volvo_il_c40_recharge_official",
+        "cartube_il_c40_launch_2022",
+        "icar_il_c40_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "volvo_il_c40_recharge_official",
+          "icar_il_c40_specs"
+        ],
+        "seats": [
+          "volvo_il_c40_recharge_official"
+        ],
+        "engine": [
+          "cartube_il_c40_launch_2022",
+          "icar_il_c40_specs"
+        ],
+        "transmission": [
+          "volvo_il_c40_recharge_official"
+        ],
+        "fuel_type": [
+          "volvo_il_c40_recharge_official"
+        ],
+        "drivetrain": [
+          "cartube_il_c40_launch_2022",
+          "icar_il_c40_specs"
+        ],
+        "generation": [
+          "cartube_il_c40_launch_2022"
+        ],
+        "year_start": [
+          "cartube_il_c40_launch_2022",
+          "icar_il_c40_specs"
+        ],
+        "year_end": [
+          "icar_il_c40_specs",
+          "wheel_il_c40_my24_update"
+        ],
+        "trim": [
+          "cartube_il_c40_launch_2022"
+        ]
+      },
+      "variant_id": "volvo_c40_2022_2023_il_confirmed_1st_gen_cma_single_electric_motor_231_hp_single_speed_ev_coupe_suv_electric"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Volvo",
+      "model": "C40",
+      "global_model_name": "C40 Recharge",
+      "official_marketed_name_il": "Volvo C40 Recharge",
+      "local_brand_name_il": "Volvo",
+      "alternate_names": [
+        "Volvo EC40"
+      ],
+      "rebadged_as": null,
+      "year_start": 2022,
+      "year_end": 2023,
+      "generation": "1st Gen (CMA)",
+      "body_type": "Coupe SUV",
+      "seats": 5,
+      "engine": "Dual Electric Motors, 408 hp",
+      "transmission": "Single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "AWD",
+      "trim": "Recharge Twin Motor",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "Higher performance variant at launch; AWD Twin Motor producing 408hp with a 78kWh battery. Confirmed for IL market by Cartube and iCar.",
+      "source_ids": [
+        "volvo_il_c40_recharge_official",
+        "cartube_il_c40_launch_2022",
+        "icar_il_c40_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "volvo_il_c40_recharge_official"
+        ],
+        "seats": [
+          "volvo_il_c40_recharge_official"
+        ],
+        "engine": [
+          "cartube_il_c40_launch_2022"
+        ],
+        "transmission": [
+          "volvo_il_c40_recharge_official"
+        ],
+        "fuel_type": [
+          "volvo_il_c40_recharge_official"
+        ],
+        "drivetrain": [
+          "cartube_il_c40_launch_2022"
+        ],
+        "generation": [
+          "cartube_il_c40_launch_2022"
+        ],
+        "year_start": [
+          "cartube_il_c40_launch_2022"
+        ],
+        "year_end": [
+          "icar_il_c40_specs",
+          "wheel_il_c40_my24_update"
+        ],
+        "trim": [
+          "cartube_il_c40_launch_2022"
+        ]
+      },
+      "variant_id": "volvo_c40_2022_2023_il_confirmed_1st_gen_cma_dual_electric_motors_408_hp_single_speed_ev_coupe_suv_electric"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Volvo",
+      "model": "C40",
+      "global_model_name": "C40 Recharge",
+      "official_marketed_name_il": "Volvo C40 Recharge",
+      "local_brand_name_il": "Volvo",
+      "alternate_names": [
+        "Volvo EC40"
+      ],
+      "rebadged_as": null,
+      "year_start": 2024,
+      "year_end": 2026,
+      "generation": "1st Gen (CMA)",
+      "body_type": "Coupe SUV",
+      "seats": 5,
+      "engine": "Single Electric Motor, 238 hp",
+      "transmission": "Single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "RWD",
+      "trim": "Recharge Single Motor Standard Range",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "MY2024 technical update transitioned the single-motor model from FWD to RWD. Base model standard range features 238hp.",
+      "source_ids": [
+        "volvo_il_c40_recharge_official",
+        "wheel_il_c40_my24_update"
+      ],
+      "field_sources": {
+        "body_type": [
+          "volvo_il_c40_recharge_official"
+        ],
+        "seats": [
+          "volvo_il_c40_recharge_official"
+        ],
+        "engine": [
+          "wheel_il_c40_my24_update"
+        ],
+        "transmission": [
+          "volvo_il_c40_recharge_official"
+        ],
+        "fuel_type": [
+          "volvo_il_c40_recharge_official"
+        ],
+        "drivetrain": [
+          "wheel_il_c40_my24_update"
+        ],
+        "generation": [
+          "wheel_il_c40_my24_update"
+        ],
+        "year_start": [
+          "wheel_il_c40_my24_update"
+        ],
+        "year_end": [
+          "volvo_il_c40_recharge_official"
+        ],
+        "trim": [
+          "wheel_il_c40_my24_update"
+        ]
+      },
+      "variant_id": "volvo_c40_2024_2026_il_confirmed_1st_gen_cma_single_electric_motor_238_hp_single_speed_ev_coupe_suv_electric"
+    },
+    {
+      "candidate_index": 3,
+      "make": "Volvo",
+      "model": "C40",
+      "global_model_name": "C40 Recharge",
+      "official_marketed_name_il": "Volvo C40 Recharge",
+      "local_brand_name_il": "Volvo",
+      "alternate_names": [
+        "Volvo EC40"
+      ],
+      "rebadged_as": null,
+      "year_start": 2024,
+      "year_end": 2026,
+      "generation": "1st Gen (CMA)",
+      "body_type": "Coupe SUV",
+      "seats": 5,
+      "engine": "Single Electric Motor, 252 hp",
+      "transmission": "Single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "RWD",
+      "trim": "Recharge Single Motor Extended Range",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "MY2024 technical update introduced a larger 82kWh battery with a 252hp rear-mounted electric motor.",
+      "source_ids": [
+        "volvo_il_c40_recharge_official",
+        "wheel_il_c40_my24_update"
+      ],
+      "field_sources": {
+        "body_type": [
+          "volvo_il_c40_recharge_official"
+        ],
+        "seats": [
+          "volvo_il_c40_recharge_official"
+        ],
+        "engine": [
+          "wheel_il_c40_my24_update"
+        ],
+        "transmission": [
+          "volvo_il_c40_recharge_official"
+        ],
+        "fuel_type": [
+          "volvo_il_c40_recharge_official"
+        ],
+        "drivetrain": [
+          "wheel_il_c40_my24_update"
+        ],
+        "generation": [
+          "wheel_il_c40_my24_update"
+        ],
+        "year_start": [
+          "wheel_il_c40_my24_update"
+        ],
+        "year_end": [
+          "volvo_il_c40_recharge_official"
+        ],
+        "trim": [
+          "wheel_il_c40_my24_update"
+        ]
+      },
+      "variant_id": "volvo_c40_2024_2026_il_confirmed_1st_gen_cma_single_electric_motor_252_hp_single_speed_ev_coupe_suv_electric"
+    },
+    {
+      "candidate_index": 4,
+      "make": "Volvo",
+      "model": "C40",
+      "global_model_name": "C40 Recharge",
+      "official_marketed_name_il": "Volvo C40 Recharge",
+      "local_brand_name_il": "Volvo",
+      "alternate_names": [
+        "Volvo EC40"
+      ],
+      "rebadged_as": null,
+      "year_start": 2024,
+      "year_end": 2026,
+      "generation": "1st Gen (CMA)",
+      "body_type": "Coupe SUV",
+      "seats": 5,
+      "engine": "Dual Electric Motors, 408 hp",
+      "transmission": "Single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "AWD",
+      "trim": "Recharge Twin Motor",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "MY2024 AWD update maintained 408hp combined but shifted motor bias to the rear (190kW rear, 110kW front) and upgraded to an 82kWh battery.",
+      "source_ids": [
+        "volvo_il_c40_recharge_official",
+        "wheel_il_c40_my24_update"
+      ],
+      "field_sources": {
+        "body_type": [
+          "volvo_il_c40_recharge_official"
+        ],
+        "seats": [
+          "volvo_il_c40_recharge_official"
+        ],
+        "engine": [
+          "wheel_il_c40_my24_update"
+        ],
+        "transmission": [
+          "volvo_il_c40_recharge_official"
+        ],
+        "fuel_type": [
+          "volvo_il_c40_recharge_official"
+        ],
+        "drivetrain": [
+          "wheel_il_c40_my24_update"
+        ],
+        "generation": [
+          "wheel_il_c40_my24_update"
+        ],
+        "year_start": [
+          "wheel_il_c40_my24_update"
+        ],
+        "year_end": [
+          "volvo_il_c40_recharge_official"
+        ],
+        "trim": [
+          "wheel_il_c40_my24_update"
+        ]
+      },
+      "variant_id": "volvo_c40_2024_2026_il_confirmed_1st_gen_cma_dual_electric_motors_408_hp_single_speed_ev_coupe_suv_electric"
     }
   ],
   "accumulated_clean_export": {
@@ -565115,17 +565447,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 3552,
-    "variants": 3552,
+    "total_variants": 3557,
+    "variants": 3557,
     "verified": 788,
-    "partial": 2764,
+    "partial": 2769,
     "makes_count": 84,
-    "models_count": 942,
-    "processed_seeds": 944,
+    "models_count": 943,
+    "processed_seeds": 945,
     "needs_retry_seeds": 2,
     "total_seeds": 993,
     "unresolved": 0,
-    "last_updated_at": "2026-05-24T22:45:13.180233+00:00"
+    "last_updated_at": "2026-05-24T22:46:09.969884+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
