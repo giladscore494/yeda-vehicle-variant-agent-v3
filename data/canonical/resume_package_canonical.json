@@ -954,7 +954,8 @@
       "volvo__xc60__2008__2026__il",
       "volvo__xc90__2002__2026__il",
       "volvo__c30__2006__2013__il",
-      "volvo__c40__2021__2026__il"
+      "volvo__c40__2021__2026__il",
+      "volvo__ex30__2023__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1406,8 +1407,8 @@
     "failed_seed_ids": [],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "volvo__c40__2021__2026__il",
-    "next_seed_id": "volvo__ex30__2023__2026__il",
+    "last_completed_seed_id": "volvo__ex30__2023__2026__il",
+    "next_seed_id": "volvo__ex90__2024__2026__il",
     "run_history": [],
     "failed_details": [],
     "needs_retry_seed_ids": [
@@ -6263,6 +6264,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-24T22:46:09.959150+00:00"
+      },
+      "volvo__ex30__2023__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 3,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-24T22:46:52.827434+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -347437,6 +347446,207 @@
         ]
       },
       "variant_id": "volvo_c40_2024_2026_il_confirmed_1st_gen_cma_dual_electric_motors_408_hp_single_speed_ev_coupe_suv_electric"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Volvo",
+      "model": "EX30",
+      "global_model_name": "Volvo EX30",
+      "official_marketed_name_il": "Volvo EX30",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2024,
+      "year_end": 2026,
+      "generation": "1st Gen (SEA)",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "Electric motor, 272 hp (51 kWh LFP battery)",
+      "transmission": "single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "RWD",
+      "trim": "Single Motor",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "IL-confirmed via official Volvo Israel importer (Mayer) and local spec sites. Core and Plus trims are available for this standard range powertrain. Launched locally for the 2024 model year.",
+      "source_ids": [
+        "volvo_il_official_ex30",
+        "cartube_il_ex30_2023",
+        "icar_il_ex30_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "volvo_il_official_ex30"
+        ],
+        "seats": [
+          "volvo_il_official_ex30",
+          "icar_il_ex30_specs"
+        ],
+        "engine": [
+          "volvo_il_official_ex30",
+          "cartube_il_ex30_2023"
+        ],
+        "transmission": [
+          "volvo_il_official_ex30",
+          "icar_il_ex30_specs"
+        ],
+        "fuel_type": [
+          "volvo_il_official_ex30"
+        ],
+        "drivetrain": [
+          "volvo_il_official_ex30",
+          "icar_il_ex30_specs"
+        ],
+        "generation": [
+          "icar_il_ex30_specs"
+        ],
+        "year_start": [
+          "cartube_il_ex30_2023"
+        ],
+        "year_end": [
+          "volvo_il_official_ex30"
+        ],
+        "trim": [
+          "volvo_il_official_ex30",
+          "cartube_il_ex30_2023"
+        ]
+      },
+      "variant_id": "volvo_ex30_2024_2026_il_confirmed_1st_gen_sea_electric_motor_272_hp_51_kwh_lfp_battery_single_speed_ev_suv_electric"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Volvo",
+      "model": "EX30",
+      "global_model_name": "Volvo EX30",
+      "official_marketed_name_il": "Volvo EX30",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2024,
+      "year_end": 2026,
+      "generation": "1st Gen (SEA)",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "Electric motor, 272 hp (69 kWh NMC battery)",
+      "transmission": "single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "RWD",
+      "trim": "Single Motor Extended Range",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "IL-confirmed via official Volvo Israel importer. Plus and Ultra trims are offered locally with this extended range NMC battery powertrain.",
+      "source_ids": [
+        "volvo_il_official_ex30",
+        "cartube_il_ex30_2023",
+        "icar_il_ex30_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "volvo_il_official_ex30"
+        ],
+        "seats": [
+          "volvo_il_official_ex30",
+          "icar_il_ex30_specs"
+        ],
+        "engine": [
+          "volvo_il_official_ex30",
+          "cartube_il_ex30_2023"
+        ],
+        "transmission": [
+          "volvo_il_official_ex30",
+          "icar_il_ex30_specs"
+        ],
+        "fuel_type": [
+          "volvo_il_official_ex30"
+        ],
+        "drivetrain": [
+          "volvo_il_official_ex30",
+          "icar_il_ex30_specs"
+        ],
+        "generation": [
+          "icar_il_ex30_specs"
+        ],
+        "year_start": [
+          "cartube_il_ex30_2023"
+        ],
+        "year_end": [
+          "volvo_il_official_ex30"
+        ],
+        "trim": [
+          "volvo_il_official_ex30",
+          "cartube_il_ex30_2023"
+        ]
+      },
+      "variant_id": "volvo_ex30_2024_2026_il_confirmed_1st_gen_sea_electric_motor_272_hp_69_kwh_nmc_battery_single_speed_ev_suv_electric"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Volvo",
+      "model": "EX30",
+      "global_model_name": "Volvo EX30",
+      "official_marketed_name_il": "Volvo EX30",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2024,
+      "year_end": 2026,
+      "generation": "1st Gen (SEA)",
+      "body_type": "SUV",
+      "seats": 5,
+      "engine": "Dual electric motors, 428 hp (69 kWh NMC battery)",
+      "transmission": "single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "AWD",
+      "trim": "Twin Motor Performance",
+      "market_scope": "IL-confirmed",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "high",
+      "source_basis": "IL-confirmed via official Volvo Israel importer. Top tier AWD performance variant. Offered locally in Plus and Ultra equipment packages.",
+      "source_ids": [
+        "volvo_il_official_ex30",
+        "cartube_il_ex30_2023",
+        "icar_il_ex30_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "volvo_il_official_ex30"
+        ],
+        "seats": [
+          "volvo_il_official_ex30",
+          "icar_il_ex30_specs"
+        ],
+        "engine": [
+          "volvo_il_official_ex30",
+          "cartube_il_ex30_2023"
+        ],
+        "transmission": [
+          "volvo_il_official_ex30",
+          "icar_il_ex30_specs"
+        ],
+        "fuel_type": [
+          "volvo_il_official_ex30"
+        ],
+        "drivetrain": [
+          "volvo_il_official_ex30",
+          "icar_il_ex30_specs"
+        ],
+        "generation": [
+          "icar_il_ex30_specs"
+        ],
+        "year_start": [
+          "cartube_il_ex30_2023"
+        ],
+        "year_end": [
+          "volvo_il_official_ex30"
+        ],
+        "trim": [
+          "volvo_il_official_ex30",
+          "cartube_il_ex30_2023"
+        ]
+      },
+      "variant_id": "volvo_ex30_2024_2026_il_confirmed_1st_gen_sea_dual_electric_motors_428_hp_69_kwh_nmc_battery_single_speed_ev_suv_electric"
     }
   ],
   "accumulated_clean_export": {
@@ -565447,17 +565657,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 3557,
-    "variants": 3557,
+    "total_variants": 3560,
+    "variants": 3560,
     "verified": 788,
-    "partial": 2769,
+    "partial": 2772,
     "makes_count": 84,
-    "models_count": 943,
-    "processed_seeds": 945,
+    "models_count": 944,
+    "processed_seeds": 946,
     "needs_retry_seeds": 2,
     "total_seeds": 993,
     "unresolved": 0,
-    "last_updated_at": "2026-05-24T22:46:09.969884+00:00"
+    "last_updated_at": "2026-05-24T22:46:52.836560+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
