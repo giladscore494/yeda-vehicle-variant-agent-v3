@@ -955,7 +955,8 @@
       "volvo__xc90__2002__2026__il",
       "volvo__c30__2006__2013__il",
       "volvo__c40__2021__2026__il",
-      "volvo__ex30__2023__2026__il"
+      "volvo__ex30__2023__2026__il",
+      "volvo__ex90__2024__2026__il"
     ],
     "processed_seeds": [
       "abarth__124_spider__2016__2020__il",
@@ -1407,8 +1408,8 @@
     "failed_seed_ids": [],
     "skipped_seed_ids": [],
     "in_progress_seed_id": null,
-    "last_completed_seed_id": "volvo__ex30__2023__2026__il",
-    "next_seed_id": "volvo__ex90__2024__2026__il",
+    "last_completed_seed_id": "volvo__ex90__2024__2026__il",
+    "next_seed_id": "volvo__em90__2024__2026__il",
     "run_history": [],
     "failed_details": [],
     "needs_retry_seed_ids": [
@@ -6272,6 +6273,14 @@
         "merged_count": 0,
         "warnings": [],
         "resolved_at": "2026-05-24T22:46:52.827434+00:00"
+      },
+      "volvo__ex90__2024__2026__il": {
+        "status": "resolved",
+        "resolution_type": "variants_added",
+        "added_count": 3,
+        "merged_count": 0,
+        "warnings": [],
+        "resolved_at": "2026-05-24T22:47:43.695961+00:00"
       }
     },
     "no_variants_by_seed": {
@@ -347647,6 +347656,200 @@
         ]
       },
       "variant_id": "volvo_ex30_2024_2026_il_confirmed_1st_gen_sea_dual_electric_motors_428_hp_69_kwh_nmc_battery_single_speed_ev_suv_electric"
+    },
+    {
+      "candidate_index": 0,
+      "make": "Volvo",
+      "model": "EX90",
+      "global_model_name": "Volvo EX90",
+      "official_marketed_name_il": "Volvo EX90",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2024,
+      "year_end": 2026,
+      "generation": "1st Gen (SPA2)",
+      "body_type": "SUV",
+      "seats": 7,
+      "engine": "Twin Electric Motors, 408 hp",
+      "transmission": "single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "AWD",
+      "trim": "Twin Motor",
+      "market_scope": "IL-likely",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "medium",
+      "source_basis": "EX90 announced globally and previewed in Israeli automotive media (Cartube IL) with Twin Motor specifications. Global deliveries were delayed to late 2024/2025; exact Israeli trim structures (e.g., Core, Plus, Ultra) are subject to final local launch updates, thus marked IL-likely.",
+      "source_ids": [
+        "cartube_il_volvo_ex90_reveal",
+        "volvo_cars_global_ex90_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "cartube_il_volvo_ex90_reveal",
+          "volvo_cars_global_ex90_specs"
+        ],
+        "seats": [
+          "cartube_il_volvo_ex90_reveal",
+          "volvo_cars_global_ex90_specs"
+        ],
+        "engine": [
+          "cartube_il_volvo_ex90_reveal",
+          "volvo_cars_global_ex90_specs"
+        ],
+        "transmission": [
+          "volvo_cars_global_ex90_specs"
+        ],
+        "fuel_type": [
+          "cartube_il_volvo_ex90_reveal",
+          "volvo_cars_global_ex90_specs"
+        ],
+        "drivetrain": [
+          "cartube_il_volvo_ex90_reveal",
+          "volvo_cars_global_ex90_specs"
+        ],
+        "generation": [
+          "cartube_il_volvo_ex90_reveal",
+          "volvo_cars_global_ex90_specs"
+        ],
+        "year_start": [
+          "volvo_cars_global_ex90_specs"
+        ],
+        "year_end": [
+          "volvo_cars_global_ex90_specs"
+        ],
+        "trim": [
+          "volvo_cars_global_ex90_specs"
+        ]
+      },
+      "variant_id": "volvo_ex90_2024_2026_il_likely_1st_gen_spa2_twin_electric_motors_408_hp_single_speed_ev_suv_electric"
+    },
+    {
+      "candidate_index": 1,
+      "make": "Volvo",
+      "model": "EX90",
+      "global_model_name": "Volvo EX90",
+      "official_marketed_name_il": "Volvo EX90",
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2024,
+      "year_end": 2026,
+      "generation": "1st Gen (SPA2)",
+      "body_type": "SUV",
+      "seats": 7,
+      "engine": "Twin Electric Motors, 517 hp",
+      "transmission": "single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "AWD",
+      "trim": "Twin Motor Performance",
+      "market_scope": "IL-likely",
+      "market_name_confidence": "confirmed",
+      "confidence_level": "medium",
+      "source_basis": "Top-tier Performance variant of the EX90 producing 517 hp. Widely detailed for global markets and noted in Israeli previews. Pending final local price list publication and homologation, marked IL-likely.",
+      "source_ids": [
+        "cartube_il_volvo_ex90_reveal",
+        "volvo_cars_global_ex90_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "cartube_il_volvo_ex90_reveal",
+          "volvo_cars_global_ex90_specs"
+        ],
+        "seats": [
+          "cartube_il_volvo_ex90_reveal",
+          "volvo_cars_global_ex90_specs"
+        ],
+        "engine": [
+          "cartube_il_volvo_ex90_reveal",
+          "volvo_cars_global_ex90_specs"
+        ],
+        "transmission": [
+          "volvo_cars_global_ex90_specs"
+        ],
+        "fuel_type": [
+          "cartube_il_volvo_ex90_reveal",
+          "volvo_cars_global_ex90_specs"
+        ],
+        "drivetrain": [
+          "cartube_il_volvo_ex90_reveal",
+          "volvo_cars_global_ex90_specs"
+        ],
+        "generation": [
+          "cartube_il_volvo_ex90_reveal",
+          "volvo_cars_global_ex90_specs"
+        ],
+        "year_start": [
+          "volvo_cars_global_ex90_specs"
+        ],
+        "year_end": [
+          "volvo_cars_global_ex90_specs"
+        ],
+        "trim": [
+          "volvo_cars_global_ex90_specs"
+        ]
+      },
+      "variant_id": "volvo_ex90_2024_2026_il_likely_1st_gen_spa2_twin_electric_motors_517_hp_single_speed_ev_suv_electric"
+    },
+    {
+      "candidate_index": 2,
+      "make": "Volvo",
+      "model": "EX90",
+      "global_model_name": "Volvo EX90",
+      "official_marketed_name_il": null,
+      "local_brand_name_il": null,
+      "alternate_names": [],
+      "rebadged_as": null,
+      "year_start": 2024,
+      "year_end": 2026,
+      "generation": "1st Gen (SPA2)",
+      "body_type": "SUV",
+      "seats": 7,
+      "engine": "Single Electric Motor, 279 hp",
+      "transmission": "single-speed EV",
+      "fuel_type": "Electric",
+      "drivetrain": "RWD",
+      "trim": "Single Motor",
+      "market_scope": "global-reference-only",
+      "market_name_confidence": "unknown",
+      "confidence_level": "medium",
+      "source_basis": "Entry-level Single Motor RWD variant available in select global markets. Israeli marketed name and availability not confirmed for this specific powertrain; global model specs used as reference only.",
+      "source_ids": [
+        "volvo_cars_global_ex90_specs"
+      ],
+      "field_sources": {
+        "body_type": [
+          "volvo_cars_global_ex90_specs"
+        ],
+        "seats": [
+          "volvo_cars_global_ex90_specs"
+        ],
+        "engine": [
+          "volvo_cars_global_ex90_specs"
+        ],
+        "transmission": [
+          "volvo_cars_global_ex90_specs"
+        ],
+        "fuel_type": [
+          "volvo_cars_global_ex90_specs"
+        ],
+        "drivetrain": [
+          "volvo_cars_global_ex90_specs"
+        ],
+        "generation": [
+          "volvo_cars_global_ex90_specs"
+        ],
+        "year_start": [
+          "volvo_cars_global_ex90_specs"
+        ],
+        "year_end": [
+          "volvo_cars_global_ex90_specs"
+        ],
+        "trim": [
+          "volvo_cars_global_ex90_specs"
+        ]
+      },
+      "variant_id": "volvo_ex90_2024_2026_global_reference_only_1st_gen_spa2_single_electric_motor_279_hp_single_speed_ev_suv_electric"
     }
   ],
   "accumulated_clean_export": {
@@ -565657,17 +565860,17 @@
     "current_total_variants": 1519
   },
   "counts": {
-    "total_variants": 3560,
-    "variants": 3560,
+    "total_variants": 3563,
+    "variants": 3563,
     "verified": 788,
-    "partial": 2772,
+    "partial": 2775,
     "makes_count": 84,
-    "models_count": 944,
-    "processed_seeds": 946,
+    "models_count": 945,
+    "processed_seeds": 947,
     "needs_retry_seeds": 2,
     "total_seeds": 993,
     "unresolved": 0,
-    "last_updated_at": "2026-05-24T22:46:52.836560+00:00"
+    "last_updated_at": "2026-05-24T22:47:43.705214+00:00"
   },
   "_candidate_source": "merged_candidate",
   "unresolved": [],
