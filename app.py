@@ -35,6 +35,9 @@ from engine.reset import (
 st.set_page_config(page_title="Yeda v3", layout="wide")
 st.title("🚗 Yeda Vehicle Variant Agent v3")
 
+# Default seed ID for audit/stale-failure UI (known failed seed from previous run)
+_DEFAULT_AUDIT_SEED_ID = "mg_(british_era)__tf__2002__2005__il"
+
 # ---------- Sidebar: Config ----------
 with st.sidebar:
     st.header("Configuration")
@@ -316,7 +319,7 @@ with tab_diag:
     st.subheader("Seed Audit")
     audit_seed_id = st.text_input(
         "Audit specific seed ID",
-        value="mg_(british_era)__tf__2002__2005__il",
+        value=_DEFAULT_AUDIT_SEED_ID,
         key="audit_seed_input",
     )
     if st.button("🔍 Audit This Seed"):
@@ -405,7 +408,7 @@ with tab_reset:
 
     stale_seed_id = st.text_input(
         "Seed ID to check/remove",
-        value="mg_(british_era)__tf__2002__2005__il",
+        value=_DEFAULT_AUDIT_SEED_ID,
         key="stale_seed_input",
     )
 
