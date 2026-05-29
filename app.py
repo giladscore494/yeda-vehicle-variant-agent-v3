@@ -292,44 +292,60 @@ with tab_validation:
 
     with col_model:
         if st.button("🤖 Run Model Validation on Suspicious Groups", type="primary"):
-            from engine.validation.validation_runner import run_model_validation_on_suspicious_groups
-            with st.spinner("Running model validation on suspicious groups..."):
-                model_result = run_model_validation_on_suspicious_groups()
-                if model_result["ok"]:
-                    if model_result.get("model_validation_ran", False):
-                        st.success("✅ Model validation complete!")
-                        col_m1, col_m2, col_m3 = st.columns(3)
-                        col_m1.metric(
-                            "Gemini Calls",
-                            f"{model_result.get('gemini_calls_success', 0)}/{model_result.get('gemini_calls_attempted', 0)}",
+            try:
+                from engine.validation.validation_runner import (
+                    run_model_validation_on_suspicious_groups,
+                )
+            except ImportError as exc:
+                st.error(
+                    "❌ Model validation could not be loaded. "
+                    f"Check deployment dependencies. Details: {exc}"
+                )
+            else:
+                with st.spinner("Running model validation on suspicious groups..."):
+                    try:
+                        model_result = run_model_validation_on_suspicious_groups()
+                    except ImportError as exc:
+                        st.error(
+                            "❌ Model validation dependencies are unavailable. "
+                            f"Details: {exc}"
                         )
-                        col_m2.metric(
-                            "OpenAI Calls",
-                            f"{model_result.get('openai_calls_success', 0)}/{model_result.get('openai_calls_attempted', 0)}",
-                        )
-                        col_m3.metric(
-                            "Items Validated",
-                            model_result.get("model_validation_items_count", 0),
-                        )
-
-                        if model_result.get("model_validation_failed_items_count", 0) > 0:
-                            st.warning(
-                                f"⚠️ {model_result['model_validation_failed_items_count']} "
-                                f"items failed model validation."
-                            )
-                        if model_result.get("last_model_validation_error"):
-                            st.error(
-                                f"Last error: {model_result['last_model_validation_error']}"
-                            )
                     else:
-                        st.info(
-                            f"ℹ️ {model_result.get('reason', 'No suspicious groups found')}"
-                        )
-                else:
-                    st.error(
-                        f"❌ Model validation failed: "
-                        f"{json.dumps(model_result.get('error', {}), indent=2)}"
-                    )
+                        if model_result["ok"]:
+                            if model_result.get("model_validation_ran", False):
+                                st.success("✅ Model validation complete!")
+                                col_m1, col_m2, col_m3 = st.columns(3)
+                                col_m1.metric(
+                                    "Gemini Calls",
+                                    f"{model_result.get('gemini_calls_success', 0)}/{model_result.get('gemini_calls_attempted', 0)}",
+                                )
+                                col_m2.metric(
+                                    "OpenAI Calls",
+                                    f"{model_result.get('openai_calls_success', 0)}/{model_result.get('openai_calls_attempted', 0)}",
+                                )
+                                col_m3.metric(
+                                    "Items Validated",
+                                    model_result.get("model_validation_items_count", 0),
+                                )
+
+                                if model_result.get("model_validation_failed_items_count", 0) > 0:
+                                    st.warning(
+                                        f"⚠️ {model_result['model_validation_failed_items_count']} "
+                                        f"items failed model validation."
+                                    )
+                                if model_result.get("last_model_validation_error"):
+                                    st.error(
+                                        f"Last error: {model_result['last_model_validation_error']}"
+                                    )
+                            else:
+                                st.info(
+                                    f"ℹ️ {model_result.get('reason', 'No suspicious groups found')}"
+                                )
+                        else:
+                            st.error(
+                                f"❌ Model validation failed: "
+                                f"{json.dumps(model_result.get('error', {}), indent=2)}"
+                            )
 
     with col_save:
         if st.button("💾 Save Validation Outputs to GitHub", type="secondary"):
