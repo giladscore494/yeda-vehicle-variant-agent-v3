@@ -151,6 +151,9 @@ def ensure_batch_state_fields(canonical: dict) -> dict:
     bs.setdefault("failed_seed_ids", [])
     bs.setdefault("next_seed_id", None)
     bs.setdefault("last_completed_seed_id", None)
+    bs.setdefault("last_failed_seed_id", None)
+    bs.setdefault("last_failed_at", None)
+    bs.setdefault("last_handled_seed_id", None)
     bs.setdefault("seed_accounting", {})
     return canonical
 

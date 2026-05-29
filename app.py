@@ -10,7 +10,7 @@ from pathlib import Path
 
 import streamlit as st
 
-from core.config import config_summary, CANONICAL_RESUME_PATH
+from core.config import config_summary, CANONICAL_RESUME_PATH, get_branch_warning
 from engine.state import (
     load_canonical,
     load_canonical_with_recovery,
@@ -25,6 +25,12 @@ from engine.state import (
 from engine.audit import audit_canonical
 from engine.batch import run_batch
 from engine.retry_failed import retry_failed_seed as _retry_failed_seed
+from engine.reset import (
+    reset_validation_state,
+    audit_queue_state,
+    audit_specific_seed,
+    remove_stale_failure,
+)
 
 st.set_page_config(page_title="Yeda v3", layout="wide")
 st.title("🚗 Yeda Vehicle Variant Agent v3")
@@ -38,6 +44,10 @@ with st.sidebar:
     st.write(f"**GitHub repo:** {cfg['github_repo']}")
     st.write(f"**GitHub branch:** {cfg['github_branch']}")
     st.write(f"**Canonical:** {cfg['canonical_path']}")
+
+    branch_warn = get_branch_warning()
+    if branch_warn:
+        st.warning(branch_warn)
 
 # ---------- Load data ----------
 try:
@@ -72,7 +82,9 @@ if not data_loaded:
     st.stop()
 
 # ---------- Tabs ----------
-tab_main, tab_manual, tab_diag = st.tabs(["Main Run", "Manual Seed", "Diagnostics / Export"])
+tab_main, tab_manual, tab_diag, tab_reset = st.tabs(
+    ["Main Run", "Manual Seed", "Diagnostics / Export", "Reset / Audit"]
+)
 
 # ==================== Main Run ====================
 with tab_main:
@@ -84,6 +96,10 @@ with tab_main:
 
     st.write(f"**Next seed:** `{bs.get('next_seed_id', 'N/A')}`")
     st.write(f"**Last completed:** `{bs.get('last_completed_seed_id', 'N/A')}`")
+    if bs.get("last_failed_seed_id"):
+        st.write(f"**Last failed:** `{bs['last_failed_seed_id']}` at `{bs.get('last_failed_at', 'N/A')}`")
+    if bs.get("last_handled_seed_id"):
+        st.write(f"**Last handled (manual/review):** `{bs['last_handled_seed_id']}`")
     st.write(f"**Total seeds:** {len(seeds)}")
 
     st.divider()
@@ -111,8 +127,30 @@ with tab_main:
                     dry_run=False,
                     push_to_github=push_enabled,
                 )
+
+                # Determine completion message
+                failed_q = bs.get("failed_seed_ids") or []
+                manual_q = bs.get("manual_review_seed_ids") or []
+                batch_results = result.get("results", [])
+                any_success = any(
+                    r.get("action") in ("ACCEPT_VARIANTS", "CLOSE_NO_VARIANTS_PROVEN")
+                    for r in batch_results
+                )
+
                 if result.get("ok"):
-                    st.success("Batch completed!")
+                    if not batch_results:
+                        # No seeds ran at all
+                        if failed_q or manual_q:
+                            st.warning(
+                                "⚠️ No normal seeds left. "
+                                "Resolve failed/manual review queues."
+                            )
+                        else:
+                            st.info("No seeds to process.")
+                    elif any_success:
+                        st.success("✅ Batch completed!")
+                    else:
+                        st.info("Batch finished — no seeds were successfully resolved.")
                 else:
                     st.error(f"Batch failed: {result.get('error')}")
 
@@ -238,6 +276,68 @@ with tab_manual:
 
 # ==================== Diagnostics ====================
 with tab_diag:
+    st.subheader("Config Source Resolution")
+    diag_cfg = config_summary()
+    col_d1, col_d2 = st.columns(2)
+    with col_d1:
+        st.write(f"**Gemini key present:** {diag_cfg['gemini_key']}")
+        st.write(f"**GitHub token present:** {diag_cfg['github_token']}")
+        st.write(f"**GitHub repo:** {diag_cfg['github_repo']}")
+        st.write(f"**GitHub branch:** {diag_cfg['github_branch']}")
+    with col_d2:
+        st.write(f"**Canonical path:** {diag_cfg['canonical_path']}")
+        st.write(f"**Runtime path:** {diag_cfg['runtime_state_path']}")
+        if diag_cfg.get("branch_warning"):
+            st.warning(diag_cfg["branch_warning"])
+
+    st.divider()
+
+    st.subheader("True Queue Status")
+    if st.button("🔎 Compute True Queue State"):
+        queue_state = audit_queue_state(canonical, seeds)
+        col_q1, col_q2, col_q3, col_q4, col_q5 = st.columns(5)
+        col_q1.metric("Total Seeds", queue_state["total_catalog_seeds"])
+        col_q2.metric("Processed", queue_state["processed_count"])
+        col_q3.metric("Manual Review", queue_state["manual_review_count"])
+        col_q4.metric("Failed", queue_state["failed_count"])
+        col_q5.metric("Unresolved", queue_state["unresolved_count"])
+
+        if queue_state["orphaned_count"]:
+            st.warning(
+                f"⚠️ {queue_state['orphaned_count']} processed IDs not in seed catalog: "
+                f"{queue_state['orphaned_seed_ids'][:10]}"
+            )
+
+        with st.expander("Full Queue Details"):
+            st.json(queue_state)
+
+    st.divider()
+
+    st.subheader("Seed Audit")
+    audit_seed_id = st.text_input(
+        "Audit specific seed ID",
+        value="mg_(british_era)__tf__2002__2005__il",
+        key="audit_seed_input",
+    )
+    if st.button("🔍 Audit This Seed"):
+        audit_result = audit_specific_seed(audit_seed_id, canonical, seeds)
+        if audit_result["is_stale_failure"]:
+            st.info(
+                f"✅ **{audit_seed_id}** is a stale failure — already properly resolved. "
+                f"Resolution: {audit_result['resolution_detail']}"
+            )
+        elif audit_result["needs_retry"]:
+            cause = audit_result["failure_cause"] or "unknown"
+            st.warning(
+                f"⚠️ **{audit_seed_id}** needs retry. "
+                f"Failure cause: **{cause}** — {audit_result['reason']}"
+            )
+        elif not audit_result["in_failed"]:
+            st.success(f"✅ **{audit_seed_id}** is not in failed queue.")
+        st.json(audit_result)
+
+    st.divider()
+
     st.subheader("Audit")
     if st.button("🔎 Run Audit"):
         ok, errs = audit_canonical(canonical, seed_catalog=seeds)
@@ -262,6 +362,8 @@ with tab_diag:
         "needs_retry": len(bs.get("needs_retry_seed_ids", [])),
         "next_seed_id": bs.get("next_seed_id"),
         "last_completed_seed_id": bs.get("last_completed_seed_id"),
+        "last_failed_seed_id": bs.get("last_failed_seed_id"),
+        "last_handled_seed_id": bs.get("last_handled_seed_id"),
     })
 
     st.divider()
@@ -273,3 +375,64 @@ with tab_diag:
             file_name="resume_package_canonical.json",
             mime="application/json",
         )
+
+# ==================== Reset / Audit ====================
+with tab_reset:
+    st.subheader("🔄 Reset Validation Run State")
+    st.warning(
+        "This resets **only** runtime/progress state (current_run.json). "
+        "Canonical data (variants, batch_state) is **not** touched."
+    )
+
+    if st.button("⚠️ Reset Validation Run State", type="primary"):
+        reset_result = reset_validation_state(canonical, seeds)
+        if reset_result["ok"]:
+            st.success(
+                f"✅ Validation state reset. New run ID: `{reset_result['new_run_id']}`"
+            )
+            with st.expander("Reset Details"):
+                st.json(reset_result)
+        else:
+            st.error("Failed to reset state.")
+
+    st.divider()
+
+    st.subheader("🧹 Remove Stale Failure")
+    st.write(
+        "If a seed is in the failed queue but already properly resolved "
+        "in canonical, you can remove it from the failed queue here."
+    )
+
+    stale_seed_id = st.text_input(
+        "Seed ID to check/remove",
+        value="mg_(british_era)__tf__2002__2005__il",
+        key="stale_seed_input",
+    )
+
+    col_audit, col_remove = st.columns(2)
+    with col_audit:
+        if st.button("🔍 Audit before removal"):
+            result = audit_specific_seed(stale_seed_id, canonical, seeds)
+            st.json(result)
+
+    with col_remove:
+        if st.button("🧹 Remove stale failure"):
+            # First audit
+            audit_result = audit_specific_seed(stale_seed_id, canonical, seeds)
+            if audit_result["is_stale_failure"]:
+                remove_result = remove_stale_failure(
+                    stale_seed_id, canonical,
+                    audit_note=f"Stale failure removed via UI. Resolution: {audit_result['resolution_detail']}",
+                )
+                if remove_result["ok"]:
+                    st.success(f"✅ Removed `{stale_seed_id}` from failed queue.")
+                    st.json(remove_result)
+                else:
+                    st.error(f"Failed: {remove_result.get('error')}")
+            elif audit_result["needs_retry"]:
+                st.error(
+                    f"❌ Cannot remove — `{stale_seed_id}` genuinely needs retry. "
+                    f"Failure cause: {audit_result['failure_cause']}"
+                )
+            else:
+                st.info(f"`{stale_seed_id}` is not in the failed queue.")
