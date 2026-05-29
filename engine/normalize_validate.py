@@ -480,7 +480,7 @@ def _push_to_github(output_dir: Path, config_module) -> None:
             if result.get("ok"):
                 logger.info("Pushed %s", remote)
             else:
-                logger.error("Failed to push %s: %s", remote, result.get("error"))
+                logger.error("Failed to push %s", remote)
 
     # Push checkpoint files
     checkpoint_dir = output_dir / "checkpoints"

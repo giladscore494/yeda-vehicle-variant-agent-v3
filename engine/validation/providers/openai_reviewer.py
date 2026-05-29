@@ -137,21 +137,15 @@ def review_group(
         if web_search:
             tools = [{"type": "web_search_preview"}]
 
-        response = client.responses.create(
+        response = client.chat.completions.create(
             model=model_id,
-            input=prompt,
-            tools=tools,
+            messages=[{"role": "user", "content": prompt}],
         )
 
-        raw_text = ""
-        for item in response.output:
-            if hasattr(item, "content"):
-                for block in item.content:
-                    if hasattr(block, "text"):
-                        raw_text += block.text
+        raw_text = response.choices[0].message.content or "" if response.choices else ""
 
-        input_actual = getattr(getattr(response, "usage", None), "input_tokens", None)
-        output_actual = getattr(getattr(response, "usage", None), "output_tokens", None)
+        input_actual = getattr(getattr(response, "usage", None), "prompt_tokens", None)
+        output_actual = getattr(getattr(response, "usage", None), "completion_tokens", None)
 
         if cost_tracker:
             cost_tracker.log_actual(

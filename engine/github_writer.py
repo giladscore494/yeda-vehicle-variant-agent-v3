@@ -106,7 +106,7 @@ def push_file(
     body = resp.json() if resp.content else {}
     commit_obj = body.get("commit") if isinstance(body, dict) else {}
     content_obj = body.get("content") if isinstance(body, dict) else {}
-    logger.info("Pushed %s to %s/%s branch=%s", remote_path, o, r, b)
+    logger.info("Pushed %s (branch=%s)", remote_path, b)
     return {
         "ok": True,
         "path": remote_path,
@@ -137,5 +137,5 @@ def push_validation_outputs(
         result = push_file(content, remote_path, commit_message, **kwargs)
         results.append(result)
         if not result.get("ok"):
-            logger.error("Failed to push %s: %s", remote_path, result.get("error"))
+            logger.error("Failed to push %s (check credentials/permissions)", remote_path)
     return results
