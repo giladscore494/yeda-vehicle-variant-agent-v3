@@ -36,8 +36,8 @@ def _get(key: str, default: str = "") -> str:
 
 
 GEMINI_API_KEY: str = _get("GEMINI_API_KEY")
-GEMINI_MODEL_FAST: str = _get("GEMINI_MODEL_FAST", "gemini-3.1-pro-preview")
-GEMINI_MODEL_STRONG: str = _get("GEMINI_MODEL_STRONG", "gemini-3.1-pro-preview")
+GEMINI_MODEL_FAST: str = _get("GEMINI_MODEL_FAST", "gemini-3-pro-preview")
+GEMINI_MODEL_STRONG: str = _get("GEMINI_MODEL_STRONG", "gemini-3-pro-preview")
 
 GITHUB_TOKEN: str = _get("GITHUB_TOKEN")
 GITHUB_REPO: str = _get("GITHUB_REPO", "giladscore494/yeda-vehicle-variant-agent-v3")
