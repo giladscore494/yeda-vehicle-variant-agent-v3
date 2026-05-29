@@ -11,3 +11,10 @@ __pycache__/
 tmp/
 *.pyc
 *.egg-info/
+# Validation engine runtime outputs (committed via GitHub writer, not git)
+data/validated_runs/resume_package_canonical_validated_v2.json
+data/validated_runs/last_validation_run.json
+data/validated_runs/validation_audit.jsonl
+data/validated_runs/trim_corrections.json
+data/validated_runs/cost_ledger.jsonl
+data/validated_runs/checkpoints/
