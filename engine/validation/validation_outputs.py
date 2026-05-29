@@ -233,6 +233,7 @@ def write_validation_issues(
 def write_patch_suggestions(
     deterministic_issues: list[dict],
     partial_classifications: list[dict],
+    model_validation_items: list[dict] | None = None,
     output_path: str | Path = "data/validated_runs/validation_patch_suggestions_v2.json",
 ) -> None:
     """Write patch suggestions. These are suggestions only — never applied to canonical."""
@@ -252,6 +253,7 @@ def write_patch_suggestions(
             patch_counter += 1
             patches.append({
                 "patch_id": f"patch_{patch_counter:05d}",
+                "source": "deterministic_audit",
                 "seed_id": issue.get("seed_id", ""),
                 "variant_id": issue.get("variant_id", ""),
                 "field": itype.replace("_not_normalized", ""),
@@ -260,12 +262,15 @@ def write_patch_suggestions(
                 "reason": f"Field needs normalization: {itype}",
                 "evidence": issue.get("evidence", []),
                 "confidence": 0.0,
+                "primary_model": None,
+                "secondary_model": None,
                 "safe_to_auto_apply": False,
             })
         elif itype == "year_range_inverted":
             patch_counter += 1
             patches.append({
                 "patch_id": f"patch_{patch_counter:05d}",
+                "source": "deterministic_audit",
                 "seed_id": issue.get("seed_id", ""),
                 "variant_id": issue.get("variant_id", ""),
                 "field": "year_range",
@@ -274,12 +279,15 @@ def write_patch_suggestions(
                 "reason": "Year range is inverted",
                 "evidence": [],
                 "confidence": 0.8,
+                "primary_model": None,
+                "secondary_model": None,
                 "safe_to_auto_apply": False,
             })
         elif itype == "placeholder_source_ids":
             patch_counter += 1
             patches.append({
                 "patch_id": f"patch_{patch_counter:05d}",
+                "source": "deterministic_audit",
                 "seed_id": issue.get("seed_id", ""),
                 "variant_id": issue.get("variant_id", ""),
                 "field": "source_ids",
@@ -288,6 +296,8 @@ def write_patch_suggestions(
                 "reason": "Placeholder source_ids detected",
                 "evidence": [],
                 "confidence": 0.0,
+                "primary_model": None,
+                "secondary_model": None,
                 "safe_to_auto_apply": False,
             })
 
@@ -297,6 +307,7 @@ def write_patch_suggestions(
             patch_counter += 1
             patches.append({
                 "patch_id": f"patch_{patch_counter:05d}",
+                "source": "partial_classification",
                 "seed_id": pc.get("seed_id", ""),
                 "variant_id": pc.get("variant_id", ""),
                 "field": "partial_variant",
@@ -305,6 +316,31 @@ def write_patch_suggestions(
                 "reason": f"Partial variant classified as {status}",
                 "evidence": pc.get("evidence", []),
                 "confidence": 0.0,
+                "primary_model": None,
+                "secondary_model": None,
+                "safe_to_auto_apply": False,
+            })
+
+    # Add model validation suggestions
+    if model_validation_items:
+        for mvi in model_validation_items:
+            patch_info = mvi.get("suggested_patch") or {}
+            if not patch_info.get("has_patch", False):
+                continue
+            patch_counter += 1
+            patches.append({
+                "patch_id": f"patch_{patch_counter:05d}",
+                "source": "model_validation",
+                "seed_id": mvi.get("seed_id", ""),
+                "variant_id": patch_info.get("target_variant_id", ""),
+                "field": patch_info.get("field", ""),
+                "current_value": patch_info.get("current_value"),
+                "suggested_value": patch_info.get("suggested_value"),
+                "reason": patch_info.get("reason", ""),
+                "evidence": mvi.get("evidence", []),
+                "confidence": mvi.get("confidence", 0.0),
+                "primary_model": mvi.get("primary_model", "gemini"),
+                "secondary_model": mvi.get("secondary_model"),
                 "safe_to_auto_apply": False,
             })
 

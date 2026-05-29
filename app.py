@@ -260,6 +260,11 @@ with tab_validation:
                     col_r2.metric("Suspicious Groups", sg.get("total_suspicious_groups", 0))
                     col_r3.metric("Partial Variants", pv.get("total_partial_variants", 0))
 
+                    st.info(
+                        "ℹ️ Full Validation does NOT automatically call models. "
+                        "Use **Run Model Validation on Suspicious Groups** to trigger model calls."
+                    )
+
                     with st.expander("Full Result"):
                         st.json(result)
                 else:
@@ -278,6 +283,125 @@ with tab_validation:
                 )
             else:
                 st.info("No validation report found. Run a full validation first.")
+
+    # ── Model Validation Section ────────────────────────────────────────
+    st.divider()
+    st.subheader("Model Validation")
+
+    col_model, col_save = st.columns(2)
+
+    with col_model:
+        if st.button("🤖 Run Model Validation on Suspicious Groups", type="primary"):
+            from engine.validation.validation_runner import run_model_validation_on_suspicious_groups
+            with st.spinner("Running model validation on suspicious groups..."):
+                model_result = run_model_validation_on_suspicious_groups()
+                if model_result["ok"]:
+                    if model_result.get("model_validation_ran", False):
+                        st.success("✅ Model validation complete!")
+                        col_m1, col_m2, col_m3 = st.columns(3)
+                        col_m1.metric(
+                            "Gemini Calls",
+                            f"{model_result.get('gemini_calls_success', 0)}/{model_result.get('gemini_calls_attempted', 0)}",
+                        )
+                        col_m2.metric(
+                            "OpenAI Calls",
+                            f"{model_result.get('openai_calls_success', 0)}/{model_result.get('openai_calls_attempted', 0)}",
+                        )
+                        col_m3.metric(
+                            "Items Validated",
+                            model_result.get("model_validation_items_count", 0),
+                        )
+
+                        if model_result.get("model_validation_failed_items_count", 0) > 0:
+                            st.warning(
+                                f"⚠️ {model_result['model_validation_failed_items_count']} "
+                                f"items failed model validation."
+                            )
+                        if model_result.get("last_model_validation_error"):
+                            st.error(
+                                f"Last error: {model_result['last_model_validation_error']}"
+                            )
+                    else:
+                        st.info(
+                            f"ℹ️ {model_result.get('reason', 'No suspicious groups found')}"
+                        )
+                else:
+                    st.error(
+                        f"❌ Model validation failed: "
+                        f"{json.dumps(model_result.get('error', {}), indent=2)}"
+                    )
+
+    with col_save:
+        if st.button("💾 Save Validation Outputs to GitHub", type="secondary"):
+            from engine.validation.github_save import (
+                save_validation_outputs_to_github,
+                get_files_to_save,
+            )
+
+            run_id = val_state.get("validation_run_id", "unknown")
+
+            # Show what will be saved
+            files_info = get_files_to_save()
+            existing_files = [f for f in files_info if f["exists"]]
+
+            if not existing_files:
+                st.warning("No validation output files found to save.")
+            else:
+                st.write("**Files to save:**")
+                for f in existing_files:
+                    st.write(f"  📄 `{f['path']}` ({f['size']:,} bytes)")
+
+                with st.spinner("Saving to GitHub..."):
+                    save_result = save_validation_outputs_to_github(
+                        validation_run_id=run_id,
+                    )
+
+                    if save_result["ok"]:
+                        st.success(
+                            f"✅ Saved to GitHub!\n\n"
+                            f"**Repo:** `{save_result['repo']}`\n\n"
+                            f"**Branch:** `{save_result['target_branch']}`\n\n"
+                            f"**Commit SHA:** `{save_result.get('commit_sha', 'N/A')}`"
+                        )
+                    else:
+                        st.error(
+                            f"❌ Save failed: {save_result.get('error', 'Unknown error')}"
+                        )
+
+                    with st.expander("Save Details"):
+                        st.json(save_result)
+
+    # ── Model Validation Status ─────────────────────────────────────────
+    st.divider()
+    st.subheader("Model Validation Status")
+
+    model_results_path = Path("data/validated_runs/model_validation_results_v2.json")
+    if model_results_path.exists():
+        try:
+            model_data = json.loads(model_results_path.read_text(encoding="utf-8"))
+            mcs = model_data.get("model_calls_summary", {})
+
+            col_s1, col_s2 = st.columns(2)
+            with col_s1:
+                st.write(f"**deterministic_validation_ran:** ✅")
+                st.write(f"**model_validation_ran:** {'✅' if model_data.get('model_validation_ran') else '❌'}")
+                st.write(f"**gemini_calls_attempted:** {mcs.get('gemini_calls_attempted', 0)}")
+                st.write(f"**gemini_calls_success:** {mcs.get('gemini_calls_success', 0)}")
+                st.write(f"**gemini_calls_failed:** {mcs.get('gemini_calls_failed', 0)}")
+            with col_s2:
+                st.write(f"**openai_calls_attempted:** {mcs.get('openai_calls_attempted', 0)}")
+                st.write(f"**openai_calls_success:** {mcs.get('openai_calls_success', 0)}")
+                st.write(f"**openai_calls_failed:** {mcs.get('openai_calls_failed', 0)}")
+                st.write(f"**model_validation_items_count:** {model_data.get('model_validation_items_count', 0)}")
+                st.write(f"**model_validation_failed_items_count:** {model_data.get('model_validation_failed_items_count', 0)}")
+
+            st.write(f"**model_validation_output_path:** `{model_data.get('model_validation_output_path', '')}`")
+            if model_data.get("last_model_validation_error"):
+                st.write(f"**last_model_validation_error:** {model_data['last_model_validation_error']}")
+        except Exception:
+            st.warning("Could not load model validation results.")
+    else:
+        st.info("No model-based validation was executed; deterministic audit only.")
 
     # ── Show existing validation outputs ────────────────────────────────
     st.divider()
@@ -340,13 +464,15 @@ with tab_partial:
             with st.expander("All Classifications"):
                 st.json(classifications[:100])
 
-# ==================== LEGACY BUILD DIAGNOSTICS ====================
+# ==================== LEGACY BUILD DIAGNOSTICS (READ-ONLY) ====================
 with tab_legacy:
-    st.subheader("🔧 Legacy Build Diagnostics")
+    st.subheader("🔧 Legacy Build Diagnostics (Read-Only)")
     st.info(
-        "This section shows the legacy build engine state. "
-        "The validation engine does NOT use the build flow."
+        "⚠️ This section is READ-ONLY. The validation engine does NOT use the build flow. "
+        "Build generation, retry, and canonical mutation actions are disabled on this branch."
     )
+
+    _LEGACY_DISABLED_MSG = "legacy_build_action_disabled_in_validation_branch"
 
     col1, col2, col3, col4 = st.columns(4)
     col1.metric("Variants", len(all_variants))

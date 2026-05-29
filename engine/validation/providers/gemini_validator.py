@@ -2,6 +2,8 @@
 
 Uses Google Gemini with grounding/search to validate variant groups.
 Focus: Israeli-market trim/grade/gimur verification.
+
+Uses the unified model schema from model_schema.py.
 """
 from __future__ import annotations
 
@@ -11,6 +13,12 @@ from typing import Any
 
 from engine import config
 from engine.validation.normalizer import safe_str_original, safe_str, extract_value
+from engine.validation.model_schema import (
+    normalize_model_output,
+    parse_model_json,
+    validate_item,
+    wrap_provider_result,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -106,15 +114,23 @@ def validate_group(
     variants: list[dict],
     trim_candidates: list[str],
     cost_tracker: Any = None,
-) -> dict | None:
-    """Validate a group using Gemini. Returns parsed response or None on failure."""
+) -> dict:
+    """Validate a group using Gemini. Returns wrapped provider result dict.
+
+    Uses the unified model schema. Result follows the normalized envelope:
+    {ok, provider, model_id, item_id, parsed_result, raw_text, error_type, error_message}
+    """
     api_key = config.get("google", "api_key")
     model_id = config.get("google", "gemini_validator_model_id")
     grounding = config.get_bool("google", "grounding_enabled", True)
 
     if not api_key:
         logger.error("Google API key not configured — cannot validate")
-        return None
+        return wrap_provider_result(
+            False, "gemini", model_id or "", group_key,
+            error_type="model_auth_error",
+            error_message="Google API key not configured",
+        )
 
     prompt = _build_validation_prompt(group_key, variants, trim_candidates)
     input_est, output_est = estimate_tokens(prompt)
@@ -146,7 +162,6 @@ def validate_group(
         )
 
         raw_text = response.text or ""
-        # Extract token counts if available
         input_actual = getattr(
             getattr(response, "usage_metadata", None), "prompt_token_count", None
         )
@@ -161,8 +176,31 @@ def validate_group(
                 search_used=grounding, status="success",
             )
 
-        # Parse JSON from response
-        return _parse_response(raw_text, group_key)
+        # Parse using unified schema
+        parsed, parse_error = parse_model_json(raw_text)
+        if parse_error:
+            return wrap_provider_result(
+                False, "gemini", model_id, group_key,
+                raw_text=raw_text,
+                error_type="model_parse_error",
+                error_message="Failed to parse Gemini JSON response",
+            )
+
+        # Normalize to unified schema
+        normalized = normalize_model_output(parsed, group_key, model_id, "primary")
+        schema_errors = validate_item(normalized)
+        if schema_errors:
+            return wrap_provider_result(
+                False, "gemini", model_id, group_key,
+                parsed_result=normalized, raw_text=raw_text,
+                error_type="validation_schema_error",
+                error_message=f"Schema validation failed: {'; '.join(schema_errors)}",
+            )
+
+        return wrap_provider_result(
+            True, "gemini", model_id, group_key,
+            parsed_result=normalized, raw_text=raw_text,
+        )
 
     except Exception as exc:
         logger.error("Gemini call failed for %s: %s", group_key, exc)
@@ -172,23 +210,9 @@ def validate_group(
                 input_est, output_est, None, None,
                 search_used=grounding, status="error",
             )
-        return None
+        return wrap_provider_result(
+            False, "gemini", model_id, group_key,
+            error_type="model_call_error",
+            error_message=str(exc),
+        )
 
-
-def _parse_response(raw_text: str, group_key: str) -> dict | None:
-    """Parse and validate the Gemini JSON response."""
-    text = raw_text.strip()
-    # Strip markdown fences if present
-    if text.startswith("```"):
-        lines = text.split("\n")
-        lines = [l for l in lines if not l.strip().startswith("```")]
-        text = "\n".join(lines)
-    try:
-        data = json.loads(text)
-        if isinstance(data, dict) and "validation_results" in data:
-            return data
-        logger.warning("Gemini response missing validation_results for %s", group_key)
-        return data if isinstance(data, dict) else None
-    except json.JSONDecodeError as exc:
-        logger.error("Failed to parse Gemini JSON for %s: %s", group_key, exc)
-        return None

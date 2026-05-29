@@ -2,6 +2,8 @@
 
 Used for: trim corrections, promoted verifications, merge/split decisions,
 model disagreement resolution, and sampled audit.
+
+Uses the unified model schema from model_schema.py.
 """
 from __future__ import annotations
 
@@ -11,6 +13,12 @@ from typing import Any
 
 from engine import config
 from engine.validation.normalizer import safe_str_original, safe_str, extract_value
+from engine.validation.model_schema import (
+    normalize_model_output,
+    parse_model_json,
+    validate_item,
+    wrap_provider_result,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -108,15 +116,23 @@ def review_group(
     trim_candidates: list[str],
     gemini_result: dict | None = None,
     cost_tracker: Any = None,
-) -> dict | None:
-    """Review a group using OpenAI GPT. Returns parsed response or None."""
+) -> dict:
+    """Review a group using OpenAI GPT. Returns wrapped provider result dict.
+
+    Uses the unified model schema. Result follows the normalized envelope:
+    {ok, provider, model_id, item_id, parsed_result, raw_text, error_type, error_message}
+    """
     api_key = config.get("openai", "api_key")
     model_id = config.get("openai", "validator_model_id")
     web_search = config.get_bool("openai", "web_search_enabled", True)
 
     if not api_key:
         logger.error("OpenAI API key not configured — cannot review")
-        return None
+        return wrap_provider_result(
+            False, "openai", model_id or "", group_key,
+            error_type="model_auth_error",
+            error_message="OpenAI API key not configured",
+        )
 
     prompt = _build_review_prompt(group_key, variants, trim_candidates, gemini_result)
     input_est, output_est = estimate_tokens(prompt)
@@ -158,7 +174,31 @@ def review_group(
                 search_used=web_search, status="success",
             )
 
-        return _parse_response(raw_text, group_key)
+        # Parse using unified schema
+        parsed, parse_error = parse_model_json(raw_text)
+        if parse_error:
+            return wrap_provider_result(
+                False, "openai", model_id, group_key,
+                raw_text=raw_text,
+                error_type="model_parse_error",
+                error_message="Failed to parse OpenAI JSON response",
+            )
+
+        # Normalize to unified schema
+        normalized = normalize_model_output(parsed, group_key, model_id, "second_opinion")
+        schema_errors = validate_item(normalized)
+        if schema_errors:
+            return wrap_provider_result(
+                False, "openai", model_id, group_key,
+                parsed_result=normalized, raw_text=raw_text,
+                error_type="validation_schema_error",
+                error_message=f"Schema validation failed: {'; '.join(schema_errors)}",
+            )
+
+        return wrap_provider_result(
+            True, "openai", model_id, group_key,
+            parsed_result=normalized, raw_text=raw_text,
+        )
 
     except Exception as exc:
         logger.error("OpenAI call failed for %s: %s", group_key, exc)
@@ -168,20 +208,9 @@ def review_group(
                 input_est, output_est, None, None,
                 search_used=web_search, status="error",
             )
-        return None
+        return wrap_provider_result(
+            False, "openai", model_id, group_key,
+            error_type="model_call_error",
+            error_message=str(exc),
+        )
 
-
-def _parse_response(raw_text: str, group_key: str) -> dict | None:
-    text = raw_text.strip()
-    if text.startswith("```"):
-        lines = text.split("\n")
-        lines = [l for l in lines if not l.strip().startswith("```")]
-        text = "\n".join(lines)
-    try:
-        data = json.loads(text)
-        if isinstance(data, dict) and "review_results" in data:
-            return data
-        return data if isinstance(data, dict) else None
-    except json.JSONDecodeError as exc:
-        logger.error("Failed to parse OpenAI JSON for %s: %s", group_key, exc)
-        return None

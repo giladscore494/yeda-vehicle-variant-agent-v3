@@ -51,6 +51,8 @@ from engine.validation.validation_outputs import (
     write_targeted_seed_validation,
 )
 from engine.validation.error_types import make_error, classify_exception
+from engine.validation.model_validation_items import build_model_validation_items
+from engine.validation.model_validation_runner import run_model_validation
 
 
 _TARGET_SEED_ID = "mg_(british_era)__tf__2002__2005__il"
@@ -312,3 +314,181 @@ def run_full_validation(
             state_path,
         )
         return {"ok": False, "error": error_record}
+
+
+def run_model_validation_on_suspicious_groups(
+    canonical_path: str | None = None,
+    seeds_path: str = "data/seeds/vehicle_model_seeds_il.json",
+    state_path: str | None = None,
+) -> dict:
+    """Run model validation on suspicious groups ONLY.
+
+    This is a separate step from the full validation session.
+    Full Validation does NOT automatically call models.
+
+    1. Load canonical (read-only)
+    2. Load seed catalog for coverage checks
+    3. Recompute deterministic audit / suspicious groups / partial classifications
+    4. Build group-level model validation items
+    5. Call Gemini for suspicious groups only
+    6. Call OpenAI for second-opinion high-risk cases only
+    7. Aggregate results
+    8. Write model_validation_results_v2.json
+    9. Update validation_report_v2.json, validation_patch_suggestions_v2.json,
+       resume_package_canonical_validated_v2.json
+    10. Never write to canonical
+    """
+    # Branch guard
+    branch_err = _check_branch()
+    if branch_err:
+        return {"ok": False, "error": make_error(
+            "config_error_invalid_branch", branch_err,
+            failed_stage="branch_check",
+        )}
+
+    state = load_validation_state(state_path)
+    mark_validation_started(state, state_path)
+
+    try:
+        # ── Load data ───────────────────────────────────────────────────
+        update_validation_progress(
+            state, stage="MODEL_VALIDATION_LOADING", path=state_path,
+        )
+
+        canonical = load_canonical(canonical_path or CANONICAL_RESUME_PATH)
+        ensure_batch_state_fields(canonical)
+        seeds = load_seeds(seeds_path)
+
+        # ── Recompute deterministic pipeline ────────────────────────────
+        update_validation_progress(
+            state, stage="MODEL_VALIDATION_DETERMINISTIC_PREP", path=state_path,
+        )
+
+        deterministic_issues = run_deterministic_audit(canonical, seeds)
+        partial_classifications = classify_all_partial_variants(canonical)
+        suspicious_groups = build_suspicious_groups(canonical, seeds)
+
+        if not suspicious_groups:
+            mark_validation_completed(state, state_path)
+            return {
+                "ok": True,
+                "model_validation_ran": False,
+                "reason": "No suspicious groups found — model validation not needed",
+                "deterministic_validation_ran": True,
+                "model_calls_summary": {
+                    "gemini_calls_attempted": 0, "gemini_calls_success": 0,
+                    "gemini_calls_failed": 0, "openai_calls_attempted": 0,
+                    "openai_calls_success": 0, "openai_calls_failed": 0,
+                },
+            }
+
+        # ── Build model validation items ────────────────────────────────
+        update_validation_progress(
+            state, stage="MODEL_VALIDATION_BUILDING_ITEMS", path=state_path,
+        )
+
+        validation_items = build_model_validation_items(
+            suspicious_groups, canonical,
+            deterministic_issues, partial_classifications,
+        )
+
+        # ── Run model validation ────────────────────────────────────────
+        update_validation_progress(
+            state, stage="MODEL_VALIDATION_RUNNING",
+            total_items=len(validation_items), path=state_path,
+        )
+
+        model_results = run_model_validation(
+            validation_items,
+            output_dir=VALIDATION_OUTPUT_PATH,
+        )
+
+        # ── Update output files ─────────────────────────────────────────
+        update_validation_progress(
+            state, stage="MODEL_VALIDATION_WRITING_OUTPUTS", path=state_path,
+        )
+
+        run_id = state.get("validation_run_id", "unknown")
+        started_at = model_results.get("started_at", "")
+        completed_at = model_results.get("completed_at", "")
+
+        # Update validated package with model validation metadata
+        write_validated_package(
+            canonical=canonical,
+            deterministic_issues=deterministic_issues,
+            partial_classifications=partial_classifications,
+            suspicious_groups=suspicious_groups,
+            targeted_seed_result=None,
+            validation_run_id=run_id,
+        )
+
+        # Update validation report with model_calls_summary
+        model_calls_summary = model_results.get("model_calls_summary", {})
+        model_calls_summary["model_validation_ran"] = True
+        model_calls_summary["model_validation_items_count"] = model_results.get(
+            "model_validation_items_count", 0
+        )
+        model_calls_summary["model_validation_failed_items_count"] = model_results.get(
+            "model_validation_failed_items_count", 0
+        )
+        model_calls_summary["model_validation_output_path"] = model_results.get(
+            "model_validation_output_path", ""
+        )
+
+        write_validation_report(
+            validation_run_id=run_id,
+            canonical=canonical,
+            deterministic_issues=deterministic_issues,
+            suspicious_groups=suspicious_groups,
+            partial_classifications=partial_classifications,
+            targeted_seed_result=None,
+            model_calls_summary=model_calls_summary,
+            started_at=started_at,
+            completed_at=completed_at,
+        )
+
+        # Update patch suggestions with model suggestions
+        write_patch_suggestions(
+            deterministic_issues, partial_classifications,
+            model_validation_items=model_results.get("items", []),
+        )
+
+        # ── Done ────────────────────────────────────────────────────────
+        mark_validation_completed(state, state_path)
+
+        return {
+            "ok": True,
+            "deterministic_validation_ran": True,
+            "model_validation_ran": True,
+            **model_results.get("model_calls_summary", {}),
+            "model_validation_items_count": model_results.get(
+                "model_validation_items_count", 0
+            ),
+            "model_validation_failed_items_count": model_results.get(
+                "model_validation_failed_items_count", 0
+            ),
+            "model_validation_output_path": model_results.get(
+                "model_validation_output_path", ""
+            ),
+            "last_model_validation_error": model_results.get(
+                "last_model_validation_error"
+            ),
+            "suspicious_groups_count": len(suspicious_groups),
+            "validation_items_count": len(validation_items),
+        }
+
+    except Exception as exc:
+        error_type = classify_exception(exc)
+        error_record = make_error(
+            error_type, str(exc),
+            failed_stage=state.get("current_stage", "unknown"),
+            traceback_short=traceback.format_exc()[-500:],
+        )
+        mark_validation_item_failed(
+            state,
+            state.get("current_validation_item") or "model_validation",
+            error_type, str(exc),
+            state_path,
+        )
+        return {"ok": False, "error": error_record}
+
