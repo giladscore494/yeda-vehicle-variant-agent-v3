@@ -52,7 +52,6 @@ from engine.validation.validation_outputs import (
 )
 from engine.validation.error_types import make_error, classify_exception
 from engine.validation.model_validation_items import build_model_validation_items
-from engine.validation.model_validation_runner import run_model_validation
 
 
 _TARGET_SEED_ID = "mg_(british_era)__tf__2002__2005__il"
@@ -398,6 +397,8 @@ def run_model_validation_on_suspicious_groups(
             total_items=len(validation_items), path=state_path,
         )
 
+        from engine.validation.model_validation_runner import run_model_validation
+
         model_results = run_model_validation(
             validation_items,
             output_dir=VALIDATION_OUTPUT_PATH,
@@ -491,4 +492,3 @@ def run_model_validation_on_suspicious_groups(
             state_path,
         )
         return {"ok": False, "error": error_record}
-

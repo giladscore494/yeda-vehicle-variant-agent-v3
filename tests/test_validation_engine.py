@@ -4,8 +4,10 @@ Covers requirements 1–12 of the validation engine specification.
 """
 from __future__ import annotations
 
+import importlib
 import json
 import os
+import sys
 import tempfile
 from pathlib import Path
 from unittest import mock
@@ -332,6 +334,38 @@ class TestModelValidationRunner:
     def test_run_model_validation_on_suspicious_groups_exists(self):
         from engine.validation import validation_runner
         assert hasattr(validation_runner, "run_model_validation_on_suspicious_groups")
+
+    def test_validation_runner_imports_without_model_runner(self):
+        original_validation_runner = sys.modules.pop(
+            "engine.validation.validation_runner", None
+        )
+        original_model_runner = sys.modules.pop(
+            "engine.validation.model_validation_runner", None
+        )
+
+        try:
+            with mock.patch.dict(
+                sys.modules,
+                {"engine.validation.model_validation_runner": None},
+            ):
+                validation_runner = importlib.import_module(
+                    "engine.validation.validation_runner"
+                )
+
+            assert hasattr(
+                validation_runner, "run_model_validation_on_suspicious_groups"
+            )
+        finally:
+            sys.modules.pop("engine.validation.validation_runner", None)
+            sys.modules.pop("engine.validation.model_validation_runner", None)
+            if original_validation_runner is not None:
+                sys.modules["engine.validation.validation_runner"] = (
+                    original_validation_runner
+                )
+            if original_model_runner is not None:
+                sys.modules["engine.validation.model_validation_runner"] = (
+                    original_model_runner
+                )
 
     def test_aggregate_decision_gemini_no_action_low_risk(self):
         from engine.validation.model_validation_runner import _aggregate_decision
