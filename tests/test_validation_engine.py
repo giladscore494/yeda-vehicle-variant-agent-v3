@@ -129,25 +129,6 @@ class _ServerError(Exception):
 class TestWebSearchGenerate:
     """Unit tests using a fake OpenAI-like client."""
 
-    class _ClientAlwaysOk:
-        def __init__(self):
-            self.calls: list[dict] = []
-
-        class responses:
-            pass
-
-        def __init__(self):
-            self.calls: list[dict] = []
-            self.responses = self._Responses(self)
-
-        class _Responses:
-            def __init__(self, parent):
-                self._parent = parent
-
-            def create(self, **kwargs):
-                self._parent.calls.append(kwargs)
-                return _FakeResponse()
-
     def _make_client(self, fail_tools=None):
         """Return a fake client.  fail_tools is a set of tool-type strings that raise 400."""
         fail_tools = fail_tools or set()
@@ -158,7 +139,6 @@ class TestWebSearchGenerate:
                 self._fail = fail_tools_
 
             def create(self_, **kwargs):  # noqa: N805
-                self_.calls = getattr(self_, "calls", [])
                 tools = kwargs.get("tools")
                 tool_type = tools[0]["type"] if tools else None
                 self_._calls.append({"tool_type": tool_type, **kwargs})
