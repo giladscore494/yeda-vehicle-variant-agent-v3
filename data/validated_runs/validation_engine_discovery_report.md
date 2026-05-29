@@ -153,7 +153,7 @@ Total: 3,712 variants across 94 makes and 987 models.
 - Sends with commit message, branch, and SHA
 - Called from `engine/save.py::save_canonical_atomic()` when `push_to_github=True`
 
-**Auth:** `Authorization: ****** header.
+**Auth:** `Authorization: ****** header (token from config).
 
 ---
 

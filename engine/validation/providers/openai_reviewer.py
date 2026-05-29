@@ -137,10 +137,14 @@ def review_group(
         if web_search:
             tools = [{"type": "web_search_preview"}]
 
-        response = client.chat.completions.create(
-            model=model_id,
-            messages=[{"role": "user", "content": prompt}],
-        )
+        create_kwargs: dict = {
+            "model": model_id,
+            "messages": [{"role": "user", "content": prompt}],
+        }
+        if tools:
+            create_kwargs["tools"] = tools
+
+        response = client.chat.completions.create(**create_kwargs)
 
         raw_text = response.choices[0].message.content or "" if response.choices else ""
 

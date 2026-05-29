@@ -106,7 +106,7 @@ def push_file(
     body = resp.json() if resp.content else {}
     commit_obj = body.get("commit") if isinstance(body, dict) else {}
     content_obj = body.get("content") if isinstance(body, dict) else {}
-    logger.info("Pushed %s (branch=%s)", remote_path, b)
+    logger.info("Pushed %s to target branch", remote_path)
     return {
         "ok": True,
         "path": remote_path,
