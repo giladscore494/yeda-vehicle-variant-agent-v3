@@ -404,11 +404,8 @@ def _aggregate_decision(
 
         # Risky recommendation without OpenAI
         if g_rec in RISKY_RECOMMENDATIONS:
-            status = "needs_manual_review"
-            if openai_failed and g_risk in ("high", "critical"):
-                status = "needs_manual_review"
             return {
-                "final_status": status,
+                "final_status": "needs_manual_review",
                 "final_recommendation": g_rec,
                 "primary_model": "gemini",
                 "secondary_model": None,
