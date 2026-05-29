@@ -132,7 +132,8 @@ def _resolve_github_branch() -> str:
     if val:
         return val
 
-    return "main"
+    # Do NOT silently default to main for validation
+    return ""
 
 
 # ── Resolved config values ──────────────────────────────────────────────
@@ -142,6 +143,12 @@ GEMINI_MODEL_FAST: str = _get("GEMINI_MODEL_FAST", "gemini-3.1-pro-preview",
                               sectioned_fallbacks=[("google", "gemini_validator_model_id")])
 GEMINI_MODEL_STRONG: str = _get("GEMINI_MODEL_STRONG", "gemini-3.1-pro-preview",
                                 sectioned_fallbacks=[("google", "gemini_validator_model_id")])
+
+OPENAI_API_KEY: str = _get("OPENAI_API_KEY", sectioned_fallbacks=[("openai", "api_key")])
+OPENAI_VALIDATOR_MODEL_ID: str = _get(
+    "OPENAI_VALIDATOR_MODEL_ID", "gpt-5.4",
+    sectioned_fallbacks=[("openai", "validator_model_id")],
+)
 
 GITHUB_TOKEN: str = _get("GITHUB_TOKEN", sectioned_fallbacks=[("github", "token")])
 GITHUB_REPO: str = _get("GITHUB_REPO", "giladscore494/yeda-vehicle-variant-agent-v3",
@@ -156,6 +163,12 @@ CANONICAL_BACKUP_PATH: str = _get(
 )
 RUNTIME_STATE_PATH: str = _get(
     "RUNTIME_STATE_PATH", "data/runtime/current_run.json"
+)
+VALIDATION_RUNTIME_STATE_PATH: str = _get(
+    "VALIDATION_RUNTIME_STATE_PATH", "data/runtime/current_validation_run.json"
+)
+VALIDATION_OUTPUT_PATH: str = _get(
+    "VALIDATION_OUTPUT_PATH", "data/validated_runs"
 )
 
 # ── Branch safety warning ───────────────────────────────────────────────
@@ -185,19 +198,55 @@ def gemini_configured() -> bool:
     return bool(GEMINI_API_KEY)
 
 
+def openai_configured() -> bool:
+    return bool(OPENAI_API_KEY)
+
+
 def github_configured() -> bool:
     return bool(GITHUB_TOKEN)
+
+
+def _resolve_validation_mode() -> str:
+    """Resolve validation mode from secrets."""
+    val = _try_streamlit_sectioned("validation", "mode")
+    if val:
+        return val
+    return os.environ.get("VALIDATION_MODE", "targeted-dual-validation").strip()
+
+
+def _resolve_dry_run() -> bool:
+    val = _try_streamlit_sectioned("validation", "enable_dry_run")
+    if val is not None:
+        return str(val).strip().lower() in ("true", "1", "yes")
+    env = os.environ.get("VALIDATION_ENABLE_DRY_RUN", "false")
+    return env.strip().lower() in ("true", "1", "yes")
+
+
+def _resolve_repo_write() -> bool:
+    val = _try_streamlit_sectioned("validation", "enable_repo_write")
+    if val is not None:
+        return str(val).strip().lower() in ("true", "1", "yes")
+    env = os.environ.get("VALIDATION_ENABLE_REPO_WRITE", "false")
+    return env.strip().lower() in ("true", "1", "yes")
 
 
 def config_summary() -> dict:
     """Return a safe summary (no secret values)."""
     return {
         "gemini_key": "configured" if gemini_configured() else "missing",
+        "gemini_model": GEMINI_MODEL_STRONG,
+        "openai_key": "configured" if openai_configured() else "missing",
+        "openai_model": OPENAI_VALIDATOR_MODEL_ID,
         "github_token": "configured" if github_configured() else "missing",
         "github_repo": GITHUB_REPO,
         "github_branch": GITHUB_BRANCH,
         "canonical_path": CANONICAL_RESUME_PATH,
         "backup_path": CANONICAL_BACKUP_PATH,
         "runtime_state_path": RUNTIME_STATE_PATH,
+        "validation_runtime_state_path": VALIDATION_RUNTIME_STATE_PATH,
+        "validation_mode": _resolve_validation_mode(),
+        "validation_output_path": VALIDATION_OUTPUT_PATH,
+        "dry_run": _resolve_dry_run(),
+        "repo_write": _resolve_repo_write(),
         "branch_warning": get_branch_warning(),
     }

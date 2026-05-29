@@ -1,7 +1,9 @@
-"""Yeda Vehicle Variant Agent v3 — Streamlit UI.
+"""Yeda Vehicle Variant Agent v3 — Validation Engine UI.
 
-Calls engine functions and displays progress/results.
+Primary purpose: validation of the existing canonical database.
 Does NOT directly mutate canonical.
+Treats data/canonical/resume_package_canonical.json as read-only input.
+All validation outputs go under data/validated_runs/.
 """
 from __future__ import annotations
 
@@ -10,7 +12,13 @@ from pathlib import Path
 
 import streamlit as st
 
-from core.config import config_summary, CANONICAL_RESUME_PATH, get_branch_warning
+from core.config import (
+    config_summary,
+    CANONICAL_RESUME_PATH,
+    VALIDATION_OUTPUT_PATH,
+    GITHUB_BRANCH,
+    get_branch_warning,
+)
 from engine.state import (
     load_canonical,
     load_canonical_with_recovery,
@@ -23,30 +31,41 @@ from engine.state import (
     CanonicalCorruptionError,
 )
 from engine.audit import audit_canonical
-from engine.batch import run_batch
-from engine.retry_failed import retry_failed_seed as _retry_failed_seed
-from engine.reset import (
-    reset_validation_state,
-    audit_queue_state,
-    audit_specific_seed,
-    remove_stale_failure,
-)
 
-st.set_page_config(page_title="Yeda v3", layout="wide")
-st.title("🚗 Yeda Vehicle Variant Agent v3")
+st.set_page_config(page_title="Yeda v3 — Validation Engine", layout="wide")
+st.title("🚗 Yeda Vehicle Variant Agent v3 — Validation Engine")
 
-# Default seed ID for audit/stale-failure UI (known failed seed from previous run)
-_DEFAULT_AUDIT_SEED_ID = "mg_(british_era)__tf__2002__2005__il"
+_DEFAULT_TARGET_SEED_ID = "mg_(british_era)__tf__2002__2005__il"
+
+# ---------- Branch guard ----------
+if GITHUB_BRANCH == "main":
+    st.error(
+        "🛑 Branch resolved to 'main'. Validation mode requires branch "
+        "'validation-v2-budgeted-dual-il-trims'. Check your secrets configuration."
+    )
+    st.stop()
 
 # ---------- Sidebar: Config ----------
 with st.sidebar:
     st.header("Configuration")
     cfg = config_summary()
-    st.write(f"**Gemini key:** {cfg['gemini_key']}")
-    st.write(f"**GitHub token:** {cfg['github_token']}")
-    st.write(f"**GitHub repo:** {cfg['github_repo']}")
-    st.write(f"**GitHub branch:** {cfg['github_branch']}")
-    st.write(f"**Canonical:** {cfg['canonical_path']}")
+
+    st.subheader("Keys & Tokens")
+    st.write(f"**Gemini key present:** {'✅ yes' if cfg['gemini_key'] == 'configured' else '❌ no'}")
+    st.write(f"**Gemini model resolved:** `{cfg['gemini_model']}`")
+    st.write(f"**OpenAI key present:** {'✅ yes' if cfg['openai_key'] == 'configured' else '❌ no'}")
+    st.write(f"**OpenAI model resolved:** `{cfg['openai_model']}`")
+    st.write(f"**GitHub token present:** {'✅ yes' if cfg['github_token'] == 'configured' else '❌ no'}")
+
+    st.subheader("Repo & Branch")
+    st.write(f"**GitHub repo resolved:** `{cfg['github_repo']}`")
+    st.write(f"**GitHub branch resolved:** `{cfg['github_branch']}`")
+
+    st.subheader("Validation")
+    st.write(f"**Validation mode:** `{cfg['validation_mode']}`")
+    st.write(f"**Validation output path:** `{cfg['validation_output_path']}`")
+    st.write(f"**Dry run status:** {'🟡 enabled' if cfg['dry_run'] else '🟢 disabled'}")
+    st.write(f"**Repo write status:** {'🟢 enabled' if cfg['repo_write'] else '🔴 disabled'}")
 
     branch_warn = get_branch_warning()
     if branch_warn:
@@ -84,13 +103,251 @@ except Exception as exc:
 if not data_loaded:
     st.stop()
 
+# ---------- Load validation state ----------
+from engine.validation.validation_state import load_validation_state
+
+val_state = load_validation_state()
+
 # ---------- Tabs ----------
-tab_main, tab_manual, tab_diag, tab_reset = st.tabs(
-    ["Main Run", "Manual Seed", "Diagnostics / Export", "Reset / Audit"]
+tab_validation, tab_partial, tab_legacy = st.tabs(
+    ["🔍 Validation Run", "📋 Partial Variants", "🔧 Legacy Build Diagnostics"]
 )
 
-# ==================== Main Run ====================
-with tab_main:
+# ==================== VALIDATION RUN ====================
+with tab_validation:
+    # ── Validation Status Dashboard ─────────────────────────────────────
+    st.subheader("Validation Status")
+
+    col1, col2, col3, col4 = st.columns(4)
+    col1.metric("Total Variants", len(all_variants))
+    col2.metric("Verified", len(canonical.get("verified_variants") or []))
+    col3.metric("Partial", len(canonical.get("partial_variants") or []))
+    col4.metric("Total Seeds", len(seeds))
+
+    col5, col6, col7, col8 = st.columns(4)
+    col5.metric("Processed Seeds", len(bs.get("processed_seed_ids", [])))
+    col6.metric("Failed Seeds", len(bs.get("failed_seed_ids", [])))
+    col7.metric("Manual Review Seeds", len(bs.get("manual_review_seed_ids", [])))
+    col8.metric("Validation Run ID", val_state.get("validation_run_id", "N/A")[:20])
+
+    st.write(f"**Validation source canonical:** `{CANONICAL_RESUME_PATH}`")
+    st.write(f"**Validation output path:** `{VALIDATION_OUTPUT_PATH}`")
+    st.write(f"**Validation mode:** `{cfg['validation_mode']}`")
+    st.write(f"**Current stage:** `{val_state.get('current_stage', 'READY')}`")
+
+    completed_items = val_state.get("completed_validation_items") or []
+    failed_items = val_state.get("failed_validation_items") or []
+    manual_items = val_state.get("manual_review_validation_items") or []
+
+    if completed_items:
+        st.write(f"**Completed validation items:** {len(completed_items)}")
+    if failed_items:
+        st.write(f"**Failed validation items:** {len(failed_items)}")
+    if manual_items:
+        st.write(f"**Manual review items:** {len(manual_items)}")
+
+    if val_state.get("last_error_type"):
+        st.error(
+            f"**Last error:** `{val_state['last_error_type']}` — "
+            f"{val_state.get('last_error_message', '')}"
+        )
+
+    st.write(f"**GitHub branch resolved:** `{cfg['github_branch']}`")
+    st.write(f"**Gemini key status:** {cfg['gemini_key']}")
+    st.write(f"**OpenAI key status:** {cfg['openai_key']}")
+    st.write(f"**GitHub token status:** {cfg['github_token']}")
+
+    st.divider()
+
+    # ── Actions ─────────────────────────────────────────────────────────
+    st.subheader("Validation Actions")
+
+    col_a1, col_a2 = st.columns(2)
+
+    with col_a1:
+        if st.button("🔄 Reset Validation Session", type="secondary"):
+            from engine.validation.validation_state import reset_validation_session
+            new_state = reset_validation_session()
+            st.success(f"✅ Validation session reset. New run ID: `{new_state['validation_run_id']}`")
+            st.rerun()
+
+        if st.button("🔎 Run Deterministic Audit"):
+            from engine.validation.validation_runner import run_deterministic_audit_only
+            with st.spinner("Running deterministic audit over all variants..."):
+                result = run_deterministic_audit_only()
+                if result["ok"]:
+                    summary = result["summary"]
+                    st.success(
+                        f"✅ Deterministic audit complete. "
+                        f"**{result['total_issues']}** issues found."
+                    )
+                    col_s1, col_s2, col_s3, col_s4 = st.columns(4)
+                    by_sev = summary.get("by_severity", {})
+                    col_s1.metric("Critical", by_sev.get("critical", 0))
+                    col_s2.metric("High", by_sev.get("high", 0))
+                    col_s3.metric("Medium", by_sev.get("medium", 0))
+                    col_s4.metric("Low", by_sev.get("low", 0))
+
+                    with st.expander("Issue Details"):
+                        st.json(result["issues"][:100])
+                else:
+                    st.error(f"❌ Audit failed: {result.get('error')}")
+
+    with col_a2:
+        if st.button("🎯 Run Targeted Failed Seed Validation"):
+            from engine.validation.validation_runner import run_targeted_seed_validation
+            with st.spinner(f"Validating targeted seed: {_DEFAULT_TARGET_SEED_ID}..."):
+                result = run_targeted_seed_validation(_DEFAULT_TARGET_SEED_ID)
+                if result["ok"]:
+                    tr = result["result"]
+                    status_icon = "✅" if tr.get("failure_was_stale_state") else "⚠️"
+                    st.success(
+                        f"{status_icon} Targeted seed validation complete.\n\n"
+                        f"**Status:** {tr.get('validation_status')}\n\n"
+                        f"**Action:** {tr.get('recommended_action')}"
+                    )
+                    with st.expander("Full Result"):
+                        st.json(tr)
+                else:
+                    st.error(f"❌ Validation failed: {result.get('error')}")
+
+        if st.button("🔍 Run Suspicious Groups Detection"):
+            from engine.validation.validation_runner import run_suspicious_groups_validation
+            with st.spinner("Detecting suspicious groups..."):
+                result = run_suspicious_groups_validation()
+                if result["ok"]:
+                    summary = result["summary"]
+                    st.success(
+                        f"✅ Found **{result['total_groups']}** suspicious groups "
+                        f"({summary.get('total_variants_in_groups', 0)} variants)."
+                    )
+                    by_risk = summary.get("by_risk_level", {})
+                    col_r1, col_r2, col_r3, col_r4 = st.columns(4)
+                    col_r1.metric("Critical", by_risk.get("critical", 0))
+                    col_r2.metric("High", by_risk.get("high", 0))
+                    col_r3.metric("Medium", by_risk.get("medium", 0))
+                    col_r4.metric("Low", by_risk.get("low", 0))
+
+                    with st.expander("Suspicious Groups"):
+                        st.json(result["groups"][:50])
+                else:
+                    st.error(f"❌ Detection failed: {result.get('error')}")
+
+    st.divider()
+
+    col_full, col_export = st.columns(2)
+
+    with col_full:
+        if st.button("▶️ Run Full Validation Session", type="primary"):
+            from engine.validation.validation_runner import run_full_validation
+            with st.spinner("Running full validation session..."):
+                result = run_full_validation()
+                if result["ok"]:
+                    st.success(
+                        f"✅ Full validation complete!\n\n"
+                        f"**Run ID:** {result['validation_run_id']}\n\n"
+                        f"**Variants scanned:** {result['total_variants_scanned']}\n\n"
+                        f"**Seeds scanned:** {result['total_seeds_scanned']}"
+                    )
+
+                    det = result.get("deterministic_issues", {})
+                    sg = result.get("suspicious_groups", {})
+                    pv = result.get("partial_variants", {})
+
+                    st.subheader("Results Summary")
+                    col_r1, col_r2, col_r3 = st.columns(3)
+                    col_r1.metric("Deterministic Issues", det.get("total_issues", 0))
+                    col_r2.metric("Suspicious Groups", sg.get("total_suspicious_groups", 0))
+                    col_r3.metric("Partial Variants", pv.get("total_partial_variants", 0))
+
+                    with st.expander("Full Result"):
+                        st.json(result)
+                else:
+                    st.error(f"❌ Validation failed: {json.dumps(result.get('error', {}), indent=2)}")
+
+    with col_export:
+        if st.button("📥 Export Validation Report"):
+            report_path = Path("data/validated_runs/validation_report_v2.json")
+            if report_path.exists():
+                report_data = report_path.read_text(encoding="utf-8")
+                st.download_button(
+                    "Download Validation Report",
+                    data=report_data,
+                    file_name="validation_report_v2.json",
+                    mime="application/json",
+                )
+            else:
+                st.info("No validation report found. Run a full validation first.")
+
+    # ── Show existing validation outputs ────────────────────────────────
+    st.divider()
+    st.subheader("Existing Validation Outputs")
+
+    validated_runs_dir = Path("data/validated_runs")
+    if validated_runs_dir.exists():
+        output_files = sorted(validated_runs_dir.glob("*.json"))
+        if output_files:
+            for f in output_files:
+                st.write(f"📄 `{f.name}` ({f.stat().st_size:,} bytes)")
+        else:
+            st.info("No validation output files yet.")
+    else:
+        st.info("data/validated_runs/ directory does not exist yet.")
+
+    # Validation runtime state
+    val_runtime_path = Path("data/runtime/current_validation_run.json")
+    if val_runtime_path.exists():
+        with st.expander("Current Validation Run State"):
+            st.json(json.loads(val_runtime_path.read_text()))
+
+# ==================== PARTIAL VARIANTS ====================
+with tab_partial:
+    st.subheader("📋 Partial Variants Analysis")
+
+    partial_variants = canonical.get("partial_variants") or []
+    st.metric("Total Partial Variants", len(partial_variants))
+
+    if st.button("🔎 Classify Partial Variants"):
+        from engine.validation.partial_variants import (
+            classify_all_partial_variants,
+            summarize_partial_variants,
+        )
+        with st.spinner("Classifying partial variants..."):
+            classifications = classify_all_partial_variants(canonical)
+            summary = summarize_partial_variants(classifications)
+
+            st.subheader("Partial Variants Summary")
+            col_p1, col_p2, col_p3, col_p4 = st.columns(4)
+            col_p1.metric("Total", summary["total_partial_variants"])
+            col_p2.metric("Valid Keep", summary.get("valid_partial_keep", 0))
+            col_p3.metric("Needs Evidence", summary.get("needs_evidence", 0))
+            col_p4.metric("Manual Review", summary.get("manual_review_required", 0))
+
+            col_p5, col_p6, col_p7, col_p8 = st.columns(4)
+            col_p5.metric("Merge Candidates", summary.get("merge_candidate", 0))
+            col_p6.metric("Promote Candidates", summary.get("promote_to_verified_candidate", 0))
+            col_p7.metric("Needs Normalization", summary.get("needs_normalization", 0))
+            col_p8.metric("Reject Candidates", summary.get("reject_candidate", 0))
+
+            st.divider()
+            st.subheader("Risk Distribution")
+            col_r1, col_r2, col_r3, col_r4 = st.columns(4)
+            col_r1.metric("Low Risk", summary.get("risk_low", 0))
+            col_r2.metric("Medium Risk", summary.get("risk_medium", 0))
+            col_r3.metric("High Risk", summary.get("risk_high", 0))
+            col_r4.metric("Critical Risk", summary.get("risk_critical", 0))
+
+            with st.expander("All Classifications"):
+                st.json(classifications[:100])
+
+# ==================== LEGACY BUILD DIAGNOSTICS ====================
+with tab_legacy:
+    st.subheader("🔧 Legacy Build Diagnostics")
+    st.info(
+        "This section shows the legacy build engine state. "
+        "The validation engine does NOT use the build flow."
+    )
+
     col1, col2, col3, col4 = st.columns(4)
     col1.metric("Variants", len(all_variants))
     col2.metric("Processed", len(bs.get("processed_seed_ids", [])))
@@ -107,189 +364,19 @@ with tab_main:
 
     st.divider()
 
-    batch_size = st.number_input("Batch size", min_value=1, max_value=50, value=1)
-    push_enabled = st.checkbox("Push to GitHub after save", value=False)
-
-    col_dry, col_run = st.columns(2)
-
-    with col_dry:
-        if st.button("🔍 Dry-run next"):
-            with st.spinner("Running dry-run..."):
-                result = run_batch(
-                    batch_size=1,
-                    dry_run=True,
-                    push_to_github=False,
-                )
-                st.json(result)
-
-    with col_run:
-        if st.button(f"▶️ Run next {batch_size}"):
-            with st.spinner(f"Running batch of {batch_size}..."):
-                result = run_batch(
-                    batch_size=batch_size,
-                    dry_run=False,
-                    push_to_github=push_enabled,
-                )
-
-                # Determine completion message
-                failed_q = bs.get("failed_seed_ids") or []
-                manual_q = bs.get("manual_review_seed_ids") or []
-                batch_results = result.get("results", [])
-                any_success = any(
-                    r.get("action") in ("ACCEPT_VARIANTS", "CLOSE_NO_VARIANTS_PROVEN")
-                    for r in batch_results
-                )
-
-                if result.get("ok"):
-                    if not batch_results:
-                        # No seeds ran at all
-                        if failed_q or manual_q:
-                            st.warning(
-                                "⚠️ No normal seeds left. "
-                                "Resolve failed/manual review queues."
-                            )
-                        else:
-                            st.info("No seeds to process.")
-                    elif any_success:
-                        st.success("✅ Batch completed!")
-                    else:
-                        st.info("Batch finished — no seeds were successfully resolved.")
-                else:
-                    st.error(f"Batch failed: {result.get('error')}")
-
-                # Show results
-                if "results" in result:
-                    st.subheader("Seed Results")
-                    for r in result["results"]:
-                        action = r.get("action", "?")
-                        icon = {"ACCEPT_VARIANTS": "✅", "CLOSE_NO_VARIANTS_PROVEN": "📋",
-                                "MANUAL_REVIEW": "⚠️", "FAIL_TRANSIENT": "❌"}.get(action, "❓")
-                        st.write(f"{icon} `{r['seed_id']}` → **{action}** "
-                                 f"(+{r.get('added_count', 0)} added, "
-                                 f"{r.get('merged_count', 0)} merged)")
-
-                if "tracker" in result:
-                    with st.expander("Progress Details"):
-                        st.json(result["tracker"])
-
-    # Runtime progress file
-    runtime_path = Path("data/runtime/current_run.json")
-    if runtime_path.exists():
-        with st.expander("Current Run Progress"):
-            st.json(json.loads(runtime_path.read_text()))
-
-# ==================== Manual Seed ====================
-with tab_manual:
-    st.subheader("Run a specific seed")
-
-    manual_seed_id = st.text_input("Seed ID", value=bs.get("next_seed_id") or "")
-
-    if st.button("🔍 Dry-run this seed"):
-        seed = find_seed_by_id(seeds, manual_seed_id)
-        if seed:
-            from engine.run_seed import run_seed
-            from engine.decision import decide_seed_result
-            with st.spinner("Running..."):
-                result = run_seed(seed, manual_seed_id, dry_run=True)
-                st.json({
-                    "ok": result.ok,
-                    "candidates": len(result.candidate_variants),
-                    "no_variants_reason": result.no_variants_reason,
-                    "errors": result.errors,
-                })
-        else:
-            st.error(f"Seed not found: {manual_seed_id}")
-
-    # Manual review queue
-    manual_seeds = bs.get("manual_review_seed_ids") or []
-    if manual_seeds:
-        st.subheader(f"Manual Review Queue ({len(manual_seeds)})")
-        for sid in manual_seeds[:20]:
-            st.write(f"- `{sid}`")
-
-# ==================== Failed Seed Retry ====================
-with tab_manual:
-    st.divider()
-    st.subheader("🔁 Retry Failed Seeds")
-
-    failed_seeds = bs.get("failed_seed_ids") or []
-    if failed_seeds:
-        st.write(f"**Failed seeds ({len(failed_seeds)}):**")
-        for fs in failed_seeds:
-            st.write(f"- `{fs}`")
-
-        selected_failed = st.selectbox(
-            "Select failed seed to retry",
-            options=failed_seeds,
-            key="retry_failed_select",
-        )
-
-        col_retry_dry, col_retry_save = st.columns(2)
-
-        with col_retry_dry:
-            if st.button("🔍 Dry-run failed seed"):
-                from engine.run_seed import run_seed
-                from engine.decision import decide_seed_result
-
-                seed = find_seed_by_id(seeds, selected_failed)
-                if seed:
-                    with st.spinner("Running dry-run retry..."):
-                        seed_result = run_seed(seed, selected_failed, dry_run=True)
-                        decision = decide_seed_result(seed_result)
-                        result = _retry_failed_seed(
-                            seed_id=selected_failed,
-                            decision=decision,
-                            canonical=canonical,
-                            seeds=seeds,
-                            dry_run=True,
-                        )
-                        st.json(result)
-                else:
-                    st.error(f"Seed not found in catalog: {selected_failed}")
-
-        with col_retry_save:
-            if st.button("▶️ Retry failed seed and save"):
-                from engine.run_seed import run_seed
-                from engine.decision import decide_seed_result
-
-                seed = find_seed_by_id(seeds, selected_failed)
-                if seed:
-                    with st.spinner("Running retry..."):
-                        seed_result = run_seed(seed, selected_failed, dry_run=False)
-                        decision = decide_seed_result(seed_result)
-                        push_enabled_retry = st.session_state.get("push_enabled", False)
-                        result = _retry_failed_seed(
-                            seed_id=selected_failed,
-                            decision=decision,
-                            canonical=canonical,
-                            seeds=seeds,
-                            dry_run=False,
-                            push_to_github=push_enabled_retry,
-                            canonical_path=CANONICAL_RESUME_PATH,
-                        )
-                        if result.get("ok"):
-                            st.success("✅ Retry completed!")
-                        else:
-                            st.error(f"❌ Retry failed: {result.get('error')}")
-                        st.json(result)
-                else:
-                    st.error(f"Seed not found in catalog: {selected_failed}")
-    else:
-        st.info("No failed seeds to retry.")
-
-# ==================== Diagnostics ====================
-with tab_diag:
     st.subheader("Config Source Resolution")
     diag_cfg = config_summary()
     col_d1, col_d2 = st.columns(2)
     with col_d1:
         st.write(f"**Gemini key present:** {diag_cfg['gemini_key']}")
+        st.write(f"**OpenAI key present:** {diag_cfg['openai_key']}")
         st.write(f"**GitHub token present:** {diag_cfg['github_token']}")
         st.write(f"**GitHub repo:** {diag_cfg['github_repo']}")
         st.write(f"**GitHub branch:** {diag_cfg['github_branch']}")
     with col_d2:
         st.write(f"**Canonical path:** {diag_cfg['canonical_path']}")
         st.write(f"**Runtime path:** {diag_cfg['runtime_state_path']}")
+        st.write(f"**Validation runtime:** {diag_cfg['validation_runtime_state_path']}")
         if diag_cfg.get("branch_warning"):
             st.warning(diag_cfg["branch_warning"])
 
@@ -297,6 +384,7 @@ with tab_diag:
 
     st.subheader("True Queue Status")
     if st.button("🔎 Compute True Queue State"):
+        from engine.reset import audit_queue_state
         queue_state = audit_queue_state(canonical, seeds)
         col_q1, col_q2, col_q3, col_q4, col_q5 = st.columns(5)
         col_q1.metric("Total Seeds", queue_state["total_catalog_seeds"])
@@ -319,10 +407,11 @@ with tab_diag:
     st.subheader("Seed Audit")
     audit_seed_id = st.text_input(
         "Audit specific seed ID",
-        value=_DEFAULT_AUDIT_SEED_ID,
+        value=_DEFAULT_TARGET_SEED_ID,
         key="audit_seed_input",
     )
     if st.button("🔍 Audit This Seed"):
+        from engine.reset import audit_specific_seed
         audit_result = audit_specific_seed(audit_seed_id, canonical, seeds)
         if audit_result["is_stale_failure"]:
             st.info(
@@ -341,8 +430,8 @@ with tab_diag:
 
     st.divider()
 
-    st.subheader("Audit")
-    if st.button("🔎 Run Audit"):
+    st.subheader("Legacy Audit")
+    if st.button("🔎 Run Legacy Audit"):
         ok, errs = audit_canonical(canonical, seed_catalog=seeds)
         if ok:
             st.success("✅ Audit passed")
@@ -378,64 +467,3 @@ with tab_diag:
             file_name="resume_package_canonical.json",
             mime="application/json",
         )
-
-# ==================== Reset / Audit ====================
-with tab_reset:
-    st.subheader("🔄 Reset Validation Run State")
-    st.warning(
-        "This resets **only** runtime/progress state (current_run.json). "
-        "Canonical data (variants, batch_state) is **not** touched."
-    )
-
-    if st.button("⚠️ Reset Validation Run State", type="primary"):
-        reset_result = reset_validation_state(canonical, seeds)
-        if reset_result["ok"]:
-            st.success(
-                f"✅ Validation state reset. New run ID: `{reset_result['new_run_id']}`"
-            )
-            with st.expander("Reset Details"):
-                st.json(reset_result)
-        else:
-            st.error("Failed to reset state.")
-
-    st.divider()
-
-    st.subheader("🧹 Remove Stale Failure")
-    st.write(
-        "If a seed is in the failed queue but already properly resolved "
-        "in canonical, you can remove it from the failed queue here."
-    )
-
-    stale_seed_id = st.text_input(
-        "Seed ID to check/remove",
-        value=_DEFAULT_AUDIT_SEED_ID,
-        key="stale_seed_input",
-    )
-
-    col_audit, col_remove = st.columns(2)
-    with col_audit:
-        if st.button("🔍 Audit before removal"):
-            result = audit_specific_seed(stale_seed_id, canonical, seeds)
-            st.json(result)
-
-    with col_remove:
-        if st.button("🧹 Remove stale failure"):
-            # First audit
-            audit_result = audit_specific_seed(stale_seed_id, canonical, seeds)
-            if audit_result["is_stale_failure"]:
-                remove_result = remove_stale_failure(
-                    stale_seed_id, canonical,
-                    audit_note=f"Stale failure removed via UI. Resolution: {audit_result['resolution_detail']}",
-                )
-                if remove_result["ok"]:
-                    st.success(f"✅ Removed `{stale_seed_id}` from failed queue.")
-                    st.json(remove_result)
-                else:
-                    st.error(f"Failed: {remove_result.get('error')}")
-            elif audit_result["needs_retry"]:
-                st.error(
-                    f"❌ Cannot remove — `{stale_seed_id}` genuinely needs retry. "
-                    f"Failure cause: {audit_result['failure_cause']}"
-                )
-            else:
-                st.info(f"`{stale_seed_id}` is not in the failed queue.")
