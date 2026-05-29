@@ -10,10 +10,11 @@ import os
 from pathlib import Path
 
 _CANONICAL_PATH = Path("data/canonical/resume_package_canonical.json").resolve()
+_VALIDATED_RUNS_DIR = Path("data/validated_runs").resolve()
 
 # Paths that are allowed for validation writes
 _ALLOWED_PREFIXES = [
-    Path("data/validated_runs").resolve(),
+    _VALIDATED_RUNS_DIR,
     Path("data/runtime/current_validation_run.json").resolve(),
 ]
 
@@ -45,7 +46,8 @@ def is_allowed_validation_write(target_path: str | Path) -> bool:
         return False
 
     for allowed in _ALLOWED_PREFIXES:
-        if allowed.is_dir():
+        # Check if resolved path is under allowed directory or matches allowed file
+        if allowed == _VALIDATED_RUNS_DIR:
             try:
                 resolved.relative_to(allowed)
                 return True
@@ -53,14 +55,6 @@ def is_allowed_validation_write(target_path: str | Path) -> bool:
                 pass
         elif resolved == allowed:
             return True
-
-    # Also allow anything under data/validated_runs
-    validated_runs = Path("data/validated_runs").resolve()
-    try:
-        resolved.relative_to(validated_runs)
-        return True
-    except ValueError:
-        pass
 
     return False
 

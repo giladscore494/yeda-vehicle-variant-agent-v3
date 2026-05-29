@@ -86,7 +86,9 @@ def validate_targeted_seed(
         for v in seed_variants:
             v_make = safe_str(v.get("make"))
             v_model = safe_str(v.get("model"))
-            if expected_make.lower() not in v_make and v_make not in expected_make.lower():
+            # Fuzzy make comparison: check if one is a substring of the other
+            # e.g. "mg_(british_era)" contains "mg" which should match variant make "mg"
+            if not (expected_make.lower() in v_make or v_make in expected_make.lower()):
                 plausibility_notes.append(
                     f"{v.get('variant_id', '')}: make mismatch (expected ~{expected_make}, got {v_make})"
                 )
