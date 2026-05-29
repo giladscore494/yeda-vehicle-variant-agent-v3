@@ -25,6 +25,10 @@ from engine.validation.model_schema import (
     wrap_provider_result,
     needs_openai_second_opinion,
 )
+from engine.validation.openai_utils import (
+    create_response_with_fallback,
+    extract_response_text,
+)
 from engine.validation.write_guard import safe_write_json
 
 logger = logging.getLogger(__name__)
@@ -266,17 +270,10 @@ def _call_openai(item: dict, gemini_result: dict | None,
     try:
         import openai
         client = openai.OpenAI(api_key=api_key)
-
-        tools = [{"type": "web_search_preview"}] if web_search else None
-        create_kwargs: dict = {
-            "model": model_id,
-            "input": prompt,
-        }
-        if tools:
-            create_kwargs["tools"] = tools
-
-        response = client.responses.create(**create_kwargs)
-        raw_text = response.output_text or ""
+        response, used_web_search = create_response_with_fallback(
+            client, model_id, prompt, web_search, logger, item["validation_item_id"],
+        )
+        raw_text = extract_response_text(response)
 
         input_actual = getattr(getattr(response, "usage", None), "input_tokens", None)
         output_actual = getattr(getattr(response, "usage", None), "output_tokens", None)
@@ -285,7 +282,7 @@ def _call_openai(item: dict, gemini_result: dict | None,
             cost_tracker.log_actual(
                 "openai", model_id, group_key, variant_ids,
                 input_est, output_est, input_actual, output_actual,
-                search_used=web_search, status="success",
+                search_used=used_web_search, status="success",
             )
 
         parsed, parse_error = parse_model_json(raw_text)

@@ -19,6 +19,10 @@ from engine.validation.model_schema import (
     validate_item,
     wrap_provider_result,
 )
+from engine.validation.openai_utils import (
+    create_response_with_fallback,
+    extract_response_text,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -148,21 +152,10 @@ def review_group(
         import openai
 
         client = openai.OpenAI(api_key=api_key)
-
-        tools = None
-        if web_search:
-            tools = [{"type": "web_search_preview"}]
-
-        create_kwargs: dict = {
-            "model": model_id,
-            "input": prompt,
-        }
-        if tools:
-            create_kwargs["tools"] = tools
-
-        response = client.responses.create(**create_kwargs)
-
-        raw_text = response.output_text or ""
+        response, used_web_search = create_response_with_fallback(
+            client, model_id, prompt, web_search, logger, group_key,
+        )
+        raw_text = extract_response_text(response)
 
         input_actual = getattr(getattr(response, "usage", None), "input_tokens", None)
         output_actual = getattr(getattr(response, "usage", None), "output_tokens", None)
@@ -171,7 +164,7 @@ def review_group(
             cost_tracker.log_actual(
                 "openai", model_id, group_key, variant_ids,
                 input_est, output_est, input_actual, output_actual,
-                search_used=web_search, status="success",
+                search_used=used_web_search, status="success",
             )
 
         # Parse using unified schema

@@ -476,7 +476,52 @@ class TestModelValidationRunner:
         create.assert_called_once()
         assert create.call_args.kwargs["model"] == "gpt-5.4"
         assert create.call_args.kwargs["input"]
-        assert create.call_args.kwargs["tools"] == [{"type": "web_search_preview"}]
+        assert create.call_args.kwargs["tools"] == [{"type": "web_search"}]
+
+    def test_call_openai_retries_without_web_search_on_bad_request(self):
+        from engine.validation.model_validation_runner import _call_openai
+
+        item = {
+            "validation_item_id": "test_openai_item",
+            "variant_ids": ["v1"],
+            "risk_level": "high",
+        }
+
+        class BadRequestError(Exception):
+            status_code = 400
+
+        fake_response = SimpleNamespace(
+            output_text=json.dumps({
+                "recommendation": "no_action",
+                "confidence": 0.9,
+                "risk_level": "low",
+                "safe_to_auto_apply": False,
+            }),
+            usage=SimpleNamespace(input_tokens=12, output_tokens=18),
+        )
+        create = mock.Mock(side_effect=[BadRequestError("bad request"), fake_response])
+        fake_client = SimpleNamespace(responses=SimpleNamespace(create=create))
+        fake_openai = SimpleNamespace(OpenAI=mock.Mock(return_value=fake_client))
+
+        def fake_get(group, key, default=None):
+            if (group, key) == ("openai", "api_key"):
+                return "test-key"
+            if (group, key) == ("openai", "validator_model_id"):
+                return "gpt-5.4"
+            return default or ""
+
+        with mock.patch("engine.validation.model_validation_runner.config.get", side_effect=fake_get):
+            with mock.patch(
+                "engine.validation.model_validation_runner.config.get_bool",
+                return_value=True,
+            ):
+                with mock.patch.dict(sys.modules, {"openai": fake_openai}):
+                    result = _call_openai(item, None, None)
+
+        assert result["ok"] is True
+        assert create.call_count == 2
+        assert create.call_args_list[0].kwargs["tools"] == [{"type": "web_search"}]
+        assert "tools" not in create.call_args_list[1].kwargs
 
 
 class TestOpenAIReviewer:
@@ -521,7 +566,56 @@ class TestOpenAIReviewer:
         create.assert_called_once()
         assert create.call_args.kwargs["model"] == "gpt-5.4"
         assert create.call_args.kwargs["input"]
-        assert create.call_args.kwargs["tools"] == [{"type": "web_search_preview"}]
+        assert create.call_args.kwargs["tools"] == [{"type": "web_search"}]
+
+    def test_review_group_extracts_text_from_response_output(self):
+        from engine.validation.providers.openai_reviewer import review_group
+
+        fake_response = SimpleNamespace(
+            output_text="",
+            output=[
+                SimpleNamespace(
+                    content=[
+                        SimpleNamespace(
+                            type="output_text",
+                            text=json.dumps({
+                                "recommendation": "no_action",
+                                "confidence": 0.85,
+                                "risk_level": "low",
+                                "safe_to_auto_apply": False,
+                            }),
+                        ),
+                    ],
+                ),
+            ],
+            usage=SimpleNamespace(input_tokens=10, output_tokens=15),
+        )
+        create = mock.Mock(return_value=fake_response)
+        fake_client = SimpleNamespace(responses=SimpleNamespace(create=create))
+        fake_openai = SimpleNamespace(OpenAI=mock.Mock(return_value=fake_client))
+        variants = [{
+            "variant_id": "v1",
+            "make": "Test",
+            "model": "Sedan",
+            "generation": "Gen1",
+        }]
+
+        def fake_get(group, key, default=None):
+            if (group, key) == ("openai", "api_key"):
+                return "test-key"
+            if (group, key) == ("openai", "validator_model_id"):
+                return "gpt-5.4"
+            return default or ""
+
+        with mock.patch("engine.validation.providers.openai_reviewer.config.get", side_effect=fake_get):
+            with mock.patch(
+                "engine.validation.providers.openai_reviewer.config.get_bool",
+                return_value=True,
+            ):
+                with mock.patch.dict(sys.modules, {"openai": fake_openai}):
+                    result = review_group("group_key", variants, ["Base"])
+
+        assert result["ok"] is True
 
 
 # ======================================================================
