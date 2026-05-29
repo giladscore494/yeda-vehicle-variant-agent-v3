@@ -372,21 +372,6 @@ def _aggregate_decision(
     if openai_result is None or not openai_result.get("ok", False):
         openai_failed = openai_result is not None and not openai_result.get("ok", False)
 
-        # Gemini says no_action and risk is not high
-        if g_rec == "no_action" and g_risk not in ("high", "critical"):
-            return {
-                "final_status": "validated_by_gemini",
-                "final_recommendation": g_rec,
-                "primary_model": "gemini",
-                "secondary_model": None,
-                "confidence": g_conf,
-                "reason": g.get("reason", "Gemini validated, no issues found"),
-                "needs_manual_review": False,
-                "safe_to_auto_apply": False,
-                "gemini_result": gemini_result,
-                "openai_result": openai_result,
-            }
-
         # Gemini confidence < 0.75 without OpenAI confirmation
         if g_conf < 0.75:
             return {
@@ -397,6 +382,21 @@ def _aggregate_decision(
                 "confidence": g_conf,
                 "reason": f"Gemini confidence {g_conf} < 0.75, no second opinion available",
                 "needs_manual_review": True,
+                "safe_to_auto_apply": False,
+                "gemini_result": gemini_result,
+                "openai_result": openai_result,
+            }
+
+        # Gemini says no_action and risk is not high
+        if g_rec == "no_action" and g_risk not in ("high", "critical"):
+            return {
+                "final_status": "validated_by_gemini",
+                "final_recommendation": g_rec,
+                "primary_model": "gemini",
+                "secondary_model": None,
+                "confidence": g_conf,
+                "reason": g.get("reason", "Gemini validated, no issues found"),
+                "needs_manual_review": False,
                 "safe_to_auto_apply": False,
                 "gemini_result": gemini_result,
                 "openai_result": openai_result,

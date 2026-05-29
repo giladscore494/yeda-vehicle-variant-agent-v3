@@ -136,14 +136,14 @@ def _classify_group_type(
         return "targeted_seed"
     if "manual_review" in reason_lower:
         return "manual_review_seed"
+    if "il_confirmed" in reason_lower or "il_market" in reason_lower:
+        return "il_market_plausibility"
     if "merge" in reason_lower:
         return "merge_candidate"
     if "no_evidence" in reason_lower or "weak_source" in reason_lower:
         return "evidence_gap"
     if "source_conflict" in reason_lower or "inconsistent" in reason_lower:
         return "source_conflict"
-    if "il_confirmed" in reason_lower or "il_market" in reason_lower:
-        return "il_market_plausibility"
 
     # Check partial classifications for merge candidates
     if any(pc.get("validation_status") == "merge_candidate" for pc in partial_class):
