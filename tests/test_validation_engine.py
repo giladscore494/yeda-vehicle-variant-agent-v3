@@ -4,10 +4,13 @@ Covers requirements 1–12 of the validation engine specification.
 """
 from __future__ import annotations
 
+import importlib
 import json
 import os
+import sys
 import tempfile
 from pathlib import Path
+from types import SimpleNamespace
 from unittest import mock
 
 import pytest
@@ -333,6 +336,38 @@ class TestModelValidationRunner:
         from engine.validation import validation_runner
         assert hasattr(validation_runner, "run_model_validation_on_suspicious_groups")
 
+    def test_validation_runner_imports_when_model_runner_unavailable(self):
+        original_validation_runner = sys.modules.pop(
+            "engine.validation.validation_runner", None
+        )
+        original_model_runner = sys.modules.pop(
+            "engine.validation.model_validation_runner", None
+        )
+
+        try:
+            with mock.patch.dict(
+                sys.modules,
+                {"engine.validation.model_validation_runner": None},
+            ):
+                validation_runner = importlib.import_module(
+                    "engine.validation.validation_runner"
+                )
+
+            assert hasattr(
+                validation_runner, "run_model_validation_on_suspicious_groups"
+            )
+        finally:
+            sys.modules.pop("engine.validation.validation_runner", None)
+            sys.modules.pop("engine.validation.model_validation_runner", None)
+            if original_validation_runner is not None:
+                sys.modules["engine.validation.validation_runner"] = (
+                    original_validation_runner
+                )
+            if original_model_runner is not None:
+                sys.modules["engine.validation.model_validation_runner"] = (
+                    original_model_runner
+                )
+
     def test_aggregate_decision_gemini_no_action_low_risk(self):
         from engine.validation.model_validation_runner import _aggregate_decision
         item = {"risk_level": "low", "validation_item_id": "test"}
@@ -400,6 +435,93 @@ class TestModelValidationRunner:
         }
         decision = _aggregate_decision(item, gemini, None)
         assert decision["final_status"] == "needs_manual_review"
+
+    def test_call_openai_uses_responses_api_for_web_search(self):
+        from engine.validation.model_validation_runner import _call_openai
+
+        item = {
+            "validation_item_id": "test_openai_item",
+            "variant_ids": ["v1"],
+            "risk_level": "high",
+        }
+        fake_response = SimpleNamespace(
+            output_text=json.dumps({
+                "recommendation": "no_action",
+                "confidence": 0.9,
+                "risk_level": "low",
+                "safe_to_auto_apply": False,
+            }),
+            usage=SimpleNamespace(input_tokens=12, output_tokens=18),
+        )
+        create = mock.Mock(return_value=fake_response)
+        fake_client = SimpleNamespace(responses=SimpleNamespace(create=create))
+        fake_openai = SimpleNamespace(OpenAI=mock.Mock(return_value=fake_client))
+
+        def fake_get(group, key, default=None):
+            if (group, key) == ("openai", "api_key"):
+                return "test-key"
+            if (group, key) == ("openai", "validator_model_id"):
+                return "gpt-5.4"
+            return default or ""
+
+        with mock.patch("engine.validation.model_validation_runner.config.get", side_effect=fake_get):
+            with mock.patch(
+                "engine.validation.model_validation_runner.config.get_bool",
+                return_value=True,
+            ):
+                with mock.patch.dict(sys.modules, {"openai": fake_openai}):
+                    result = _call_openai(item, None, None)
+
+        assert result["ok"] is True
+        create.assert_called_once()
+        assert create.call_args.kwargs["model"] == "gpt-5.4"
+        assert create.call_args.kwargs["input"]
+        assert create.call_args.kwargs["tools"] == [{"type": "web_search_preview"}]
+
+
+class TestOpenAIReviewer:
+    def test_review_group_uses_responses_api_for_web_search(self):
+        from engine.validation.providers.openai_reviewer import review_group
+
+        fake_response = SimpleNamespace(
+            output_text=json.dumps({
+                "recommendation": "no_action",
+                "confidence": 0.85,
+                "risk_level": "low",
+                "safe_to_auto_apply": False,
+            }),
+            usage=SimpleNamespace(input_tokens=10, output_tokens=15),
+        )
+        create = mock.Mock(return_value=fake_response)
+        fake_client = SimpleNamespace(responses=SimpleNamespace(create=create))
+        fake_openai = SimpleNamespace(OpenAI=mock.Mock(return_value=fake_client))
+        variants = [{
+            "variant_id": "v1",
+            "make": "Test",
+            "model": "Sedan",
+            "generation": "Gen1",
+        }]
+
+        def fake_get(group, key, default=None):
+            if (group, key) == ("openai", "api_key"):
+                return "test-key"
+            if (group, key) == ("openai", "validator_model_id"):
+                return "gpt-5.4"
+            return default or ""
+
+        with mock.patch("engine.validation.providers.openai_reviewer.config.get", side_effect=fake_get):
+            with mock.patch(
+                "engine.validation.providers.openai_reviewer.config.get_bool",
+                return_value=True,
+            ):
+                with mock.patch.dict(sys.modules, {"openai": fake_openai}):
+                    result = review_group("group_key", variants, ["Base"])
+
+        assert result["ok"] is True
+        create.assert_called_once()
+        assert create.call_args.kwargs["model"] == "gpt-5.4"
+        assert create.call_args.kwargs["input"]
+        assert create.call_args.kwargs["tools"] == [{"type": "web_search_preview"}]
 
 
 # ======================================================================

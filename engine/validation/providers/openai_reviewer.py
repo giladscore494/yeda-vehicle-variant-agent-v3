@@ -155,17 +155,17 @@ def review_group(
 
         create_kwargs: dict = {
             "model": model_id,
-            "messages": [{"role": "user", "content": prompt}],
+            "input": prompt,
         }
         if tools:
             create_kwargs["tools"] = tools
 
-        response = client.chat.completions.create(**create_kwargs)
+        response = client.responses.create(**create_kwargs)
 
-        raw_text = response.choices[0].message.content or "" if response.choices else ""
+        raw_text = response.output_text or ""
 
-        input_actual = getattr(getattr(response, "usage", None), "prompt_tokens", None)
-        output_actual = getattr(getattr(response, "usage", None), "completion_tokens", None)
+        input_actual = getattr(getattr(response, "usage", None), "input_tokens", None)
+        output_actual = getattr(getattr(response, "usage", None), "output_tokens", None)
 
         if cost_tracker:
             cost_tracker.log_actual(
@@ -213,4 +213,3 @@ def review_group(
             error_type="model_call_error",
             error_message=str(exc),
         )
-
