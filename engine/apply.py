@@ -163,8 +163,9 @@ def apply_decision(canonical: dict, decision: Decision, is_current_next: bool = 
             "last_attempt_at": now,
         }
 
+        # Manual review seeds update last_handled_seed_id, NOT last_completed
         if is_current_next:
-            bs["last_completed_seed_id"] = decision.seed_id
+            bs["last_handled_seed_id"] = decision.seed_id
 
     elif decision.action == "FAIL_TRANSIENT":
         # Do NOT mark processed
@@ -178,8 +179,10 @@ def apply_decision(canonical: dict, decision: Decision, is_current_next: bool = 
             "last_attempt_at": now,
         }
 
+        # Failed seeds must NOT update last_completed_seed_id
         if is_current_next:
-            bs["last_completed_seed_id"] = decision.seed_id
+            bs["last_failed_seed_id"] = decision.seed_id
+            bs["last_failed_at"] = now
 
     return stats
 
