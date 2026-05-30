@@ -5,7 +5,7 @@ Usage:
         --input "resume_package_canonical (23).json" \\
         --output-dir data/validated_runs \\
         --mode targeted-dual-validation \\
-        --primary-model gemini-3.1-pro \\
+        --primary-model gemini-3.1-pro-preview \\
         --reviewer-model gpt-5.4 \\
         --resume true \\
         --group-level true \\
