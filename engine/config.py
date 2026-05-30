@@ -90,7 +90,7 @@ _DEFAULTS: dict[tuple[str, str], str] = {
     ("github", "base_branch"): "main",
     ("github", "commit_author_name"): "Validation Engine",
     ("github", "commit_author_email"): "validation@yeda.bot",
-    ("google", "gemini_validator_model_id"): "gemini-3.1-pro",
+    ("google", "gemini_validator_model_id"): "gemini-3.1-pro-preview",
     ("google", "grounding_enabled"): "true",
     ("openai", "validator_model_id"): "gpt-5.4",
     ("openai", "web_search_enabled"): "true",

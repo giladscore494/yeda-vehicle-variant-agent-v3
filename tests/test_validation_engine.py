@@ -99,7 +99,7 @@ class TestModelSchema:
             "group_type": "partial_group",
             "seed_id": None,
             "variant_ids": ["v1", "v2"],
-            "model_name": "gemini-3.1-pro",
+            "model_name": "gemini-3.1-pro-preview",
             "model_role": "primary",
             "recommendation": "no_action",
             "confidence": 0.85,
@@ -209,9 +209,9 @@ class TestModelSchema:
     def test_normalize_model_output_fills_defaults(self):
         from engine.validation.model_schema import normalize_model_output
         raw = {"recommendation": "merge"}
-        result = normalize_model_output(raw, "item_1", "gemini-3.1-pro", "primary")
+        result = normalize_model_output(raw, "item_1", "gemini-3.1-pro-preview", "primary")
         assert result["validation_item_id"] == "item_1"
-        assert result["model_name"] == "gemini-3.1-pro"
+        assert result["model_name"] == "gemini-3.1-pro-preview"
         assert result["recommendation"] == "merge"
         assert result["safe_to_auto_apply"] is False
         assert isinstance(result["confidence"], float)

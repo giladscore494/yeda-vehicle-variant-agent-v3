@@ -1,5 +1,5 @@
 GEMINI_API_KEY = ""
-GEMINI_MODEL_FAST = "gemini-3.1-pro-preview"
+GEMINI_MODEL_FAST = "gemini-3-flash-preview"
 GEMINI_MODEL_STRONG = "gemini-3.1-pro-preview"
 
 GITHUB_TOKEN = ""

@@ -136,13 +136,31 @@ def _resolve_github_branch() -> str:
     return ""
 
 
+# ── Model ID normalization ──────────────────────────────────────────────
+
+_GEMINI_MODEL_ALIASES: dict[str, str] = {
+    "gemini-3.1-pro": "gemini-3.1-pro-preview",
+    "models/gemini-3.1-pro": "gemini-3.1-pro-preview",
+    "gemini-3-pro-preview": "gemini-3.1-pro-preview",
+}
+
+
+def _normalize_gemini_model_id(model_id: str) -> str:
+    """Normalize deprecated or invalid Gemini model IDs to their canonical form."""
+    return _GEMINI_MODEL_ALIASES.get(model_id, model_id)
+
+
 # ── Resolved config values ──────────────────────────────────────────────
 
 GEMINI_API_KEY: str = _get("GEMINI_API_KEY", sectioned_fallbacks=[("google", "api_key")])
-GEMINI_MODEL_FAST: str = _get("GEMINI_MODEL_FAST", "gemini-3.1-pro-preview",
-                              sectioned_fallbacks=[("google", "gemini_validator_model_id")])
-GEMINI_MODEL_STRONG: str = _get("GEMINI_MODEL_STRONG", "gemini-3.1-pro-preview",
-                                sectioned_fallbacks=[("google", "gemini_validator_model_id")])
+GEMINI_MODEL_FAST: str = _normalize_gemini_model_id(
+    _get("GEMINI_MODEL_FAST", "gemini-3-flash-preview",
+         sectioned_fallbacks=[("google", "gemini_validator_model_id")])
+)
+GEMINI_MODEL_STRONG: str = _normalize_gemini_model_id(
+    _get("GEMINI_MODEL_STRONG", "gemini-3.1-pro-preview",
+         sectioned_fallbacks=[("google", "gemini_validator_model_id")])
+)
 
 OPENAI_API_KEY: str = _get("OPENAI_API_KEY", sectioned_fallbacks=[("openai", "api_key")])
 OPENAI_VALIDATOR_MODEL_ID: str = _get(
