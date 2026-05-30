@@ -175,7 +175,9 @@ def _call_gemini(item: dict, cost_tracker: CostTracker | None) -> dict:
         if grounding:
             try:
                 from google.genai import types
-                generate_kwargs["tools"] = [types.Tool(google_search=types.GoogleSearch())]
+                generate_kwargs["config"] = types.GenerateContentConfig(
+                    tools=[types.Tool(google_search=types.GoogleSearch())]
+                )
             except Exception:
                 logger.warning("Grounding setup failed; proceeding without")
 

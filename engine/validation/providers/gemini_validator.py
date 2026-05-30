@@ -151,7 +151,9 @@ def validate_group(
         if grounding:
             try:
                 from google.genai import types
-                generate_kwargs["tools"] = [types.Tool(google_search=types.GoogleSearch())]
+                generate_kwargs["config"] = types.GenerateContentConfig(
+                    tools=[types.Tool(google_search=types.GoogleSearch())]
+                )
             except Exception:
                 logger.warning("Grounding tool setup failed; proceeding without grounding")
 
