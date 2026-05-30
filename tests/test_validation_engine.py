@@ -942,3 +942,82 @@ class TestPatchSuggestions:
             assert data[0]["source"] == "model_validation"
             assert data[0]["safe_to_auto_apply"] is False
             assert data[0]["primary_model"] == "gemini"
+
+
+# ======================================================================
+# 14. Gemini Model ID Normalization Tests
+# ======================================================================
+
+
+class TestGeminiModelNormalization:
+    """engine/config.py must normalize known bad Gemini model IDs."""
+
+    def test_normalize_function_direct(self):
+        """normalize_gemini_model_id must map known aliases."""
+        from engine.config import normalize_gemini_model_id
+        assert normalize_gemini_model_id("gemini-3.1-pro") == "gemini-3.1-pro-preview"
+        assert normalize_gemini_model_id("models/gemini-3.1-pro") == "gemini-3.1-pro-preview"
+        assert normalize_gemini_model_id("gemini-3-pro-preview") == "gemini-3.1-pro-preview"
+        assert normalize_gemini_model_id("models/gemini-3-pro-preview") == "gemini-3.1-pro-preview"
+        assert normalize_gemini_model_id("models/gemini-3.1-pro-preview") == "gemini-3.1-pro-preview"
+        # Unknown values passed through unchanged
+        assert normalize_gemini_model_id("gemini-1.5-pro") == "gemini-1.5-pro"
+        assert normalize_gemini_model_id("") == ""
+
+    def test_env_var_gemini_validator_model_id_normalized(self):
+        """Test A: GEMINI_VALIDATOR_MODEL_ID=gemini-3.1-pro is normalized."""
+        import importlib
+        import engine.config as cfg
+        with mock.patch.dict(os.environ, {"GEMINI_VALIDATOR_MODEL_ID": "gemini-3.1-pro"}, clear=False):
+            importlib.reload(cfg)
+            result = cfg.get("google", "gemini_validator_model_id")
+        importlib.reload(cfg)
+        assert result == "gemini-3.1-pro-preview"
+
+    def test_env_var_gemini_model_strong_normalized(self):
+        """Test B: GEMINI_MODEL_STRONG=gemini-3.1-pro is normalized."""
+        import importlib
+        import engine.config as cfg
+        with mock.patch.dict(os.environ, {"GEMINI_MODEL_STRONG": "gemini-3.1-pro"}, clear=False):
+            # Ensure the more-specific alias is not set
+            env = {k: v for k, v in os.environ.items()}
+            env.pop("GEMINI_VALIDATOR_MODEL_ID", None)
+            env["GEMINI_MODEL_STRONG"] = "gemini-3.1-pro"
+            with mock.patch.dict(os.environ, env, clear=True):
+                importlib.reload(cfg)
+                result = cfg.get("google", "gemini_validator_model_id")
+        importlib.reload(cfg)
+        assert result == "gemini-3.1-pro-preview"
+
+    def test_default_is_preview(self):
+        """Test C: default (no env/secrets) must be gemini-3.1-pro-preview."""
+        import importlib
+        import engine.config as cfg
+        env = {k: v for k, v in os.environ.items()}
+        env.pop("GEMINI_VALIDATOR_MODEL_ID", None)
+        env.pop("GEMINI_MODEL_STRONG", None)
+        with mock.patch.dict(os.environ, env, clear=True):
+            importlib.reload(cfg)
+            result = cfg.get("google", "gemini_validator_model_id")
+        importlib.reload(cfg)
+        assert result == "gemini-3.1-pro-preview"
+
+    def test_no_bad_model_ids_in_validation_code(self):
+        """Test D: validation source files must not contain raw bad model IDs."""
+        bad_ids = ["gemini-3.1-pro", "models/gemini-3.1-pro", "gemini-3-pro-preview"]
+        files_to_check = [
+            "engine/validation/model_validation_runner.py",
+            "engine/validation/providers/gemini_validator.py",
+        ]
+        for filepath in files_to_check:
+            source = Path(filepath).read_text()
+            for bad_id in bad_ids:
+                # Allow it only inside comments or docstrings (as explanation text)
+                # but not as a string literal that would be sent to the API.
+                # We check that the bare string is not a Python string literal.
+                assert f'"{bad_id}"' not in source, (
+                    f"{filepath} contains raw bad model ID literal: {bad_id!r}"
+                )
+                assert f"'{bad_id}'" not in source, (
+                    f"{filepath} contains raw bad model ID literal: {bad_id!r}"
+                )
