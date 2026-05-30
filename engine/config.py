@@ -83,6 +83,28 @@ _ENV_ALIASES: dict[tuple[str, str], list[str]] = {
     ("validation", "enable_dry_run"): ["VALIDATION_ENABLE_DRY_RUN"],
 }
 
+_GEMINI_MODEL_ALIASES: dict[str, str] = {
+    "gemini-3.1-pro": "gemini-3.1-pro-preview",
+    "models/gemini-3.1-pro": "gemini-3.1-pro-preview",
+    "gemini-3-pro-preview": "gemini-3.1-pro-preview",
+    "models/gemini-3-pro-preview": "gemini-3.1-pro-preview",
+    "models/gemini-3.1-pro-preview": "gemini-3.1-pro-preview",
+}
+
+
+def normalize_gemini_model_id(model_id: str) -> str:
+    """Normalize a Gemini model ID, resolving known aliases to their canonical form."""
+    value = (model_id or "").strip()
+    return _GEMINI_MODEL_ALIASES.get(value, value)
+
+
+def _maybe_normalize(group: str, key: str, value: str) -> str:
+    """Apply field-specific normalization after reading a config value."""
+    if group == "google" and key == "gemini_validator_model_id":
+        return normalize_gemini_model_id(value)
+    return value
+
+
 _DEFAULTS: dict[tuple[str, str], str] = {
     ("github", "repo_owner"): "giladscore494",
     ("github", "repo_name"): "yeda-vehicle-variant-agent-v3",
@@ -111,28 +133,28 @@ def get(group: str, key: str, default: str | None = None) -> str:
     # 1. Streamlit
     val = _try_streamlit(group, key)
     if val is not None:
-        return str(val)
+        return _maybe_normalize(group, key, str(val))
 
     # 2. Env vars (check all known aliases)
     aliases = _ENV_ALIASES.get((group, key), [])
     for alias in aliases:
         val = os.environ.get(alias)
         if val is not None:
-            return val
+            return _maybe_normalize(group, key, val)
 
     # 3. secrets.py (try UPPER_CASE versions of aliases)
     for alias in aliases:
         val = _file_secrets.get(alias)
         if val is not None:
-            return str(val)
+            return _maybe_normalize(group, key, str(val))
 
     # 4. Built-in defaults
     builtin = _DEFAULTS.get((group, key))
     if builtin is not None:
-        return builtin
+        return _maybe_normalize(group, key, builtin)
 
     # 5. Caller default
-    return default or ""
+    return _maybe_normalize(group, key, default or "")
 
 
 def get_bool(group: str, key: str, default: bool = False) -> bool:
