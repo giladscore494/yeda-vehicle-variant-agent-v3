@@ -221,3 +221,22 @@ def test_load_recent_run_events_wrapper(monkeypatch):
     assert payload["events_path"] == "data/validation/run_events.jsonl"
     assert payload["columns"] == ["time", "stage", "provider", "model", "item_id", "status", "summary"]
     assert payload["rows"][0]["summary"] == "done"
+
+
+def test_surgical_patch_summary_and_wrappers(monkeypatch, tmp_path):
+    expected_apply = {"status": "applied_pending_audit", "patch_id": "p1"}
+    expected_audit = {"status": "PASS", "patch_id": "p1"}
+    monkeypatch.setattr(helpers, "_apply_next_safe_patch", lambda: expected_apply)
+    monkeypatch.setattr(helpers, "_audit_last_patch_diff_with_openai", lambda: expected_audit)
+    assert helpers.apply_next_safe_surgical_patch() == expected_apply
+    assert helpers.audit_last_surgical_patch_diff() == expected_audit
+
+
+def test_streamlit_app_has_surgical_patch_workflow_section():
+    app_source = Path("app.py").read_text(encoding="utf-8")
+    assert "Surgical Patch Workflow" in app_source
+    assert "Build Candidate Patches" in app_source
+    assert "Apply Next Safe Patch" in app_source
+    assert "Audit Last Patch Diff with GPT-5.4" in app_source
+    assert "Advanced Debug / Raw Files" in app_source
+    assert "Apply Surgical Patch" not in app_source

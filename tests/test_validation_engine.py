@@ -565,7 +565,10 @@ class TestGitHubSave:
             "data/validation/decisions.json",
             "data/validation/manifest.json",
             "data/validation/validation_report.json",
-            "data/final/resume_package_final_clean.json",
+            "data/working/resume_package_working.json",
+            "data/validation/patches.json",
+            "data/validation/patch_applications.jsonl",
+            "data/validation/diff_audits.jsonl",
             "data/runtime/current_validation_run.json",
         ]
         assert "data/canonical/resume_package_canonical.json" in BLOCKED_FILES
@@ -621,7 +624,10 @@ class TestGitHubSave:
         assert _is_file_allowed("data/validation/decisions.json") is True
         assert _is_file_allowed("data/validation/manifest.json") is True
         assert _is_file_allowed("data/validation/validation_report.json") is True
-        assert _is_file_allowed("data/final/resume_package_final_clean.json") is True
+        assert _is_file_allowed("data/working/resume_package_working.json") is True
+        assert _is_file_allowed("data/validation/patches.json") is True
+        assert _is_file_allowed("data/validation/patch_applications.jsonl") is True
+        assert _is_file_allowed("data/validation/diff_audits.jsonl") is True
         assert _is_file_allowed("data/runtime/current_validation_run.json") is True
         assert _is_file_allowed("data/validated_runs/model_validation_results_v2.json") is False
 

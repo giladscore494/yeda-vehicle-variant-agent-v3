@@ -1,7 +1,8 @@
-"""Build, apply, and audit surgical working-copy patches by variant_id."""
+"""Build and apply exact surgical patches to the active working copy."""
 from __future__ import annotations
 
-import difflib
+import copy
+import hashlib
 import json
 import uuid
 from datetime import datetime, timezone
@@ -9,29 +10,42 @@ from pathlib import Path
 from typing import Any
 
 from core.paths import (
+    ACTIVE_WORKING_DATABASE_PATH,
     DECISIONS_PATH,
-    DIFF_AUDITS_PATH,
     PATCH_APPLICATIONS_PATH,
     PATCHES_PATH,
+    SOURCE_CANONICAL_PATH,
 )
-from engine import config
 from engine.validation.run_events import log_event
-from engine.validation.working_copy import get_active_database_path, initialize_working_copy
 from engine.validation.write_guard import safe_write_json
+
+_ALLOWED_PATCH_ACTIONS = {
+    "update_fields",
+    "normalize_fields",
+    "differentiate_duplicate",
+    "mark_manual_review",
+}
+_NEVER_AUTO_PATCH_ACTIONS = {
+    "reject",
+    "reject_candidate",
+    "merge",
+    "merge_variant",
+    "change_year_range",
+    "change_market_scope",
+    "promote_to_verified",
+    "resolve_source_conflict",
+}
 
 
 def _utc_now() -> str:
     return datetime.now(timezone.utc).isoformat()
 
 
-def _read_json(path: str | Path, default: Any) -> Any:
+def _read_json(path: str | Path, default: Any = None) -> Any:
     p = Path(path)
     if not p.exists():
         return default
-    try:
-        return json.loads(p.read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError):
-        return default
+    return json.loads(p.read_text(encoding="utf-8"))
 
 
 def _append_jsonl(path: str | Path, payload: dict) -> None:
@@ -41,12 +55,53 @@ def _append_jsonl(path: str | Path, payload: dict) -> None:
         handle.write(json.dumps(payload, ensure_ascii=False) + "\n")
 
 
+def _sha256_file(path: str | Path) -> str:
+    p = Path(path)
+    if not p.exists():
+        return ""
+    return hashlib.sha256(p.read_bytes()).hexdigest()
+
+
+def _hash_record(record: Any) -> str:
+    raw = json.dumps(record, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+    return hashlib.sha256(raw.encode("utf-8")).hexdigest()
+
+
 def _decisions_list(payload: Any) -> list[dict]:
     if isinstance(payload, list):
         return [item for item in payload if isinstance(item, dict)]
     if isinstance(payload, dict):
         return [item for item in payload.get("decisions", []) if isinstance(item, dict)]
     return []
+
+
+def _all_variant_lists(payload: dict) -> list[list[dict]]:
+    lists: list[list[dict]] = []
+    for key in ("verified_variants", "partial_variants", "vehicles"):
+        value = payload.get(key)
+        if isinstance(value, list):
+            lists.append(value)
+    return lists
+
+
+def _all_variants(payload: dict) -> list[dict]:
+    variants: list[dict] = []
+    for variant_list in _all_variant_lists(payload):
+        variants.extend(item for item in variant_list if isinstance(item, dict))
+    return variants
+
+
+def _variant_ids(payload: dict) -> list[str]:
+    return [str(v.get("variant_id") or "") for v in _all_variants(payload) if v.get("variant_id")]
+
+
+def _find_exact_variant(payload: dict, variant_id: str) -> dict:
+    matches = [v for v in _all_variants(payload) if str(v.get("variant_id") or "") == variant_id]
+    if len(matches) != 1:
+        if not matches:
+            raise ValueError(f"variant_id not found exactly once: {variant_id}")
+        raise ValueError(f"variant_id is duplicated: {variant_id}")
+    return matches[0]
 
 
 def _field_parts(field: str) -> list[str]:
@@ -66,273 +121,346 @@ def _get_field(container: Any, field: str) -> Any:
     return current
 
 
-def _set_field(container: Any, field: str, value: Any) -> bool:
+def _set_existing_field(container: Any, field: str, value: Any) -> None:
     parts = _field_parts(field)
     if not parts:
-        return False
+        raise ValueError("empty field path")
     current = container
     for part in parts[:-1]:
-        if isinstance(current, dict):
-            current = current.get(part)
-        elif isinstance(current, list) and part.isdigit():
-            index = int(part)
-            current = current[index] if index < len(current) else None
+        if isinstance(current, dict) and part in current:
+            current = current[part]
+        elif isinstance(current, list) and part.isdigit() and int(part) < len(current):
+            current = current[int(part)]
         else:
-            return False
+            raise ValueError(f"field path does not exist: {field}")
     last = parts[-1]
-    if isinstance(current, dict):
+    if isinstance(current, dict) and last in current:
         current[last] = value
-        return True
-    if isinstance(current, list) and last.isdigit():
-        index = int(last)
-        if index < len(current):
-            current[index] = value
-            return True
-    return False
+        return
+    if isinstance(current, list) and last.isdigit() and int(last) < len(current):
+        current[int(last)] = value
+        return
+    raise ValueError(f"field path does not exist: {field}")
 
 
-def _all_variant_lists(payload: dict) -> list[list[dict]]:
-    lists: list[list[dict]] = []
-    for key in ("verified_variants", "partial_variants", "vehicles"):
-        raw = payload.get(key)
-        if isinstance(raw, list):
-            lists.append(raw)
-    return lists
+def _decision_id(decision: dict) -> str:
+    for key in ("decision_id", "id", "source_decision_id"):
+        value = decision.get(key)
+        if isinstance(value, str) and value.strip():
+            return value.strip()
+    return f"decision_{uuid.uuid4().hex}"
 
 
-def _find_variant(payload: dict, variant_id: str) -> dict | None:
-    for variants in _all_variant_lists(payload):
-        for variant in variants:
-            if isinstance(variant, dict) and str(variant.get("variant_id") or "") == variant_id:
-                return variant
-    return None
+def _decision_action(decision: dict) -> str:
+    for key in ("action", "decision_action", "recommended_action", "final_recommendation"):
+        value = decision.get(key)
+        if isinstance(value, str) and value.strip():
+            return value.strip()
+    return "update_fields"
 
 
-def _extract_suggested_patch(decision: dict) -> dict | None:
-    parsed_candidates = []
-    for result_key in ("openai_result", "gemini_result"):
-        result = decision.get(result_key)
-        if isinstance(result, dict):
-            parsed = result.get("parsed_result")
-            if isinstance(parsed, dict):
-                parsed_candidates.append(parsed)
-    parsed_candidates.append(decision)
-
-    for payload in parsed_candidates:
-        suggested_patch = payload.get("suggested_patch") if isinstance(payload, dict) else None
-        if isinstance(suggested_patch, dict) and suggested_patch.get("has_patch"):
-            return suggested_patch
-    return None
+def _audit_run_id(decision: dict) -> str:
+    for key in ("audit_run_id", "validation_run_id", "run_id"):
+        value = decision.get(key)
+        if isinstance(value, str) and value.strip():
+            return value.strip()
+    return ""
 
 
-def _patch_from_decision(decision: dict) -> dict | None:
-    suggested_patch = _extract_suggested_patch(decision)
-    variant_id = ""
-    field = ""
-    new_value: Any = None
-    current_value: Any = None
-    patch_type = "field_update"
-
-    if suggested_patch:
-        variant_id = str(suggested_patch.get("target_variant_id") or decision.get("variant_id") or "").strip()
-        field = str(suggested_patch.get("field") or "").strip()
-        new_value = suggested_patch.get("suggested_value")
-        current_value = suggested_patch.get("current_value")
-        patch_type = str(suggested_patch.get("patch_type") or "field_update")
+def _extract_variant_ids(decision: dict) -> list[str]:
+    raw = decision.get("variant_ids")
+    if isinstance(raw, list):
+        ids = [str(item).strip() for item in raw if str(item).strip()]
     else:
-        variant_id = str(decision.get("variant_id") or "").strip()
-        field = str(decision.get("field") or decision.get("target_field") or "").strip()
-        new_value = decision.get("suggested_value", decision.get("new_value"))
-        current_value = decision.get("current_value")
+        single = str(decision.get("variant_id") or "").strip()
+        ids = [single] if single else []
+    return ids if len(ids) == len(set(ids)) else []
 
-    if not variant_id or not field or patch_type not in {"field_update", "status_change", "manual_review_flag"}:
+
+def _extract_field_changes(decision: dict, variant_ids: list[str]) -> dict[str, dict[str, dict[str, Any]]] | None:
+    raw = decision.get("field_changes")
+    if not isinstance(raw, dict) or not raw:
         return None
 
-    return {
-        "patch_id": f"sp_{uuid.uuid4().hex}",
-        "decision_id": decision.get("decision_id", ""),
-        "source": decision.get("source") or "decision",
-        "variant_id": variant_id,
-        "patch_type": patch_type,
-        "field": field,
-        "current_value": current_value,
-        "suggested_value": new_value,
-        "reason": decision.get("reason") or (suggested_patch or {}).get("reason") or "",
-        "safe_to_auto_apply": decision.get("safe_to_auto_apply") is True,
-        "created_at": _utc_now(),
-    }
+    # Preferred schema: {variant_id: {field_name: {from: ..., to: ...}}}
+    if all(isinstance(raw.get(variant_id), dict) for variant_id in variant_ids):
+        normalized: dict[str, dict[str, dict[str, Any]]] = {}
+        for variant_id in variant_ids:
+            field_map = raw.get(variant_id)
+            if not isinstance(field_map, dict) or not field_map:
+                return None
+            normalized[variant_id] = {}
+            for field_name, change in field_map.items():
+                if not isinstance(field_name, str) or not field_name.strip() or not isinstance(change, dict):
+                    return None
+                if "from" not in change or "to" not in change:
+                    return None
+                normalized[variant_id][field_name.strip()] = {"from": change.get("from"), "to": change.get("to")}
+        return normalized
+
+    # Single-variant convenience schema: {field_name: {from: ..., to: ...}}
+    if len(variant_ids) == 1 and all(isinstance(change, dict) for change in raw.values()):
+        field_map: dict[str, dict[str, Any]] = {}
+        for field_name, change in raw.items():
+            if not isinstance(field_name, str) or not field_name.strip():
+                return None
+            if "from" not in change or "to" not in change:
+                return None
+            field_map[field_name.strip()] = {"from": change.get("from"), "to": change.get("to")}
+        return {variant_ids[0]: field_map}
+
+    return None
 
 
-def build_candidate_surgical_patches(
-    decisions_path: str | Path = DECISIONS_PATH,
-    output_path: str | Path = PATCHES_PATH,
-) -> dict:
-    """Build candidate surgical patches from exact variant-targeted decisions."""
-    decisions = _decisions_list(_read_json(decisions_path, {"decisions": []}))
-    patches = [patch for decision in decisions if (patch := _patch_from_decision(decision))]
-    payload = {
-        "created_at": _utc_now(),
-        "decisions_path": str(decisions_path),
-        "patch_count": len(patches),
-        "patches": patches,
-    }
-    safe_write_json(payload, output_path)
+def _decision_summary(decision: dict) -> str:
+    for key in ("summary", "reason", "rationale", "notes", "recommendation"):
+        value = decision.get(key)
+        if isinstance(value, str) and value.strip():
+            return value.strip()
+    return "Exact field-change decision."
+
+
+def _patch_from_decision(decision: dict) -> tuple[dict | None, str]:
+    action = _decision_action(decision)
+    action_key = action.lower()
+    if action_key in _NEVER_AUTO_PATCH_ACTIONS:
+        return None, "manual_review_required"
+
+    variant_ids = _extract_variant_ids(decision)
+    field_changes = _extract_field_changes(decision, variant_ids) if variant_ids else None
+    if not variant_ids or field_changes is None:
+        return None, "manual_review_required"
+
+    patch_action = action if action in _ALLOWED_PATCH_ACTIONS else "update_fields"
+    explicit_safe = decision.get("safe_to_apply", decision.get("safe_to_auto_apply", False)) is True
+    status = "pending" if explicit_safe else "blocked"
+    return (
+        {
+            "patch_id": f"patch_{uuid.uuid4().hex}",
+            "created_at": _utc_now(),
+            "source_decision_id": _decision_id(decision),
+            "audit_run_id": _audit_run_id(decision),
+            "active_source_hash": _sha256_file(ACTIVE_WORKING_DATABASE_PATH),
+            "golden_source_hash": _sha256_file(SOURCE_CANONICAL_PATH),
+            "variant_ids": variant_ids,
+            "action": patch_action,
+            "safe_to_apply": explicit_safe,
+            "requires_diff_audit": True,
+            "field_changes": field_changes,
+            "reason": _decision_summary(decision),
+            "confidence": float(decision.get("confidence", 0.0) or 0.0),
+            "status": status,
+            "blocking_reason": None if explicit_safe else "safe_to_apply is not true",
+        },
+        "pending" if explicit_safe else "blocked",
+    )
+
+
+def build_candidate_patches_from_decisions() -> dict:
+    """Create candidate patches only from exact variant IDs and exact from/to changes."""
+    decisions = _decisions_list(_read_json(DECISIONS_PATH, {"decisions": []}))
+    patches: list[dict] = []
+    summary = {"pending": 0, "blocked": 0, "manual_review_required": 0, "created_count": 0}
+    for decision in decisions:
+        patch, category = _patch_from_decision(decision)
+        if patch is None:
+            summary["manual_review_required"] += 1
+            continue
+        patches.append(patch)
+        summary[category] += 1
+        summary["created_count"] += 1
+
+    payload = {"created_at": _utc_now(), "decisions_path": DECISIONS_PATH, "patches": patches, **summary}
+    payload["patch_count"] = summary["created_count"]
+    safe_write_json(payload, PATCHES_PATH)
     return payload
 
 
-def _diff(before: dict, after: dict) -> str:
-    before_lines = json.dumps(before, ensure_ascii=False, indent=2, sort_keys=True).splitlines()
-    after_lines = json.dumps(after, ensure_ascii=False, indent=2, sort_keys=True).splitlines()
-    return "\n".join(difflib.unified_diff(before_lines, after_lines, fromfile="before", tofile="after", lineterm=""))
+def _load_patches_payload() -> dict:
+    payload = _read_json(PATCHES_PATH, {"patches": []})
+    if not isinstance(payload, dict):
+        raise ValueError("patches.json must be a JSON object")
+    patches = payload.get("patches")
+    if not isinstance(patches, list):
+        raise ValueError("patches.json must contain a patches list")
+    return payload
 
 
-def _audit_variant_diff(change: dict, model: str = "gpt-5.4") -> dict:
-    audit_payload = {
-        "variant_id": change["variant_id"],
-        "before": change["before"],
-        "after": change["after"],
-        "diff": change["diff"],
+def _write_patches_payload(payload: dict) -> None:
+    patches = [p for p in payload.get("patches", []) if isinstance(p, dict)]
+    payload["pending"] = sum(1 for p in patches if p.get("status") == "pending")
+    payload["blocked"] = sum(1 for p in patches if p.get("status") == "blocked")
+    payload["created_count"] = len(patches)
+    payload["patch_count"] = len(patches)
+    safe_write_json(payload, PATCHES_PATH)
+
+
+def _patch_changed_fields(patch: dict) -> dict[str, list[str]]:
+    return {
+        variant_id: sorted(field_changes.keys())
+        for variant_id, field_changes in (patch.get("field_changes") or {}).items()
+        if isinstance(field_changes, dict)
     }
-    result = {
-        "created_at": _utc_now(),
-        "provider": "openai",
-        "model": model,
-        "variant_id": change["variant_id"],
-        "request": audit_payload,
-        "status": "skipped",
-        "summary": "OpenAI API key not configured.",
+
+
+def assert_no_unexplained_variant_loss(before_variants: list[dict], after_variants: list[dict], patch: dict) -> None:
+    """Block any variant removal not explicitly safe reject-approved by the patch."""
+    if len(after_variants) >= len(before_variants):
+        return
+    before_ids = {str(v.get("variant_id") or "") for v in before_variants if isinstance(v, dict) and v.get("variant_id")}
+    after_ids = {str(v.get("variant_id") or "") for v in after_variants if isinstance(v, dict) and v.get("variant_id")}
+    removed = sorted(before_ids - after_ids)
+    approved = set(str(v) for v in patch.get("variant_ids") or [])
+    if not removed or patch.get("action") != "reject_candidate" or patch.get("safe_to_apply") is not True:
+        raise ValueError(f"unexplained variant loss blocked: {removed}")
+    if any(variant_id not in approved for variant_id in removed):
+        raise ValueError(f"unexplained variant loss blocked: {removed}")
+
+
+def _apply_patch_object(patch: dict, database: dict) -> dict:
+    if patch.get("safe_to_apply") is not True:
+        raise ValueError("patch is not safe_to_apply")
+    if patch.get("status") != "pending":
+        raise ValueError("patch is not pending")
+    variant_ids = patch.get("variant_ids")
+    field_changes = patch.get("field_changes")
+    if not isinstance(variant_ids, list) or not variant_ids:
+        raise ValueError("patch must contain variant_ids")
+    if not isinstance(field_changes, dict) or not field_changes:
+        raise ValueError("patch must contain field_changes")
+
+    before_variants = copy.deepcopy(_all_variants(database))
+    before_snapshots: dict[str, dict] = {}
+    after_snapshots: dict[str, dict] = {}
+    before_hashes: dict[str, str] = {}
+    after_hashes: dict[str, str] = {}
+
+    for raw_variant_id in variant_ids:
+        variant_id = str(raw_variant_id).strip()
+        changes = field_changes.get(variant_id)
+        if not isinstance(changes, dict) or not changes:
+            raise ValueError(f"missing field changes for variant_id: {variant_id}")
+        variant = _find_exact_variant(database, variant_id)
+        before_snapshots[variant_id] = copy.deepcopy(variant)
+        before_hashes[variant_id] = _hash_record(variant)
+        for field_name, change in changes.items():
+            if not isinstance(change, dict) or "from" not in change or "to" not in change:
+                raise ValueError(f"invalid field change for {variant_id}.{field_name}")
+            current = _get_field(variant, str(field_name))
+            if current != change.get("from"):
+                raise ValueError(f"from value mismatch for {variant_id}.{field_name}")
+        for field_name, change in changes.items():
+            _set_existing_field(variant, str(field_name), change.get("to"))
+        after_snapshots[variant_id] = copy.deepcopy(variant)
+        after_hashes[variant_id] = _hash_record(variant)
+
+    after_variants = copy.deepcopy(_all_variants(database))
+    assert_no_unexplained_variant_loss(before_variants, after_variants, patch)
+    return {
+        "before": before_snapshots,
+        "after": after_snapshots,
+        "before_hashes": before_hashes,
+        "after_hashes": after_hashes,
+        "variant_count_before": len(before_variants),
+        "variant_count_after": len(after_variants),
+        "variant_count_delta": len(after_variants) - len(before_variants),
     }
-    api_key = config.get("openai", "api_key")
-    if not api_key:
-        _append_jsonl(DIFF_AUDITS_PATH, result)
-        return result
-
-    log_event(
-        {
-            "stage": "diff_audit",
-            "event_type": "model_call_started",
-            "provider": "openai",
-            "model": model,
-            "item_id": change["variant_id"],
-            "status": "started",
-            "request_summary": f"variant_id={change['variant_id']}",
-        }
-    )
-    try:
-        import openai
-
-        client = openai.OpenAI(api_key=api_key)
-        prompt = {
-            "task": "Audit only this variant surgical patch. Return strict JSON.",
-            "rules": [
-                "Use only before, after, and diff.",
-                "Do not assume access to the full database.",
-                "Flag data loss, changed identity, or unsafe field changes.",
-            ],
-            **audit_payload,
-        }
-        response = None
-        raw_text = ""
-        if hasattr(client, "chat") and hasattr(client.chat, "completions"):
-            response = client.chat.completions.create(
-                model=model,
-                messages=[
-                    {"role": "system", "content": "Return strict JSON only."},
-                    {"role": "user", "content": json.dumps(prompt, ensure_ascii=False)},
-                ],
-            )
-            choices = getattr(response, "choices", None)
-            if choices and isinstance(choices, list):
-                first = choices[0]
-                message = getattr(first, "message", None)
-                raw_text = str(getattr(message, "content", "") or "")
-        elif hasattr(client, "responses"):
-            response = client.responses.create(model=model, input=json.dumps(prompt, ensure_ascii=False))
-            raw_text = getattr(response, "output_text", "") or ""
-        if not raw_text and response is not None:
-            raw_text = str(response)
-        result.update({"status": "ok", "summary": raw_text[:1000]})
-        log_event(
-            {
-                "stage": "diff_audit",
-                "event_type": "model_call_completed",
-                "provider": "openai",
-                "model": model,
-                "item_id": change["variant_id"],
-                "status": "ok",
-                "response_summary": raw_text[:500],
-            }
-        )
-    except Exception as exc:
-        result.update({"status": "failed", "summary": str(exc)})
-        log_event(
-            {
-                "stage": "diff_audit",
-                "event_type": "model_call_failed",
-                "provider": "openai",
-                "model": model,
-                "item_id": change["variant_id"],
-                "status": "failed",
-                "error": str(exc),
-            }
-        )
-    _append_jsonl(DIFF_AUDITS_PATH, result)
-    return result
 
 
-def apply_surgical_patches(
-    patch_ids: list[str] | None = None,
-    *,
-    require_safe: bool = True,
-    run_diff_audit: bool = True,
-) -> dict:
-    """Apply exact variant_id patches to the active working copy only."""
-    initialize_working_copy(force=False)
-    working_path = Path(get_active_database_path())
-    patches_payload = _read_json(PATCHES_PATH, {"patches": []})
-    patches = patches_payload.get("patches") if isinstance(patches_payload, dict) else []
-    selected_ids = set(patch_ids or [])
-    database = _read_json(working_path, {})
+def _block_patch(patches_payload: dict, patch: dict, reason: str) -> dict:
+    patch["status"] = "blocked"
+    patch["blocking_reason"] = reason
+    _write_patches_payload(patches_payload)
+    return {"patch_id": patch.get("patch_id"), "status": "blocked", "blocking_reason": reason}
+
+
+def _apply_selected_patch(patch: dict, patches_payload: dict) -> dict:
+    working_path = Path(ACTIVE_WORKING_DATABASE_PATH)
+    if not working_path.exists():
+        return _block_patch(patches_payload, patch, "Initialize Working Copy first.")
+    database = _read_json(working_path)
     if not isinstance(database, dict):
-        raise ValueError("Working database must be a JSON object.")
+        return _block_patch(patches_payload, patch, "working database must be a JSON object")
 
-    applied: list[dict] = []
-    skipped: list[dict] = []
-    changes: list[dict] = []
-    for patch in [p for p in patches if isinstance(p, dict)]:
-        if selected_ids and patch.get("patch_id") not in selected_ids:
-            continue
-        if require_safe and patch.get("safe_to_auto_apply") is not True:
-            skipped.append({"patch_id": patch.get("patch_id"), "reason": "safe_to_auto_apply is not true"})
-            continue
-        variant_id = str(patch.get("variant_id") or "").strip()
-        variant = _find_variant(database, variant_id)
-        if variant is None:
-            skipped.append({"patch_id": patch.get("patch_id"), "reason": "variant_id not found"})
-            continue
-        before = json.loads(json.dumps(variant, ensure_ascii=False))
-        if not _set_field(variant, str(patch.get("field") or ""), patch.get("suggested_value")):
-            skipped.append({"patch_id": patch.get("patch_id"), "reason": "field not set"})
-            continue
-        after = json.loads(json.dumps(variant, ensure_ascii=False))
-        if before == after:
-            skipped.append({"patch_id": patch.get("patch_id"), "reason": "no change"})
-            continue
-        change = {"patch_id": patch.get("patch_id"), "variant_id": variant_id, "before": before, "after": after}
-        change["diff"] = _diff(before, after)
-        changes.append(change)
-        applied.append({"patch_id": patch.get("patch_id"), "variant_id": variant_id, "field": patch.get("field")})
+    original_database = copy.deepcopy(database)
+    try:
+        application = _apply_patch_object(patch, database)
+    except Exception as exc:
+        return _block_patch(patches_payload, patch, str(exc))
+
+    if database == original_database:
+        return {"patch_id": patch.get("patch_id"), "status": "no_change", "variant_ids": patch.get("variant_ids", [])}
 
     working_path.write_text(json.dumps(database, ensure_ascii=False, indent=2), encoding="utf-8")
-    audits = [_audit_variant_diff(change) for change in changes] if run_diff_audit else []
-    application = {
+    patch["status"] = "applied_pending_audit"
+    patch["blocking_reason"] = None
+    _write_patches_payload(patches_payload)
+
+    event = {
         "created_at": _utc_now(),
-        "working_path": str(working_path),
-        "applied_count": len(applied),
-        "skipped_count": len(skipped),
-        "applied": applied,
-        "skipped": skipped,
-        "diff_audits": audits,
+        "patch_id": patch.get("patch_id"),
+        "source_decision_id": patch.get("source_decision_id"),
+        "variant_ids": patch.get("variant_ids", []),
+        "changed_fields": _patch_changed_fields(patch),
+        "before": application["before"],
+        "after": application["after"],
+        "field_changes": patch.get("field_changes", {}),
+        "variant_count_before": application["variant_count_before"],
+        "variant_count_after": application["variant_count_after"],
+        "variant_count_delta": application["variant_count_delta"],
+        "status": "applied_pending_audit",
+        "working_path": ACTIVE_WORKING_DATABASE_PATH,
     }
-    _append_jsonl(PATCH_APPLICATIONS_PATH, application)
-    return application
+    _append_jsonl(PATCH_APPLICATIONS_PATH, event)
+    log_event(
+        {
+            "stage": "surgical_patch",
+            "event_type": "patch_applied",
+            "status": "applied_pending_audit",
+            "item_id": str(patch.get("patch_id") or ""),
+            "request_summary": f"variant_ids={','.join(patch.get('variant_ids', []))}",
+        }
+    )
+    return {
+        "patch_id": patch.get("patch_id"),
+        "variant_ids": patch.get("variant_ids", []),
+        "changed_fields": _patch_changed_fields(patch),
+        "status": "applied_pending_audit",
+        "before_hashes": application["before_hashes"],
+        "after_hashes": application["after_hashes"],
+    }
+
+
+def apply_next_safe_patch() -> dict:
+    """Apply exactly one pending safe patch to the working copy."""
+    patches_payload = _load_patches_payload()
+    for patch in patches_payload.get("patches", []):
+        if isinstance(patch, dict) and patch.get("status") == "pending" and patch.get("safe_to_apply") is True:
+            return _apply_selected_patch(patch, patches_payload)
+    return {"status": "no_pending_safe_patch", "patch_id": None, "variant_ids": [], "changed_fields": {}}
+
+
+def apply_surgical_patch(patch_id: str) -> dict:
+    """Apply one explicit pending patch by patch_id using exact variant_id matching only."""
+    patches_payload = _load_patches_payload()
+    for patch in patches_payload.get("patches", []):
+        if isinstance(patch, dict) and patch.get("patch_id") == patch_id:
+            return _apply_selected_patch(patch, patches_payload)
+    raise ValueError(f"patch_id not found: {patch_id}")
+
+
+# Backwards-compatible wrappers for the previous Streamlit helper/tests.
+def build_candidate_surgical_patches() -> dict:
+    return build_candidate_patches_from_decisions()
+
+
+def apply_surgical_patches(*, require_safe: bool = True, run_diff_audit: bool = False, patch_ids: list[str] | None = None) -> dict:
+    if patch_ids:
+        results = [apply_surgical_patch(patch_id) for patch_id in patch_ids]
+    else:
+        results = [apply_next_safe_patch()]
+    if not results:
+        return {"applied_count": 0, "skipped_count": 0, "applied": [], "skipped": [], "status": "no_patch_ids"}
+    applied = [r for r in results if r.get("status") == "applied_pending_audit"]
+    skipped = [r for r in results if r.get("status") != "applied_pending_audit"]
+    return {"applied_count": len(applied), "skipped_count": len(skipped), "applied": applied, "skipped": skipped, **results[-1]}

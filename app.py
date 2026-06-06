@@ -86,7 +86,7 @@ row3[3].metric("model review variants total", model_progress["total_model_review
 
 # ---------- 6. Actions ----------
 st.subheader("Actions")
-action_cols = st.columns(6)
+action_cols = st.columns(4)
 with action_cols[0]:
     if st.button("Refresh Status", use_container_width=True):
         st.rerun()
@@ -109,23 +109,6 @@ with action_cols[3]:
         with st.spinner("Building review queue from deterministic audit..."):
             result = ui.run_audit_and_refresh_queue()
         st.success(f"Review queue refreshed: {result['issues_total']} items.")
-        st.rerun()
-with action_cols[4]:
-    if st.button("Build Candidate Patches", use_container_width=True):
-        with st.spinner("Building candidate surgical patches..."):
-            result = ui.build_candidate_surgical_patches()
-        st.success(f"Candidate patches built: {result.get('patch_count', 0)}")
-        st.rerun()
-with action_cols[5]:
-    if st.button("Apply Surgical Patch", use_container_width=True):
-        try:
-            with st.spinner("Applying safe surgical patches to working copy..."):
-                result = ui.apply_surgical_patches()
-            st.success(f"Applied: {result.get('applied_count', 0)}; skipped: {result.get('skipped_count', 0)}")
-        except Exception as exc:
-            st.error("Surgical patch application failed.")
-            with st.expander("Exception details"):
-                st.code(str(exc))
         st.rerun()
 with st.container():
     final_cols = st.columns(4)
@@ -210,6 +193,51 @@ with final_cols[3]:
             st.success(f"Working copy reset. Backup: `{result.get('backup_path')}`")
         else:
             st.error(result.get("message") or "Reset blocked.")
+        st.rerun()
+
+# ---------- Surgical Patch Workflow ----------
+st.subheader("Surgical Patch Workflow")
+patch_summary = ui.load_surgical_patch_summary()
+patch_cols = st.columns(5)
+patch_cols[0].metric("pending patches", patch_summary["pending"])
+patch_cols[1].metric("applied_pending_audit", patch_summary["applied_pending_audit"])
+patch_cols[2].metric("audit_passed", patch_summary["audit_passed"])
+patch_cols[3].metric("audit_failed", patch_summary["audit_failed"])
+patch_cols[4].metric("blocked", patch_summary["blocked"])
+
+last_cols = st.columns(4)
+last_cols[0].write(f"**last patch_id**  \n`{patch_summary.get('last_patch_id') or 'none'}`")
+last_cols[1].write(f"**last variant_ids**  \n`{patch_summary.get('last_variant_ids') or []}`")
+last_cols[2].write(f"**last changed fields**  \n`{patch_summary.get('last_changed_fields') or {}}`")
+last_cols[3].write(f"**last audit status**  \n`{patch_summary.get('last_audit_status') or 'none'}`")
+
+patch_action_cols = st.columns(3)
+with patch_action_cols[0]:
+    if st.button("Build Candidate Patches", use_container_width=True):
+        with st.spinner("Building candidate surgical patches..."):
+            result = ui.build_candidate_surgical_patches()
+        st.success(f"Candidate patches built: {result.get('created_count', 0)}")
+        st.rerun()
+with patch_action_cols[1]:
+    if st.button("Apply Next Safe Patch", use_container_width=True):
+        result = ui.apply_next_safe_surgical_patch()
+        if result.get("status") == "applied_pending_audit":
+            st.success(f"Applied patch `{result.get('patch_id')}`")
+        elif result.get("status") == "blocked":
+            st.error(f"Patch blocked: {result.get('blocking_reason')}")
+        else:
+            st.info(result.get("status", "No patch applied."))
+        st.rerun()
+with patch_action_cols[2]:
+    if st.button("Audit Last Patch Diff with GPT-5.4", use_container_width=True):
+        with st.spinner("Auditing last patch diff with GPT-5.4..."):
+            result = ui.audit_last_surgical_patch_diff()
+        if result.get("status") == "PASS":
+            st.success("Last patch diff audit: PASS")
+        elif result.get("status") == "FAIL":
+            st.error("Last patch diff audit: FAIL")
+        else:
+            st.info(result.get("message") or result.get("status") or "No audit result.")
         st.rerun()
 
 # ---------- 4. Review Queue Preview ----------

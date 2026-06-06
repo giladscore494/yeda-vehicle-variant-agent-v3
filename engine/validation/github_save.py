@@ -17,10 +17,13 @@ from core.paths import (
     DECISIONS_PATH,
     ISSUE_QUEUE_PATH,
     MANIFEST_PATH,
+    PATCH_APPLICATIONS_PATH,
+    PATCHES_PATH,
+    DIFF_AUDITS_PATH,
     SOURCE_CANONICAL_PATH,
     STALE_ROOT_CANONICAL_PATH,
     VALIDATION_REPORT_PATH,
-    FINAL_CLEAN_DATABASE_PATH,
+    ACTIVE_WORKING_DATABASE_PATH,
 )
 from engine import config
 from engine.github_writer import push_file
@@ -32,13 +35,16 @@ _ALLOWED_BRANCH = "validation-v2-budgeted-dual-il-trims"
 _BLOCKED_BRANCH = "main"
 
 # Files that are allowed to be committed. Keep this intentionally minimal:
-# validation working files plus the one Task 5 final clean output.
+# validation working files plus explicit surgical patch workflow outputs.
 ALLOWED_FILES = [
     ISSUE_QUEUE_PATH,
     DECISIONS_PATH,
     MANIFEST_PATH,
     VALIDATION_REPORT_PATH,
-    FINAL_CLEAN_DATABASE_PATH,
+    ACTIVE_WORKING_DATABASE_PATH,
+    PATCHES_PATH,
+    PATCH_APPLICATIONS_PATH,
+    DIFF_AUDITS_PATH,
     "data/runtime/current_validation_run.json",
 ]
 

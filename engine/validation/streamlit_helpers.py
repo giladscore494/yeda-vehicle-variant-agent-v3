@@ -11,15 +11,18 @@ from pathlib import Path
 from typing import Any
 
 from core.paths import (
+    DIFF_AUDITS_PATH,
     FINAL_CLEAN_DATABASE_PATH,
     ISSUE_QUEUE_PATH,
     MANIFEST_PATH,
     MODEL_REVIEW_PROGRESS_PATH,
+    PATCH_APPLICATIONS_PATH,
     PATCHES_PATH,
     VALIDATION_REPORT_PATH,
     DECISIONS_PATH,
 )
 from engine.validation.final_github_save import save_final_clean_database_to_github as _save_final_clean_database_to_github
+from engine.validation.diff_quality_audit import audit_last_patch_diff_with_openai as _audit_last_patch_diff_with_openai
 from engine.validation.final_quality_audit import audit_final_clean_database_quality as _audit_final_clean_database_quality
 from engine.validation.file_status import load_database_file_status
 from engine.validation.minimal_pipeline import run_full_audit
@@ -28,8 +31,8 @@ from engine.validation.model_review_progress import load_model_review_progress, 
 from engine.validation.final_export import export_final_clean_database as _export_final_clean_database
 from engine.validation.run_events import load_recent_events
 from engine.validation.surgical_patches import (
-    apply_surgical_patches as _apply_surgical_patches,
-    build_candidate_surgical_patches as _build_candidate_surgical_patches,
+    apply_next_safe_patch as _apply_next_safe_patch,
+    build_candidate_patches_from_decisions as _build_candidate_patches_from_decisions,
 )
 from engine.validation.working_copy import (
     initialize_working_copy as _initialize_working_copy,
@@ -67,6 +70,23 @@ def _load_json_file(path: Path) -> Any | None:
         return json.loads(path.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError):
         return None
+
+def _load_jsonl_file(path: Path) -> list[dict]:
+    rows: list[dict] = []
+    try:
+        lines = path.read_text(encoding="utf-8").splitlines()
+    except OSError:
+        return rows
+    for line in lines:
+        if not line.strip():
+            continue
+        try:
+            payload = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+        if isinstance(payload, dict):
+            rows.append(payload)
+    return rows
 
 
 def _mtime_iso(path: Path) -> str | None:
@@ -173,6 +193,8 @@ def load_status_payload(project_root: str | Path = ".") -> dict:
             "decisions": DECISIONS_PATH,
             "model_review_progress": MODEL_REVIEW_PROGRESS_PATH,
             "patches": PATCHES_PATH,
+            "patch_applications": PATCH_APPLICATIONS_PATH,
+            "diff_audits": DIFF_AUDITS_PATH,
         },
     }
     return payload
@@ -296,19 +318,48 @@ def load_model_progress() -> dict:
 
 def build_candidate_surgical_patches() -> dict:
     """Build candidate surgical patches from exact decisions."""
-    return _build_candidate_surgical_patches()
+    return _build_candidate_patches_from_decisions()
 
 
-def apply_surgical_patches() -> dict:
-    """Apply safe candidate surgical patches to the active working copy."""
-    return _apply_surgical_patches(require_safe=True)
+def apply_next_safe_surgical_patch() -> dict:
+    """Apply exactly one pending safe candidate patch to the active working copy."""
+    return _apply_next_safe_patch()
+
+
+def audit_last_surgical_patch_diff() -> dict:
+    """Audit the last applied surgical patch diff with GPT-5.4."""
+    return _audit_last_patch_diff_with_openai()
+
+
+def load_surgical_patch_summary(project_root: str | Path = ".") -> dict:
+    """Return counts and last patch/audit details for the main UI."""
+    root = Path(project_root)
+    patches_payload = _load_json_file(root / PATCHES_PATH) or {}
+    patches = patches_payload.get("patches", []) if isinstance(patches_payload, dict) else []
+    if not isinstance(patches, list):
+        patches = []
+    counts = {status: 0 for status in ("pending", "applied_pending_audit", "audit_passed", "audit_failed", "blocked")}
+    for patch in patches:
+        if isinstance(patch, dict) and patch.get("status") in counts:
+            counts[str(patch.get("status"))] += 1
+    applications = _load_jsonl_file(root / PATCH_APPLICATIONS_PATH)
+    audits = _load_jsonl_file(root / DIFF_AUDITS_PATH)
+    last_application = applications[-1] if applications else {}
+    last_audit = audits[-1] if audits else {}
+    return {
+        **counts,
+        "last_patch_id": last_application.get("patch_id") or last_audit.get("patch_id") or "",
+        "last_variant_ids": last_application.get("variant_ids") or last_audit.get("variant_ids") or [],
+        "last_changed_fields": last_application.get("changed_fields") or {},
+        "last_audit_status": last_audit.get("status") or "",
+    }
 
 
 def load_debug_snippets(project_root: str | Path = ".", max_chars: int = 1200) -> list[dict]:
     """Return compact snippets for known validation files for Advanced Debug."""
     root = Path(project_root)
     snippets: list[dict] = []
-    for rel_path in (ISSUE_QUEUE_PATH, VALIDATION_REPORT_PATH, MANIFEST_PATH, DECISIONS_PATH, MODEL_REVIEW_PROGRESS_PATH, PATCHES_PATH):
+    for rel_path in (ISSUE_QUEUE_PATH, VALIDATION_REPORT_PATH, MANIFEST_PATH, DECISIONS_PATH, MODEL_REVIEW_PROGRESS_PATH, PATCHES_PATH, PATCH_APPLICATIONS_PATH, DIFF_AUDITS_PATH):
         path = root / rel_path
         entry = {"path": rel_path, "exists": path.exists(), "size_bytes": path.stat().st_size if path.exists() else 0}
         if path.exists():
