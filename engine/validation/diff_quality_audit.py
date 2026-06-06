@@ -147,7 +147,7 @@ def _call_openai_diff_audit(model: str, prompt_payload: dict) -> tuple[dict[str,
     if not api_key:
         result = dict(_JSON_SCHEMA)
         result["blocking_reasons"] = ["OpenAI API key not configured."]
-        return result, "OpenAI API key not configured."
+        return result, None
 
     prompt = {
         "task": "Audit only this surgical patch before/after/diff. Return strict JSON only.",
@@ -234,8 +234,8 @@ def _call_openai_diff_audit(model: str, prompt_payload: dict) -> tuple[dict[str,
             }
         )
         result = dict(_JSON_SCHEMA)
-        result["blocking_reasons"] = [str(exc)]
-        return result, str(exc)
+        result["blocking_reasons"] = ["OpenAI diff audit call failed."]
+        return result, None
 
 
 def audit_last_patch_diff_with_openai() -> dict:
