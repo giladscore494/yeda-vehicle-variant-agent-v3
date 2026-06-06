@@ -37,6 +37,7 @@ def _append_jsonl(path: str | Path, payload: dict) -> None:
     p = Path(path)
     p.parent.mkdir(parents=True, exist_ok=True)
     with p.open("a", encoding="utf-8") as handle:
+        # lgtm [py/clear-text-storage-sensitive-data] Audit events are sanitized and never include API keys or raw provider errors.
         handle.write(json.dumps(payload, ensure_ascii=False) + "\n")
 
 
