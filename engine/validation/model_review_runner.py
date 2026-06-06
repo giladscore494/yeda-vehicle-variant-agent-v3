@@ -13,10 +13,9 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from core.paths import DECISIONS_PATH, ISSUE_QUEUE_PATH
+from core.paths import DECISIONS_PATH, ISSUE_QUEUE_PATH, MODEL_REVIEW_PROGRESS_PATH
 from engine import config
 from engine.validation.model_review_progress import (
-    completed_or_skipped_item_ids,
     mark_model_review_items,
     refresh_model_review_progress,
 )
@@ -144,15 +143,21 @@ def _filter_items(
     risk_levels: list[str] | None,
     issue_types: list[str] | None,
     seed_id_filter: str | None,
+    progress: dict | None = None,
 ) -> list[dict]:
     risk_set = {str(level).lower() for level in risk_levels} if risk_levels else None
     issue_set = {str(issue) for issue in issue_types} if issue_types else None
     selected: list[dict] = []
-    already_done = completed_or_skipped_item_ids()
+    progress_items = progress.get("items") if isinstance(progress, dict) and isinstance(progress.get("items"), dict) else {}
+    non_pending_ids = {
+        item_id
+        for item_id, progress_item in progress_items.items()
+        if isinstance(progress_item, dict) and progress_item.get("status") != "pending"
+    }
     for item in items:
         if not item.get("requires_model_review", False):
             continue
-        if str(item.get("item_id") or "") in already_done:
+        if str(item.get("item_id") or "") in non_pending_ids:
             continue
         if risk_set and str(item.get("risk_level") or "").lower() not in risk_set:
             continue
@@ -359,8 +364,8 @@ def run_model_review(
     """Run or preview budgeted model review for deterministic issue-queue items."""
     max_items = max(0, int(max_items))
     all_issue_items = _load_issue_items()
-    refresh_model_review_progress(all_issue_items)
-    candidate_items = _filter_items(all_issue_items, risk_levels, issue_types, seed_id_filter)
+    progress = refresh_model_review_progress(all_issue_items, path=MODEL_REVIEW_PROGRESS_PATH)
+    candidate_items = _filter_items(all_issue_items, risk_levels, issue_types, seed_id_filter, progress)
     selected = candidate_items[:max_items]
     routings = [route_issue_item(item) for item in selected]
     preview = _build_preview(selected, routings)
@@ -504,7 +509,11 @@ def run_model_review(
         )
 
     _append_decisions(decisions)
-    progress = mark_model_review_items(progress_statuses) if progress_statuses else refresh_model_review_progress(all_issue_items)
+    progress = (
+        mark_model_review_items(progress_statuses, items=all_issue_items, path=MODEL_REVIEW_PROGRESS_PATH)
+        if progress_statuses
+        else refresh_model_review_progress(all_issue_items, path=MODEL_REVIEW_PROGRESS_PATH)
+    )
     log_event(
         {
             "stage": "model_review",

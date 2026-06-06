@@ -28,7 +28,7 @@ from core.paths import (
 from engine.validation.model_review_progress import refresh_model_review_progress
 from engine.validation.normalizer import extract_value, extract_year
 from engine.validation.run_events import log_event
-from engine.validation.working_copy import get_active_database_path
+from engine.validation.working_copy import get_active_database_path, initialize_working_copy
 from engine.validation.write_guard import safe_write_json
 
 _RISK_LEVELS = ("critical", "high", "medium", "low")
@@ -518,6 +518,7 @@ def write_validation_outputs(queue: list[dict], summary: dict) -> None:
 def run_full_audit() -> dict:
     """Run the deterministic audit over the active database file."""
     started_at = _utc_now()
+    working_copy_status = initialize_working_copy(force=False)
     active_path = get_active_database_path()
     log_event(
         {
@@ -545,6 +546,7 @@ def run_full_audit() -> dict:
         "model_review_items_available": summary["model_review_items_available"],
         "manual_review_items_available": summary["manual_review_items_available"],
         "model_review_progress": model_progress,
+        "working_copy_status": working_copy_status,
     }
     log_event(
         {

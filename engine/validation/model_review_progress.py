@@ -57,6 +57,10 @@ def _variant_ids(items: list[dict]) -> set[str]:
     return ids
 
 
+def _valid_status(value: Any) -> str:
+    return str(value) if value in {"pending", "completed", "failed", "skipped"} else "pending"
+
+
 def refresh_model_review_progress(
     items: list[dict] | None = None,
     *,
@@ -75,7 +79,7 @@ def refresh_model_review_progress(
         if not item_id:
             continue
         previous = existing.get(item_id, {}) if isinstance(existing, dict) else {}
-        status = previous.get("status") if previous.get("status") in {"pending", "completed", "failed", "skipped"} else "pending"
+        status = _valid_status(previous.get("status"))
         item_status[item_id] = {
             "item_id": item_id,
             "status": status,
@@ -103,12 +107,12 @@ def _counts(item_status: dict[str, dict]) -> dict:
     skipped = sum(1 for item in item_status.values() if item.get("status") == "skipped")
     pending = sum(1 for item in item_status.values() if item.get("status") == "pending")
     done_variant_ids = _variant_ids([item for item in item_status.values() if item.get("status") in {"completed", "skipped"}])
-    remaining_variant_ids = _variant_ids([item for item in item_status.values() if item.get("status") in {"pending", "failed"}])
+    remaining_variant_ids = _variant_ids([item for item in item_status.values() if item.get("status") == "pending"])
     return {
         "completed_items": completed,
         "failed_items": failed,
         "skipped_items": skipped,
-        "remaining_items": pending + failed,
+        "remaining_items": pending,
         "completed_or_skipped_variants": len(done_variant_ids),
         "remaining_variants": len(remaining_variant_ids),
     }
@@ -117,10 +121,11 @@ def _counts(item_status: dict[str, dict]) -> dict:
 def mark_model_review_items(
     statuses: dict[str, str],
     *,
+    items: list[dict] | None = None,
     path: str | Path = MODEL_REVIEW_PROGRESS_PATH,
 ) -> dict:
     """Mark selected issue-queue items as completed, failed, or skipped."""
-    progress = refresh_model_review_progress(path=path)
+    progress = refresh_model_review_progress(items, path=path)
     items = progress.get("items") if isinstance(progress.get("items"), dict) else {}
     now = _utc_now()
     for item_id, status in statuses.items():
@@ -142,4 +147,15 @@ def completed_or_skipped_item_ids(path: str | Path = MODEL_REVIEW_PROGRESS_PATH)
         item_id
         for item_id, item in items.items()
         if isinstance(item, dict) and item.get("status") in {"completed", "skipped"}
+    }
+
+
+def non_pending_item_ids(path: str | Path = MODEL_REVIEW_PROGRESS_PATH) -> set[str]:
+    """Return issue ids that were already attempted or intentionally skipped."""
+    progress = load_model_review_progress(path)
+    items = progress.get("items") if isinstance(progress.get("items"), dict) else {}
+    return {
+        item_id
+        for item_id, item in items.items()
+        if isinstance(item, dict) and _valid_status(item.get("status")) != "pending"
     }

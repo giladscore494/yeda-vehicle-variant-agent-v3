@@ -55,3 +55,54 @@ def test_mark_model_review_items_updates_remaining_counts(tmp_path, monkeypatch)
     assert progress["skipped_items"] == 1
     assert progress["remaining_items"] == 0
     assert completed_or_skipped_item_ids() == {"iq_1", "iq_2"}
+
+
+def test_refresh_model_review_progress_drops_stale_items(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    _write_json(
+        tmp_path / ISSUE_QUEUE_PATH,
+        {
+            "items": [
+                {"item_id": "iq_5", "requires_model_review": True, "variant_ids": ["v5"]},
+                {"item_id": "iq_9", "requires_model_review": True, "variant_ids": ["v9"]},
+            ]
+        },
+    )
+    _write_json(
+        tmp_path / MODEL_REVIEW_PROGRESS_PATH,
+        {
+            "items": {
+                "iq_2": {"item_id": "iq_2", "status": "pending", "variant_ids": ["v2"]},
+                "iq_5": {"item_id": "iq_5", "status": "completed", "variant_ids": ["v5"]},
+            }
+        },
+    )
+
+    progress = refresh_model_review_progress()
+
+    assert set(progress["items"]) == {"iq_5", "iq_9"}
+    assert progress["items"]["iq_5"]["status"] == "completed"
+    assert progress["items"]["iq_9"]["status"] == "pending"
+    assert progress["total_model_review_items"] == 2
+    assert progress["remaining_items"] == 1
+    assert progress["remaining_variants"] == 1
+
+
+def test_failed_model_review_items_are_attempted_but_not_remaining(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    _write_json(
+        tmp_path / ISSUE_QUEUE_PATH,
+        {
+            "items": [
+                {"item_id": "iq_1", "requires_model_review": True, "variant_ids": ["v1"]},
+                {"item_id": "iq_2", "requires_model_review": True, "variant_ids": ["v2"]},
+            ]
+        },
+    )
+    refresh_model_review_progress()
+
+    progress = mark_model_review_items({"iq_1": "failed"})
+
+    assert progress["failed_items"] == 1
+    assert progress["remaining_items"] == 1
+    assert progress["remaining_variants"] == 1
