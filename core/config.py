@@ -14,6 +14,8 @@ import os
 import warnings
 from pathlib import Path
 
+from core.paths import SOURCE_CANONICAL_PATH, VALIDATION_DIR
+
 
 def _load_secrets_file() -> dict:
     """Try to import the local secrets.py (git-ignored) as a fallback."""
@@ -174,7 +176,7 @@ GITHUB_REPO: str = _get("GITHUB_REPO", "giladscore494/yeda-vehicle-variant-agent
 GITHUB_BRANCH: str = _resolve_github_branch()
 
 CANONICAL_RESUME_PATH: str = _get(
-    "CANONICAL_RESUME_PATH", "data/canonical/resume_package_canonical.json"
+    "CANONICAL_RESUME_PATH", SOURCE_CANONICAL_PATH
 )
 CANONICAL_BACKUP_PATH: str = _get(
     "CANONICAL_BACKUP_PATH", "data/canonical/resume_package_backup_previous.json"
@@ -186,7 +188,7 @@ VALIDATION_RUNTIME_STATE_PATH: str = _get(
     "VALIDATION_RUNTIME_STATE_PATH", "data/runtime/current_validation_run.json"
 )
 VALIDATION_OUTPUT_PATH: str = _get(
-    "VALIDATION_OUTPUT_PATH", "data/validated_runs"
+    "VALIDATION_OUTPUT_PATH", VALIDATION_DIR
 )
 
 # ── Branch safety warning ───────────────────────────────────────────────

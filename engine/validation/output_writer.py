@@ -12,6 +12,8 @@ import os
 from datetime import datetime, timezone
 from pathlib import Path
 
+from core.paths import VALIDATION_DIR
+
 logger = logging.getLogger(__name__)
 
 
@@ -63,7 +65,7 @@ def write_validated_package(
 ) -> None:
     """Write the final validated JSON package.
 
-    Safety: asserts output_path != input_path and output is under data/validated_runs/.
+    Safety: asserts output_path != input_path and output is under data/validation/ or legacy data/validated_runs/.
     """
     output_path = Path(output_path).resolve()
     input_path = Path(input_path).resolve()
@@ -71,9 +73,14 @@ def write_validated_package(
     # Safety guards
     if output_path == input_path:
         raise RuntimeError("Refusing to overwrite source resume package")
-    if "validated_runs" not in str(output_path):
+    if output_path == Path("data/final/resume_package_final_clean.json").resolve():
         raise RuntimeError(
-            f"Output path must be under data/validated_runs/: {output_path}"
+            "Refusing to write reserved final clean database before Task 5 export"
+        )
+    allowed_output_dirs = (Path(VALIDATION_DIR).resolve(), Path("data/validated_runs").resolve())
+    if not any(_is_relative_to(output_path, allowed_dir) for allowed_dir in allowed_output_dirs):
+        raise RuntimeError(
+            f"Output path must be under {VALIDATION_DIR}/ or legacy data/validated_runs/: {output_path}"
         )
 
     # Build output package
@@ -214,3 +221,11 @@ def _verify_input_unchanged(input_path: Path) -> None:
     """Verify the input file still exists and is readable (basic integrity check)."""
     if not input_path.exists():
         logger.warning("Input file no longer exists: %s", input_path)
+
+
+def _is_relative_to(path: Path, parent: Path) -> bool:
+    try:
+        path.relative_to(parent)
+        return True
+    except ValueError:
+        return False
