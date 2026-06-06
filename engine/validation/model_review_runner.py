@@ -434,7 +434,6 @@ def run_model_review(
             gemini_result = call_gemini_for_issue(item, routing)
             if isinstance(gemini_result, dict):
                 attempted_results.append(gemini_result)
-            if isinstance(gemini_result, dict):
                 gemini_result["safe_to_auto_apply"] = False
                 log_event(
                     {
@@ -474,7 +473,6 @@ def run_model_review(
             openai_result = call_openai_for_issue(item, routing, gemini_result)
             if isinstance(openai_result, dict):
                 attempted_results.append(openai_result)
-            if isinstance(openai_result, dict):
                 openai_result["safe_to_auto_apply"] = False
                 log_event(
                     {
