@@ -20,24 +20,11 @@ def create_response_with_fallback(
     logger: Any,
     item_key: str,
 ) -> tuple[Any, bool]:
-    """Create a Responses API request and retry once without web search on HTTP 400."""
-    create_kwargs: dict[str, Any] = {
-        "model": model,
-        "input": prompt,
-    }
-    if web_search:
-        create_kwargs["tools"] = WEB_SEARCH_TOOL
-
-    try:
-        return client.responses.create(**create_kwargs), web_search
-    except Exception as exc:
-        if web_search and is_bad_request_error(exc):
-            logger.warning(
-                "OpenAI web search request failed for %s; retrying without web search: %s",
-                item_key, exc,
-            )
-            return client.responses.create(model=model, input=prompt), False
-        raise
+    """Disabled compatibility helper; use the gated model-review runner."""
+    raise RuntimeError(
+        "Legacy OpenAI response helper is disabled; use "
+        "engine.validation.model_review_runner.run_model_review()."
+    )
 
 
 def extract_response_text(response: Any) -> str:

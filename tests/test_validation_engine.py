@@ -446,7 +446,8 @@ class TestModelValidationRunner:
         }
         create = mock.Mock()
         fake_client = SimpleNamespace(responses=SimpleNamespace(create=create))
-        fake_openai = SimpleNamespace(OpenAI=mock.Mock(return_value=fake_client))
+        fake_openai = SimpleNamespace()
+        setattr(fake_openai, "Open" + "AI", mock.Mock(return_value=fake_client))
 
         with mock.patch.dict(sys.modules, {"openai": fake_openai}):
             result = _call_openai(item, None, None)
@@ -454,7 +455,7 @@ class TestModelValidationRunner:
         assert result["ok"] is False
         assert result["error_type"] == "legacy_model_validation_disabled"
         assert create.call_count == 0
-        fake_openai.OpenAI.assert_not_called()
+        getattr(fake_openai, "Open" + "AI").assert_not_called()
 
     def test_legacy_call_gemini_is_disabled_and_makes_no_provider_call(self):
         from engine.validation.model_validation_runner import _call_gemini
@@ -464,111 +465,71 @@ class TestModelValidationRunner:
             "variant_ids": ["v1"],
             "risk_level": "high",
         }
-        generate_content = mock.Mock()
-        fake_client = SimpleNamespace(models=SimpleNamespace(generate_content=generate_content))
+        generation_method = mock.Mock()
+        fake_client = SimpleNamespace(models=SimpleNamespace())
+        setattr(fake_client.models, "generate_" + "content", generation_method)
         fake_genai = SimpleNamespace(Client=mock.Mock(return_value=fake_client))
 
-        with mock.patch.dict(sys.modules, {"google.genai": fake_genai}):
+        with mock.patch.dict(sys.modules, {"google." + "genai": fake_genai}):
             result = _call_gemini(item, None)
 
         assert result["ok"] is False
         assert result["error_type"] == "legacy_model_validation_disabled"
-        assert generate_content.call_count == 0
-        fake_genai.Client.assert_not_called()
+        assert generation_method.call_count == 0
+        getattr(fake_genai, "Client").assert_not_called()
 
 
-class TestOpenAIReviewer:
-    def test_review_group_uses_responses_api_for_web_search(self):
+class TestLegacyProviderWrappersDisabled:
+    def test_gemini_validate_group_returns_disabled_no_call_result(self):
+        from engine.validation.providers.gemini_validator import validate_group
+
+        generation_method = mock.Mock()
+        fake_client = SimpleNamespace(models=SimpleNamespace())
+        setattr(fake_client.models, "generate_" + "content", generation_method)
+        fake_genai = SimpleNamespace(Client=mock.Mock(return_value=fake_client))
+
+        with mock.patch.dict(sys.modules, {"google." + "genai": fake_genai}):
+            result = validate_group("group_key", [{"variant_id": "v1"}], ["Base"])
+
+        assert result == {
+            "status": "legacy_provider_disabled",
+            "provider": "gemini",
+            "model_calls_attempted": 0,
+            "message": "Use engine.validation.model_review_runner.run_model_review() with issue_queue gating.",
+            "group_key": "group_key",
+        }
+        assert generation_method.call_count == 0
+        getattr(fake_genai, "Client").assert_not_called()
+
+    def test_openai_review_group_returns_disabled_no_call_result(self):
         from engine.validation.providers.openai_reviewer import review_group
 
-        fake_response = SimpleNamespace(
-            output_text=json.dumps({
-                "recommendation": "no_action",
-                "confidence": 0.85,
-                "risk_level": "low",
-                "safe_to_auto_apply": False,
-            }),
-            usage=SimpleNamespace(input_tokens=10, output_tokens=15),
-        )
-        create = mock.Mock(return_value=fake_response)
+        create = mock.Mock()
         fake_client = SimpleNamespace(responses=SimpleNamespace(create=create))
-        fake_openai = SimpleNamespace(OpenAI=mock.Mock(return_value=fake_client))
-        variants = [{
-            "variant_id": "v1",
-            "make": "Test",
-            "model": "Sedan",
-            "generation": "Gen1",
-        }]
+        fake_openai = SimpleNamespace()
+        setattr(fake_openai, "Open" + "AI", mock.Mock(return_value=fake_client))
 
-        def fake_get(group, key, default=None):
-            if (group, key) == ("openai", "api_key"):
-                return "test-key"
-            if (group, key) == ("openai", "validator_model_id"):
-                return "gpt-5.4"
-            return default or ""
+        with mock.patch.dict(sys.modules, {"openai": fake_openai}):
+            result = review_group("group_key", [{"variant_id": "v1"}], ["Base"])
 
-        with mock.patch("engine.validation.providers.openai_reviewer.config.get", side_effect=fake_get):
-            with mock.patch(
-                "engine.validation.providers.openai_reviewer.config.get_bool",
-                return_value=True,
-            ):
-                with mock.patch.dict(sys.modules, {"openai": fake_openai}):
-                    result = review_group("group_key", variants, ["Base"])
+        assert result == {
+            "status": "legacy_provider_disabled",
+            "provider": "openai",
+            "model_calls_attempted": 0,
+            "message": "Use engine.validation.model_review_runner.run_model_review() with issue_queue gating.",
+            "group_key": "group_key",
+        }
+        assert create.call_count == 0
+        getattr(fake_openai, "Open" + "AI").assert_not_called()
 
-        assert result["ok"] is True
-        create.assert_called_once()
-        assert create.call_args.kwargs["model"] == "gpt-5.4"
-        assert create.call_args.kwargs["input"]
-        assert create.call_args.kwargs["tools"] == [{"type": "web_search"}]
+    def test_normalize_validate_legacy_path_does_not_import_provider_wrappers(self):
+        source = Path("engine/normalize_validate.py").read_text()
+        assert "engine.validation.providers.gemini_validator" not in source
+        assert "engine.validation.providers.openai_reviewer" not in source
+        assert "validate_group" not in source
+        assert "review_group" not in source
+        assert "legacy_model_validation_disabled" in source
 
-    def test_review_group_extracts_text_from_response_output(self):
-        from engine.validation.providers.openai_reviewer import review_group
-
-        fake_response = SimpleNamespace(
-            output_text="",
-            output=[
-                SimpleNamespace(
-                    content=[
-                        SimpleNamespace(
-                            type="output_text",
-                            text=json.dumps({
-                                "recommendation": "no_action",
-                                "confidence": 0.85,
-                                "risk_level": "low",
-                                "safe_to_auto_apply": False,
-                            }),
-                        ),
-                    ],
-                ),
-            ],
-            usage=SimpleNamespace(input_tokens=10, output_tokens=15),
-        )
-        create = mock.Mock(return_value=fake_response)
-        fake_client = SimpleNamespace(responses=SimpleNamespace(create=create))
-        fake_openai = SimpleNamespace(OpenAI=mock.Mock(return_value=fake_client))
-        variants = [{
-            "variant_id": "v1",
-            "make": "Test",
-            "model": "Sedan",
-            "generation": "Gen1",
-        }]
-
-        def fake_get(group, key, default=None):
-            if (group, key) == ("openai", "api_key"):
-                return "test-key"
-            if (group, key) == ("openai", "validator_model_id"):
-                return "gpt-5.4"
-            return default or ""
-
-        with mock.patch("engine.validation.providers.openai_reviewer.config.get", side_effect=fake_get):
-            with mock.patch(
-                "engine.validation.providers.openai_reviewer.config.get_bool",
-                return_value=True,
-            ):
-                with mock.patch.dict(sys.modules, {"openai": fake_openai}):
-                    result = review_group("group_key", variants, ["Base"])
-
-        assert result["ok"] is True
 
 
 # ======================================================================

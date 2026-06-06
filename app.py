@@ -45,7 +45,6 @@ st.caption(
 )
 
 # ---------- 2. Database Source ----------
-st.header("SOURCE OF TRUTH")
 st.subheader("Database Source")
 source_cols = st.columns(5)
 source_cols[0].write(f"**Source file path**  \n`{source['source_path']}`")
