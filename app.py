@@ -130,17 +130,23 @@ with tab_validation:
     col7.metric("Manual Review Seeds", len(bs.get("manual_review_seed_ids", [])))
     col8.metric("Validation Run ID", val_state.get("validation_run_id", "N/A")[:20])
 
-    st.write(f"**Validation source canonical:** `{CANONICAL_RESUME_PATH}`")
-    st.write(f"**Validation output path:** `{VALIDATION_OUTPUT_PATH}`")
-    st.write(f"**Validation mode:** `{cfg['validation_mode']}`")
     st.write(f"**Current stage:** `{val_state.get('current_stage', 'READY')}`")
+
+    # Pipeline stages vs model items (requirement 6)
+    pipeline_completed = val_state.get("pipeline_stages_completed") or []
+    pipeline_total = val_state.get("pipeline_stages_total", 4)
+    st.write(f"**Pipeline stages completed:** {len(pipeline_completed)}/{pipeline_total} — {', '.join(pipeline_completed) if pipeline_completed else 'none'}")
+
+    mv_available = val_state.get("model_validation_items_available", 0)
+    mv_selected = val_state.get("model_validation_items_selected", 0)
+    mv_completed = val_state.get("model_validation_items_completed", 0)
+    if mv_available > 0:
+        st.write(f"**Model validation items:** {mv_completed}/{mv_selected} completed (of {mv_available} available)")
 
     completed_items = val_state.get("completed_validation_items") or []
     failed_items = val_state.get("failed_validation_items") or []
     manual_items = val_state.get("manual_review_validation_items") or []
 
-    if completed_items:
-        st.write(f"**Completed validation items:** {len(completed_items)}")
     if failed_items:
         st.write(f"**Failed validation items:** {len(failed_items)}")
     if manual_items:
@@ -152,12 +158,118 @@ with tab_validation:
             f"{val_state.get('last_error_message', '')}"
         )
 
-    st.write(f"**GitHub branch resolved:** `{cfg['github_branch']}`")
-    st.write(f"**Gemini key status:** {cfg['gemini_key']}")
-    st.write(f"**OpenAI key status:** {cfg['openai_key']}")
-    st.write(f"**GitHub token status:** {cfg['github_token']}")
+    st.divider()
+
+    # ── Run Scope & Output Map (requirement 1) ──────────────────────────
+    st.subheader("📂 Run Scope & Output Map")
+
+    _output_files = {
+        "Active source canonical": "data/canonical/resume_package_canonical.json",
+        "Validation output package": "data/validated_runs/resume_package_canonical_validated_v2.json",
+        "Validation report": "data/validated_runs/validation_report_v2.json",
+        "Issues file": "data/validated_runs/validation_issues_v2.json",
+        "Patch suggestions file": "data/validated_runs/validation_patch_suggestions_v2.json",
+        "Model validation results": "data/validated_runs/model_validation_results_v2.json",
+        "Targeted seed validation": "data/validated_runs/targeted_seed_validation_v2.json",
+        "Run manifest": "data/validated_runs/validation_run_manifest_v2.json",
+        "Runtime state": "data/runtime/current_validation_run.json",
+    }
+
+    for label, fpath in _output_files.items():
+        _fp = Path(fpath)
+        if _fp.exists():
+            _sz = _fp.stat().st_size
+            st.write(f"✅ **{label}:** `{fpath}` ({_sz:,} bytes)")
+        else:
+            st.write(f"⬜ **{label}:** `{fpath}` — *not yet created*")
+
+    # Stale root canonical warning
+    _root_canonical = Path("resume_package_canonical.json")
+    _data_canonical = Path("data/canonical/resume_package_canonical.json")
+    if _root_canonical.exists() and _data_canonical.exists():
+        try:
+            _root_data = json.loads(_root_canonical.read_text(encoding="utf-8"))
+            _data_data = json.loads(_data_canonical.read_text(encoding="utf-8"))
+            _root_count = len((_root_data.get("verified_variants") or []) +
+                              (_root_data.get("partial_variants") or []))
+            _data_count = len((_data_data.get("verified_variants") or []) +
+                              (_data_data.get("partial_variants") or []))
+            _root_mtime = _root_canonical.stat().st_mtime
+            _data_mtime = _data_canonical.stat().st_mtime
+
+            if _root_count < _data_count or _root_mtime < _data_mtime:
+                st.error(
+                    f"🛑 **Root `resume_package_canonical.json` is stale and must not be "
+                    f"used as the source of truth.**\n\n"
+                    f"Root has **{_root_count:,}** variants vs "
+                    f"`data/canonical/` has **{_data_count:,}** variants."
+                )
+            else:
+                st.info(
+                    f"Root `resume_package_canonical.json` exists ({_root_count:,} variants). "
+                    f"`data/canonical/` has {_data_count:,} variants."
+                )
+        except Exception:
+            st.warning("⚠️ Root `resume_package_canonical.json` exists but could not be compared.")
+    elif _root_canonical.exists():
+        st.warning("⚠️ Root `resume_package_canonical.json` exists but `data/canonical/` version is missing.")
 
     st.divider()
+
+    # ── Seed Accounting (requirement 7) ─────────────────────────────────
+    st.subheader("🌱 Seed Accounting")
+    from engine.validation.seed_accounting import compute_seed_accounting
+
+    _seed_acct = compute_seed_accounting(canonical, seeds)
+    col_sa1, col_sa2, col_sa3, col_sa4 = st.columns(4)
+    col_sa1.metric("Seed Catalog", _seed_acct["seed_catalog_count"])
+    col_sa2.metric("Processed (exact)", _seed_acct["processed_exact_count"])
+    col_sa3.metric("Processed ∩ Catalog", _seed_acct["processed_in_catalog_count"])
+    col_sa4.metric("Catalog Not Processed", len(_seed_acct["catalog_not_processed"]))
+
+    if _seed_acct["processed_not_in_catalog"]:
+        with st.expander(f"⚠️ {len(_seed_acct['processed_not_in_catalog'])} processed seeds NOT in catalog"):
+            st.json(_seed_acct["processed_not_in_catalog"][:50])
+
+    if _seed_acct["catalog_not_processed"]:
+        with st.expander(f"📋 {len(_seed_acct['catalog_not_processed'])} catalog seeds not processed"):
+            st.json(_seed_acct["catalog_not_processed"][:50])
+
+    if _seed_acct["logical_seed_id_alias_warnings"]:
+        st.warning(f"⚠️ {len(_seed_acct['logical_seed_id_alias_warnings'])} logical seed ID alias mismatches detected")
+        for aw in _seed_acct["logical_seed_id_alias_warnings"]:
+            st.write(f"  - {aw['warning']}")
+
+    col_sa5, col_sa6 = st.columns(2)
+    col_sa5.write(f"**Next seed:** `{_seed_acct.get('next_seed_id', 'N/A')}`")
+    col_sa6.write(f"**Last completed:** `{_seed_acct.get('last_completed_seed_id', 'N/A')}`")
+
+    if _seed_acct["manual_review_seed_ids"]:
+        with st.expander(f"🔍 {len(_seed_acct['manual_review_seed_ids'])} manual review seeds"):
+            st.json(_seed_acct["manual_review_seed_ids"])
+
+    if _seed_acct["needs_retry_seed_ids"]:
+        with st.expander(f"🔄 {len(_seed_acct['needs_retry_seed_ids'])} needs retry seeds"):
+            st.json(_seed_acct["needs_retry_seed_ids"])
+
+    st.divider()
+
+    # ── Last Run Manifest (requirement 5) ───────────────────────────────
+    _manifest_path = Path("data/validated_runs/validation_run_manifest_v2.json")
+    if _manifest_path.exists():
+        st.subheader("📋 Last Run Manifest")
+        try:
+            _manifest = json.loads(_manifest_path.read_text(encoding="utf-8"))
+            col_m1, col_m2, col_m3 = st.columns(3)
+            col_m1.write(f"**Run ID:** `{_manifest.get('validation_run_id', 'N/A')}`")
+            col_m2.write(f"**Mode:** `{_manifest.get('mode', 'N/A')}`")
+            col_m3.write(f"**Started:** `{_manifest.get('started_at', 'N/A')}`")
+
+            with st.expander("Full Manifest"):
+                st.json(_manifest)
+        except Exception:
+            st.warning("Could not load run manifest.")
+        st.divider()
 
     # ── Actions ─────────────────────────────────────────────────────────
     st.subheader("Validation Actions")
@@ -288,104 +400,246 @@ with tab_validation:
     st.divider()
     st.subheader("Model Validation")
 
-    col_model, col_save = st.columns(2)
+    # ── Model Validation Queue Preview (requirement 2) ──────────────────
+    st.subheader("🔎 Model Validation Queue Preview")
 
-    with col_model:
-        if st.button("🤖 Run Model Validation on Suspicious Groups", type="primary"):
-            try:
-                from engine.validation.validation_runner import (
-                    run_model_validation_on_suspicious_groups,
-                )
-            except ImportError as exc:
-                st.error(
-                    "❌ Model validation could not be loaded. "
-                    f"Check deployment dependencies. Details: {exc}"
+    if st.button("📊 Compute Queue Preview"):
+        from engine.validation.validation_runner import compute_model_validation_preview
+        with st.spinner("Computing model validation queue preview..."):
+            _preview_result = compute_model_validation_preview()
+            if _preview_result["ok"]:
+                st.session_state["_queue_preview"] = _preview_result
+                st.success(
+                    f"✅ Preview computed: "
+                    f"**{_preview_result['validation_items_count']}** model validation items "
+                    f"from **{_preview_result['suspicious_groups_count']}** suspicious groups"
                 )
             else:
-                with st.spinner("Running model validation on suspicious groups..."):
-                    try:
-                        model_result = run_model_validation_on_suspicious_groups()
-                    except ImportError as exc:
-                        st.error(
-                            "❌ Model validation dependencies are unavailable. "
-                            f"Details: {exc}"
-                        )
-                    else:
-                        if model_result["ok"]:
-                            if model_result.get("model_validation_ran", False):
-                                st.success("✅ Model validation complete!")
-                                col_m1, col_m2, col_m3 = st.columns(3)
-                                col_m1.metric(
-                                    "Gemini Calls",
-                                    f"{model_result.get('gemini_calls_success', 0)}/{model_result.get('gemini_calls_attempted', 0)}",
-                                )
-                                col_m2.metric(
-                                    "OpenAI Calls",
-                                    f"{model_result.get('openai_calls_success', 0)}/{model_result.get('openai_calls_attempted', 0)}",
-                                )
-                                col_m3.metric(
-                                    "Items Validated",
-                                    model_result.get("model_validation_items_count", 0),
-                                )
+                st.error(f"❌ Preview failed: {_preview_result.get('error')}")
 
-                                if model_result.get("model_validation_failed_items_count", 0) > 0:
-                                    st.warning(
-                                        f"⚠️ {model_result['model_validation_failed_items_count']} "
-                                        f"items failed model validation."
+    _cached_preview = st.session_state.get("_queue_preview")
+    if _cached_preview and _cached_preview.get("ok"):
+        _queue = _cached_preview["queue_preview"]
+        _all_items = _cached_preview["validation_items"]
+
+        if _queue:
+            st.write(f"**{len(_queue)} model validation items available:**")
+            # Show as a table
+            import pandas as pd  # noqa: E402 — Streamlit always has pandas
+
+            _df = pd.DataFrame(_queue)
+            _display_cols = [
+                "item_index", "validation_item_id", "group_type", "seed_id",
+                "make", "model", "year_start", "year_end", "risk_level",
+                "reason_for_model_validation", "variant_count", "variant_ids_count",
+                "requires_openai_second_opinion_initially",
+                "planned_primary_provider", "planned_secondary_provider",
+                "planned_gemini_model", "planned_openai_model",
+            ]
+            _existing_cols = [c for c in _display_cols if c in _df.columns]
+            st.dataframe(_df[_existing_cols], use_container_width=True, hide_index=True)
+
+        # ── User Controls (requirement 3) ───────────────────────────────
+        st.subheader("⚙️ Model Validation Run Controls")
+
+        _unique_risk_levels = sorted({it.get("risk_level", "medium") for it in _queue})
+        _unique_group_types = sorted({it.get("group_type", "") for it in _queue})
+
+        _max_items = st.number_input(
+            "Max model validation items to run",
+            min_value=1,
+            max_value=max(1, len(_queue)),
+            value=min(1, len(_queue)),
+            step=1,
+            key="mv_max_items",
+        )
+
+        _risk_filter = st.multiselect(
+            "Risk levels to include",
+            options=["critical", "high", "medium", "low"],
+            default=[r for r in ["critical", "high"] if r in _unique_risk_levels],
+            key="mv_risk_filter",
+        )
+
+        _group_type_filter = st.multiselect(
+            "Group types to include",
+            options=_unique_group_types,
+            default=_unique_group_types,
+            key="mv_group_type_filter",
+        )
+
+        _seed_filter = st.text_input(
+            "Optional seed_id filter (contains match)",
+            value="",
+            key="mv_seed_filter",
+        )
+
+        # Show filtered count
+        _filtered_preview = [
+            it for it in _queue
+            if (not _risk_filter or it.get("risk_level") in _risk_filter)
+            and (not _group_type_filter or it.get("group_type") in _group_type_filter)
+            and (not _seed_filter or _seed_filter in (it.get("seed_id") or ""))
+        ]
+        _selected_count = min(_max_items, len(_filtered_preview))
+        st.info(f"**{_selected_count}** items will be run (of {len(_filtered_preview)} matching filters)")
+
+        col_model, col_save = st.columns(2)
+
+        with col_model:
+            if st.button("🤖 Run Model Validation on Suspicious Groups", type="primary"):
+                try:
+                    from engine.validation.validation_runner import (
+                        run_model_validation_on_suspicious_groups,
+                    )
+                except ImportError as exc:
+                    st.error(
+                        "❌ Model validation could not be loaded. "
+                        f"Check deployment dependencies. Details: {exc}"
+                    )
+                else:
+                    with st.spinner("Running model validation on suspicious groups..."):
+                        try:
+                            model_result = run_model_validation_on_suspicious_groups(
+                                max_items=_max_items,
+                                risk_levels=_risk_filter or None,
+                                group_types=_group_type_filter or None,
+                                seed_id_filter=_seed_filter or None,
+                            )
+                        except ImportError as exc:
+                            st.error(
+                                "❌ Model validation dependencies are unavailable. "
+                                f"Details: {exc}"
+                            )
+                        else:
+                            if model_result["ok"]:
+                                if model_result.get("model_validation_ran", False):
+                                    st.success("✅ Model validation complete!")
+                                    col_m1, col_m2, col_m3 = st.columns(3)
+                                    col_m1.metric(
+                                        "Gemini Calls",
+                                        f"{model_result.get('gemini_calls_success', 0)}/{model_result.get('gemini_calls_attempted', 0)}",
                                     )
-                                if model_result.get("last_model_validation_error"):
-                                    st.error(
-                                        f"Last error: {model_result['last_model_validation_error']}"
+                                    col_m2.metric(
+                                        "OpenAI Calls",
+                                        f"{model_result.get('openai_calls_success', 0)}/{model_result.get('openai_calls_attempted', 0)}",
+                                    )
+                                    col_m3.metric(
+                                        "Items Validated",
+                                        model_result.get("model_validation_items_count", 0),
+                                    )
+
+                                    if model_result.get("model_validation_failed_items_count", 0) > 0:
+                                        st.warning(
+                                            f"⚠️ {model_result['model_validation_failed_items_count']} "
+                                            f"items failed model validation."
+                                        )
+                                    if model_result.get("last_model_validation_error"):
+                                        st.error(
+                                            f"Last error: {model_result['last_model_validation_error']}"
+                                        )
+                                else:
+                                    st.info(
+                                        f"ℹ️ {model_result.get('reason', 'No suspicious groups found')}"
                                     )
                             else:
-                                st.info(
-                                    f"ℹ️ {model_result.get('reason', 'No suspicious groups found')}"
+                                st.error(
+                                    f"❌ Model validation failed: "
+                                    f"{json.dumps(model_result.get('error', {}), indent=2)}"
                                 )
-                        else:
-                            st.error(
-                                f"❌ Model validation failed: "
-                                f"{json.dumps(model_result.get('error', {}), indent=2)}"
+    else:
+        # No preview computed yet — show simple run button without filters
+        col_model, col_save = st.columns(2)
+
+        with col_model:
+            if st.button("🤖 Run Model Validation on Suspicious Groups", type="primary"):
+                try:
+                    from engine.validation.validation_runner import (
+                        run_model_validation_on_suspicious_groups,
+                    )
+                except ImportError as exc:
+                    st.error(
+                        "❌ Model validation could not be loaded. "
+                        f"Check deployment dependencies. Details: {exc}"
+                    )
+                else:
+                    with st.spinner("Running model validation on suspicious groups..."):
+                        try:
+                            model_result = run_model_validation_on_suspicious_groups(
+                                max_items=1,
                             )
+                        except ImportError as exc:
+                            st.error(
+                                "❌ Model validation dependencies are unavailable. "
+                                f"Details: {exc}"
+                            )
+                        else:
+                            if model_result["ok"]:
+                                if model_result.get("model_validation_ran", False):
+                                    st.success("✅ Model validation complete!")
+                                    col_m1, col_m2, col_m3 = st.columns(3)
+                                    col_m1.metric(
+                                        "Gemini Calls",
+                                        f"{model_result.get('gemini_calls_success', 0)}/{model_result.get('gemini_calls_attempted', 0)}",
+                                    )
+                                    col_m2.metric(
+                                        "OpenAI Calls",
+                                        f"{model_result.get('openai_calls_success', 0)}/{model_result.get('openai_calls_attempted', 0)}",
+                                    )
+                                    col_m3.metric(
+                                        "Items Validated",
+                                        model_result.get("model_validation_items_count", 0),
+                                    )
+                                else:
+                                    st.info(
+                                        f"ℹ️ {model_result.get('reason', 'No suspicious groups found')}"
+                                    )
+                            else:
+                                st.error(
+                                    f"❌ Model validation failed: "
+                                    f"{json.dumps(model_result.get('error', {}), indent=2)}"
+                                )
 
-    with col_save:
-        if st.button("💾 Save Validation Outputs to GitHub", type="secondary"):
-            from engine.validation.github_save import (
-                save_validation_outputs_to_github,
-                get_files_to_save,
-            )
+    # ── GitHub Save ───────────────────────────────────────────────────────
+    st.divider()
+    if st.button("💾 Save Validation Outputs to GitHub", type="secondary"):
+        from engine.validation.github_save import (
+            save_validation_outputs_to_github,
+            get_files_to_save,
+        )
 
-            run_id = val_state.get("validation_run_id", "unknown")
+        run_id = val_state.get("validation_run_id", "unknown")
 
-            # Show what will be saved
-            files_info = get_files_to_save()
-            existing_files = [f for f in files_info if f["exists"]]
+        # Show what will be saved
+        files_info = get_files_to_save()
+        existing_files = [f for f in files_info if f["exists"]]
 
-            if not existing_files:
-                st.warning("No validation output files found to save.")
-            else:
-                st.write("**Files to save:**")
-                for f in existing_files:
-                    st.write(f"  📄 `{f['path']}` ({f['size']:,} bytes)")
+        if not existing_files:
+            st.warning("No validation output files found to save.")
+        else:
+            st.write("**Files to save:**")
+            for f in existing_files:
+                st.write(f"  📄 `{f['path']}` ({f['size']:,} bytes)")
 
-                with st.spinner("Saving to GitHub..."):
-                    save_result = save_validation_outputs_to_github(
-                        validation_run_id=run_id,
+            with st.spinner("Saving to GitHub..."):
+                save_result = save_validation_outputs_to_github(
+                    validation_run_id=run_id,
+                )
+
+                if save_result["ok"]:
+                    st.success(
+                        f"✅ Saved to GitHub!\n\n"
+                        f"**Repo:** `{save_result['repo']}`\n\n"
+                        f"**Branch:** `{save_result['target_branch']}`\n\n"
+                        f"**Commit SHA:** `{save_result.get('commit_sha', 'N/A')}`"
+                    )
+                else:
+                    st.error(
+                        f"❌ Save failed: {save_result.get('error', 'Unknown error')}"
                     )
 
-                    if save_result["ok"]:
-                        st.success(
-                            f"✅ Saved to GitHub!\n\n"
-                            f"**Repo:** `{save_result['repo']}`\n\n"
-                            f"**Branch:** `{save_result['target_branch']}`\n\n"
-                            f"**Commit SHA:** `{save_result.get('commit_sha', 'N/A')}`"
-                        )
-                    else:
-                        st.error(
-                            f"❌ Save failed: {save_result.get('error', 'Unknown error')}"
-                        )
-
-                    with st.expander("Save Details"):
-                        st.json(save_result)
+                with st.expander("Save Details"):
+                    st.json(save_result)
 
     # ── Model Validation Status ─────────────────────────────────────────
     st.divider()
