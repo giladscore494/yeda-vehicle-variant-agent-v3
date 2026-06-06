@@ -21,6 +21,7 @@ from core.paths import (
     SOURCE_CANONICAL_PATH,
 )
 from engine.validation.run_events import log_event
+from engine.validation.working_copy import get_active_database_path
 
 _ALLOWED_SAFE_ACTIONS = {
     "whitespace_normalization",
@@ -247,12 +248,13 @@ def export_final_clean_database() -> dict:
             "stage": "final_export",
             "event_type": "export_started",
             "status": "started",
-            "request_summary": f"source={SOURCE_CANONICAL_PATH}",
+            "request_summary": f"source={get_active_database_path()}",
         }
     )
-    canonical = _read_json(SOURCE_CANONICAL_PATH)
+    active_database_path = get_active_database_path()
+    canonical = _read_json(active_database_path)
     if not isinstance(canonical, dict):
-        raise FileNotFoundError(f"Source canonical not found or invalid: {SOURCE_CANONICAL_PATH}")
+        raise FileNotFoundError(f"Active database not found or invalid: {active_database_path}")
 
     decisions_payload = _read_json(DECISIONS_PATH, {"decisions": []})
     decisions = _decisions_list(decisions_payload)
@@ -309,7 +311,7 @@ def export_final_clean_database() -> dict:
     output = {
         "metadata": {
             "created_at": created_at,
-            "source_file": SOURCE_CANONICAL_PATH,
+            "source_file": active_database_path,
             "decisions_file": DECISIONS_PATH,
             "manifest_file": MANIFEST_PATH,
             "total_input_variants": total_input_variants,
@@ -333,7 +335,7 @@ def export_final_clean_database() -> dict:
             "stage": "final_export",
             "event_type": "export_completed",
             "status": "ok",
-            "request_summary": f"source={SOURCE_CANONICAL_PATH}",
+            "request_summary": f"source={active_database_path}",
             "response_summary": (
                 f"output={FINAL_CLEAN_DATABASE_PATH} input={total_input_variants} "
                 f"output_count={total_output_variants} delta={variant_count_delta}"

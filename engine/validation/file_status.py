@@ -7,6 +7,7 @@ from typing import Any
 
 from core.paths import (
     FINAL_CLEAN_DATABASE_PATH,
+    ACTIVE_WORKING_DATABASE_PATH,
     SOURCE_CANONICAL_PATH,
     STALE_ROOT_CANONICAL_PATH,
 )
@@ -60,12 +61,17 @@ def load_database_file_status(project_root: str | Path = ".") -> dict:
     """
     root = Path(project_root)
     source_path = root / SOURCE_CANONICAL_PATH
+    working_path = root / ACTIVE_WORKING_DATABASE_PATH
     stale_root_path = root / STALE_ROOT_CANONICAL_PATH
     final_path = root / FINAL_CLEAN_DATABASE_PATH
 
     source_exists = source_path.exists()
     source_payload = _load_json(source_path) if source_exists else None
     source_variant_count, source_verified_count, source_partial_count = _variant_counts(source_payload)
+
+    working_exists = working_path.exists()
+    working_payload = _load_json(working_path) if working_exists else None
+    working_variant_count, working_verified_count, working_partial_count = _variant_counts(working_payload)
 
     stale_root_exists = stale_root_path.exists()
     stale_root_variant_count = _variant_count_or_none(stale_root_path) if stale_root_exists else None
@@ -90,6 +96,13 @@ def load_database_file_status(project_root: str | Path = ".") -> dict:
         "source_variant_count": source_variant_count,
         "source_verified_count": source_verified_count,
         "source_partial_count": source_partial_count,
+        "working_path": ACTIVE_WORKING_DATABASE_PATH,
+        "working_exists": working_exists,
+        "working_variant_count": working_variant_count,
+        "working_verified_count": working_verified_count,
+        "working_partial_count": working_partial_count,
+        "active_database_path": ACTIVE_WORKING_DATABASE_PATH if working_exists else SOURCE_CANONICAL_PATH,
+        "active_database_variant_count": working_variant_count if working_exists else source_variant_count,
         "stale_root_exists": stale_root_exists,
         "stale_root_variant_count": stale_root_variant_count,
         "stale_root_is_stale": stale_root_is_stale,

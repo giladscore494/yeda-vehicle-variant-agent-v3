@@ -3,15 +3,22 @@ from pathlib import Path
 
 from core.paths import (
     DECISIONS_PATH,
+    ACTIVE_WORKING_DATABASE_PATH,
+    DIFF_AUDITS_PATH,
     FINAL_CLEAN_DATABASE_PATH,
     FINAL_DIR,
     ISSUE_QUEUE_PATH,
     MANIFEST_PATH,
+    MODEL_REVIEW_PROGRESS_PATH,
+    PATCHES_PATH,
+    PATCH_APPLICATIONS_PATH,
     SOURCE_CANONICAL_PATH,
     RUN_EVENTS_PATH,
     STALE_ROOT_CANONICAL_PATH,
     VALIDATION_DIR,
     VALIDATION_REPORT_PATH,
+    WORKING_BACKUPS_DIR,
+    WORKING_DIR,
 )
 from engine.validation.file_status import load_database_file_status
 
@@ -36,12 +43,19 @@ def _write_package(path: Path, verified_count: int, partial_count: int = 0) -> N
 def test_validation_path_constants_point_to_expected_files():
     assert SOURCE_CANONICAL_PATH == "data/canonical/resume_package_canonical.json"
     assert STALE_ROOT_CANONICAL_PATH == "resume_package_canonical.json"
+    assert WORKING_DIR == "data/working"
+    assert ACTIVE_WORKING_DATABASE_PATH == "data/working/resume_package_working.json"
+    assert WORKING_BACKUPS_DIR == "data/working/backups"
     assert VALIDATION_DIR == "data/validation"
     assert ISSUE_QUEUE_PATH == "data/validation/issue_queue.json"
     assert DECISIONS_PATH == "data/validation/decisions.json"
     assert MANIFEST_PATH == "data/validation/manifest.json"
     assert VALIDATION_REPORT_PATH == "data/validation/validation_report.json"
     assert RUN_EVENTS_PATH == "data/validation/run_events.jsonl"
+    assert PATCHES_PATH == "data/validation/patches.json"
+    assert PATCH_APPLICATIONS_PATH == "data/validation/patch_applications.jsonl"
+    assert DIFF_AUDITS_PATH == "data/validation/diff_audits.jsonl"
+    assert MODEL_REVIEW_PROGRESS_PATH == "data/validation/model_review_progress.json"
     assert FINAL_DIR == "data/final"
     assert FINAL_CLEAN_DATABASE_PATH == "data/final/resume_package_final_clean.json"
 
@@ -61,6 +75,8 @@ def test_stale_root_detection_uses_temp_json_files(tmp_path):
     assert status["source_variant_count"] == 5
     assert status["source_verified_count"] == 3
     assert status["source_partial_count"] == 2
+    assert status["active_database_path"] == SOURCE_CANONICAL_PATH
+    assert status["working_exists"] is False
     assert status["stale_root_exists"] is True
     assert status["stale_root_variant_count"] == 2
     assert status["stale_root_is_stale"] is True
@@ -76,6 +92,19 @@ def test_final_output_status_path_and_counts(tmp_path):
     assert status["final_exists"] is True
     assert status["final_variant_count"] == 5
     assert status["final_is_older_than_source"] is False
+
+
+def test_file_status_reports_working_copy_as_active(tmp_path):
+    _write_package(tmp_path / SOURCE_CANONICAL_PATH, verified_count=1)
+    _write_package(tmp_path / ACTIVE_WORKING_DATABASE_PATH, verified_count=4, partial_count=2)
+
+    status = load_database_file_status(project_root=tmp_path)
+
+    assert status["working_exists"] is True
+    assert status["working_path"] == ACTIVE_WORKING_DATABASE_PATH
+    assert status["working_variant_count"] == 6
+    assert status["active_database_path"] == ACTIVE_WORKING_DATABASE_PATH
+    assert status["active_database_variant_count"] == 6
 
 
 def test_validation_package_writer_does_not_create_final_clean_database(tmp_path, monkeypatch):

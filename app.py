@@ -29,6 +29,7 @@ if branch_warn:
 status = ui.load_status_payload()
 source = status["source"]
 summary = status["validation_summary"]
+model_progress = status["model_review_progress"]
 banner = status["final_banner"]
 
 # ---------- 1. Final Status Banner ----------
@@ -40,21 +41,22 @@ else:
     st.success(banner["message"])
 
 st.caption(
-    "Source canonical is read-only. Final clean database is generated only by "
-    "Export Final Clean Database. AI review only runs on problematic queue items."
+    "Source canonical is a golden backup. Audits, AI review, patches, and final export use "
+    "the active working copy when it exists."
 )
 
 # ---------- 2. Database Source ----------
 st.subheader("Database Source")
-source_cols = st.columns(5)
+source_cols = st.columns(6)
 source_cols[0].write(f"**Source file path**  \n`{source['source_path']}`")
 source_cols[1].metric("Source variants", source["source_variant_count"])
 source_cols[2].metric("Verified", source["source_verified_count"])
 source_cols[3].metric("Partial", source["source_partial_count"])
-if source.get("seed_count") is not None:
-    source_cols[4].metric("Seed count", source["seed_count"])
+source_cols[4].write(f"**Active database**  \n`{source.get('active_database_path')}`")
+if source.get("working_exists"):
+    source_cols[5].metric("Working variants", source.get("working_variant_count", 0))
 else:
-    source_cols[4].write("**Seed count**  \nNot available")
+    source_cols[5].write("**Working copy**  \nNot initialized")
 
 if source.get("stale_root_is_stale"):
     st.warning(
@@ -76,6 +78,11 @@ row2[0].metric("low", summary["low"])
 row2[1].metric("model_review_items_available", summary["model_review_items_available"])
 row2[2].metric("manual_review_items_available", summary["manual_review_items_available"])
 row2[3].write(f"**last run time**  \n`{summary['last_run_time'] or 'not run yet'}`")
+row3 = st.columns(4)
+row3[0].metric("model review items remaining", model_progress["remaining_items"])
+row3[1].metric("model review variants remaining", model_progress["remaining_variants"])
+row3[2].metric("model review items total", model_progress["total_model_review_items"])
+row3[3].metric("model review variants total", model_progress["total_model_review_variants"])
 
 # ---------- 6. Actions ----------
 st.subheader("Actions")
@@ -84,18 +91,45 @@ with action_cols[0]:
     if st.button("Refresh Status", use_container_width=True):
         st.rerun()
 with action_cols[1]:
+    if st.button("Initialize Working Copy", use_container_width=True):
+        result = ui.initialize_working_copy()
+        if result.get("ok"):
+            st.success(f"Working copy {result.get('status')}: `{result.get('working_path')}`")
+        else:
+            st.error(result.get("message") or result.get("status") or "Initialize failed")
+        st.rerun()
+with action_cols[2]:
     if st.button("Run Full Audit", use_container_width=True):
         with st.spinner("Running deterministic audit..."):
             result = ui.run_audit_and_refresh_queue()
         st.success(f"Audit complete: {result['issues_total']} issues found.")
         st.rerun()
-with action_cols[2]:
+with action_cols[3]:
     if st.button("Build/Refresh Review Queue", use_container_width=True):
         with st.spinner("Building review queue from deterministic audit..."):
             result = ui.run_audit_and_refresh_queue()
         st.success(f"Review queue refreshed: {result['issues_total']} items.")
         st.rerun()
-with action_cols[3]:
+with action_cols[4]:
+    if st.button("Build Candidate Patches", use_container_width=True):
+        with st.spinner("Building candidate surgical patches..."):
+            result = ui.build_candidate_surgical_patches()
+        st.success(f"Candidate patches built: {result.get('patch_count', 0)}")
+        st.rerun()
+with action_cols[5]:
+    if st.button("Apply Surgical Patch", use_container_width=True):
+        try:
+            with st.spinner("Applying safe surgical patches to working copy..."):
+                result = ui.apply_surgical_patches()
+            st.success(f"Applied: {result.get('applied_count', 0)}; skipped: {result.get('skipped_count', 0)}")
+        except Exception as exc:
+            st.error("Surgical patch application failed.")
+            with st.expander("Exception details"):
+                st.code(str(exc))
+        st.rerun()
+with st.container():
+    final_cols = st.columns(4)
+with final_cols[0]:
     if st.button("Export Final Clean Database", use_container_width=True):
         try:
             with st.spinner("Exporting final clean database..."):
@@ -114,7 +148,7 @@ with action_cols[3]:
             st.error("Final export failed.")
             with st.expander("Exception details"):
                 st.code(str(exc))
-with action_cols[4]:
+with final_cols[1]:
     if st.button("Run Final Database Quality Audit", use_container_width=True):
         try:
             with st.spinner("Running final database quality audit..."):
@@ -149,7 +183,7 @@ with action_cols[4]:
             st.error("Final database quality audit failed.")
             with st.expander("Exception details"):
                 st.code(str(exc))
-with action_cols[5]:
+with final_cols[2]:
     if st.button("Save Final Clean Database to GitHub", use_container_width=True):
         try:
             with st.spinner("Saving final clean database to GitHub..."):
@@ -168,6 +202,15 @@ with action_cols[5]:
             st.error("GitHub save failed.")
             with st.expander("Exception details"):
                 st.code(str(exc))
+with final_cols[3]:
+    confirm_reset = st.checkbox("Confirm emergency working-copy reset")
+    if st.button("Emergency Reset Working Copy", use_container_width=True):
+        result = ui.reset_working_copy_from_canonical(confirm=confirm_reset)
+        if result.get("ok"):
+            st.success(f"Working copy reset. Backup: `{result.get('backup_path')}`")
+        else:
+            st.error(result.get("message") or "Reset blocked.")
+        st.rerun()
 
 # ---------- 4. Review Queue Preview ----------
 st.subheader("Review Queue Preview")

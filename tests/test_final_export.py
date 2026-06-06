@@ -7,6 +7,7 @@ import json
 from pathlib import Path
 
 from core.paths import (
+    ACTIVE_WORKING_DATABASE_PATH,
     DECISIONS_PATH,
     FINAL_CLEAN_DATABASE_PATH,
     MANIFEST_PATH,
@@ -88,6 +89,30 @@ def test_export_creates_final_clean_database_and_metadata(tmp_path, monkeypatch)
     assert payload["metadata"]["rejected_count"] == 0
     assert payload["metadata"]["normalized_count"] == 0
     assert payload["vehicles"] == source["verified_variants"] + source["partial_variants"]
+
+
+def test_export_reads_working_copy_when_present(tmp_path, monkeypatch):
+    _prepare(tmp_path, monkeypatch, [])
+    working = {
+        "verified_variants": [
+            {
+                "variant_id": "working_variant",
+                "make": "Toyota",
+                "model": "Corolla",
+                "year_start": 2020,
+                "year_end": 2021,
+            }
+        ],
+        "partial_variants": [],
+    }
+    _write_json(tmp_path / ACTIVE_WORKING_DATABASE_PATH, working)
+
+    summary = export_final_clean_database()
+    payload = _load(tmp_path / FINAL_CLEAN_DATABASE_PATH)
+
+    assert summary["source_file"] == ACTIVE_WORKING_DATABASE_PATH
+    assert payload["metadata"]["source_file"] == ACTIVE_WORKING_DATABASE_PATH
+    assert payload["vehicles"] == working["verified_variants"]
 
 
 def test_export_writes_only_final_output_and_preserves_source(tmp_path, monkeypatch):
