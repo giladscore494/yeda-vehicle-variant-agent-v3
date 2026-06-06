@@ -368,8 +368,26 @@ def _call_openai_audit_model(model: str, audit_summary: dict[str, Any]) -> tuple
                 "request_summary": request_summary,
             }
         )
-        response = client.responses.create(model=model, input=json.dumps(prompt, ensure_ascii=False))
-        raw_text = getattr(response, "output_text", "") or str(response)
+        response = None
+        raw_text = ""
+        if hasattr(client, "chat") and hasattr(client.chat, "completions"):
+            response = client.chat.completions.create(
+                model=model,
+                messages=[
+                    {"role": "system", "content": "Return strict JSON only."},
+                    {"role": "user", "content": json.dumps(prompt, ensure_ascii=False)},
+                ],
+            )
+            choices = getattr(response, "choices", None)
+            if choices and isinstance(choices, list):
+                first = choices[0]
+                message = getattr(first, "message", None)
+                raw_text = str(getattr(message, "content", "") or "")
+        elif hasattr(client, "responses"):
+            response = client.responses.create(model=model, input=json.dumps(prompt, ensure_ascii=False))
+            raw_text = getattr(response, "output_text", "") or ""
+        if not raw_text and response is not None:
+            raw_text = str(response)
         parsed = _normalize_model_result(_parse_model_json(raw_text))
         log_event(
             {

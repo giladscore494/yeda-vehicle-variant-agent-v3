@@ -33,7 +33,7 @@ def test_log_event_does_not_log_api_keys(tmp_path, monkeypatch):
     text = events_path.read_text(encoding="utf-8")
     assert "sk-secret-key" not in text
     assert "AIzaFakeKey" not in text
-    assert "[REDACTED]" in text
+    assert '"response_summary": "model_call_failed"' in text
 
 
 def test_load_recent_events_returns_compact_list(tmp_path, monkeypatch):
@@ -54,5 +54,5 @@ def test_load_recent_events_returns_compact_list(tmp_path, monkeypatch):
 
     rows = run_events.load_recent_events(limit=20)
     assert len(rows) == 20
-    assert rows[-1]["summary"] == "done-29"
+    assert rows[-1]["summary"] == "model_call_completed"
     assert set(rows[-1].keys()) == {"time", "stage", "provider", "model", "item_id", "status", "summary"}

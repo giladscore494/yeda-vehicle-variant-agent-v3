@@ -39,6 +39,7 @@ def _compact_summary(value: Any, *, max_chars: int = _SUMMARY_MAX) -> str:
 
 
 def _normalized_event(payload: dict[str, Any]) -> dict[str, Any]:
+    has_error = bool(payload.get("error"))
     return {
         "created_at": payload.get("created_at") or _utc_now(),
         "stage": str(payload.get("stage") or ""),
@@ -46,11 +47,11 @@ def _normalized_event(payload: dict[str, Any]) -> dict[str, Any]:
         "item_id": str(payload.get("item_id") or ""),
         "provider": str(payload.get("provider") or ""),
         "model": str(payload.get("model") or ""),
-        "request_summary": _compact_summary(payload.get("request_summary") or ""),
-        "response_summary": _compact_summary(payload.get("response_summary") or ""),
+        "request_summary": str(payload.get("stage") or ""),
+        "response_summary": str(payload.get("event_type") or ""),
         "status": str(payload.get("status") or ""),
         "cost_estimate": payload.get("cost_estimate"),
-        "error": _compact_summary(payload.get("error") or "") or None,
+        "error": "present" if has_error else None,
     }
 
 
