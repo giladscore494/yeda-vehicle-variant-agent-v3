@@ -1,0 +1,145 @@
+import json
+import os
+from pathlib import Path
+
+from core.paths import (
+    FINAL_CLEAN_DATABASE_PATH,
+    ISSUE_QUEUE_PATH,
+    MANIFEST_PATH,
+    SOURCE_CANONICAL_PATH,
+    VALIDATION_REPORT_PATH,
+)
+from engine.validation import streamlit_helpers as helpers
+
+
+def _write_json(path: Path, payload: object) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
+
+
+def _package(verified_count=2, partial_count=1):
+    return {
+        "verified_variants": [{"variant_id": f"v_{idx}"} for idx in range(verified_count)],
+        "partial_variants": [{"variant_id": f"p_{idx}"} for idx in range(partial_count)],
+    }
+
+
+def _queue_item(idx: int):
+    return {
+        "item_id": f"iq_{idx:06d}",
+        "make": "Toyota",
+        "model": "Corolla",
+        "year_start": 2020,
+        "year_end": 2026,
+        "issue_type": "evidence_gap",
+        "risk_level": "high",
+        "recommended_action": "manual_review",
+        "requires_model_review": True,
+    }
+
+
+def test_status_payload_has_required_fields(tmp_path):
+    _write_json(tmp_path / SOURCE_CANONICAL_PATH, _package(verified_count=3, partial_count=2))
+    _write_json(
+        tmp_path / VALIDATION_REPORT_PATH,
+        {
+            "issues_total": 7,
+            "issues_by_risk": {"critical": 1, "high": 2, "medium": 3, "low": 1},
+            "model_review_items_available": 4,
+            "manual_review_items_available": 6,
+        },
+    )
+    _write_json(tmp_path / MANIFEST_PATH, {"completed_at": "2026-06-06T00:00:00+00:00"})
+    _write_json(tmp_path / helpers.SEEDS_PATH, [{"seed_id": "seed_1"}, {"seed_id": "seed_2"}])
+
+    payload = helpers.load_status_payload(project_root=tmp_path)
+
+    assert payload["final_banner"]["message"] == "No final clean database exported yet"
+    assert payload["source"]["source_path"] == SOURCE_CANONICAL_PATH
+    assert payload["source"]["source_variant_count"] == 5
+    assert payload["source"]["source_verified_count"] == 3
+    assert payload["source"]["source_partial_count"] == 2
+    assert payload["source"]["seed_count"] == 2
+    assert payload["validation_summary"] == {
+        "issues_total": 7,
+        "critical": 1,
+        "high": 2,
+        "medium": 3,
+        "low": 1,
+        "model_review_items_available": 4,
+        "manual_review_items_available": 6,
+        "last_run_time": "2026-06-06T00:00:00+00:00",
+    }
+
+
+def test_queue_preview_truncates_rows(tmp_path):
+    _write_json(tmp_path / ISSUE_QUEUE_PATH, {"items": [_queue_item(idx) for idx in range(30)]})
+
+    preview = helpers.load_queue_preview(project_root=tmp_path)
+
+    assert preview["total_items"] == 30
+    assert preview["max_rows"] == helpers.DEFAULT_QUEUE_PREVIEW_LIMIT
+    assert len(preview["rows"]) == 25
+    assert preview["columns"] == list(helpers.QUEUE_PREVIEW_COLUMNS)
+    assert set(preview["rows"][0]) == set(helpers.QUEUE_PREVIEW_COLUMNS)
+
+
+def test_ai_preview_truncates_rows(monkeypatch):
+    def fake_run_model_review(**kwargs):
+        assert kwargs["dry_run"] is True
+        return {
+            "selected_items": 15,
+            "planned_gemini_calls": 15,
+            "planned_openai_calls": 15,
+            "planned_total_calls": 30,
+            "estimated_cost_usd": 2.25,
+            "items": [
+                {
+                    "item_id": f"iq_{idx:06d}",
+                    "make": "Toyota",
+                    "model": "Corolla",
+                    "issue_type": "evidence_gap",
+                    "risk_level": "high",
+                    "routing_policy": "dual_provider",
+                    "primary_provider": "gemini",
+                    "second_opinion_provider": "openai",
+                    "max_expected_calls": 2,
+                    "extra_raw": "hidden",
+                }
+                for idx in range(15)
+            ],
+        }
+
+    monkeypatch.setattr(helpers, "run_model_review", fake_run_model_review)
+
+    preview = helpers.load_ai_preview(max_items=15, max_rows=helpers.DEFAULT_AI_PREVIEW_LIMIT)
+
+    assert preview["selected_items"] == 15
+    assert preview["planned_gemini_calls"] == 15
+    assert preview["planned_openai_calls"] == 15
+    assert preview["planned_total_calls"] == 30
+    assert preview["estimated_cost_usd"] == 2.25
+    assert len(preview["rows"]) == 10
+    assert preview["columns"] == list(helpers.AI_PREVIEW_COLUMNS)
+    assert set(preview["rows"][0]) == set(helpers.AI_PREVIEW_COLUMNS)
+
+
+def test_final_banner_status_logic(tmp_path):
+    source_path = tmp_path / SOURCE_CANONICAL_PATH
+    final_path = tmp_path / FINAL_CLEAN_DATABASE_PATH
+    _write_json(source_path, _package(verified_count=1, partial_count=0))
+
+    missing = helpers.final_banner_status({"final_exists": False})
+    assert missing["state"] == "missing"
+    assert missing["message"] == "No final clean database exported yet"
+
+    _write_json(final_path, _package(verified_count=1, partial_count=0))
+    os.utime(final_path, (source_path.stat().st_mtime - 10, source_path.stat().st_mtime - 10))
+    status = helpers.load_status_payload(project_root=tmp_path)
+    assert status["final_banner"]["state"] == "stale"
+    assert status["final_banner"]["message"] == "Final clean database is older than source canonical — re-export required"
+
+    os.utime(final_path, (source_path.stat().st_mtime + 10, source_path.stat().st_mtime + 10))
+    status = helpers.load_status_payload(project_root=tmp_path)
+    assert status["final_banner"]["state"] == "exists"
+    assert status["final_banner"]["message"] == f"Final clean database exists: {FINAL_CLEAN_DATABASE_PATH}"
