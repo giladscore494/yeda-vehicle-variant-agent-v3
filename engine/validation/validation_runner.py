@@ -369,318 +369,62 @@ def run_model_validation_on_suspicious_groups(
     seed_id_filter: str | None = None,
     dry_run_preview: bool = False,
 ) -> dict:
-    """Run model validation on suspicious groups ONLY.
+    """Deprecated legacy suspicious-group model validation entry point.
 
-    This is a separate step from the full validation session.
-    Full Validation does NOT automatically call models.
-
-    Parameters:
-        max_items: Maximum number of model validation items to run.
-        risk_levels: Only include items with these risk levels.
-        group_types: Only include items with these group types.
-        seed_id_filter: Only include items whose seed_id contains this string.
-        dry_run_preview: If True, return the selected queue preview without
-            calling Gemini/OpenAI.
-
-    Steps:
-    1. Load canonical (read-only)
-    2. Load seed catalog for coverage checks
-    3. Recompute deterministic audit / suspicious groups / partial classifications
-    4. Build group-level model validation items
-    5. Apply filters and slicing
-    6. Call Gemini for suspicious groups only (unless dry_run_preview)
-    7. Call OpenAI for second-opinion high-risk cases only
-    8. Aggregate results
-    9. Write model_validation_results_v2.json
-    10. Write run manifest
-    11. Never write to canonical
+    The old flow rebuilt arbitrary suspicious-group validation items and called
+    legacy Gemini/OpenAI wrappers. That bypass is intentionally disabled. All
+    model review must use ``run_model_review()``, which consumes
+    ``data/validation/issue_queue.json`` and routes only rows marked
+    ``requires_model_review=true`` via ``route_issue_item()``.
     """
-    # Branch guard
     branch_err = _check_branch()
     if branch_err:
-        return {"ok": False, "error": make_error(
-            "config_error_invalid_branch", branch_err,
-            failed_stage="branch_check",
-        )}
-
-    state = load_validation_state(state_path)
-    mark_validation_started(state, state_path)
-
-    try:
-        # ── Load data ───────────────────────────────────────────────────
-        update_validation_progress(
-            state, stage="MODEL_VALIDATION_LOADING", path=state_path,
-        )
-
-        canonical = load_canonical(canonical_path or CANONICAL_RESUME_PATH)
-        ensure_batch_state_fields(canonical)
-        seeds = load_seeds(seeds_path)
-
-        # ── Recompute deterministic pipeline ────────────────────────────
-        update_validation_progress(
-            state, stage="MODEL_VALIDATION_DETERMINISTIC_PREP", path=state_path,
-        )
-
-        deterministic_issues = run_deterministic_audit(canonical, seeds)
-        partial_classifications = classify_all_partial_variants(canonical)
-        suspicious_groups = build_suspicious_groups(canonical, seeds)
-
-        if not suspicious_groups:
-            mark_validation_completed(state, state_path)
-            return {
-                "ok": True,
-                "model_validation_ran": False,
-                "reason": "No suspicious groups found — model validation not needed",
-                "deterministic_validation_ran": True,
-                "model_calls_summary": {
-                    "gemini_calls_attempted": 0, "gemini_calls_success": 0,
-                    "gemini_calls_failed": 0, "openai_calls_attempted": 0,
-                    "openai_calls_success": 0, "openai_calls_failed": 0,
-                },
-            }
-
-        # ── Build model validation items ────────────────────────────────
-        update_validation_progress(
-            state, stage="MODEL_VALIDATION_BUILDING_ITEMS", path=state_path,
-        )
-
-        validation_items = build_model_validation_items(
-            suspicious_groups, canonical,
-            deterministic_issues, partial_classifications,
-        )
-
-        # ── Apply filters and slicing ───────────────────────────────────
-        all_items = validation_items  # keep original list for accounting
-        filtered_items = list(validation_items)
-
-        if risk_levels:
-            filtered_items = [
-                it for it in filtered_items
-                if it.get("risk_level", "medium") in risk_levels
-            ]
-
-        if group_types:
-            filtered_items = [
-                it for it in filtered_items
-                if it.get("group_type", "") in group_types
-            ]
-
-        if seed_id_filter:
-            filtered_items = [
-                it for it in filtered_items
-                if seed_id_filter in (it.get("seed_id") or "")
-            ]
-
-        # Sort priority: critical > high > medium > low,
-        # manual_review_seed before evidence_gap at same risk
-        _risk_order = {"critical": 0, "high": 1, "medium": 2, "low": 3}
-        _type_order = {"manual_review_seed": 0}
-
-        filtered_items.sort(key=lambda it: (
-            _risk_order.get(it.get("risk_level", "medium"), 2),
-            _type_order.get(it.get("group_type", ""), 1),
-        ))
-
-        if max_items is not None:
-            filtered_items = filtered_items[:max_items]
-
-        selected_items = filtered_items
-
-        # Update model validation counts in state
-        update_model_validation_counts(
-            state,
-            available=len(all_items),
-            selected=len(selected_items),
-            path=state_path,
-        )
-
-        # ── Dry run preview ─────────────────────────────────────────────
-        if dry_run_preview:
-            mark_validation_completed(state, state_path)
-            return {
-                "ok": True,
-                "dry_run_preview": True,
-                "model_validation_ran": False,
-                "total_available_items": len(all_items),
-                "selected_items_count": len(selected_items),
-                "selected_items": _build_queue_preview(selected_items, canonical, seeds),
-                "filters_applied": {
-                    "max_items": max_items,
-                    "risk_levels": risk_levels,
-                    "group_types": group_types,
-                    "seed_id_filter": seed_id_filter,
-                },
-            }
-
-        if not selected_items:
-            mark_validation_completed(state, state_path)
-            return {
-                "ok": True,
-                "model_validation_ran": False,
-                "reason": "No items matched the selected filters",
-                "deterministic_validation_ran": True,
-                "total_available_items": len(all_items),
-                "model_calls_summary": {
-                    "gemini_calls_attempted": 0, "gemini_calls_success": 0,
-                    "gemini_calls_failed": 0, "openai_calls_attempted": 0,
-                    "openai_calls_success": 0, "openai_calls_failed": 0,
-                },
-            }
-
-        # ── Run model validation ────────────────────────────────────────
-        update_validation_progress(
-            state, stage="MODEL_VALIDATION_RUNNING",
-            total_items=len(selected_items), path=state_path,
-        )
-
-        from engine.validation.model_validation_runner import run_model_validation
-
-        model_results = run_model_validation(
-            selected_items,
-            output_dir=VALIDATION_OUTPUT_PATH,
-        )
-
-        # ── Update output files ─────────────────────────────────────────
-        update_validation_progress(
-            state, stage="MODEL_VALIDATION_WRITING_OUTPUTS", path=state_path,
-        )
-
-        run_id = state.get("validation_run_id", "unknown")
-        started_at = model_results.get("started_at", "")
-        completed_at = model_results.get("completed_at", "")
-
-        # Update validated package with model validation metadata
-        write_validated_package(
-            canonical=canonical,
-            deterministic_issues=deterministic_issues,
-            partial_classifications=partial_classifications,
-            suspicious_groups=suspicious_groups,
-            targeted_seed_result=None,
-            validation_run_id=run_id,
-        )
-
-        # Update validation report with model_calls_summary
-        model_calls_summary = model_results.get("model_calls_summary", {})
-        model_calls_summary["model_validation_ran"] = True
-        model_calls_summary["model_validation_items_count"] = model_results.get(
-            "model_validation_items_count", 0
-        )
-        model_calls_summary["model_validation_failed_items_count"] = model_results.get(
-            "model_validation_failed_items_count", 0
-        )
-        model_calls_summary["model_validation_output_path"] = model_results.get(
-            "model_validation_output_path", ""
-        )
-
-        write_validation_report(
-            validation_run_id=run_id,
-            canonical=canonical,
-            deterministic_issues=deterministic_issues,
-            suspicious_groups=suspicious_groups,
-            partial_classifications=partial_classifications,
-            targeted_seed_result=None,
-            model_calls_summary=model_calls_summary,
-            started_at=started_at,
-            completed_at=completed_at,
-        )
-
-        # Update patch suggestions with model suggestions
-        write_patch_suggestions(
-            deterministic_issues, partial_classifications,
-            model_validation_items=model_results.get("items", []),
-        )
-
-        # Write run manifest
-        mcs = model_results.get("model_calls_summary", {})
-        write_run_manifest(
-            validation_run_id=run_id,
-            mode="model-validation",
-            started_at=started_at,
-            completed_at=completed_at,
-            canonical=canonical,
-            seeds=seeds,
-            stages_completed=[
-                {
-                    "stage": "deterministic_audit",
-                    "input_count": len(
-                        (canonical.get("verified_variants") or []) +
-                        (canonical.get("partial_variants") or [])
-                    ),
-                    "output_count": len(deterministic_issues),
-                    "output_file": ISSUE_QUEUE_PATH,
-                },
-                {
-                    "stage": "partial_classification",
-                    "input_count": len(canonical.get("partial_variants") or []),
-                    "output_count": len(partial_classifications),
-                },
-                {
-                    "stage": "suspicious_groups",
-                    "input_count": len(all_items),
-                    "output_count": len(suspicious_groups),
-                },
-                {
-                    "stage": "model_validation",
-                    "available_items": len(all_items),
-                    "selected_items": len(selected_items),
-                    "gemini_calls_attempted": mcs.get("gemini_calls_attempted", 0),
-                    "gemini_calls_success": mcs.get("gemini_calls_success", 0),
-                    "openai_calls_attempted": mcs.get("openai_calls_attempted", 0),
-                    "openai_calls_success": mcs.get("openai_calls_success", 0),
-                },
-            ],
-            model_items_selected=[
-                {
-                    "validation_item_id": it.get("validation_item_id", ""),
-                    "group_type": it.get("group_type", ""),
-                    "seed_id": it.get("seed_id", ""),
-                    "risk_level": it.get("risk_level", ""),
-                    "variant_count": it.get("group_data", {}).get("variant_count", 0),
-                }
-                for it in selected_items
-            ],
-        )
-
-        # ── Done ────────────────────────────────────────────────────────
-        mark_validation_completed(state, state_path)
-
         return {
-            "ok": True,
-            "deterministic_validation_ran": True,
-            "model_validation_ran": True,
-            **model_results.get("model_calls_summary", {}),
-            "model_validation_items_count": model_results.get(
-                "model_validation_items_count", 0
+            "ok": False,
+            "error": make_error(
+                "config_error_invalid_branch", branch_err,
+                failed_stage="branch_check",
             ),
-            "model_validation_failed_items_count": model_results.get(
-                "model_validation_failed_items_count", 0
-            ),
-            "model_validation_output_path": model_results.get(
-                "model_validation_output_path", ""
-            ),
-            "last_model_validation_error": model_results.get(
-                "last_model_validation_error"
-            ),
-            "suspicious_groups_count": len(suspicious_groups),
-            "validation_items_count": len(all_items),
-            "selected_items_count": len(selected_items),
+            "model_calls_summary": {
+                "gemini_calls_attempted": 0,
+                "gemini_calls_success": 0,
+                "gemini_calls_failed": 0,
+                "openai_calls_attempted": 0,
+                "openai_calls_success": 0,
+                "openai_calls_failed": 0,
+            },
         }
 
-    except Exception as exc:
-        error_type = classify_exception(exc)
-        error_record = make_error(
-            error_type, str(exc),
-            failed_stage=state.get("current_stage", "unknown"),
-            traceback_short=traceback.format_exc()[-500:],
-        )
-        mark_validation_item_failed(
-            state,
-            state.get("current_validation_item") or "model_validation",
-            error_type, str(exc),
-            state_path,
-        )
-        return {"ok": False, "error": error_record}
+    from engine.validation.model_review_runner import run_model_review
 
+    result = run_model_review(
+        max_items=max_items or 1,
+        risk_levels=risk_levels,
+        issue_types=group_types,
+        seed_id_filter=seed_id_filter,
+        dry_run=dry_run_preview,
+    )
+    return {
+        "ok": result.get("ok", True),
+        "deprecated": True,
+        "message": (
+            "run_model_validation_on_suspicious_groups() now delegates to "
+            "run_model_review(); models can only run for "
+            "data/validation/issue_queue.json items with "
+            "requires_model_review=true that route_issue_item() allows."
+        ),
+        "model_validation_ran": False,
+        "dry_run_preview": dry_run_preview,
+        "model_calls_summary": {
+            "gemini_calls_attempted": result.get("planned_gemini_calls", 0) if not dry_run_preview else 0,
+            "gemini_calls_success": 0,
+            "gemini_calls_failed": 0,
+            "openai_calls_attempted": result.get("planned_openai_calls", 0) if not dry_run_preview else 0,
+            "openai_calls_success": 0,
+            "openai_calls_failed": 0,
+        },
+        "model_review_result": result,
+    }
 
 def _build_queue_preview(
     items: list[dict],
