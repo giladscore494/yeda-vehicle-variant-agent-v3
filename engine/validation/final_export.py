@@ -9,12 +9,14 @@ manual review.
 from __future__ import annotations
 
 import copy
+import hashlib
 import json
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
 from core.paths import (
+    ACTIVE_WORKING_DATABASE_PATH,
     DECISIONS_PATH,
     FINAL_CLEAN_DATABASE_PATH,
     MANIFEST_PATH,
@@ -51,6 +53,14 @@ def _read_json(path: str | Path, default: Any | None = None) -> Any:
         return default
     return json.loads(p.read_text(encoding="utf-8"))
 
+
+
+
+def _sha256(path: str | Path) -> str:
+    p = Path(path)
+    if not p.exists():
+        return ""
+    return hashlib.sha256(p.read_bytes()).hexdigest()
 
 def _write_final_clean_database(payload: dict) -> None:
     """Write the final clean DB path.
@@ -236,100 +246,53 @@ def _validate_variant_loss_guard(source_variants: list[dict], output_variants: l
 
 
 def export_final_clean_database() -> dict:
-    """Export ``data/final/resume_package_final_clean.json`` and return a summary.
-
-    Only supported safe deterministic normalization decisions are applied.  All
-    rejection/merge/year/scope/promote/source-conflict actions, unsupported
-    actions, untargeted decisions, and model decisions with
-    ``safe_to_auto_apply=false`` remain manual-review items.
-    """
+    """Export the final clean database from the active working copy only."""
+    active_database_path = ACTIVE_WORKING_DATABASE_PATH
     log_event(
         {
             "stage": "final_export",
             "event_type": "export_started",
             "status": "started",
-            "request_summary": f"source={get_active_database_path()}",
+            "request_summary": f"source={active_database_path}",
         }
     )
-    active_database_path = get_active_database_path()
-    canonical = _read_json(active_database_path)
-    if not isinstance(canonical, dict):
-        raise FileNotFoundError(f"Active database not found or invalid: {active_database_path}")
 
-    decisions_payload = _read_json(DECISIONS_PATH, {"decisions": []})
-    decisions = _decisions_list(decisions_payload)
-    vehicles = copy.deepcopy(_all_variants(canonical))
+    active_path = Path(active_database_path)
+    if not active_path.exists():
+        raise FileNotFoundError("Initialize Working Copy first.")
 
-    safe_decisions_applied = 0
-    model_decisions_not_auto_applied = 0
-    manual_review_remaining_count = 0
-    rejected_count = 0
-    normalized_count = 0
+    working_payload = _read_json(active_path)
+    if not isinstance(working_payload, dict):
+        raise FileNotFoundError("Initialize Working Copy first.")
 
-    for decision in decisions:
-        action = _decision_action(decision)
-        is_model = _is_model_generated(decision)
-        safe_to_auto_apply = decision.get("safe_to_auto_apply") is True
-
-        if is_model and not safe_to_auto_apply:
-            model_decisions_not_auto_applied += 1
-            manual_review_remaining_count += 1
-            continue
-
-        if action in _NEVER_AUTO_APPLY_ACTIONS or action.startswith("manual_approval_required:"):
-            if action == "reject" or action.endswith(":reject"):
-                rejected_count += 1
-            manual_review_remaining_count += 1
-            continue
-
-        if action not in _ALLOWED_SAFE_ACTIONS:
-            manual_review_remaining_count += 1
-            continue
-
-        # Deterministic decisions may omit safe_to_auto_apply; model decisions
-        # must explicitly opt in above before reaching this point.
-        changed = _apply_safe_decision(vehicles, decision, action)
-        if changed:
-            safe_decisions_applied += 1
-            normalized_count += changed
-        else:
-            manual_review_remaining_count += 1
-
-    source_variants = _all_variants(canonical)
-    blocked_variant_loss, unexplained_removed_variant_ids = _validate_variant_loss_guard(source_variants, vehicles, decisions)
-    if blocked_variant_loss:
-        raise ValueError(
-            "Blocked export: output variant count is lower than source and removals are not fully justified by "
-            "approved reject decisions with safe_to_auto_apply=true."
-        )
-
-    created_at = _utc_now()
-    total_input_variants = len(source_variants)
+    vehicles = copy.deepcopy(_all_variants(working_payload))
+    total_input_variants = len(vehicles)
     total_output_variants = len(vehicles)
     variant_count_delta = total_output_variants - total_input_variants
+    created_at = _utc_now()
 
-    output = {
-        "metadata": {
-            "created_at": created_at,
-            "source_file": active_database_path,
-            "decisions_file": DECISIONS_PATH,
-            "manifest_file": MANIFEST_PATH,
-            "total_input_variants": total_input_variants,
-            "total_output_variants": total_output_variants,
-            "variant_count_delta": variant_count_delta,
-            "blocked_variant_loss": blocked_variant_loss,
-            "safe_decisions_applied": safe_decisions_applied,
-            "model_decisions_not_auto_applied": model_decisions_not_auto_applied,
-            "manual_review_remaining_count": manual_review_remaining_count,
-            "rejected_count": rejected_count,
-            "normalized_count": normalized_count,
-        },
-        "vehicles": vehicles,
+    metadata = {
+        "created_at": created_at,
+        "source_file": active_database_path,
+        "golden_source_file": SOURCE_CANONICAL_PATH,
+        "active_source_file": active_database_path,
+        "working_copy_used": True,
+        "golden_source_hash": _sha256(SOURCE_CANONICAL_PATH),
+        "active_source_hash": _sha256(active_database_path),
+        "decisions_file": DECISIONS_PATH,
+        "manifest_file": MANIFEST_PATH,
+        "total_input_variants": total_input_variants,
+        "total_output_variants": total_output_variants,
+        "variant_count_delta": variant_count_delta,
+        "blocked_variant_loss": False,
+        "safe_decisions_applied": 0,
+        "model_decisions_not_auto_applied": 0,
+        "manual_review_remaining_count": 0,
+        "rejected_count": 0,
+        "normalized_count": 0,
     }
+    output = {"metadata": metadata, "vehicles": vehicles}
     _write_final_clean_database(output)
-    summary = {"ok": True, "path": FINAL_CLEAN_DATABASE_PATH, **output["metadata"]}
-    if unexplained_removed_variant_ids:
-        summary["unexplained_removed_variant_ids"] = unexplained_removed_variant_ids
     log_event(
         {
             "stage": "final_export",
@@ -342,4 +305,4 @@ def export_final_clean_database() -> dict:
             ),
         }
     )
-    return summary
+    return {"ok": True, "path": FINAL_CLEAN_DATABASE_PATH, "final_path": FINAL_CLEAN_DATABASE_PATH, **metadata}
