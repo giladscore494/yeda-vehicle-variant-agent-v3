@@ -21,6 +21,14 @@ def _default_state(run_id: str | None = None) -> dict:
         "source_canonical_path": "data/canonical/resume_package_canonical.json",
         "output_validation_path": "data/validated_runs/resume_package_canonical_validated_v2.json",
         "current_validation_item": None,
+        # Pipeline stage tracking (deterministic_audit, partial_classification, etc.)
+        "pipeline_stages_total": 4,
+        "pipeline_stages_completed": [],
+        # Model validation item tracking (separate from pipeline stages)
+        "model_validation_items_available": 0,
+        "model_validation_items_selected": 0,
+        "model_validation_items_completed": 0,
+        # Legacy fields kept for backward compatibility
         "total_validation_items": 0,
         "completed_validation_items": [],
         "failed_validation_items": [],
@@ -122,6 +130,35 @@ def mark_validation_item_manual_review(
     if item_id not in manual:
         manual.append(item_id)
     state["manual_review_validation_items"] = manual
+    save_validation_state(state, path)
+
+
+def update_model_validation_counts(
+    state: dict,
+    *,
+    available: int | None = None,
+    selected: int | None = None,
+    completed: int | None = None,
+    path: str | None = None,
+) -> None:
+    """Update model validation item counts (separate from pipeline stages)."""
+    if available is not None:
+        state["model_validation_items_available"] = available
+    if selected is not None:
+        state["model_validation_items_selected"] = selected
+    if completed is not None:
+        state["model_validation_items_completed"] = completed
+    save_validation_state(state, path)
+
+
+def mark_pipeline_stage_completed(
+    state: dict, stage_name: str, path: str | None = None
+) -> None:
+    """Mark a pipeline stage as completed (separate from model items)."""
+    stages = state.get("pipeline_stages_completed") or []
+    if stage_name not in stages:
+        stages.append(stage_name)
+    state["pipeline_stages_completed"] = stages
     save_validation_state(state, path)
 
 
