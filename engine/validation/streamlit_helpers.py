@@ -24,7 +24,7 @@ from engine.validation.final_quality_audit import audit_final_clean_database_qua
 from engine.validation.file_status import load_database_file_status
 from engine.validation.minimal_pipeline import run_full_audit
 from engine.validation.model_review_runner import run_model_review
-from engine.validation.model_review_progress import load_model_review_progress
+from engine.validation.model_review_progress import load_model_review_progress, refresh_model_review_progress
 from engine.validation.final_export import export_final_clean_database as _export_final_clean_database
 from engine.validation.run_events import load_recent_events
 from engine.validation.surgical_patches import (
@@ -114,7 +114,12 @@ def load_status_payload(project_root: str | Path = ".") -> dict:
     file_status = load_database_file_status(root)
     report = _load_json_file(root / VALIDATION_REPORT_PATH) or {}
     manifest = _load_json_file(root / MANIFEST_PATH) or {}
-    model_progress = _load_json_file(root / MODEL_REVIEW_PROGRESS_PATH) or {}
+    queue_items = _load_issue_queue_items(root)
+    model_progress = (
+        refresh_model_review_progress(queue_items, path=root / MODEL_REVIEW_PROGRESS_PATH)
+        if queue_items
+        else (_load_json_file(root / MODEL_REVIEW_PROGRESS_PATH) or {})
+    )
     issues_by_risk = report.get("issues_by_risk") if isinstance(report, dict) else {}
     if not isinstance(issues_by_risk, dict):
         issues_by_risk = {}

@@ -6,6 +6,7 @@ from core.paths import (
     FINAL_CLEAN_DATABASE_PATH,
     ISSUE_QUEUE_PATH,
     MANIFEST_PATH,
+    MODEL_REVIEW_PROGRESS_PATH,
     SOURCE_CANONICAL_PATH,
     VALIDATION_REPORT_PATH,
 )
@@ -24,7 +25,7 @@ def _package(verified_count=2, partial_count=1):
     }
 
 
-def _queue_item(idx: int):
+def _queue_item(idx: int, variant_ids=None):
     return {
         "item_id": f"iq_{idx:06d}",
         "make": "Toyota",
@@ -35,6 +36,7 @@ def _queue_item(idx: int):
         "risk_level": "high",
         "recommended_action": "manual_review",
         "requires_model_review": True,
+        "variant_ids": variant_ids or [],
     }
 
 
@@ -51,6 +53,14 @@ def test_status_payload_has_required_fields(tmp_path):
     )
     _write_json(tmp_path / MANIFEST_PATH, {"completed_at": "2026-06-06T00:00:00+00:00"})
     _write_json(tmp_path / helpers.SEEDS_PATH, [{"seed_id": "seed_1"}, {"seed_id": "seed_2"}])
+    _write_json(
+        tmp_path / ISSUE_QUEUE_PATH,
+        {"items": [_queue_item(5, variant_ids=["v5"]), _queue_item(9, variant_ids=["v9"])]},
+    )
+    _write_json(
+        tmp_path / MODEL_REVIEW_PROGRESS_PATH,
+        {"items": {"iq_000002": {"item_id": "iq_000002", "status": "pending", "variant_ids": ["stale"]}}},
+    )
 
     payload = helpers.load_status_payload(project_root=tmp_path)
 
@@ -70,6 +80,10 @@ def test_status_payload_has_required_fields(tmp_path):
         "manual_review_items_available": 6,
         "last_run_time": "2026-06-06T00:00:00+00:00",
     }
+    assert payload["model_review_progress"]["total_model_review_items"] == 2
+    assert payload["model_review_progress"]["remaining_items"] == 2
+    assert payload["model_review_progress"]["total_model_review_variants"] == 2
+    assert payload["model_review_progress"]["remaining_variants"] == 2
 
 
 def test_queue_preview_truncates_rows(tmp_path):

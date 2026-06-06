@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 
-from core.paths import DECISIONS_PATH, ISSUE_QUEUE_PATH, MANIFEST_PATH, SOURCE_CANONICAL_PATH
+from core.paths import ACTIVE_WORKING_DATABASE_PATH, DECISIONS_PATH, ISSUE_QUEUE_PATH, MANIFEST_PATH, SOURCE_CANONICAL_PATH
 from engine.validation.minimal_pipeline import build_issue_queue, run_full_audit
 
 
@@ -65,10 +65,15 @@ def test_run_full_audit_creates_issue_queue_and_manifest(tmp_path, monkeypatch):
 
     summary = run_full_audit()
 
+    assert (tmp_path / ACTIVE_WORKING_DATABASE_PATH).exists()
+    assert summary["source_file"] == ACTIVE_WORKING_DATABASE_PATH
+    assert summary["working_copy_status"]["status"] == "created"
     assert (tmp_path / ISSUE_QUEUE_PATH).exists()
     assert (tmp_path / MANIFEST_PATH).exists()
     queue_doc = json.loads((tmp_path / ISSUE_QUEUE_PATH).read_text(encoding="utf-8"))
     manifest = json.loads((tmp_path / MANIFEST_PATH).read_text(encoding="utf-8"))
+    assert queue_doc["source_file"] == ACTIVE_WORKING_DATABASE_PATH
+    assert manifest["source_file"] == ACTIVE_WORKING_DATABASE_PATH
     assert queue_doc["source_variant_count"] == 2
     assert queue_doc["items"]
     assert manifest["source_variant_count"] == 2
@@ -128,7 +133,7 @@ def test_decisions_json_is_initialized_but_not_filled_with_fake_decisions(tmp_pa
     run_full_audit()
 
     decisions = json.loads((tmp_path / DECISIONS_PATH).read_text(encoding="utf-8"))
-    assert decisions["source_file"] == SOURCE_CANONICAL_PATH
+    assert decisions["source_file"] == ACTIVE_WORKING_DATABASE_PATH
     assert decisions["decisions"] == []
 
 

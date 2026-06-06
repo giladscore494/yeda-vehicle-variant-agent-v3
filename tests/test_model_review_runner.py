@@ -1,4 +1,5 @@
 import json
+import pytest
 
 from engine.validation import model_review_runner as runner
 
@@ -23,6 +24,12 @@ def _write_queue(path, items):
 
 def _write_decisions(path):
     path.write_text(json.dumps({"decisions": []}, ensure_ascii=False), encoding="utf-8")
+
+
+@pytest.fixture(autouse=True)
+def _isolate_runner_side_effects(monkeypatch, tmp_path):
+    monkeypatch.setattr(runner, "MODEL_REVIEW_PROGRESS_PATH", str(tmp_path / "model_review_progress.json"))
+    monkeypatch.setattr(runner, "log_event", lambda *args, **kwargs: None)
 
 
 def test_dry_run_performs_zero_model_calls(monkeypatch, tmp_path):
@@ -142,3 +149,30 @@ def test_requires_model_review_false_filtered_before_routing(monkeypatch, tmp_pa
 
     assert result["selected_items"] == 1
     assert result["items"][0]["item_id"] == "iq_000002"
+
+
+def test_failed_item_is_not_selected_again(monkeypatch, tmp_path):
+    issue_path = tmp_path / "issue_queue.json"
+    decisions_path = tmp_path / "decisions.json"
+    _write_queue(issue_path, [_issue(1), _issue(2)])
+    _write_decisions(decisions_path)
+    monkeypatch.setattr(runner, "ISSUE_QUEUE_PATH", str(issue_path))
+    monkeypatch.setattr(runner, "DECISIONS_PATH", str(decisions_path))
+    monkeypatch.setattr(
+        runner,
+        "call_gemini_for_issue",
+        lambda *args, **kwargs: {"ok": False, "provider": "gemini", "error_message": "unconfigured"},
+    )
+    monkeypatch.setattr(
+        runner,
+        "call_openai_for_issue",
+        lambda *args, **kwargs: {"ok": False, "provider": "openai", "error_message": "unconfigured"},
+    )
+
+    first = runner.run_model_review(max_items=1, dry_run=False)
+    second = runner.run_model_review(max_items=1, dry_run=True)
+
+    assert first["model_review_progress"]["items"]["iq_000001"]["status"] == "failed"
+    assert first["model_review_progress"]["remaining_items"] == 1
+    assert second["selected_items"] == 1
+    assert second["items"][0]["item_id"] == "iq_000002"
