@@ -10,6 +10,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from core.config import VALIDATION_RUNTIME_STATE_PATH
+from core.paths import SOURCE_CANONICAL_PATH, VALIDATION_REPORT_PATH
 from engine.progress import generate_run_id
 
 
@@ -18,8 +19,8 @@ def _default_state(run_id: str | None = None) -> dict:
     return {
         "validation_run_id": run_id or generate_run_id(),
         "mode": "targeted-dual-validation",
-        "source_canonical_path": "data/canonical/resume_package_canonical.json",
-        "output_validation_path": "data/validated_runs/resume_package_canonical_validated_v2.json",
+        "source_canonical_path": SOURCE_CANONICAL_PATH,
+        "output_validation_path": VALIDATION_REPORT_PATH,
         "current_validation_item": None,
         # Pipeline stage tracking (deterministic_audit, partial_classification, etc.)
         "pipeline_stages_total": 4,

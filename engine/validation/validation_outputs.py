@@ -1,17 +1,18 @@
 """Validation output writer — writes all validation output files.
 
-Primary output: a FULL canonical-style JSON package at
+Validation working output: a FULL canonical-style JSON package at the legacy
   data/validated_runs/resume_package_canonical_validated_v2.json
 
 This file keeps the same top-level structure as the original canonical so the
 app/code can load it like the original.  Validation metadata is added in a
 non-breaking way.
 
-Secondary reports:
-  validation_report_v2.json
-  validation_issues_v2.json
-  validation_patch_suggestions_v2.json
-  targeted_seed_validation_v2.json
+Primary validation working files:
+  data/validation/validation_report.json
+  data/validation/issue_queue.json
+  data/validation/decisions.json
+
+Legacy reports under data/validated_runs/ remain supported for backward compatibility.
 """
 from __future__ import annotations
 
@@ -20,6 +21,12 @@ import json
 from datetime import datetime, timezone
 from pathlib import Path
 
+from core.paths import (
+    DECISIONS_PATH,
+    ISSUE_QUEUE_PATH,
+    SOURCE_CANONICAL_PATH,
+    VALIDATION_REPORT_PATH,
+)
 from engine.validation.write_guard import check_write_allowed, safe_write_json
 
 
@@ -34,7 +41,7 @@ def write_validated_package(
     targeted_seed_result: dict | None,
     validation_run_id: str,
     output_path: str | Path = "data/validated_runs/resume_package_canonical_validated_v2.json",
-    input_path: str | Path = "data/canonical/resume_package_canonical.json",
+    input_path: str | Path = SOURCE_CANONICAL_PATH,
 ) -> None:
     """Write the full validated canonical-style JSON package.
 
@@ -228,7 +235,7 @@ def write_validation_report(
     model_calls_summary: dict | None = None,
     started_at: str = "",
     completed_at: str = "",
-    output_path: str | Path = "data/validated_runs/validation_report_v2.json",
+    output_path: str | Path = VALIDATION_REPORT_PATH,
 ) -> None:
     """Write the validation report summary."""
     check_write_allowed(output_path)
@@ -243,8 +250,8 @@ def write_validation_report(
 
     report = {
         "validation_run_id": validation_run_id,
-        "source_canonical_path": "data/canonical/resume_package_canonical.json",
-        "output_path": "data/validated_runs/resume_package_canonical_validated_v2.json",
+        "source_canonical_path": SOURCE_CANONICAL_PATH,
+        "output_path": str(output_path),
         "started_at": started_at,
         "completed_at": completed_at,
         "total_variants": len(all_variants),
@@ -273,7 +280,7 @@ def write_validation_report(
 
 def write_validation_issues(
     issues: list[dict],
-    output_path: str | Path = "data/validated_runs/validation_issues_v2.json",
+    output_path: str | Path = ISSUE_QUEUE_PATH,
 ) -> None:
     """Write the validation issues file."""
     check_write_allowed(output_path)
@@ -284,7 +291,7 @@ def write_patch_suggestions(
     deterministic_issues: list[dict],
     partial_classifications: list[dict],
     model_validation_items: list[dict] | None = None,
-    output_path: str | Path = "data/validated_runs/validation_patch_suggestions_v2.json",
+    output_path: str | Path = DECISIONS_PATH,
 ) -> None:
     """Write patch suggestions. These are suggestions only — never applied to canonical."""
     check_write_allowed(output_path)

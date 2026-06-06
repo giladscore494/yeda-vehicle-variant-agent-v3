@@ -1,6 +1,6 @@
 """Run manifest writer — writes a persistent manifest after every validation run.
 
-Output: data/validated_runs/validation_run_manifest_v2.json
+Output: data/validation/manifest.json
 """
 from __future__ import annotations
 
@@ -9,10 +9,13 @@ import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
 
+from core.paths import (
+    MANIFEST_PATH,
+    SOURCE_CANONICAL_PATH,
+    VALIDATION_REPORT_PATH,
+)
 from engine.validation.write_guard import safe_write_json
 from engine.validation.seed_accounting import compute_seed_accounting
-
-MANIFEST_PATH = "data/validated_runs/validation_run_manifest_v2.json"
 
 
 def _get_git_info() -> tuple[str, str]:
@@ -65,7 +68,7 @@ def write_run_manifest(
         "completed_at": completed_at,
         "github_repo": git_repo,
         "github_branch": git_branch,
-        "source_canonical_path": "data/canonical/resume_package_canonical.json",
+        "source_canonical_path": SOURCE_CANONICAL_PATH,
         "source_canonical_variant_count": len(verified) + len(partial),
         "source_canonical_verified_count": len(verified),
         "source_canonical_partial_count": len(partial),
@@ -84,9 +87,9 @@ def write_run_manifest(
         "targeted_seed_id": targeted_seed_id,
         "stages_completed": stages_completed,
         "model_items_selected": model_items_selected or [],
-        "final_validation_output_file": "data/validated_runs/resume_package_canonical_validated_v2.json",
+        "validation_working_package_file": "data/validated_runs/resume_package_canonical_validated_v2.json",
         "model_validation_output_file": "data/validated_runs/model_validation_results_v2.json",
-        "report_file": "data/validated_runs/validation_report_v2.json",
+        "report_file": VALIDATION_REPORT_PATH,
     }
 
     safe_write_json(manifest, output_path)

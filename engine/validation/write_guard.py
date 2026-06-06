@@ -1,22 +1,35 @@
-"""Write guard — blocks any write to the canonical file in validation mode.
+"""Write guard — blocks any write to the source canonical file in validation mode.
 
 Allowed writes:
-  - data/validated_runs/*
+  - data/validation/*
+  - data/validated_runs/* (legacy compatibility)
   - data/runtime/current_validation_run.json
+
+Reserved until Task 5 export:
+  - data/final/resume_package_final_clean.json
 """
 from __future__ import annotations
 
-import os
 from pathlib import Path
 
-_CANONICAL_PATH = Path("data/canonical/resume_package_canonical.json").resolve()
-_VALIDATED_RUNS_DIR = Path("data/validated_runs").resolve()
+from core.paths import SOURCE_CANONICAL_PATH, VALIDATION_DIR
 
-# Paths that are allowed for validation writes
+_CANONICAL_PATH = Path(SOURCE_CANONICAL_PATH).resolve()
+_FINAL_CLEAN_DATABASE_PATH = Path("data/final/resume_package_final_clean.json").resolve()
+_VALIDATION_DIR = Path(VALIDATION_DIR).resolve()
+_VALIDATED_RUNS_DIR = Path("data/validated_runs").resolve()
+_RUNTIME_STATE_PATH = Path("data/runtime/current_validation_run.json").resolve()
+
+# Paths that are allowed for validation writes.
 _ALLOWED_PREFIXES = [
+    _VALIDATION_DIR,
     _VALIDATED_RUNS_DIR,
-    Path("data/runtime/current_validation_run.json").resolve(),
+    _RUNTIME_STATE_PATH,
 ]
+_ALLOWED_DIRS = {
+    _VALIDATION_DIR,
+    _VALIDATED_RUNS_DIR,
+}
 
 
 class CanonicalWriteBlockedError(Exception):
@@ -27,7 +40,10 @@ class CanonicalWriteBlockedError(Exception):
 def check_write_allowed(target_path: str | Path) -> None:
     """Raise CanonicalWriteBlockedError if target_path resolves to the canonical file.
 
-    Call this before any file write in validation mode.
+    Call this before any file write in validation mode.  The source canonical
+    and final clean database are deliberately protected; validation outputs
+    must go to data/validation/, legacy data/validated_runs/, or validation
+    runtime state.
     """
     resolved = Path(target_path).resolve()
 
@@ -37,17 +53,23 @@ def check_write_allowed(target_path: str | Path) -> None:
             f"file at {resolved}. Validation mode does not permit canonical mutations."
         )
 
+    if resolved == _FINAL_CLEAN_DATABASE_PATH:
+        raise CanonicalWriteBlockedError(
+            f"final_clean_database_write_blocked: Attempted to write to reserved "
+            f"final clean database at {resolved}. Only the Task 5 final export "
+            f"function may write this file."
+        )
+
 
 def is_allowed_validation_write(target_path: str | Path) -> bool:
     """Return True if the target path is an allowed validation output location."""
     resolved = Path(target_path).resolve()
 
-    if resolved == _CANONICAL_PATH:
+    if resolved in (_CANONICAL_PATH, _FINAL_CLEAN_DATABASE_PATH):
         return False
 
     for allowed in _ALLOWED_PREFIXES:
-        # Check if resolved path is under allowed directory or matches allowed file
-        if allowed == _VALIDATED_RUNS_DIR:
+        if allowed in _ALLOWED_DIRS:
             try:
                 resolved.relative_to(allowed)
                 return True

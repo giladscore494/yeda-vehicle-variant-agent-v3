@@ -20,6 +20,7 @@ from core.config import (
     GITHUB_BRANCH,
     VALIDATION_OUTPUT_PATH,
 )
+from core.paths import ISSUE_QUEUE_PATH
 from engine.state import load_canonical, load_seeds, ensure_batch_state_fields
 from engine.validation.deterministic_audit import (
     run_deterministic_audit,
@@ -297,7 +298,7 @@ def run_full_validation(
                     "stage": "deterministic_audit",
                     "input_count": len(all_variants),
                     "output_count": len(deterministic_issues),
-                    "output_file": "data/validated_runs/validation_issues_v2.json",
+                    "output_file": ISSUE_QUEUE_PATH,
                 },
                 {
                     "stage": "partial_classification",
@@ -606,7 +607,7 @@ def run_model_validation_on_suspicious_groups(
                         (canonical.get("partial_variants") or [])
                     ),
                     "output_count": len(deterministic_issues),
-                    "output_file": "data/validated_runs/validation_issues_v2.json",
+                    "output_file": ISSUE_QUEUE_PATH,
                 },
                 {
                     "stage": "partial_classification",

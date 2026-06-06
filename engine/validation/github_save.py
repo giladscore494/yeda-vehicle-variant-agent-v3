@@ -5,7 +5,8 @@ Guards:
 - Must NOT be on main
 - Must NOT commit canonical
 - Must NOT commit secrets or tmp files
-- Only allowed files in data/validated_runs/ and data/runtime/
+- Primary allowed files in data/validation/
+- Legacy allowed files in data/validated_runs/ and data/runtime/
 """
 from __future__ import annotations
 
@@ -13,6 +14,13 @@ import json
 import logging
 from pathlib import Path
 
+from core.paths import (
+    DECISIONS_PATH,
+    ISSUE_QUEUE_PATH,
+    MANIFEST_PATH,
+    SOURCE_CANONICAL_PATH,
+    VALIDATION_REPORT_PATH,
+)
 from engine import config
 from engine.github_writer import push_file
 
@@ -24,6 +32,10 @@ _BLOCKED_BRANCH = "main"
 
 # Files that are allowed to be committed
 ALLOWED_FILES = [
+    VALIDATION_REPORT_PATH,
+    ISSUE_QUEUE_PATH,
+    DECISIONS_PATH,
+    MANIFEST_PATH,
     "data/validated_runs/resume_package_canonical_validated_v2.json",
     "data/validated_runs/validation_report_v2.json",
     "data/validated_runs/validation_issues_v2.json",
@@ -36,7 +48,7 @@ ALLOWED_FILES = [
 
 # Files that must NEVER be committed
 BLOCKED_FILES = [
-    "data/canonical/resume_package_canonical.json",
+    SOURCE_CANONICAL_PATH,
 ]
 
 

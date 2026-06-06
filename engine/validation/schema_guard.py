@@ -11,6 +11,8 @@ import os
 from collections import Counter
 from pathlib import Path
 
+from core.paths import VALIDATION_DIR
+
 logger = logging.getLogger(__name__)
 
 
@@ -94,10 +96,15 @@ def run_hard_gates(
     if output_path == input_path:
         raise SchemaGuardError("Output path equals input path — refusing to overwrite")
 
-    # Gate 8: Output path is under data/validated_runs/
-    if "validated_runs" not in str(output_path):
+    # Gate 8: Output path is under validation output hierarchy, not the final export path.
+    if output_path == Path("data/final/resume_package_final_clean.json").resolve():
         raise SchemaGuardError(
-            f"Output path not under data/validated_runs/: {output_path}"
+            "Output path is the reserved final clean database; only Task 5 export may write it"
+        )
+    allowed_output_dirs = (Path(VALIDATION_DIR).resolve(), Path("data/validated_runs").resolve())
+    if not any(_is_relative_to(output_path, allowed_dir) for allowed_dir in allowed_output_dirs):
+        raise SchemaGuardError(
+            f"Output path not under {VALIDATION_DIR}/ or legacy data/validated_runs/: {output_path}"
         )
 
     # Gate 9: Original input file was not modified (if hash provided)
@@ -143,3 +150,11 @@ def _file_hash(path: Path) -> str | None:
 def compute_input_hash(input_path: str | Path) -> str | None:
     """Compute hash of the input file for integrity verification."""
     return _file_hash(Path(input_path).resolve())
+
+
+def _is_relative_to(path: Path, parent: Path) -> bool:
+    try:
+        path.relative_to(parent)
+        return True
+    except ValueError:
+        return False
