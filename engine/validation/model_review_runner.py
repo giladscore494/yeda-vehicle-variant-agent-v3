@@ -148,7 +148,9 @@ def _filter_items(
     risk_set = {str(level).lower() for level in risk_levels} if risk_levels else None
     issue_set = {str(issue) for issue in issue_types} if issue_types else None
     selected: list[dict] = []
-    progress_items = progress.get("items") if isinstance(progress, dict) and isinstance(progress.get("items"), dict) else {}
+    progress_items = (progress or {}).get("items")
+    if not isinstance(progress_items, dict):
+        progress_items = {}
     non_pending_ids = {
         item_id
         for item_id, progress_item in progress_items.items()

@@ -149,13 +149,3 @@ def completed_or_skipped_item_ids(path: str | Path = MODEL_REVIEW_PROGRESS_PATH)
         if isinstance(item, dict) and item.get("status") in {"completed", "skipped"}
     }
 
-
-def non_pending_item_ids(path: str | Path = MODEL_REVIEW_PROGRESS_PATH) -> set[str]:
-    """Return issue ids that were already attempted or intentionally skipped."""
-    progress = load_model_review_progress(path)
-    items = progress.get("items") if isinstance(progress.get("items"), dict) else {}
-    return {
-        item_id
-        for item_id, item in items.items()
-        if isinstance(item, dict) and _valid_status(item.get("status")) != "pending"
-    }
