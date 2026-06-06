@@ -171,6 +171,10 @@ def test_load_surgical_patch_summary_helper_exists():
     assert hasattr(helpers, "load_surgical_patch_summary")
 
 
+def test_load_ai_review_outcome_helper_exists():
+    assert hasattr(helpers, "load_ai_review_outcome")
+
+
 def test_export_final_clean_database_returns_ui_safe_summary(monkeypatch):
     def fake_export():
         return {
@@ -418,3 +422,120 @@ def test_load_ai_review_outcome_counts(tmp_path):
     assert payload["patchable_changes"] == 0
     assert payload["non_patchable_changes"] == 1
     assert payload["pending_patches"] == 3
+
+
+def test_load_ai_review_outcome_missing_decisions_file_returns_safe_defaults(tmp_path):
+    payload = helpers.load_ai_review_outcome(project_root=tmp_path)
+    assert payload["decisions_exists"] is False
+    assert payload["decisions_total"] == 0
+    assert payload["completed_decisions"] == 0
+    assert payload["change_required"] == 0
+    assert payload["no_change_required"] == 0
+    assert payload["patchable"] == 0
+    assert payload["change_required_not_patchable"] == 0
+    assert payload["manual_review_required"] == 0
+    assert payload["missing_change_decision"] == 0
+    assert payload["latest_decision_id"] is None
+    assert payload["latest_item_id"] is None
+    assert payload["latest_change_decision"] is None
+    assert payload["latest_change_severity"] is None
+    assert payload["latest_patchable"] is None
+    assert payload["latest_patchability_reason"] is None
+    assert payload["latest_change_reason"] is None
+    assert payload["last_error"] is None
+
+
+def test_load_ai_review_outcome_empty_decisions_list_returns_safe_defaults(tmp_path):
+    _write_json(tmp_path / DECISIONS_PATH, {"decisions": []})
+    payload = helpers.load_ai_review_outcome(project_root=tmp_path)
+    assert payload["decisions_exists"] is True
+    assert payload["decisions_total"] == 0
+    assert payload["completed_decisions"] == 0
+    assert payload["change_required"] == 0
+    assert payload["no_change_required"] == 0
+    assert payload["patchable"] == 0
+    assert payload["change_required_not_patchable"] == 0
+    assert payload["manual_review_required"] == 0
+    assert payload["missing_change_decision"] == 0
+
+
+def test_load_ai_review_outcome_old_decision_without_change_decision_counts_missing(tmp_path):
+    _write_json(
+        tmp_path / DECISIONS_PATH,
+        {
+            "decisions": [
+                {
+                    "item_id": "iq_000001",
+                    "change_reason": "legacy payload",
+                }
+            ]
+        },
+    )
+    payload = helpers.load_ai_review_outcome(project_root=tmp_path)
+    assert payload["decisions_total"] == 1
+    assert payload["missing_change_decision"] == 1
+    assert payload["manual_review_required"] == 1
+    assert payload["change_required"] == 0
+    assert payload["no_change_required"] == 0
+
+
+def test_load_ai_review_outcome_binary_decision_and_patchability_counts(tmp_path):
+    _write_json(
+        tmp_path / DECISIONS_PATH,
+        {
+            "decisions": [
+                {"item_id": "iq_000001", "change_decision": "CHANGE_REQUIRED", "patchable": True},
+                {"item_id": "iq_000002", "change_decision": "CHANGE_REQUIRED", "patchable": False},
+                {"item_id": "iq_000003", "change_decision": "NO_CHANGE_REQUIRED", "patchable": False},
+            ]
+        },
+    )
+    payload = helpers.load_ai_review_outcome(project_root=tmp_path)
+    assert payload["change_required"] == 2
+    assert payload["no_change_required"] == 1
+    assert payload["patchable"] == 1
+    assert payload["change_required_not_patchable"] == 1
+    assert payload["missing_change_decision"] == 0
+
+
+def test_load_ai_review_outcome_malformed_decisions_json_sets_last_error(tmp_path):
+    path = tmp_path / DECISIONS_PATH
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text("{bad-json", encoding="utf-8")
+    payload = helpers.load_ai_review_outcome(project_root=tmp_path)
+    assert payload["decisions_exists"] is True
+    assert payload["decisions_total"] == 0
+    assert isinstance(payload["last_error"], str)
+    assert payload["last_error"]
+
+
+def test_load_ai_review_outcome_contains_all_app_facing_and_stable_keys(tmp_path):
+    _write_json(tmp_path / DECISIONS_PATH, {"decisions": []})
+    payload = helpers.load_ai_review_outcome(project_root=tmp_path)
+    expected = {
+        "decisions_path",
+        "decisions_exists",
+        "decisions_total",
+        "completed_decisions",
+        "change_required",
+        "no_change_required",
+        "patchable",
+        "change_required_not_patchable",
+        "manual_review_required",
+        "missing_change_decision",
+        "latest_decision_id",
+        "latest_item_id",
+        "latest_change_decision",
+        "latest_change_severity",
+        "latest_patchable",
+        "latest_patchability_reason",
+        "latest_change_reason",
+        "last_error",
+        "completed_ai_decisions",
+        "patchable_changes",
+        "non_patchable_changes",
+        "pending_patches",
+        "rows",
+        "columns",
+    }
+    assert expected.issubset(payload.keys())

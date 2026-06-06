@@ -438,67 +438,141 @@ def load_surgical_patch_summary(project_root: str | Path = ".") -> dict:
 
 def load_ai_review_outcome(project_root: str | Path = ".") -> dict:
     root = Path(project_root)
+    decisions_path = root / DECISIONS_PATH
+    base_summary = {
+        "decisions_path": DECISIONS_PATH,
+        "decisions_exists": decisions_path.exists(),
+        "decisions_total": 0,
+        "completed_decisions": 0,
+        "change_required": 0,
+        "no_change_required": 0,
+        "patchable": 0,
+        "change_required_not_patchable": 0,
+        "manual_review_required": 0,
+        "missing_change_decision": 0,
+        "latest_decision_id": None,
+        "latest_item_id": None,
+        "latest_change_decision": None,
+        "latest_change_severity": None,
+        "latest_patchable": None,
+        "latest_patchability_reason": None,
+        "latest_change_reason": None,
+        "last_error": None,
+        "completed_ai_decisions": 0,
+        "patchable_changes": 0,
+        "non_patchable_changes": 0,
+        "pending_patches": 0,
+        "rows": [],
+        "columns": list(AI_DECISION_OUTCOME_COLUMNS),
+    }
+    if not decisions_path.exists():
+        return base_summary
+
+    try:
+        payload = json.loads(decisions_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        base_summary["last_error"] = f"Failed to load {DECISIONS_PATH}: {exc}"
+        return base_summary
+
+    if isinstance(payload, list):
+        raw_decisions = payload
+    elif isinstance(payload, dict):
+        raw_decisions = payload.get("decisions", [])
+    else:
+        base_summary["last_error"] = f"{DECISIONS_PATH} must be a JSON object or array"
+        return base_summary
+    if not isinstance(raw_decisions, list):
+        base_summary["last_error"] = f"{DECISIONS_PATH} must contain a decisions list"
+        return base_summary
+
     queue_items = _load_issue_queue_items(root)
     queue_by_item_id = {
         str(item.get("item_id") or ""): item
         for item in queue_items
         if isinstance(item, dict) and str(item.get("item_id") or "")
     }
-    progress_payload = _load_json_file(root / MODEL_REVIEW_PROGRESS_PATH) or {}
-    progress_items = progress_payload.get("items") if isinstance(progress_payload, dict) else {}
-    completed_item_ids = {
-        item_id
-        for item_id, item in (progress_items.items() if isinstance(progress_items, dict) else [])
-        if isinstance(item, dict) and item.get("status") == "completed"
-    }
-    decisions_payload = _load_json_file(root / DECISIONS_PATH) or {}
-    decisions = decisions_payload if isinstance(decisions_payload, list) else decisions_payload.get("decisions", [])
-    if not isinstance(decisions, list):
-        decisions = []
-    latest_decision_by_item: dict[str, dict] = {}
-    for decision in decisions:
-        if not isinstance(decision, dict):
-            continue
-        item_id = str(decision.get("item_id") or "")
-        if not item_id:
-            continue
-        latest_decision_by_item[item_id] = decision
 
+    decisions: list[dict[str, Any]] = [item for item in raw_decisions if isinstance(item, dict)]
     rows: list[dict] = []
-    for item_id in sorted(completed_item_ids):
-        decision = latest_decision_by_item.get(item_id)
-        if not isinstance(decision, dict):
-            continue
+    latest: dict[str, Any] | None = None
+    for decision in decisions:
+        item_id = str(decision.get("item_id") or "").strip()
         queue_item = queue_by_item_id.get(item_id, {})
+        change_decision = decision.get("change_decision")
+        change_decision_text = change_decision if isinstance(change_decision, str) and change_decision.strip() else None
+        patchable_value = decision.get("patchable")
+        patchable_bool = patchable_value if isinstance(patchable_value, bool) else None
+
+        if change_decision_text == "CHANGE_REQUIRED":
+            base_summary["change_required"] += 1
+            if patchable_value is not True:
+                base_summary["change_required_not_patchable"] += 1
+        elif change_decision_text == "NO_CHANGE_REQUIRED":
+            base_summary["no_change_required"] += 1
+        else:
+            base_summary["missing_change_decision"] += 1
+            base_summary["manual_review_required"] += 1
+
+        if patchable_value is True:
+            base_summary["patchable"] += 1
+
         rows.append(
             {
                 "item_id": item_id,
                 "make": queue_item.get("make", ""),
                 "model": queue_item.get("model", ""),
                 "years": _years_text(queue_item),
-                "change_decision": decision.get("change_decision", ""),
-                "change_severity": decision.get("change_severity", ""),
-                "patchable": bool(decision.get("patchable", False)),
-                "patchability_reason": decision.get("patchability_reason", ""),
-                "change_reason": decision.get("change_reason", ""),
+                "change_decision": change_decision_text or "",
+                "change_severity": decision.get("change_severity") if isinstance(decision.get("change_severity"), str) else "",
+                "patchable": patchable_value is True,
+                "patchability_reason": decision.get("patchability_reason")
+                if isinstance(decision.get("patchability_reason"), str)
+                else "",
+                "change_reason": decision.get("change_reason") if isinstance(decision.get("change_reason"), str) else "",
             }
         )
+        latest = decision
 
-    change_required = sum(1 for row in rows if row.get("change_decision") == "CHANGE_REQUIRED")
-    no_change_required = sum(1 for row in rows if row.get("change_decision") == "NO_CHANGE_REQUIRED")
-    patchable_changes = sum(1 for row in rows if row.get("change_decision") == "CHANGE_REQUIRED" and row.get("patchable"))
-    non_patchable_changes = sum(1 for row in rows if row.get("change_decision") == "CHANGE_REQUIRED" and not row.get("patchable"))
-    pending_patches = int(load_surgical_patch_summary(root).get("pending", 0))
-    return {
-        "completed_ai_decisions": len(rows),
-        "change_required": change_required,
-        "no_change_required": no_change_required,
-        "patchable_changes": patchable_changes,
-        "non_patchable_changes": non_patchable_changes,
-        "pending_patches": pending_patches,
-        "rows": rows,
-        "columns": list(AI_DECISION_OUTCOME_COLUMNS),
-    }
+    base_summary["decisions_total"] = len(decisions)
+    base_summary["completed_decisions"] = len(decisions)
+    base_summary["completed_ai_decisions"] = len(decisions)
+    base_summary["patchable_changes"] = base_summary["patchable"]
+    base_summary["non_patchable_changes"] = base_summary["change_required_not_patchable"]
+    base_summary["rows"] = rows
+    if isinstance(latest, dict):
+        latest_decision_id = latest.get("decision_id")
+        if not isinstance(latest_decision_id, str) or not latest_decision_id.strip():
+            latest_decision_id = latest.get("id")
+        base_summary["latest_decision_id"] = (
+            latest_decision_id.strip() if isinstance(latest_decision_id, str) and latest_decision_id.strip() else None
+        )
+        latest_item_id = latest.get("item_id")
+        base_summary["latest_item_id"] = latest_item_id.strip() if isinstance(latest_item_id, str) and latest_item_id.strip() else None
+        latest_change_decision = latest.get("change_decision")
+        base_summary["latest_change_decision"] = (
+            latest_change_decision if isinstance(latest_change_decision, str) and latest_change_decision.strip() else None
+        )
+        latest_change_severity = latest.get("change_severity")
+        base_summary["latest_change_severity"] = (
+            latest_change_severity if isinstance(latest_change_severity, str) and latest_change_severity.strip() else None
+        )
+        latest_patchable = latest.get("patchable")
+        base_summary["latest_patchable"] = latest_patchable if isinstance(latest_patchable, bool) else None
+        latest_patchability_reason = latest.get("patchability_reason")
+        base_summary["latest_patchability_reason"] = (
+            latest_patchability_reason
+            if isinstance(latest_patchability_reason, str) and latest_patchability_reason.strip()
+            else None
+        )
+        latest_change_reason = latest.get("change_reason")
+        base_summary["latest_change_reason"] = (
+            latest_change_reason if isinstance(latest_change_reason, str) and latest_change_reason.strip() else None
+        )
+
+    patch_summary = load_surgical_patch_summary(root)
+    pending = patch_summary.get("pending", 0) if isinstance(patch_summary, dict) else 0
+    base_summary["pending_patches"] = int(pending) if isinstance(pending, (int, float)) else 0
+    return base_summary
 
 
 def load_debug_snippets(project_root: str | Path = ".", max_chars: int = 1200) -> list[dict]:
