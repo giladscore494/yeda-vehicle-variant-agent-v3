@@ -271,6 +271,8 @@ def test_load_surgical_patch_summary_missing_files_returns_safe_defaults(tmp_pat
         "patchable",
         "change_required_not_patchable",
         "manual_review_required",
+        "outcome_audit_pending",
+        "outcome_audit_failed",
     }
     assert expected_keys.issubset(summary.keys())
     assert summary["patches_path"] == PATCHES_PATH
@@ -370,7 +372,11 @@ def test_streamlit_app_has_surgical_patch_workflow_section():
     assert "Build Candidate Patches" in app_source
     assert "Apply Next Safe Patch" in app_source
     assert "Audit Last Patch Diff with GPT-5.4" in app_source
+    assert "Backfill AI Review Change Decisions" in app_source
+    assert "Queue Completed Decisions for Outcome Audit" in app_source
+    assert "Audit Next AI Review Outcome with GPT-5.4" in app_source
     assert "AI Review outcome" in app_source
+    assert "Current phase" in app_source
     assert "CHANGE_REQUIRED" in app_source
     assert "NO_CHANGE_REQUIRED" in app_source
     assert "Advanced Debug / Raw Files" in app_source
@@ -402,6 +408,7 @@ def test_load_ai_review_outcome_counts(tmp_path):
                     "patchable": False,
                     "patchability_reason": "no_exact_field_changes",
                     "change_reason": "year mismatch",
+                    "outcome_audit_status": "pending",
                 },
                 {
                     "item_id": "iq_000002",
@@ -410,6 +417,7 @@ def test_load_ai_review_outcome_counts(tmp_path):
                     "patchable": False,
                     "patchability_reason": "no_change_needed",
                     "change_reason": "cosmetic only",
+                    "outcome_audit_status": "passed",
                 },
             ]
         },
@@ -421,6 +429,9 @@ def test_load_ai_review_outcome_counts(tmp_path):
     assert payload["no_change_required"] == 1
     assert payload["patchable_changes"] == 0
     assert payload["non_patchable_changes"] == 1
+    assert payload["outcome_audit_pending"] == 1
+    assert payload["outcome_audit_passed"] == 1
+    assert payload["outcome_audit_failed"] == 0
     assert payload["pending_patches"] == 3
 
 
@@ -435,6 +446,9 @@ def test_load_ai_review_outcome_missing_decisions_file_returns_safe_defaults(tmp
     assert payload["change_required_not_patchable"] == 0
     assert payload["manual_review_required"] == 0
     assert payload["missing_change_decision"] == 0
+    assert payload["outcome_audit_pending"] == 0
+    assert payload["outcome_audit_passed"] == 0
+    assert payload["outcome_audit_failed"] == 0
     assert payload["latest_decision_id"] is None
     assert payload["latest_item_id"] is None
     assert payload["latest_change_decision"] is None
@@ -523,6 +537,9 @@ def test_load_ai_review_outcome_contains_all_app_facing_and_stable_keys(tmp_path
         "change_required_not_patchable",
         "manual_review_required",
         "missing_change_decision",
+        "outcome_audit_pending",
+        "outcome_audit_passed",
+        "outcome_audit_failed",
         "latest_decision_id",
         "latest_item_id",
         "latest_change_decision",
@@ -539,3 +556,70 @@ def test_load_ai_review_outcome_contains_all_app_facing_and_stable_keys(tmp_path
         "columns",
     }
     assert expected.issubset(payload.keys())
+
+
+def test_model_review_phase_gating_blocks_deep_scan_when_model_items_remain(tmp_path, monkeypatch):
+    _write_json(
+        tmp_path / MODEL_REVIEW_PROGRESS_PATH,
+        {"remaining_items": 1, "items": {"iq_000010": {"item_id": "iq_000010", "status": "pending"}}},
+    )
+    monkeypatch.setattr(helpers, "run_full_audit", lambda: {"ok": True, "issues_total": 1})
+
+    result = helpers.run_audit_and_refresh_queue(project_root=tmp_path)
+
+    assert result["ok"] is False
+    assert result["error"] == "deep_scan_blocked"
+    assert result["phase"]["remaining_model_review_items"] == 1
+
+
+def test_model_review_phase_gating_blocks_deep_scan_when_outcome_audit_pending(tmp_path, monkeypatch):
+    _write_json(tmp_path / MODEL_REVIEW_PROGRESS_PATH, {"remaining_items": 0, "items": {}})
+    _write_json(tmp_path / DECISIONS_PATH, {"decisions": [{"item_id": "iq_000005", "outcome_audit_status": "pending"}]})
+    monkeypatch.setattr(helpers, "run_full_audit", lambda: {"ok": True, "issues_total": 1})
+
+    result = helpers.run_audit_and_refresh_queue(project_root=tmp_path)
+
+    assert result["ok"] is False
+    assert result["error"] == "deep_scan_blocked"
+    assert result["phase"]["pending_outcome_audits"] == 1
+
+
+def test_model_review_phase_gating_allows_deep_scan_when_complete(tmp_path, monkeypatch):
+    _write_json(tmp_path / MODEL_REVIEW_PROGRESS_PATH, {"remaining_items": 0, "items": {}})
+    _write_json(tmp_path / DECISIONS_PATH, {"decisions": [{"item_id": "iq_000005", "outcome_audit_status": "passed"}]})
+    monkeypatch.setattr(helpers, "run_full_audit", lambda: {"ok": True, "issues_total": 7})
+
+    result = helpers.run_audit_and_refresh_queue(project_root=tmp_path)
+
+    assert result["ok"] is True
+    assert result["issues_total"] == 7
+
+
+def test_load_current_model_review_phase_exposes_next_item_and_pending_audits(tmp_path):
+    _write_json(
+        tmp_path / MODEL_REVIEW_PROGRESS_PATH,
+        {
+            "total_model_review_items": 3,
+            "completed_items": 2,
+            "remaining_items": 1,
+            "items": {"iq_000010": {"item_id": "iq_000010", "status": "pending"}},
+        },
+    )
+    _write_json(tmp_path / DECISIONS_PATH, {"decisions": [{"item_id": "iq_000005", "outcome_audit_status": "pending"}]})
+
+    phase = helpers.load_current_model_review_phase(project_root=tmp_path)
+
+    assert phase["total_model_review_items"] == 3
+    assert phase["completed_model_review_items"] == 2
+    assert phase["remaining_model_review_items"] == 1
+    assert phase["next_item_id"] == "iq_000010"
+    assert phase["pending_outcome_audits"] == 1
+
+
+def test_outcome_audit_wrappers(monkeypatch):
+    monkeypatch.setattr(helpers, "_backfill_change_decisions", lambda: {"updated": 2})
+    monkeypatch.setattr(helpers, "_queue_completed_decisions_for_outcome_audit", lambda retry=False: {"pending": 2, "retry": retry})
+    monkeypatch.setattr(helpers, "_audit_next_ai_review_outcome_with_openai", lambda: {"status": "PASS"})
+    assert helpers.backfill_ai_review_change_decisions() == {"updated": 2}
+    assert helpers.queue_completed_ai_review_outcomes_for_audit() == {"pending": 2, "retry": False}
+    assert helpers.audit_next_ai_review_outcome() == {"status": "PASS"}

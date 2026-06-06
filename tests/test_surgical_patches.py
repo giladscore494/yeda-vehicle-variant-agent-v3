@@ -329,3 +329,36 @@ def test_build_candidate_patches_only_for_change_required_and_patchable(tmp_path
     result = build_candidate_patches_from_decisions()
     assert result["created_count"] == 1
     assert result["change_required_not_patchable"] == 1
+
+
+def test_build_candidate_patches_skips_pending_and_failed_outcome_audits(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    _write_json(
+        tmp_path / DECISIONS_PATH,
+        {
+            "decisions": [
+                {
+                    "decision_id": "pending_audit",
+                    "change_decision": "CHANGE_REQUIRED",
+                    "patchable": True,
+                    "outcome_audit_status": "pending",
+                    "variant_ids": ["v1"],
+                    "field_changes": {"v1": {"trim.value": {"from": "Old", "to": "New"}}},
+                    "safe_to_apply": True,
+                },
+                {
+                    "decision_id": "failed_audit",
+                    "change_decision": "CHANGE_REQUIRED",
+                    "patchable": True,
+                    "outcome_audit_status": "failed",
+                    "variant_ids": ["v1"],
+                    "field_changes": {"v1": {"trim.value": {"from": "Old", "to": "New"}}},
+                    "safe_to_apply": True,
+                },
+            ]
+        },
+    )
+    result = build_candidate_patches_from_decisions()
+    assert result["created_count"] == 0
+    assert result["outcome_audit_pending"] == 1
+    assert result["outcome_audit_failed"] == 1

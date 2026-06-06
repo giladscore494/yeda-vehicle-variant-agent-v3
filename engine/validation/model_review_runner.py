@@ -335,6 +335,11 @@ def _build_decision(
         "seed_id": item.get("seed_id", ""),
         "issue_type": item.get("issue_type", ""),
         "risk_level": item.get("risk_level", ""),
+        "variant_ids": item.get("variant_ids", []) if isinstance(item.get("variant_ids"), list) else [],
+        "variant_id": item.get("variant_id", ""),
+        "audit_run_id": item.get("audit_run_id", ""),
+        "issue_queue_hash": item.get("issue_queue_hash", ""),
+        "active_source_hash": item.get("active_source_hash", ""),
         "routing": _routing_to_dict(routing),
         "gemini_result": gemini_result,
         "openai_result": openai_result,
@@ -346,6 +351,59 @@ def _build_decision(
     }
     decision.update(classify_change_decision(decision, item))
     return decision
+
+
+def backfill_change_decisions_for_completed_ai_reviews() -> dict:
+    """Backfill binary change outcomes for completed legacy decisions."""
+    payload = _load_decisions_payload()
+    decisions = payload.get("decisions") if isinstance(payload.get("decisions"), list) else []
+    issue_items = _load_issue_items()
+    queue_by_item_id = {
+        str(item.get("item_id") or ""): item
+        for item in issue_items
+        if isinstance(item, dict) and str(item.get("item_id") or "")
+    }
+    summary = {
+        "scanned": 0,
+        "updated": 0,
+        "change_required": 0,
+        "no_change_required": 0,
+        "patchable": 0,
+        "change_required_not_patchable": 0,
+    }
+    now = _utc_now()
+    for decision in decisions:
+        if not isinstance(decision, dict):
+            continue
+        status = str(decision.get("status") or decision.get("decision_status") or "").strip().lower()
+        if status and status not in {"completed", "done", "success"}:
+            continue
+        existing_change = str(decision.get("change_decision") or "").strip().upper()
+        if existing_change in {"CHANGE_REQUIRED", "NO_CHANGE_REQUIRED"}:
+            continue
+        summary["scanned"] += 1
+        item_id = str(decision.get("item_id") or "").strip()
+        item = queue_by_item_id.get(item_id, {})
+        classification = classify_change_decision(decision, item)
+        decision.update(classification)
+        decision["safe_to_auto_apply"] = False
+        decision.setdefault("requires_manual_approval", True)
+        decision["change_decision_backfilled_at"] = now
+        decision["change_decision_backfill_version"] = "binary-outcome-v1"
+        summary["updated"] += 1
+        if decision.get("change_decision") == "CHANGE_REQUIRED":
+            summary["change_required"] += 1
+            if decision.get("patchable") is True:
+                summary["patchable"] += 1
+            else:
+                summary["change_required_not_patchable"] += 1
+        elif decision.get("change_decision") == "NO_CHANGE_REQUIRED":
+            summary["no_change_required"] += 1
+    if summary["updated"]:
+        payload.setdefault("created_at", now)
+        payload["updated_at"] = now
+        safe_write_json(payload, DECISIONS_PATH)
+    return summary
 
 
 def _append_decisions(decisions: list[dict]) -> None:

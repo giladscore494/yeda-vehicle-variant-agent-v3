@@ -102,7 +102,10 @@ with action_cols[2]:
     if st.button("Run Full Audit", use_container_width=True):
         with st.spinner("Running deterministic audit..."):
             result = ui.run_audit_and_refresh_queue()
-        st.success(f"Audit complete: {result['issues_total']} issues found.")
+        if result.get("ok") is False:
+            st.error(result.get("message") or result.get("error") or "Audit blocked.")
+        else:
+            st.success(f"Audit complete: {result['issues_total']} issues found.")
         st.rerun()
 with action_cols[3]:
     if st.button("Build/Refresh Review Queue", use_container_width=True):
@@ -199,6 +202,7 @@ with final_cols[3]:
 st.subheader("Surgical Patch Workflow")
 patch_summary = ui.load_surgical_patch_summary()
 ai_outcome = ui.load_ai_review_outcome()
+phase_status = ui.load_current_model_review_phase()
 patch_cols = st.columns(5)
 patch_cols[0].metric("pending patches", patch_summary["pending"])
 patch_cols[1].metric("applied_pending_audit", patch_summary["applied_pending_audit"])
@@ -207,13 +211,18 @@ patch_cols[3].metric("audit_failed", patch_summary["audit_failed"])
 patch_cols[4].metric("blocked", patch_summary["blocked"])
 
 st.markdown("**AI Review outcome**")
-decision_cols = st.columns(6)
-decision_cols[0].metric("completed AI decisions", ai_outcome["completed_ai_decisions"])
+decision_cols = st.columns(5)
+decision_cols[0].metric("completed AI decisions", ai_outcome["completed_decisions"])
 decision_cols[1].metric("CHANGE_REQUIRED", ai_outcome["change_required"])
 decision_cols[2].metric("NO_CHANGE_REQUIRED", ai_outcome["no_change_required"])
-decision_cols[3].metric("patchable changes", ai_outcome["patchable_changes"])
-decision_cols[4].metric("non-patchable changes", ai_outcome["non_patchable_changes"])
-decision_cols[5].metric("pending patches", ai_outcome["pending_patches"])
+decision_cols[3].metric("patchable", ai_outcome["patchable"])
+decision_cols[4].metric("change_required_not_patchable", ai_outcome["change_required_not_patchable"])
+decision_cols2 = st.columns(5)
+decision_cols2[0].metric("missing_change_decision", ai_outcome["missing_change_decision"])
+decision_cols2[1].metric("outcome_audit_pending", ai_outcome["outcome_audit_pending"])
+decision_cols2[2].metric("outcome_audit_passed", ai_outcome["outcome_audit_passed"])
+decision_cols2[3].metric("outcome_audit_failed", ai_outcome["outcome_audit_failed"])
+decision_cols2[4].metric("manual_review_required", ai_outcome["manual_review_required"])
 if ai_outcome["rows"]:
     st.dataframe(
         ai_outcome["rows"],
@@ -221,6 +230,25 @@ if ai_outcome["rows"]:
         hide_index=True,
         column_order=ai_outcome["columns"],
     )
+st.caption(
+    f"Latest outcome: `{ai_outcome['latest_change_decision'] or 'none'}` / "
+    f"`{ai_outcome['latest_change_severity'] or 'none'}` — "
+    f"{ai_outcome['latest_change_reason'] or 'no reason'}"
+)
+
+st.markdown("**Current phase**")
+phase_cols = st.columns(5)
+phase_cols[0].metric("total model-review items", phase_status["total_model_review_items"])
+phase_cols[1].metric("completed", phase_status["completed_model_review_items"])
+phase_cols[2].metric("remaining", phase_status["remaining_model_review_items"])
+phase_cols[3].write(f"**next item**  \n`{phase_status.get('next_item_id') or 'none'}`")
+phase_cols[4].metric("pending outcome audits", phase_status["pending_outcome_audits"])
+if phase_status["remaining_model_review_items"] == 1:
+    st.info("1 model-review item remaining before full deep deterministic rescan.")
+if not phase_status["complete"]:
+    st.warning(phase_status["message"])
+else:
+    st.success(phase_status["message"])
 
 last_cols = st.columns(4)
 last_cols[0].write(f"**last patch_id**  \n`{patch_summary.get('last_patch_id') or 'none'}`")
@@ -255,6 +283,33 @@ with patch_action_cols[2]:
             st.error("Last patch diff audit: FAIL")
         else:
             st.info(result.get("message") or result.get("status") or "No audit result.")
+        st.rerun()
+audit_action_cols = st.columns(3)
+with audit_action_cols[0]:
+    if st.button("Backfill AI Review Change Decisions", use_container_width=True):
+        result = ui.backfill_ai_review_change_decisions()
+        st.success(f"Backfill complete: updated {result.get('updated', 0)} decisions.")
+        st.rerun()
+with audit_action_cols[1]:
+    if st.button("Queue Completed Decisions for Outcome Audit", use_container_width=True):
+        result = ui.queue_completed_ai_review_outcomes_for_audit()
+        st.success(
+            f"Queued outcome audits — pending: {result.get('pending', 0)}, "
+            f"passed: {result.get('passed', 0)}, failed: {result.get('failed', 0)}"
+        )
+        st.rerun()
+with audit_action_cols[2]:
+    if st.button("Audit Next AI Review Outcome with GPT-5.4", use_container_width=True):
+        with st.spinner("Auditing next AI review outcome..."):
+            result = ui.audit_next_ai_review_outcome()
+        if result.get("status") == "PASS":
+            st.success("AI review outcome audit: PASS")
+        elif result.get("status") == "FAIL":
+            st.error("AI review outcome audit: FAIL")
+            st.write("**Required fixes:**")
+            st.write(result.get("required_fixes") or [])
+        else:
+            st.info(result.get("message") or result.get("status") or "No pending outcome audit.")
         st.rerun()
 
 # ---------- 4. Review Queue Preview ----------

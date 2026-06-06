@@ -224,6 +224,11 @@ def _patch_from_decision(decision: dict) -> tuple[dict | None, str]:
     change_decision = str(decision.get("change_decision") or "").strip().upper()
     if change_decision == "NO_CHANGE_REQUIRED":
         return None, "no_change_required"
+    outcome_audit_status = str(decision.get("outcome_audit_status") or "").strip().lower()
+    if outcome_audit_status == "pending":
+        return None, "outcome_audit_pending"
+    if outcome_audit_status == "failed":
+        return None, "outcome_audit_failed"
     if change_decision == "CHANGE_REQUIRED" and decision.get("patchable") is not True:
         return None, "change_required_not_patchable"
 
@@ -276,6 +281,8 @@ def build_candidate_patches_from_decisions() -> dict:
         "no_change_required": 0,
         "patchable": 0,
         "change_required_not_patchable": 0,
+        "outcome_audit_pending": 0,
+        "outcome_audit_failed": 0,
         "created_count": 0,
     }
     for decision in decisions:

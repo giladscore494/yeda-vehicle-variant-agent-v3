@@ -60,3 +60,17 @@ def test_reject_merge_year_scope_actions_are_change_required_not_patchable():
         assert result["change_decision"] == "CHANGE_REQUIRED"
         assert result["patchable"] is False
         assert result["patchability_reason"] == "unsafe_action"
+
+
+def test_weak_evidence_is_no_change_required():
+    result = classify_change_decision(
+        {
+            "final_recommendation": "update_fields",
+            "confidence": 0.2,
+            "change_reason": "insufficient evidence for update",
+            "field_changes": {"v1": {"model": {"from": "A", "to": "B"}}},
+            "variant_ids": ["v1"],
+        }
+    )
+    assert result["change_decision"] == "NO_CHANGE_REQUIRED"
+    assert result["patchable"] is False
