@@ -20,6 +20,7 @@ from core.paths import (
     MANIFEST_PATH,
     SOURCE_CANONICAL_PATH,
 )
+from engine.validation.run_events import log_event
 
 _ALLOWED_SAFE_ACTIONS = {
     "whitespace_normalization",
@@ -203,6 +204,36 @@ def _apply_safe_decision(variants: list[dict], decision: dict, action: str) -> i
     return applied
 
 
+def _approved_reject_variant_ids(decisions: list[dict]) -> set[str]:
+    approved: set[str] = set()
+    for decision in decisions:
+        action = _decision_action(decision).lower()
+        if action != "reject":
+            continue
+        if decision.get("safe_to_auto_apply") is not True:
+            continue
+        variant_id = str(decision.get("variant_id") or "").strip()
+        if variant_id:
+            approved.add(variant_id)
+    return approved
+
+
+def _validate_variant_loss_guard(source_variants: list[dict], output_variants: list[dict], decisions: list[dict]) -> tuple[bool, list[str]]:
+    input_count = len(source_variants)
+    output_count = len(output_variants)
+    if output_count >= input_count:
+        return False, []
+
+    source_ids = {str(v.get("variant_id") or "") for v in source_variants if isinstance(v, dict) and v.get("variant_id")}
+    output_ids = {str(v.get("variant_id") or "") for v in output_variants if isinstance(v, dict) and v.get("variant_id")}
+    removed_ids = sorted(variant_id for variant_id in source_ids if variant_id not in output_ids)
+    approved_rejects = _approved_reject_variant_ids(decisions)
+    unexplained = [variant_id for variant_id in removed_ids if variant_id not in approved_rejects]
+    if unexplained or not removed_ids:
+        return True, unexplained
+    return False, []
+
+
 def export_final_clean_database() -> dict:
     """Export ``data/final/resume_package_final_clean.json`` and return a summary.
 
@@ -211,6 +242,14 @@ def export_final_clean_database() -> dict:
     actions, untargeted decisions, and model decisions with
     ``safe_to_auto_apply=false`` remain manual-review items.
     """
+    log_event(
+        {
+            "stage": "final_export",
+            "event_type": "export_started",
+            "status": "started",
+            "request_summary": f"source={SOURCE_CANONICAL_PATH}",
+        }
+    )
     canonical = _read_json(SOURCE_CANONICAL_PATH)
     if not isinstance(canonical, dict):
         raise FileNotFoundError(f"Source canonical not found or invalid: {SOURCE_CANONICAL_PATH}")
@@ -254,7 +293,18 @@ def export_final_clean_database() -> dict:
         else:
             manual_review_remaining_count += 1
 
+    source_variants = _all_variants(canonical)
+    blocked_variant_loss, unexplained_removed_variant_ids = _validate_variant_loss_guard(source_variants, vehicles, decisions)
+    if blocked_variant_loss:
+        raise ValueError(
+            "Blocked export: output variant count is lower than source and removals are not fully justified by "
+            "approved reject decisions with safe_to_auto_apply=true."
+        )
+
     created_at = _utc_now()
+    total_input_variants = len(source_variants)
+    total_output_variants = len(vehicles)
+    variant_count_delta = total_output_variants - total_input_variants
 
     output = {
         "metadata": {
@@ -262,8 +312,10 @@ def export_final_clean_database() -> dict:
             "source_file": SOURCE_CANONICAL_PATH,
             "decisions_file": DECISIONS_PATH,
             "manifest_file": MANIFEST_PATH,
-            "total_input_variants": len(_all_variants(canonical)),
-            "total_output_variants": len(vehicles),
+            "total_input_variants": total_input_variants,
+            "total_output_variants": total_output_variants,
+            "variant_count_delta": variant_count_delta,
+            "blocked_variant_loss": blocked_variant_loss,
             "safe_decisions_applied": safe_decisions_applied,
             "model_decisions_not_auto_applied": model_decisions_not_auto_applied,
             "manual_review_remaining_count": manual_review_remaining_count,
@@ -273,4 +325,19 @@ def export_final_clean_database() -> dict:
         "vehicles": vehicles,
     }
     _write_final_clean_database(output)
-    return {"ok": True, "path": FINAL_CLEAN_DATABASE_PATH, **output["metadata"]}
+    summary = {"ok": True, "path": FINAL_CLEAN_DATABASE_PATH, **output["metadata"]}
+    if unexplained_removed_variant_ids:
+        summary["unexplained_removed_variant_ids"] = unexplained_removed_variant_ids
+    log_event(
+        {
+            "stage": "final_export",
+            "event_type": "export_completed",
+            "status": "ok",
+            "request_summary": f"source={SOURCE_CANONICAL_PATH}",
+            "response_summary": (
+                f"output={FINAL_CLEAN_DATABASE_PATH} input={total_input_variants} "
+                f"output_count={total_output_variants} delta={variant_count_delta}"
+            ),
+        }
+    )
+    return summary

@@ -79,7 +79,7 @@ row2[3].write(f"**last run time**  \n`{summary['last_run_time'] or 'not run yet'
 
 # ---------- 6. Actions ----------
 st.subheader("Actions")
-action_cols = st.columns(4)
+action_cols = st.columns(6)
 with action_cols[0]:
     if st.button("Refresh Status", use_container_width=True):
         st.rerun()
@@ -97,15 +97,77 @@ with action_cols[2]:
         st.rerun()
 with action_cols[3]:
     if st.button("Export Final Clean Database", use_container_width=True):
-        with st.spinner("Exporting final clean database..."):
-            export_summary = ui.export_final_clean_database()
-        st.success(f"Final clean database exported: `{export_summary['final_path']}`")
-        summary_cols = st.columns(5)
-        summary_cols[0].metric("Input variants", export_summary["total_input_variants"])
-        summary_cols[1].metric("Output variants", export_summary["total_output_variants"])
-        summary_cols[2].metric("Safe applied", export_summary["safe_decisions_applied"])
-        summary_cols[3].metric("Manual remaining", export_summary["manual_review_remaining_count"])
-        summary_cols[4].write(f"**created_at**  \n`{export_summary['created_at']}`")
+        try:
+            with st.spinner("Exporting final clean database..."):
+                export_summary = ui.export_final_clean_database()
+            st.success(f"Final clean database exported: `{export_summary['final_path']}`")
+            summary_cols = st.columns(6)
+            summary_cols[0].metric("Input variants", export_summary["total_input_variants"])
+            summary_cols[1].metric("Output variants", export_summary["total_output_variants"])
+            summary_cols[2].metric("Delta", export_summary.get("variant_count_delta", 0))
+            summary_cols[3].metric("Safe applied", export_summary["safe_decisions_applied"])
+            summary_cols[4].metric("Manual remaining", export_summary["manual_review_remaining_count"])
+            summary_cols[5].write(f"**created_at**  \n`{export_summary['created_at']}`")
+            if export_summary.get("blocked_variant_loss"):
+                st.warning("Variant-loss guard was triggered and blocked removals.")
+        except Exception as exc:
+            st.error("Final export failed.")
+            with st.expander("Exception details"):
+                st.code(str(exc))
+with action_cols[4]:
+    if st.button("Run Final Database Quality Audit", use_container_width=True):
+        try:
+            with st.spinner("Running final database quality audit..."):
+                audit = ui.run_final_quality_audit()
+            if audit.get("status") == "PASS":
+                st.success("Final database quality audit: PASS")
+            else:
+                st.error("Final database quality audit: FAIL")
+            st.write(f"**Model:** `{audit.get('model', '')}`")
+            st.write(f"**Confidence:** `{audit.get('confidence', 0)}`")
+            st.write("**Blocking reasons:**")
+            st.write(audit.get("blocking_reasons") or [])
+            st.write("**Required fixes:**")
+            st.write(audit.get("required_fixes") or [])
+            st.write("**Non-blocking warnings:**")
+            st.write(audit.get("non_blocking_warnings") or [])
+            det = audit.get("deterministic_summary") or {}
+            st.write("**Deterministic summary:**")
+            st.json(
+                {
+                    "total_input_variants": det.get("total_input_variants"),
+                    "total_output_variants": det.get("total_output_variants"),
+                    "variant_count_delta": det.get("variant_count_delta"),
+                    "duplicate_id_count": det.get("duplicate_id_count"),
+                    "missing_required_field_counts": det.get("missing_required_field_counts"),
+                    "rejected_count": det.get("rejected_count"),
+                    "normalized_count": det.get("normalized_count"),
+                    "manual_review_remaining_count": det.get("manual_review_remaining_count"),
+                }
+            )
+        except Exception as exc:
+            st.error("Final database quality audit failed.")
+            with st.expander("Exception details"):
+                st.code(str(exc))
+with action_cols[5]:
+    if st.button("Save Final Clean Database to GitHub", use_container_width=True):
+        try:
+            with st.spinner("Saving final clean database to GitHub..."):
+                save_result = ui.save_final_clean_database_to_github()
+            if save_result.get("ok"):
+                st.success(
+                    f"Saved `{save_result.get('saved_path')}` to `{save_result.get('repo')}` "
+                    f"@ `{save_result.get('branch')}` (commit `{save_result.get('commit_sha')}`)"
+                )
+            else:
+                st.error(save_result.get("message") or "GitHub save failed.")
+                if save_result.get("exception"):
+                    with st.expander("Exception details"):
+                        st.code(str(save_result.get("exception")))
+        except Exception as exc:
+            st.error("GitHub save failed.")
+            with st.expander("Exception details"):
+                st.code(str(exc))
 
 # ---------- 4. Review Queue Preview ----------
 st.subheader("Review Queue Preview")
@@ -171,3 +233,7 @@ with st.expander("Advanced Debug / Raw Files"):
         st.write(f"**{item['path']}** — {'exists' if item['exists'] else 'missing'} ({item['size_bytes']} bytes)")
         if item.get("snippet"):
             st.code(item["snippet"] + ("\n… truncated" if item.get("truncated") else ""), language="json")
+    st.markdown("**Run Events / Model Trace**")
+    events = ui.load_recent_run_events(max_rows=20)
+    st.caption(f"Showing last {events['max_rows']} events from `{events['events_path']}`")
+    st.dataframe(events["rows"], use_container_width=True, hide_index=True, column_order=events["columns"])

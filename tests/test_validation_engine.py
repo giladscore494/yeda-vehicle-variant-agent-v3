@@ -919,6 +919,8 @@ class TestAppUIContracts:
             "Export Final Clean Database",
             "Preview AI Review",
             "Run AI Review",
+            "Run Final Database Quality Audit",
+            "Save Final Clean Database to GitHub",
         ):
             assert label in app_source
 

@@ -43,3 +43,17 @@ pytest tests/ -v
 - Model-generated decisions remain manual-review only unless a future workflow explicitly marks a decision `safe_to_auto_apply=true`.
 - The source canonical database is never mutated by validation or model review.
 - The final clean database is exported separately to `data/final/resume_package_final_clean.json`.
+
+## Final export, QA, and GitHub save
+
+- `Export Final Clean Database` writes only `data/final/resume_package_final_clean.json`.
+- Export enforces a no-variant-loss guard: output counts cannot drop unless every removed variant has an approved `reject` decision with `safe_to_auto_apply=true`.
+- `Run Final Database Quality Audit` performs deterministic integrity checks and then uses the configured OpenAI validator model (`openai.validator_model_id`, default `gpt-5.4`) to return strict `PASS`/`FAIL` JSON.
+- Final quality audit does not mutate source/final files and does not save to GitHub automatically.
+- `Save Final Clean Database to GitHub` is explicit and saves only `data/final/resume_package_final_clean.json` with commit message `Save final clean validation database`.
+
+## Run events / model trace
+
+- Runtime events are appended to `data/validation/run_events.jsonl`.
+- Events are compact and sanitized: no API keys, no full raw prompts, no full raw model outputs by default.
+- The Streamlit Advanced Debug panel shows the last 20 events under `Run Events / Model Trace`.
