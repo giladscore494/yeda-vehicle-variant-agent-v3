@@ -9,6 +9,7 @@ from typing import Any
 from core.paths import (
     DECISIONS_PATH,
     FINAL_CLEAN_DATABASE_PATH,
+    PATCHES_PATH,
     SOURCE_CANONICAL_PATH,
     VALIDATION_REPORT_PATH,
     MODEL_REVIEW_PROGRESS_PATH,
@@ -171,6 +172,69 @@ def _model_decisions_not_applied_sample(decisions_payload: Any, *, max_items: in
     return sample
 
 
+def _decision_rows(decisions_payload: Any) -> list[dict]:
+    if isinstance(decisions_payload, list):
+        return [d for d in decisions_payload if isinstance(d, dict)]
+    if isinstance(decisions_payload, dict):
+        raw = decisions_payload.get("decisions")
+        if isinstance(raw, list):
+            return [d for d in raw if isinstance(d, dict)]
+    return []
+
+
+def _patches_by_source_decision_id() -> dict[str, list[dict]]:
+    payload = _read_json(PATCHES_PATH)
+    if not isinstance(payload, dict):
+        return {}
+    patches = payload.get("patches")
+    if not isinstance(patches, list):
+        return {}
+    grouped: dict[str, list[dict]] = {}
+    for patch in patches:
+        if not isinstance(patch, dict):
+            continue
+        decision_id = str(patch.get("source_decision_id") or "").strip()
+        if not decision_id:
+            continue
+        grouped.setdefault(decision_id, []).append(patch)
+    return grouped
+
+
+def _decision_change_summary(decisions_payload: Any) -> dict[str, Any]:
+    decisions = _decision_rows(decisions_payload)
+    patches_by_decision = _patches_by_source_decision_id()
+    change_required = 0
+    no_change_required = 0
+    patchable = 0
+    unpatched_change_required = 0
+    unpatched_critical_or_material = 0
+    for decision in decisions:
+        state = str(decision.get("change_decision") or "").strip().upper()
+        if state == "CHANGE_REQUIRED":
+            change_required += 1
+            if decision.get("patchable") is True:
+                patchable += 1
+            decision_id = str(decision.get("decision_id") or "").strip()
+            patches = patches_by_decision.get(decision_id, [])
+            applied = any(
+                isinstance(patch, dict) and patch.get("status") in {"applied_pending_audit", "audit_passed", "audit_failed"}
+                for patch in patches
+            )
+            if not applied:
+                unpatched_change_required += 1
+                if str(decision.get("change_severity") or "").lower() in {"critical", "material"}:
+                    unpatched_critical_or_material += 1
+        elif state == "NO_CHANGE_REQUIRED":
+            no_change_required += 1
+    return {
+        "change_required_decisions": change_required,
+        "no_change_required_decisions": no_change_required,
+        "patchable_decisions": patchable,
+        "unpatched_change_required_decisions": unpatched_change_required,
+        "unpatched_change_required_critical_or_material": unpatched_critical_or_material,
+    }
+
+
 def _top_unresolved_issue_types(report_payload: Any) -> list[dict]:
     if not isinstance(report_payload, dict):
         return []
@@ -263,6 +327,7 @@ def _deterministic_checks() -> tuple[dict[str, Any], list[str], list[str]]:
     rejected_count = int(metadata.get("rejected_count", 0) or 0)
     normalized_count = int(metadata.get("normalized_count", 0) or 0)
     model_not_applied_sample = _model_decisions_not_applied_sample(decisions_payload)
+    change_summary = _decision_change_summary(decisions_payload)
 
     summary.update(
         {
@@ -279,6 +344,7 @@ def _deterministic_checks() -> tuple[dict[str, Any], list[str], list[str]]:
             "sample_of_changed_records": _changed_records_sample(source_variants, output_variants),
             "sample_of_model_decisions_not_applied": model_not_applied_sample,
             "top_issue_types_still_unresolved": _top_unresolved_issue_types(report_payload),
+            **change_summary,
             "final_path": FINAL_CLEAN_DATABASE_PATH,
             "source_path": active_source_path,
             "source_hash_before": _sha256(active_source_path),
@@ -328,6 +394,10 @@ def _deterministic_checks() -> tuple[dict[str, Any], list[str], list[str]]:
             summary["unexplained_removed_variant_ids"] = unexplained[:25]
     if output_count > input_count:
         warnings.append("Output variant count is higher than source; review for unexpected additions.")
+    if change_summary["unpatched_change_required_critical_or_material"] > 0:
+        blocking_reasons.append(
+            "Unpatched CHANGE_REQUIRED decisions with critical/material severity remain unresolved."
+        )
 
     summary["source_hash_after"] = _sha256(active_source_path)
     summary["final_hash_after"] = _sha256(FINAL_CLEAN_DATABASE_PATH)

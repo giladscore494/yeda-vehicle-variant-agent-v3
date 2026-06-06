@@ -198,12 +198,29 @@ with final_cols[3]:
 # ---------- Surgical Patch Workflow ----------
 st.subheader("Surgical Patch Workflow")
 patch_summary = ui.load_surgical_patch_summary()
+ai_outcome = ui.load_ai_review_outcome()
 patch_cols = st.columns(5)
 patch_cols[0].metric("pending patches", patch_summary["pending"])
 patch_cols[1].metric("applied_pending_audit", patch_summary["applied_pending_audit"])
 patch_cols[2].metric("audit_passed", patch_summary["audit_passed"])
 patch_cols[3].metric("audit_failed", patch_summary["audit_failed"])
 patch_cols[4].metric("blocked", patch_summary["blocked"])
+
+st.markdown("**AI Review outcome**")
+decision_cols = st.columns(6)
+decision_cols[0].metric("completed AI decisions", ai_outcome["completed_ai_decisions"])
+decision_cols[1].metric("CHANGE_REQUIRED", ai_outcome["change_required"])
+decision_cols[2].metric("NO_CHANGE_REQUIRED", ai_outcome["no_change_required"])
+decision_cols[3].metric("patchable changes", ai_outcome["patchable_changes"])
+decision_cols[4].metric("non-patchable changes", ai_outcome["non_patchable_changes"])
+decision_cols[5].metric("pending patches", ai_outcome["pending_patches"])
+if ai_outcome["rows"]:
+    st.dataframe(
+        ai_outcome["rows"],
+        use_container_width=True,
+        hide_index=True,
+        column_order=ai_outcome["columns"],
+    )
 
 last_cols = st.columns(4)
 last_cols[0].write(f"**last patch_id**  \n`{patch_summary.get('last_patch_id') or 'none'}`")

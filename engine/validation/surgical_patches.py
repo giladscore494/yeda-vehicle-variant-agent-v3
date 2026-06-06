@@ -221,14 +221,22 @@ def _decision_summary(decision: dict) -> str:
 
 
 def _patch_from_decision(decision: dict) -> tuple[dict | None, str]:
+    change_decision = str(decision.get("change_decision") or "").strip().upper()
+    if change_decision == "NO_CHANGE_REQUIRED":
+        return None, "no_change_required"
+    if change_decision == "CHANGE_REQUIRED" and decision.get("patchable") is not True:
+        return None, "change_required_not_patchable"
+
     action = _decision_action(decision)
     action_key = action.lower()
     if action_key in _NEVER_AUTO_PATCH_ACTIONS:
-        return None, "manual_review_required"
+        return None, "change_required_not_patchable" if change_decision == "CHANGE_REQUIRED" else "manual_review_required"
 
     variant_ids = _extract_variant_ids(decision)
     field_changes = _extract_field_changes(decision, variant_ids) if variant_ids else None
     if not variant_ids or field_changes is None:
+        if change_decision == "CHANGE_REQUIRED":
+            return None, "change_required_not_patchable"
         return None, "manual_review_required"
 
     patch_action = action if action in _ALLOWED_PATCH_ACTIONS else "update_fields"
@@ -260,11 +268,28 @@ def build_candidate_patches_from_decisions() -> dict:
     """Create candidate patches only from exact variant IDs and exact from/to changes."""
     decisions = _decisions_list(_read_json(DECISIONS_PATH, {"decisions": []}))
     patches: list[dict] = []
-    summary = {"pending": 0, "blocked": 0, "manual_review_required": 0, "created_count": 0}
+    summary = {
+        "pending": 0,
+        "blocked": 0,
+        "manual_review_required": 0,
+        "change_required": 0,
+        "no_change_required": 0,
+        "patchable": 0,
+        "change_required_not_patchable": 0,
+        "created_count": 0,
+    }
     for decision in decisions:
+        decision_state = str(decision.get("change_decision") or "").strip().upper()
+        if decision_state == "CHANGE_REQUIRED":
+            summary["change_required"] += 1
+            if decision.get("patchable") is True:
+                summary["patchable"] += 1
+        elif decision_state == "NO_CHANGE_REQUIRED":
+            summary["no_change_required"] += 1
+
         patch, category = _patch_from_decision(decision)
         if patch is None:
-            summary["manual_review_required"] += 1
+            summary[category] += 1
             continue
         patches.append(patch)
         summary[category] += 1

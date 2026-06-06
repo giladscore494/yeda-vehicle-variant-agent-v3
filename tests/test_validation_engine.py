@@ -809,6 +809,7 @@ class TestModelReviewGate:
         assert result["decisions_written"] == 1
         assert decisions[0]["safe_to_auto_apply"] is False
         assert decisions[0]["gemini_result"]["safe_to_auto_apply"] is False
+        assert decisions[0]["change_decision"] in {"CHANGE_REQUIRED", "NO_CHANGE_REQUIRED"}
 
 
 # ======================================================================
