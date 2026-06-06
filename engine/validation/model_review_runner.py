@@ -16,6 +16,7 @@ from typing import Any
 from core.paths import DECISIONS_PATH, ISSUE_QUEUE_PATH
 from engine import config
 from engine.validation.model_router import ModelRoutingDecision, route_issue_item
+from engine.validation.run_events import log_event
 from engine.validation.write_guard import safe_write_json
 
 MAX_MODEL_ITEMS_PER_RUN = 10
@@ -354,11 +355,38 @@ def run_model_review(
     routings = [route_issue_item(item) for item in selected]
     preview = _build_preview(selected, routings)
 
+    log_event(
+        {
+            "stage": "model_review",
+            "event_type": "ai_preview_started",
+            "status": "started",
+            "request_summary": f"max_items={max_items} selected={len(selected)} dry_run={dry_run}",
+        }
+    )
     budget_error = _budget_error(preview)
     if budget_error:
+        log_event(
+            {
+                "stage": "model_review",
+                "event_type": "ai_preview_completed",
+                "status": "failed",
+                "response_summary": budget_error.get("error", "budget_guardrail_blocked"),
+            }
+        )
         return budget_error
 
     if dry_run:
+        log_event(
+            {
+                "stage": "model_review",
+                "event_type": "ai_preview_completed",
+                "status": "ok",
+                "response_summary": (
+                    f"planned_calls={preview.get('planned_total_calls', 0)} "
+                    f"estimated_cost={preview.get('estimated_cost_usd', 0)}"
+                ),
+            }
+        )
         return preview
 
     decisions: list[dict] = []
@@ -369,18 +397,102 @@ def run_model_review(
         gemini_result = None
         openai_result = None
         if routing.primary_provider == "gemini":
+            log_event(
+                {
+                    "stage": "model_review",
+                    "event_type": "model_call_planned",
+                    "item_id": item.get("item_id", ""),
+                    "provider": "gemini",
+                    "model": routing.primary_model or config.get("google", "gemini_validator_model_id"),
+                    "status": "planned",
+                    "request_summary": f"issue_type={item.get('issue_type', '')}",
+                }
+            )
+            log_event(
+                {
+                    "stage": "model_review",
+                    "event_type": "model_call_started",
+                    "item_id": item.get("item_id", ""),
+                    "provider": "gemini",
+                    "model": routing.primary_model or config.get("google", "gemini_validator_model_id"),
+                    "status": "started",
+                }
+            )
             gemini_result = call_gemini_for_issue(item, routing)
             if isinstance(gemini_result, dict):
                 gemini_result["safe_to_auto_apply"] = False
+                log_event(
+                    {
+                        "stage": "model_review",
+                        "event_type": "model_call_completed" if gemini_result.get("ok") else "model_call_failed",
+                        "item_id": item.get("item_id", ""),
+                        "provider": "gemini",
+                        "model": gemini_result.get("model", routing.primary_model or ""),
+                        "status": "ok" if gemini_result.get("ok") else "failed",
+                        "response_summary": str(gemini_result.get("error_message") or gemini_result.get("parsed_result") or ""),
+                        "error": str(gemini_result.get("error_message") or ""),
+                    }
+                )
 
         if routing.second_opinion_provider == "openai":
+            log_event(
+                {
+                    "stage": "model_review",
+                    "event_type": "model_call_planned",
+                    "item_id": item.get("item_id", ""),
+                    "provider": "openai",
+                    "model": routing.second_opinion_model or config.get("openai", "validator_model_id"),
+                    "status": "planned",
+                    "request_summary": f"issue_type={item.get('issue_type', '')}",
+                }
+            )
+            log_event(
+                {
+                    "stage": "model_review",
+                    "event_type": "model_call_started",
+                    "item_id": item.get("item_id", ""),
+                    "provider": "openai",
+                    "model": routing.second_opinion_model or config.get("openai", "validator_model_id"),
+                    "status": "started",
+                }
+            )
             openai_result = call_openai_for_issue(item, routing, gemini_result)
             if isinstance(openai_result, dict):
                 openai_result["safe_to_auto_apply"] = False
+                log_event(
+                    {
+                        "stage": "model_review",
+                        "event_type": "model_call_completed" if openai_result.get("ok") else "model_call_failed",
+                        "item_id": item.get("item_id", ""),
+                        "provider": "openai",
+                        "model": openai_result.get("model", routing.second_opinion_model or ""),
+                        "status": "ok" if openai_result.get("ok") else "failed",
+                        "response_summary": str(openai_result.get("error_message") or openai_result.get("parsed_result") or ""),
+                        "error": str(openai_result.get("error_message") or ""),
+                    }
+                )
 
-        decisions.append(_build_decision(item, routing, gemini_result, openai_result))
+        decision = _build_decision(item, routing, gemini_result, openai_result)
+        decisions.append(decision)
+        log_event(
+            {
+                "stage": "model_review",
+                "event_type": "decision_appended",
+                "item_id": item.get("item_id", ""),
+                "status": "ok",
+                "response_summary": f"final_recommendation={decision.get('final_recommendation', '')}",
+            }
+        )
 
     _append_decisions(decisions)
+    log_event(
+        {
+            "stage": "model_review",
+            "event_type": "ai_preview_completed",
+            "status": "ok",
+            "response_summary": f"decisions_written={len(decisions)}",
+        }
+    )
     return {
         "ok": True,
         **preview,

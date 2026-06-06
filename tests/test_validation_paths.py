@@ -8,6 +8,7 @@ from core.paths import (
     ISSUE_QUEUE_PATH,
     MANIFEST_PATH,
     SOURCE_CANONICAL_PATH,
+    RUN_EVENTS_PATH,
     STALE_ROOT_CANONICAL_PATH,
     VALIDATION_DIR,
     VALIDATION_REPORT_PATH,
@@ -40,6 +41,7 @@ def test_validation_path_constants_point_to_expected_files():
     assert DECISIONS_PATH == "data/validation/decisions.json"
     assert MANIFEST_PATH == "data/validation/manifest.json"
     assert VALIDATION_REPORT_PATH == "data/validation/validation_report.json"
+    assert RUN_EVENTS_PATH == "data/validation/run_events.jsonl"
     assert FINAL_DIR == "data/final"
     assert FINAL_CLEAN_DATABASE_PATH == "data/final/resume_package_final_clean.json"
 

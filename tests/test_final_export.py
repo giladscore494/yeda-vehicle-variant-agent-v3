@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import copy
+import hashlib
 import json
 from pathlib import Path
 
@@ -79,6 +80,8 @@ def test_export_creates_final_clean_database_and_metadata(tmp_path, monkeypatch)
     assert payload["metadata"]["manifest_file"] == MANIFEST_PATH
     assert payload["metadata"]["total_input_variants"] == 3
     assert payload["metadata"]["total_output_variants"] == 3
+    assert payload["metadata"]["variant_count_delta"] == 0
+    assert payload["metadata"]["blocked_variant_loss"] is False
     assert payload["metadata"]["safe_decisions_applied"] == 0
     assert payload["metadata"]["model_decisions_not_auto_applied"] == 0
     assert payload["metadata"]["manual_review_remaining_count"] == 0
@@ -105,6 +108,8 @@ def test_export_writes_only_final_output_and_preserves_source(tmp_path, monkeypa
     assert payload["metadata"]["decisions_file"] == DECISIONS_PATH
     assert payload["metadata"]["manifest_file"] == MANIFEST_PATH
     assert payload["metadata"]["total_output_variants"] == 3
+    assert payload["metadata"]["variant_count_delta"] == 0
+    assert payload["metadata"]["blocked_variant_loss"] is False
 
 
 def test_export_does_not_overwrite_source_canonical(tmp_path, monkeypatch):
@@ -208,3 +213,44 @@ def test_unsupported_decision_becomes_manual_review_remaining(tmp_path, monkeypa
 
     assert summary["safe_decisions_applied"] == 0
     assert summary["manual_review_remaining_count"] == 1
+
+
+def test_export_blocks_accidental_variant_loss(tmp_path, monkeypatch):
+    from engine.validation import final_export as module
+
+    _prepare(tmp_path, monkeypatch, [
+        {
+            "decision_id": "safe_trim",
+            "source": "deterministic_audit",
+            "action": "whitespace_normalization",
+            "variant_id": "variant_safe",
+            "field": "trim.value",
+        }
+    ])
+
+    original_apply = module._apply_safe_decision
+
+    def _drop_one_variant(variants, decision, action):
+        if variants:
+            variants.pop()
+        return original_apply(variants, decision, action)
+
+    monkeypatch.setattr(module, "_apply_safe_decision", _drop_one_variant)
+
+    try:
+        module.export_final_clean_database()
+    except ValueError as exc:
+        assert "Blocked export" in str(exc)
+    else:
+        raise AssertionError("Expected blocked export when output variant count drops.")
+
+
+def test_export_source_canonical_hash_unchanged(tmp_path, monkeypatch):
+    _prepare(tmp_path, monkeypatch, [])
+    source_path = tmp_path / SOURCE_CANONICAL_PATH
+    before = hashlib.sha256(source_path.read_bytes()).hexdigest()
+
+    export_final_clean_database()
+
+    after = hashlib.sha256(source_path.read_bytes()).hexdigest()
+    assert before == after

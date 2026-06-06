@@ -170,3 +170,40 @@ def test_export_final_clean_database_returns_ui_safe_summary(monkeypatch):
     assert summary["safe_decisions_applied"] == 7
     assert summary["manual_review_remaining_count"] == 2
     assert summary["created_at"] == "2026-06-06T12:34:56+00:00"
+    assert summary["variant_count_delta"] == 0
+    assert summary["blocked_variant_loss"] is False
+
+
+def test_save_final_clean_database_to_github_wrapper(monkeypatch):
+    expected = {"ok": True, "saved_path": "data/final/resume_package_final_clean.json"}
+    monkeypatch.setattr(helpers, "_save_final_clean_database_to_github", lambda: expected)
+    assert helpers.save_final_clean_database_to_github() == expected
+
+
+def test_run_final_quality_audit_wrapper(monkeypatch):
+    expected = {"status": "PASS", "confidence": 0.93}
+    monkeypatch.setattr(helpers, "_audit_final_clean_database_quality", lambda: expected)
+    assert helpers.run_final_quality_audit() == expected
+
+
+def test_load_recent_run_events_wrapper(monkeypatch):
+    monkeypatch.setattr(
+        helpers,
+        "load_recent_events",
+        lambda limit: [
+            {
+                "time": "2026-06-06T00:00:00+00:00",
+                "stage": "model_review",
+                "provider": "openai",
+                "model": "gpt-5.4",
+                "item_id": "iq_1",
+                "status": "ok",
+                "summary": "done",
+            }
+        ],
+    )
+    payload = helpers.load_recent_run_events(max_rows=20)
+    assert payload["max_rows"] == 20
+    assert payload["events_path"] == "data/validation/run_events.jsonl"
+    assert payload["columns"] == ["time", "stage", "provider", "model", "item_id", "status", "summary"]
+    assert payload["rows"][0]["summary"] == "done"

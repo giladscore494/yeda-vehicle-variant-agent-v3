@@ -12,6 +12,7 @@ ISSUE_QUEUE_PATH = "data/validation/issue_queue.json"
 DECISIONS_PATH = "data/validation/decisions.json"
 MANIFEST_PATH = "data/validation/manifest.json"
 VALIDATION_REPORT_PATH = "data/validation/validation_report.json"
+RUN_EVENTS_PATH = "data/validation/run_events.jsonl"
 
 FINAL_DIR = "data/final"
 FINAL_CLEAN_DATABASE_PATH = "data/final/resume_package_final_clean.json"

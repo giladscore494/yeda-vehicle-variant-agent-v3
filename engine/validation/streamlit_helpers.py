@@ -11,15 +11,19 @@ from pathlib import Path
 from typing import Any
 
 from core.paths import (
+    FINAL_CLEAN_DATABASE_PATH,
     ISSUE_QUEUE_PATH,
     MANIFEST_PATH,
     VALIDATION_REPORT_PATH,
     DECISIONS_PATH,
 )
+from engine.validation.final_github_save import save_final_clean_database_to_github as _save_final_clean_database_to_github
+from engine.validation.final_quality_audit import audit_final_clean_database_quality as _audit_final_clean_database_quality
 from engine.validation.file_status import load_database_file_status
 from engine.validation.minimal_pipeline import run_full_audit
 from engine.validation.model_review_runner import run_model_review
 from engine.validation.final_export import export_final_clean_database as _export_final_clean_database
+from engine.validation.run_events import load_recent_events
 
 QUEUE_PREVIEW_COLUMNS = (
     "item_id",
@@ -264,4 +268,28 @@ def export_final_clean_database() -> dict:
         "safe_decisions_applied": summary.get("safe_decisions_applied", 0),
         "manual_review_remaining_count": summary.get("manual_review_remaining_count", 0),
         "created_at": summary.get("created_at") or summary.get("metadata", {}).get("created_at") or "",
+        "variant_count_delta": summary.get("variant_count_delta", 0),
+        "blocked_variant_loss": bool(summary.get("blocked_variant_loss", False)),
+    }
+
+
+def save_final_clean_database_to_github() -> dict:
+    """Save only the final clean database to GitHub."""
+    return _save_final_clean_database_to_github()
+
+
+def run_final_quality_audit() -> dict:
+    """Run final clean database quality audit."""
+    return _audit_final_clean_database_quality()
+
+
+def load_recent_run_events(max_rows: int = 20) -> dict:
+    """Return compact recent run/model events for debug display."""
+    rows = load_recent_events(limit=max_rows)
+    return {
+        "rows": rows,
+        "columns": ["time", "stage", "provider", "model", "item_id", "status", "summary"],
+        "max_rows": max_rows,
+        "events_path": "data/validation/run_events.jsonl",
+        "final_path": FINAL_CLEAN_DATABASE_PATH,
     }

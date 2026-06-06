@@ -26,6 +26,7 @@ from core.paths import (
     VALIDATION_REPORT_PATH,
 )
 from engine.validation.normalizer import extract_value, extract_year
+from engine.validation.run_events import log_event
 from engine.validation.write_guard import safe_write_json
 
 _RISK_LEVELS = ("critical", "high", "medium", "low")
@@ -509,6 +510,14 @@ def write_validation_outputs(queue: list[dict], summary: dict) -> None:
 def run_full_audit() -> dict:
     """Run the deterministic audit over the full source canonical file."""
     started_at = _utc_now()
+    log_event(
+        {
+            "stage": "audit",
+            "event_type": "audit_started",
+            "status": "started",
+            "request_summary": f"source={SOURCE_CANONICAL_PATH}",
+        }
+    )
     source_path = Path(SOURCE_CANONICAL_PATH)
     source_data = json.loads(source_path.read_text(encoding="utf-8"))
     queue = build_issue_queue(source_data)
@@ -517,7 +526,7 @@ def run_full_audit() -> dict:
     summary["started_at"] = started_at
     summary["completed_at"] = completed_at
     write_validation_outputs(queue, summary)
-    return {
+    result = {
         "run_id": summary["run_id"],
         "source_file": SOURCE_CANONICAL_PATH,
         "source_variant_count": summary["source_variant_count"],
@@ -526,3 +535,13 @@ def run_full_audit() -> dict:
         "model_review_items_available": summary["model_review_items_available"],
         "manual_review_items_available": summary["manual_review_items_available"],
     }
+    log_event(
+        {
+            "stage": "audit",
+            "event_type": "audit_completed",
+            "status": "ok",
+            "request_summary": f"source={SOURCE_CANONICAL_PATH}",
+            "response_summary": f"issues_total={summary['issues_total']}",
+        }
+    )
+    return result
