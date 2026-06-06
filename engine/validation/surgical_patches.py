@@ -459,6 +459,8 @@ def apply_surgical_patches(*, require_safe: bool = True, run_diff_audit: bool = 
         results = [apply_surgical_patch(patch_id) for patch_id in patch_ids]
     else:
         results = [apply_next_safe_patch()]
+    if not results:
+        return {"applied_count": 0, "skipped_count": 0, "applied": [], "skipped": [], "status": "no_patch_ids"}
     applied = [r for r in results if r.get("status") == "applied_pending_audit"]
     skipped = [r for r in results if r.get("status") != "applied_pending_audit"]
     return {"applied_count": len(applied), "skipped_count": len(skipped), "applied": applied, "skipped": skipped, **results[-1]}

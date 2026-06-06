@@ -71,9 +71,6 @@ def _load_json_file(path: Path) -> Any | None:
     except (OSError, json.JSONDecodeError):
         return None
 
-
-
-
 def _load_jsonl_file(path: Path) -> list[dict]:
     rows: list[dict] = []
     try:

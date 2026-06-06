@@ -54,8 +54,6 @@ def _read_json(path: str | Path, default: Any | None = None) -> Any:
     return json.loads(p.read_text(encoding="utf-8"))
 
 
-
-
 def _sha256(path: str | Path) -> str:
     p = Path(path)
     if not p.exists():
