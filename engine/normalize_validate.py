@@ -70,6 +70,20 @@ def _bool_arg(val: str) -> bool:
     return val.lower() in ("true", "1", "yes")
 
 
+def _legacy_model_validation_disabled_result(group_key: str, action: str) -> dict:
+    """Return a no-call marker for retired legacy group model validation."""
+    return {
+        "group_key": group_key,
+        "action": action,
+        "status": "legacy_model_validation_disabled",
+        "model_calls_attempted": 0,
+        "message": (
+            "Use engine.validation.model_review_runner.run_model_review() "
+            "with issue_queue gating."
+        ),
+    }
+
+
 def _run_validation(args: argparse.Namespace) -> None:
     """Main validation pipeline."""
     from engine import config
@@ -239,53 +253,15 @@ def _run_validation(args: argparse.Namespace) -> None:
             # No model call needed
             pass
 
-        elif action == "gemini_only" and not dry_run:
-            # Medium risk — Gemini only
-            try:
-                from engine.validation.providers.gemini_validator import validate_group
-                gemini_result = validate_group(
-                    group_key, group_variants, trim_candidates, cost_tracker
-                )
-            except Exception as exc:
-                logger.error("Gemini validation failed for %s: %s", group_key, exc)
-                failed_calls.append({
-                    "group_key": group_key,
-                    "provider": "gemini",
-                    "error": str(exc),
-                })
-
-        elif action in ("gemini_and_openai", "dual_model_required") and not dry_run:
-            # High/critical risk — both models
-            try:
-                from engine.validation.providers.gemini_validator import validate_group
-                gemini_result = validate_group(
-                    group_key, group_variants, trim_candidates, cost_tracker
-                )
-            except Exception as exc:
-                logger.error("Gemini validation failed for %s: %s", group_key, exc)
-                failed_calls.append({
-                    "group_key": group_key,
-                    "provider": "gemini",
-                    "error": str(exc),
-                })
-
-            try:
-                from engine.validation.providers.openai_reviewer import review_group
-                openai_result = review_group(
-                    group_key, group_variants, trim_candidates,
-                    gemini_result=gemini_result,
-                    cost_tracker=cost_tracker,
-                )
-            except Exception as exc:
-                logger.error("OpenAI review failed for %s: %s", group_key, exc)
-                failed_calls.append({
-                    "group_key": group_key,
-                    "provider": "openai",
-                    "error": str(exc),
-                })
-
-        elif dry_run and action != "trusted_existing_deterministic":
-            pending_groups.append(group_key)
+        elif action != "trusted_existing_deterministic":
+            # Legacy risk/action group validation is intentionally no-call.
+            # Real model reviews must be run via the issue-queue gate in
+            # engine.validation.model_review_runner.run_model_review().
+            disabled_result = _legacy_model_validation_disabled_result(group_key, action)
+            if dry_run:
+                pending_groups.append(group_key)
+            else:
+                failed_calls.append(disabled_result)
 
         # Resolve decisions for each variant in group
         for v in group_variants:
