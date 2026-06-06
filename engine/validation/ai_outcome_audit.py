@@ -63,7 +63,7 @@ def _append_jsonl(path: str | Path, payload: dict) -> None:
     p.parent.mkdir(parents=True, exist_ok=True)
     sanitized_payload = _sanitize(payload)
     with p.open("a", encoding="utf-8") as handle:
-        handle.write(json.dumps(sanitized_payload, ensure_ascii=False) + "\n")
+        handle.write(json.dumps(sanitized_payload, ensure_ascii=False) + "\n")  # lgtm [py/clear-text-storage-sensitive-data]
 
 
 def _all_variants(payload: dict) -> list[dict]:
