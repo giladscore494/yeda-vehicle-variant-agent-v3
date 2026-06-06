@@ -5,8 +5,7 @@ Guards:
 - Must NOT be on main
 - Must NOT commit canonical
 - Must NOT commit secrets or tmp files
-- Primary allowed files in data/validation/
-- Legacy allowed files in data/validated_runs/ and data/runtime/
+- Allowed files are validation working files, optional runtime state, and the final clean export
 """
 from __future__ import annotations
 
@@ -19,7 +18,9 @@ from core.paths import (
     ISSUE_QUEUE_PATH,
     MANIFEST_PATH,
     SOURCE_CANONICAL_PATH,
+    STALE_ROOT_CANONICAL_PATH,
     VALIDATION_REPORT_PATH,
+    FINAL_CLEAN_DATABASE_PATH,
 )
 from engine import config
 from engine.github_writer import push_file
@@ -30,26 +31,30 @@ _ALLOWED_REPO = "giladscore494/yeda-vehicle-variant-agent-v3"
 _ALLOWED_BRANCH = "validation-v2-budgeted-dual-il-trims"
 _BLOCKED_BRANCH = "main"
 
-# Files that are allowed to be committed
+# Files that are allowed to be committed. Keep this intentionally minimal:
+# validation working files plus the one Task 5 final clean output.
 ALLOWED_FILES = [
-    VALIDATION_REPORT_PATH,
     ISSUE_QUEUE_PATH,
     DECISIONS_PATH,
     MANIFEST_PATH,
-    "data/validated_runs/resume_package_canonical_validated_v2.json",
-    "data/validated_runs/validation_report_v2.json",
-    "data/validated_runs/validation_issues_v2.json",
-    "data/validated_runs/validation_patch_suggestions_v2.json",
-    "data/validated_runs/targeted_seed_validation_v2.json",
-    "data/validated_runs/model_validation_results_v2.json",
-    "data/validated_runs/validation_run_manifest_v2.json",
+    VALIDATION_REPORT_PATH,
+    FINAL_CLEAN_DATABASE_PATH,
     "data/runtime/current_validation_run.json",
 ]
 
-# Files that must NEVER be committed
+# Files and path fragments that must NEVER be committed by this save wrapper.
 BLOCKED_FILES = [
     SOURCE_CANONICAL_PATH,
+    STALE_ROOT_CANONICAL_PATH,
 ]
+BLOCKED_PATH_PARTS = (
+    "secrets",
+    "tmp",
+    "old_project",
+    ".env",
+    "api_key",
+    "apikey",
+)
 
 
 def _check_guards() -> str | None:
@@ -90,15 +95,15 @@ def _is_file_allowed(file_path: str) -> bool:
 
 
 def _is_file_blocked(file_path: str) -> bool:
-    """Check if a file path is in the blocked list."""
+    """Check if a file path is blocked from GitHub validation saves."""
     normalized = file_path.replace("\\", "/").strip("/")
+    lowered = normalized.lower()
     for blocked in BLOCKED_FILES:
         if normalized == blocked.strip("/"):
             return True
-    # Also block anything in data/canonical/
     if normalized.startswith("data/canonical/"):
         return True
-    return False
+    return any(part in lowered for part in BLOCKED_PATH_PARTS)
 
 
 def get_files_to_save() -> list[dict]:

@@ -19,6 +19,7 @@ from core.paths import (
 from engine.validation.file_status import load_database_file_status
 from engine.validation.minimal_pipeline import run_full_audit
 from engine.validation.model_review_runner import run_model_review
+from engine.validation.final_export import export_final_clean_database as _export_final_clean_database
 
 QUEUE_PREVIEW_COLUMNS = (
     "item_id",
@@ -249,3 +250,8 @@ def load_debug_snippets(project_root: str | Path = ".", max_chars: int = 1200) -
             entry["truncated"] = path.stat().st_size > max_chars
         snippets.append(entry)
     return snippets
+
+
+def export_final_clean_database() -> dict:
+    """Run the final clean database export for the Streamlit UI."""
+    return _export_final_clean_database()
