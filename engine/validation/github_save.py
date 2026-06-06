@@ -30,6 +30,7 @@ ALLOWED_FILES = [
     "data/validated_runs/validation_patch_suggestions_v2.json",
     "data/validated_runs/targeted_seed_validation_v2.json",
     "data/validated_runs/model_validation_results_v2.json",
+    "data/validated_runs/validation_run_manifest_v2.json",
     "data/runtime/current_validation_run.json",
 ]
 

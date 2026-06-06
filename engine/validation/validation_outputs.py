@@ -104,6 +104,7 @@ def write_validated_package(
             v["validation_metadata"] = vmeta
 
     # ── Per-seed validation status ──────────────────────────────────────
+    # Include ALL seeds from catalog + any bucket-only seeds
 
     det_by_seed: dict[str, list[dict]] = {}
     for issue in deterministic_issues:
@@ -117,20 +118,69 @@ def write_validated_package(
         if sid:
             suspicious_by_seed[sid] = sg
 
+    # Build seed catalog index for make/model/year lookup
+    from engine.state import seed_id_from_seed, load_seeds as _load_seeds
+
+    seed_catalog = _load_seeds("data/seeds/vehicle_model_seeds_il.json")
+    seed_catalog_index: dict[str, dict] = {}
+    catalog_ids: set[str] = set()
+    for s in seed_catalog:
+        sid = seed_id_from_seed(s)
+        seed_catalog_index[sid] = s
+        catalog_ids.add(sid)
+
+    # Collect all variant counts by seed
+    all_v = (package.get("verified_variants") or []) + \
+            (package.get("partial_variants") or [])
+    variant_count_by_seed: dict[str, int] = {}
+    for v in all_v:
+        if isinstance(v, dict):
+            sid = str(v.get("seed_id", "")).strip()
+            if sid:
+                variant_count_by_seed[sid] = variant_count_by_seed.get(sid, 0) + 1
+
     validation_status_by_seed: dict[str, dict] = {}
     bs = package.get("batch_state") or {}
-    all_seed_ids = set()
-    for bucket in ("processed_seed_ids", "failed_seed_ids", "manual_review_seed_ids"):
-        all_seed_ids.update(bs.get(bucket) or [])
+
+    processed_set = set(bs.get("processed_seed_ids") or [])
+    failed_set = set(bs.get("failed_seed_ids") or [])
+    manual_set = set(bs.get("manual_review_seed_ids") or [])
+    retry_set = set(bs.get("needs_retry_seed_ids") or [])
+    next_seed = bs.get("next_seed_id")
+
+    # Union of catalog + all bucket seed IDs
+    all_seed_ids = catalog_ids | processed_set | failed_set | manual_set | retry_set
 
     for sid in sorted(all_seed_ids):
         s_issues = det_by_seed.get(sid, [])
         sg = suspicious_by_seed.get(sid)
+        seed_info = seed_catalog_index.get(sid, {})
+        vcount = variant_count_by_seed.get(sid, 0)
+
         validation_status_by_seed[sid] = {
+            "seed_id": sid,
+            "make": seed_info.get("make", ""),
+            "model": seed_info.get("model", ""),
+            "year_start": seed_info.get("year_start"),
+            "year_end": seed_info.get("year_end"),
+            "in_catalog": sid in catalog_ids,
+            "in_processed": sid in processed_set,
+            "in_failed": sid in failed_set,
+            "in_needs_retry": sid in retry_set,
+            "in_manual_review": sid in manual_set,
+            "is_next_seed": sid == next_seed if next_seed else False,
+            "has_variants": vcount > 0,
+            "variant_count": vcount,
             "deterministic_issue_count": len(s_issues),
             "is_suspicious": sg is not None,
             "suspicious_reason": sg.get("reason") if sg else None,
             "risk_level": sg.get("risk_level") if sg else "low",
+            "recommended_action": (
+                "manual_review" if sid in manual_set
+                else "retry" if sid in retry_set
+                else "investigate" if sg is not None
+                else "no_action"
+            ),
         }
 
     # ── Add top-level validation summary ────────────────────────────────
