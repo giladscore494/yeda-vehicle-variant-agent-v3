@@ -107,7 +107,7 @@ def _counts(item_status: dict[str, dict]) -> dict:
     skipped = sum(1 for item in item_status.values() if item.get("status") == "skipped")
     pending = sum(1 for item in item_status.values() if item.get("status") == "pending")
     done_variant_ids = _variant_ids([item for item in item_status.values() if item.get("status") in {"completed", "skipped"}])
-    # Failed items are reported separately; remaining means pending work the runner can select next.
+    # remaining_items excludes failed items; failures are counted separately and are not selected as next pending work.
     remaining_variant_ids = _variant_ids([item for item in item_status.values() if item.get("status") == "pending"])
     return {
         "completed_items": completed,
