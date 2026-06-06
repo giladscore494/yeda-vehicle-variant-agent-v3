@@ -27,40 +27,45 @@ _UNSAFE_ACTIONS = {
     "promote_to_verified",
 }
 _CRITICAL_FIELDS = {
+    "variant_id",
     "model",
     "official_model_name",
     "make",
+    "market",
     "market_scope",
     "israeli_market_existence",
     "year_start",
     "year_end",
     "generation",
-    "engine_displacement",
-    "engine_family",
+    "engine",
     "fuel_type",
     "transmission",
     "body_type",
     "drivetrain",
     "trim",
-    "variant_name",
-    "variant_identity",
-    "duplicate_identity",
+    "source_confidence",
+    "evidence_confidence",
 }
 _CRITICAL_FIELD_ALIASES = {
     "model_name": "model",
     "make_name": "make",
-    "market": "market_scope",
+    "official_name": "official_model_name",
+    "market_name": "market",
     "yearfrom": "year_start",
     "yearto": "year_end",
-    "engine_cc": "engine_displacement",
-    "engine_capacity": "engine_displacement",
-    "engine": "engine_family",
+    "engine_cc": "engine",
+    "engine_capacity": "engine",
+    "engine_displacement": "engine",
+    "engine_family": "engine",
     "transmission_type": "transmission",
     "body": "body_type",
     "drive_type": "drivetrain",
     "drivetrain_type": "drivetrain",
     "trim_name": "trim",
-    "variant": "variant_name",
+    "variant": "variant_id",
+    "variant_name": "variant_id",
+    "confidence": "source_confidence",
+    "evidence_score": "evidence_confidence",
 }
 _CRITICAL_ISSUE_HINTS = {
     "identity",
@@ -75,6 +80,15 @@ _CRITICAL_ISSUE_HINTS = {
     "body_type",
     "drivetrain",
     "duplicate",
+}
+_WEAK_EVIDENCE_TOKENS = {
+    "weak evidence",
+    "insufficient evidence",
+    "unclear evidence",
+    "not enough evidence",
+    "unsupported",
+    "cannot verify",
+    "unable to verify",
 }
 
 
@@ -184,6 +198,18 @@ def _is_negligible(decision: dict, gemini: dict, openai: dict) -> bool:
     return False
 
 
+def _has_weak_evidence(decision: dict, gemini: dict, openai: dict, item: dict) -> bool:
+    for payload in (decision, openai, gemini, item):
+        confidence = payload.get("confidence")
+        if isinstance(confidence, (int, float)) and float(confidence) < 0.4:
+            return True
+        for key in ("summary", "reason", "rationale", "change_reason", "evidence_summary"):
+            text = _normalized_text(payload.get(key))
+            if any(token in text for token in _WEAK_EVIDENCE_TOKENS):
+                return True
+    return False
+
+
 def classify_change_decision(decision: dict, item: dict | None = None) -> dict:
     """Return a strict binary change decision payload."""
     decision = decision if isinstance(decision, dict) else {}
@@ -236,6 +262,16 @@ def classify_change_decision(decision: dict, item: dict | None = None) -> dict:
             "critical_fields_impacted": [],
             "patchable": False,
             "patchability_reason": "no_change_needed",
+        }
+
+    if _has_weak_evidence(decision, gemini, openai, item):
+        return {
+            "change_decision": "NO_CHANGE_REQUIRED",
+            "change_severity": "minor",
+            "change_reason": "Evidence is too weak to justify changing canonical vehicle records.",
+            "critical_fields_impacted": [],
+            "patchable": False,
+            "patchability_reason": "vague_recommendation",
         }
 
     unsafe_requested = any(token in _UNSAFE_ACTIONS for token in tokens)

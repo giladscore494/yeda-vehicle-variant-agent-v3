@@ -20,6 +20,7 @@ RUN_EVENTS_PATH = "data/validation/run_events.jsonl"
 PATCHES_PATH = "data/validation/patches.json"
 PATCH_APPLICATIONS_PATH = "data/validation/patch_applications.jsonl"
 DIFF_AUDITS_PATH = "data/validation/diff_audits.jsonl"
+AI_OUTCOME_AUDITS_PATH = "data/validation/ai_outcome_audits.jsonl"
 MODEL_REVIEW_PROGRESS_PATH = "data/validation/model_review_progress.json"
 
 FINAL_DIR = "data/final"

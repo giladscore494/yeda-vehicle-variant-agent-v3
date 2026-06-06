@@ -1,6 +1,7 @@
 import json
 import pytest
 
+from core.paths import PATCHES_PATH, SOURCE_CANONICAL_PATH
 from engine.validation import model_review_runner as runner
 
 
@@ -188,3 +189,29 @@ def test_failed_item_is_not_selected_again(monkeypatch, tmp_path):
     assert first["model_review_progress"]["remaining_items"] == 1
     assert second["selected_items"] == 1
     assert second["items"][0]["item_id"] == "iq_000002"
+
+
+def test_backfill_completed_decisions_adds_binary_outcome_without_mutating_canonical(monkeypatch, tmp_path):
+    issue_path = tmp_path / "issue_queue.json"
+    decisions_path = tmp_path / "decisions.json"
+    canonical_path = tmp_path / SOURCE_CANONICAL_PATH
+    canonical_path.parent.mkdir(parents=True, exist_ok=True)
+    canonical_path.write_text(json.dumps({"verified_variants": [{"variant_id": "v1", "model": "Corolla"}]}), encoding="utf-8")
+    _write_queue(issue_path, [_issue(5, variant_ids=["v1"], issue_type="identity_mismatch", risk_level="high")])
+    decisions_path.write_text(
+        json.dumps({"decisions": [{"item_id": "iq_000005", "variant_ids": ["v1"], "final_recommendation": "manual_review"}]}),
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(runner, "ISSUE_QUEUE_PATH", str(issue_path))
+    monkeypatch.setattr(runner, "DECISIONS_PATH", str(decisions_path))
+    before = canonical_path.read_text(encoding="utf-8")
+
+    result = runner.backfill_change_decisions_for_completed_ai_reviews()
+
+    payload = json.loads(decisions_path.read_text(encoding="utf-8"))
+    decision = payload["decisions"][0]
+    assert result["updated"] == 1
+    assert decision["change_decision"] in {"CHANGE_REQUIRED", "NO_CHANGE_REQUIRED"}
+    assert decision["safe_to_auto_apply"] is False
+    assert canonical_path.read_text(encoding="utf-8") == before
+    assert not (tmp_path / PATCHES_PATH).exists()

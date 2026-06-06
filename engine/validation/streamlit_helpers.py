@@ -11,6 +11,7 @@ from pathlib import Path
 from typing import Any
 
 from core.paths import (
+    AI_OUTCOME_AUDITS_PATH,
     DIFF_AUDITS_PATH,
     FINAL_CLEAN_DATABASE_PATH,
     ISSUE_QUEUE_PATH,
@@ -27,7 +28,12 @@ from engine.validation.final_quality_audit import audit_final_clean_database_qua
 from engine.validation.file_status import load_database_file_status
 from engine.validation.minimal_pipeline import run_full_audit
 from engine.validation.model_review_runner import run_model_review
+from engine.validation.model_review_runner import backfill_change_decisions_for_completed_ai_reviews as _backfill_change_decisions
 from engine.validation.model_review_progress import load_model_review_progress, refresh_model_review_progress
+from engine.validation.ai_outcome_audit import (
+    audit_next_ai_review_outcome_with_openai as _audit_next_ai_review_outcome_with_openai,
+    queue_completed_decisions_for_outcome_audit as _queue_completed_decisions_for_outcome_audit,
+)
 from engine.validation.final_export import export_final_clean_database as _export_final_clean_database
 from engine.validation.run_events import load_recent_events
 from engine.validation.surgical_patches import (
@@ -307,8 +313,81 @@ def run_ai_review(
     )
 
 
+def _load_decisions_list(project_root: str | Path = ".") -> tuple[list[dict], str | None]:
+    decisions_path = Path(project_root) / DECISIONS_PATH
+    if not decisions_path.exists():
+        return [], None
+    try:
+        payload = json.loads(decisions_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        return [], f"Failed to load {DECISIONS_PATH}: {exc}"
+    if isinstance(payload, list):
+        return [item for item in payload if isinstance(item, dict)], None
+    if isinstance(payload, dict):
+        raw = payload.get("decisions", [])
+        if isinstance(raw, list):
+            return [item for item in raw if isinstance(item, dict)], None
+        return [], f"{DECISIONS_PATH} must contain a decisions list"
+    return [], f"{DECISIONS_PATH} must be a JSON object or array"
+
+
+def _next_pending_model_review_item_id(project_root: str | Path = ".") -> str | None:
+    progress = load_model_review_progress(path=Path(project_root) / MODEL_REVIEW_PROGRESS_PATH)
+    items = progress.get("items") if isinstance(progress.get("items"), dict) else {}
+    pending_ids = [
+        item_id
+        for item_id, item in items.items()
+        if isinstance(item, dict) and item.get("status") == "pending"
+    ]
+    return sorted(pending_ids)[0] if pending_ids else None
+
+
+def is_current_model_review_phase_complete(project_root: str | Path = ".") -> dict:
+    progress = load_model_review_progress(path=Path(project_root) / MODEL_REVIEW_PROGRESS_PATH)
+    remaining_items = int(progress.get("remaining_items", 0)) if isinstance(progress, dict) else 0
+    decisions, _ = _load_decisions_list(project_root)
+    pending_outcome_audits = 0
+    failed_outcome_audits = 0
+    for decision in decisions:
+        status = str(decision.get("outcome_audit_status") or "").strip().lower()
+        if status == "pending":
+            pending_outcome_audits += 1
+        elif status == "failed":
+            failed_outcome_audits += 1
+    complete = remaining_items == 0 and pending_outcome_audits == 0
+    if complete:
+        message = "Current model-review phase is complete. Deep deterministic scan can run."
+    else:
+        message = "Finish the current 3 model-review items and GPT-5.4 outcome audits before running the deep deterministic scan."
+    return {
+        "complete": complete,
+        "remaining_model_review_items": remaining_items,
+        "pending_outcome_audits": pending_outcome_audits,
+        "failed_outcome_audits": failed_outcome_audits,
+        "message": message,
+    }
+
+
+def load_current_model_review_phase(project_root: str | Path = ".") -> dict:
+    progress = load_model_review_progress(path=Path(project_root) / MODEL_REVIEW_PROGRESS_PATH)
+    phase = is_current_model_review_phase_complete(project_root)
+    total = int(progress.get("total_model_review_items", 0)) if isinstance(progress, dict) else 0
+    completed = int(progress.get("completed_items", 0)) if isinstance(progress, dict) else 0
+    remaining = int(progress.get("remaining_items", 0)) if isinstance(progress, dict) else 0
+    return {
+        **phase,
+        "total_model_review_items": total,
+        "completed_model_review_items": completed,
+        "remaining_model_review_items": remaining,
+        "next_item_id": _next_pending_model_review_item_id(project_root),
+    }
+
+
 def run_audit_and_refresh_queue() -> dict:
     """Run the deterministic backend audit that also refreshes the review queue."""
+    phase = is_current_model_review_phase_complete()
+    if phase["remaining_model_review_items"] > 0 or phase["pending_outcome_audits"] > 0:
+        return {"ok": False, "error": "deep_scan_blocked", "message": phase["message"], "phase": phase}
     return run_full_audit()
 
 
@@ -380,6 +459,8 @@ def load_surgical_patch_summary(project_root: str | Path = ".") -> dict:
         "patchable": 0,
         "change_required_not_patchable": 0,
         "manual_review_required": 0,
+        "outcome_audit_pending": 0,
+        "outcome_audit_failed": 0,
     }
 
     patches_payload: dict[str, Any] = {}
@@ -414,7 +495,15 @@ def load_surgical_patch_summary(project_root: str | Path = ".") -> dict:
         value = patches_payload.get(key) if isinstance(patches_payload, dict) else None
         if isinstance(value, (int, float)):
             summary[key] = int(value)
-    for key in ("change_required", "no_change_required", "patchable", "change_required_not_patchable", "manual_review_required"):
+    for key in (
+        "change_required",
+        "no_change_required",
+        "patchable",
+        "change_required_not_patchable",
+        "manual_review_required",
+        "outcome_audit_pending",
+        "outcome_audit_failed",
+    ):
         value = patches_payload.get(key, 0) if isinstance(patches_payload, dict) else 0
         summary[key] = int(value) if isinstance(value, (int, float)) else 0
     summary["last_patch_id"] = (
@@ -450,6 +539,9 @@ def load_ai_review_outcome(project_root: str | Path = ".") -> dict:
         "change_required_not_patchable": 0,
         "manual_review_required": 0,
         "missing_change_decision": 0,
+        "outcome_audit_pending": 0,
+        "outcome_audit_passed": 0,
+        "outcome_audit_failed": 0,
         "latest_decision_id": None,
         "latest_item_id": None,
         "latest_change_decision": None,
@@ -468,21 +560,9 @@ def load_ai_review_outcome(project_root: str | Path = ".") -> dict:
     if not decisions_path.exists():
         return base_summary
 
-    try:
-        payload = json.loads(decisions_path.read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError) as exc:
-        base_summary["last_error"] = f"Failed to load {DECISIONS_PATH}: {exc}"
-        return base_summary
-
-    if isinstance(payload, list):
-        raw_decisions = payload
-    elif isinstance(payload, dict):
-        raw_decisions = payload.get("decisions", [])
-    else:
-        base_summary["last_error"] = f"{DECISIONS_PATH} must be a JSON object or array"
-        return base_summary
-    if not isinstance(raw_decisions, list):
-        base_summary["last_error"] = f"{DECISIONS_PATH} must contain a decisions list"
+    raw_decisions, last_error = _load_decisions_list(root)
+    if last_error:
+        base_summary["last_error"] = last_error
         return base_summary
 
     queue_items = _load_issue_queue_items(root)
@@ -499,8 +579,11 @@ def load_ai_review_outcome(project_root: str | Path = ".") -> dict:
         item_id = str(decision.get("item_id") or "").strip()
         queue_item = queue_by_item_id.get(item_id, {})
         change_decision = decision.get("change_decision")
-        change_decision_text = change_decision if isinstance(change_decision, str) and change_decision.strip() else None
+        change_decision_text = (
+            change_decision.strip().upper() if isinstance(change_decision, str) and change_decision.strip() else None
+        )
         patchable_value = decision.get("patchable")
+        outcome_audit_status = str(decision.get("outcome_audit_status") or "").strip().lower()
 
         if change_decision_text == "CHANGE_REQUIRED":
             base_summary["change_required"] += 1
@@ -514,6 +597,12 @@ def load_ai_review_outcome(project_root: str | Path = ".") -> dict:
 
         if patchable_value is True:
             base_summary["patchable"] += 1
+        if outcome_audit_status == "pending":
+            base_summary["outcome_audit_pending"] += 1
+        elif outcome_audit_status == "passed":
+            base_summary["outcome_audit_passed"] += 1
+        elif outcome_audit_status == "failed":
+            base_summary["outcome_audit_failed"] += 1
 
         rows.append(
             {
@@ -574,11 +663,36 @@ def load_ai_review_outcome(project_root: str | Path = ".") -> dict:
     return base_summary
 
 
+def backfill_ai_review_change_decisions() -> dict:
+    """Backfill binary change decisions for completed legacy AI-review decisions."""
+    return _backfill_change_decisions()
+
+
+def queue_completed_ai_review_outcomes_for_audit(*, retry: bool = False) -> dict:
+    """Queue completed AI decisions for GPT-5.4 outcome audit."""
+    return _queue_completed_decisions_for_outcome_audit(retry=retry)
+
+
+def audit_next_ai_review_outcome() -> dict:
+    """Audit next pending AI decision outcome with GPT-5.4."""
+    return _audit_next_ai_review_outcome_with_openai()
+
+
 def load_debug_snippets(project_root: str | Path = ".", max_chars: int = 1200) -> list[dict]:
     """Return compact snippets for known validation files for Advanced Debug."""
     root = Path(project_root)
     snippets: list[dict] = []
-    for rel_path in (ISSUE_QUEUE_PATH, VALIDATION_REPORT_PATH, MANIFEST_PATH, DECISIONS_PATH, MODEL_REVIEW_PROGRESS_PATH, PATCHES_PATH, PATCH_APPLICATIONS_PATH, DIFF_AUDITS_PATH):
+    for rel_path in (
+        ISSUE_QUEUE_PATH,
+        VALIDATION_REPORT_PATH,
+        MANIFEST_PATH,
+        DECISIONS_PATH,
+        MODEL_REVIEW_PROGRESS_PATH,
+        PATCHES_PATH,
+        PATCH_APPLICATIONS_PATH,
+        DIFF_AUDITS_PATH,
+        AI_OUTCOME_AUDITS_PATH,
+    ):
         path = root / rel_path
         entry = {"path": rel_path, "exists": path.exists(), "size_bytes": path.stat().st_size if path.exists() else 0}
         if path.exists():
