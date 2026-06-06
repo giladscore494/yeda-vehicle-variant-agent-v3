@@ -25,7 +25,7 @@ def _package(verified_count=2, partial_count=1):
     }
 
 
-def _queue_item(idx: int):
+def _queue_item(idx: int, variant_ids=None):
     return {
         "item_id": f"iq_{idx:06d}",
         "make": "Toyota",
@@ -36,6 +36,7 @@ def _queue_item(idx: int):
         "risk_level": "high",
         "recommended_action": "manual_review",
         "requires_model_review": True,
+        "variant_ids": variant_ids or [],
     }
 
 
@@ -54,7 +55,7 @@ def test_status_payload_has_required_fields(tmp_path):
     _write_json(tmp_path / helpers.SEEDS_PATH, [{"seed_id": "seed_1"}, {"seed_id": "seed_2"}])
     _write_json(
         tmp_path / ISSUE_QUEUE_PATH,
-        {"items": [_queue_item(5) | {"variant_ids": ["v5"]}, _queue_item(9) | {"variant_ids": ["v9"]}]},
+        {"items": [_queue_item(5, variant_ids=["v5"]), _queue_item(9, variant_ids=["v9"])]},
     )
     _write_json(
         tmp_path / MODEL_REVIEW_PROGRESS_PATH,
