@@ -289,7 +289,8 @@ def build_candidate_patches_from_decisions() -> dict:
 
         patch, category = _patch_from_decision(decision)
         if patch is None:
-            summary[category] += 1
+            if category != "no_change_required":
+                summary[category] += 1
             continue
         patches.append(patch)
         summary[category] += 1

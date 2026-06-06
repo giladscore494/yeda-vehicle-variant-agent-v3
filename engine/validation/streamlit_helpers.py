@@ -410,9 +410,13 @@ def load_surgical_patch_summary(project_root: str | Path = ".") -> dict:
     last_audit = audits[-1] if audits else {}
     last_patch = next((patch for patch in reversed(patches) if isinstance(patch, dict)), {})
     summary.update(counts)
+    for key in ("pending", "applied_pending_audit", "audit_passed", "audit_failed", "blocked"):
+        value = patches_payload.get(key) if isinstance(patches_payload, dict) else None
+        if isinstance(value, (int, float)):
+            summary[key] = int(value)
     for key in ("change_required", "no_change_required", "patchable", "change_required_not_patchable", "manual_review_required"):
         value = patches_payload.get(key, 0) if isinstance(patches_payload, dict) else 0
-        summary[key] = int(value) if isinstance(value, int | float) else 0
+        summary[key] = int(value) if isinstance(value, (int, float)) else 0
     summary["last_patch_id"] = (
         last_application.get("patch_id") or last_audit.get("patch_id") or last_patch.get("patch_id") or None
     )
