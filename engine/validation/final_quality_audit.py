@@ -11,9 +11,11 @@ from core.paths import (
     FINAL_CLEAN_DATABASE_PATH,
     SOURCE_CANONICAL_PATH,
     VALIDATION_REPORT_PATH,
+    MODEL_REVIEW_PROGRESS_PATH,
 )
 from engine import config
 from engine.validation.run_events import log_event
+from engine.validation.working_copy import get_active_database_path
 
 _REQUIRED_FIELDS = ("variant_id", "make", "model", "year_start", "year_end")
 _JSON_SCHEMA = {
@@ -227,14 +229,16 @@ def _deterministic_checks() -> tuple[dict[str, Any], list[str], list[str]]:
     warnings: list[str] = []
 
     final_payload = _read_json(FINAL_CLEAN_DATABASE_PATH)
-    source_payload = _read_json(SOURCE_CANONICAL_PATH)
+    active_source_path = get_active_database_path()
+    source_payload = _read_json(active_source_path)
     decisions_payload = _read_json(DECISIONS_PATH) or {"decisions": []}
     report_payload = _read_json(VALIDATION_REPORT_PATH) or {}
+    model_progress_payload = _read_json(MODEL_REVIEW_PROGRESS_PATH) or {}
 
     if final_payload is None:
         blocking_reasons.append("Final clean database is missing.")
     if source_payload is None:
-        blocking_reasons.append("Source canonical is missing.")
+        blocking_reasons.append("Active source database is missing.")
     if final_payload is None or source_payload is None:
         return summary, blocking_reasons, warnings
 
@@ -276,9 +280,23 @@ def _deterministic_checks() -> tuple[dict[str, Any], list[str], list[str]]:
             "sample_of_model_decisions_not_applied": model_not_applied_sample,
             "top_issue_types_still_unresolved": _top_unresolved_issue_types(report_payload),
             "final_path": FINAL_CLEAN_DATABASE_PATH,
-            "source_path": SOURCE_CANONICAL_PATH,
-            "source_hash_before": _sha256(SOURCE_CANONICAL_PATH),
+            "source_path": active_source_path,
+            "source_hash_before": _sha256(active_source_path),
             "final_hash_before": _sha256(FINAL_CLEAN_DATABASE_PATH),
+            "model_review_progress": {
+                "total_model_review_items": model_progress_payload.get("total_model_review_items", 0)
+                if isinstance(model_progress_payload, dict)
+                else 0,
+                "remaining_items": model_progress_payload.get("remaining_items", 0)
+                if isinstance(model_progress_payload, dict)
+                else 0,
+                "total_model_review_variants": model_progress_payload.get("total_model_review_variants", 0)
+                if isinstance(model_progress_payload, dict)
+                else 0,
+                "remaining_variants": model_progress_payload.get("remaining_variants", 0)
+                if isinstance(model_progress_payload, dict)
+                else 0,
+            },
         }
     )
 
@@ -311,7 +329,7 @@ def _deterministic_checks() -> tuple[dict[str, Any], list[str], list[str]]:
     if output_count > input_count:
         warnings.append("Output variant count is higher than source; review for unexpected additions.")
 
-    summary["source_hash_after"] = _sha256(SOURCE_CANONICAL_PATH)
+    summary["source_hash_after"] = _sha256(active_source_path)
     summary["final_hash_after"] = _sha256(FINAL_CLEAN_DATABASE_PATH)
     return summary, blocking_reasons, warnings
 

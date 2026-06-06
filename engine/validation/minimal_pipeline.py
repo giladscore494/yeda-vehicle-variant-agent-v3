@@ -25,8 +25,10 @@ from core.paths import (
     SOURCE_CANONICAL_PATH,
     VALIDATION_REPORT_PATH,
 )
+from engine.validation.model_review_progress import refresh_model_review_progress
 from engine.validation.normalizer import extract_value, extract_year
 from engine.validation.run_events import log_event
+from engine.validation.working_copy import get_active_database_path
 from engine.validation.write_guard import safe_write_json
 
 _RISK_LEVELS = ("critical", "high", "medium", "low")
@@ -432,7 +434,13 @@ def _assign_item_ids(items: list[dict]) -> list[dict]:
     return items
 
 
-def _summarize_queue(queue: list[dict], source_data: dict, *, run_id: str | None = None) -> dict[str, Any]:
+def _summarize_queue(
+    queue: list[dict],
+    source_data: dict,
+    *,
+    run_id: str | None = None,
+    source_file: str = SOURCE_CANONICAL_PATH,
+) -> dict[str, Any]:
     issues_by_risk = {risk: 0 for risk in _RISK_LEVELS}
     for item in queue:
         issues_by_risk[item["risk_level"]] += 1
@@ -441,7 +449,7 @@ def _summarize_queue(queue: list[dict], source_data: dict, *, run_id: str | None
     issue_type_counts = Counter(item["issue_type"] for item in queue)
     return {
         "run_id": run_id or f"audit_{uuid.uuid4().hex[:12]}",
-        "source_file": SOURCE_CANONICAL_PATH,
+        "source_file": source_file,
         "source_variant_count": verified_count + partial_count,
         "verified_count": verified_count,
         "partial_count": partial_count,
@@ -463,7 +471,7 @@ def write_validation_outputs(queue: list[dict], summary: dict) -> None:
 
     queue_doc = {
         "created_at": completed_at,
-        "source_file": SOURCE_CANONICAL_PATH,
+        "source_file": summary.get("source_file", SOURCE_CANONICAL_PATH),
         "source_variant_count": int(summary["source_variant_count"]),
         "items": queue,
     }
@@ -474,7 +482,7 @@ def write_validation_outputs(queue: list[dict], summary: dict) -> None:
         safe_write_json(
             {
                 "created_at": completed_at,
-                "source_file": SOURCE_CANONICAL_PATH,
+                "source_file": summary.get("source_file", SOURCE_CANONICAL_PATH),
                 "decisions": [],
             },
             DECISIONS_PATH,
@@ -483,7 +491,7 @@ def write_validation_outputs(queue: list[dict], summary: dict) -> None:
     manifest = {
         "run_id": summary["run_id"],
         "stage": "audit",
-        "source_file": SOURCE_CANONICAL_PATH,
+        "source_file": summary.get("source_file", SOURCE_CANONICAL_PATH),
         "started_at": started_at,
         "completed_at": completed_at,
         "source_variant_count": int(summary["source_variant_count"]),
@@ -508,39 +516,42 @@ def write_validation_outputs(queue: list[dict], summary: dict) -> None:
 
 
 def run_full_audit() -> dict:
-    """Run the deterministic audit over the full source canonical file."""
+    """Run the deterministic audit over the active database file."""
     started_at = _utc_now()
+    active_path = get_active_database_path()
     log_event(
         {
             "stage": "audit",
             "event_type": "audit_started",
             "status": "started",
-            "request_summary": f"source={SOURCE_CANONICAL_PATH}",
+            "request_summary": f"source={active_path}",
         }
     )
-    source_path = Path(SOURCE_CANONICAL_PATH)
+    source_path = Path(active_path)
     source_data = json.loads(source_path.read_text(encoding="utf-8"))
     queue = build_issue_queue(source_data)
     completed_at = _utc_now()
-    summary = _summarize_queue(queue, source_data)
+    summary = _summarize_queue(queue, source_data, source_file=active_path)
     summary["started_at"] = started_at
     summary["completed_at"] = completed_at
     write_validation_outputs(queue, summary)
+    model_progress = refresh_model_review_progress(queue)
     result = {
         "run_id": summary["run_id"],
-        "source_file": SOURCE_CANONICAL_PATH,
+        "source_file": active_path,
         "source_variant_count": summary["source_variant_count"],
         "issues_total": summary["issues_total"],
         "issues_by_risk": summary["issues_by_risk"],
         "model_review_items_available": summary["model_review_items_available"],
         "manual_review_items_available": summary["manual_review_items_available"],
+        "model_review_progress": model_progress,
     }
     log_event(
         {
             "stage": "audit",
             "event_type": "audit_completed",
             "status": "ok",
-            "request_summary": f"source={SOURCE_CANONICAL_PATH}",
+            "request_summary": f"source={active_path}",
             "response_summary": f"issues_total={summary['issues_total']}",
         }
     )

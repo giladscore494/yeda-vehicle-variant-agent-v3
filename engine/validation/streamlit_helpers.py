@@ -14,6 +14,8 @@ from core.paths import (
     FINAL_CLEAN_DATABASE_PATH,
     ISSUE_QUEUE_PATH,
     MANIFEST_PATH,
+    MODEL_REVIEW_PROGRESS_PATH,
+    PATCHES_PATH,
     VALIDATION_REPORT_PATH,
     DECISIONS_PATH,
 )
@@ -22,8 +24,17 @@ from engine.validation.final_quality_audit import audit_final_clean_database_qua
 from engine.validation.file_status import load_database_file_status
 from engine.validation.minimal_pipeline import run_full_audit
 from engine.validation.model_review_runner import run_model_review
+from engine.validation.model_review_progress import load_model_review_progress
 from engine.validation.final_export import export_final_clean_database as _export_final_clean_database
 from engine.validation.run_events import load_recent_events
+from engine.validation.surgical_patches import (
+    apply_surgical_patches as _apply_surgical_patches,
+    build_candidate_surgical_patches as _build_candidate_surgical_patches,
+)
+from engine.validation.working_copy import (
+    initialize_working_copy as _initialize_working_copy,
+    reset_working_copy_from_canonical as _reset_working_copy_from_canonical,
+)
 
 QUEUE_PREVIEW_COLUMNS = (
     "item_id",
@@ -103,6 +114,7 @@ def load_status_payload(project_root: str | Path = ".") -> dict:
     file_status = load_database_file_status(root)
     report = _load_json_file(root / VALIDATION_REPORT_PATH) or {}
     manifest = _load_json_file(root / MANIFEST_PATH) or {}
+    model_progress = _load_json_file(root / MODEL_REVIEW_PROGRESS_PATH) or {}
     issues_by_risk = report.get("issues_by_risk") if isinstance(report, dict) else {}
     if not isinstance(issues_by_risk, dict):
         issues_by_risk = {}
@@ -119,6 +131,11 @@ def load_status_payload(project_root: str | Path = ".") -> dict:
             "stale_root_exists": file_status.get("stale_root_exists", False),
             "stale_root_variant_count": file_status.get("stale_root_variant_count"),
             "stale_root_is_stale": file_status.get("stale_root_is_stale", False),
+            "working_path": file_status.get("working_path"),
+            "working_exists": file_status.get("working_exists", False),
+            "working_variant_count": file_status.get("working_variant_count", 0),
+            "active_database_path": file_status.get("active_database_path"),
+            "active_database_variant_count": file_status.get("active_database_variant_count", 0),
         },
         "validation_summary": {
             "issues_total": int(report.get("issues_total", 0)) if isinstance(report, dict) else 0,
@@ -130,11 +147,27 @@ def load_status_payload(project_root: str | Path = ".") -> dict:
             "manual_review_items_available": int(report.get("manual_review_items_available", 0)) if isinstance(report, dict) else 0,
             "last_run_time": manifest.get("completed_at") or manifest.get("started_at") or _mtime_iso(root / VALIDATION_REPORT_PATH),
         },
+        "model_review_progress": {
+            "total_model_review_items": int(model_progress.get("total_model_review_items", 0))
+            if isinstance(model_progress, dict)
+            else 0,
+            "remaining_items": int(model_progress.get("remaining_items", 0))
+            if isinstance(model_progress, dict)
+            else 0,
+            "total_model_review_variants": int(model_progress.get("total_model_review_variants", 0))
+            if isinstance(model_progress, dict)
+            else 0,
+            "remaining_variants": int(model_progress.get("remaining_variants", 0))
+            if isinstance(model_progress, dict)
+            else 0,
+        },
         "paths": {
             "issue_queue": ISSUE_QUEUE_PATH,
             "manifest": MANIFEST_PATH,
             "validation_report": VALIDATION_REPORT_PATH,
             "decisions": DECISIONS_PATH,
+            "model_review_progress": MODEL_REVIEW_PROGRESS_PATH,
+            "patches": PATCHES_PATH,
         },
     }
     return payload
@@ -241,11 +274,36 @@ def run_audit_and_refresh_queue() -> dict:
     return run_full_audit()
 
 
+def initialize_working_copy() -> dict:
+    """Initialize the active working copy from canonical if needed."""
+    return _initialize_working_copy(force=False)
+
+
+def reset_working_copy_from_canonical(confirm: bool = False) -> dict:
+    """Reset the active working copy from canonical when explicitly confirmed."""
+    return _reset_working_copy_from_canonical(confirm=confirm)
+
+
+def load_model_progress() -> dict:
+    """Load model-review progress summary."""
+    return load_model_review_progress()
+
+
+def build_candidate_surgical_patches() -> dict:
+    """Build candidate surgical patches from exact decisions."""
+    return _build_candidate_surgical_patches()
+
+
+def apply_surgical_patches() -> dict:
+    """Apply safe candidate surgical patches to the active working copy."""
+    return _apply_surgical_patches(require_safe=True)
+
+
 def load_debug_snippets(project_root: str | Path = ".", max_chars: int = 1200) -> list[dict]:
     """Return compact snippets for known validation files for Advanced Debug."""
     root = Path(project_root)
     snippets: list[dict] = []
-    for rel_path in (ISSUE_QUEUE_PATH, VALIDATION_REPORT_PATH, MANIFEST_PATH, DECISIONS_PATH):
+    for rel_path in (ISSUE_QUEUE_PATH, VALIDATION_REPORT_PATH, MANIFEST_PATH, DECISIONS_PATH, MODEL_REVIEW_PROGRESS_PATH, PATCHES_PATH):
         path = root / rel_path
         entry = {"path": rel_path, "exists": path.exists(), "size_bytes": path.stat().st_size if path.exists() else 0}
         if path.exists():

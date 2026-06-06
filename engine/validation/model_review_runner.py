@@ -15,6 +15,11 @@ from typing import Any
 
 from core.paths import DECISIONS_PATH, ISSUE_QUEUE_PATH
 from engine import config
+from engine.validation.model_review_progress import (
+    completed_or_skipped_item_ids,
+    mark_model_review_items,
+    refresh_model_review_progress,
+)
 from engine.validation.model_router import ModelRoutingDecision, route_issue_item
 from engine.validation.run_events import log_event
 from engine.validation.write_guard import safe_write_json
@@ -143,8 +148,11 @@ def _filter_items(
     risk_set = {str(level).lower() for level in risk_levels} if risk_levels else None
     issue_set = {str(issue) for issue in issue_types} if issue_types else None
     selected: list[dict] = []
+    already_done = completed_or_skipped_item_ids()
     for item in items:
         if not item.get("requires_model_review", False):
+            continue
+        if str(item.get("item_id") or "") in already_done:
             continue
         if risk_set and str(item.get("risk_level") or "").lower() not in risk_set:
             continue
@@ -350,7 +358,9 @@ def run_model_review(
 ) -> dict:
     """Run or preview budgeted model review for deterministic issue-queue items."""
     max_items = max(0, int(max_items))
-    candidate_items = _filter_items(_load_issue_items(), risk_levels, issue_types, seed_id_filter)
+    all_issue_items = _load_issue_items()
+    refresh_model_review_progress(all_issue_items)
+    candidate_items = _filter_items(all_issue_items, risk_levels, issue_types, seed_id_filter)
     selected = candidate_items[:max_items]
     routings = [route_issue_item(item) for item in selected]
     preview = _build_preview(selected, routings)
@@ -390,12 +400,15 @@ def run_model_review(
         return preview
 
     decisions: list[dict] = []
+    progress_statuses: dict[str, str] = {}
     for item, routing in zip(selected, routings):
         if not routing.should_call_models:
+            progress_statuses[str(item.get("item_id") or "")] = "skipped"
             continue
 
         gemini_result = None
         openai_result = None
+        attempted_results: list[dict] = []
         if routing.primary_provider == "gemini":
             log_event(
                 {
@@ -419,6 +432,8 @@ def run_model_review(
                 }
             )
             gemini_result = call_gemini_for_issue(item, routing)
+            if isinstance(gemini_result, dict):
+                attempted_results.append(gemini_result)
             if isinstance(gemini_result, dict):
                 gemini_result["safe_to_auto_apply"] = False
                 log_event(
@@ -458,6 +473,8 @@ def run_model_review(
             )
             openai_result = call_openai_for_issue(item, routing, gemini_result)
             if isinstance(openai_result, dict):
+                attempted_results.append(openai_result)
+            if isinstance(openai_result, dict):
                 openai_result["safe_to_auto_apply"] = False
                 log_event(
                     {
@@ -474,6 +491,10 @@ def run_model_review(
 
         decision = _build_decision(item, routing, gemini_result, openai_result)
         decisions.append(decision)
+        item_id = str(item.get("item_id") or "")
+        progress_statuses[item_id] = (
+            "completed" if any(result.get("ok") for result in attempted_results) else "failed"
+        )
         log_event(
             {
                 "stage": "model_review",
@@ -485,6 +506,7 @@ def run_model_review(
         )
 
     _append_decisions(decisions)
+    progress = mark_model_review_items(progress_statuses) if progress_statuses else refresh_model_review_progress(all_issue_items)
     log_event(
         {
             "stage": "model_review",
@@ -498,4 +520,5 @@ def run_model_review(
         **preview,
         "decisions_written": len(decisions),
         "decisions_path": DECISIONS_PATH,
+        "model_review_progress": progress,
     }
