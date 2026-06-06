@@ -143,3 +143,30 @@ def test_final_banner_status_logic(tmp_path):
     status = helpers.load_status_payload(project_root=tmp_path)
     assert status["final_banner"]["state"] == "exists"
     assert status["final_banner"]["message"] == f"Final clean database exists: {FINAL_CLEAN_DATABASE_PATH}"
+
+
+def test_export_final_clean_database_helper_exists():
+    assert hasattr(helpers, "export_final_clean_database")
+
+
+def test_export_final_clean_database_returns_ui_safe_summary(monkeypatch):
+    def fake_export():
+        return {
+            "output_path": "data/final/from_backend.json",
+            "input_variant_count": 11,
+            "output_variant_count": 9,
+            "safe_decisions_applied": 7,
+            "manual_review_remaining_count": 2,
+            "metadata": {"created_at": "2026-06-06T12:34:56+00:00"},
+        }
+
+    monkeypatch.setattr(helpers, "_export_final_clean_database", fake_export)
+
+    summary = helpers.export_final_clean_database()
+
+    assert summary["final_path"] == "data/final/from_backend.json"
+    assert summary["total_input_variants"] == 11
+    assert summary["total_output_variants"] == 9
+    assert summary["safe_decisions_applied"] == 7
+    assert summary["manual_review_remaining_count"] == 2
+    assert summary["created_at"] == "2026-06-06T12:34:56+00:00"

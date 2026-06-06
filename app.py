@@ -99,7 +99,7 @@ with action_cols[3]:
     if st.button("Export Final Clean Database", use_container_width=True):
         with st.spinner("Exporting final clean database..."):
             export_summary = ui.export_final_clean_database()
-        st.success(f"Final clean database exported: `{export_summary['path']}`")
+        st.success(f"Final clean database exported: `{export_summary['final_path']}`")
         summary_cols = st.columns(5)
         summary_cols[0].metric("Input variants", export_summary["total_input_variants"])
         summary_cols[1].metric("Output variants", export_summary["total_output_variants"])
