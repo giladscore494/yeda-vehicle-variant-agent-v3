@@ -88,6 +88,9 @@ row3[3].metric("model review variants total", model_progress["total_model_review
 st.subheader("Actions")
 action_cols = st.columns(6)
 with action_cols[0]:
+    if st.button("Refresh Status", use_container_width=True):
+        st.rerun()
+with action_cols[1]:
     if st.button("Initialize Working Copy", use_container_width=True):
         result = ui.initialize_working_copy()
         if result.get("ok"):
@@ -95,19 +98,25 @@ with action_cols[0]:
         else:
             st.error(result.get("message") or result.get("status") or "Initialize failed")
         st.rerun()
-with action_cols[1]:
+with action_cols[2]:
     if st.button("Run Full Audit", use_container_width=True):
         with st.spinner("Running deterministic audit..."):
             result = ui.run_audit_and_refresh_queue()
         st.success(f"Audit complete: {result['issues_total']} issues found.")
         st.rerun()
-with action_cols[2]:
+with action_cols[3]:
+    if st.button("Build/Refresh Review Queue", use_container_width=True):
+        with st.spinner("Building review queue from deterministic audit..."):
+            result = ui.run_audit_and_refresh_queue()
+        st.success(f"Review queue refreshed: {result['issues_total']} items.")
+        st.rerun()
+with action_cols[4]:
     if st.button("Build Candidate Patches", use_container_width=True):
         with st.spinner("Building candidate surgical patches..."):
             result = ui.build_candidate_surgical_patches()
         st.success(f"Candidate patches built: {result.get('patch_count', 0)}")
         st.rerun()
-with action_cols[3]:
+with action_cols[5]:
     if st.button("Apply Surgical Patch", use_container_width=True):
         try:
             with st.spinner("Applying safe surgical patches to working copy..."):
