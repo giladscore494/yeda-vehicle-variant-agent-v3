@@ -191,7 +191,7 @@ def test_variant_loss_guard_blocks_unexplained_loss():
         )
 
 
-def test_diff_audit_sends_only_before_after_diff_and_pass_updates_status(tmp_path, monkeypatch):
+def test_diff_audit_minimal_payload_and_pass_status(tmp_path, monkeypatch):
     monkeypatch.chdir(tmp_path)
     _write_json(tmp_path / PATCHES_PATH, {"patches": [_patch("p1", status="applied_pending_audit")]})
     application = {

@@ -268,7 +268,5 @@ def audit_last_patch_diff_with_openai() -> dict:
         "required_fixes": model_result["required_fixes"],
         "summary": model_result["summary"],
     }
-    if error:
-        audit_event["error"] = error
     _append_jsonl(DIFF_AUDITS_PATH, audit_event)
     return audit_event

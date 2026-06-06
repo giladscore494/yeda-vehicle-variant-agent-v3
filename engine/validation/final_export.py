@@ -54,7 +54,7 @@ def _read_json(path: str | Path, default: Any | None = None) -> Any:
     return json.loads(p.read_text(encoding="utf-8"))
 
 
-def _sha256(path: str | Path) -> str:
+def _sha256_file(path: str | Path) -> str:
     p = Path(path)
     if not p.exists():
         return ""
@@ -275,8 +275,8 @@ def export_final_clean_database() -> dict:
         "golden_source_file": SOURCE_CANONICAL_PATH,
         "active_source_file": active_database_path,
         "working_copy_used": True,
-        "golden_source_hash": _sha256(SOURCE_CANONICAL_PATH),
-        "active_source_hash": _sha256(active_database_path),
+        "golden_source_hash": _sha256_file(SOURCE_CANONICAL_PATH),
+        "active_source_hash": _sha256_file(active_database_path),
         "decisions_file": DECISIONS_PATH,
         "manifest_file": MANIFEST_PATH,
         "total_input_variants": total_input_variants,
