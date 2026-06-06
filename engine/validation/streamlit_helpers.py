@@ -321,8 +321,18 @@ def build_candidate_surgical_patches() -> dict:
     return _build_candidate_patches_from_decisions()
 
 
+def build_candidate_patches() -> dict:
+    """Backwards-compatible alias for surgical patch candidate builder."""
+    return _build_candidate_patches_from_decisions()
+
+
 def apply_next_safe_surgical_patch() -> dict:
     """Apply exactly one pending safe candidate patch to the active working copy."""
+    return _apply_next_safe_patch()
+
+
+def apply_next_safe_patch() -> dict:
+    """Backwards-compatible alias for applying one pending safe patch."""
     return _apply_next_safe_patch()
 
 
@@ -331,13 +341,49 @@ def audit_last_surgical_patch_diff() -> dict:
     return _audit_last_patch_diff_with_openai()
 
 
+def audit_last_patch_diff_with_openai() -> dict:
+    """Backwards-compatible alias for last surgical diff audit."""
+    return _audit_last_patch_diff_with_openai()
+
+
 def load_surgical_patch_summary(project_root: str | Path = ".") -> dict:
     """Return counts and last patch/audit details for the main UI."""
     root = Path(project_root)
-    patches_payload = _load_json_file(root / PATCHES_PATH) or {}
-    patches = patches_payload.get("patches", []) if isinstance(patches_payload, dict) else []
-    if not isinstance(patches, list):
-        patches = []
+    patches_path = root / PATCHES_PATH
+    summary = {
+        "patches_path": PATCHES_PATH,
+        "patches_exists": patches_path.exists(),
+        "patches_total": 0,
+        "pending": 0,
+        "applied_pending_audit": 0,
+        "audit_passed": 0,
+        "audit_failed": 0,
+        "blocked": 0,
+        "last_patch_id": None,
+        "last_variant_ids": [],
+        "last_changed_fields": {},
+        "last_audit_status": None,
+        "last_error": None,
+    }
+
+    patches_payload: dict[str, Any] = {}
+    patches: list[Any] = []
+    if patches_path.exists():
+        try:
+            raw_payload = json.loads(patches_path.read_text(encoding="utf-8"))
+            if not isinstance(raw_payload, dict):
+                summary["last_error"] = "patches.json must be a JSON object"
+            else:
+                patches_payload = raw_payload
+                raw_patches = raw_payload.get("patches", [])
+                if isinstance(raw_patches, list):
+                    patches = raw_patches
+                else:
+                    summary["last_error"] = "patches.json must contain a patches list"
+        except (OSError, json.JSONDecodeError) as exc:
+            summary["last_error"] = f"Failed to load patches.json: {exc}"
+
+    summary["patches_total"] = len(patches)
     counts = {status: 0 for status in ("pending", "applied_pending_audit", "audit_passed", "audit_failed", "blocked")}
     for patch in patches:
         if isinstance(patch, dict) and patch.get("status") in counts:
@@ -346,13 +392,25 @@ def load_surgical_patch_summary(project_root: str | Path = ".") -> dict:
     audits = _load_jsonl_file(root / DIFF_AUDITS_PATH)
     last_application = applications[-1] if applications else {}
     last_audit = audits[-1] if audits else {}
-    return {
-        **counts,
-        "last_patch_id": last_application.get("patch_id") or last_audit.get("patch_id") or "",
-        "last_variant_ids": last_application.get("variant_ids") or last_audit.get("variant_ids") or [],
-        "last_changed_fields": last_application.get("changed_fields") or {},
-        "last_audit_status": last_audit.get("status") or "",
-    }
+    last_patch = next((patch for patch in reversed(patches) if isinstance(patch, dict)), {})
+    summary.update(counts)
+    summary["last_patch_id"] = (
+        last_application.get("patch_id") or last_audit.get("patch_id") or last_patch.get("patch_id") or None
+    )
+
+    variant_ids = last_application.get("variant_ids")
+    if not isinstance(variant_ids, list):
+        variant_ids = last_audit.get("variant_ids")
+    summary["last_variant_ids"] = variant_ids if isinstance(variant_ids, list) else []
+
+    changed_fields = last_application.get("changed_fields")
+    if not isinstance(changed_fields, dict):
+        changed_fields = {}
+    summary["last_changed_fields"] = changed_fields
+
+    audit_status = last_audit.get("status")
+    summary["last_audit_status"] = str(audit_status) if isinstance(audit_status, str) and audit_status else None
+    return summary
 
 
 def load_debug_snippets(project_root: str | Path = ".", max_chars: int = 1200) -> list[dict]:
