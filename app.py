@@ -9,7 +9,6 @@ from __future__ import annotations
 import streamlit as st
 
 from core.config import GITHUB_BRANCH, get_branch_warning
-from core.paths import FINAL_CLEAN_DATABASE_PATH
 from engine.validation import streamlit_helpers as ui
 
 st.set_page_config(page_title="Yeda v3 — Validation", layout="wide")
@@ -98,11 +97,16 @@ with action_cols[2]:
         st.success(f"Review queue refreshed: {result['issues_total']} items.")
         st.rerun()
 with action_cols[3]:
-    if st.button("Export Final Clean Database", use_container_width=True, disabled=True):
-        # Disabled until Task 5 wires the final export backend. This UI must not
-        # write data/final/resume_package_final_clean.json in Task 4.
-        st.warning(f"Final export is reserved for Task 5: `{FINAL_CLEAN_DATABASE_PATH}`")
-st.caption("Export Final Clean Database is visible for workflow clarity, but final export remains reserved for Task 5.")
+    if st.button("Export Final Clean Database", use_container_width=True):
+        with st.spinner("Exporting final clean database..."):
+            export_summary = ui.export_final_clean_database()
+        st.success(f"Final clean database exported: `{export_summary['path']}`")
+        summary_cols = st.columns(5)
+        summary_cols[0].metric("Input variants", export_summary["total_input_variants"])
+        summary_cols[1].metric("Output variants", export_summary["total_output_variants"])
+        summary_cols[2].metric("Safe applied", export_summary["safe_decisions_applied"])
+        summary_cols[3].metric("Manual remaining", export_summary["manual_review_remaining_count"])
+        summary_cols[4].write(f"**created_at**  \n`{export_summary['created_at']}`")
 
 # ---------- 4. Review Queue Preview ----------
 st.subheader("Review Queue Preview")
