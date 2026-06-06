@@ -1,5 +1,6 @@
 import json
 import os
+import ast
 from pathlib import Path
 
 from core.paths import (
@@ -614,6 +615,38 @@ def test_load_current_model_review_phase_exposes_next_item_and_pending_audits(tm
     assert phase["remaining_model_review_items"] == 1
     assert phase["next_item_id"] == "iq_000010"
     assert phase["pending_outcome_audits"] == 1
+
+
+def test_app_ui_wiring_exposes_every_referenced_helper():
+    app_source = Path("app.py").read_text(encoding="utf-8")
+    parsed = ast.parse(app_source)
+    ui_attrs = {
+        node.attr
+        for node in ast.walk(parsed)
+        if isinstance(node, ast.Attribute) and isinstance(node.value, ast.Name) and node.value.id == "ui"
+    }
+    missing = sorted(attr for attr in ui_attrs if not hasattr(helpers, attr))
+    assert missing == []
+
+
+def test_load_current_model_review_phase_handles_invalid_progress_values(tmp_path):
+    _write_json(
+        tmp_path / MODEL_REVIEW_PROGRESS_PATH,
+        {
+            "total_model_review_items": "bad-total",
+            "completed_items": None,
+            "remaining_items": "bad-remaining",
+            "items": {"iq_000010": {"item_id": "iq_000010", "status": "pending"}},
+        },
+    )
+    phase = helpers.load_current_model_review_phase(project_root=tmp_path)
+
+    assert phase["total_model_review_items"] == 0
+    assert phase["completed_model_review_items"] == 0
+    assert phase["remaining_model_review_items"] == 0
+    assert phase["next_item_id"] == "iq_000010"
+    assert "message" in phase
+    assert "pending_outcome_audits" in phase
 
 
 def test_outcome_audit_wrappers(monkeypatch):

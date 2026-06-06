@@ -106,6 +106,13 @@ def _load_jsonl_file(path: Path) -> list[dict]:
     return rows
 
 
+def _as_int(value: Any, default: int = 0) -> int:
+    try:
+        return int(value)
+    except (TypeError, ValueError):
+        return default
+
+
 def _mtime_iso(path: Path) -> str | None:
     try:
         from datetime import datetime, timezone
@@ -344,7 +351,7 @@ def _next_pending_model_review_item_id(project_root: str | Path = ".") -> str | 
 
 def is_current_model_review_phase_complete(project_root: str | Path = ".") -> dict:
     progress = load_model_review_progress(path=Path(project_root) / MODEL_REVIEW_PROGRESS_PATH)
-    remaining_items = int(progress.get("remaining_items", 0)) if isinstance(progress, dict) else 0
+    remaining_items = _as_int(progress.get("remaining_items", 0)) if isinstance(progress, dict) else 0
     decisions, _ = _load_decisions_list(project_root)
     pending_outcome_audits = 0
     failed_outcome_audits = 0
@@ -369,18 +376,31 @@ def is_current_model_review_phase_complete(project_root: str | Path = ".") -> di
 
 
 def load_current_model_review_phase(project_root: str | Path = ".") -> dict:
-    progress = load_model_review_progress(path=Path(project_root) / MODEL_REVIEW_PROGRESS_PATH)
-    phase = is_current_model_review_phase_complete(project_root)
-    total = int(progress.get("total_model_review_items", 0)) if isinstance(progress, dict) else 0
-    completed = int(progress.get("completed_items", 0)) if isinstance(progress, dict) else 0
-    remaining = int(progress.get("remaining_items", 0)) if isinstance(progress, dict) else 0
-    return {
-        **phase,
-        "total_model_review_items": total,
-        "completed_model_review_items": completed,
-        "remaining_model_review_items": remaining,
-        "next_item_id": _next_pending_model_review_item_id(project_root),
+    fallback = {
+        "complete": False,
+        "remaining_model_review_items": 0,
+        "pending_outcome_audits": 0,
+        "failed_outcome_audits": 0,
+        "message": "Model-review phase status unavailable. Use safe defaults and continue with caution.",
+        "total_model_review_items": 0,
+        "completed_model_review_items": 0,
+        "next_item_id": None,
     }
+    try:
+        progress = load_model_review_progress(path=Path(project_root) / MODEL_REVIEW_PROGRESS_PATH)
+        phase = is_current_model_review_phase_complete(project_root)
+        total = _as_int(progress.get("total_model_review_items", 0)) if isinstance(progress, dict) else 0
+        completed = _as_int(progress.get("completed_items", 0)) if isinstance(progress, dict) else 0
+        remaining = _as_int(progress.get("remaining_items", 0)) if isinstance(progress, dict) else 0
+        return {
+            **phase,
+            "total_model_review_items": total,
+            "completed_model_review_items": completed,
+            "remaining_model_review_items": remaining,
+            "next_item_id": _next_pending_model_review_item_id(project_root),
+        }
+    except Exception as exc:
+        return {**fallback, "last_error": str(exc)}
 
 
 def run_audit_and_refresh_queue(project_root: str | Path = ".") -> dict:
