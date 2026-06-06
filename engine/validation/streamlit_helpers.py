@@ -60,6 +60,17 @@ AI_PREVIEW_COLUMNS = (
     "second_opinion_provider",
     "max_expected_calls",
 )
+AI_DECISION_OUTCOME_COLUMNS = (
+    "item_id",
+    "make",
+    "model",
+    "years",
+    "change_decision",
+    "change_severity",
+    "patchable",
+    "patchability_reason",
+    "change_reason",
+)
 DEFAULT_QUEUE_PREVIEW_LIMIT = 25
 DEFAULT_AI_PREVIEW_LIMIT = 10
 SEEDS_PATH = "data/seeds/vehicle_model_seeds_il.json"
@@ -364,6 +375,11 @@ def load_surgical_patch_summary(project_root: str | Path = ".") -> dict:
         "last_changed_fields": {},
         "last_audit_status": None,
         "last_error": None,
+        "change_required": 0,
+        "no_change_required": 0,
+        "patchable": 0,
+        "change_required_not_patchable": 0,
+        "manual_review_required": 0,
     }
 
     patches_payload: dict[str, Any] = {}
@@ -394,6 +410,13 @@ def load_surgical_patch_summary(project_root: str | Path = ".") -> dict:
     last_audit = audits[-1] if audits else {}
     last_patch = next((patch for patch in reversed(patches) if isinstance(patch, dict)), {})
     summary.update(counts)
+    for key in ("pending", "applied_pending_audit", "audit_passed", "audit_failed", "blocked"):
+        value = patches_payload.get(key) if isinstance(patches_payload, dict) else None
+        if isinstance(value, (int, float)):
+            summary[key] = int(value)
+    for key in ("change_required", "no_change_required", "patchable", "change_required_not_patchable", "manual_review_required"):
+        value = patches_payload.get(key, 0) if isinstance(patches_payload, dict) else 0
+        summary[key] = int(value) if isinstance(value, (int, float)) else 0
     summary["last_patch_id"] = (
         last_application.get("patch_id") or last_audit.get("patch_id") or last_patch.get("patch_id") or None
     )
@@ -411,6 +434,71 @@ def load_surgical_patch_summary(project_root: str | Path = ".") -> dict:
     audit_status = last_audit.get("status")
     summary["last_audit_status"] = str(audit_status) if isinstance(audit_status, str) and audit_status else None
     return summary
+
+
+def load_ai_review_outcome(project_root: str | Path = ".") -> dict:
+    root = Path(project_root)
+    queue_items = _load_issue_queue_items(root)
+    queue_by_item_id = {
+        str(item.get("item_id") or ""): item
+        for item in queue_items
+        if isinstance(item, dict) and str(item.get("item_id") or "")
+    }
+    progress_payload = _load_json_file(root / MODEL_REVIEW_PROGRESS_PATH) or {}
+    progress_items = progress_payload.get("items") if isinstance(progress_payload, dict) else {}
+    completed_item_ids = {
+        item_id
+        for item_id, item in (progress_items.items() if isinstance(progress_items, dict) else [])
+        if isinstance(item, dict) and item.get("status") == "completed"
+    }
+    decisions_payload = _load_json_file(root / DECISIONS_PATH) or {}
+    decisions = decisions_payload if isinstance(decisions_payload, list) else decisions_payload.get("decisions", [])
+    if not isinstance(decisions, list):
+        decisions = []
+    latest_decision_by_item: dict[str, dict] = {}
+    for decision in decisions:
+        if not isinstance(decision, dict):
+            continue
+        item_id = str(decision.get("item_id") or "")
+        if not item_id:
+            continue
+        latest_decision_by_item[item_id] = decision
+
+    rows: list[dict] = []
+    for item_id in sorted(completed_item_ids):
+        decision = latest_decision_by_item.get(item_id)
+        if not isinstance(decision, dict):
+            continue
+        queue_item = queue_by_item_id.get(item_id, {})
+        rows.append(
+            {
+                "item_id": item_id,
+                "make": queue_item.get("make", ""),
+                "model": queue_item.get("model", ""),
+                "years": _years_text(queue_item),
+                "change_decision": decision.get("change_decision", ""),
+                "change_severity": decision.get("change_severity", ""),
+                "patchable": bool(decision.get("patchable", False)),
+                "patchability_reason": decision.get("patchability_reason", ""),
+                "change_reason": decision.get("change_reason", ""),
+            }
+        )
+
+    change_required = sum(1 for row in rows if row.get("change_decision") == "CHANGE_REQUIRED")
+    no_change_required = sum(1 for row in rows if row.get("change_decision") == "NO_CHANGE_REQUIRED")
+    patchable_changes = sum(1 for row in rows if row.get("change_decision") == "CHANGE_REQUIRED" and row.get("patchable"))
+    non_patchable_changes = sum(1 for row in rows if row.get("change_decision") == "CHANGE_REQUIRED" and not row.get("patchable"))
+    pending_patches = int(load_surgical_patch_summary(root).get("pending", 0))
+    return {
+        "completed_ai_decisions": len(rows),
+        "change_required": change_required,
+        "no_change_required": no_change_required,
+        "patchable_changes": patchable_changes,
+        "non_patchable_changes": non_patchable_changes,
+        "pending_patches": pending_patches,
+        "rows": rows,
+        "columns": list(AI_DECISION_OUTCOME_COLUMNS),
+    }
 
 
 def load_debug_snippets(project_root: str | Path = ".", max_chars: int = 1200) -> list[dict]:

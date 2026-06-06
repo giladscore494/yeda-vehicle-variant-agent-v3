@@ -138,6 +138,18 @@ def test_model_decisions_always_safe_to_auto_apply_false(monkeypatch, tmp_path):
     assert decision["gemini_result"]["safe_to_auto_apply"] is False
     assert decision["openai_result"]["safe_to_auto_apply"] is False
     assert decision["final_recommendation"] == "manual_approval_required:merge"
+    assert decision["change_decision"] in {"CHANGE_REQUIRED", "NO_CHANGE_REQUIRED"}
+    assert decision["change_severity"] in {"critical", "material", "minor", "negligible"}
+    assert isinstance(decision["change_reason"], str)
+    assert isinstance(decision["critical_fields_impacted"], list)
+    assert decision["patchable"] in {True, False}
+    assert decision["patchability_reason"] in {
+        "exact_field_changes_available",
+        "no_exact_field_changes",
+        "vague_recommendation",
+        "unsafe_action",
+        "no_change_needed",
+    }
 
 
 def test_requires_model_review_false_filtered_before_routing(monkeypatch, tmp_path):

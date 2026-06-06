@@ -73,21 +73,33 @@ def test_build_candidate_patches_creates_only_exact_field_changes(tmp_path, monk
             "decisions": [
                 {
                     "decision_id": "d1",
+                    "change_decision": "CHANGE_REQUIRED",
+                    "patchable": True,
                     "action": "update_fields",
                     "variant_ids": ["v1"],
                     "field_changes": {"v1": {"trim.value": {"from": "Old", "to": "New"}}},
                     "safe_to_apply": True,
                     "confidence": 0.8,
                 },
-                {"decision_id": "vague", "variant_ids": ["v2"], "recommendation": "clean this up"},
+                {
+                    "decision_id": "vague",
+                    "change_decision": "NO_CHANGE_REQUIRED",
+                    "patchable": False,
+                    "variant_ids": ["v2"],
+                    "recommendation": "clean this up",
+                },
                 {
                     "decision_id": "missing_from",
+                    "change_decision": "CHANGE_REQUIRED",
+                    "patchable": False,
                     "variant_ids": ["v2"],
                     "field_changes": {"v2": {"trim.value": {"to": "X"}}},
                     "safe_to_apply": True,
                 },
                 {
                     "decision_id": "blocked_safe",
+                    "change_decision": "CHANGE_REQUIRED",
+                    "patchable": True,
                     "variant_ids": ["v2"],
                     "field_changes": {"v2": {"trim.value": {"from": "Keep", "to": "Safer"}}},
                     "safe_to_apply": False,
@@ -100,9 +112,13 @@ def test_build_candidate_patches_creates_only_exact_field_changes(tmp_path, monk
     payload = _read_json(tmp_path / PATCHES_PATH)
 
     assert result["created_count"] == 2
+    assert result["change_required"] == 3
+    assert result["no_change_required"] == 1
+    assert result["patchable"] == 2
+    assert result["change_required_not_patchable"] == 1
     assert result["pending"] == 1
     assert result["blocked"] == 1
-    assert result["manual_review_required"] == 2
+    assert result["manual_review_required"] == 0
     assert len(payload["patches"]) == 2
     assert payload["patches"][0]["variant_ids"] == ["v1"]
     assert payload["patches"][0]["field_changes"]["v1"]["trim.value"] == {"from": "Old", "to": "New"}
@@ -117,6 +133,8 @@ def test_build_candidate_patches_blocks_broad_actions(tmp_path, monkeypatch, act
             "decisions": [
                 {
                     "decision_id": action,
+                    "change_decision": "CHANGE_REQUIRED",
+                    "patchable": False,
                     "action": action,
                     "variant_ids": ["v1"],
                     "field_changes": {"v1": {"trim.value": {"from": "Old", "to": "New"}}},
@@ -129,7 +147,7 @@ def test_build_candidate_patches_blocks_broad_actions(tmp_path, monkeypatch, act
     result = build_candidate_patches_from_decisions()
 
     assert result["created_count"] == 0
-    assert result["manual_review_required"] == 1
+    assert result["change_required_not_patchable"] == 1
 
 
 def test_apply_next_safe_patch_applies_one_working_only_and_logs(tmp_path, monkeypatch):
@@ -271,3 +289,43 @@ def test_diff_audit_fail_updates_status_and_required_fixes(tmp_path, monkeypatch
     assert result["required_fixes"] == ["restore field"]
     assert _read_json(tmp_path / PATCHES_PATH)["patches"][0]["status"] == "audit_failed"
     assert "api" not in (tmp_path / DIFF_AUDITS_PATH).read_text(encoding="utf-8").lower()
+
+
+def test_build_candidate_patches_skips_no_change_required(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    _write_json(
+        tmp_path / DECISIONS_PATH,
+        {"decisions": [{"decision_id": "d1", "change_decision": "NO_CHANGE_REQUIRED", "patchable": False}]},
+    )
+    result = build_candidate_patches_from_decisions()
+    assert result["created_count"] == 0
+    assert result["no_change_required"] == 1
+    assert result["patches"] == []
+
+
+def test_build_candidate_patches_only_for_change_required_and_patchable(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    _write_json(
+        tmp_path / DECISIONS_PATH,
+        {
+            "decisions": [
+                {
+                    "decision_id": "ok",
+                    "change_decision": "CHANGE_REQUIRED",
+                    "patchable": True,
+                    "variant_ids": ["v1"],
+                    "field_changes": {"v1": {"trim.value": {"from": "Old", "to": "New"}}},
+                    "safe_to_apply": True,
+                },
+                {
+                    "decision_id": "no_patch",
+                    "change_decision": "CHANGE_REQUIRED",
+                    "patchable": False,
+                    "variant_ids": ["v1"],
+                },
+            ]
+        },
+    )
+    result = build_candidate_patches_from_decisions()
+    assert result["created_count"] == 1
+    assert result["change_required_not_patchable"] == 1

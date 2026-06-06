@@ -3,6 +3,7 @@ import os
 from pathlib import Path
 
 from core.paths import (
+    DECISIONS_PATH,
     DIFF_AUDITS_PATH,
     FINAL_CLEAN_DATABASE_PATH,
     ISSUE_QUEUE_PATH,
@@ -261,6 +262,11 @@ def test_load_surgical_patch_summary_missing_files_returns_safe_defaults(tmp_pat
         "last_changed_fields",
         "last_audit_status",
         "last_error",
+        "change_required",
+        "no_change_required",
+        "patchable",
+        "change_required_not_patchable",
+        "manual_review_required",
     }
     assert expected_keys.issubset(summary.keys())
     assert summary["patches_path"] == PATCHES_PATH
@@ -276,6 +282,11 @@ def test_load_surgical_patch_summary_missing_files_returns_safe_defaults(tmp_pat
     assert summary["last_changed_fields"] == {}
     assert summary["last_audit_status"] is None
     assert summary["last_error"] is None
+    assert summary["change_required"] == 0
+    assert summary["no_change_required"] == 0
+    assert summary["patchable"] == 0
+    assert summary["change_required_not_patchable"] == 0
+    assert summary["manual_review_required"] == 0
 
 
 def test_load_surgical_patch_summary_handles_malformed_patches_json(tmp_path):
@@ -300,6 +311,11 @@ def test_load_surgical_patch_summary_counts_and_last_values(tmp_path):
     _write_json(
         tmp_path / PATCHES_PATH,
         {
+            "change_required": 2,
+            "no_change_required": 1,
+            "patchable": 1,
+            "change_required_not_patchable": 1,
+            "manual_review_required": 0,
             "patches": [
                 {"patch_id": "p1", "status": "pending"},
                 {"patch_id": "p2", "status": "applied_pending_audit"},
@@ -332,6 +348,11 @@ def test_load_surgical_patch_summary_counts_and_last_values(tmp_path):
     assert summary["audit_passed"] == 1
     assert summary["audit_failed"] == 1
     assert summary["blocked"] == 1
+    assert summary["change_required"] == 2
+    assert summary["no_change_required"] == 1
+    assert summary["patchable"] == 1
+    assert summary["change_required_not_patchable"] == 1
+    assert summary["manual_review_required"] == 0
     assert summary["last_patch_id"] == "p2"
     assert summary["last_variant_ids"] == ["v_2"]
     assert summary["last_changed_fields"] == {"v_2": ["model"]}
@@ -345,5 +366,55 @@ def test_streamlit_app_has_surgical_patch_workflow_section():
     assert "Build Candidate Patches" in app_source
     assert "Apply Next Safe Patch" in app_source
     assert "Audit Last Patch Diff with GPT-5.4" in app_source
+    assert "AI Review outcome" in app_source
+    assert "CHANGE_REQUIRED" in app_source
+    assert "NO_CHANGE_REQUIRED" in app_source
     assert "Advanced Debug / Raw Files" in app_source
     assert "Apply Surgical Patch" not in app_source
+
+
+def test_load_ai_review_outcome_counts(tmp_path):
+    _write_json(
+        tmp_path / ISSUE_QUEUE_PATH,
+        {"items": [_queue_item(1, ["v1"]), _queue_item(2, ["v2"])]},
+    )
+    _write_json(
+        tmp_path / MODEL_REVIEW_PROGRESS_PATH,
+        {
+            "items": {
+                "iq_000001": {"item_id": "iq_000001", "status": "completed"},
+                "iq_000002": {"item_id": "iq_000002", "status": "completed"},
+            }
+        },
+    )
+    _write_json(
+        tmp_path / DECISIONS_PATH,
+        {
+            "decisions": [
+                {
+                    "item_id": "iq_000001",
+                    "change_decision": "CHANGE_REQUIRED",
+                    "change_severity": "material",
+                    "patchable": False,
+                    "patchability_reason": "no_exact_field_changes",
+                    "change_reason": "year mismatch",
+                },
+                {
+                    "item_id": "iq_000002",
+                    "change_decision": "NO_CHANGE_REQUIRED",
+                    "change_severity": "negligible",
+                    "patchable": False,
+                    "patchability_reason": "no_change_needed",
+                    "change_reason": "cosmetic only",
+                },
+            ]
+        },
+    )
+    _write_json(tmp_path / PATCHES_PATH, {"pending": 3, "patches": []})
+    payload = helpers.load_ai_review_outcome(project_root=tmp_path)
+    assert payload["completed_ai_decisions"] == 2
+    assert payload["change_required"] == 1
+    assert payload["no_change_required"] == 1
+    assert payload["patchable_changes"] == 0
+    assert payload["non_patchable_changes"] == 1
+    assert payload["pending_patches"] == 3

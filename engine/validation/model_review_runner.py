@@ -15,6 +15,7 @@ from typing import Any
 
 from core.paths import DECISIONS_PATH, ISSUE_QUEUE_PATH, MODEL_REVIEW_PROGRESS_PATH
 from engine import config
+from engine.validation.change_decision_classifier import classify_change_decision
 from engine.validation.model_review_progress import (
     mark_model_review_items,
     refresh_model_review_progress,
@@ -328,7 +329,7 @@ def _build_decision(
     confidences = [c for c in (_result_confidence(gemini_result), _result_confidence(openai_result)) if c is not None]
     confidence = min(confidences) if confidences else 0.0
 
-    return {
+    decision = {
         "decision_id": f"md_{uuid.uuid4().hex}",
         "item_id": item.get("item_id", ""),
         "seed_id": item.get("seed_id", ""),
@@ -343,6 +344,8 @@ def _build_decision(
         "requires_manual_approval": True,
         "created_at": _utc_now(),
     }
+    decision.update(classify_change_decision(decision, item))
+    return decision
 
 
 def _append_decisions(decisions: list[dict]) -> None:

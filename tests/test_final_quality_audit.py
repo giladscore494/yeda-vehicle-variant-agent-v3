@@ -119,3 +119,102 @@ def test_quality_audit_does_not_mutate_files(tmp_path, monkeypatch):
     final_after = hashlib.sha256((tmp_path / FINAL_CLEAN_DATABASE_PATH).read_bytes()).hexdigest()
     assert source_before == source_after
     assert final_before == final_after
+
+
+def test_quality_audit_includes_change_decision_counts(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    _write_json(tmp_path / SOURCE_CANONICAL_PATH, _source_payload())
+    _write_json(tmp_path / FINAL_CLEAN_DATABASE_PATH, _final_payload(["v1", "v2"]))
+    _write_json(
+        tmp_path / DECISIONS_PATH,
+        {
+            "decisions": [
+                {"decision_id": "d1", "change_decision": "CHANGE_REQUIRED", "change_severity": "minor", "patchable": True},
+                {"decision_id": "d2", "change_decision": "NO_CHANGE_REQUIRED", "change_severity": "negligible", "patchable": False},
+            ]
+        },
+    )
+    monkeypatch.setattr(
+        audit_module,
+        "_call_openai_audit_model",
+        lambda model, summary: (
+            {
+                "status": "PASS",
+                "confidence": 0.9,
+                "blocking_reasons": [],
+                "non_blocking_warnings": [],
+                "required_fixes": [],
+                "summary": "ok",
+            },
+            None,
+        ),
+    )
+    monkeypatch.setattr(audit_module.config, "get", lambda *args, **kwargs: "gpt-5.4")
+
+    result = audit_module.audit_final_clean_database_quality()
+    det = result["deterministic_summary"]
+    assert det["change_required_decisions"] == 1
+    assert det["no_change_required_decisions"] == 1
+    assert det["patchable_decisions"] == 1
+    assert det["unpatched_change_required_decisions"] == 1
+
+
+def test_quality_audit_blocks_unpatched_critical_change_required(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    _write_json(tmp_path / SOURCE_CANONICAL_PATH, _source_payload())
+    _write_json(tmp_path / FINAL_CLEAN_DATABASE_PATH, _final_payload(["v1", "v2"]))
+    _write_json(
+        tmp_path / DECISIONS_PATH,
+        {
+            "decisions": [
+                {
+                    "decision_id": "d1",
+                    "change_decision": "CHANGE_REQUIRED",
+                    "change_severity": "critical",
+                    "patchable": False,
+                }
+            ]
+        },
+    )
+
+    result = audit_module.audit_final_clean_database_quality()
+    assert result["status"] == "FAIL"
+    assert any("Unpatched CHANGE_REQUIRED decisions" in reason for reason in result["blocking_reasons"])
+
+
+def test_quality_audit_does_not_block_when_only_no_change_required(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    _write_json(tmp_path / SOURCE_CANONICAL_PATH, _source_payload())
+    _write_json(tmp_path / FINAL_CLEAN_DATABASE_PATH, _final_payload(["v1", "v2"]))
+    _write_json(
+        tmp_path / DECISIONS_PATH,
+        {
+            "decisions": [
+                {
+                    "decision_id": "d2",
+                    "change_decision": "NO_CHANGE_REQUIRED",
+                    "change_severity": "negligible",
+                    "patchable": False,
+                }
+            ]
+        },
+    )
+    monkeypatch.setattr(
+        audit_module,
+        "_call_openai_audit_model",
+        lambda model, summary: (
+            {
+                "status": "PASS",
+                "confidence": 0.9,
+                "blocking_reasons": [],
+                "non_blocking_warnings": [],
+                "required_fixes": [],
+                "summary": "ok",
+            },
+            None,
+        ),
+    )
+    monkeypatch.setattr(audit_module.config, "get", lambda *args, **kwargs: "gpt-5.4")
+
+    result = audit_module.audit_final_clean_database_quality()
+    assert result["status"] == "PASS"
