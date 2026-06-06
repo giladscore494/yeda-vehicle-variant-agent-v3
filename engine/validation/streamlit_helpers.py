@@ -501,7 +501,6 @@ def load_ai_review_outcome(project_root: str | Path = ".") -> dict:
         change_decision = decision.get("change_decision")
         change_decision_text = change_decision if isinstance(change_decision, str) and change_decision.strip() else None
         patchable_value = decision.get("patchable")
-        patchable_bool = patchable_value if isinstance(patchable_value, bool) else None
 
         if change_decision_text == "CHANGE_REQUIRED":
             base_summary["change_required"] += 1
