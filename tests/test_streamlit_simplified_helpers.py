@@ -565,7 +565,7 @@ def test_model_review_phase_gating_blocks_deep_scan_when_model_items_remain(tmp_
     )
     monkeypatch.setattr(helpers, "run_full_audit", lambda: {"ok": True, "issues_total": 1})
 
-    result = helpers.run_audit_and_refresh_queue()
+    result = helpers.run_audit_and_refresh_queue(project_root=tmp_path)
 
     assert result["ok"] is False
     assert result["error"] == "deep_scan_blocked"
@@ -577,7 +577,7 @@ def test_model_review_phase_gating_blocks_deep_scan_when_outcome_audit_pending(t
     _write_json(tmp_path / DECISIONS_PATH, {"decisions": [{"item_id": "iq_000005", "outcome_audit_status": "pending"}]})
     monkeypatch.setattr(helpers, "run_full_audit", lambda: {"ok": True, "issues_total": 1})
 
-    result = helpers.run_audit_and_refresh_queue()
+    result = helpers.run_audit_and_refresh_queue(project_root=tmp_path)
 
     assert result["ok"] is False
     assert result["error"] == "deep_scan_blocked"
@@ -589,7 +589,7 @@ def test_model_review_phase_gating_allows_deep_scan_when_complete(tmp_path, monk
     _write_json(tmp_path / DECISIONS_PATH, {"decisions": [{"item_id": "iq_000005", "outcome_audit_status": "passed"}]})
     monkeypatch.setattr(helpers, "run_full_audit", lambda: {"ok": True, "issues_total": 7})
 
-    result = helpers.run_audit_and_refresh_queue()
+    result = helpers.run_audit_and_refresh_queue(project_root=tmp_path)
 
     assert result["ok"] is True
     assert result["issues_total"] == 7

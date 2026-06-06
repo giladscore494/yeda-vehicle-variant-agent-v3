@@ -90,6 +90,8 @@ _WEAK_EVIDENCE_TOKENS = {
     "cannot verify",
     "unable to verify",
 }
+# Below this confidence we default to NO_CHANGE_REQUIRED to avoid unsafe low-evidence mutations.
+_WEAK_EVIDENCE_CONFIDENCE_THRESHOLD = 0.4
 
 
 def _normalized_text(value: Any) -> str:
@@ -201,7 +203,7 @@ def _is_negligible(decision: dict, gemini: dict, openai: dict) -> bool:
 def _has_weak_evidence(decision: dict, gemini: dict, openai: dict, item: dict) -> bool:
     for payload in (decision, openai, gemini, item):
         confidence = payload.get("confidence")
-        if isinstance(confidence, (int, float)) and float(confidence) < 0.4:
+        if isinstance(confidence, (int, float)) and float(confidence) < _WEAK_EVIDENCE_CONFIDENCE_THRESHOLD:
             return True
         for key in ("summary", "reason", "rationale", "change_reason", "evidence_summary"):
             text = _normalized_text(payload.get(key))

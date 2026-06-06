@@ -42,10 +42,28 @@ def _read_json(path: str | Path, default: Any = None) -> Any:
 
 
 def _append_jsonl(path: str | Path, payload: dict) -> None:
+    def _sanitize(value: Any) -> Any:
+        if isinstance(value, dict):
+            cleaned: dict[str, Any] = {}
+            for key, item in value.items():
+                key_text = str(key).lower()
+                if any(token in key_text for token in ("api_key", "token", "secret", "password", "authorization")):
+                    continue
+                cleaned[str(key)] = _sanitize(item)
+            return cleaned
+        if isinstance(value, list):
+            return [_sanitize(item) for item in value]
+        if isinstance(value, str):
+            if "sk-" in value or "AIza" in value:
+                return "[redacted]"
+            return value
+        return value
+
     p = Path(path)
     p.parent.mkdir(parents=True, exist_ok=True)
+    sanitized_payload = _sanitize(payload)
     with p.open("a", encoding="utf-8") as handle:
-        handle.write(json.dumps(payload, ensure_ascii=False) + "\n")
+        handle.write(json.dumps(sanitized_payload, ensure_ascii=False) + "\n")
 
 
 def _all_variants(payload: dict) -> list[dict]:
@@ -104,7 +122,11 @@ def _is_completed_decision(decision: dict) -> bool:
 def _extract_variant_ids(decision: dict) -> list[str]:
     raw = decision.get("variant_ids")
     if isinstance(raw, list):
-        ids = [str(value).strip() for value in raw if str(value).strip()]
+        ids: list[str] = []
+        for value in raw:
+            text = str(value).strip()
+            if text:
+                ids.append(text)
     else:
         single = str(decision.get("variant_id") or "").strip()
         ids = [single] if single else []
@@ -246,8 +268,24 @@ def _call_openai_outcome_audit(model: str, prompt_payload: dict) -> tuple[dict[s
         import openai
 
         client = openai.OpenAI(api_key=api_key)
-        response = client.responses.create(model=model, input=json.dumps(prompt, ensure_ascii=False))
-        raw_text = str(getattr(response, "output_text", "") or response)
+        response = None
+        raw_text = ""
+        if hasattr(client, "chat") and hasattr(client.chat, "completions"):
+            response = client.chat.completions.create(
+                model=model,
+                messages=[
+                    {"role": "system", "content": "Return strict JSON only."},
+                    {"role": "user", "content": json.dumps(prompt, ensure_ascii=False)},
+                ],
+            )
+            choices = getattr(response, "choices", None)
+            if choices and isinstance(choices, list):
+                raw_text = str(getattr(getattr(choices[0], "message", None), "content", "") or "")
+        elif hasattr(client, "responses"):
+            response = client.responses.create(model=model, input=json.dumps(prompt, ensure_ascii=False))
+            raw_text = str(getattr(response, "output_text", "") or "")
+        if not raw_text and response is not None:
+            raw_text = str(response)
         parsed = _normalize_model_result(_parse_model_json(raw_text))
         log_event(
             {

@@ -383,9 +383,9 @@ def load_current_model_review_phase(project_root: str | Path = ".") -> dict:
     }
 
 
-def run_audit_and_refresh_queue() -> dict:
+def run_audit_and_refresh_queue(project_root: str | Path = ".") -> dict:
     """Run the deterministic backend audit that also refreshes the review queue."""
-    phase = is_current_model_review_phase_complete()
+    phase = is_current_model_review_phase_complete(project_root)
     if phase["remaining_model_review_items"] > 0 or phase["pending_outcome_audits"] > 0:
         return {"ok": False, "error": "deep_scan_blocked", "message": phase["message"], "phase": phase}
     return run_full_audit()
@@ -579,9 +579,8 @@ def load_ai_review_outcome(project_root: str | Path = ".") -> dict:
         item_id = str(decision.get("item_id") or "").strip()
         queue_item = queue_by_item_id.get(item_id, {})
         change_decision = decision.get("change_decision")
-        change_decision_text = (
-            change_decision.strip().upper() if isinstance(change_decision, str) and change_decision.strip() else None
-        )
+        change_decision_str = change_decision.strip() if isinstance(change_decision, str) else ""
+        change_decision_text = change_decision_str.upper() if change_decision_str else None
         patchable_value = decision.get("patchable")
         outcome_audit_status = str(decision.get("outcome_audit_status") or "").strip().lower()
 
