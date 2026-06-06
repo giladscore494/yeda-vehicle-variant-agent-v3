@@ -20,7 +20,6 @@ from core.paths import (
     MANIFEST_PATH,
     SOURCE_CANONICAL_PATH,
 )
-from engine.validation.write_guard import safe_write_json
 
 _ALLOWED_SAFE_ACTIONS = {
     "whitespace_normalization",
@@ -204,11 +203,6 @@ def _apply_safe_decision(variants: list[dict], decision: dict, action: str) -> i
     return applied
 
 
-def _load_manifest() -> dict:
-    manifest = _read_json(MANIFEST_PATH, {})
-    return manifest if isinstance(manifest, dict) else {}
-
-
 def export_final_clean_database() -> dict:
     """Export ``data/final/resume_package_final_clean.json`` and return a summary.
 
@@ -261,17 +255,6 @@ def export_final_clean_database() -> dict:
             manual_review_remaining_count += 1
 
     created_at = _utc_now()
-    manifest = _load_manifest()
-    manifest.update({
-        "final_clean_database_path": FINAL_CLEAN_DATABASE_PATH,
-        "final_clean_database_exported_at": created_at,
-        "final_clean_database_source_file": SOURCE_CANONICAL_PATH,
-        "final_clean_database_decisions_file": DECISIONS_PATH,
-        "final_clean_database_total_output_variants": len(vehicles),
-        "final_clean_database_safe_decisions_applied": safe_decisions_applied,
-        "final_clean_database_manual_review_remaining_count": manual_review_remaining_count,
-    })
-    safe_write_json(manifest, MANIFEST_PATH)
 
     output = {
         "metadata": {

@@ -51,12 +51,13 @@ def _source_package() -> dict:
     }
 
 
-def _prepare(tmp_path: Path, monkeypatch, decisions: list[dict]) -> dict:
+def _prepare(tmp_path: Path, monkeypatch, decisions: list[dict], *, write_manifest: bool = True) -> dict:
     monkeypatch.chdir(tmp_path)
     source = _source_package()
     _write_json(tmp_path / SOURCE_CANONICAL_PATH, source)
     _write_json(tmp_path / DECISIONS_PATH, {"decisions": decisions})
-    _write_json(tmp_path / MANIFEST_PATH, {"validation_run_id": "test_run"})
+    if write_manifest:
+        _write_json(tmp_path / MANIFEST_PATH, {"validation_run_id": "test_run"})
     return source
 
 
@@ -84,6 +85,26 @@ def test_export_creates_final_clean_database_and_metadata(tmp_path, monkeypatch)
     assert payload["metadata"]["rejected_count"] == 0
     assert payload["metadata"]["normalized_count"] == 0
     assert payload["vehicles"] == source["verified_variants"] + source["partial_variants"]
+
+
+def test_export_writes_only_final_output_and_preserves_source(tmp_path, monkeypatch):
+    source = _prepare(tmp_path, monkeypatch, [], write_manifest=False)
+    original = copy.deepcopy(source)
+
+    summary = export_final_clean_database()
+
+    final_path = tmp_path / FINAL_CLEAN_DATABASE_PATH
+    assert final_path.exists()
+    assert not (tmp_path / MANIFEST_PATH).exists()
+    assert _load(tmp_path / SOURCE_CANONICAL_PATH) == original
+
+    payload = _load(final_path)
+    assert summary["path"] == FINAL_CLEAN_DATABASE_PATH
+    assert "metadata" in payload
+    assert payload["metadata"]["source_file"] == SOURCE_CANONICAL_PATH
+    assert payload["metadata"]["decisions_file"] == DECISIONS_PATH
+    assert payload["metadata"]["manifest_file"] == MANIFEST_PATH
+    assert payload["metadata"]["total_output_variants"] == 3
 
 
 def test_export_does_not_overwrite_source_canonical(tmp_path, monkeypatch):
