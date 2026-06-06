@@ -3,10 +3,13 @@ import os
 from pathlib import Path
 
 from core.paths import (
+    DIFF_AUDITS_PATH,
     FINAL_CLEAN_DATABASE_PATH,
     ISSUE_QUEUE_PATH,
     MANIFEST_PATH,
     MODEL_REVIEW_PROGRESS_PATH,
+    PATCH_APPLICATIONS_PATH,
+    PATCHES_PATH,
     SOURCE_CANONICAL_PATH,
     VALIDATION_REPORT_PATH,
 )
@@ -163,6 +166,10 @@ def test_export_final_clean_database_helper_exists():
     assert hasattr(helpers, "export_final_clean_database")
 
 
+def test_load_surgical_patch_summary_helper_exists():
+    assert hasattr(helpers, "load_surgical_patch_summary")
+
+
 def test_export_final_clean_database_returns_ui_safe_summary(monkeypatch):
     def fake_export():
         return {
@@ -224,12 +231,112 @@ def test_load_recent_run_events_wrapper(monkeypatch):
 
 
 def test_surgical_patch_summary_and_wrappers(monkeypatch, tmp_path):
+    expected_build = {"created_count": 1, "pending": 1}
     expected_apply = {"status": "applied_pending_audit", "patch_id": "p1"}
     expected_audit = {"status": "PASS", "patch_id": "p1"}
+    monkeypatch.setattr(helpers, "_build_candidate_patches_from_decisions", lambda: expected_build)
     monkeypatch.setattr(helpers, "_apply_next_safe_patch", lambda: expected_apply)
     monkeypatch.setattr(helpers, "_audit_last_patch_diff_with_openai", lambda: expected_audit)
+    assert helpers.build_candidate_patches() == expected_build
     assert helpers.apply_next_safe_surgical_patch() == expected_apply
+    assert helpers.apply_next_safe_patch() == expected_apply
     assert helpers.audit_last_surgical_patch_diff() == expected_audit
+    assert helpers.audit_last_patch_diff_with_openai() == expected_audit
+
+
+def test_load_surgical_patch_summary_missing_files_returns_safe_defaults(tmp_path):
+    summary = helpers.load_surgical_patch_summary(project_root=tmp_path)
+
+    expected_keys = {
+        "patches_path",
+        "patches_exists",
+        "patches_total",
+        "pending",
+        "applied_pending_audit",
+        "audit_passed",
+        "audit_failed",
+        "blocked",
+        "last_patch_id",
+        "last_variant_ids",
+        "last_changed_fields",
+        "last_audit_status",
+        "last_error",
+    }
+    assert expected_keys.issubset(summary.keys())
+    assert summary["patches_path"] == PATCHES_PATH
+    assert summary["patches_exists"] is False
+    assert summary["patches_total"] == 0
+    assert summary["pending"] == 0
+    assert summary["applied_pending_audit"] == 0
+    assert summary["audit_passed"] == 0
+    assert summary["audit_failed"] == 0
+    assert summary["blocked"] == 0
+    assert summary["last_patch_id"] is None
+    assert summary["last_variant_ids"] == []
+    assert summary["last_changed_fields"] == {}
+    assert summary["last_audit_status"] is None
+    assert summary["last_error"] is None
+
+
+def test_load_surgical_patch_summary_handles_malformed_patches_json(tmp_path):
+    path = tmp_path / PATCHES_PATH
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text("{bad-json", encoding="utf-8")
+
+    summary = helpers.load_surgical_patch_summary(project_root=tmp_path)
+
+    assert summary["patches_exists"] is True
+    assert summary["patches_total"] == 0
+    assert summary["pending"] == 0
+    assert summary["applied_pending_audit"] == 0
+    assert summary["audit_passed"] == 0
+    assert summary["audit_failed"] == 0
+    assert summary["blocked"] == 0
+    assert isinstance(summary["last_error"], str)
+    assert summary["last_error"]
+
+
+def test_load_surgical_patch_summary_counts_and_last_values(tmp_path):
+    _write_json(
+        tmp_path / PATCHES_PATH,
+        {
+            "patches": [
+                {"patch_id": "p1", "status": "pending"},
+                {"patch_id": "p2", "status": "applied_pending_audit"},
+                {"patch_id": "p3", "status": "audit_passed"},
+                {"patch_id": "p4", "status": "audit_failed"},
+                {"patch_id": "p5", "status": "blocked"},
+            ]
+        },
+    )
+    apps = tmp_path / PATCH_APPLICATIONS_PATH
+    apps.parent.mkdir(parents=True, exist_ok=True)
+    apps.write_text(
+        json.dumps({"patch_id": "p2", "variant_ids": ["v_2"], "changed_fields": {"v_2": ["model"]}}, ensure_ascii=False)
+        + "\n",
+        encoding="utf-8",
+    )
+    audits = tmp_path / DIFF_AUDITS_PATH
+    audits.parent.mkdir(parents=True, exist_ok=True)
+    audits.write_text(
+        json.dumps({"patch_id": "p2", "variant_ids": ["v_2"], "status": "PASS"}, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+
+    summary = helpers.load_surgical_patch_summary(project_root=tmp_path)
+
+    assert summary["patches_exists"] is True
+    assert summary["patches_total"] == 5
+    assert summary["pending"] == 1
+    assert summary["applied_pending_audit"] == 1
+    assert summary["audit_passed"] == 1
+    assert summary["audit_failed"] == 1
+    assert summary["blocked"] == 1
+    assert summary["last_patch_id"] == "p2"
+    assert summary["last_variant_ids"] == ["v_2"]
+    assert summary["last_changed_fields"] == {"v_2": ["model"]}
+    assert summary["last_audit_status"] == "PASS"
+    assert summary["last_error"] is None
 
 
 def test_streamlit_app_has_surgical_patch_workflow_section():
