@@ -449,7 +449,7 @@ with tab_validation:
             "Max model validation items to run",
             min_value=1,
             max_value=max(1, len(_queue)),
-            value=min(1, len(_queue)),
+            value=max(1, min(10, len(_queue))),
             step=1,
             key="mv_max_items",
         )
