@@ -1,37 +1,24 @@
-"""Model validation runner — orchestrates Gemini/OpenAI calls for suspicious groups.
+"""Deprecated legacy model validation runner.
 
-Gemini = primary validator (for suspicious groups only).
-OpenAI = second opinion only (for risky/low-confidence Gemini results).
-
-Never sends every variant to models.
-Never mutates canonical.
+Task 3 model calls must go through ``model_review_runner.run_model_review()``,
+which consumes ``data/validation/issue_queue.json`` and routes only rows marked
+``requires_model_review=true``. This module keeps legacy schema/aggregation
+helpers for compatibility, but its provider wrappers and public runner are safe
+no-call shims.
 """
 from __future__ import annotations
 
 import json
-import logging
-import traceback
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any
-
 from engine import config
 from engine.validation.cost_tracker import CostTracker
 from engine.validation.model_schema import (
     RISKY_RECOMMENDATIONS,
-    normalize_model_output,
-    parse_model_json,
-    validate_item,
     wrap_provider_result,
-    needs_openai_second_opinion,
-)
-from engine.validation.openai_utils import (
-    create_response_with_fallback,
-    extract_response_text,
 )
 from engine.validation.write_guard import safe_write_json
 
-logger = logging.getLogger(__name__)
 
 
 # ── Unified prompt builder ──────────────────────────────────────────────
@@ -143,189 +130,45 @@ Rules:
 # ── Provider call wrappers ──────────────────────────────────────────────
 
 def _call_gemini(item: dict, cost_tracker: CostTracker | None) -> dict:
-    """Call Gemini for a model validation item. Returns wrapped result."""
-    api_key = config.get("google", "api_key")
-    model_id = config.get("google", "gemini_validator_model_id")
-    grounding = config.get_bool("google", "grounding_enabled", True)
+    """Deprecated legacy provider wrapper.
 
-    if not api_key:
-        return wrap_provider_result(
-            False, "gemini", model_id or "", item["validation_item_id"],
-            error_type="model_auth_error",
-            error_message="Google API key not configured",
-        )
-
-    prompt = _build_unified_prompt(item, role="primary")
-    input_est = len(prompt) // 3
-    output_est = max(500, input_est // 2)
-    variant_ids = item.get("variant_ids", [])
-    group_key = item.get("seed_id", item["validation_item_id"])
-
-    if cost_tracker:
-        cost_tracker.log_planned(
-            "gemini", model_id, group_key, variant_ids,
-            input_est, output_est, search_used=grounding,
-        )
-
-    try:
-        from google import genai
-        client = genai.Client(api_key=api_key)
-
-        generate_kwargs: dict[str, Any] = {}
-        if grounding:
-            try:
-                from google.genai import types
-                generate_kwargs["config"] = types.GenerateContentConfig(
-                    tools=[types.Tool(google_search=types.GoogleSearch())]
-                )
-            except Exception:
-                logger.warning("Grounding setup failed; proceeding without")
-
-        response = client.models.generate_content(
-            model=model_id, contents=prompt, **generate_kwargs,
-        )
-
-        raw_text = response.text or ""
-        input_actual = getattr(
-            getattr(response, "usage_metadata", None), "prompt_token_count", None
-        )
-        output_actual = getattr(
-            getattr(response, "usage_metadata", None), "candidates_token_count", None
-        )
-
-        if cost_tracker:
-            cost_tracker.log_actual(
-                "gemini", model_id, group_key, variant_ids,
-                input_est, output_est, input_actual, output_actual,
-                search_used=grounding, status="success",
-            )
-
-        parsed, parse_error = parse_model_json(raw_text)
-        if parse_error:
-            return wrap_provider_result(
-                False, "gemini", model_id, item["validation_item_id"],
-                raw_text=raw_text,
-                error_type="model_parse_error",
-                error_message="Failed to parse Gemini JSON response",
-            )
-
-        normalized = normalize_model_output(
-            parsed, item["validation_item_id"], model_id, "primary",
-        )
-        schema_errors = validate_item(normalized)
-        if schema_errors:
-            return wrap_provider_result(
-                False, "gemini", model_id, item["validation_item_id"],
-                parsed_result=normalized, raw_text=raw_text,
-                error_type="validation_schema_error",
-                error_message=f"Schema validation failed: {'; '.join(schema_errors)}",
-            )
-
-        return wrap_provider_result(
-            True, "gemini", model_id, item["validation_item_id"],
-            parsed_result=normalized, raw_text=raw_text,
-        )
-
-    except Exception as exc:
-        logger.error("Gemini call failed for %s: %s", item["validation_item_id"], exc)
-        if cost_tracker:
-            cost_tracker.log_actual(
-                "gemini", model_id, group_key, variant_ids,
-                input_est, output_est, None, None,
-                search_used=grounding, status="error",
-            )
-        return wrap_provider_result(
-            False, "gemini", model_id, item["validation_item_id"],
-            error_type="model_call_error",
-            error_message=str(exc),
-        )
-
-
-def _call_openai(item: dict, gemini_result: dict | None,
-                 cost_tracker: CostTracker | None) -> dict:
-    """Call OpenAI for second-opinion review. Returns wrapped result."""
-    api_key = config.get("openai", "api_key")
-    model_id = config.get("openai", "validator_model_id")
-    web_search = config.get_bool("openai", "web_search_enabled", True)
-
-    if not api_key:
-        return wrap_provider_result(
-            False, "openai", model_id or "", item["validation_item_id"],
-            error_type="model_auth_error",
-            error_message="OpenAI API key not configured",
-        )
-
-    prompt = _build_unified_prompt(
-        item, role="second_opinion", gemini_result=gemini_result,
+    Task 3 model access is exclusively gated through
+    engine.validation.model_review_runner.run_model_review(), which loads
+    data/validation/issue_queue.json and routes only items with
+    requires_model_review=true. This compatibility shim never calls Gemini.
+    """
+    item_id = item.get("validation_item_id") or item.get("item_id", "")
+    model_id = config.get("google", "gemini_validator_model_id", "")
+    return wrap_provider_result(
+        False, "gemini", model_id or "", item_id,
+        error_type="legacy_model_validation_disabled",
+        error_message=(
+            "Legacy direct Gemini validation is disabled. Use "
+            "engine.validation.model_review_runner.run_model_review(), which "
+            "consumes data/validation/issue_queue.json and enforces "
+            "requires_model_review=true routing."
+        ),
     )
-    input_est = len(prompt) // 3
-    output_est = max(500, input_est // 2)
-    variant_ids = item.get("variant_ids", [])
-    group_key = item.get("seed_id", item["validation_item_id"])
 
-    if cost_tracker:
-        cost_tracker.log_planned(
-            "openai", model_id, group_key, variant_ids,
-            input_est, output_est, search_used=web_search,
-        )
 
-    try:
-        import openai
-        client = openai.OpenAI(api_key=api_key)
-        response, used_web_search = create_response_with_fallback(
-            client, model_id, prompt, web_search, logger, item["validation_item_id"],
-        )
-        raw_text = extract_response_text(response)
-
-        input_actual = getattr(getattr(response, "usage", None), "input_tokens", None)
-        output_actual = getattr(getattr(response, "usage", None), "output_tokens", None)
-
-        if cost_tracker:
-            cost_tracker.log_actual(
-                "openai", model_id, group_key, variant_ids,
-                input_est, output_est, input_actual, output_actual,
-                search_used=used_web_search, status="success",
-            )
-
-        parsed, parse_error = parse_model_json(raw_text)
-        if parse_error:
-            return wrap_provider_result(
-                False, "openai", model_id, item["validation_item_id"],
-                raw_text=raw_text,
-                error_type="model_parse_error",
-                error_message="Failed to parse OpenAI JSON response",
-            )
-
-        normalized = normalize_model_output(
-            parsed, item["validation_item_id"], model_id, "second_opinion",
-        )
-        schema_errors = validate_item(normalized)
-        if schema_errors:
-            return wrap_provider_result(
-                False, "openai", model_id, item["validation_item_id"],
-                parsed_result=normalized, raw_text=raw_text,
-                error_type="validation_schema_error",
-                error_message=f"Schema validation failed: {'; '.join(schema_errors)}",
-            )
-
-        return wrap_provider_result(
-            True, "openai", model_id, item["validation_item_id"],
-            parsed_result=normalized, raw_text=raw_text,
-        )
-
-    except Exception as exc:
-        logger.error("OpenAI call failed for %s: %s", item["validation_item_id"], exc)
-        if cost_tracker:
-            cost_tracker.log_actual(
-                "openai", model_id, group_key, variant_ids,
-                input_est, output_est, None, None,
-                search_used=web_search, status="error",
-            )
-        return wrap_provider_result(
-            False, "openai", model_id, item["validation_item_id"],
-            error_type="model_call_error",
-            error_message=str(exc),
-        )
+def _call_openai(
+    item: dict,
+    gemini_result: dict | None,
+    cost_tracker: CostTracker | None,
+) -> dict:
+    """Deprecated legacy provider wrapper; never calls OpenAI directly."""
+    item_id = item.get("validation_item_id") or item.get("item_id", "")
+    model_id = config.get("openai", "validator_model_id", "")
+    return wrap_provider_result(
+        False, "openai", model_id or "", item_id,
+        error_type="legacy_model_validation_disabled",
+        error_message=(
+            "Legacy direct OpenAI validation is disabled. Use "
+            "engine.validation.model_review_runner.run_model_review(), which "
+            "consumes data/validation/issue_queue.json and enforces "
+            "requires_model_review=true routing."
+        ),
+    )
 
 
 # ── Aggregation / decision logic ────────────────────────────────────────
@@ -512,139 +355,52 @@ def _aggregate_decision(
 
 def run_model_validation(
     validation_items: list[dict],
-    output_dir: str | Path = "data/validated_runs",
+    output_dir: str | Path = "data/validation",
+    dry_run: bool = False,
 ) -> dict:
-    """Run model validation on a list of validation items.
+    """Deprecated legacy model-validation entry point.
 
-    1. Call Gemini for each item (primary)
-    2. Call OpenAI only for items that need second opinion
-    3. Aggregate results
-    4. Write model_validation_results_v2.json
-
-    Returns a result dict with summary and items.
+    This function intentionally performs zero provider calls for arbitrary
+    ``validation_items``. Task 3 model review must flow through
+    ``engine.validation.model_review_runner.run_model_review()``, which loads
+    ``data/validation/issue_queue.json`` and lets ``route_issue_item()`` call
+    models only for issue-queue rows marked ``requires_model_review=true``.
     """
+    started_at = datetime.now(timezone.utc).isoformat()
+    completed_at = datetime.now(timezone.utc).isoformat()
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
-    cost_tracker = CostTracker(output_dir)
-
-    started_at = datetime.now(timezone.utc).isoformat()
-
-    gemini_attempted = 0
-    gemini_success = 0
-    gemini_failed = 0
-    openai_attempted = 0
-    openai_success = 0
-    openai_failed = 0
-
-    completed_items: list[dict] = []
-    last_error: str | None = None
-
-    for item in validation_items:
-        item_id = item["validation_item_id"]
-
-        # Step 1: Call Gemini (primary)
-        gemini_attempted += 1
-        gemini_result = _call_gemini(item, cost_tracker)
-
-        if gemini_result["ok"]:
-            gemini_success += 1
-        else:
-            gemini_failed += 1
-            last_error = gemini_result.get("error_message")
-
-        # Step 2: Determine if OpenAI is needed
-        openai_result = None
-        should_call_openai = False
-
-        if gemini_result["ok"]:
-            g_parsed = gemini_result.get("parsed_result", {})
-            det_issues = item.get("deterministic_issues", [])
-            should_call_openai = needs_openai_second_opinion(g_parsed, det_issues)
-        elif item.get("requires_openai_second_opinion_initially", False):
-            # Gemini failed but item was pre-flagged for dual validation
-            should_call_openai = True
-        elif item.get("risk_level") in ("high", "critical"):
-            # High-risk items with failed Gemini still need OpenAI
-            should_call_openai = True
-
-        if should_call_openai:
-            openai_attempted += 1
-            gemini_parsed = gemini_result.get("parsed_result") if gemini_result["ok"] else None
-            openai_result = _call_openai(item, gemini_parsed, cost_tracker)
-            if openai_result["ok"]:
-                openai_success += 1
-            else:
-                openai_failed += 1
-                last_error = openai_result.get("error_message")
-
-        # Step 3: Aggregate decision
-        decision = _aggregate_decision(item, gemini_result, openai_result)
-
-        completed_item = {
-            "validation_item_id": item_id,
-            "group_type": item.get("group_type"),
-            "seed_id": item.get("seed_id"),
-            "variant_ids": item.get("variant_ids", []),
-            "model_name": gemini_result.get("model_id", ""),
-            "model_role": "primary",
-            **{k: v for k, v in decision.items()
-               if k not in ("gemini_result", "openai_result")},
-            # Include evidence from model results
-            "evidence": (gemini_result.get("parsed_result") or {}).get("evidence", []),
-            "issues_found": (gemini_result.get("parsed_result") or {}).get("issues_found", []),
-            "suggested_patch": (gemini_result.get("parsed_result") or {}).get(
-                "suggested_patch", {"has_patch": False, "patch_type": "none",
-                                    "target_variant_id": None, "field": None,
-                                    "current_value": None, "suggested_value": None,
-                                    "reason": None, "safe_to_auto_apply": False}
-            ),
-            "needs_build_retry": (gemini_result.get("parsed_result") or {}).get("needs_build_retry", False),
-            "needs_data_correction": (gemini_result.get("parsed_result") or {}).get("needs_data_correction", False),
-            "risk_level": item.get("risk_level", "medium"),
-        }
-
-        completed_items.append(completed_item)
-
-        # Check for runaway
-        warnings = cost_tracker.check_runaway()
-        if warnings:
-            logger.warning("Cost tracker warnings: %s", warnings)
-            break
-
-    completed_at = datetime.now(timezone.utc).isoformat()
-
-    model_calls_summary = {
-        "gemini_calls_attempted": gemini_attempted,
-        "gemini_calls_success": gemini_success,
-        "gemini_calls_failed": gemini_failed,
-        "openai_calls_attempted": openai_attempted,
-        "openai_calls_success": openai_success,
-        "openai_calls_failed": openai_failed,
-    }
-
-    failed_count = sum(
-        1 for item in completed_items
-        if item.get("final_status") == "model_validation_failed"
-    )
 
     results = {
-        "validation_run_id": f"model_val_{started_at}",
+        "ok": False,
+        "error": "legacy_model_validation_disabled",
+        "message": (
+            "Legacy run_model_validation(validation_items=...) is disabled to "
+            "prevent provider calls outside the issue_queue + "
+            "requires_model_review=true gate. Use "
+            "engine.validation.model_review_runner.run_model_review()."
+        ),
+        "validation_run_id": f"legacy_model_val_disabled_{started_at}",
         "started_at": started_at,
         "completed_at": completed_at,
-        "model_validation_ran": True,
-        "model_calls_summary": model_calls_summary,
-        "items": completed_items,
-        "model_validation_items_count": len(completed_items),
-        "model_validation_failed_items_count": failed_count,
-        "model_validation_output_path": str(
-            output_dir / "model_validation_results_v2.json"
-        ),
-        "last_model_validation_error": last_error,
-        "cost_summary": cost_tracker.summary(),
+        "model_validation_ran": False,
+        "dry_run": bool(dry_run),
+        "items": [],
+        "rejected_items_count": len(validation_items),
+        "model_validation_items_count": 0,
+        "model_validation_failed_items_count": 0,
+        "model_validation_output_path": str(output_dir / "model_validation_results_v2.json"),
+        "last_model_validation_error": "legacy_model_validation_disabled",
+        "model_calls_summary": {
+            "gemini_calls_attempted": 0,
+            "gemini_calls_success": 0,
+            "gemini_calls_failed": 0,
+            "openai_calls_attempted": 0,
+            "openai_calls_success": 0,
+            "openai_calls_failed": 0,
+        },
+        "cost_summary": {"estimated_total_usd": 0.0, "actual_total_usd": 0.0},
     }
 
-    # Write results
-    results_path = output_dir / "model_validation_results_v2.json"
-    safe_write_json(results, results_path)
-
+    safe_write_json(results, output_dir / "model_validation_results_v2.json")
     return results

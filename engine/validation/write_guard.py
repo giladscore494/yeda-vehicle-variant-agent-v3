@@ -12,10 +12,10 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from core.paths import SOURCE_CANONICAL_PATH, VALIDATION_DIR
+from core.paths import FINAL_CLEAN_DATABASE_PATH, SOURCE_CANONICAL_PATH, VALIDATION_DIR
 
 _CANONICAL_PATH = Path(SOURCE_CANONICAL_PATH).resolve()
-_FINAL_CLEAN_DATABASE_PATH = Path("data/final/resume_package_final_clean.json").resolve()
+_FINAL_CLEAN_DATABASE_PATH = Path(FINAL_CLEAN_DATABASE_PATH).resolve()
 _VALIDATION_DIR = Path(VALIDATION_DIR).resolve()
 _VALIDATED_RUNS_DIR = Path("data/validated_runs").resolve()
 _RUNTIME_STATE_PATH = Path("data/runtime/current_validation_run.json").resolve()

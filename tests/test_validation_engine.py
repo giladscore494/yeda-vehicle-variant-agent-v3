@@ -436,7 +436,7 @@ class TestModelValidationRunner:
         decision = _aggregate_decision(item, gemini, None)
         assert decision["final_status"] == "needs_manual_review"
 
-    def test_call_openai_uses_responses_api_for_web_search(self):
+    def test_legacy_call_openai_is_disabled_and_makes_no_provider_call(self):
         from engine.validation.model_validation_runner import _call_openai
 
         item = {
@@ -444,84 +444,37 @@ class TestModelValidationRunner:
             "variant_ids": ["v1"],
             "risk_level": "high",
         }
-        fake_response = SimpleNamespace(
-            output_text=json.dumps({
-                "recommendation": "no_action",
-                "confidence": 0.9,
-                "risk_level": "low",
-                "safe_to_auto_apply": False,
-            }),
-            usage=SimpleNamespace(input_tokens=12, output_tokens=18),
-        )
-        create = mock.Mock(return_value=fake_response)
+        create = mock.Mock()
         fake_client = SimpleNamespace(responses=SimpleNamespace(create=create))
         fake_openai = SimpleNamespace(OpenAI=mock.Mock(return_value=fake_client))
 
-        def fake_get(group, key, default=None):
-            if (group, key) == ("openai", "api_key"):
-                return "test-key"
-            if (group, key) == ("openai", "validator_model_id"):
-                return "gpt-5.4"
-            return default or ""
+        with mock.patch.dict(sys.modules, {"openai": fake_openai}):
+            result = _call_openai(item, None, None)
 
-        with mock.patch("engine.validation.model_validation_runner.config.get", side_effect=fake_get):
-            with mock.patch(
-                "engine.validation.model_validation_runner.config.get_bool",
-                return_value=True,
-            ):
-                with mock.patch.dict(sys.modules, {"openai": fake_openai}):
-                    result = _call_openai(item, None, None)
+        assert result["ok"] is False
+        assert result["error_type"] == "legacy_model_validation_disabled"
+        assert create.call_count == 0
+        fake_openai.OpenAI.assert_not_called()
 
-        assert result["ok"] is True
-        create.assert_called_once()
-        assert create.call_args.kwargs["model"] == "gpt-5.4"
-        assert create.call_args.kwargs["input"]
-        assert create.call_args.kwargs["tools"] == [{"type": "web_search"}]
-
-    def test_call_openai_retries_without_web_search_on_bad_request(self):
-        from engine.validation.model_validation_runner import _call_openai
+    def test_legacy_call_gemini_is_disabled_and_makes_no_provider_call(self):
+        from engine.validation.model_validation_runner import _call_gemini
 
         item = {
-            "validation_item_id": "test_openai_item",
+            "validation_item_id": "test_gemini_item",
             "variant_ids": ["v1"],
             "risk_level": "high",
         }
+        generate_content = mock.Mock()
+        fake_client = SimpleNamespace(models=SimpleNamespace(generate_content=generate_content))
+        fake_genai = SimpleNamespace(Client=mock.Mock(return_value=fake_client))
 
-        class BadRequestError(Exception):
-            status_code = 400
+        with mock.patch.dict(sys.modules, {"google.genai": fake_genai}):
+            result = _call_gemini(item, None)
 
-        fake_response = SimpleNamespace(
-            output_text=json.dumps({
-                "recommendation": "no_action",
-                "confidence": 0.9,
-                "risk_level": "low",
-                "safe_to_auto_apply": False,
-            }),
-            usage=SimpleNamespace(input_tokens=12, output_tokens=18),
-        )
-        create = mock.Mock(side_effect=[BadRequestError("bad request"), fake_response])
-        fake_client = SimpleNamespace(responses=SimpleNamespace(create=create))
-        fake_openai = SimpleNamespace(OpenAI=mock.Mock(return_value=fake_client))
-
-        def fake_get(group, key, default=None):
-            if (group, key) == ("openai", "api_key"):
-                return "test-key"
-            if (group, key) == ("openai", "validator_model_id"):
-                return "gpt-5.4"
-            return default or ""
-
-        with mock.patch("engine.validation.model_validation_runner.config.get", side_effect=fake_get):
-            with mock.patch(
-                "engine.validation.model_validation_runner.config.get_bool",
-                return_value=True,
-            ):
-                with mock.patch.dict(sys.modules, {"openai": fake_openai}):
-                    result = _call_openai(item, None, None)
-
-        assert result["ok"] is True
-        assert create.call_count == 2
-        assert create.call_args_list[0].kwargs["tools"] == [{"type": "web_search"}]
-        assert "tools" not in create.call_args_list[1].kwargs
+        assert result["ok"] is False
+        assert result["error_type"] == "legacy_model_validation_disabled"
+        assert generate_content.call_count == 0
+        fake_genai.Client.assert_not_called()
 
 
 class TestOpenAIReviewer:
@@ -646,10 +599,16 @@ class TestGitHubSave:
 
     def test_allowed_file_list(self):
         from engine.validation.github_save import ALLOWED_FILES, BLOCKED_FILES
-        assert "data/validated_runs/resume_package_canonical_validated_v2.json" in ALLOWED_FILES
-        assert "data/validated_runs/model_validation_results_v2.json" in ALLOWED_FILES
-        assert "data/runtime/current_validation_run.json" in ALLOWED_FILES
+        assert ALLOWED_FILES == [
+            "data/validation/issue_queue.json",
+            "data/validation/decisions.json",
+            "data/validation/manifest.json",
+            "data/validation/validation_report.json",
+            "data/final/resume_package_final_clean.json",
+            "data/runtime/current_validation_run.json",
+        ]
         assert "data/canonical/resume_package_canonical.json" in BLOCKED_FILES
+        assert "resume_package_canonical.json" in BLOCKED_FILES
 
     def test_blocks_main_branch(self):
         from engine.validation.github_save import _check_guards
@@ -681,11 +640,29 @@ class TestGitHubSave:
         from engine.validation.github_save import _is_file_blocked
         assert _is_file_blocked("data/canonical/resume_package_canonical.json") is True
         assert _is_file_blocked("data/canonical/anything.json") is True
+        assert _is_file_blocked("resume_package_canonical.json") is True
+
+    def test_blocks_secret_tmp_old_project_env_and_api_key_paths(self):
+        from engine.validation.github_save import _is_file_blocked
+        for path in (
+            "secrets/github_token.json",
+            "tmp/validation.json",
+            "old_project/data.json",
+            ".env",
+            "config/API_KEY.txt",
+            "config/apikey.txt",
+        ):
+            assert _is_file_blocked(path) is True
 
     def test_allows_validation_files(self):
         from engine.validation.github_save import _is_file_allowed
-        assert _is_file_allowed("data/validated_runs/resume_package_canonical_validated_v2.json") is True
-        assert _is_file_allowed("data/validated_runs/model_validation_results_v2.json") is True
+        assert _is_file_allowed("data/validation/issue_queue.json") is True
+        assert _is_file_allowed("data/validation/decisions.json") is True
+        assert _is_file_allowed("data/validation/manifest.json") is True
+        assert _is_file_allowed("data/validation/validation_report.json") is True
+        assert _is_file_allowed("data/final/resume_package_final_clean.json") is True
+        assert _is_file_allowed("data/runtime/current_validation_run.json") is True
+        assert _is_file_allowed("data/validated_runs/model_validation_results_v2.json") is False
 
     def test_blocks_missing_token(self):
         from engine.validation.github_save import _check_guards
@@ -726,6 +703,14 @@ class TestCanonicalWriteGuard:
         from engine.validation.write_guard import check_write_allowed
         check_write_allowed("data/runtime/current_validation_run.json")
 
+    def test_write_guard_blocks_final_clean_database_for_validation_writers(self):
+        from engine.validation.write_guard import (
+            check_write_allowed,
+            CanonicalWriteBlockedError,
+        )
+        with pytest.raises(CanonicalWriteBlockedError):
+            check_write_allowed("data/final/resume_package_final_clean.json")
+
 
 # ======================================================================
 # 7. Model Validation Results Writer Tests
@@ -741,16 +726,122 @@ class TestModelValidationResultsWriter:
         with tempfile.TemporaryDirectory() as tmpdir:
             # Run with empty items (no actual model calls needed)
             results = run_model_validation([], output_dir=tmpdir)
-            assert results["model_validation_ran"] is True
+            assert results["ok"] is False
+            assert results["error"] == "legacy_model_validation_disabled"
+            assert results["model_validation_ran"] is False
             assert "model_calls_summary" in results
             assert "items" in results
             assert results["model_calls_summary"]["gemini_calls_attempted"] == 0
+            assert results["model_calls_summary"]["openai_calls_attempted"] == 0
 
-            # Check file was written
+            # Check the safe deprecation result was written without provider calls
             results_file = Path(tmpdir) / "model_validation_results_v2.json"
             assert results_file.exists()
             data = json.loads(results_file.read_text())
-            assert data["model_validation_ran"] is True
+            assert data["model_validation_ran"] is False
+            assert data["error"] == "legacy_model_validation_disabled"
+
+
+class TestModelReviewGate:
+    """Task 3 issue-queue gate must control every model provider call."""
+
+    def _write_issue_queue(self, root: Path, items: list[dict]) -> None:
+        queue = root / "data" / "validation" / "issue_queue.json"
+        queue.parent.mkdir(parents=True, exist_ok=True)
+        queue.write_text(json.dumps({"items": items}), encoding="utf-8")
+
+    def test_dry_run_makes_zero_provider_calls(self, tmp_path, monkeypatch):
+        from engine.validation.model_review_runner import run_model_review
+
+        monkeypatch.chdir(tmp_path)
+        self._write_issue_queue(tmp_path, [{
+            "item_id": "issue_high",
+            "requires_model_review": True,
+            "risk_level": "high",
+            "issue_type": "evidence_gap",
+        }])
+        gemini = mock.Mock()
+        openai_call = mock.Mock()
+        monkeypatch.setattr("engine.validation.model_review_runner.call_gemini_for_issue", gemini)
+        monkeypatch.setattr("engine.validation.model_review_runner.call_openai_for_issue", openai_call)
+
+        result = run_model_review(max_items=1, dry_run=True)
+
+        assert result["selected_items"] == 1
+        gemini.assert_not_called()
+        openai_call.assert_not_called()
+
+    def test_requires_model_review_false_items_make_zero_provider_calls(self, tmp_path, monkeypatch):
+        from engine.validation.model_review_runner import run_model_review
+
+        monkeypatch.chdir(tmp_path)
+        self._write_issue_queue(tmp_path, [{
+            "item_id": "issue_not_required",
+            "requires_model_review": False,
+            "risk_level": "critical",
+            "issue_type": "evidence_gap",
+        }])
+        gemini = mock.Mock()
+        openai_call = mock.Mock()
+        monkeypatch.setattr("engine.validation.model_review_runner.call_gemini_for_issue", gemini)
+        monkeypatch.setattr("engine.validation.model_review_runner.call_openai_for_issue", openai_call)
+
+        result = run_model_review(max_items=1, dry_run=False)
+
+        assert result["selected_items"] == 0
+        assert result["decisions_written"] == 0
+        gemini.assert_not_called()
+        openai_call.assert_not_called()
+
+    def test_low_risk_items_make_zero_provider_calls(self, tmp_path, monkeypatch):
+        from engine.validation.model_review_runner import run_model_review
+
+        monkeypatch.chdir(tmp_path)
+        self._write_issue_queue(tmp_path, [{
+            "item_id": "issue_low",
+            "requires_model_review": True,
+            "risk_level": "low",
+            "issue_type": "evidence_gap",
+        }])
+        gemini = mock.Mock()
+        openai_call = mock.Mock()
+        monkeypatch.setattr("engine.validation.model_review_runner.call_gemini_for_issue", gemini)
+        monkeypatch.setattr("engine.validation.model_review_runner.call_openai_for_issue", openai_call)
+
+        result = run_model_review(max_items=1, dry_run=False)
+
+        assert result["selected_items"] == 1
+        assert result["planned_total_calls"] == 0
+        assert result["decisions_written"] == 0
+        gemini.assert_not_called()
+        openai_call.assert_not_called()
+
+    def test_model_decisions_keep_safe_to_auto_apply_false(self, tmp_path, monkeypatch):
+        from engine.validation.model_review_runner import run_model_review
+
+        monkeypatch.chdir(tmp_path)
+        self._write_issue_queue(tmp_path, [{
+            "item_id": "issue_high",
+            "requires_model_review": True,
+            "risk_level": "high",
+            "issue_type": "evidence_gap",
+        }])
+        monkeypatch.setattr(
+            "engine.validation.model_review_runner.call_gemini_for_issue",
+            mock.Mock(return_value={
+                "ok": True,
+                "parsed_result": {"recommendation": "merge", "confidence": 0.9},
+                "safe_to_auto_apply": True,
+            }),
+        )
+        monkeypatch.setattr("engine.validation.model_review_runner.call_openai_for_issue", mock.Mock(return_value=None))
+
+        result = run_model_review(max_items=1, dry_run=False)
+
+        decisions = json.loads((tmp_path / "data" / "validation" / "decisions.json").read_text())["decisions"]
+        assert result["decisions_written"] == 1
+        assert decisions[0]["safe_to_auto_apply"] is False
+        assert decisions[0]["gemini_result"]["safe_to_auto_apply"] is False
 
 
 # ======================================================================
@@ -831,11 +922,17 @@ class TestValidatedPackage:
 class TestLegacyBuildDisabled:
     """Legacy build mutation actions must be unreachable/disabled."""
 
-    def test_app_legacy_tab_is_read_only(self):
-        """app.py legacy tab must include disabled message."""
+    def test_app_keeps_simplified_validation_workflow(self):
+        """app.py should expose the simplified Task 4 workflow, not a legacy tab."""
         app_source = Path("app.py").read_text()
-        assert "legacy_build_action_disabled_in_validation_branch" in app_source
-        assert "Read-Only" in app_source
+        assert "Final Status Banner" in app_source
+        assert "Database Source" in app_source
+        assert "Validation Summary" in app_source
+        assert "Review Queue Preview" in app_source
+        assert "AI Review Controls" in app_source
+        assert "Actions" in app_source
+        assert "Advanced Debug / Raw Files" in app_source
+        assert "legacy_build_action_disabled_in_validation_branch" not in app_source
 
     def test_no_batch_run_in_app(self):
         """app.py must not have batch run / build generation buttons."""
@@ -850,30 +947,44 @@ class TestLegacyBuildDisabled:
 
 
 class TestAppUIContracts:
-    """app.py must expose the required buttons."""
+    """app.py must expose only the simplified Task 4 controls."""
 
-    def test_app_has_model_validation_button(self):
+    def test_app_has_simplified_task4_buttons(self):
         app_source = Path("app.py").read_text()
-        assert "Run Model Validation on Suspicious Groups" in app_source
+        for label in (
+            "Refresh Status",
+            "Run Full Audit",
+            "Build/Refresh Review Queue",
+            "Export Final Clean Database",
+            "Preview AI Review",
+            "Run AI Review",
+        ):
+            assert label in app_source
 
-    def test_app_has_save_to_github_button(self):
+    def test_app_has_simplified_task4_sections(self):
         app_source = Path("app.py").read_text()
-        assert "Save Validation Outputs to GitHub" in app_source
+        for label in (
+            "Final Status Banner",
+            "Database Source",
+            "Validation Summary",
+            "Review Queue Preview",
+            "AI Review Controls",
+            "Actions",
+            "Advanced Debug / Raw Files",
+        ):
+            assert label in app_source
 
-    def test_app_shows_model_validation_status(self):
+    def test_app_does_not_restore_legacy_buttons_or_status_text(self):
         app_source = Path("app.py").read_text()
-        assert "model_validation_ran" in app_source
-        assert "gemini_calls_attempted" in app_source
-        assert "openai_calls_attempted" in app_source
-        assert "model_validation_items_count" in app_source
-
-    def test_app_shows_no_model_message(self):
-        app_source = Path("app.py").read_text()
-        assert "No model-based validation was executed; deterministic audit only." in app_source
-
-    def test_full_validation_does_not_auto_call_models_message(self):
-        app_source = Path("app.py").read_text()
-        assert "does NOT automatically call models" in app_source
+        for removed in (
+            "Run Model Validation on Suspicious Groups",
+            "Save Validation Outputs to GitHub",
+            "legacy_build_action_disabled_in_validation_branch",
+            "model_validation_ran",
+            "No model-based validation was executed; deterministic audit only.",
+            "does NOT automatically call models",
+        ):
+            assert removed not in app_source
 
 
 # ======================================================================
