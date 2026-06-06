@@ -1,0 +1,32 @@
+{
+  "source_variant_count": 3712,
+  "verified_count": 788,
+  "partial_count": 2924,
+  "issues_total": 3150,
+  "issues_by_risk": {
+    "critical": 2146,
+    "high": 10,
+    "medium": 994,
+    "low": 0
+  },
+  "model_review_items_available": 3,
+  "manual_review_items_available": 3147,
+  "top_issue_types": [
+    {
+      "issue_type": "missing_critical_fields",
+      "count": 2146
+    },
+    {
+      "issue_type": "seed_exists_but_no_variants",
+      "count": 994
+    },
+    {
+      "issue_type": "duplicate_variant_identity",
+      "count": 7
+    },
+    {
+      "issue_type": "partial_variant_too_little_evidence",
+      "count": 3
+    }
+  ]
+}
