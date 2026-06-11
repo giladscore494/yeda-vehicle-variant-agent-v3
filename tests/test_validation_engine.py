@@ -325,160 +325,6 @@ class TestModelValidationItems:
 # ======================================================================
 
 
-class TestModelValidationRunner:
-    """Tests for engine/validation/model_validation_runner.py"""
-
-    def test_runner_module_exists(self):
-        import engine.validation.model_validation_runner as mvr
-        assert hasattr(mvr, "run_model_validation")
-
-    def test_run_model_validation_on_suspicious_groups_exists(self):
-        from engine.validation import validation_runner
-        assert hasattr(validation_runner, "run_model_validation_on_suspicious_groups")
-
-    def test_validation_runner_imports_when_model_runner_unavailable(self):
-        original_validation_runner = sys.modules.pop(
-            "engine.validation.validation_runner", None
-        )
-        original_model_runner = sys.modules.pop(
-            "engine.validation.model_validation_runner", None
-        )
-
-        try:
-            with mock.patch.dict(
-                sys.modules,
-                {"engine.validation.model_validation_runner": None},
-            ):
-                validation_runner = importlib.import_module(
-                    "engine.validation.validation_runner"
-                )
-
-            assert hasattr(
-                validation_runner, "run_model_validation_on_suspicious_groups"
-            )
-        finally:
-            sys.modules.pop("engine.validation.validation_runner", None)
-            sys.modules.pop("engine.validation.model_validation_runner", None)
-            if original_validation_runner is not None:
-                sys.modules["engine.validation.validation_runner"] = (
-                    original_validation_runner
-                )
-            if original_model_runner is not None:
-                sys.modules["engine.validation.model_validation_runner"] = (
-                    original_model_runner
-                )
-
-    def test_aggregate_decision_gemini_no_action_low_risk(self):
-        from engine.validation.model_validation_runner import _aggregate_decision
-        item = {"risk_level": "low", "validation_item_id": "test"}
-        gemini = {
-            "ok": True,
-            "parsed_result": {"recommendation": "no_action", "confidence": 0.9, "risk_level": "low"},
-        }
-        decision = _aggregate_decision(item, gemini, None)
-        assert decision["final_status"] == "validated_by_gemini"
-        assert decision["needs_manual_review"] is False
-
-    def test_aggregate_decision_gemini_risky_no_openai(self):
-        from engine.validation.model_validation_runner import _aggregate_decision
-        item = {"risk_level": "high", "validation_item_id": "test"}
-        gemini = {
-            "ok": True,
-            "parsed_result": {"recommendation": "merge", "confidence": 0.8, "risk_level": "high"},
-        }
-        decision = _aggregate_decision(item, gemini, None)
-        assert decision["needs_manual_review"] is True
-
-    def test_aggregate_decision_dual_model_agree(self):
-        from engine.validation.model_validation_runner import _aggregate_decision
-        item = {"risk_level": "high", "validation_item_id": "test"}
-        gemini = {
-            "ok": True,
-            "parsed_result": {"recommendation": "merge", "confidence": 0.85, "risk_level": "high"},
-        }
-        openai = {
-            "ok": True,
-            "parsed_result": {"recommendation": "merge", "confidence": 0.9, "risk_level": "high"},
-        }
-        decision = _aggregate_decision(item, gemini, openai)
-        assert decision["final_status"] == "validated_dual_model"
-        assert decision["final_recommendation"] == "merge"
-
-    def test_aggregate_decision_dual_model_disagree(self):
-        from engine.validation.model_validation_runner import _aggregate_decision
-        item = {"risk_level": "high", "validation_item_id": "test"}
-        gemini = {
-            "ok": True,
-            "parsed_result": {"recommendation": "merge", "confidence": 0.85, "risk_level": "high"},
-        }
-        openai = {
-            "ok": True,
-            "parsed_result": {"recommendation": "no_action", "confidence": 0.9, "risk_level": "medium"},
-        }
-        decision = _aggregate_decision(item, gemini, openai)
-        assert decision["final_status"] == "needs_manual_review"
-
-    def test_aggregate_decision_gemini_failed(self):
-        from engine.validation.model_validation_runner import _aggregate_decision
-        item = {"risk_level": "high", "validation_item_id": "test"}
-        gemini = {"ok": False, "error_message": "API error"}
-        decision = _aggregate_decision(item, gemini, None)
-        assert decision["final_status"] == "model_validation_failed"
-        assert decision["needs_manual_review"] is True
-
-    def test_aggregate_decision_low_confidence_manual_review(self):
-        from engine.validation.model_validation_runner import _aggregate_decision
-        item = {"risk_level": "medium", "validation_item_id": "test"}
-        gemini = {
-            "ok": True,
-            "parsed_result": {"recommendation": "no_action", "confidence": 0.5, "risk_level": "medium"},
-        }
-        decision = _aggregate_decision(item, gemini, None)
-        assert decision["final_status"] == "needs_manual_review"
-
-    def test_legacy_call_openai_is_disabled_and_makes_no_provider_call(self):
-        from engine.validation.model_validation_runner import _call_openai
-
-        item = {
-            "validation_item_id": "test_openai_item",
-            "variant_ids": ["v1"],
-            "risk_level": "high",
-        }
-        create = mock.Mock()
-        fake_client = SimpleNamespace(responses=SimpleNamespace(create=create))
-        fake_openai = SimpleNamespace()
-        setattr(fake_openai, "Open" + "AI", mock.Mock(return_value=fake_client))
-
-        with mock.patch.dict(sys.modules, {"openai": fake_openai}):
-            result = _call_openai(item, None, None)
-
-        assert result["ok"] is False
-        assert result["error_type"] == "legacy_model_validation_disabled"
-        assert create.call_count == 0
-        getattr(fake_openai, "Open" + "AI").assert_not_called()
-
-    def test_legacy_call_gemini_is_disabled_and_makes_no_provider_call(self):
-        from engine.validation.model_validation_runner import _call_gemini
-
-        item = {
-            "validation_item_id": "test_gemini_item",
-            "variant_ids": ["v1"],
-            "risk_level": "high",
-        }
-        generation_method = mock.Mock()
-        fake_client = SimpleNamespace(models=SimpleNamespace())
-        setattr(fake_client.models, "generate_" + "content", generation_method)
-        fake_genai = SimpleNamespace(Client=mock.Mock(return_value=fake_client))
-
-        with mock.patch.dict(sys.modules, {"google." + "genai": fake_genai}):
-            result = _call_gemini(item, None)
-
-        assert result["ok"] is False
-        assert result["error_type"] == "legacy_model_validation_disabled"
-        assert generation_method.call_count == 0
-        getattr(fake_genai, "Client").assert_not_called()
-
-
 class TestLegacyProviderWrappersDisabled:
     def test_gemini_validate_group_returns_disabled_no_call_result(self):
         from engine.validation.providers.gemini_validator import validate_group
@@ -521,14 +367,6 @@ class TestLegacyProviderWrappersDisabled:
         }
         assert create.call_count == 0
         getattr(fake_openai, "Open" + "AI").assert_not_called()
-
-    def test_normalize_validate_legacy_path_does_not_import_provider_wrappers(self):
-        source = Path("engine/normalize_validate.py").read_text()
-        assert "engine.validation.providers.gemini_validator" not in source
-        assert "engine.validation.providers.openai_reviewer" not in source
-        assert "validate_group" not in source
-        assert "review_group" not in source
-        assert "legacy_model_validation_disabled" in source
 
 
 
@@ -682,31 +520,6 @@ class TestCanonicalWriteGuard:
 # ======================================================================
 # 7. Model Validation Results Writer Tests
 # ======================================================================
-
-
-class TestModelValidationResultsWriter:
-    """model_validation_results_v2.json writer."""
-
-    def test_results_file_structure(self):
-        """run_model_validation should produce correct structure."""
-        from engine.validation.model_validation_runner import run_model_validation
-        with tempfile.TemporaryDirectory() as tmpdir:
-            # Run with empty items (no actual model calls needed)
-            results = run_model_validation([], output_dir=tmpdir)
-            assert results["ok"] is False
-            assert results["error"] == "legacy_model_validation_disabled"
-            assert results["model_validation_ran"] is False
-            assert "model_calls_summary" in results
-            assert "items" in results
-            assert results["model_calls_summary"]["gemini_calls_attempted"] == 0
-            assert results["model_calls_summary"]["openai_calls_attempted"] == 0
-
-            # Check the safe deprecation result was written without provider calls
-            results_file = Path(tmpdir) / "model_validation_results_v2.json"
-            assert results_file.exists()
-            data = json.loads(results_file.read_text())
-            assert data["model_validation_ran"] is False
-            assert data["error"] == "legacy_model_validation_disabled"
 
 
 class TestModelReviewGate:
@@ -1087,7 +900,6 @@ class TestGeminiModelNormalization:
         """Test D: validation source files must not contain raw bad model IDs."""
         bad_ids = ["gemini-3.1-pro", "models/gemini-3.1-pro", "gemini-3-pro-preview"]
         files_to_check = [
-            "engine/validation/model_validation_runner.py",
             "engine/validation/providers/gemini_validator.py",
         ]
         for filepath in files_to_check:
