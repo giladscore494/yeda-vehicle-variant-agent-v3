@@ -144,6 +144,8 @@ _GEMINI_MODEL_ALIASES: dict[str, str] = {
     "gemini-3.1-pro": "gemini-3.1-pro-preview",
     "models/gemini-3.1-pro": "gemini-3.1-pro-preview",
     "gemini-3-pro-preview": "gemini-3.1-pro-preview",
+    "models/gemini-3-pro-preview": "gemini-3.1-pro-preview",
+    "models/gemini-3.1-pro-preview": "gemini-3.1-pro-preview",
 }
 
 
