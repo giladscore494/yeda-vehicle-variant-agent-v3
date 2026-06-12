@@ -66,6 +66,7 @@ if str(SCRIPTS_DIR) not in sys.path:
 import deterministic_qa as qa  # noqa: E402
 import github_checkpoint  # noqa: E402
 import identity  # noqa: E402
+import model_context as mctx  # noqa: E402
 import runtime_config  # noqa: E402
 
 DATA_DIR = REPO_ROOT / "data"
@@ -136,6 +137,12 @@ class OutputPaths:
     def final_compat(self) -> Path: return self.base / "canonical_vehicle_variants_clean_v1.json"
     @property
     def startup_failure(self) -> Path: return self.base / "startup_failure_report.json"
+    @property
+    def active_model_context(self) -> Path: return self.base / "active_model_context.json"
+    @property
+    def discovered_missing(self) -> Path: return self.base / "discovered_missing_variants.jsonl"
+    @property
+    def model_runs(self) -> Path: return self.base / "model_runs"
 
     def checkpoint_paths(self) -> list[str]:
         return [self.base.relative_to(REPO_ROOT).as_posix()]
@@ -327,11 +334,16 @@ def duplicate_group_summaries(variant: dict, variants_by_id: dict) -> list[dict]
     return members
 
 
-def build_merged_context(variant: dict, instruction: dict, variants_by_id: dict) -> dict:
+def build_merged_context(variant: dict, instruction: dict, variants_by_id: dict,
+                         active_model_ctx: dict | None = None) -> dict:
     sv = variant.get("standard_variant") or {}
-    return {
+    fingerprint = mctx.build_technical_fingerprint(sv)
+    source_trim_weak = mctx.is_weak_source_name(sv.get("trim"))
+    ctx = {
         "validation_id": variant["validation_id"],
         "standard_variant": sv,
+        "technical_fingerprint": fingerprint,
+        "source_trim_was_generic": source_trim_weak,
         "original_snapshot_summary": summarize_original_snapshot(
             variant.get("original_snapshot")),
         "original_status": variant.get("original_status"),
@@ -359,6 +371,9 @@ def build_merged_context(variant: dict, instruction: dict, variants_by_id: dict)
         "source_basis": sv.get("source_basis"),
         "field_sources": sv.get("field_sources") or {},
     }
+    if active_model_ctx is not None:
+        ctx["active_model_context"] = mctx.context_summary_for_prompt(active_model_ctx)
+    return ctx
 
 
 # ---------------------------------------------------------------------------
@@ -520,6 +535,20 @@ class MockGeminiClient:
                                  "values copied from existing record. " + resolved_note),
             "grounding_used": False,
             "grounding_notes": "mock mode, no grounding performed",
+            "source_trim_was_generic": False,
+            "model_context_used": False,
+            "model_context_updated": False,
+            "technical_fingerprint_used": True,
+            "selected_verified_trim": sv.get("trim"),
+            "selected_trim_lineup_position": "unknown",
+            "selected_trim_unique_differentiator": None,
+            "known_competing_trims": [],
+            "rejected_possible_trims": [],
+            "discovered_missing_variants": [],
+            "correction_reason": None,
+            "evidence_strength": "weak",
+            "safe_to_auto_resolve": accept,
+            "recovery_used": bool(resolved_note),
         }
         return json.dumps(resp, ensure_ascii=False)
 
@@ -558,6 +587,42 @@ def build_user_prompt(merged_context: dict, strict_retry: bool = False) -> str:
         "Follow every rule in the system instructions. "
         "Return STRICT JSON only, exactly in the required schema.\n"
     )
+    if merged_context.get("source_trim_was_generic"):
+        header += (
+            "\nIMPORTANT: The source trim/name for this variant is WEAK or GENERIC. "
+            "Do NOT treat the source trim as authoritative. "
+            "Identify the correct official Israeli marketed trim/variant by matching "
+            "the technical fingerprint (engine, transmission, fuel_type, drivetrain, "
+            "body_type, year range) to known Israeli-market trims for this model. "
+            "If exactly one official Israeli trim matches, replace the weak source "
+            "trim with the official name. If multiple trims could match, report "
+            "ambiguity — do NOT guess.\n"
+        )
+    if merged_context.get("active_model_context"):
+        header += (
+            "\nACTIVE MODEL CONTEXT (trims already known/processed for this model):\n"
+            + json.dumps(merged_context["active_model_context"],
+                         ensure_ascii=False, separators=(",", ":"))
+            + "\nMatch against this context first before searching wider.\n"
+        )
+    header += (
+        "\nIn your response, also include these metadata fields at the top level:\n"
+        "  source_trim_was_generic: true/false\n"
+        "  model_context_used: true/false\n"
+        "  model_context_updated: true/false\n"
+        "  technical_fingerprint_used: true/false\n"
+        "  selected_verified_trim: string or null\n"
+        "  selected_trim_lineup_position: entry/mid/high/performance/special_edition/unknown\n"
+        "  selected_trim_unique_differentiator: string or null\n"
+        "  known_competing_trims: [] list of other trims for the same model\n"
+        "  rejected_possible_trims: [] list of trims considered but rejected\n"
+        "  discovered_missing_variants: [] list of {trim, evidence_summary, "
+        "lineup_position, unique_differentiator} for IL trims found but not in source\n"
+        "  correction_reason: string or null\n"
+        "  evidence_strength: weak/moderate/strong/verified\n"
+        "  safe_to_auto_resolve: true/false\n"
+        "  recovery_used: true/false\n"
+    )
     return header + "\nMERGED_CONTEXT:\n" + json.dumps(
         merged_context, ensure_ascii=False, separators=(",", ":"))
 
@@ -582,6 +647,8 @@ def build_correction_prompt(merged_context: dict, previous: dict,
         "original_canonical_identity_hash": merged_context.get("canonical_identity_hash"),
         "possible_duplicate_group": merged_context.get("possible_duplicate_group"),
         "duplicate_group_records": merged_context.get("duplicate_group_records") or [],
+        "technical_fingerprint": merged_context.get("technical_fingerprint"),
+        "source_trim_was_generic": merged_context.get("source_trim_was_generic", False),
         "previous_model_response": prev_response,
         "previous_raw_excerpt": None if prev_response is not None
         else (previous.get("raw_text") or "")[:1500] or None,
@@ -596,6 +663,8 @@ def build_correction_prompt(merged_context: dict, previous: dict,
             if any(f in reason for reason in unresolved)
         }),
     }
+    if merged_context.get("active_model_context"):
+        correction_context["active_model_context"] = merged_context["active_model_context"]
 
     strictness = ""
     if attempt_number >= 3:
@@ -626,6 +695,19 @@ def build_correction_prompt(merged_context: dict, previous: dict,
         "Return STRICT JSON only, in exactly the same response schema as the "
         "system instructions (all required keys present, validation_id copied "
         "exactly).\n"
+    )
+    if merged_context.get("source_trim_was_generic"):
+        header += (
+            "\nThe source trim is WEAK/GENERIC. Identify the correct official "
+            "Israeli marketed trim by technical fingerprint matching. "
+            "Do NOT accept a generic trim without strong evidence.\n"
+        )
+    header += (
+        "\nAlso include metadata: source_trim_was_generic, model_context_used, "
+        "model_context_updated, technical_fingerprint_used, selected_verified_trim, "
+        "selected_trim_lineup_position, selected_trim_unique_differentiator, "
+        "known_competing_trims, rejected_possible_trims, discovered_missing_variants, "
+        "correction_reason, evidence_strength, safe_to_auto_resolve, recovery_used.\n"
     )
     return header + "\nCORRECTION_CONTEXT:\n" + json.dumps(
         correction_context, ensure_ascii=False, separators=(",", ":"))
@@ -1051,11 +1133,66 @@ def select_pending(variants_by_id: dict, instructions_by_id: dict, rules: dict,
     return pending
 
 
+def select_pending_by_model(
+    variants_by_id: dict,
+    instructions_by_id: dict,
+    rules: dict,
+    options: RunOptions,
+    progress: dict,
+) -> list[tuple[tuple[str, str], list[str]]]:
+    """Group pending variants by (make, model) while preserving priority order.
+
+    Returns [(make_model_key, [vid, ...]), ...] in priority-then-model order.
+    """
+    pending = select_pending(variants_by_id, instructions_by_id, rules, options, progress)
+    # Group by make/model preserving the original priority order
+    groups: dict[tuple[str, str], list[str]] = {}
+    for vid in pending:
+        sv = (variants_by_id[vid].get("standard_variant") or {})
+        key = ((sv.get("make") or "").strip(), (sv.get("model") or "").strip())
+        groups.setdefault(key, []).append(vid)
+    # Return in the order of first-seen model
+    seen: list[tuple[str, str]] = []
+    for vid in pending:
+        sv = (variants_by_id[vid].get("standard_variant") or {})
+        key = ((sv.get("make") or "").strip(), (sv.get("model") or "").strip())
+        if key not in seen:
+            seen.append(key)
+    return [(key, groups[key]) for key in seen]
+
+
+def _write_model_run_summary(run_dir: Path, make: str, model: str,
+                              model_ctx: dict, model_stats: dict) -> None:
+    """Write model_run_summary.json for a completed model."""
+    run_dir.mkdir(parents=True, exist_ok=True)
+    summary = {
+        "make": make,
+        "model": model,
+        "completed_at": model_ctx.get("completed_at"),
+        "total_variants": model_ctx["processed_model_variants_count"],
+        "resolved_count": len(model_ctx["already_resolved_variants"]),
+        "rejected_count": len(model_ctx["already_rejected_variants"]),
+        "known_trims": model_ctx["known_or_candidate_israeli_trims"],
+        "official_marketed_names": model_ctx["official_marketed_names_found"],
+        "source_quality_warnings_count": len(model_ctx["source_quality_warnings"]),
+        "ambiguous_fingerprints_count": len(model_ctx["ambiguous_fingerprints"]),
+        **model_stats,
+    }
+    (run_dir / "model_run_summary.json").write_text(
+        json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
 def run_validation(options: RunOptions, cfg: runtime_config.RuntimeConfig | None = None,
                    log: Callable[[str], None] = print,
                    progress_callback: Callable[[dict], None] | None = None) -> dict:
-    """Run validation. Returns a result dict; never calls Gemini in dry-run or
-    mock mode. Saves all output after EVERY variant; resumable at any point."""
+    """Run validation with per-model context. Returns a result dict; never
+    calls Gemini in dry-run or mock mode. Saves all output after EVERY
+    variant; resumable at any point.
+
+    Processing order: variants are grouped by (make, model). For each model
+    a temporary active context is maintained, finalized to audit, and then
+    cleared before the next model starts.
+    """
     cfg = cfg or runtime_config.resolve()
     runtime = cfg.runtime
     paths = MOCK_PATHS if options.mock_mode else REAL_PATHS
@@ -1079,24 +1216,34 @@ def run_validation(options: RunOptions, cfg: runtime_config.RuntimeConfig | None
 
     progress = load_progress(paths) if options.resume else fresh_progress()
     progress["max_attempts"] = max_attempts
-    pending = select_pending(variants_by_id, instructions_by_id, rules, options, progress)
+
+    # Group pending variants by model
+    model_groups = select_pending_by_model(
+        variants_by_id, instructions_by_id, rules, options, progress)
+    pending_flat = [vid for _, vids in model_groups for vid in vids]
+    total_pending = len(pending_flat)
     total_expected = rules["expected_total_variants"]
     mode = "mock" if options.mock_mode else ("dry-run" if options.dry_run else "REAL")
-    log(f"Selected {len(pending)} variant(s) to process [{mode}] "
+    n_models = len(model_groups)
+    log(f"Selected {total_pending} variant(s) across {n_models} model(s) [{mode}] "
         f"(already completed: {len(completed_ids(progress))}/{total_expected}, "
         f"force_reprocess={options.force_reprocess}, push_every={options.push_every}, "
         f"max_attempts={max_attempts})")
 
     if options.dry_run:
-        for i, vid in enumerate(pending, 1):
-            merged = build_merged_context(variants_by_id[vid],
-                                          instructions_by_id[vid], variants_by_id)
-            log(f"[{i}/{len(pending)}] {vid} dry-run: context built "
-                f"({len(json.dumps(merged, ensure_ascii=False))} chars), "
-                f"priority={merged['validation_priority']}, "
-                f"tasks={merged['validation_tasks']}")
+        global_idx = 0
+        for (make, model_name), model_vids in model_groups:
+            log(f"[model] {make} {model_name} — {len(model_vids)} variant(s)")
+            for vid in model_vids:
+                global_idx += 1
+                merged = build_merged_context(variants_by_id[vid],
+                                              instructions_by_id[vid], variants_by_id)
+                log(f"  [{global_idx}/{total_pending}] {vid} dry-run: context built "
+                    f"({len(json.dumps(merged, ensure_ascii=False))} chars), "
+                    f"priority={merged['validation_priority']}, "
+                    f"tasks={merged['validation_tasks']}")
         log("Dry run complete; no Gemini calls were made and no outputs were written.")
-        return {"status": "dry_run_ok", "processed_this_run": len(pending)}
+        return {"status": "dry_run_ok", "processed_this_run": total_pending}
 
     if options.mock_mode:
         client = MockGeminiClient()
@@ -1118,12 +1265,14 @@ def run_validation(options: RunOptions, cfg: runtime_config.RuntimeConfig | None
         "runtime": runtime, "mode": mode, "limit": options.limit,
         "only_priority": options.only_priority, "validation_id": options.validation_id,
         "force_reprocess": options.force_reprocess, "push_every": options.push_every,
-        "max_attempts": max_attempts, "selected_count": len(pending),
+        "max_attempts": max_attempts, "selected_count": total_pending,
+        "model_count": n_models,
     }
     push_results: list[dict] = []
     since_checkpoint = 0
     processed_this_run = 0
     grounding_enabled = client.grounding_enabled
+    mctx.reset_discovery_counter()
 
     def do_checkpoint(final: bool = False) -> None:
         n_done = len(completed_ids(progress))
@@ -1139,121 +1288,184 @@ def run_validation(options: RunOptions, cfg: runtime_config.RuntimeConfig | None
             push_failures_file=paths.push_failures, log=log)
         push_results.append(result)
 
-    try:
-        for i, vid in enumerate(pending, 1):
-            variant = variants_by_id[vid]
-            instruction = instructions_by_id[vid]
-            merged_context = build_merged_context(variant, instruction, variants_by_id)
-            priority = instruction.get("validation_priority")
-            log(f"[{i}/{len(pending)}] {vid} (priority={priority})")
+    global_idx = 0
 
-            def on_attempt(attempt_record: dict) -> None:
-                # 1) Full audit: ONE record per attempt. original_snapshot is
-                #    kept ONLY here (on attempt 1), never in the clean files.
-                audit = {
-                    "validation_id": vid,
-                    "processed_at": attempt_record["timestamp"],
-                    "runtime": runtime,
-                    "mode": mode,
-                    "validation_priority": priority,
-                    **{k: attempt_record[k] for k in (
-                        "attempt_number", "max_attempts", "prompt_type",
-                        "model_response", "raw_text_excerpt",
-                        "deterministic_qa_result", "decision_before_retry",
-                        "unresolved_reasons", "error", "final_decision",
-                        "timestamp")},
-                    "grounding_enabled": client.grounding_enabled,
-                }
-                if attempt_record["attempt_number"] == 1:
-                    audit["original_snapshot"] = variant.get("original_snapshot")
-                    audit["original_variant_id"] = variant.get("original_variant_id")
-                    audit["standard_variant_before"] = merged_context["standard_variant"]
-                append_jsonl(paths.results, audit)
-                # 2) Progress metadata per attempt (crash-safe).
-                rec = progress["records"].setdefault(vid, {})
-                rec.update({
-                    "status": "final" if attempt_record["final_decision"]
-                    else "in_progress",
-                    "attempt_count": attempt_record["attempt_number"],
-                    "last_attempt_at": attempt_record["timestamp"],
-                    "last_error": attempt_record["error"],
-                    "last_decision": attempt_record["decision_before_retry"],
-                    "unresolved_reasons": attempt_record["unresolved_reasons"],
-                    "final_decision": attempt_record["final_decision"],
-                })
+    try:
+        for model_idx, ((make, model_name), model_vids) in enumerate(model_groups, 1):
+            # ── Start model context ──────────────────────────────────
+            sv0 = (variants_by_id[model_vids[0]].get("standard_variant") or {})
+            active_ctx = mctx.fresh_context(
+                make, model_name,
+                global_model_name=sv0.get("global_model_name"))
+            mctx.save_active_context(active_ctx, paths.base)
+            run_dir = mctx.model_run_dir(paths.base, make, model_name)
+            run_dir.mkdir(parents=True, exist_ok=True)
+            model_stats = {"clean_count": 0, "rejected_count": 0, "failed_count": 0}
+
+            log(f"\n{'='*60}")
+            log(f"[MODEL {model_idx}/{n_models}] {make} {model_name} — "
+                f"{len(model_vids)} variant(s)")
+            log(f"{'='*60}")
+
+            for local_idx, vid in enumerate(model_vids, 1):
+                global_idx += 1
+                variant = variants_by_id[vid]
+                instruction = instructions_by_id[vid]
+                merged_context = build_merged_context(
+                    variant, instruction, variants_by_id,
+                    active_model_ctx=active_ctx)
+                priority = instruction.get("validation_priority")
+                log(f"[{global_idx}/{total_pending}] {vid} "
+                    f"(model {local_idx}/{len(model_vids)}, priority={priority})")
+
+                def on_attempt(attempt_record: dict,
+                               _vid=vid, _variant=variant, _mc=merged_context,
+                               _priority=priority, _gi=global_idx) -> None:
+                    audit = {
+                        "validation_id": _vid,
+                        "processed_at": attempt_record["timestamp"],
+                        "runtime": runtime,
+                        "mode": mode,
+                        "validation_priority": _priority,
+                        **{k: attempt_record[k] for k in (
+                            "attempt_number", "max_attempts", "prompt_type",
+                            "model_response", "raw_text_excerpt",
+                            "deterministic_qa_result", "decision_before_retry",
+                            "unresolved_reasons", "error", "final_decision",
+                            "timestamp")},
+                        "grounding_enabled": client.grounding_enabled,
+                    }
+                    if attempt_record["attempt_number"] == 1:
+                        audit["original_snapshot"] = _variant.get("original_snapshot")
+                        audit["original_variant_id"] = _variant.get("original_variant_id")
+                        audit["standard_variant_before"] = _mc["standard_variant"]
+                    append_jsonl(paths.results, audit)
+                    rec = progress["records"].setdefault(_vid, {})
+                    rec.update({
+                        "status": "final" if attempt_record["final_decision"]
+                        else "in_progress",
+                        "attempt_count": attempt_record["attempt_number"],
+                        "last_attempt_at": attempt_record["timestamp"],
+                        "last_error": attempt_record["error"],
+                        "last_decision": attempt_record["decision_before_retry"],
+                        "unresolved_reasons": attempt_record["unresolved_reasons"],
+                        "final_decision": attempt_record["final_decision"],
+                    })
+                    if progress_callback:
+                        progress_callback({
+                            "index": _gi, "total": total_pending,
+                            "validation_id": _vid,
+                            "attempt": attempt_record["attempt_number"],
+                            "max_attempts": max_attempts,
+                            "decision": attempt_record["decision_before_retry"],
+                            "counts": dict(progress["counts"]),
+                        })
+
+                result = process_variant(client, merged_context, rules, schema,
+                                         max_attempts, log=log, on_attempt=on_attempt)
+                decision = result["final_decision"]
+                response = result["response"]
+                grounding_enabled = client.grounding_enabled
+
+                # ── Update model context ─────────────────────────────
+                fingerprint = merged_context.get("technical_fingerprint") or {}
+                mctx.update_context_after_variant(
+                    active_ctx, vid,
+                    merged_context["standard_variant"],
+                    decision, response, fingerprint)
+
+                # ── Extract discovered missing variants from response ─
+                if response:
+                    discovered = response.get("discovered_missing_variants") or []
+                    for disc in discovered:
+                        if isinstance(disc, dict) and disc.get("trim"):
+                            rec = mctx.build_discovered_missing_variant(
+                                make, model_name,
+                                sv0.get("global_model_name"),
+                                disc["trim"],
+                                disc,
+                                vid,
+                            )
+                            model_disc_path = run_dir / "discovered_missing_variants.jsonl"
+                            mctx.append_discovered_missing(
+                                rec, paths.discovered_missing, model_disc_path)
+
+                # ── Routing files ─────────────────────────────────────
+                if decision in CLEAN_DECISIONS:
+                    crow = canonical_row(merged_context, response, decision, rules)
+                    append_jsonl(paths.canonical_jsonl, crow)
+                    # Also write to model-level clean
+                    append_jsonl(run_dir / "clean_variants.jsonl", crow)
+                    model_stats["clean_count"] += 1
+                elif decision == "rejected_from_clean":
+                    rej_record = {
+                        "validation_id": vid,
+                        "processed_at": utcnow(),
+                        "final_decision": decision,
+                        "attempt_count": result["attempt_count"],
+                        "max_attempts": max_attempts,
+                        "unresolved_reasons": (result["qa"] or {}).get("issues")
+                        or result["attempts"][-1]["unresolved_reasons"],
+                        "confidence": (response or {}).get("confidence"),
+                        "note": "audit only: explains why this record was excluded "
+                                "from the clean database after all automatic attempts",
+                    }
+                    append_jsonl(paths.rejected, rej_record)
+                    append_jsonl(run_dir / "final_rejected_after_recovery.jsonl", rej_record)
+                    model_stats["rejected_count"] += 1
+                elif decision == "failed":
+                    fail_record = {
+                        "validation_id": vid,
+                        "processed_at": utcnow(),
+                        "final_decision": decision,
+                        "attempt_count": result["attempt_count"],
+                        "error": result["error"],
+                        "qa_issues": (result["qa"] or {}).get("issues"),
+                    }
+                    append_jsonl(paths.failures, fail_record)
+                    model_stats["failed_count"] += 1
+
+                # ── Progress + derived final files ────────────────────
+                progress["records"][vid]["status"] = "final"
+                progress["records"][vid]["final_decision"] = decision
+                progress["last_processed_validation_id"] = vid
+                progress["grounding_enabled"] = grounding_enabled
+                save_progress(paths, progress)
+                rebuild_final_clean_files(paths, progress, rules, grounding_enabled,
+                                          cfg=cfg, runtime=runtime)
+                write_run_summary(paths, progress, rules, grounding_enabled, run_info,
+                                  cfg=cfg, runtime=runtime)
+                mctx.save_active_context(active_ctx, paths.base)
+                processed_this_run += 1
+
+                log(f"  -> FINAL {decision} (confidence="
+                    f"{(response or {}).get('confidence')}, "
+                    f"attempts={result['attempt_count']}/{max_attempts})")
                 if progress_callback:
                     progress_callback({
-                        "index": i, "total": len(pending), "validation_id": vid,
-                        "attempt": attempt_record["attempt_number"],
-                        "max_attempts": max_attempts,
-                        "decision": attempt_record["decision_before_retry"],
+                        "index": global_idx, "total": total_pending,
+                        "validation_id": vid, "decision": decision,
                         "counts": dict(progress["counts"]),
+                        "processed_total": len(completed_ids(progress)),
                     })
 
-            result = process_variant(client, merged_context, rules, schema,
-                                     max_attempts, log=log, on_attempt=on_attempt)
-            decision = result["final_decision"]
-            response = result["response"]
-            grounding_enabled = client.grounding_enabled
+                since_checkpoint += 1
+                if since_checkpoint >= max(1, options.push_every):
+                    do_checkpoint()
+                    since_checkpoint = 0
 
-            # 3) Routing files: clean rows for auto_accept/auto_resolved;
-            #    audit-only exclusions for rejected_from_clean; failures for
-            #    runtime failures. NOTHING goes to manual review.
-            if decision in CLEAN_DECISIONS:
-                append_jsonl(paths.canonical_jsonl,
-                             canonical_row(merged_context, response, decision, rules))
-            elif decision == "rejected_from_clean":
-                append_jsonl(paths.rejected, {
-                    "validation_id": vid,
-                    "processed_at": utcnow(),
-                    "final_decision": decision,
-                    "attempt_count": result["attempt_count"],
-                    "max_attempts": max_attempts,
-                    "unresolved_reasons": (result["qa"] or {}).get("issues")
-                    or result["attempts"][-1]["unresolved_reasons"],
-                    "confidence": (response or {}).get("confidence"),
-                    "note": "audit only: explains why this record was excluded "
-                            "from the clean database after all automatic attempts",
-                })
-            elif decision == "failed":
-                append_jsonl(paths.failures, {
-                    "validation_id": vid,
-                    "processed_at": utcnow(),
-                    "final_decision": decision,
-                    "attempt_count": result["attempt_count"],
-                    "error": result["error"],
-                    "qa_issues": (result["qa"] or {}).get("issues"),
-                })
+            # ── Finalize model context ────────────────────────────────
+            final_ctx = mctx.finalize_context(active_ctx)
+            mctx.save_final_model_context(final_ctx, run_dir)
+            _write_model_run_summary(run_dir, make, model_name,
+                                     final_ctx, model_stats)
+            mctx.clear_active_context(paths.base)
+            log(f"[MODEL DONE] {make} {model_name}: "
+                f"clean={model_stats['clean_count']} "
+                f"rejected={model_stats['rejected_count']} "
+                f"failed={model_stats['failed_count']} — context reset")
 
-            # 4) Progress + derived final files, saved after EVERY variant.
-            progress["records"][vid]["status"] = "final"
-            progress["records"][vid]["final_decision"] = decision
-            progress["last_processed_validation_id"] = vid
-            progress["grounding_enabled"] = grounding_enabled
-            save_progress(paths, progress)
-            rebuild_final_clean_files(paths, progress, rules, grounding_enabled,
-                                      cfg=cfg, runtime=runtime)
-            write_run_summary(paths, progress, rules, grounding_enabled, run_info,
-                              cfg=cfg, runtime=runtime)
-            processed_this_run += 1
-
-            log(f"  -> FINAL {decision} (confidence="
-                f"{(response or {}).get('confidence')}, "
-                f"attempts={result['attempt_count']}/{max_attempts})")
-            if progress_callback:
-                progress_callback({
-                    "index": i, "total": len(pending), "validation_id": vid,
-                    "decision": decision, "counts": dict(progress["counts"]),
-                    "processed_total": len(completed_ids(progress)),
-                })
-
-            # 5) Checkpoint commit/push.
-            since_checkpoint += 1
-            if since_checkpoint >= max(1, options.push_every):
-                do_checkpoint()
-                since_checkpoint = 0
     except (Exception, KeyboardInterrupt) as e:
-        # Progress is already saved per-variant; record the interruption safely.
         save_progress(paths, progress)
         write_run_summary(paths, progress, rules, grounding_enabled, run_info,
                           cfg=cfg, runtime=runtime)
@@ -1284,6 +1496,7 @@ def run_validation(options: RunOptions, cfg: runtime_config.RuntimeConfig | None
         "grounding_enabled": grounding_enabled,
         "push_results": push_results,
         "push_failures": len(failed_pushes),
+        "models_processed": n_models,
     }
 
 

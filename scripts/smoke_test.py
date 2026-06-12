@@ -36,6 +36,7 @@ if str(SCRIPTS_DIR) not in sys.path:
 
 import deterministic_qa as qa  # noqa: E402
 import identity  # noqa: E402
+import model_context as mctx  # noqa: E402
 import run_gemini_validation as engine  # noqa: E402
 import runtime_config  # noqa: E402
 
@@ -232,6 +233,51 @@ def run_checks(log=print) -> tuple[bool, list[tuple[str, bool, str]]]:
 
     parsed = qa.parse_strict_json('```json\n{"a": 1}\n```')
     check("strict JSON parser strips accidental fences", parsed == {"a": 1})
+
+    # Model context checks
+    ctx = mctx.fresh_context("Toyota", "Corolla", "Toyota Corolla")
+    check("model context creates correctly",
+          ctx["make"] == "Toyota" and ctx["model"] == "Corolla"
+          and ctx["market_scope"] == "IL" and not ctx["completed"])
+    fp = mctx.build_technical_fingerprint({
+        "make": "Toyota", "model": "Corolla", "year_start": 2020,
+        "year_end": 2023, "engine": "1.6L", "transmission": "CVT",
+        "fuel_type": "Gasoline", "body_type": "Sedan", "drivetrain": "FWD",
+    })
+    check("technical fingerprint builds correctly",
+          fp["make"] == "Toyota" and fp["engine"] == "1.6L")
+    check("weak source name detected",
+          mctx.is_weak_source_name("Base") and mctx.is_weak_source_name(None)
+          and mctx.is_weak_source_name("") and not mctx.is_weak_source_name("Sport"))
+    ctx_summary = mctx.context_summary_for_prompt(ctx)
+    check("model context summary is compact",
+          ctx_summary["make"] == "Toyota" and "processed_so_far" in ctx_summary)
+    final_ctx = mctx.finalize_context(ctx)
+    check("model context finalizes correctly",
+          final_ctx["completed"] is True and "completed_at" in final_ctx)
+
+    # Merged context includes technical fingerprint and source_trim_was_generic
+    merged_with_ctx = engine.build_merged_context(
+        variants_by_id[sample_vid], instructions_by_id[sample_vid],
+        variants_by_id, active_model_ctx=ctx)
+    check("merged context includes technical fingerprint",
+          isinstance(merged_with_ctx.get("technical_fingerprint"), dict)
+          and "make" in merged_with_ctx["technical_fingerprint"])
+    check("merged context includes source_trim_was_generic",
+          "source_trim_was_generic" in merged_with_ctx)
+    check("merged context includes active model context when provided",
+          isinstance(merged_with_ctx.get("active_model_context"), dict))
+
+    # Discovered missing variant builds correctly
+    mctx.reset_discovery_counter()
+    disc = mctx.build_discovered_missing_variant(
+        "Toyota", "Corolla", "Toyota Corolla", "LE",
+        {"evidence_summary": "smoke test", "lineup_position": "entry"},
+        "VAL-000001")
+    check("discovered missing variant record builds",
+          disc["discovery_id"] == "DISC-000001"
+          and disc["discovered_trim"] == "LE"
+          and disc["reason_not_added_to_clean"].startswith("expansion candidate"))
 
     failed = [c for c in checks if not c[1]]
     log(f"\n== Smoke test {'PASSED' if not failed else 'FAILED'}: "
