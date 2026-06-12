@@ -1,6 +1,6 @@
 {
  "schema_version": "validation-v2-budgeted-dual-il-trims",
- "created_at": "2026-06-12T17:17:38.290463+00:00",
+ "created_at": "2026-06-12T17:18:10.481017+00:00",
  "source_input_files": [
   "data/validation_variants_data_v1.json",
   "data/validation_instructions_by_id_v1.json"
@@ -11,7 +11,7 @@
  "grounding_enabled": true,
  "total_input_variants": 3712,
  "accepted_count": 1,
- "manual_review_count": 1,
+ "manual_review_count": 2,
  "rejected_count": 0,
  "failed_count": 0,
  "variants": [
@@ -71,6 +71,38 @@
    "confidence": 0.85,
    "requires_manual_review": true,
    "evidence_summary": "Israeli market sources (Yad2, iCar, Gear) confirm Abarth 500 was sold in Israel from 2010 to 2016. Trims included Scorpione, Turismo, Competizione, San Marino, and Nuvolari. The 'Base' trim is a placeholder. The duplicate record VAL-000001 is the automated manual version, so they should be kept separate.",
+   "grounding_used": true
+  },
+  {
+   "validation_id": "VAL-000003",
+   "variant_id": "abarth_500_2008_2026_il_first_generation_1_4l_turbo_manual_hatchback_petrol",
+   "canonical_identity_hash": "059dbf3c1c22bb1c",
+   "make": "Abarth",
+   "model": "500",
+   "global_model_name": "Abarth 500",
+   "official_marketed_name_il": "500",
+   "local_brand_name_il": "אבארט",
+   "alternate_names": [
+    "Abarth 595",
+    "אבארט 595",
+    "אבארט 500"
+   ],
+   "rebadged_as": null,
+   "year_start": 2008,
+   "year_end": 2026,
+   "generation": "First Generation",
+   "body_type": "Hatchback",
+   "seats": 4,
+   "engine": "1.4L Turbo",
+   "transmission": "manual",
+   "fuel_type": "petrol",
+   "drivetrain": "FWD",
+   "trim": "Competizione / Scorpione / Nuvolari S",
+   "market_scope": "IL",
+   "validation_decision": "manual_review",
+   "confidence": 0.9,
+   "requires_manual_review": true,
+   "evidence_summary": "Verified through Israeli automotive sources (Auto, iCar, Gear) that Competizione, Scorpione, and Nuvolari S are distinct trims with different power outputs (180hp, 145hp, 165hp) marketed in Israel. Added Hebrew brand name and alternate names including 595.",
    "grounding_used": true
   }
  ]
