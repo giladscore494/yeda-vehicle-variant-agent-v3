@@ -1,6 +1,6 @@
 {
  "schema_version": "validation-v2-budgeted-dual-il-trims",
- "created_at": "2026-06-12T17:16:54.544044+00:00",
+ "created_at": "2026-06-12T17:17:38.290463+00:00",
  "source_input_files": [
   "data/validation_variants_data_v1.json",
   "data/validation_instructions_by_id_v1.json"
@@ -11,7 +11,7 @@
  "grounding_enabled": true,
  "total_input_variants": 3712,
  "accepted_count": 1,
- "manual_review_count": 0,
+ "manual_review_count": 1,
  "rejected_count": 0,
  "failed_count": 0,
  "variants": [
@@ -41,6 +41,36 @@
    "confidence": 0.95,
    "requires_manual_review": false,
    "evidence_summary": "Corrected transmission to automated_manual based on the original variant ID which specifies '5_speed_automated_manual'. Added Hebrew local brand name 'אבארט 500'. Resolved duplicate group by keeping records separate due to different transmissions.",
+   "grounding_used": true
+  },
+  {
+   "validation_id": "VAL-000002",
+   "variant_id": "abarth_500_2008_2016_il_1st_gen_1_4l_turbo_5_speed_manual_hatchback_petrol",
+   "canonical_identity_hash": "c525a41836b5ab4e",
+   "make": "Abarth",
+   "model": "500",
+   "global_model_name": "Abarth 500",
+   "official_marketed_name_il": "אבארט 500",
+   "local_brand_name_il": "אבארט",
+   "alternate_names": [
+    "Abarth 500"
+   ],
+   "rebadged_as": null,
+   "year_start": 2010,
+   "year_end": 2016,
+   "generation": "1st Gen",
+   "body_type": "Hatchback",
+   "seats": 4,
+   "engine": "1.4L Turbo",
+   "transmission": "manual",
+   "fuel_type": "petrol",
+   "drivetrain": "FWD",
+   "trim": "Base",
+   "market_scope": "IL",
+   "validation_decision": "manual_review",
+   "confidence": 0.85,
+   "requires_manual_review": true,
+   "evidence_summary": "Israeli market sources (Yad2, iCar, Gear) confirm Abarth 500 was sold in Israel from 2010 to 2016. Trims included Scorpione, Turismo, Competizione, San Marino, and Nuvolari. The 'Base' trim is a placeholder. The duplicate record VAL-000001 is the automated manual version, so they should be kept separate.",
    "grounding_used": true
   }
  ]
