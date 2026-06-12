@@ -1,0 +1,150 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Gemini vehicle variant validation response",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "validation_id",
+    "decision",
+    "is_real_variant",
+    "is_relevant_to_il_market",
+    "corrected_variant",
+    "fields_completed",
+    "fields_changed",
+    "critical_fields_changed",
+    "name_validation",
+    "duplicate_review",
+    "split_review",
+    "confidence",
+    "requires_manual_review",
+    "evidence_summary",
+    "grounding_used"
+  ],
+  "properties": {
+    "validation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "decision": {
+      "type": "string",
+      "enum": ["auto_accept", "manual_review", "reject"]
+    },
+    "is_real_variant": {
+      "type": "boolean"
+    },
+    "is_relevant_to_il_market": {
+      "type": "boolean"
+    },
+    "corrected_variant": {
+      "type": "object",
+      "required": [
+        "make",
+        "model",
+        "year_start",
+        "year_end",
+        "trim",
+        "market_scope",
+        "variant_id"
+      ],
+      "properties": {
+        "make": {"type": ["string", "null"]},
+        "model": {"type": ["string", "null"]},
+        "global_model_name": {"type": ["string", "null"]},
+        "official_marketed_name_il": {"type": ["string", "null"]},
+        "local_brand_name_il": {"type": ["string", "null"]},
+        "alternate_names": {"type": ["array", "null"]},
+        "rebadged_as": {"type": ["string", "null"]},
+        "year_start": {"type": ["integer", "null"]},
+        "year_end": {"type": ["integer", "null"]},
+        "generation": {"type": ["string", "null"]},
+        "body_type": {"type": ["string", "null"]},
+        "seats": {"type": ["integer", "null"]},
+        "engine": {"type": ["string", "null"]},
+        "transmission": {"type": ["string", "null"]},
+        "fuel_type": {"type": ["string", "null"]},
+        "drivetrain": {"type": ["string", "null"]},
+        "trim": {"type": ["string", "null"]},
+        "market_scope": {"type": ["string", "null"]},
+        "variant_id": {"type": ["string", "null"]}
+      }
+    },
+    "fields_completed": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "fields_changed": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "critical_fields_changed": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "name_validation": {
+      "type": "object",
+      "required": [
+        "model_name_il_status",
+        "trim_name_il_status"
+      ],
+      "properties": {
+        "model_name_il_status": {
+          "type": "string",
+          "enum": ["verified", "corrected", "uncertain", "not_available"]
+        },
+        "trim_name_il_status": {
+          "type": "string",
+          "enum": ["verified", "corrected", "uncertain", "not_available"]
+        },
+        "recommended_display_name_il": {"type": ["string", "null"]},
+        "global_vs_il_name_notes": {"type": ["string", "null"]}
+      }
+    },
+    "duplicate_review": {
+      "type": "object",
+      "required": ["duplicate_decision"],
+      "properties": {
+        "possible_duplicate_group": {"type": ["string", "null"]},
+        "duplicate_decision": {
+          "type": "string",
+          "enum": [
+            "not_duplicate",
+            "merge_recommended",
+            "keep_separate",
+            "manual_review_required",
+            "not_applicable"
+          ]
+        },
+        "duplicate_reason": {"type": ["string", "null"]}
+      }
+    },
+    "split_review": {
+      "type": "object",
+      "required": ["split_recommended"],
+      "properties": {
+        "split_recommended": {"type": "boolean"},
+        "split_reason": {"type": ["string", "null"]},
+        "suggested_split_trims": {"type": ["array", "null"]}
+      }
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "requires_manual_review": {
+      "type": "boolean"
+    },
+    "manual_review_reason": {
+      "type": ["string", "null"]
+    },
+    "evidence_summary": {
+      "type": ["string", "null"]
+    },
+    "grounding_used": {
+      "type": "boolean"
+    },
+    "grounding_notes": {
+      "type": ["string", "null"]
+    }
+  }
+}
