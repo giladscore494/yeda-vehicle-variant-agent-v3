@@ -91,10 +91,7 @@ def run_with_log(fn, *args, **kwargs):
 
 
 def progress_state() -> dict:
-    raw = read_json(paths.progress)
-    if raw is None:
-        return engine.fresh_progress()
-    return engine.migrate_progress(raw)
+    return engine.load_progress(paths)
 
 
 def startup_state() -> tuple[list[str], int, int]:
