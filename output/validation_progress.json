@@ -1,8 +1,8 @@
 {
   "progress_format_version": 2,
   "run_started_at": "2026-06-12T17:51:12.039041+00:00",
-  "last_updated_at": "2026-06-12T19:53:32.573387+00:00",
-  "last_processed_validation_id": "VAL-000009",
+  "last_updated_at": "2026-06-12T19:54:41.064705+00:00",
+  "last_processed_validation_id": "VAL-000011",
   "max_attempts": 3,
   "records": {
     "VAL-000001": {
@@ -101,11 +101,20 @@
         "generic/placeholder trim 'None' is not verified as an official Israeli marketed trim (trim_name_il_status=uncertain, confidence=0.6)"
       ],
       "final_decision": "rejected_from_clean"
+    },
+    "VAL-000011": {
+      "status": "final",
+      "attempt_count": 2,
+      "last_attempt_at": "2026-06-12T19:54:41.060239+00:00",
+      "last_error": null,
+      "last_decision": "auto_resolved",
+      "unresolved_reasons": [],
+      "final_decision": "auto_resolved"
     }
   },
   "counts": {
     "accepted": 1,
-    "auto_resolved": 1,
+    "auto_resolved": 2,
     "rejected_from_clean": 6,
     "failed": 0
   },

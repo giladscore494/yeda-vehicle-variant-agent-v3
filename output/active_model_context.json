@@ -3,9 +3,13 @@
   "model": "500",
   "global_model_name": "Abarth 500",
   "market_scope": "IL",
-  "processed_model_variants_count": 2,
-  "known_or_candidate_israeli_trims": [],
-  "official_marketed_names_found": [],
+  "processed_model_variants_count": 3,
+  "known_or_candidate_israeli_trims": [
+    "Turismo"
+  ],
+  "official_marketed_names_found": [
+    "Abarth 500e"
+  ],
   "aliases_found": [],
   "trim_lineup_positions": {},
   "unique_differentiator_per_trim": {},
@@ -37,16 +41,34 @@
       "seats": null,
       "generation": "",
       "market_scope": "IL"
+    },
+    {
+      "make": "Abarth",
+      "model": "500",
+      "year_start": 2024,
+      "year_end": 2026,
+      "engine": "Electric Motor",
+      "transmission": "single_speed_ev",
+      "fuel_type": "electric",
+      "body_type": "Hatchback",
+      "drivetrain": "FWD",
+      "seats": 4,
+      "generation": "Second Generation",
+      "market_scope": "IL"
     }
   ],
-  "already_resolved_variants": [],
+  "already_resolved_variants": [
+    "VAL-000011"
+  ],
   "already_rejected_variants": [
     "VAL-000008",
     "VAL-000009"
   ],
   "ambiguous_fingerprints": [],
   "duplicate_groups_encountered": [],
-  "evidence_summaries_discovered": [],
+  "evidence_summaries_discovered": [
+    "VAL-000011: The Abarth 500e is marketed in Israel in two distinct trims: the regular 'Turismo' and the limited launch edition 'Scorpionissima'. To resolve the combined trim issue, the standard 'Turismo' trim was "
+  ],
   "source_quality_warnings": [
     "VAL-000008: source trim '' is weak/generic",
     "VAL-000009: source trim '' is weak/generic"
@@ -54,5 +76,5 @@
   "unresolved_questions": [],
   "completed": false,
   "started_at": "2026-06-12T19:51:07.256867+00:00",
-  "last_updated_at": "2026-06-12T19:53:32.571804+00:00"
+  "last_updated_at": "2026-06-12T19:54:41.061290+00:00"
 }
