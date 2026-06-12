@@ -1,0 +1,101 @@
+name: Run Gemini Variant Validation
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: number of variants to process, empty means all
+        required: false
+      push_every:
+        description: checkpoint push frequency
+        required: false
+        default: "25"
+      force_reprocess:
+        description: whether to reprocess completed variants
+        required: false
+        default: "false"
+      only_priority:
+        description: "optional: process only one priority (high/medium/low/sample_only)"
+        required: false
+      validation_id:
+        description: "optional: process a single validation_id"
+        required: false
+      dry_run:
+        description: "build contexts without calling Gemini (true/false)"
+        required: false
+        default: "false"
+
+concurrency:
+  group: gemini-validation-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - name: Checkout target branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Check input files
+        run: |
+          test -f data/validation_variants_data_v1.json
+          test -f data/validation_instructions_by_id_v1.json
+          python -c "import json; json.load(open('data/validation_variants_data_v1.json')); json.load(open('data/validation_instructions_by_id_v1.json')); print('input files parse OK')"
+
+      - name: Run smoke test
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GH_PUSH_TOKEN: ${{ secrets.GH_PUSH_TOKEN }}
+        run: python scripts/smoke_test.py
+
+      - name: Run validation engine
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GH_PUSH_TOKEN: ${{ secrets.GH_PUSH_TOKEN }}
+          TARGET_BRANCH: ${{ github.ref_name }}
+          PUSH_EVERY_N_VARIANTS: ${{ github.event.inputs.push_every || '25' }}
+          FORCE_REPROCESS: ${{ github.event.inputs.force_reprocess || 'false' }}
+        run: |
+          ARGS=""
+          if [ -n "${{ github.event.inputs.limit }}" ]; then
+            ARGS="$ARGS --limit ${{ github.event.inputs.limit }}"
+          fi
+          if [ -n "${{ github.event.inputs.only_priority }}" ]; then
+            ARGS="$ARGS --only-priority ${{ github.event.inputs.only_priority }}"
+          fi
+          if [ -n "${{ github.event.inputs.validation_id }}" ]; then
+            ARGS="$ARGS --validation-id ${{ github.event.inputs.validation_id }}"
+          fi
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            ARGS="$ARGS --dry-run"
+          fi
+          echo "Running: python scripts/run_gemini_validation.py $ARGS"
+          python scripts/run_gemini_validation.py $ARGS
+
+      - name: Final checkpoint on failure
+        if: failure()
+        env:
+          GH_PUSH_TOKEN: ${{ secrets.GH_PUSH_TOKEN }}
+          TARGET_BRANCH: ${{ github.ref_name }}
+        run: |
+          python - <<'EOF'
+          import sys
+          sys.path.insert(0, 'scripts')
+          import github_checkpoint
+          github_checkpoint.checkpoint(
+              "validation checkpoint: save progress after workflow failure",
+              ["output"], do_push=True)
+          EOF
