@@ -1,6 +1,6 @@
 {
  "schema_version": "validation-v2-budgeted-dual-il-trims",
- "created_at": "2026-06-12T19:47:54.655529+00:00",
+ "created_at": "2026-06-12T19:48:35.310494+00:00",
  "source_input_files": [
   "data/validation_variants_data_v1.json",
   "data/validation_instructions_by_id_v1.json"
@@ -9,8 +9,8 @@
  "runtime": "streamlit",
  "target_branch": "validation-v2-budgeted-dual-il-trims",
  "total_input_variants": 3712,
- "total_clean_variants": 1,
- "accepted_count": 0,
+ "total_clean_variants": 2,
+ "accepted_count": 1,
  "auto_resolved_count": 1,
  "rejected_from_clean_count": 4,
  "failed_count": 0,
@@ -47,6 +47,39 @@
    "confidence": 0.95,
    "requires_manual_review": false,
    "evidence_summary": "To resolve the QA failure regarding the combined trim, the trim field was updated to 'Competizione', which is a verified distinct trim for the Abarth 500/595 in Israel. The other trims (Scorpione, Nuvolari S) are suggested for separate variants. Local names were completed based on Israeli market data.",
+   "grounding_used": true
+  },
+  {
+   "validation_id": "VAL-000007",
+   "variant_id": "abarth_500_2018_2023_il_unknown_generation_1_4_turbo_145_manual_hatchback_petrol",
+   "validated_variant_id": "abarth_500_2018_2023_il_1_1_4_turbo_145_manual_hatchback_petrol_scorpione",
+   "original_variant_id": "abarth_500_2018_2023_il_unknown_generation_1_4_turbo_145_manual_hatchback_petrol",
+   "original_canonical_identity_hash": "a06c5aca73455fca",
+   "validated_identity_hash": "f08e3626e0ae6b31",
+   "make": "Abarth",
+   "model": "500",
+   "global_model_name": "Abarth 500",
+   "official_marketed_name_il": "אבארט 500",
+   "local_brand_name_il": "אבארט",
+   "alternate_names": [
+    "Abarth 595"
+   ],
+   "rebadged_as": null,
+   "year_start": 2018,
+   "year_end": 2023,
+   "generation": "1",
+   "body_type": "hatchback",
+   "seats": 4,
+   "engine": "1.4 Turbo 145",
+   "transmission": "manual",
+   "fuel_type": "petrol",
+   "drivetrain": "FWD",
+   "trim": "Scorpione",
+   "market_scope": "IL",
+   "validation_decision": "auto_accept",
+   "confidence": 0.95,
+   "requires_manual_review": false,
+   "evidence_summary": "Israeli market data confirms that the 145 hp manual version of the Abarth 500/595 was officially marketed in Israel as the 'Scorpione' trim. Completed generation (1), seats (4), and drivetrain (FWD) based on standard Abarth 500 specifications.",
    "grounding_used": true
   }
  ]
