@@ -511,6 +511,19 @@ class MockGeminiClient:
         digits = "".join(c for c in vid if c.isdigit())
         return int(digits) if digits else 0
 
+    @staticmethod
+    def _extract_marker_json(user_text: str, marker: str) -> dict | None:
+        """Return JSON after a prompt marker, or None when the marker is absent.
+
+        Mock mode supports multiple prompt shapes (full validation, correction,
+        and research). Missing markers should be handled explicitly instead of
+        crashing with IndexError from split(...)[1].
+        """
+        prefix = f"{marker}:\n"
+        if prefix not in user_text:
+            return None
+        return json.loads(user_text.split(prefix, 1)[1])
+
     def _response(self, vid: str, sv: dict, confidence: float,
                   resolved_note: str = "") -> str:
         accept = confidence >= 0.85
@@ -563,18 +576,85 @@ class MockGeminiClient:
         }
         return json.dumps(resp, ensure_ascii=False)
 
+    def _research_response(self, ctx: dict) -> str:
+        vid = ctx.get("validation_id") or "MOCK-RESEARCH"
+        trim = ctx.get("trim") or ctx.get("official_marketed_name_il")
+        evidence_summary = (
+            "mock research: no external calls; values copied from research context")
+        if trim:
+            evidence_summary += f" for trim {trim}"
+        resp = {
+            "validation_id": vid,
+            "research_status": "complete",
+            "research_summary": evidence_summary,
+            "queries_used": [
+                "mock mode research",
+                "Israeli-market vehicle variant validation",
+            ],
+            "source_ladder_coverage": {
+                "official_importer_checked": False,
+                "price_list_or_brochure_checked": False,
+                "israeli_auto_sites_checked": False,
+                "used_listings_checked_as_weak_support": False,
+                "non_israeli_sources_checked_for_technical_only": False,
+            },
+            "evidence_items": [],
+            "possible_israeli_trims_found": [],
+            "model_family_findings": {
+                "is_model_family": False,
+                "family_name": None,
+                "reason": "mock mode did not perform model-family research",
+            },
+            "technical_fingerprint_findings": {
+                "engine": ctx.get("engine"),
+                "transmission": ctx.get("transmission"),
+                "fuel_type": ctx.get("fuel_type"),
+                "drivetrain": ctx.get("drivetrain"),
+                "body_type": ctx.get("body_type"),
+                "year_range": f"{ctx.get('year_start')}-{ctx.get('year_end')}",
+                "supported_by_sources": [],
+            },
+            "split_indicators": {
+                "split_likely": False,
+                "reason": "mock mode found no split indicators",
+                "candidate_child_variants": [],
+            },
+            "unique_mapping_candidate": {
+                "exists": bool(trim),
+                "trim_name": trim,
+                "official_marketed_name": ctx.get("official_marketed_name_il"),
+                "confidence": 0.5 if trim else 0.0,
+                "supporting_sources": [],
+                "reason": "mock mode only reflects supplied research context",
+            },
+            "conflicts": [],
+            "missing_information": [],
+            "researcher_recommended_next_action": "send_to_adjudicator",
+        }
+        return json.dumps(resp, ensure_ascii=False)
+
     def generate(self, user_text: str, strict_retry: bool = False) -> tuple[str, bool]:
-        if "CORRECTION_CONTEXT:\n" in user_text:
-            ctx = json.loads(user_text.split("CORRECTION_CONTEXT:\n", 1)[1])
-            vid = ctx["validation_id"]
-            sv = ctx["original_standard_variant"]
+        correction_ctx = self._extract_marker_json(user_text, "CORRECTION_CONTEXT")
+        if correction_ctx is not None:
+            vid = correction_ctx["validation_id"]
+            sv = correction_ctx["original_standard_variant"]
             idx = self._vid_index(vid)
             if idx % 9 == 8:
                 return self._response(vid, sv, 0.6,
                                       "mock: still unresolvable on purpose"), False
             return self._response(vid, sv, 0.92,
                                   "mock: correction pass resolved the issue"), False
-        ctx = json.loads(user_text.split("MERGED_CONTEXT:\n", 1)[1])
+
+        research_ctx = self._extract_marker_json(user_text, "RESEARCH_CONTEXT")
+        if research_ctx is not None:
+            return self._research_response(research_ctx), False
+
+        ctx = self._extract_marker_json(user_text, "MERGED_CONTEXT")
+        if ctx is None:
+            raise ValueError(
+                "mock Gemini prompt missing one of CORRECTION_CONTEXT, "
+                "RESEARCH_CONTEXT, or MERGED_CONTEXT")
+
         vid = ctx["validation_id"]
         sv = ctx["standard_variant"]
         idx = self._vid_index(vid)
