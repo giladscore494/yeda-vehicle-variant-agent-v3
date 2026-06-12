@@ -566,6 +566,48 @@ class TestEngineIntegration:
         assert "TARGETED" in prompt
         assert "official_importer_missing" in prompt
 
+class TestGeminiPromptContextParsing:
+    def _make_context(self):
+        return {
+            "validation_id": "VAL-000010",
+            "standard_variant": {
+                "make": "Toyota",
+                "model": "Corolla",
+                "global_model_name": "Corolla",
+                "official_marketed_name_il": "Corolla",
+                "trim": "Sun",
+                "year_start": 2020,
+                "year_end": 2022,
+                "engine": "1.6L",
+                "transmission": "Automatic",
+                "fuel_type": "Gasoline",
+                "drivetrain": "FWD",
+                "body_type": "Sedan",
+                "generation": None,
+                "seats": 5,
+                "variant_id": "V-000010",
+            },
+            "source_trim_was_generic": False,
+        }
+
+    def test_run_gemini_research_prompt_without_merged_context_does_not_crash(self):
+        client = engine.MockGeminiClient()
+        pack, error = engine._run_gemini_research(client, self._make_context())
+        assert error is None
+        assert pack is not None
+        assert pack["validation_id"] == "VAL-000010"
+        assert pack["research_status"] == "complete"
+
+    def test_full_validation_prompt_with_merged_context_still_works(self):
+        client = engine.MockGeminiClient()
+        prompt = engine.build_user_prompt(self._make_context())
+        assert "MERGED_CONTEXT:\n" in prompt
+        raw_text, grounded = client.generate(prompt)
+        parsed = json.loads(raw_text)
+        assert grounded is False
+        assert parsed["validation_id"] == "VAL-000010"
+        assert parsed["corrected_variant"]["trim"] == "Sun"
+
 
 # ═══════════════════════════════════════════════════════════════════════════
 # Deduplication tests
