@@ -94,7 +94,11 @@ python scripts/run_gemini_validation.py --limit 3
 - אחרי **כל** תשובה רץ QA דטרמיניסטי (`scripts/deterministic_qa.py`): התאמת validation_id,
   סכמה, שנים, placeholder-ים, סתירות הנעה, שינויי שדות קריטיים בלי ראיות, כפילויות,
   פיצולי trim, וסף ביטחון 0.85 ל-auto_accept.
-- תשובה פגומה → עד 3 ניסיונות עם פרומפט מחמיר; אחר כך manual_review/failures.
+- אין בדיקה ידנית (manual review) בכלל: וריאנט שלא עבר את Pass 1 נשלח מיד
+  ל-Pass 2 ואז Pass 3 — פרומפטים ממוקדים שמקבלים רק את הסיבות הלא-פתורות.
+  ברירת מחדל: `max_attempts=3` (אפשר 1–5 דרך ה-UI).
+- החלטות סופיות אפשריות בלבד: `auto_accept` / `auto_resolved` /
+  `rejected_from_clean` / `failed`. אין `manual_review` ואין `unresolved_auto`.
 - grounding מופעל כשנתמך; אם לא — `grounding_enabled=false` בסיכום והמנוע שמרני יותר.
 - שמירה מקומית אחרי כל וריאנט; commit+push לפי `push_every` (ברירת מחדל ב-Streamlit: 1).
 - Push מתבצע דרך GitHub REST API (עמיד לסביבת Streamlit Cloud) עם fallback ל-git CLI;
@@ -106,7 +110,8 @@ python scripts/run_gemini_validation.py --limit 3
 ```text
 validation_results.jsonl                    # audit מלא, כולל original_snapshot (רק כאן!)
 canonical_variants_clean.jsonl              # שורות קנוניות נקיות
-manual_review.jsonl                         # וריאנטים לבדיקה ידנית + סיבות
+rejected_from_clean.jsonl                   # audit בלבד: למה רשומה הוחרגה מהמאגר הנקי
+manual_review.jsonl                         # קובץ legacy מוקפא — לא בשימוש
 failures.jsonl                              # כשלים/דחיות
 push_failures.jsonl                         # כשלי push (הפלט המקומי נשמר)
 validation_progress.json                    # מצב resume (מזהים שעובדו, ספירות)
@@ -126,5 +131,7 @@ canonical_vehicle_variants_clean_v1.json    # עותק תאימות זהה
 
 ## עקרון מנחה
 
-אם אין ודאות — לא ממציאים. שינוי קריטי בלי ראיות חזקות → manual_review.
-manual_review עדיף על ודאות כוזבת.
+אם אין ודאות — לא ממציאים. שינוי קריטי בלי ראיות חזקות לא מתקבל: הוא עובר
+ל-pass תיקון אוטומטי נוסף, ואם גם זה נכשל — `rejected_from_clean` (מוחרג מהמאגר
+הנקי). רשומות שנכשלות בכל הניסיונות האוטומטיים מוחרגות מהפלט הנקי — הן לא
+נשלחות לבדיקה ידנית.

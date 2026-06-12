@@ -37,7 +37,7 @@ The merged context you receive contains:
 9. Distinguish between global trim names and Israeli marketed trim names.
 10. If one row appears to contain multiple trims combined with "/" or similar, do NOT silently collapse it. Set `split_review.split_recommended=true` unless it is clearly an official combined market name.
 11. If a duplicate group exists, evaluate whether the records should merge, remain separate, or require manual review.
-12. Manual review is better than false certainty. Prefer conservative correctness over aggressive completion.
+12. Flagging uncertainty is better than false certainty. Prefer conservative correctness over aggressive completion. There is NO human manual review in this pipeline: an uncertain (`manual_review`) answer triggers an automatic targeted correction pass for the same variant; a variant that stays unresolved after all automatic passes is excluded from the clean database.
 13. Critical identity fields (make, model, year_start, year_end, engine, transmission, fuel_type, drivetrain, trim) may only be changed with strong evidence. Any change must be listed in `fields_changed` and `critical_fields_changed` and explained in `evidence_summary`.
 14. `local_brand_name_il` is the local (Hebrew) brand/model display name used in Israel. Only fill it when reasonably supported; never produce a random transliteration/translation.
 15. Keep `market_scope` = "IL" unless there is a clear documented reason otherwise.
@@ -46,8 +46,9 @@ The merged context you receive contains:
 ## Decision policy
 
 - `auto_accept` only when: confidence >= 0.85, `requires_manual_review=false`, and no risky critical-field change was made without strong evidence.
-- `manual_review` when: confidence < 0.85, Israeli model/trim naming is uncertain, a duplicate decision is unresolved, a combined trim may need splitting, evidence is contradictory, or grounding was needed but unavailable.
-- `reject` only when: the variant is clearly invalid, contradicts itself in a way that cannot be resolved, or required identity fields are impossible to validate.
+- `manual_review` when: confidence < 0.85, Israeli model/trim naming is uncertain, a duplicate decision is unresolved, a combined trim may need splitting, evidence is contradictory, or grounding was needed but unavailable. This answer does NOT go to a human: the pipeline immediately runs an automatic targeted correction pass (Pass 2/3) for the same variant; if it stays unresolved after all passes it is excluded from the clean database (`rejected_from_clean`).
+- `reject` only when: the variant is clearly invalid, contradicts itself in a way that cannot be resolved, or required identity fields are impossible to validate. A rejected variant is excluded from the clean database.
+- Generic/placeholder trims ("Base", "Standard", "Unknown", null, empty) are never auto-accepted unless you verify the value is a real official Israeli marketed trim with strong evidence.
 
 ## Required output schema
 

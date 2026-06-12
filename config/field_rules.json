@@ -23,7 +23,10 @@
     "transmission",
     "fuel_type",
     "drivetrain",
-    "trim"
+    "trim",
+    "body_type",
+    "seats",
+    "generation"
   ],
   "il_name_fields": [
     "official_marketed_name_il",
@@ -32,7 +35,10 @@
   "canonical_output_fields": [
     "validation_id",
     "variant_id",
-    "canonical_identity_hash",
+    "validated_variant_id",
+    "original_variant_id",
+    "original_canonical_identity_hash",
+    "validated_identity_hash",
     "make",
     "model",
     "global_model_name",
@@ -92,7 +98,18 @@
     "|",
     ", "
   ],
-  "max_model_retries": 3,
+  "generic_trim_values": [
+    "base",
+    "standard",
+    "unknown",
+    "n/a",
+    "na",
+    "none",
+    "null",
+    ""
+  ],
+  "max_validation_attempts_default": 3,
+  "allowed_max_attempts": [1, 2, 3, 4, 5],
   "rate_limit_max_retries": 6,
   "rate_limit_base_backoff_seconds": 10,
   "expected_total_variants": 3712,

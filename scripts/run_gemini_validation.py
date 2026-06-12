@@ -7,21 +7,43 @@ instruction record from data/validation_instructions_by_id_v1.json, sending a
 compact merged context (one variant at a time, never the full dataset) to
 Gemini, then running deterministic QA on every response.
 
+There is NO human manual review. Every validation_id stays in the active
+processing loop until it reaches exactly one final machine decision:
+
+    auto_accept          Pass 1 passed deterministic QA + confidence threshold
+    auto_resolved        a correction pass (Pass 2..max_attempts) resolved it
+    rejected_from_clean  could not be safely resolved after max_attempts
+    failed               API/runtime failure after retries
+
+Pass 2/3 do NOT repeat the full generic prompt: they receive a compact
+targeted correction context (previous response + deterministic QA failures +
+exact unresolved reasons). Deterministic QA always overrides Gemini
+confidence.
+
 Runtimes:
   - Streamlit (main, via app.py + st.secrets)  -> run_validation(...)
   - CLI / GitHub Actions (env vars)            -> python scripts/run_gemini_validation.py
 
 Outputs (under output/; mock mode writes to output/mock/ so real progress is
 never polluted):
-    validation_results.jsonl                    full audit log (incl. original_snapshot)
+    validation_results.jsonl                    full audit log, one record per
+                                                attempt (incl. original_snapshot
+                                                on attempt 1)
     canonical_variants_clean.jsonl              clean canonical rows
-    manual_review.jsonl                         variants routed to manual review
-    failures.jsonl                              malformed/failed responses
+                                                (auto_accept / auto_resolved only)
+    rejected_from_clean.jsonl                   audit-only: why a record was
+                                                excluded from the clean database
+    failures.jsonl                              API/runtime failures
     push_failures.jsonl                         checkpoint push failures
-    validation_progress.json                    resume state
+    validation_progress.json                    resume state + per-id attempts
     validation_run_summary.json                 run summary
-    validation-v2-budgeted-dual-il-trims.json   final clean database (NO original_snapshot)
-    canonical_vehicle_variants_clean_v1.json    compatibility copy of the final database
+    validation-v2-budgeted-dual-il-trims.json   final clean database
+                                                (auto_accept/auto_resolved ONLY,
+                                                NO original_snapshot)
+    canonical_vehicle_variants_clean_v1.json    identical compatibility copy
+
+output/manual_review.jsonl is a deprecated legacy file: nothing writes to it
+and no logic depends on it.
 """
 
 from __future__ import annotations
@@ -43,6 +65,7 @@ if str(SCRIPTS_DIR) not in sys.path:
 
 import deterministic_qa as qa  # noqa: E402
 import github_checkpoint  # noqa: E402
+import identity  # noqa: E402
 import runtime_config  # noqa: E402
 
 DATA_DIR = REPO_ROOT / "data"
@@ -58,6 +81,18 @@ CONFIG_FILES = {
 
 SCHEMA_VERSION = "validation-v2-budgeted-dual-il-trims"
 FINAL_CLEAN_FILENAME = "validation-v2-budgeted-dual-il-trims.json"
+
+# The only allowed final machine decisions.
+FINAL_DECISIONS = ("auto_accept", "auto_resolved", "rejected_from_clean", "failed")
+CLEAN_DECISIONS = ("auto_accept", "auto_resolved")
+DECISION_COUNT_KEY = {
+    "auto_accept": "accepted",
+    "auto_resolved": "auto_resolved",
+    "rejected_from_clean": "rejected_from_clean",
+    "failed": "failed",
+}
+
+PROGRESS_FORMAT_VERSION = 2
 
 
 def resolve_input_file(name: str) -> Path:
@@ -82,7 +117,11 @@ class OutputPaths:
     @property
     def canonical_jsonl(self) -> Path: return self.base / "canonical_variants_clean.jsonl"
     @property
-    def manual_review(self) -> Path: return self.base / "manual_review.jsonl"
+    def rejected(self) -> Path: return self.base / "rejected_from_clean.jsonl"
+    @property
+    def manual_review(self) -> Path:
+        # Deprecated legacy file: kept only so old runs remain readable.
+        return self.base / "manual_review.jsonl"
     @property
     def failures(self) -> Path: return self.base / "failures.jsonl"
     @property
@@ -118,6 +157,7 @@ class RunOptions:
     resume: bool = True
     push_every: int = 1
     push_enabled: bool = True
+    max_attempts: int = 3
 
 
 def load_rules() -> dict:
@@ -426,20 +466,28 @@ class GeminiClient:
 
 class MockGeminiClient:
     """Deterministic offline stand-in for Gemini. Used by mock mode to test the
-    full pipeline (QA, outputs, progress, resume) with zero API calls/cost."""
+    full multi-pass pipeline (QA, correction passes, outputs, progress, resume)
+    with zero API calls/cost.
+
+    Deterministic behavior by the numeric part of validation_id:
+      idx % 3 == 2  -> Pass 1 simulates low confidence (goes to Pass 2)
+      idx % 9 == 8  -> correction passes also stay low (ends rejected_from_clean)
+      otherwise     -> Pass 2 resolves it (ends auto_resolved)
+    """
 
     grounding_enabled = True
 
     def __init__(self, *_args, **_kwargs):
         pass
 
-    def generate(self, user_text: str, strict_retry: bool = False) -> tuple[str, bool]:
-        ctx = json.loads(user_text.split("MERGED_CONTEXT:\n", 1)[1])
-        sv = ctx["standard_variant"]
-        vid = ctx["validation_id"]
-        # Deterministic variety: every 3rd variant simulates low confidence.
-        low = int(vid.rsplit("-", 1)[-1]) % 3 == 2 if vid[-1].isdigit() else False
-        conf = 0.55 if low else 0.93
+    @staticmethod
+    def _vid_index(vid: str) -> int:
+        digits = "".join(c for c in vid if c.isdigit())
+        return int(digits) if digits else 0
+
+    def _response(self, vid: str, sv: dict, confidence: float,
+                  resolved_note: str = "") -> str:
+        accept = confidence >= 0.85
         cv = {k: sv.get(k) for k in (
             "make", "model", "global_model_name", "official_marketed_name_il",
             "local_brand_name_il", "rebadged_as", "year_start", "year_end",
@@ -449,7 +497,7 @@ class MockGeminiClient:
         cv["market_scope"] = "IL"
         resp = {
             "validation_id": vid,
-            "decision": "auto_accept" if conf >= 0.85 else "manual_review",
+            "decision": "auto_accept" if accept else "manual_review",
             "is_real_variant": True,
             "is_relevant_to_il_market": True,
             "corrected_variant": cv,
@@ -459,39 +507,136 @@ class MockGeminiClient:
                 "recommended_display_name_il": sv.get("global_model_name"),
                 "global_vs_il_name_notes": "mock mode"},
             "duplicate_review": {
-                "possible_duplicate_group": ctx.get("possible_duplicate_group"),
-                "duplicate_decision": "keep_separate"
-                    if ctx.get("possible_duplicate_group") else "not_applicable",
+                "possible_duplicate_group": None,
+                "duplicate_decision": "keep_separate",
                 "duplicate_reason": "mock mode"},
             "split_review": {"split_recommended": False,
                              "split_reason": "mock mode: treated as single marketed name",
                              "suggested_split_trims": []},
-            "confidence": conf,
-            "requires_manual_review": conf < 0.85,
-            "manual_review_reason": "" if conf >= 0.85 else "mock low confidence",
-            "evidence_summary": "MOCK RESPONSE - no real validation evidence; "
-                                "values copied from existing record",
+            "confidence": confidence,
+            "requires_manual_review": not accept,
+            "manual_review_reason": "" if accept else "mock low confidence",
+            "evidence_summary": ("MOCK RESPONSE - no real validation evidence; "
+                                 "values copied from existing record. " + resolved_note),
             "grounding_used": False,
             "grounding_notes": "mock mode, no grounding performed",
         }
-        return json.dumps(resp, ensure_ascii=False), False
+        return json.dumps(resp, ensure_ascii=False)
+
+    def generate(self, user_text: str, strict_retry: bool = False) -> tuple[str, bool]:
+        if "CORRECTION_CONTEXT:\n" in user_text:
+            ctx = json.loads(user_text.split("CORRECTION_CONTEXT:\n", 1)[1])
+            vid = ctx["validation_id"]
+            sv = ctx["original_standard_variant"]
+            idx = self._vid_index(vid)
+            if idx % 9 == 8:
+                return self._response(vid, sv, 0.6,
+                                      "mock: still unresolvable on purpose"), False
+            return self._response(vid, sv, 0.92,
+                                  "mock: correction pass resolved the issue"), False
+        ctx = json.loads(user_text.split("MERGED_CONTEXT:\n", 1)[1])
+        vid = ctx["validation_id"]
+        sv = ctx["standard_variant"]
+        idx = self._vid_index(vid)
+        low = idx % 3 == 2
+        resp = self._response(vid, sv, 0.55 if low else 0.93)
+        if not low and ctx.get("possible_duplicate_group"):
+            parsed = json.loads(resp)
+            parsed["duplicate_review"]["possible_duplicate_group"] = \
+                ctx["possible_duplicate_group"]
+            resp = json.dumps(parsed, ensure_ascii=False)
+        return resp, False
 
 
-def build_user_prompt(merged_context: dict, strict_retry: bool) -> str:
+# ---------------------------------------------------------------------------
+# Prompts (Pass 1 = full validation; Pass 2/3 = compact targeted correction)
+# ---------------------------------------------------------------------------
+
+def build_user_prompt(merged_context: dict, strict_retry: bool = False) -> str:
     header = (
         "Validate the following Israeli-market vehicle variant. "
         "Follow every rule in the system instructions. "
         "Return STRICT JSON only, exactly in the required schema.\n"
     )
-    if strict_retry:
-        header += (
-            "\nIMPORTANT: your previous answer was malformed or failed deterministic "
-            "QA. Return ONLY one valid JSON object matching the required schema "
-            "exactly: no markdown, no code fences, no commentary, all required keys "
-            "present, validation_id copied exactly from the input.\n"
-        )
     return header + "\nMERGED_CONTEXT:\n" + json.dumps(
         merged_context, ensure_ascii=False, separators=(",", ":"))
+
+
+def build_correction_prompt(merged_context: dict, previous: dict,
+                            attempt_number: int, max_attempts: int) -> str:
+    """Compact targeted prompt for Pass 2/3. Sends only this variant's
+    context + the previous output + the exact deterministic QA failures —
+    never the full dataset, never the full generic validation prompt."""
+    prev_response = previous.get("response")
+    prev_qa = previous.get("qa") or {}
+    unresolved = list(prev_qa.get("issues") or [])
+    if previous.get("error"):
+        unresolved.append(previous["error"])
+
+    correction_context = {
+        "validation_id": merged_context["validation_id"],
+        "attempt_number": attempt_number,
+        "max_attempts": max_attempts,
+        "original_standard_variant": merged_context["standard_variant"],
+        "original_variant_id": merged_context.get("original_variant_id"),
+        "original_canonical_identity_hash": merged_context.get("canonical_identity_hash"),
+        "possible_duplicate_group": merged_context.get("possible_duplicate_group"),
+        "duplicate_group_records": merged_context.get("duplicate_group_records") or [],
+        "previous_model_response": prev_response,
+        "previous_raw_excerpt": None if prev_response is not None
+        else (previous.get("raw_text") or "")[:1500] or None,
+        "deterministic_qa_status": prev_qa.get("status"),
+        "deterministic_qa_failures": unresolved,
+        "unresolved_reasons": unresolved,
+        "fields_that_must_be_fixed": sorted({
+            f for f in ("trim", "year_start", "year_end", "engine", "transmission",
+                        "fuel_type", "drivetrain", "body_type", "seats", "generation",
+                        "official_marketed_name_il", "local_brand_name_il",
+                        "alternate_names", "market_scope")
+            if any(f in reason for reason in unresolved)
+        }),
+    }
+
+    strictness = ""
+    if attempt_number >= 3:
+        strictness = (
+            "THIS IS A FINAL STRICT CORRECTION PASS. Be maximally conservative: "
+            "if you cannot verify a safe correction with clear evidence, return "
+            "decision \"reject\" so the record is excluded from the clean "
+            "database. Do NOT guess. Do NOT invent Israeli names or trims.\n"
+        )
+    header = (
+        f"CORRECTION PASS {attempt_number}/{max_attempts} for one Israeli-market "
+        f"vehicle variant that FAILED deterministic QA.\n"
+        f"{strictness}"
+        "Focus ONLY on the unresolved reasons listed in "
+        "deterministic_qa_failures below. Do not re-validate fields that "
+        "already passed.\n"
+        "You must answer with exactly ONE of these outcomes:\n"
+        "  1. resolved: return decision \"auto_accept\" with a safe "
+        "corrected_variant that fixes every listed issue (with evidence in "
+        "evidence_summary);\n"
+        "  2. keep original and accept: return decision \"auto_accept\" with "
+        "the original values ONLY if you can justify that they are safe and "
+        "the QA concerns do not apply (explain why in evidence_summary);\n"
+        "  3. not safely resolvable: return decision \"reject\".\n"
+        "NEVER return decision \"manual_review\" — there is no human review in "
+        "this pipeline. An unresolved record will be excluded from the clean "
+        "database.\n"
+        "Return STRICT JSON only, in exactly the same response schema as the "
+        "system instructions (all required keys present, validation_id copied "
+        "exactly).\n"
+    )
+    return header + "\nCORRECTION_CONTEXT:\n" + json.dumps(
+        correction_context, ensure_ascii=False, separators=(",", ":"))
+
+
+def prompt_type_for_attempt(attempt_number: int) -> str:
+    if attempt_number == 1:
+        return "pass1_full_validation"
+    if attempt_number == 2:
+        return "pass2_targeted_correction"
+    return f"pass{attempt_number}_strict_correction"
 
 
 # ---------------------------------------------------------------------------
@@ -506,7 +651,8 @@ def append_jsonl(path: Path, record: dict) -> None:
 
 def canonical_row(merged_context: dict, response: dict | None, decision: str,
                   rules: dict) -> dict:
-    """One clean canonical row (no original_snapshot, no legacy fields)."""
+    """One clean canonical row (no original_snapshot, no legacy fields).
+    Only called for auto_accept / auto_resolved decisions."""
     sv = merged_context["standard_variant"]
     cv = (response or {}).get("corrected_variant") or {}
 
@@ -516,10 +662,13 @@ def canonical_row(merged_context: dict, response: dict | None, decision: str,
             val = sv.get(field)
         return None if qa.is_missing_value(val, rules) else val
 
+    original_variant_id = merged_context.get("original_variant_id") or sv.get("variant_id")
     row = {
         "validation_id": merged_context["validation_id"],
-        "variant_id": pick("variant_id"),
-        "canonical_identity_hash": merged_context.get("canonical_identity_hash"),
+        # variant_id stays the original/source ID for traceability.
+        "variant_id": sv.get("variant_id") or original_variant_id,
+        "original_variant_id": original_variant_id,
+        "original_canonical_identity_hash": merged_context.get("canonical_identity_hash"),
     }
     for field in ("make", "model", "global_model_name", "official_marketed_name_il",
                   "local_brand_name_il", "alternate_names", "rebadged_as",
@@ -529,31 +678,113 @@ def canonical_row(merged_context: dict, response: dict | None, decision: str,
         row[field] = pick(field)
     if row["market_scope"] is None:
         row["market_scope"] = "IL"
+    # alternate_names must always be a list ([] instead of null).
+    alt = cv.get("alternate_names")
+    if not isinstance(alt, list):
+        alt = sv.get("alternate_names")
+    row["alternate_names"] = alt if isinstance(alt, list) else []
+
+    # Identity: preserve the original hash, generate the validated hash from
+    # the validated fields (so corrected identities get a different hash).
+    row["validated_identity_hash"] = identity.identity_hash(row)
+    identity_changed = any(
+        qa.values_differ(sv.get(f), row.get(f), rules)
+        for f in identity.CRITICAL_IDENTITY_FIELDS
+    ) or row["validated_identity_hash"] != row["original_canonical_identity_hash"]
+    row["validated_variant_id"] = (
+        identity.build_validated_variant_id(row) if identity_changed
+        else (row["variant_id"] or identity.build_validated_variant_id(row))
+    )
+
     row.update({
         "validation_decision": decision,
         "confidence": (response or {}).get("confidence"),
-        "requires_manual_review": decision != "auto_accept",
+        "requires_manual_review": False,
         "evidence_summary": (response or {}).get("evidence_summary"),
         "grounding_used": bool((response or {}).get("grounding_used")),
     })
-    return row
+    # Stable field order per config.
+    ordered = {f: row.get(f) for f in rules["canonical_output_fields"]}
+    return ordered
 
 
 def fresh_progress() -> dict:
     return {
+        "progress_format_version": PROGRESS_FORMAT_VERSION,
         "run_started_at": utcnow(),
         "last_updated_at": None,
         "last_processed_validation_id": None,
-        "processed": {},  # validation_id -> decision
-        "counts": {"accepted": 0, "manual_review": 0, "rejected": 0, "failed": 0},
+        "max_attempts": None,
+        # validation_id -> {status, attempt_count, last_attempt_at, last_error,
+        #                   last_decision, unresolved_reasons, final_decision}
+        "records": {},
+        "counts": {"accepted": 0, "auto_resolved": 0,
+                   "rejected_from_clean": 0, "failed": 0},
         "grounding_enabled": None,
     }
+
+
+def recompute_counts(progress: dict) -> None:
+    counts = {"accepted": 0, "auto_resolved": 0, "rejected_from_clean": 0, "failed": 0}
+    for rec in progress["records"].values():
+        key = DECISION_COUNT_KEY.get(rec.get("final_decision"))
+        if key:
+            counts[key] += 1
+    progress["counts"] = counts
+
+
+def migrate_progress(progress: dict) -> dict:
+    """Upgrade a v1 progress file (processed/{vid: decision} + manual_review
+    counts) to the v2 format. manual_review and any other non-final legacy
+    decision is NOT final: those ids go back into the active processing loop."""
+    if progress.get("progress_format_version") == PROGRESS_FORMAT_VERSION \
+            and isinstance(progress.get("records"), dict):
+        return progress
+
+    legacy_map = {
+        "auto_accept": "auto_accept",
+        "auto_resolved": "auto_resolved",
+        "reject": "rejected_from_clean",
+        "rejected": "rejected_from_clean",
+        "rejected_from_clean": "rejected_from_clean",
+        "failed": "failed",
+    }
+    new = fresh_progress()
+    new["run_started_at"] = progress.get("run_started_at") or new["run_started_at"]
+    new["last_processed_validation_id"] = progress.get("last_processed_validation_id")
+    new["grounding_enabled"] = progress.get("grounding_enabled")
+    for vid, old_decision in (progress.get("processed") or {}).items():
+        final = legacy_map.get(old_decision)
+        new["records"][vid] = {
+            "status": "final" if final else "pending_retry",
+            "attempt_count": 1,
+            "last_attempt_at": progress.get("last_updated_at"),
+            "last_error": None,
+            "last_decision": old_decision,
+            "unresolved_reasons": [] if final else [
+                f"legacy decision '{old_decision}' is no longer a final state; "
+                f"will be reprocessed by the automatic multi-pass flow"],
+            "final_decision": final,
+        }
+    recompute_counts(new)
+    return new
+
+
+def completed_ids(progress: dict) -> set[str]:
+    return {vid for vid, rec in progress["records"].items()
+            if rec.get("final_decision") in FINAL_DECISIONS}
+
+
+def final_decisions(progress: dict) -> dict[str, str]:
+    return {vid: rec["final_decision"] for vid, rec in progress["records"].items()
+            if rec.get("final_decision") in FINAL_DECISIONS}
 
 
 def load_progress(paths: OutputPaths) -> dict:
     if paths.progress.exists():
         try:
-            return json.loads(paths.progress.read_text(encoding="utf-8"))
+            return migrate_progress(
+                json.loads(paths.progress.read_text(encoding="utf-8")))
         except json.JSONDecodeError:
             pass
     return fresh_progress()
@@ -561,6 +792,7 @@ def load_progress(paths: OutputPaths) -> dict:
 
 def save_progress(paths: OutputPaths, progress: dict) -> None:
     progress["last_updated_at"] = utcnow()
+    recompute_counts(progress)
     paths.base.mkdir(parents=True, exist_ok=True)
     tmp = paths.progress.with_suffix(".json.tmp")
     tmp.write_text(json.dumps(progress, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -571,7 +803,9 @@ def rebuild_final_clean_files(paths: OutputPaths, progress: dict, rules: dict,
                               grounding_enabled: bool, cfg=None,
                               runtime: str = "cli") -> dict:
     """Rebuild the final clean database from canonical_variants_clean.jsonl
-    (last record wins per validation_id). No original_snapshot inside."""
+    (last record wins per validation_id). ONLY auto_accept / auto_resolved
+    variants are included — never manual_review, unresolved_auto,
+    rejected_from_clean, failed, or original_snapshot."""
     latest: dict[str, dict] = {}
     if paths.canonical_jsonl.exists():
         with paths.canonical_jsonl.open(encoding="utf-8") as f:
@@ -585,6 +819,19 @@ def rebuild_final_clean_files(paths: OutputPaths, progress: dict, rules: dict,
                     continue
                 latest[row["validation_id"]] = row
 
+    finals = final_decisions(progress)
+    clean_rows = []
+    for vid in sorted(latest):
+        row = latest[vid]
+        if row.get("validation_decision") not in CLEAN_DECISIONS:
+            continue  # legacy manual_review/unresolved rows are never clean
+        if vid in progress["records"] and finals.get(vid) not in CLEAN_DECISIONS:
+            continue  # superseded by a later non-clean final decision
+        clean_rows.append(row)
+
+    accepted = sum(1 for r in clean_rows if r["validation_decision"] == "auto_accept")
+    auto_resolved = sum(1 for r in clean_rows
+                        if r["validation_decision"] == "auto_resolved")
     counts = progress["counts"]
     doc = {
         "schema_version": SCHEMA_VERSION,
@@ -597,13 +844,14 @@ def rebuild_final_clean_files(paths: OutputPaths, progress: dict, rules: dict,
         "runtime": runtime,
         "target_branch": getattr(cfg, "target_branch",
                                  runtime_config.DEFAULT_TARGET_BRANCH),
-        "grounding_enabled": grounding_enabled,
         "total_input_variants": rules["expected_total_variants"],
-        "accepted_count": counts["accepted"],
-        "manual_review_count": counts["manual_review"],
-        "rejected_count": counts["rejected"],
+        "total_clean_variants": len(clean_rows),
+        "accepted_count": accepted,
+        "auto_resolved_count": auto_resolved,
+        "rejected_from_clean_count": counts["rejected_from_clean"],
         "failed_count": counts["failed"],
-        "variants": [latest[k] for k in sorted(latest)],
+        "deprecated_manual_review_count": 0,
+        "variants": clean_rows,
     }
     text = json.dumps(doc, ensure_ascii=False, indent=1)
     paths.base.mkdir(parents=True, exist_ok=True)
@@ -624,12 +872,15 @@ def write_run_summary(paths: OutputPaths, progress: dict, rules: dict,
         "target_branch": getattr(cfg, "target_branch",
                                  runtime_config.DEFAULT_TARGET_BRANCH),
         "grounding_enabled": grounding_enabled,
+        "max_attempts": progress.get("max_attempts"),
         "total_input_variants": rules["expected_total_variants"],
-        "processed_count": len(progress["processed"]),
+        "processed_count": len(completed_ids(progress)),
         "accepted_count": counts["accepted"],
-        "manual_review_count": counts["manual_review"],
-        "rejected_count": counts["rejected"],
+        "auto_resolved_count": counts["auto_resolved"],
+        "rejected_from_clean_count": counts["rejected_from_clean"],
         "failed_count": counts["failed"],
+        "total_clean_variants": counts["accepted"] + counts["auto_resolved"],
+        "deprecated_manual_review_count": 0,
         "last_processed_validation_id": progress.get("last_processed_validation_id"),
         "run_started_at": progress.get("run_started_at"),
         "run_info": run_info,
@@ -639,72 +890,137 @@ def write_run_summary(paths: OutputPaths, progress: dict, rules: dict,
 
 
 # ---------------------------------------------------------------------------
-# Per-variant processing
+# Per-variant multi-pass processing
 # ---------------------------------------------------------------------------
 
 def process_variant(client, merged_context: dict, rules: dict, schema: dict,
-                    log=print) -> dict:
-    """Process one variant. Returns
-    {"decision", "response", "qa", "raw_text", "attempts", "error"}."""
+                    max_attempts: int, log=print,
+                    on_attempt: Callable[[dict], None] | None = None) -> dict:
+    """Run the full automatic multi-pass flow for ONE validation_id until it
+    reaches a final machine decision. Returns
+    {"final_decision", "response", "qa", "attempts", "attempt_count", "error"}.
+
+    Pass 1 uses the full validation prompt. Any unresolved / QA-failed /
+    low-confidence outcome immediately triggers the next correction pass
+    (compact targeted prompt) for the same validation_id — there is no
+    manual-review queue and no backlog.
+    """
     vid = merged_context["validation_id"]
-    max_retries = rules["max_model_retries"]
-    last_error = None
-    last_qa = None
-    raw_text = None
+    attempts: list[dict] = []
+    previous: dict = {}
+    had_qa_evaluated_response = False
+    last_error: str | None = None
+    final_decision: str | None = None
+    final_response: dict | None = None
+    final_qa: dict | None = None
 
-    for attempt in range(1, max_retries + 1):
-        strict = attempt > 1
+    for attempt_number in range(1, max_attempts + 1):
+        prompt_type = prompt_type_for_attempt(attempt_number)
+        if attempt_number == 1:
+            user_prompt = build_user_prompt(merged_context)
+        else:
+            user_prompt = build_correction_prompt(merged_context, previous,
+                                                  attempt_number, max_attempts)
+
+        error: str | None = None
+        response: dict | None = None
+        qa_result: dict | None = None
+        raw_text: str | None = None
         try:
-            user_prompt = build_user_prompt(merged_context, strict_retry=strict)
-            raw_text, grounded = client.generate(user_prompt, strict_retry=strict)
-        except RuntimeError as e:
-            last_error = f"model call failed: {e}"
-            log(f"  {vid} attempt {attempt}: {last_error}")
-            continue
+            raw_text, grounded = client.generate(user_prompt,
+                                                 strict_retry=attempt_number > 1)
+            try:
+                response = qa.parse_strict_json(raw_text)
+            except ValueError as e:
+                error = f"malformed JSON: {e}"
+        except (RuntimeError, ValueError) as e:
+            error = f"model call failed: {e}"
+            grounded = False
 
-        try:
-            response = qa.parse_strict_json(raw_text)
-        except ValueError as e:
-            last_error = f"malformed JSON: {e}"
-            log(f"  {vid} attempt {attempt}: {last_error}")
-            continue
-
-        # Transport-level grounding signal overrides model claims when absent.
-        if not client.grounding_enabled:
-            response["grounding_used"] = False
-        elif grounded:
-            response["grounding_used"] = True
-
-        qa_result = qa.run_qa(response, merged_context, rules, schema,
-                              grounding_enabled=client.grounding_enabled)
-        last_qa = qa_result
-
-        if qa_result["status"] == qa.QA_RETRY:
-            last_error = f"QA retry: {qa_result['issues'][:3]}"
-            log(f"  {vid} attempt {attempt}: {last_error}")
-            continue
-
-        decision = {
-            qa.QA_PASS: "auto_accept",
-            qa.QA_MANUAL_REVIEW: "manual_review",
-            qa.QA_REJECT: "reject",
-        }[qa_result["status"]]
-        return {"decision": decision, "response": response, "qa": qa_result,
-                "raw_text": raw_text, "attempts": attempt, "error": None}
-
-    # Retry budget exhausted: structurally-valid-but-QA-retry responses go to
-    # manual review; truly malformed/failed calls go to failures.
-    if last_qa is not None and last_qa["status"] == qa.QA_RETRY:
-        try:
-            response = qa.parse_strict_json(raw_text)
-        except (ValueError, TypeError):
-            response = None
         if response is not None:
-            return {"decision": "manual_review", "response": response, "qa": last_qa,
-                    "raw_text": raw_text, "attempts": max_retries,
-                    "error": f"retry limit reached; routed to manual review: {last_error}"}
-    return {"decision": "failed", "response": None, "qa": last_qa,
-            "raw_text": raw_text, "attempts": max_retries, "error": last_error}
+            # Transport-level grounding signal overrides model claims when absent.
+            if not client.grounding_enabled:
+                response["grounding_used"] = False
+            elif grounded:
+                response["grounding_used"] = True
+            qa_result = qa.run_qa(response, merged_context, rules, schema,
+                                  grounding_enabled=client.grounding_enabled)
+            if qa_result["status"] in (qa.QA_PASS, qa.QA_UNRESOLVED, qa.QA_REJECT):
+                had_qa_evaluated_response = True
+
+        if qa_result is not None and qa_result["status"] == qa.QA_PASS:
+            final_decision = "auto_accept" if attempt_number == 1 else "auto_resolved"
+        elif qa_result is not None and qa_result["status"] == qa.QA_REJECT:
+            final_decision = "rejected_from_clean"
+
+        unresolved_reasons = list((qa_result or {}).get("issues") or [])
+        if error:
+            unresolved_reasons.append(error)
+        if error:
+            decision_before_retry = "error"
+        elif final_decision:
+            decision_before_retry = final_decision
+        elif qa_result and qa_result["status"] == qa.QA_RETRY:
+            decision_before_retry = "schema_invalid_retry"
+        else:
+            decision_before_retry = "unresolved"
+
+        # Last allowed attempt and still no safe resolution: finalize NOW so
+        # the audit record carries the final decision. API/runtime failure on
+        # the last attempt -> failed; QA-evaluated but unsafe -> rejected.
+        if final_decision is None and attempt_number == max_attempts:
+            if error and error.startswith("model call failed"):
+                final_decision = "failed"
+            elif had_qa_evaluated_response:
+                final_decision = "rejected_from_clean"
+            else:
+                final_decision = "failed"
+
+        attempt_record = {
+            "validation_id": vid,
+            "attempt_number": attempt_number,
+            "max_attempts": max_attempts,
+            "prompt_type": prompt_type,
+            "model_response": response,
+            "raw_text_excerpt": None if response is not None
+            else (raw_text or "")[:2000] or None,
+            "deterministic_qa_result": qa_result,
+            "decision_before_retry": decision_before_retry,
+            "unresolved_reasons": unresolved_reasons,
+            "error": error,
+            "final_decision": final_decision,
+            "timestamp": utcnow(),
+        }
+        attempts.append(attempt_record)
+        if on_attempt:
+            on_attempt(attempt_record)
+
+        if final_decision:
+            final_response, final_qa = response, qa_result
+            if final_decision in ("rejected_from_clean", "failed"):
+                last_error = error or (f"not safely resolvable after "
+                                       f"{attempt_number} attempt(s): "
+                                       f"{unresolved_reasons[:3]}")
+            break
+
+        last_error = error or (f"unresolved after {prompt_type}: "
+                               f"{unresolved_reasons[:3]}")
+        log(f"  {vid} attempt {attempt_number}/{max_attempts} "
+            f"({prompt_type}): {decision_before_retry} -> "
+            f"{'next correction pass' if attempt_number < max_attempts else 'attempts exhausted'}"
+            + (f" | {unresolved_reasons[:2]}" if unresolved_reasons else ""))
+        previous = {"response": response, "raw_text": raw_text,
+                    "qa": qa_result, "error": error}
+
+    return {
+        "final_decision": final_decision,
+        "response": final_response,
+        "qa": final_qa,
+        "attempts": attempts,
+        "attempt_count": len(attempts),
+        "error": last_error if final_decision in ("rejected_from_clean", "failed")
+        else None,
+    }
 
 
 # ---------------------------------------------------------------------------
@@ -728,8 +1044,8 @@ def select_pending(variants_by_id: dict, instructions_by_id: dict, rules: dict,
         ordered = [options.validation_id] if options.validation_id in variants_by_id else []
     if options.start_after and options.start_after in ordered:
         ordered = ordered[ordered.index(options.start_after) + 1:]
-    pending = [v for v in ordered
-               if options.force_reprocess or v not in progress["processed"]]
+    done = completed_ids(progress)
+    pending = [v for v in ordered if options.force_reprocess or v not in done]
     if options.limit is not None:
         pending = pending[: options.limit]
     return pending
@@ -747,6 +1063,8 @@ def run_validation(options: RunOptions, cfg: runtime_config.RuntimeConfig | None
 
     rules = load_rules()
     schema = load_schema()
+    max_attempts = max(1, int(options.max_attempts
+                              or rules["max_validation_attempts_default"]))
 
     failures, variants_by_id, instructions_by_id = startup_checks(rules)
     if failures:
@@ -760,12 +1078,14 @@ def run_validation(options: RunOptions, cfg: runtime_config.RuntimeConfig | None
         f"{len(instructions_by_id)} instruction records.")
 
     progress = load_progress(paths) if options.resume else fresh_progress()
+    progress["max_attempts"] = max_attempts
     pending = select_pending(variants_by_id, instructions_by_id, rules, options, progress)
     total_expected = rules["expected_total_variants"]
     mode = "mock" if options.mock_mode else ("dry-run" if options.dry_run else "REAL")
     log(f"Selected {len(pending)} variant(s) to process [{mode}] "
-        f"(already completed: {len(progress['processed'])}/{total_expected}, "
-        f"force_reprocess={options.force_reprocess}, push_every={options.push_every})")
+        f"(already completed: {len(completed_ids(progress))}/{total_expected}, "
+        f"force_reprocess={options.force_reprocess}, push_every={options.push_every}, "
+        f"max_attempts={max_attempts})")
 
     if options.dry_run:
         for i, vid in enumerate(pending, 1):
@@ -798,7 +1118,7 @@ def run_validation(options: RunOptions, cfg: runtime_config.RuntimeConfig | None
         "runtime": runtime, "mode": mode, "limit": options.limit,
         "only_priority": options.only_priority, "validation_id": options.validation_id,
         "force_reprocess": options.force_reprocess, "push_every": options.push_every,
-        "selected_count": len(pending),
+        "max_attempts": max_attempts, "selected_count": len(pending),
     }
     push_results: list[dict] = []
     since_checkpoint = 0
@@ -806,7 +1126,7 @@ def run_validation(options: RunOptions, cfg: runtime_config.RuntimeConfig | None
     grounding_enabled = client.grounding_enabled
 
     def do_checkpoint(final: bool = False) -> None:
-        n_done = len(progress["processed"])
+        n_done = len(completed_ids(progress))
         if final and n_done >= total_expected:
             message = f"validation complete: processed {total_expected}/{total_expected} variants"
         else:
@@ -827,66 +1147,87 @@ def run_validation(options: RunOptions, cfg: runtime_config.RuntimeConfig | None
             priority = instruction.get("validation_priority")
             log(f"[{i}/{len(pending)}] {vid} (priority={priority})")
 
-            result = process_variant(client, merged_context, rules, schema, log=log)
-            decision = result["decision"]
+            def on_attempt(attempt_record: dict) -> None:
+                # 1) Full audit: ONE record per attempt. original_snapshot is
+                #    kept ONLY here (on attempt 1), never in the clean files.
+                audit = {
+                    "validation_id": vid,
+                    "processed_at": attempt_record["timestamp"],
+                    "runtime": runtime,
+                    "mode": mode,
+                    "validation_priority": priority,
+                    **{k: attempt_record[k] for k in (
+                        "attempt_number", "max_attempts", "prompt_type",
+                        "model_response", "raw_text_excerpt",
+                        "deterministic_qa_result", "decision_before_retry",
+                        "unresolved_reasons", "error", "final_decision",
+                        "timestamp")},
+                    "grounding_enabled": client.grounding_enabled,
+                }
+                if attempt_record["attempt_number"] == 1:
+                    audit["original_snapshot"] = variant.get("original_snapshot")
+                    audit["original_variant_id"] = variant.get("original_variant_id")
+                    audit["standard_variant_before"] = merged_context["standard_variant"]
+                append_jsonl(paths.results, audit)
+                # 2) Progress metadata per attempt (crash-safe).
+                rec = progress["records"].setdefault(vid, {})
+                rec.update({
+                    "status": "final" if attempt_record["final_decision"]
+                    else "in_progress",
+                    "attempt_count": attempt_record["attempt_number"],
+                    "last_attempt_at": attempt_record["timestamp"],
+                    "last_error": attempt_record["error"],
+                    "last_decision": attempt_record["decision_before_retry"],
+                    "unresolved_reasons": attempt_record["unresolved_reasons"],
+                    "final_decision": attempt_record["final_decision"],
+                })
+                if progress_callback:
+                    progress_callback({
+                        "index": i, "total": len(pending), "validation_id": vid,
+                        "attempt": attempt_record["attempt_number"],
+                        "max_attempts": max_attempts,
+                        "decision": attempt_record["decision_before_retry"],
+                        "counts": dict(progress["counts"]),
+                    })
+
+            result = process_variant(client, merged_context, rules, schema,
+                                     max_attempts, log=log, on_attempt=on_attempt)
+            decision = result["final_decision"]
             response = result["response"]
             grounding_enabled = client.grounding_enabled
 
-            # 1) Full audit record (the ONLY place original_snapshot is kept).
-            append_jsonl(paths.results, {
-                "validation_id": vid,
-                "processed_at": utcnow(),
-                "runtime": runtime,
-                "mode": mode,
-                "validation_priority": priority,
-                "decision": decision,
-                "attempts": result["attempts"],
-                "error": result["error"],
-                "qa_issues": (result["qa"] or {}).get("issues"),
-                "grounding_enabled": grounding_enabled,
-                "original_snapshot": variant.get("original_snapshot"),
-                "original_variant_id": variant.get("original_variant_id"),
-                "standard_variant_before": merged_context["standard_variant"],
-                "gemini_response": response,
-            })
-
-            # 2) Clean canonical row for accepted + manual_review variants.
-            if decision in ("auto_accept", "manual_review"):
+            # 3) Routing files: clean rows for auto_accept/auto_resolved;
+            #    audit-only exclusions for rejected_from_clean; failures for
+            #    runtime failures. NOTHING goes to manual review.
+            if decision in CLEAN_DECISIONS:
                 append_jsonl(paths.canonical_jsonl,
                              canonical_row(merged_context, response, decision, rules))
-
-            # 3) Routing files.
-            if decision == "manual_review":
-                append_jsonl(paths.manual_review, {
+            elif decision == "rejected_from_clean":
+                append_jsonl(paths.rejected, {
                     "validation_id": vid,
                     "processed_at": utcnow(),
-                    "reasons": (result["qa"] or {}).get("issues") or [result["error"]],
-                    "manual_review_reason": (response or {}).get("manual_review_reason"),
+                    "final_decision": decision,
+                    "attempt_count": result["attempt_count"],
+                    "max_attempts": max_attempts,
+                    "unresolved_reasons": (result["qa"] or {}).get("issues")
+                    or result["attempts"][-1]["unresolved_reasons"],
                     "confidence": (response or {}).get("confidence"),
-                    "gemini_response": response,
+                    "note": "audit only: explains why this record was excluded "
+                            "from the clean database after all automatic attempts",
                 })
-            elif decision in ("failed", "reject"):
+            elif decision == "failed":
                 append_jsonl(paths.failures, {
                     "validation_id": vid,
                     "processed_at": utcnow(),
-                    "decision": decision,
+                    "final_decision": decision,
+                    "attempt_count": result["attempt_count"],
                     "error": result["error"],
                     "qa_issues": (result["qa"] or {}).get("issues"),
-                    "raw_text_excerpt": (result["raw_text"] or "")[:2000] or None,
                 })
 
             # 4) Progress + derived final files, saved after EVERY variant.
-            count_key = {"auto_accept": "accepted", "manual_review": "manual_review",
-                         "reject": "rejected", "failed": "failed"}[decision]
-            prev = progress["processed"].get(vid)
-            if prev is not None:
-                prev_key = {"auto_accept": "accepted", "manual_review": "manual_review",
-                            "reject": "rejected", "failed": "failed"}.get(prev)
-                if prev_key:
-                    progress["counts"][prev_key] = max(
-                        0, progress["counts"][prev_key] - 1)
-            progress["processed"][vid] = decision
-            progress["counts"][count_key] += 1
+            progress["records"][vid]["status"] = "final"
+            progress["records"][vid]["final_decision"] = decision
             progress["last_processed_validation_id"] = vid
             progress["grounding_enabled"] = grounding_enabled
             save_progress(paths, progress)
@@ -896,13 +1237,14 @@ def run_validation(options: RunOptions, cfg: runtime_config.RuntimeConfig | None
                               cfg=cfg, runtime=runtime)
             processed_this_run += 1
 
-            log(f"  -> {decision} (confidence={(response or {}).get('confidence')}, "
-                f"attempts={result['attempts']})")
+            log(f"  -> FINAL {decision} (confidence="
+                f"{(response or {}).get('confidence')}, "
+                f"attempts={result['attempt_count']}/{max_attempts})")
             if progress_callback:
                 progress_callback({
                     "index": i, "total": len(pending), "validation_id": vid,
                     "decision": decision, "counts": dict(progress["counts"]),
-                    "processed_total": len(progress["processed"]),
+                    "processed_total": len(completed_ids(progress)),
                 })
 
             # 5) Checkpoint commit/push.
@@ -926,11 +1268,11 @@ def run_validation(options: RunOptions, cfg: runtime_config.RuntimeConfig | None
         do_checkpoint(final=True)
 
     counts = progress["counts"]
-    n_done = len(progress["processed"])
+    n_done = len(completed_ids(progress))
     log(f"Run finished: processed={n_done}/{total_expected} "
-        f"accepted={counts['accepted']} manual_review={counts['manual_review']} "
-        f"rejected={counts['rejected']} failed={counts['failed']} "
-        f"grounding_enabled={grounding_enabled}")
+        f"accepted={counts['accepted']} auto_resolved={counts['auto_resolved']} "
+        f"rejected_from_clean={counts['rejected_from_clean']} "
+        f"failed={counts['failed']} grounding_enabled={grounding_enabled}")
     failed_pushes = [r for r in push_results if r.get("push_failure")]
     return {
         "status": "ok",
@@ -938,6 +1280,7 @@ def run_validation(options: RunOptions, cfg: runtime_config.RuntimeConfig | None
         "processed_total": n_done,
         "total_expected": total_expected,
         "counts": dict(counts),
+        "max_attempts": max_attempts,
         "grounding_enabled": grounding_enabled,
         "push_results": push_results,
         "push_failures": len(failed_pushes),
@@ -960,6 +1303,8 @@ def parse_args() -> argparse.Namespace:
                    help="build contexts and ordering without calling Gemini")
     p.add_argument("--mock", action="store_true",
                    help="offline mock validation into output/mock/ (no Gemini calls)")
+    p.add_argument("--max-attempts", type=int, choices=[1, 2, 3, 4, 5], default=3,
+                   help="max automatic validation passes per variant (default 3)")
     p.add_argument("--no-resume", action="store_true")
     p.add_argument("--push-every", type=int,
                    default=int(os.environ.get("PUSH_EVERY_N_VARIANTS", "25")))
@@ -980,6 +1325,7 @@ def main() -> int:
         resume=not args.no_resume,
         push_every=args.push_every,
         push_enabled=not args.no_push,
+        max_attempts=args.max_attempts,
     )
     cfg = runtime_config.resolve(runtime="cli")
     result = run_validation(options, cfg=cfg)

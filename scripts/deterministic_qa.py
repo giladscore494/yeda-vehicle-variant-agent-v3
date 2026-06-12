@@ -1,14 +1,18 @@
 """Deterministic QA for Gemini variant-validation responses.
 
-Runs after every Gemini response. Never trusts the model: a response can be
-forced into manual_review, sent back for a stricter retry, or rejected,
-regardless of what the model claimed.
+Runs after every Gemini response. Never trusts the model: deterministic QA
+always overrides Gemini confidence. There is NO human manual review anywhere
+in this pipeline.
 
 QA outcomes:
-    pass            -> response is structurally and semantically acceptable
-    manual_review   -> structurally valid but must be routed to manual review
-    retry           -> malformed / schema-invalid; retry with stricter prompt
-    reject          -> unrecoverable contradiction
+    pass        -> response is structurally and semantically acceptable
+    unresolved  -> structurally valid but not safe to accept yet; the engine
+                   immediately runs the next automatic correction pass
+                   (Pass 2 / Pass 3) for the same validation_id
+    retry       -> malformed / schema-invalid; next pass uses a stricter
+                   format-correction prompt
+    reject      -> unrecoverable contradiction; the engine finalizes the
+                   record as rejected_from_clean
 """
 
 from __future__ import annotations
@@ -23,7 +27,7 @@ except ImportError:  # pragma: no cover - validated by smoke test
     jsonschema = None
 
 QA_PASS = "pass"
-QA_MANUAL_REVIEW = "manual_review"
+QA_UNRESOLVED = "unresolved"
 QA_RETRY = "retry"
 QA_REJECT = "reject"
 
@@ -51,6 +55,18 @@ def is_generic_placeholder(value: Any, rules: dict) -> bool:
     if not isinstance(value, str):
         return False
     return value.strip().lower() in {p.lower() for p in rules["generic_placeholders"]}
+
+
+def is_generic_trim(trim: Any, rules: dict) -> bool:
+    """Generic/placeholder trim values (Base, Standard, Unknown, N/A, null,
+    empty string, ...) must never be auto-accepted without strong evidence."""
+    if trim is None:
+        return True
+    if not isinstance(trim, str):
+        return False
+    return trim.strip().lower() in {
+        str(t).strip().lower() for t in rules["generic_trim_values"] if t is not None
+    } or trim.strip() == ""
 
 
 def looks_like_combined_trim(trim: Any, rules: dict) -> bool:
@@ -118,7 +134,7 @@ def run_qa(
     {"status": ..., "issues": [...], "forced_decision": ...}.
     """
     issues: list[str] = []
-    manual_reasons: list[str] = []
+    unresolved_reasons: list[str] = []
     reject_reasons: list[str] = []
 
     # --- Rules 1-3: structure ---
@@ -146,6 +162,16 @@ def run_qa(
 
     original = merged_context.get("standard_variant") or {}
 
+    # --- Schema normalization: alternate_names must always be a list ---
+    alt = cv.get("alternate_names")
+    if not isinstance(alt, list):
+        fallback = original.get("alternate_names")
+        cv["alternate_names"] = fallback if isinstance(fallback, list) else []
+        if alt is not None:
+            unresolved_reasons.append(
+                f"alternate_names was not a list ({type(alt).__name__}); "
+                f"normalized, but the model must return a list")
+
     # --- Rules 4-5: make/model not empty ---
     for field in ("make", "model"):
         if is_missing_value(cv.get(field), rules):
@@ -155,24 +181,56 @@ def run_qa(
     ys, ye = cv.get("year_start"), cv.get("year_end")
     if isinstance(ys, int) and isinstance(ye, int) and ys > ye:
         issues.append(f"year_start {ys} > year_end {ye}")
-        manual_reasons.append("year range invalid (year_start > year_end)")
+        unresolved_reasons.append("year range invalid (year_start > year_end)")
     for y in (ys, ye):
         if isinstance(y, int) and not (1950 <= y <= 2030):
-            manual_reasons.append(f"implausible year value {y}")
+            unresolved_reasons.append(f"implausible year value {y}")
 
     # --- Rule 7: market_scope stays IL ---
     scope = cv.get("market_scope")
     if scope != "IL":
         ev = (response.get("evidence_summary") or "")
         if not ev or "market" not in ev.lower():
-            manual_reasons.append(
+            unresolved_reasons.append(
                 f"market_scope changed to '{scope}' without clear market-related evidence")
 
     # --- Rule 8: generic placeholders in critical fields ---
     for field in rules["critical_fields"]:
         if is_generic_placeholder(cv.get(field), rules):
-            manual_reasons.append(f"critical field '{field}' set to generic placeholder "
-                                  f"'{cv.get(field)}'")
+            unresolved_reasons.append(f"critical field '{field}' set to generic placeholder "
+                                      f"'{cv.get(field)}'")
+
+    evidence = response.get("evidence_summary") or ""
+    confidence = response.get("confidence")
+    if not isinstance(confidence, (int, float)):
+        confidence = 0.0
+    strong_evidence = (
+        confidence >= rules["strong_evidence_confidence_threshold"]
+        and len(evidence.strip()) >= rules["min_evidence_summary_length_for_change"]
+    )
+    name_val = response.get("name_validation") or {}
+
+    # --- Generic trim rule: Base/Standard/Unknown/null/... are never accepted
+    #     unless strongly verified as a real Israeli marketed trim ---
+    if is_generic_trim(cv.get("trim"), rules):
+        trim_verified = (name_val.get("trim_name_il_status") == "verified"
+                         and strong_evidence)
+        if not trim_verified:
+            unresolved_reasons.append(
+                f"generic/placeholder trim '{cv.get('trim')}' is not verified as an "
+                f"official Israeli marketed trim (trim_name_il_status="
+                f"{name_val.get('trim_name_il_status')}, confidence={confidence})")
+
+    # --- Generic Israeli marketed name rule ---
+    il_name = cv.get("official_marketed_name_il")
+    if isinstance(il_name, str) and il_name.strip():
+        too_generic = bool(re.fullmatch(r"[\d\s\-]+", il_name.strip())) \
+            or len(il_name.strip()) <= 2
+        if too_generic and not (name_val.get("model_name_il_status") == "verified"
+                                and strong_evidence):
+            unresolved_reasons.append(
+                f"official_marketed_name_il '{il_name}' is a generic short value and is "
+                f"not strongly verified as the official Israeli marketed name")
 
     # --- Rule 10: IL names cannot be random translations ---
     il_filled_now = []
@@ -181,15 +239,14 @@ def run_qa(
         old_val = original.get(field)
         if is_missing_value(old_val, rules) and not is_missing_value(new_val, rules):
             il_filled_now.append(field)
-    name_val = response.get("name_validation") or {}
     if il_filled_now:
         model_status = name_val.get("model_name_il_status")
         if model_status not in ("verified", "corrected"):
-            manual_reasons.append(
+            unresolved_reasons.append(
                 f"IL name field(s) {il_filled_now} were filled but model_name_il_status="
                 f"{model_status}")
         if is_missing_value(response.get("evidence_summary"), rules):
-            manual_reasons.append(
+            unresolved_reasons.append(
                 f"IL name field(s) {il_filled_now} were filled without evidence_summary")
 
     # --- Detect actual changes ourselves (never trust fields_changed alone) ---
@@ -199,33 +256,24 @@ def run_qa(
             detected_changes.append(field)
 
     declared_changed = set(response.get("fields_changed") or [])
-    evidence = response.get("evidence_summary") or ""
-    confidence = response.get("confidence")
-    if not isinstance(confidence, (int, float)):
-        confidence = 0.0
-    strong_evidence = (
-        isinstance(confidence, (int, float))
-        and confidence >= rules["strong_evidence_confidence_threshold"]
-        and len(evidence.strip()) >= rules["min_evidence_summary_length_for_change"]
-    )
 
     # --- Rule 11: trim cannot be silently changed ---
     if "trim" in detected_changes and "trim" not in declared_changed:
-        manual_reasons.append("trim was changed but not declared in fields_changed")
+        unresolved_reasons.append("trim was changed but not declared in fields_changed")
     if "trim" in detected_changes and is_missing_value(evidence, rules):
-        manual_reasons.append("trim was changed without evidence_summary")
+        unresolved_reasons.append("trim was changed without evidence_summary")
 
-    # --- Dangerous critical-field changes need strong evidence ---
+    # --- Unsafe critical-field changes need strong evidence ---
     dangerous_changed = [f for f in detected_changes
                          if f in rules["dangerous_critical_fields"]]
     if dangerous_changed and not strong_evidence:
-        manual_reasons.append(
+        unresolved_reasons.append(
             f"critical field(s) {dangerous_changed} changed without strong evidence "
             f"(confidence={confidence}, evidence_len={len(evidence.strip())})")
 
     # --- Rule 12: powertrain consistency ---
     for c in _powertrain_contradictions(cv):
-        manual_reasons.append(f"powertrain contradiction: {c}")
+        unresolved_reasons.append(f"powertrain contradiction: {c}")
 
     # --- Rule 13: duplicate review must be filled when a group exists ---
     dup_group = merged_context.get("possible_duplicate_group")
@@ -233,11 +281,13 @@ def run_qa(
     if dup_group:
         decision = dup_review.get("duplicate_decision")
         if decision in (None, "", "not_applicable"):
-            manual_reasons.append(
+            unresolved_reasons.append(
                 f"variant belongs to duplicate group {dup_group} but duplicate_review "
                 f"is not filled (decision={decision})")
         elif decision == "manual_review_required":
-            manual_reasons.append(f"duplicate group {dup_group} requires manual review")
+            unresolved_reasons.append(
+                f"duplicate group {dup_group} is unresolved (the model could not decide "
+                f"merge vs keep_separate)")
 
     # --- Rule 14: combined trims must have split_review filled ---
     split_review = response.get("split_review") or {}
@@ -248,15 +298,15 @@ def run_qa(
                     "issues": ["trim looks combined but split_review.split_recommended missing"],
                     "forced_decision": None}
         if split_review.get("split_recommended") is True:
-            manual_reasons.append(
+            unresolved_reasons.append(
                 f"split recommended for combined trim '{orig_trim or cv.get('trim')}'")
         elif is_missing_value(split_review.get("split_reason"), rules):
-            manual_reasons.append(
+            unresolved_reasons.append(
                 f"trim '{orig_trim or cv.get('trim')}' looks combined but split_review has "
                 f"no reasoning")
 
     if split_review.get("split_recommended") is True:
-        manual_reasons.append("model recommends splitting this row into multiple trims")
+        unresolved_reasons.append("model recommends splitting this row into multiple trims")
 
     # --- Grounding conservatism ---
     if not grounding_enabled:
@@ -267,9 +317,9 @@ def run_qa(
             or name_val.get("trim_name_il_status") == "corrected"
         )
         if risky_activity:
-            manual_reasons.append(
+            unresolved_reasons.append(
                 "grounding unavailable for this run but fields were completed/changed; "
-                "routing to manual review for safety")
+                "not safe to accept without verification")
 
     # --- Model-flagged states ---
     if response.get("is_real_variant") is False:
@@ -279,29 +329,29 @@ def run_qa(
             f"model rejected: {response.get('manual_review_reason') or evidence or 'no reason'}")
 
     # --- Rules 15-16: decision gating ---
-    forced_decision = None
     if reject_reasons:
         issues.extend(reject_reasons)
-        return {"status": QA_REJECT, "issues": issues + manual_reasons,
+        return {"status": QA_REJECT, "issues": issues + unresolved_reasons,
                 "forced_decision": "reject"}
 
-    if manual_reasons:
-        issues.extend(manual_reasons)
-        forced_decision = "manual_review"
+    unresolved = bool(unresolved_reasons)
+    if unresolved_reasons:
+        issues.extend(unresolved_reasons)
     elif response.get("requires_manual_review") is True:
-        forced_decision = "manual_review"
-        issues.append(f"model requested manual review: "
+        unresolved = True
+        issues.append(f"model flagged uncertainty: "
                       f"{response.get('manual_review_reason') or 'unspecified'}")
     elif confidence < rules["confidence_auto_accept_threshold"]:
-        forced_decision = "manual_review"
+        unresolved = True
         issues.append(f"confidence {confidence} below auto-accept threshold "
                       f"{rules['confidence_auto_accept_threshold']}")
-    elif response.get("decision") == "manual_review":
-        forced_decision = "manual_review"
+    elif response.get("decision") not in ("auto_accept",):
+        unresolved = True
+        issues.append(f"model decision '{response.get('decision')}' is not auto_accept")
 
-    if forced_decision == "manual_review":
-        return {"status": QA_MANUAL_REVIEW, "issues": issues,
-                "forced_decision": "manual_review"}
+    if unresolved:
+        return {"status": QA_UNRESOLVED, "issues": issues,
+                "forced_decision": "unresolved"}
 
     return {"status": QA_PASS, "issues": issues, "forced_decision": "auto_accept"}
 

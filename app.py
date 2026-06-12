@@ -5,6 +5,12 @@ Main runtime for the real validation run. Secrets come from st.secrets
 (with env fallback for local dev). The engine core lives in
 scripts/run_gemini_validation.py; this app only orchestrates it.
 
+There is NO human manual review: every variant is processed by the
+automatic multi-pass flow (Pass 1 -> Pass 2 -> Pass 3) until it reaches one
+final machine decision: auto_accept / auto_resolved / rejected_from_clean /
+failed. Records that fail all automatic attempts are excluded from the
+clean output, not sent to manual review.
+
 Safety: nothing runs on page load. Real Gemini calls happen only after
 startup checks pass, secrets are present, and the user explicitly confirms.
 """
@@ -41,6 +47,8 @@ st.caption(
     f"target branch: **{cfg.target_branch}** · model: **{cfg.model_id}** · "
     f"total input variants: **{TOTAL}**"
 )
+st.info("Records that fail all automatic attempts are excluded from the clean "
+        "output, not sent to manual review.")
 
 
 # ---------------------------------------------------------------------------
@@ -83,7 +91,10 @@ def run_with_log(fn, *args, **kwargs):
 
 
 def progress_state() -> dict:
-    return read_json(paths.progress) or engine.fresh_progress()
+    raw = read_json(paths.progress)
+    if raw is None:
+        return engine.fresh_progress()
+    return engine.migrate_progress(raw)
 
 
 def startup_state() -> tuple[list[str], int, int]:
@@ -109,11 +120,20 @@ with st.sidebar:
 
     st.divider()
     st.header("Run settings")
+    max_attempts = st.selectbox(
+        "max_attempts (automatic validation passes per variant)",
+        options=rules["allowed_max_attempts"],
+        index=rules["allowed_max_attempts"].index(
+            rules["max_validation_attempts_default"]),
+        help="Pass 1 = full validation; passes 2+ are targeted automatic "
+             "correction passes. A variant that fails every pass is "
+             "rejected_from_clean (excluded from the clean output).")
     push_every = st.number_input("push_every (checkpoint push frequency)",
                                  min_value=1, max_value=500, value=1,
                                  help="1 = push after every variant (maximum safety)")
     force_reprocess = st.toggle("force_reprocess", value=False,
-                                help="Reprocess validation_ids that are already completed")
+                                help="Reprocess validation_ids that already reached "
+                                     "a final decision")
     dry_run = st.toggle("dry_run", value=False,
                         help="Build contexts only; no Gemini calls, no outputs")
     mock_mode = st.toggle("mock_mode", value=False,
@@ -130,25 +150,34 @@ with st.sidebar:
 
 
 # ---------------------------------------------------------------------------
-# Progress metrics
+# Progress metrics (automatic final decisions only — no manual review)
 # ---------------------------------------------------------------------------
 
 prog = progress_state()
 counts = prog["counts"]
-c1, c2, c3, c4, c5, c6 = st.columns(6)
+completed = len(engine.completed_ids(prog))
+in_progress = {vid: rec for vid, rec in prog["records"].items()
+               if not rec.get("final_decision")}
+c1, c2, c3, c4, c5, c6, c7 = st.columns(7)
 c1.metric("Total variants", TOTAL)
-c2.metric("Completed", len(prog["processed"]))
+c2.metric("Completed", completed)
 c3.metric("Accepted", counts["accepted"])
-c4.metric("Manual review", counts["manual_review"])
-c5.metric("Rejected", counts["rejected"])
+c4.metric("Auto-resolved", counts["auto_resolved"])
+c5.metric("Rejected from clean", counts["rejected_from_clean"])
 c6.metric("Failed", counts["failed"])
+c7.metric("Max attempts", int(max_attempts))
+if in_progress:
+    sample_vid, sample_rec = next(iter(in_progress.items()))
+    st.write(f"⏳ {len(in_progress)} variant(s) pending retry, e.g. "
+             f"`{sample_vid}` at attempt {sample_rec.get('attempt_count', 0)} — "
+             f"they stay in the automatic loop until a final decision.")
 st.write(f"Last processed validation_id: "
          f"`{prog.get('last_processed_validation_id') or '—'}` · "
          f"run started: {prog.get('run_started_at') or '—'} · "
          f"last updated: {prog.get('last_updated_at') or '—'}")
 
 with st.expander("Output file status"):
-    for p in (paths.results, paths.canonical_jsonl, paths.manual_review,
+    for p in (paths.results, paths.canonical_jsonl, paths.rejected,
               paths.failures, paths.push_failures, paths.progress,
               paths.run_summary, paths.final_clean, paths.final_compat):
         rel = p.relative_to(REPO_ROOT)
@@ -156,6 +185,9 @@ with st.expander("Output file status"):
             st.write(f"✅ `{rel}` — {p.stat().st_size:,} bytes")
         else:
             st.write(f"⬜ `{rel}` — not created yet")
+    if paths.manual_review.exists():
+        st.write(f"🗄️ `{paths.manual_review.relative_to(REPO_ROOT)}` — deprecated "
+                 f"legacy file, no longer used by the pipeline")
 
 st.divider()
 
@@ -194,7 +226,8 @@ if col_b.button("Run smoke test", use_container_width=True):
         st.error("Smoke test FAILED — real runs are blocked until this passes.")
 
 if col_c.button("Run dry-run (limit=3)", use_container_width=True):
-    options = engine.RunOptions(limit=3, dry_run=True, push_enabled=False)
+    options = engine.RunOptions(limit=3, dry_run=True, push_enabled=False,
+                                max_attempts=int(max_attempts))
     result, _ = run_with_log(engine.run_validation, options, cfg=cfg)
     if result["status"] == "dry_run_ok":
         st.success("Dry-run completed: contexts built, no Gemini calls made.")
@@ -203,12 +236,13 @@ if col_c.button("Run dry-run (limit=3)", use_container_width=True):
 
 if col_d.button("Run mock validation (limit=3)", use_container_width=True):
     options = engine.RunOptions(limit=3, mock_mode=True,
-                                push_every=int(push_every), push_enabled=False)
+                                push_every=int(push_every), push_enabled=False,
+                                max_attempts=int(max_attempts))
     result, _ = run_with_log(engine.run_validation, options, cfg=cfg)
     if result["status"] == "ok":
         st.success(f"Mock validation completed: {result['processed_this_run']} "
                    f"variant(s) into `output/mock/` (real progress untouched, "
-                   f"no Gemini calls).")
+                   f"no Gemini calls). Counts: {result['counts']}")
     else:
         st.error(f"Mock validation failed: {result['status']}")
 
@@ -245,10 +279,21 @@ def run_real(limit: int | None, label: str) -> None:
         force_reprocess=force_reprocess,
         push_every=int(push_every),
         push_enabled=push_enabled,
+        max_attempts=int(max_attempts),
     )
     st.write(f"Starting **{label}** (push_every={int(push_every)}, "
-             f"force_reprocess={force_reprocess})...")
-    result, _ = run_with_log(engine.run_validation, options, cfg=cfg)
+             f"force_reprocess={force_reprocess}, max_attempts={int(max_attempts)})...")
+    attempt_box = st.empty()
+
+    def on_progress(info: dict) -> None:
+        if "attempt" in info:
+            attempt_box.write(
+                f"🔄 `{info['validation_id']}` — attempt "
+                f"{info['attempt']}/{info['max_attempts']} "
+                f"({info.get('decision')})")
+
+    result, _ = run_with_log(engine.run_validation, options, cfg=cfg,
+                             progress_callback=on_progress)
     status = result.get("status")
     if status == "ok":
         st.success(
@@ -297,7 +342,7 @@ if m1.button("Push current output checkpoint", use_container_width=True):
         st.error("GitHub token missing — cannot push.")
     else:
         prog_now = progress_state()
-        n_done = len(prog_now["processed"])
+        n_done = len(engine.completed_ids(prog_now))
         msg = (f"validation complete: processed {TOTAL}/{TOTAL} variants"
                if n_done >= TOTAL else
                f"validation checkpoint: processed {n_done}/{TOTAL} variants")
@@ -326,9 +371,10 @@ if m2.button("Rebuild final canonical file", use_container_width=True):
         paths, prog_now, rules,
         bool(prog_now.get("grounding_enabled")), cfg=cfg, runtime="streamlit")
     st.success(f"Rebuilt `output/{engine.FINAL_CLEAN_FILENAME}` and the "
-               f"compatibility copy: {len(doc['variants'])} variants, "
-               f"accepted={doc['accepted_count']}, "
-               f"manual_review={doc['manual_review_count']}.")
+               f"compatibility copy: {doc['total_clean_variants']} clean variants "
+               f"(accepted={doc['accepted_count']}, "
+               f"auto_resolved={doc['auto_resolved_count']}; rejected and failed "
+               f"records are excluded).")
 
 if m3.button("Show run summary", use_container_width=True):
     summary = read_json(paths.run_summary)
@@ -337,15 +383,17 @@ if m3.button("Show run summary", use_container_width=True):
     else:
         st.info("No run summary yet — nothing has been processed.")
 
-if m4.button("Show recent failures / manual review", use_container_width=True):
-    st.write("**Recent manual_review entries:**")
-    mr = tail_jsonl(paths.manual_review, 10)
-    if mr:
+if m4.button("Show recent rejected / failures", use_container_width=True):
+    st.write("**Recent rejected_from_clean entries (audit only — these records "
+             "were excluded from the clean output after all automatic attempts):**")
+    rj = tail_jsonl(paths.rejected, 10)
+    if rj:
         st.json([{k: r.get(k) for k in
-                  ("validation_id", "confidence", "manual_review_reason", "reasons")}
-                 for r in mr])
+                  ("validation_id", "attempt_count", "confidence",
+                   "unresolved_reasons")}
+                 for r in rj])
     else:
-        st.info("manual_review.jsonl is empty.")
+        st.info("rejected_from_clean.jsonl is empty.")
     st.write("**Recent failures:**")
     fl = tail_jsonl(paths.failures, 10)
     st.json(fl) if fl else st.info("failures.jsonl is empty.")

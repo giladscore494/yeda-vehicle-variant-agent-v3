@@ -8,11 +8,16 @@ Verifies:
   4. Every instruction record has validation_priority and validation_tasks.
   5. Config, schema, and prompt files load.
   6. Merged context builds for one variant of each priority.
-  7. Deterministic QA accepts a known-good synthetic response and
-     routes a low-confidence response to manual_review.
-  8. The runtime-config resolver works without Streamlit secrets.
-  9. The output directory is writable.
- 10. Secret presence is reported (values never printed).
+  7. Deterministic QA accepts a known-good synthetic response, marks a
+     low-confidence response unresolved (-> automatic correction pass), and
+     retries a schema-invalid response.
+  8. The identity-hash recipe reproduces the source canonical_identity_hash.
+  9. Canonical rows always carry validated_identity_hash, a list for
+     alternate_names, and requires_manual_review=false.
+ 10. Correction prompts (Pass 2/3) build with compact targeted context.
+ 11. The runtime-config resolver works without Streamlit secrets.
+ 12. The output directory is writable.
+ 13. Secret presence is reported (values never printed).
 
 Importable from the Streamlit app via run_checks(); exit code 0 = safe to run.
 """
@@ -30,6 +35,7 @@ if str(SCRIPTS_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPTS_DIR))
 
 import deterministic_qa as qa  # noqa: E402
+import identity  # noqa: E402
 import run_gemini_validation as engine  # noqa: E402
 import runtime_config  # noqa: E402
 
@@ -64,7 +70,7 @@ def synthetic_response(merged: dict, confidence: float) -> dict:
         "duplicate_review": {
             "possible_duplicate_group": merged.get("possible_duplicate_group"),
             "duplicate_decision": "keep_separate"
-                if merged.get("possible_duplicate_group") else "not_applicable",
+                if merged.get("possible_duplicate_group") else "not_duplicate",
             "duplicate_reason": "smoke test synthetic decision",
         },
         "split_review": {
@@ -95,6 +101,9 @@ def run_checks(log=print) -> tuple[bool, list[tuple[str, bool, str]]]:
         schema = engine.load_schema()
         check("config/field_rules.json loads", True)
         check("config/validation_schema.json loads", True)
+        check("max_attempts config present",
+              rules.get("max_validation_attempts_default") == 3
+              and rules.get("allowed_max_attempts") == [1, 2, 3, 4, 5])
     except Exception as e:  # noqa: BLE001
         check("config files load", False, str(e)[:200])
         return False, checks
@@ -115,6 +124,15 @@ def run_checks(log=print) -> tuple[bool, list[tuple[str, bool, str]]]:
     check("exactly 3712 unique validation_ids joined",
           len(variants_by_id) == 3712 and set(variants_by_id) == set(instructions_by_id),
           f"variants={len(variants_by_id)}, instructions={len(instructions_by_id)}")
+
+    # Identity-hash recipe must reproduce the source hashes exactly.
+    hash_mismatches = 0
+    for v in variants_by_id.values():
+        expected = v.get("canonical_identity_hash")
+        if expected and identity.identity_hash(v.get("standard_variant") or {}) != expected:
+            hash_mismatches += 1
+    check("identity hash recipe reproduces canonical_identity_hash",
+          hash_mismatches == 0, f"{hash_mismatches} mismatch(es) of {len(variants_by_id)}")
 
     by_priority: dict[str, str] = {}
     for vid, instr in instructions_by_id.items():
@@ -139,16 +157,16 @@ def run_checks(log=print) -> tuple[bool, list[tuple[str, bool, str]]]:
 
     good = synthetic_response(merged, confidence=0.95)
     res_good = qa.run_qa(good, merged, rules, schema, grounding_enabled=True)
-    check("QA passes a clean high-confidence response",
-          res_good["status"] in (qa.QA_PASS, qa.QA_MANUAL_REVIEW),
+    check("QA evaluates a clean high-confidence response",
+          res_good["status"] in (qa.QA_PASS, qa.QA_UNRESOLVED),
           f"status={res_good['status']}")
 
     low = synthetic_response(merged, confidence=0.5)
     low["decision"] = "auto_accept"  # model lies; QA must catch it
     low["requires_manual_review"] = False
     res_low = qa.run_qa(low, merged, rules, schema, grounding_enabled=True)
-    check("QA forces manual_review on low confidence",
-          res_low["status"] == qa.QA_MANUAL_REVIEW, f"status={res_low['status']}")
+    check("QA marks a low-confidence response unresolved (correction pass)",
+          res_low["status"] == qa.QA_UNRESOLVED, f"status={res_low['status']}")
 
     bad = dict(good)
     bad.pop("corrected_variant")
@@ -156,8 +174,42 @@ def run_checks(log=print) -> tuple[bool, list[tuple[str, bool, str]]]:
     check("QA retries on schema-invalid response",
           res_bad["status"] == qa.QA_RETRY, f"status={res_bad['status']}")
 
-    parsed = qa.parse_strict_json('```json\n{"a": 1}\n```')
-    check("strict JSON parser strips accidental fences", parsed == {"a": 1})
+    # Generic placeholder trim must not pass without strong verification.
+    weak_trim = synthetic_response(merged, confidence=0.95)
+    weak_trim["corrected_variant"]["trim"] = "Base"
+    weak_trim["name_validation"]["trim_name_il_status"] = "uncertain"
+    res_trim = qa.run_qa(weak_trim, merged, rules, schema, grounding_enabled=True)
+    check("QA refuses unverified generic trim",
+          res_trim["status"] == qa.QA_UNRESOLVED
+          and any("generic/placeholder trim" in i for i in res_trim["issues"]),
+          f"status={res_trim['status']}")
+
+    # Canonical row invariants for clean output.
+    row = engine.canonical_row(merged, good, "auto_accept", rules)
+    check("canonical row has validated_identity_hash + original hash preserved",
+          bool(row.get("validated_identity_hash"))
+          and row.get("original_canonical_identity_hash")
+          == merged.get("canonical_identity_hash"))
+    check("canonical row alternate_names is always a list",
+          isinstance(row.get("alternate_names"), list))
+    check("canonical row requires_manual_review is false",
+          row.get("requires_manual_review") is False)
+    check("canonical row has original_variant_id + validated_variant_id",
+          bool(row.get("original_variant_id")) and bool(row.get("validated_variant_id")))
+
+    # Correction prompt (Pass 2/3) builds with compact targeted context.
+    prev = {"response": low, "qa": res_low, "error": None, "raw_text": "{}"}
+    cp = engine.build_correction_prompt(merged, prev, 2, 3)
+    check("correction prompt builds (Pass 2)",
+          "CORRECTION_CONTEXT:" in cp and sample_vid in cp
+          and "manual_review" not in json.dumps(
+              json.loads(cp.split("CORRECTION_CONTEXT:\n", 1)[1]).get(
+                  "fields_that_must_be_fixed", [])))
+    cp3 = engine.build_correction_prompt(merged, prev, 3, 3)
+    check("correction prompt is stricter on Pass 3",
+          "FINAL STRICT CORRECTION PASS" in cp3)
+    check("correction prompt sends one variant only (no full dataset)",
+          len(cp) < 60_000, f"{len(cp)} chars")
 
     try:
         cfg = runtime_config.resolve(runtime="smoke_test")
@@ -177,6 +229,9 @@ def run_checks(log=print) -> tuple[bool, list[tuple[str, bool, str]]]:
         check("output/ directory is writable", True)
     except OSError as e:
         check("output/ directory is writable", False, str(e))
+
+    parsed = qa.parse_strict_json('```json\n{"a": 1}\n```')
+    check("strict JSON parser strips accidental fences", parsed == {"a": 1})
 
     failed = [c for c in checks if not c[1]]
     log(f"\n== Smoke test {'PASSED' if not failed else 'FAILED'}: "

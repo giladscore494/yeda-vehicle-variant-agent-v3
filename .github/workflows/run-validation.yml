@@ -33,6 +33,10 @@ on:
         description: "offline mock validation into output/mock/ (true/false)"
         required: false
         default: "false"
+      max_attempts:
+        description: "max automatic validation passes per variant (1-5)"
+        required: false
+        default: "3"
 
 concurrency:
   group: gemini-validation-${{ github.ref }}
@@ -81,6 +85,9 @@ jobs:
           ARGS=""
           if [ -n "${{ github.event.inputs.limit }}" ]; then
             ARGS="$ARGS --limit ${{ github.event.inputs.limit }}"
+          fi
+          if [ -n "${{ github.event.inputs.max_attempts }}" ]; then
+            ARGS="$ARGS --max-attempts ${{ github.event.inputs.max_attempts }}"
           fi
           if [ -n "${{ github.event.inputs.only_priority }}" ]; then
             ARGS="$ARGS --only-priority ${{ github.event.inputs.only_priority }}"
