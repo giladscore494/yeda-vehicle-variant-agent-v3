@@ -1,0 +1,45 @@
+{
+  "created_at": "2026-06-12T16:20:07.287830+00:00",
+  "source_uploaded_file": "resume_package_canonical(10).json",
+  "source_size_bytes": 28010173,
+  "source_size_mb": 26.713,
+  "reason_for_split": "Original validation mapping package exceeded 25MB upload limit. Split into one variant data file and one instruction file joined by validation_id.",
+  "main_files_to_upload_to_repo": [
+    {
+      "path": "data/validation_variants_data_v1.json",
+      "role": "All variant records, standard_variant, original_snapshot, duplicate metadata and mapping metadata.",
+      "size_bytes": 18716664,
+      "size_mb": 17.85,
+      "sha256": "9d72771db57900856135f74ab7b634868150979834d875f0bb219ba5fc82d504",
+      "below_25mb": true
+    },
+    {
+      "path": "data/validation_instructions_by_id_v1.json",
+      "role": "Per validation_id instructions, missing field tasks, priority, duplicate review tasks and Gemini rules.",
+      "size_bytes": 17057939,
+      "size_mb": 16.268,
+      "sha256": "a621ab60d864b03e381361582f2fd9f4342db840852adf52b38a9cadd7350ee8",
+      "below_25mb": true
+    }
+  ],
+  "auxiliary_files": [
+    {
+      "path": "data/validation_instructions_by_id_v1.jsonl",
+      "role": "Optional JSONL version of the instructions file for streaming implementations.",
+      "size_bytes": 12693867,
+      "size_mb": 12.106,
+      "sha256": "990a99cedfcf779b8aa9ca70428d819c5a73e79658636396856a9561d5b65833",
+      "below_25mb": true
+    }
+  ],
+  "variant_count": 3712,
+  "join_key": "validation_id",
+  "required_secrets": [
+    "GEMINI_API_KEY",
+    "GH_PUSH_TOKEN"
+  ],
+  "target_repo": "giladscore494/yeda-vehicle-variant-agent-v3",
+  "target_branch": "validation-v2-budgeted-dual-il-trims",
+  "gemini_model_id": "gemini-3.1-pro-preview",
+  "grounding_enabled": true
+}
