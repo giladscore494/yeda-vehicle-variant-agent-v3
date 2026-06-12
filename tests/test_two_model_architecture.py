@@ -476,6 +476,52 @@ class TestAdjudicatorPromptAndParsing:
         result = adj.parse_adjudicator_response(resp)
         assert result["final_decision"] == "split_required"
 
+    def test_gpt54_request_uses_max_completion_tokens(self, monkeypatch):
+        captured = {}
+
+        class FakeResponse:
+            status_code = 200
+            headers = {}
+
+            def json(self):
+                return {
+                    "choices": [{
+                        "message": {
+                            "content": json.dumps({
+                                "validation_id": "VAL-001",
+                                "final_decision": "auto_resolved",
+                            })
+                        }
+                    }]
+                }
+
+        def fake_post(_url, headers, json, timeout):
+            captured["body"] = json
+            captured["headers"] = headers
+            captured["timeout"] = timeout
+            return FakeResponse()
+
+        monkeypatch.setattr("requests.post", fake_post)
+
+        client = adj.OpenAIAdjudicatorClient(
+            api_key="test-key", model_id="gpt-5.4", log=lambda _msg: None)
+        result = client.adjudicate(
+            merged_context={
+                "validation_id": "VAL-001",
+                "standard_variant": {"make": "Toyota", "model": "Corolla"},
+            },
+            research_pack={},
+            qa_warnings=[],
+            unresolved_reasons=[],
+            attempt_number=1,
+            max_attempts=3,
+        )
+
+        assert result["final_decision"] == "auto_resolved"
+        assert captured["body"]["model"] == "gpt-5.4"
+        assert captured["body"]["max_completion_tokens"] == 4096
+        assert "max_tokens" not in captured["body"]
+
 
 # ═══════════════════════════════════════════════════════════════════════════
 # RuntimeConfig tests
