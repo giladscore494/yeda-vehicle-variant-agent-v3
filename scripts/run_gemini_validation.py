@@ -64,9 +64,11 @@ if str(SCRIPTS_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPTS_DIR))
 
 import deterministic_qa as qa  # noqa: E402
+import evidence_normalizer as enorm  # noqa: E402
 import github_checkpoint  # noqa: E402
 import identity  # noqa: E402
 import model_context as mctx  # noqa: E402
+import openai_adjudicator as adjudicator  # noqa: E402
 import runtime_config  # noqa: E402
 
 DATA_DIR = REPO_ROOT / "data"
@@ -78,18 +80,21 @@ CONFIG_FILES = {
     "field_rules": CONFIG_DIR / "field_rules.json",
     "schema": CONFIG_DIR / "validation_schema.json",
     "prompt": PROMPTS_DIR / "gemini_variant_validation_prompt_two_file_context.md",
+    "research_prompt": PROMPTS_DIR / "gemini_research_prompt.md",
 }
 
 SCHEMA_VERSION = "validation-v2-budgeted-dual-il-trims"
 FINAL_CLEAN_FILENAME = "validation-v2-budgeted-dual-il-trims.json"
 
 # The only allowed final machine decisions.
-FINAL_DECISIONS = ("auto_accept", "auto_resolved", "rejected_from_clean", "failed")
+FINAL_DECISIONS = ("auto_accept", "auto_resolved", "rejected_from_clean",
+                   "split_required", "failed")
 CLEAN_DECISIONS = ("auto_accept", "auto_resolved")
 DECISION_COUNT_KEY = {
     "auto_accept": "accepted",
     "auto_resolved": "auto_resolved",
     "rejected_from_clean": "rejected_from_clean",
+    "split_required": "split_required",
     "failed": "failed",
 }
 
@@ -142,6 +147,8 @@ class OutputPaths:
     @property
     def discovered_missing(self) -> Path: return self.base / "discovered_missing_variants.jsonl"
     @property
+    def split_required(self) -> Path: return self.base / "split_required.jsonl"
+    @property
     def model_runs(self) -> Path: return self.base / "model_runs"
 
     def checkpoint_paths(self) -> list[str]:
@@ -177,6 +184,10 @@ def load_schema() -> dict:
 
 def load_prompt() -> str:
     return CONFIG_FILES["prompt"].read_text(encoding="utf-8")
+
+
+def load_research_prompt() -> str:
+    return CONFIG_FILES["research_prompt"].read_text(encoding="utf-8")
 
 
 # ---------------------------------------------------------------------------
@@ -627,6 +638,49 @@ def build_user_prompt(merged_context: dict, strict_retry: bool = False) -> str:
         merged_context, ensure_ascii=False, separators=(",", ":"))
 
 
+def build_research_prompt(merged_context: dict, gaps: list[str] | None = None) -> str:
+    """Build a user prompt for Gemini research-only pass (two-model mode).
+
+    When *gaps* is provided, this is a targeted follow-up research pass
+    focused only on the listed missing items.
+    """
+    sv = merged_context.get("standard_variant") or {}
+    research_ctx = {
+        "validation_id": merged_context["validation_id"],
+        "make": sv.get("make"),
+        "model": sv.get("model"),
+        "trim": sv.get("trim"),
+        "official_marketed_name_il": sv.get("official_marketed_name_il"),
+        "year_start": sv.get("year_start"),
+        "year_end": sv.get("year_end"),
+        "engine": sv.get("engine"),
+        "transmission": sv.get("transmission"),
+        "fuel_type": sv.get("fuel_type"),
+        "drivetrain": sv.get("drivetrain"),
+        "body_type": sv.get("body_type"),
+        "generation": sv.get("generation"),
+        "seats": sv.get("seats"),
+        "source_trim_was_generic": merged_context.get("source_trim_was_generic", False),
+        "technical_fingerprint": merged_context.get("technical_fingerprint"),
+    }
+    if merged_context.get("active_model_context"):
+        research_ctx["active_model_context"] = merged_context["active_model_context"]
+
+    header = (
+        "Research the following Israeli-market vehicle variant. "
+        "Follow every rule in the system instructions. "
+        "Return STRICT JSON only, in the research output schema.\n"
+    )
+    if gaps:
+        header += (
+            "\nThis is a TARGETED follow-up research pass. "
+            "Focus ONLY on these gaps:\n"
+            + json.dumps(gaps, ensure_ascii=False)
+            + "\nDo not repeat previously successful research.\n"
+        )
+    return header + "\nRESEARCH_CONTEXT:\n" + json.dumps(
+        research_ctx, ensure_ascii=False, separators=(",", ":"))
+
 def build_correction_prompt(merged_context: dict, previous: dict,
                             attempt_number: int, max_attempts: int) -> str:
     """Compact targeted prompt for Pass 2/3. Sends only this variant's
@@ -801,13 +855,14 @@ def fresh_progress() -> dict:
         #                   last_decision, unresolved_reasons, final_decision}
         "records": {},
         "counts": {"accepted": 0, "auto_resolved": 0,
-                   "rejected_from_clean": 0, "failed": 0},
+                   "rejected_from_clean": 0, "split_required": 0, "failed": 0},
         "grounding_enabled": None,
     }
 
 
 def recompute_counts(progress: dict) -> None:
-    counts = {"accepted": 0, "auto_resolved": 0, "rejected_from_clean": 0, "failed": 0}
+    counts = {"accepted": 0, "auto_resolved": 0, "rejected_from_clean": 0,
+              "split_required": 0, "failed": 0}
     for rec in progress["records"].values():
         key = DECISION_COUNT_KEY.get(rec.get("final_decision"))
         if key:
@@ -960,6 +1015,7 @@ def write_run_summary(paths: OutputPaths, progress: dict, rules: dict,
         "accepted_count": counts["accepted"],
         "auto_resolved_count": counts["auto_resolved"],
         "rejected_from_clean_count": counts["rejected_from_clean"],
+        "split_required_count": counts.get("split_required", 0),
         "failed_count": counts["failed"],
         "total_clean_variants": counts["accepted"] + counts["auto_resolved"],
         "deprecated_manual_review_count": 0,
@@ -974,6 +1030,256 @@ def write_run_summary(paths: OutputPaths, progress: dict, rules: dict,
 # ---------------------------------------------------------------------------
 # Per-variant multi-pass processing
 # ---------------------------------------------------------------------------
+
+def _needs_adjudication(
+    merged_context: dict, response: dict | None, qa_result: dict | None,
+    scope: str,
+) -> bool:
+    """Determine whether this variant needs GPT-5.4 adjudication based on
+    the configured scope."""
+    if scope == "off":
+        return False
+    if scope == "all":
+        return True
+    # "all_non_trivial" (default): skip only low-risk deterministic auto_accept
+    if qa_result and qa_result["status"] == qa.QA_PASS:
+        # Already passed QA with no issues -> trivial accept, skip adjudication
+        sv = merged_context.get("standard_variant") or {}
+        trim = sv.get("trim")
+        if not mctx.is_weak_source_name(trim):
+            il_name = sv.get("official_marketed_name_il")
+            if not mctx.is_weak_source_name(il_name):
+                return False
+    return True
+
+
+def _run_gemini_research(
+    client, merged_context: dict, gaps: list[str] | None = None,
+    log=print,
+) -> tuple[dict | None, str | None]:
+    """Run a single Gemini research pass. Returns (pack, error)."""
+    prompt = build_research_prompt(merged_context, gaps)
+    try:
+        raw_text, _grounded = client.generate(prompt)
+        try:
+            pack = qa.parse_strict_json(raw_text)
+            return pack, None
+        except ValueError as e:
+            return None, f"Gemini research malformed JSON: {e}"
+    except (RuntimeError, ValueError) as e:
+        return None, f"Gemini research call failed: {e}"
+
+
+def process_variant_two_model(
+    gemini_client, adjudicator_client,
+    merged_context: dict, rules: dict, schema: dict,
+    max_attempts: int, adjudication_scope: str = "all_non_trivial",
+    log=print, on_attempt: Callable[[dict], None] | None = None,
+) -> dict:
+    """Two-model validation flow for ONE validation_id.
+
+    Phase 1: Gemini research pass
+    Phase 2: Deterministic evidence normalization
+    Phase 3: GPT-5.4 final adjudication
+    Phase 4: Deterministic QA + routing
+
+    Falls back to single-model (Gemini-only) flow when:
+      - adjudication_scope is "off"
+      - adjudicator_client is None
+      - GPT-5.4 call fails (graceful degradation)
+    """
+    vid = merged_context["validation_id"]
+    attempts: list[dict] = []
+    last_error: str | None = None
+    final_decision: str | None = None
+    final_response: dict | None = None
+    final_qa: dict | None = None
+
+    # Try single-model first (Pass 1) to handle trivial accepts
+    if adjudication_scope in ("off",) or adjudicator_client is None:
+        return process_variant(gemini_client, merged_context, rules, schema,
+                               max_attempts, log=log, on_attempt=on_attempt)
+
+    # --- Phase 1: Gemini research pass (Pass 1 full validation first) ---
+    user_prompt = build_user_prompt(merged_context)
+    error: str | None = None
+    response: dict | None = None
+    qa_result: dict | None = None
+    raw_text: str | None = None
+
+    try:
+        raw_text, grounded = gemini_client.generate(user_prompt)
+        try:
+            response = qa.parse_strict_json(raw_text)
+        except ValueError as e:
+            error = f"malformed JSON: {e}"
+    except (RuntimeError, ValueError) as e:
+        error = f"model call failed: {e}"
+        grounded = False
+
+    if response is not None:
+        if not gemini_client.grounding_enabled:
+            response["grounding_used"] = False
+        elif grounded:
+            response["grounding_used"] = True
+        qa_result = qa.run_qa(response, merged_context, rules, schema,
+                              grounding_enabled=gemini_client.grounding_enabled)
+
+    # Check if this is a trivial accept that can skip adjudication
+    if qa_result and qa_result["status"] == qa.QA_PASS:
+        if not _needs_adjudication(merged_context, response, qa_result,
+                                   adjudication_scope):
+            final_decision = "auto_accept"
+            attempt_record = {
+                "validation_id": vid,
+                "attempt_number": 1,
+                "max_attempts": max_attempts,
+                "prompt_type": "pass1_full_validation",
+                "model_response": response,
+                "raw_text_excerpt": None,
+                "deterministic_qa_result": qa_result,
+                "decision_before_retry": "auto_accept",
+                "unresolved_reasons": [],
+                "error": None,
+                "final_decision": "auto_accept",
+                "timestamp": utcnow(),
+            }
+            attempts.append(attempt_record)
+            if on_attempt:
+                on_attempt(attempt_record)
+            return {
+                "final_decision": "auto_accept",
+                "response": response,
+                "qa": qa_result,
+                "attempts": attempts,
+                "attempt_count": 1,
+                "error": None,
+            }
+
+    # --- Run Gemini research for non-trivial cases ---
+    research_pack, research_error = _run_gemini_research(
+        gemini_client, merged_context, log=log)
+
+    if research_error or research_pack is None:
+        log(f"  {vid}: Gemini research failed ({research_error}); "
+            f"falling back to single-model flow")
+        return process_variant(gemini_client, merged_context, rules, schema,
+                               max_attempts, log=log, on_attempt=on_attempt)
+
+    # --- Phase 2: Deterministic evidence normalization ---
+    research_pack = enorm.normalize_research_pack(research_pack)
+    qa_warnings = enorm.generate_qa_warnings(research_pack)
+
+    # Collect unresolved reasons from initial QA pass
+    unresolved = list((qa_result or {}).get("issues") or [])
+    if error:
+        unresolved.append(error)
+
+    # --- Phase 3 & 4: GPT-5.4 adjudication + deterministic routing ---
+    for attempt_number in range(1, max_attempts + 1):
+        try:
+            adj_result = adjudicator_client.adjudicate(
+                merged_context, research_pack, qa_warnings, unresolved,
+                attempt_number, max_attempts,
+            )
+        except (RuntimeError, ValueError) as e:
+            adj_error = f"adjudicator call failed: {e}"
+            log(f"  {vid}: GPT-5.4 adjudication failed ({adj_error}); "
+                f"falling back to single-model flow")
+            return process_variant(gemini_client, merged_context, rules, schema,
+                                   max_attempts, log=log, on_attempt=on_attempt)
+
+        adj_decision = adj_result.get("final_decision")
+
+        # Handle needs_more_grounding
+        if adj_decision == "needs_more_grounding" and attempt_number < max_attempts:
+            gaps = (adj_result.get("grounding_attempts") or {}).get(
+                "no_source_found_for") or []
+            missing = adj_result.get("adjudicator_notes", {}).get(
+                "gemini_research_limitations") or []
+            all_gaps = gaps + missing
+
+            log(f"  {vid} attempt {attempt_number}/{max_attempts}: "
+                f"needs_more_grounding -> running targeted Gemini research")
+
+            new_pack, new_err = _run_gemini_research(
+                gemini_client, merged_context, gaps=all_gaps or None, log=log)
+            if new_pack and not new_err:
+                research_pack = enorm.normalize_research_pack(new_pack)
+                qa_warnings = enorm.generate_qa_warnings(research_pack)
+
+            attempt_record = {
+                "validation_id": vid,
+                "attempt_number": attempt_number,
+                "max_attempts": max_attempts,
+                "prompt_type": f"two_model_attempt_{attempt_number}",
+                "model_response": response,
+                "raw_text_excerpt": None,
+                "deterministic_qa_result": qa_result,
+                "adjudicator_result": adj_result,
+                "decision_before_retry": "needs_more_grounding",
+                "unresolved_reasons": all_gaps,
+                "error": None,
+                "final_decision": None,
+                "timestamp": utcnow(),
+            }
+            attempts.append(attempt_record)
+            if on_attempt:
+                on_attempt(attempt_record)
+            continue
+
+        # Map to final engine decision
+        if adj_decision == "needs_more_grounding":
+            # Attempts exhausted
+            final_decision = "rejected_from_clean"
+            last_error = "grounding_exhausted"
+        elif adj_decision in ("auto_resolved", "split_required",
+                              "rejected_from_clean"):
+            final_decision = adj_decision
+        else:
+            final_decision = "rejected_from_clean"
+
+        attempt_record = {
+            "validation_id": vid,
+            "attempt_number": attempt_number,
+            "max_attempts": max_attempts,
+            "prompt_type": f"two_model_attempt_{attempt_number}",
+            "model_response": response,
+            "raw_text_excerpt": None,
+            "deterministic_qa_result": qa_result,
+            "adjudicator_result": adj_result,
+            "decision_before_retry": adj_decision,
+            "unresolved_reasons": (
+                list((adj_result.get("grounding_attempts") or {}).get(
+                    "no_source_found_for") or [])
+            ),
+            "error": last_error,
+            "final_decision": final_decision,
+            "timestamp": utcnow(),
+        }
+        attempts.append(attempt_record)
+        if on_attempt:
+            on_attempt(attempt_record)
+        final_response = response
+        final_qa = qa_result
+        break
+
+    if final_decision is None:
+        final_decision = "failed"
+        last_error = "no final decision reached"
+
+    return {
+        "final_decision": final_decision,
+        "response": final_response,
+        "qa": final_qa,
+        "attempts": attempts,
+        "attempt_count": len(attempts),
+        "error": last_error,
+        "adjudicator_result": (
+            attempts[-1].get("adjudicator_result") if attempts else None
+        ),
+    }
+
 
 def process_variant(client, merged_context: dict, rules: dict, schema: dict,
                     max_attempts: int, log=print,
@@ -1247,8 +1553,9 @@ def run_validation(options: RunOptions, cfg: runtime_config.RuntimeConfig | None
 
     if options.mock_mode:
         client = MockGeminiClient()
-        log("MOCK MODE: using offline mock client; outputs go to output/mock/ "
-            "so real progress is untouched. No Gemini calls, no cost.")
+        adj_client = adjudicator.MockAdjudicatorClient()
+        log("MOCK MODE: using offline mock clients; outputs go to output/mock/ "
+            "so real progress is untouched. No API calls, no cost.")
     else:
         if not cfg.gemini_key_present:
             failures = ["Gemini API key is not configured "
@@ -1260,6 +1567,18 @@ def run_validation(options: RunOptions, cfg: runtime_config.RuntimeConfig | None
                     "processed_this_run": 0}
         client = GeminiClient(cfg.gemini_api_key, cfg.model_id, load_prompt(),
                               rules, grounding_enabled=cfg.grounding_enabled, log=log)
+        # Create adjudicator client if OpenAI key is present
+        if cfg.openai_key_present and cfg.adjudication_scope != "off":
+            adj_client = adjudicator.OpenAIAdjudicatorClient(
+                cfg.openai_api_key, cfg.openai_model_id, log=log)
+            log(f"Two-model mode: Gemini researcher + GPT-5.4 adjudicator "
+                f"(scope={cfg.adjudication_scope})")
+        else:
+            adj_client = None
+            if cfg.adjudication_scope != "off":
+                log("OpenAI API key missing; falling back to Gemini-only mode")
+            else:
+                log("Adjudication scope=off; using Gemini-only mode")
 
     run_info = {
         "runtime": runtime, "mode": mode, "limit": options.limit,
@@ -1267,6 +1586,8 @@ def run_validation(options: RunOptions, cfg: runtime_config.RuntimeConfig | None
         "force_reprocess": options.force_reprocess, "push_every": options.push_every,
         "max_attempts": max_attempts, "selected_count": total_pending,
         "model_count": n_models,
+        "two_model_enabled": adj_client is not None,
+        "adjudication_scope": cfg.adjudication_scope,
     }
     push_results: list[dict] = []
     since_checkpoint = 0
@@ -1361,8 +1682,10 @@ def run_validation(options: RunOptions, cfg: runtime_config.RuntimeConfig | None
                             "counts": dict(progress["counts"]),
                         })
 
-                result = process_variant(client, merged_context, rules, schema,
-                                         max_attempts, log=log, on_attempt=on_attempt)
+                result = process_variant_two_model(
+                    client, adj_client, merged_context, rules, schema,
+                    max_attempts, adjudication_scope=cfg.adjudication_scope,
+                    log=log, on_attempt=on_attempt)
                 decision = result["final_decision"]
                 response = result["response"]
                 grounding_enabled = client.grounding_enabled
@@ -1413,6 +1736,37 @@ def run_validation(options: RunOptions, cfg: runtime_config.RuntimeConfig | None
                     append_jsonl(paths.rejected, rej_record)
                     append_jsonl(run_dir / "final_rejected_after_recovery.jsonl", rej_record)
                     model_stats["rejected_count"] += 1
+                elif decision == "split_required":
+                    adj_res = result.get("adjudicator_result") or {}
+                    split_record = {
+                        "validation_id": vid,
+                        "processed_at": utcnow(),
+                        "final_decision": decision,
+                        "attempt_count": result["attempt_count"],
+                        "max_attempts": max_attempts,
+                        "make": (merged_context.get("standard_variant") or {}).get("make"),
+                        "model": (merged_context.get("standard_variant") or {}).get("model"),
+                        "raw_trim_name": (merged_context.get("standard_variant") or {}).get("trim"),
+                        "raw_official_marketed_name_il": (
+                            merged_context.get("standard_variant") or {}
+                        ).get("official_marketed_name_il"),
+                        "candidate_child_variants": (
+                            (adj_res.get("split_review") or {}).get(
+                                "candidate_child_variants") or []
+                        ),
+                        "possible_israeli_trims_found": (
+                            adj_res.get("possible_israeli_trims_found") or []
+                        ),
+                        "evidence_items": adj_res.get("evidence_items") or [],
+                        "final_reason": adj_res.get("final_reason") or "",
+                        "final_confidence": adj_res.get("final_confidence") or 0.0,
+                        "adjudicator_notes": adj_res.get("adjudicator_notes") or {},
+                        "confidence": (response or {}).get("confidence"),
+                    }
+                    append_jsonl(paths.split_required, split_record)
+                    append_jsonl(run_dir / "split_required.jsonl", split_record)
+                    model_stats.setdefault("split_count", 0)
+                    model_stats["split_count"] += 1
                 elif decision == "failed":
                     fail_record = {
                         "validation_id": vid,
@@ -1465,6 +1819,7 @@ def run_validation(options: RunOptions, cfg: runtime_config.RuntimeConfig | None
             log(f"[MODEL DONE] {make} {model_name}: "
                 f"clean={model_stats['clean_count']} "
                 f"rejected={model_stats['rejected_count']} "
+                f"split={model_stats.get('split_count', 0)} "
                 f"failed={model_stats['failed_count']} — context reset")
 
     except (Exception, KeyboardInterrupt) as e:
@@ -1486,6 +1841,7 @@ def run_validation(options: RunOptions, cfg: runtime_config.RuntimeConfig | None
     log(f"Run finished: processed={n_done}/{total_expected} "
         f"accepted={counts['accepted']} auto_resolved={counts['auto_resolved']} "
         f"rejected_from_clean={counts['rejected_from_clean']} "
+        f"split_required={counts.get('split_required', 0)} "
         f"failed={counts['failed']} grounding_enabled={grounding_enabled}")
     failed_pushes = [r for r in push_results if r.get("push_failure")]
     return {

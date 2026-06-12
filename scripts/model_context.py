@@ -154,7 +154,7 @@ def update_context_after_variant(
             if ev:
                 ctx["evidence_summaries_discovered"].append(
                     f"{validation_id}: {ev[:200]}")
-    elif decision in ("rejected_from_clean", "failed"):
+    elif decision in ("rejected_from_clean", "split_required", "failed"):
         ctx["already_rejected_variants"].append(validation_id)
 
     # Check for duplicate groups
