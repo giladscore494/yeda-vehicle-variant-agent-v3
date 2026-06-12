@@ -1,8 +1,8 @@
 {
   "progress_format_version": 2,
   "run_started_at": "2026-06-12T17:51:12.039041+00:00",
-  "last_updated_at": "2026-06-12T19:48:35.308885+00:00",
-  "last_processed_validation_id": "VAL-000007",
+  "last_updated_at": "2026-06-12T19:52:15.960366+00:00",
+  "last_processed_validation_id": "VAL-000008",
   "max_attempts": 3,
   "records": {
     "VAL-000001": {
@@ -76,12 +76,25 @@
       "last_decision": "auto_accept",
       "unresolved_reasons": [],
       "final_decision": "auto_accept"
+    },
+    "VAL-000008": {
+      "status": "final",
+      "attempt_count": 2,
+      "last_attempt_at": "2026-06-12T19:52:15.954793+00:00",
+      "last_error": null,
+      "last_decision": "rejected_from_clean",
+      "unresolved_reasons": [
+        "model rejected: Source trim is missing and the year range 2018-2023 spans two distinct trims (Turismo and Nuvolari) for the 165 hp manual version. Cannot safely resolve to a single trim without guessing.",
+        "generic/placeholder trim 'None' is not verified as an official Israeli marketed trim (trim_name_il_status=uncertain, confidence=0.75)",
+        "model recommends splitting this row into multiple trims"
+      ],
+      "final_decision": "rejected_from_clean"
     }
   },
   "counts": {
     "accepted": 1,
     "auto_resolved": 1,
-    "rejected_from_clean": 4,
+    "rejected_from_clean": 5,
     "failed": 0
   },
   "grounding_enabled": true
