@@ -4,192 +4,238 @@
 Validates 3,712 Israeli-market vehicle variants by merging, per validation_id,
 the variant record from data/validation_variants_data_v1.json with the
 instruction record from data/validation_instructions_by_id_v1.json, sending a
-compact merged context to Gemini (gemini-3.1-pro-preview, grounding enabled
-when supported), then running deterministic QA on every response.
+compact merged context (one variant at a time, never the full dataset) to
+Gemini, then running deterministic QA on every response.
 
-Outputs (under output/):
+Runtimes:
+  - Streamlit (main, via app.py + st.secrets)  -> run_validation(...)
+  - CLI / GitHub Actions (env vars)            -> python scripts/run_gemini_validation.py
+
+Outputs (under output/; mock mode writes to output/mock/ so real progress is
+never polluted):
     validation_results.jsonl                    full audit log (incl. original_snapshot)
     canonical_variants_clean.jsonl              clean canonical rows
     manual_review.jsonl                         variants routed to manual review
     failures.jsonl                              malformed/failed responses
+    push_failures.jsonl                         checkpoint push failures
     validation_progress.json                    resume state
     validation_run_summary.json                 run summary
     validation-v2-budgeted-dual-il-trims.json   final clean database (NO original_snapshot)
     canonical_vehicle_variants_clean_v1.json    compatibility copy of the final database
-
-The engine never validates from one input file alone, never invents data, and
-prefers manual_review over false certainty.
 """
 
 from __future__ import annotations
 
 import argparse
+import dataclasses
 import datetime as dt
 import json
 import os
-import signal
 import sys
 import time
 from pathlib import Path
-from typing import Any
-
-import requests
+from typing import Any, Callable
 
 SCRIPTS_DIR = Path(__file__).resolve().parent
 REPO_ROOT = SCRIPTS_DIR.parent
-sys.path.insert(0, str(SCRIPTS_DIR))
+if str(SCRIPTS_DIR) not in sys.path:
+    sys.path.insert(0, str(SCRIPTS_DIR))
 
 import deterministic_qa as qa  # noqa: E402
 import github_checkpoint  # noqa: E402
+import runtime_config  # noqa: E402
 
 DATA_DIR = REPO_ROOT / "data"
 CONFIG_DIR = REPO_ROOT / "config"
 PROMPTS_DIR = REPO_ROOT / "prompts"
 OUTPUT_DIR = REPO_ROOT / "output"
 
-VARIANTS_FILE = DATA_DIR / "validation_variants_data_v1.json"
-INSTRUCTIONS_FILE = DATA_DIR / "validation_instructions_by_id_v1.json"
-FIELD_RULES_FILE = CONFIG_DIR / "field_rules.json"
-SCHEMA_FILE = CONFIG_DIR / "validation_schema.json"
-PROMPT_FILE = PROMPTS_DIR / "gemini_variant_validation_prompt_two_file_context.md"
+CONFIG_FILES = {
+    "field_rules": CONFIG_DIR / "field_rules.json",
+    "schema": CONFIG_DIR / "validation_schema.json",
+    "prompt": PROMPTS_DIR / "gemini_variant_validation_prompt_two_file_context.md",
+}
 
-RESULTS_FILE = OUTPUT_DIR / "validation_results.jsonl"
-CANONICAL_JSONL = OUTPUT_DIR / "canonical_variants_clean.jsonl"
-MANUAL_REVIEW_FILE = OUTPUT_DIR / "manual_review.jsonl"
-FAILURES_FILE = OUTPUT_DIR / "failures.jsonl"
-PROGRESS_FILE = OUTPUT_DIR / "validation_progress.json"
-RUN_SUMMARY_FILE = OUTPUT_DIR / "validation_run_summary.json"
-FINAL_CLEAN_FILE = OUTPUT_DIR / "validation-v2-budgeted-dual-il-trims.json"
-FINAL_COMPAT_FILE = OUTPUT_DIR / "canonical_vehicle_variants_clean_v1.json"
-STARTUP_FAILURE_FILE = OUTPUT_DIR / "startup_failure_report.json"
-
-OUTPUT_PATHS_FOR_CHECKPOINT = [str(OUTPUT_DIR.relative_to(REPO_ROOT))]
-
-MODEL_ID = "gemini-3.1-pro-preview"
-GEMINI_ENDPOINT = (
-    "https://generativelanguage.googleapis.com/v1beta/models/"
-    f"{MODEL_ID}:generateContent"
-)
 SCHEMA_VERSION = "validation-v2-budgeted-dual-il-trims"
-TARGET_BRANCH = os.environ.get("TARGET_BRANCH", "validation-v2-budgeted-dual-il-trims")
+FINAL_CLEAN_FILENAME = "validation-v2-budgeted-dual-il-trims.json"
+
+
+def resolve_input_file(name: str) -> Path:
+    """Prefer data/<name>; fall back to repository root."""
+    preferred = DATA_DIR / name
+    if preferred.exists():
+        return preferred
+    fallback = REPO_ROOT / name
+    return fallback if fallback.exists() else preferred
 
 
 def utcnow() -> str:
     return dt.datetime.now(dt.timezone.utc).isoformat()
 
 
-def log(msg: str) -> None:
-    print(f"[{utcnow()}] {msg}", flush=True)
+@dataclasses.dataclass
+class OutputPaths:
+    base: Path
+
+    @property
+    def results(self) -> Path: return self.base / "validation_results.jsonl"
+    @property
+    def canonical_jsonl(self) -> Path: return self.base / "canonical_variants_clean.jsonl"
+    @property
+    def manual_review(self) -> Path: return self.base / "manual_review.jsonl"
+    @property
+    def failures(self) -> Path: return self.base / "failures.jsonl"
+    @property
+    def push_failures(self) -> Path: return self.base / "push_failures.jsonl"
+    @property
+    def progress(self) -> Path: return self.base / "validation_progress.json"
+    @property
+    def run_summary(self) -> Path: return self.base / "validation_run_summary.json"
+    @property
+    def final_clean(self) -> Path: return self.base / FINAL_CLEAN_FILENAME
+    @property
+    def final_compat(self) -> Path: return self.base / "canonical_vehicle_variants_clean_v1.json"
+    @property
+    def startup_failure(self) -> Path: return self.base / "startup_failure_report.json"
+
+    def checkpoint_paths(self) -> list[str]:
+        return [self.base.relative_to(REPO_ROOT).as_posix()]
+
+
+REAL_PATHS = OutputPaths(OUTPUT_DIR)
+MOCK_PATHS = OutputPaths(OUTPUT_DIR / "mock")
+
+
+@dataclasses.dataclass
+class RunOptions:
+    limit: int | None = None
+    only_priority: str | None = None
+    validation_id: str | None = None
+    start_after: str | None = None
+    dry_run: bool = False
+    mock_mode: bool = False
+    force_reprocess: bool = False
+    resume: bool = True
+    push_every: int = 1
+    push_enabled: bool = True
+
+
+def load_rules() -> dict:
+    return json.loads(CONFIG_FILES["field_rules"].read_text(encoding="utf-8"))
+
+
+def load_schema() -> dict:
+    return json.loads(CONFIG_FILES["schema"].read_text(encoding="utf-8"))
+
+
+def load_prompt() -> str:
+    return CONFIG_FILES["prompt"].read_text(encoding="utf-8")
 
 
 # ---------------------------------------------------------------------------
 # Startup validation
 # ---------------------------------------------------------------------------
 
-def startup_validation(rules: dict) -> tuple[dict, dict, dict]:
-    """Validate both input files before any Gemini call.
-
-    Returns (variants_doc, variants_by_id, instructions_by_id).
-    On any failure: writes output/startup_failure_report.json and exits.
-    """
+def startup_checks(rules: dict) -> tuple[list[str], dict, dict]:
+    """Validate both input files. Returns (failures, variants_by_id,
+    instructions_by_id). Never exits, never calls Gemini."""
     failures: list[str] = []
-    variants_doc: dict = {}
     variants_by_id: dict = {}
     instructions_by_id: dict = {}
 
-    for path in (VARIANTS_FILE, INSTRUCTIONS_FILE):
+    variants_file = resolve_input_file("validation_variants_data_v1.json")
+    instructions_file = resolve_input_file("validation_instructions_by_id_v1.json")
+
+    for path in (variants_file, instructions_file):
         if not path.exists():
-            failures.append(f"required input file missing: {path.relative_to(REPO_ROOT)}")
-
-    if not failures:
-        try:
-            variants_doc = json.loads(VARIANTS_FILE.read_text(encoding="utf-8"))
-        except (json.JSONDecodeError, OSError) as e:
-            failures.append(f"variants file is not valid JSON: {e}")
-        try:
-            instructions_doc = json.loads(INSTRUCTIONS_FILE.read_text(encoding="utf-8"))
-        except (json.JSONDecodeError, OSError) as e:
-            failures.append(f"instructions file is not valid JSON: {e}")
-
-    if not failures:
-        variant_list = variants_doc.get("variants")
-        if not isinstance(variant_list, list):
-            failures.append("variants file has no 'variants' list")
-        instructions_by_id = instructions_doc.get("instructions_by_validation_id")
-        if not isinstance(instructions_by_id, dict):
-            failures.append("instructions file has no 'instructions_by_validation_id' object")
-
-    if not failures:
-        variant_ids = [v.get("validation_id") for v in variant_list]
-        dup_in_variants = sorted({i for i in variant_ids if variant_ids.count(i) > 1}) \
-            if len(set(variant_ids)) != len(variant_ids) else []
-        if dup_in_variants:
-            failures.append(f"duplicated validation_id in variants file: {dup_in_variants[:10]}")
-        variants_by_id = {v["validation_id"]: v for v in variant_list}
-
-        vset, iset = set(variants_by_id), set(instructions_by_id)
-        expected = rules["expected_total_variants"]
-        if len(vset) != expected:
-            failures.append(f"expected {expected} unique validation_id values in variants file, "
-                            f"found {len(vset)}")
-        if len(iset) != expected:
-            failures.append(f"expected {expected} unique validation_id values in instructions "
-                            f"file, found {len(iset)}")
-        only_v = sorted(vset - iset)
-        only_i = sorted(iset - vset)
-        if only_v:
-            failures.append(f"validation_id only in variants file: {only_v[:10]} "
-                            f"({len(only_v)} total)")
-        if only_i:
-            failures.append(f"validation_id only in instructions file: {only_i[:10]} "
-                            f"({len(only_i)} total)")
-
-        for vid, record in variants_by_id.items():
-            if not isinstance(record.get("standard_variant"), dict):
-                failures.append(f"{vid}: missing standard_variant")
-            snapshot = record.get("original_snapshot")
-            basis = (record.get("standard_variant") or {}).get("source_basis")
-            if not snapshot and not basis:
-                failures.append(f"{vid}: no audit context (original_snapshot/source_basis)")
-            if len(failures) > 50:
-                failures.append("... aborting check loop, too many failures")
-                break
-
-        if len(failures) <= 50:
-            for vid, instr in instructions_by_id.items():
-                if not instr.get("validation_priority"):
-                    failures.append(f"{vid}: instruction record missing validation_priority")
-                if not instr.get("validation_tasks"):
-                    failures.append(f"{vid}: instruction record missing validation_tasks")
-                if len(failures) > 50:
-                    failures.append("... aborting check loop, too many failures")
-                    break
-
+            failures.append(f"required input file missing: {path.name} "
+                            f"(looked in data/ and repository root)")
     if failures:
-        OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-        report = {
-            "failed_at": utcnow(),
-            "stage": "startup_validation",
-            "checks_failed": failures,
-            "gemini_called": False,
-            "message": "Startup validation failed. No Gemini calls were made and the "
-                       "validation run did not start.",
-        }
-        STARTUP_FAILURE_FILE.write_text(
-            json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
-        log(f"STARTUP VALIDATION FAILED ({len(failures)} issue(s)). "
-            f"Report: {STARTUP_FAILURE_FILE}")
-        for f in failures[:20]:
-            log(f"  - {f}")
-        sys.exit(2)
+        return failures, {}, {}
 
-    log(f"Startup validation passed: {len(variants_by_id)} variants joined with "
-        f"{len(instructions_by_id)} instruction records.")
-    return variants_doc, variants_by_id, instructions_by_id
+    try:
+        variants_doc = json.loads(variants_file.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError) as e:
+        failures.append(f"variants file is not valid JSON: {e}")
+        variants_doc = {}
+    try:
+        instructions_doc = json.loads(instructions_file.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError) as e:
+        failures.append(f"instructions file is not valid JSON: {e}")
+        instructions_doc = {}
+    if failures:
+        return failures, {}, {}
+
+    variant_list = variants_doc.get("variants")
+    if not isinstance(variant_list, list):
+        failures.append("variants file has no 'variants' list")
+    instructions_by_id = instructions_doc.get("instructions_by_validation_id")
+    if not isinstance(instructions_by_id, dict):
+        failures.append("instructions file has no 'instructions_by_validation_id' object")
+        instructions_by_id = {}
+    if failures:
+        return failures, {}, instructions_by_id
+
+    variant_ids = [v.get("validation_id") for v in variant_list]
+    if len(set(variant_ids)) != len(variant_ids):
+        dups = sorted({i for i in variant_ids if variant_ids.count(i) > 1})
+        failures.append(f"duplicated validation_id in variants file: {dups[:10]}")
+    variants_by_id = {v["validation_id"]: v for v in variant_list}
+
+    vset, iset = set(variants_by_id), set(instructions_by_id)
+    expected = rules["expected_total_variants"]
+    if len(vset) != expected:
+        failures.append(f"expected {expected} unique validation_id values in variants "
+                        f"file, found {len(vset)}")
+    if len(iset) != expected:
+        failures.append(f"expected {expected} unique validation_id values in "
+                        f"instructions file, found {len(iset)}")
+    only_v, only_i = sorted(vset - iset), sorted(iset - vset)
+    if only_v:
+        failures.append(f"validation_id only in variants file: {only_v[:10]} "
+                        f"({len(only_v)} total)")
+    if only_i:
+        failures.append(f"validation_id only in instructions file: {only_i[:10]} "
+                        f"({len(only_i)} total)")
+
+    for vid, record in variants_by_id.items():
+        if not isinstance(record.get("standard_variant"), dict):
+            failures.append(f"{vid}: missing standard_variant")
+        if not record.get("original_snapshot") and not (
+                record.get("standard_variant") or {}).get("source_basis"):
+            failures.append(f"{vid}: no audit context (original_snapshot/source_basis)")
+        if len(failures) > 50:
+            failures.append("... aborting check loop, too many failures")
+            return failures, variants_by_id, instructions_by_id
+
+    for vid, instr in instructions_by_id.items():
+        if not instr.get("validation_priority"):
+            failures.append(f"{vid}: instruction record missing validation_priority")
+        if not instr.get("validation_tasks"):
+            failures.append(f"{vid}: instruction record missing validation_tasks")
+        if len(failures) > 50:
+            failures.append("... aborting check loop, too many failures")
+            break
+
+    return failures, variants_by_id, instructions_by_id
+
+
+def write_startup_failure(paths: OutputPaths, failures: list[str]) -> None:
+    paths.base.mkdir(parents=True, exist_ok=True)
+    report = {
+        "failed_at": utcnow(),
+        "stage": "startup_validation",
+        "checks_failed": failures,
+        "gemini_called": False,
+        "message": "Startup validation failed. No Gemini calls were made and the "
+                   "validation run did not start.",
+    }
+    paths.startup_failure.write_text(
+        json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
 # ---------------------------------------------------------------------------
-# Merged context
+# Merged context (one variant + matching instruction only — never the dataset)
 # ---------------------------------------------------------------------------
 
 def summarize_original_snapshot(snapshot: Any, max_chars: int = 4000) -> Any:
@@ -212,8 +258,7 @@ def summarize_original_snapshot(snapshot: Any, max_chars: int = 4000) -> Any:
     summary = {k: compact(v) for k, v in snapshot.items() if k not in skip_keys}
     if "trim_options" in snapshot:
         summary["trim_options"] = snapshot["trim_options"]
-    text = json.dumps(summary, ensure_ascii=False)
-    if len(text) > max_chars:
+    if len(json.dumps(summary, ensure_ascii=False)) > max_chars:
         summary = {k: summary[k] for k in list(summary)[: max(5, len(summary) // 2)]}
         summary["_truncated"] = True
     return summary
@@ -277,17 +322,25 @@ def build_merged_context(variant: dict, instruction: dict, variants_by_id: dict)
 
 
 # ---------------------------------------------------------------------------
-# Gemini client
+# Gemini clients
 # ---------------------------------------------------------------------------
 
 class GeminiClient:
-    """Minimal REST client for gemini-3.1-pro-preview with grounding fallback."""
+    """Minimal REST client for the configured Gemini model, with a
+    grounding-unsupported fallback to plain JSON mode."""
 
-    def __init__(self, api_key: str, system_prompt: str, rules: dict):
+    def __init__(self, api_key: str, model_id: str, system_prompt: str,
+                 rules: dict, grounding_enabled: bool = True, log=print):
+        import requests
+        self._requests = requests
         self.api_key = api_key
+        self.model_id = model_id
+        self.endpoint = (f"https://generativelanguage.googleapis.com/v1beta/models/"
+                         f"{model_id}:generateContent")
         self.system_prompt = system_prompt
         self.rules = rules
-        self.grounding_enabled = True  # optimistic; downgraded on first hard failure
+        self.grounding_enabled = grounding_enabled
+        self.log = log
         self.session = requests.Session()
 
     def _request_body(self, user_text: str, use_grounding: bool, strict_retry: bool) -> dict:
@@ -295,7 +348,7 @@ class GeminiClient:
             "system_instruction": {"parts": [{"text": self.system_prompt}]},
             "contents": [{"role": "user", "parts": [{"text": user_text}]}],
             "generationConfig": {
-                "temperature": 0.1,
+                "temperature": 0.0 if strict_retry else 0.1,
                 "maxOutputTokens": 8192,
             },
         }
@@ -304,32 +357,20 @@ class GeminiClient:
         else:
             # JSON mime type is only reliable without tools.
             body["generationConfig"]["responseMimeType"] = "application/json"
-        if strict_retry:
-            body["generationConfig"]["temperature"] = 0.0
         return body
-
-    def _post(self, body: dict) -> requests.Response:
-        return self.session.post(
-            GEMINI_ENDPOINT,
-            headers={"x-goog-api-key": self.api_key,
-                     "Content-Type": "application/json"},
-            json=body,
-            timeout=300,
-        )
 
     @staticmethod
     def _extract_text(payload: dict) -> tuple[str, bool]:
         candidates = payload.get("candidates") or []
         if not candidates:
-            raise ValueError(f"no candidates in response: "
-                             f"{json.dumps(payload)[:500]}")
+            raise ValueError(f"no candidates in response: {json.dumps(payload)[:500]}")
         cand = candidates[0]
         grounded = bool(cand.get("groundingMetadata"))
         parts = (cand.get("content") or {}).get("parts") or []
         text = "".join(p.get("text", "") for p in parts)
         if not text.strip():
-            raise ValueError(f"empty text in candidate (finishReason="
-                             f"{cand.get('finishReason')})")
+            raise ValueError(f"empty text in candidate "
+                             f"(finishReason={cand.get('finishReason')})")
         return text, grounded
 
     def generate(self, user_text: str, strict_retry: bool = False) -> tuple[str, bool]:
@@ -341,34 +382,38 @@ class GeminiClient:
         while True:
             body = self._request_body(user_text, self.grounding_enabled, strict_retry)
             try:
-                resp = self._post(body)
-            except requests.RequestException as e:
+                resp = self.session.post(
+                    self.endpoint,
+                    headers={"x-goog-api-key": self.api_key,
+                             "Content-Type": "application/json"},
+                    json=body, timeout=300)
+            except self._requests.RequestException as e:
                 if attempt >= max_rl:
-                    raise RuntimeError(f"network failure after retries: {e}") from e
+                    raise RuntimeError(
+                        f"network failure after retries: {e.__class__.__name__}") from e
                 wait = base * (2 ** attempt)
-                log(f"  network error ({e.__class__.__name__}); retrying in {wait}s")
+                self.log(f"  network error ({e.__class__.__name__}); retrying in {wait}s")
                 time.sleep(wait)
                 attempt += 1
                 continue
 
             if resp.status_code in (429, 500, 502, 503, 504):
                 if attempt >= max_rl:
-                    raise RuntimeError(
-                        f"Gemini API {resp.status_code} after {max_rl} retries: "
-                        f"{resp.text[:300]}")
+                    raise RuntimeError(f"Gemini API {resp.status_code} after "
+                                       f"{max_rl} retries: {resp.text[:300]}")
                 retry_after = resp.headers.get("retry-after")
                 wait = int(retry_after) if retry_after and retry_after.isdigit() \
                     else base * (2 ** attempt)
-                log(f"  Gemini API {resp.status_code}; backing off {wait}s "
-                    f"(attempt {attempt + 1}/{max_rl})")
+                self.log(f"  Gemini API {resp.status_code}; backing off {wait}s "
+                         f"(attempt {attempt + 1}/{max_rl})")
                 time.sleep(wait)
                 attempt += 1
                 continue
 
             if resp.status_code == 400 and self.grounding_enabled and (
                     "tool" in resp.text.lower() or "search" in resp.text.lower()):
-                log("  grounding/google_search not supported by API for this model; "
-                    "disabling grounding for the rest of the run")
+                self.log("  grounding/google_search not supported by API for this "
+                         "model; disabling grounding for the rest of the run")
                 self.grounding_enabled = False
                 continue
 
@@ -376,9 +421,60 @@ class GeminiClient:
                 raise RuntimeError(f"Gemini API error {resp.status_code}: "
                                    f"{resp.text[:500]}")
 
-            payload = resp.json()
-            text, grounded = self._extract_text(payload)
-            return text, grounded
+            return self._extract_text(resp.json())
+
+
+class MockGeminiClient:
+    """Deterministic offline stand-in for Gemini. Used by mock mode to test the
+    full pipeline (QA, outputs, progress, resume) with zero API calls/cost."""
+
+    grounding_enabled = True
+
+    def __init__(self, *_args, **_kwargs):
+        pass
+
+    def generate(self, user_text: str, strict_retry: bool = False) -> tuple[str, bool]:
+        ctx = json.loads(user_text.split("MERGED_CONTEXT:\n", 1)[1])
+        sv = ctx["standard_variant"]
+        vid = ctx["validation_id"]
+        # Deterministic variety: every 3rd variant simulates low confidence.
+        low = int(vid.rsplit("-", 1)[-1]) % 3 == 2 if vid[-1].isdigit() else False
+        conf = 0.55 if low else 0.93
+        cv = {k: sv.get(k) for k in (
+            "make", "model", "global_model_name", "official_marketed_name_il",
+            "local_brand_name_il", "rebadged_as", "year_start", "year_end",
+            "generation", "body_type", "seats", "engine", "transmission",
+            "fuel_type", "drivetrain", "trim", "variant_id")}
+        cv["alternate_names"] = sv.get("alternate_names") or []
+        cv["market_scope"] = "IL"
+        resp = {
+            "validation_id": vid,
+            "decision": "auto_accept" if conf >= 0.85 else "manual_review",
+            "is_real_variant": True,
+            "is_relevant_to_il_market": True,
+            "corrected_variant": cv,
+            "fields_completed": [], "fields_changed": [], "critical_fields_changed": [],
+            "name_validation": {
+                "model_name_il_status": "verified", "trim_name_il_status": "verified",
+                "recommended_display_name_il": sv.get("global_model_name"),
+                "global_vs_il_name_notes": "mock mode"},
+            "duplicate_review": {
+                "possible_duplicate_group": ctx.get("possible_duplicate_group"),
+                "duplicate_decision": "keep_separate"
+                    if ctx.get("possible_duplicate_group") else "not_applicable",
+                "duplicate_reason": "mock mode"},
+            "split_review": {"split_recommended": False,
+                             "split_reason": "mock mode: treated as single marketed name",
+                             "suggested_split_trims": []},
+            "confidence": conf,
+            "requires_manual_review": conf < 0.85,
+            "manual_review_reason": "" if conf >= 0.85 else "mock low confidence",
+            "evidence_summary": "MOCK RESPONSE - no real validation evidence; "
+                                "values copied from existing record",
+            "grounding_used": False,
+            "grounding_notes": "mock mode, no grounding performed",
+        }
+        return json.dumps(resp, ensure_ascii=False), False
 
 
 def build_user_prompt(merged_context: dict, strict_retry: bool) -> str:
@@ -389,27 +485,28 @@ def build_user_prompt(merged_context: dict, strict_retry: bool) -> str:
     )
     if strict_retry:
         header += (
-            "\nIMPORTANT: your previous answer was malformed or failed deterministic QA. "
-            "Return ONLY one valid JSON object matching the required schema exactly: "
-            "no markdown, no code fences, no commentary, all required keys present, "
-            "validation_id copied exactly from the input.\n"
+            "\nIMPORTANT: your previous answer was malformed or failed deterministic "
+            "QA. Return ONLY one valid JSON object matching the required schema "
+            "exactly: no markdown, no code fences, no commentary, all required keys "
+            "present, validation_id copied exactly from the input.\n"
         )
     return header + "\nMERGED_CONTEXT:\n" + json.dumps(
         merged_context, ensure_ascii=False, separators=(",", ":"))
 
 
 # ---------------------------------------------------------------------------
-# Outputs
+# Outputs / progress
 # ---------------------------------------------------------------------------
 
 def append_jsonl(path: Path, record: dict) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("a", encoding="utf-8") as f:
         f.write(json.dumps(record, ensure_ascii=False) + "\n")
 
 
 def canonical_row(merged_context: dict, response: dict | None, decision: str,
                   rules: dict) -> dict:
-    """Build one clean canonical row (no original_snapshot, no legacy fields)."""
+    """One clean canonical row (no original_snapshot, no legacy fields)."""
     sv = merged_context["standard_variant"]
     cv = (response or {}).get("corrected_variant") or {}
 
@@ -417,9 +514,7 @@ def canonical_row(merged_context: dict, response: dict | None, decision: str,
         val = cv.get(field)
         if qa.is_missing_value(val, rules):
             val = sv.get(field)
-        if qa.is_missing_value(val, rules):
-            return None
-        return val
+        return None if qa.is_missing_value(val, rules) else val
 
     row = {
         "validation_id": merged_context["validation_id"],
@@ -444,12 +539,7 @@ def canonical_row(merged_context: dict, response: dict | None, decision: str,
     return row
 
 
-def load_progress() -> dict:
-    if PROGRESS_FILE.exists():
-        try:
-            return json.loads(PROGRESS_FILE.read_text(encoding="utf-8"))
-        except json.JSONDecodeError:
-            log("WARNING: progress file corrupt; starting fresh progress state")
+def fresh_progress() -> dict:
     return {
         "run_started_at": utcnow(),
         "last_updated_at": None,
@@ -460,19 +550,31 @@ def load_progress() -> dict:
     }
 
 
-def save_progress(progress: dict) -> None:
+def load_progress(paths: OutputPaths) -> dict:
+    if paths.progress.exists():
+        try:
+            return json.loads(paths.progress.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            pass
+    return fresh_progress()
+
+
+def save_progress(paths: OutputPaths, progress: dict) -> None:
     progress["last_updated_at"] = utcnow()
-    tmp = PROGRESS_FILE.with_suffix(".json.tmp")
+    paths.base.mkdir(parents=True, exist_ok=True)
+    tmp = paths.progress.with_suffix(".json.tmp")
     tmp.write_text(json.dumps(progress, ensure_ascii=False, indent=2), encoding="utf-8")
-    tmp.replace(PROGRESS_FILE)
+    tmp.replace(paths.progress)
 
 
-def rebuild_final_clean_files(progress: dict, rules: dict, grounding_enabled: bool) -> None:
+def rebuild_final_clean_files(paths: OutputPaths, progress: dict, rules: dict,
+                              grounding_enabled: bool, cfg=None,
+                              runtime: str = "cli") -> dict:
     """Rebuild the final clean database from canonical_variants_clean.jsonl
     (last record wins per validation_id). No original_snapshot inside."""
     latest: dict[str, dict] = {}
-    if CANONICAL_JSONL.exists():
-        with CANONICAL_JSONL.open(encoding="utf-8") as f:
+    if paths.canonical_jsonl.exists():
+        with paths.canonical_jsonl.open(encoding="utf-8") as f:
             for line in f:
                 line = line.strip()
                 if not line:
@@ -488,11 +590,13 @@ def rebuild_final_clean_files(progress: dict, rules: dict, grounding_enabled: bo
         "schema_version": SCHEMA_VERSION,
         "created_at": utcnow(),
         "source_input_files": [
-            "validation_variants_data_v1.json",
-            "validation_instructions_by_id_v1.json",
+            "data/validation_variants_data_v1.json",
+            "data/validation_instructions_by_id_v1.json",
         ],
-        "validator_model": MODEL_ID,
-        "target_branch": TARGET_BRANCH,
+        "validator_model": getattr(cfg, "model_id", runtime_config.DEFAULT_MODEL_ID),
+        "runtime": runtime,
+        "target_branch": getattr(cfg, "target_branch",
+                                 runtime_config.DEFAULT_TARGET_BRANCH),
         "grounding_enabled": grounding_enabled,
         "total_input_variants": rules["expected_total_variants"],
         "accepted_count": counts["accepted"],
@@ -502,18 +606,23 @@ def rebuild_final_clean_files(progress: dict, rules: dict, grounding_enabled: bo
         "variants": [latest[k] for k in sorted(latest)],
     }
     text = json.dumps(doc, ensure_ascii=False, indent=1)
-    FINAL_CLEAN_FILE.write_text(text, encoding="utf-8")
-    FINAL_COMPAT_FILE.write_text(text, encoding="utf-8")
+    paths.base.mkdir(parents=True, exist_ok=True)
+    paths.final_clean.write_text(text, encoding="utf-8")
+    paths.final_compat.write_text(text, encoding="utf-8")
+    return doc
 
 
-def write_run_summary(progress: dict, rules: dict, grounding_enabled: bool,
-                      run_info: dict) -> None:
+def write_run_summary(paths: OutputPaths, progress: dict, rules: dict,
+                      grounding_enabled: bool, run_info: dict, cfg=None,
+                      runtime: str = "cli") -> None:
     counts = progress["counts"]
     summary = {
         "schema_version": SCHEMA_VERSION,
         "updated_at": utcnow(),
-        "validator_model": MODEL_ID,
-        "target_branch": TARGET_BRANCH,
+        "validator_model": getattr(cfg, "model_id", runtime_config.DEFAULT_MODEL_ID),
+        "runtime": runtime,
+        "target_branch": getattr(cfg, "target_branch",
+                                 runtime_config.DEFAULT_TARGET_BRANCH),
         "grounding_enabled": grounding_enabled,
         "total_input_variants": rules["expected_total_variants"],
         "processed_count": len(progress["processed"]),
@@ -525,7 +634,7 @@ def write_run_summary(progress: dict, rules: dict, grounding_enabled: bool,
         "run_started_at": progress.get("run_started_at"),
         "run_info": run_info,
     }
-    RUN_SUMMARY_FILE.write_text(
+    paths.run_summary.write_text(
         json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
@@ -533,16 +642,11 @@ def write_run_summary(progress: dict, rules: dict, grounding_enabled: bool,
 # Per-variant processing
 # ---------------------------------------------------------------------------
 
-def process_variant(client: GeminiClient | None, merged_context: dict,
-                    rules: dict, schema: dict, dry_run: bool) -> dict:
+def process_variant(client, merged_context: dict, rules: dict, schema: dict,
+                    log=print) -> dict:
     """Process one variant. Returns
     {"decision", "response", "qa", "raw_text", "attempts", "error"}."""
     vid = merged_context["validation_id"]
-
-    if dry_run:
-        return {"decision": "dry_run", "response": None, "qa": None,
-                "raw_text": None, "attempts": 0, "error": None}
-
     max_retries = rules["max_model_retries"]
     last_error = None
     last_qa = None
@@ -604,7 +708,244 @@ def process_variant(client: GeminiClient | None, merged_context: dict,
 
 
 # ---------------------------------------------------------------------------
-# Main
+# Main run loop (reusable from Streamlit and CLI)
+# ---------------------------------------------------------------------------
+
+def select_pending(variants_by_id: dict, instructions_by_id: dict, rules: dict,
+                   options: RunOptions, progress: dict) -> list[str]:
+    priority_rank = {p: i for i, p in enumerate(rules["priority_order"])}
+    ordered = sorted(
+        variants_by_id,
+        key=lambda vid: (
+            priority_rank.get(instructions_by_id[vid].get("validation_priority"), 99),
+            variants_by_id[vid].get("variant_sequence", 0),
+        ),
+    )
+    if options.only_priority:
+        ordered = [v for v in ordered
+                   if instructions_by_id[v].get("validation_priority") == options.only_priority]
+    if options.validation_id:
+        ordered = [options.validation_id] if options.validation_id in variants_by_id else []
+    if options.start_after and options.start_after in ordered:
+        ordered = ordered[ordered.index(options.start_after) + 1:]
+    pending = [v for v in ordered
+               if options.force_reprocess or v not in progress["processed"]]
+    if options.limit is not None:
+        pending = pending[: options.limit]
+    return pending
+
+
+def run_validation(options: RunOptions, cfg: runtime_config.RuntimeConfig | None = None,
+                   log: Callable[[str], None] = print,
+                   progress_callback: Callable[[dict], None] | None = None) -> dict:
+    """Run validation. Returns a result dict; never calls Gemini in dry-run or
+    mock mode. Saves all output after EVERY variant; resumable at any point."""
+    cfg = cfg or runtime_config.resolve()
+    runtime = cfg.runtime
+    paths = MOCK_PATHS if options.mock_mode else REAL_PATHS
+    paths.base.mkdir(parents=True, exist_ok=True)
+
+    rules = load_rules()
+    schema = load_schema()
+
+    failures, variants_by_id, instructions_by_id = startup_checks(rules)
+    if failures:
+        write_startup_failure(paths, failures)
+        log(f"STARTUP VALIDATION FAILED ({len(failures)} issue(s)); "
+            f"report: {paths.startup_failure}")
+        return {"status": "startup_failed", "failures": failures,
+                "processed_this_run": 0}
+
+    log(f"Startup validation passed: {len(variants_by_id)} variants joined with "
+        f"{len(instructions_by_id)} instruction records.")
+
+    progress = load_progress(paths) if options.resume else fresh_progress()
+    pending = select_pending(variants_by_id, instructions_by_id, rules, options, progress)
+    total_expected = rules["expected_total_variants"]
+    mode = "mock" if options.mock_mode else ("dry-run" if options.dry_run else "REAL")
+    log(f"Selected {len(pending)} variant(s) to process [{mode}] "
+        f"(already completed: {len(progress['processed'])}/{total_expected}, "
+        f"force_reprocess={options.force_reprocess}, push_every={options.push_every})")
+
+    if options.dry_run:
+        for i, vid in enumerate(pending, 1):
+            merged = build_merged_context(variants_by_id[vid],
+                                          instructions_by_id[vid], variants_by_id)
+            log(f"[{i}/{len(pending)}] {vid} dry-run: context built "
+                f"({len(json.dumps(merged, ensure_ascii=False))} chars), "
+                f"priority={merged['validation_priority']}, "
+                f"tasks={merged['validation_tasks']}")
+        log("Dry run complete; no Gemini calls were made and no outputs were written.")
+        return {"status": "dry_run_ok", "processed_this_run": len(pending)}
+
+    if options.mock_mode:
+        client = MockGeminiClient()
+        log("MOCK MODE: using offline mock client; outputs go to output/mock/ "
+            "so real progress is untouched. No Gemini calls, no cost.")
+    else:
+        if not cfg.gemini_key_present:
+            failures = ["Gemini API key is not configured "
+                        "(st.secrets [google].api_key or env GEMINI_API_KEY)"]
+            write_startup_failure(paths, failures)
+            log("ERROR: Gemini API key missing. Wrote startup failure report; "
+                "real run blocked.")
+            return {"status": "blocked_no_api_key", "failures": failures,
+                    "processed_this_run": 0}
+        client = GeminiClient(cfg.gemini_api_key, cfg.model_id, load_prompt(),
+                              rules, grounding_enabled=cfg.grounding_enabled, log=log)
+
+    run_info = {
+        "runtime": runtime, "mode": mode, "limit": options.limit,
+        "only_priority": options.only_priority, "validation_id": options.validation_id,
+        "force_reprocess": options.force_reprocess, "push_every": options.push_every,
+        "selected_count": len(pending),
+    }
+    push_results: list[dict] = []
+    since_checkpoint = 0
+    processed_this_run = 0
+    grounding_enabled = client.grounding_enabled
+
+    def do_checkpoint(final: bool = False) -> None:
+        n_done = len(progress["processed"])
+        if final and n_done >= total_expected:
+            message = f"validation complete: processed {total_expected}/{total_expected} variants"
+        else:
+            message = f"validation checkpoint: processed {n_done}/{total_expected} variants"
+        if not options.push_enabled:
+            log(f"[checkpoint] push disabled; skipping ('{message}')")
+            return
+        result = github_checkpoint.checkpoint(
+            message, paths.checkpoint_paths(), cfg, REPO_ROOT,
+            push_failures_file=paths.push_failures, log=log)
+        push_results.append(result)
+
+    try:
+        for i, vid in enumerate(pending, 1):
+            variant = variants_by_id[vid]
+            instruction = instructions_by_id[vid]
+            merged_context = build_merged_context(variant, instruction, variants_by_id)
+            priority = instruction.get("validation_priority")
+            log(f"[{i}/{len(pending)}] {vid} (priority={priority})")
+
+            result = process_variant(client, merged_context, rules, schema, log=log)
+            decision = result["decision"]
+            response = result["response"]
+            grounding_enabled = client.grounding_enabled
+
+            # 1) Full audit record (the ONLY place original_snapshot is kept).
+            append_jsonl(paths.results, {
+                "validation_id": vid,
+                "processed_at": utcnow(),
+                "runtime": runtime,
+                "mode": mode,
+                "validation_priority": priority,
+                "decision": decision,
+                "attempts": result["attempts"],
+                "error": result["error"],
+                "qa_issues": (result["qa"] or {}).get("issues"),
+                "grounding_enabled": grounding_enabled,
+                "original_snapshot": variant.get("original_snapshot"),
+                "original_variant_id": variant.get("original_variant_id"),
+                "standard_variant_before": merged_context["standard_variant"],
+                "gemini_response": response,
+            })
+
+            # 2) Clean canonical row for accepted + manual_review variants.
+            if decision in ("auto_accept", "manual_review"):
+                append_jsonl(paths.canonical_jsonl,
+                             canonical_row(merged_context, response, decision, rules))
+
+            # 3) Routing files.
+            if decision == "manual_review":
+                append_jsonl(paths.manual_review, {
+                    "validation_id": vid,
+                    "processed_at": utcnow(),
+                    "reasons": (result["qa"] or {}).get("issues") or [result["error"]],
+                    "manual_review_reason": (response or {}).get("manual_review_reason"),
+                    "confidence": (response or {}).get("confidence"),
+                    "gemini_response": response,
+                })
+            elif decision in ("failed", "reject"):
+                append_jsonl(paths.failures, {
+                    "validation_id": vid,
+                    "processed_at": utcnow(),
+                    "decision": decision,
+                    "error": result["error"],
+                    "qa_issues": (result["qa"] or {}).get("issues"),
+                    "raw_text_excerpt": (result["raw_text"] or "")[:2000] or None,
+                })
+
+            # 4) Progress + derived final files, saved after EVERY variant.
+            count_key = {"auto_accept": "accepted", "manual_review": "manual_review",
+                         "reject": "rejected", "failed": "failed"}[decision]
+            prev = progress["processed"].get(vid)
+            if prev is not None:
+                prev_key = {"auto_accept": "accepted", "manual_review": "manual_review",
+                            "reject": "rejected", "failed": "failed"}.get(prev)
+                if prev_key:
+                    progress["counts"][prev_key] = max(
+                        0, progress["counts"][prev_key] - 1)
+            progress["processed"][vid] = decision
+            progress["counts"][count_key] += 1
+            progress["last_processed_validation_id"] = vid
+            progress["grounding_enabled"] = grounding_enabled
+            save_progress(paths, progress)
+            rebuild_final_clean_files(paths, progress, rules, grounding_enabled,
+                                      cfg=cfg, runtime=runtime)
+            write_run_summary(paths, progress, rules, grounding_enabled, run_info,
+                              cfg=cfg, runtime=runtime)
+            processed_this_run += 1
+
+            log(f"  -> {decision} (confidence={(response or {}).get('confidence')}, "
+                f"attempts={result['attempts']})")
+            if progress_callback:
+                progress_callback({
+                    "index": i, "total": len(pending), "validation_id": vid,
+                    "decision": decision, "counts": dict(progress["counts"]),
+                    "processed_total": len(progress["processed"]),
+                })
+
+            # 5) Checkpoint commit/push.
+            since_checkpoint += 1
+            if since_checkpoint >= max(1, options.push_every):
+                do_checkpoint()
+                since_checkpoint = 0
+    except (Exception, KeyboardInterrupt) as e:
+        # Progress is already saved per-variant; record the interruption safely.
+        save_progress(paths, progress)
+        write_run_summary(paths, progress, rules, grounding_enabled, run_info,
+                          cfg=cfg, runtime=runtime)
+        log(f"Run interrupted after {processed_this_run} variant(s): "
+            f"{e.__class__.__name__}. Progress saved; run is resumable.")
+        if not isinstance(e, KeyboardInterrupt):
+            raise
+        return {"status": "interrupted", "processed_this_run": processed_this_run,
+                "counts": progress["counts"]}
+
+    if since_checkpoint > 0 or processed_this_run > 0:
+        do_checkpoint(final=True)
+
+    counts = progress["counts"]
+    n_done = len(progress["processed"])
+    log(f"Run finished: processed={n_done}/{total_expected} "
+        f"accepted={counts['accepted']} manual_review={counts['manual_review']} "
+        f"rejected={counts['rejected']} failed={counts['failed']} "
+        f"grounding_enabled={grounding_enabled}")
+    failed_pushes = [r for r in push_results if r.get("push_failure")]
+    return {
+        "status": "ok",
+        "processed_this_run": processed_this_run,
+        "processed_total": n_done,
+        "total_expected": total_expected,
+        "counts": dict(counts),
+        "grounding_enabled": grounding_enabled,
+        "push_results": push_results,
+        "push_failures": len(failed_pushes),
+    }
+
+
+# ---------------------------------------------------------------------------
+# CLI
 # ---------------------------------------------------------------------------
 
 def parse_args() -> argparse.Namespace:
@@ -612,221 +953,38 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--limit", type=int, default=None,
                    help="max number of variants to process this run (default: all)")
     p.add_argument("--only-priority", choices=["high", "medium", "low", "sample_only"],
-                   default=None, help="process only one priority group")
-    p.add_argument("--validation-id", default=None,
-                   help="process a single validation_id")
-    p.add_argument("--start-after", default=None,
-                   help="skip until after this validation_id in processing order")
+                   default=None)
+    p.add_argument("--validation-id", default=None)
+    p.add_argument("--start-after", default=None)
     p.add_argument("--dry-run", action="store_true",
                    help="build contexts and ordering without calling Gemini")
-    p.add_argument("--no-resume", action="store_true",
-                   help="ignore existing progress file (still does not delete outputs)")
+    p.add_argument("--mock", action="store_true",
+                   help="offline mock validation into output/mock/ (no Gemini calls)")
+    p.add_argument("--no-resume", action="store_true")
     p.add_argument("--push-every", type=int,
-                   default=int(os.environ.get("PUSH_EVERY_N_VARIANTS", "25")),
-                   help="checkpoint push frequency (default 25; 1 = push every variant)")
-    p.add_argument("--no-push", action="store_true",
-                   help="never push (local commits only)")
+                   default=int(os.environ.get("PUSH_EVERY_N_VARIANTS", "25")))
+    p.add_argument("--no-push", action="store_true")
     return p.parse_args()
 
 
 def main() -> int:
     args = parse_args()
-    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-
-    rules = json.loads(FIELD_RULES_FILE.read_text(encoding="utf-8"))
-    schema = json.loads(SCHEMA_FILE.read_text(encoding="utf-8"))
-    system_prompt = PROMPT_FILE.read_text(encoding="utf-8")
-
-    force_reprocess = os.environ.get("FORCE_REPROCESS", "false").strip().lower() == "true"
-
-    _, variants_by_id, instructions_by_id = startup_validation(rules)
-
-    # Processing order: priority groups, variant_sequence inside each group.
-    priority_rank = {p: i for i, p in enumerate(rules["priority_order"])}
-    ordered_ids = sorted(
-        variants_by_id,
-        key=lambda vid: (
-            priority_rank.get(instructions_by_id[vid].get("validation_priority"), 99),
-            variants_by_id[vid].get("variant_sequence", 0),
-        ),
+    options = RunOptions(
+        limit=args.limit,
+        only_priority=args.only_priority,
+        validation_id=args.validation_id,
+        start_after=args.start_after,
+        dry_run=args.dry_run,
+        mock_mode=args.mock,
+        force_reprocess=os.environ.get("FORCE_REPROCESS", "false").strip().lower() == "true",
+        resume=not args.no_resume,
+        push_every=args.push_every,
+        push_enabled=not args.no_push,
     )
-
-    if args.only_priority:
-        ordered_ids = [v for v in ordered_ids
-                       if instructions_by_id[v].get("validation_priority") == args.only_priority]
-    if args.validation_id:
-        if args.validation_id not in variants_by_id:
-            log(f"ERROR: unknown validation_id {args.validation_id}")
-            return 2
-        ordered_ids = [args.validation_id]
-    if args.start_after:
-        if args.start_after in ordered_ids:
-            ordered_ids = ordered_ids[ordered_ids.index(args.start_after) + 1:]
-        else:
-            log(f"WARNING: --start-after id {args.start_after} not in selection; ignoring")
-
-    progress = load_progress() if not args.no_resume else {
-        "run_started_at": utcnow(), "last_updated_at": None,
-        "last_processed_validation_id": None, "processed": {},
-        "counts": {"accepted": 0, "manual_review": 0, "rejected": 0, "failed": 0},
-        "grounding_enabled": None,
-    }
-
-    pending = [v for v in ordered_ids
-               if force_reprocess or v not in progress["processed"]]
-    if args.limit is not None:
-        pending = pending[: args.limit]
-
-    total_expected = rules["expected_total_variants"]
-    log(f"Selected {len(pending)} variant(s) to process "
-        f"(already completed: {len(progress['processed'])}/{total_expected}, "
-        f"force_reprocess={force_reprocess}, dry_run={args.dry_run}, "
-        f"push_every={args.push_every})")
-
-    client = None
-    if not args.dry_run:
-        api_key = os.environ.get("GEMINI_API_KEY", "").strip()
-        if not api_key:
-            OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-            STARTUP_FAILURE_FILE.write_text(json.dumps({
-                "failed_at": utcnow(), "stage": "startup_validation",
-                "checks_failed": ["GEMINI_API_KEY is not set in the environment"],
-                "gemini_called": False,
-            }, ensure_ascii=False, indent=2), encoding="utf-8")
-            log("ERROR: GEMINI_API_KEY not set. Wrote startup failure report; exiting.")
-            return 2
-        client = GeminiClient(api_key, system_prompt, rules)
-
-    grounding_enabled = client.grounding_enabled if client else False
-    run_info = {
-        "limit": args.limit, "only_priority": args.only_priority,
-        "validation_id": args.validation_id, "dry_run": args.dry_run,
-        "force_reprocess": force_reprocess, "push_every": args.push_every,
-        "selected_count": len(pending),
-    }
-
-    # Save progress on SIGTERM/SIGINT so a crash/cancel never loses results.
-    def _graceful_exit(signum, frame):
-        log(f"received signal {signum}; saving progress and exiting")
-        save_progress(progress)
-        write_run_summary(progress, rules,
-                          client.grounding_enabled if client else False, run_info)
-        sys.exit(130)
-
-    signal.signal(signal.SIGTERM, _graceful_exit)
-    signal.signal(signal.SIGINT, _graceful_exit)
-
-    do_push = not args.no_push
-    since_checkpoint = 0
-
-    for i, vid in enumerate(pending, 1):
-        variant = variants_by_id[vid]
-        instruction = instructions_by_id[vid]
-        merged_context = build_merged_context(variant, instruction, variants_by_id)
-        priority = instruction.get("validation_priority")
-        log(f"[{i}/{len(pending)}] {vid} (priority={priority})")
-
-        result = process_variant(client, merged_context, rules, schema, args.dry_run)
-
-        if args.dry_run:
-            log(f"  dry-run: context built "
-                f"({len(json.dumps(merged_context, ensure_ascii=False))} chars), "
-                f"tasks={merged_context['validation_tasks']}")
-            continue
-
-        decision = result["decision"]
-        response = result["response"]
-        grounding_enabled = client.grounding_enabled
-
-        # 1) Full audit record (the ONLY place original_snapshot is kept).
-        append_jsonl(RESULTS_FILE, {
-            "validation_id": vid,
-            "processed_at": utcnow(),
-            "validation_priority": priority,
-            "decision": decision,
-            "attempts": result["attempts"],
-            "error": result["error"],
-            "qa_issues": (result["qa"] or {}).get("issues"),
-            "grounding_enabled": grounding_enabled,
-            "original_snapshot": variant.get("original_snapshot"),
-            "original_variant_id": variant.get("original_variant_id"),
-            "standard_variant_before": merged_context["standard_variant"],
-            "gemini_response": response,
-        })
-
-        # 2) Clean canonical row for accepted + manual_review variants.
-        if decision in ("auto_accept", "manual_review"):
-            append_jsonl(CANONICAL_JSONL,
-                         canonical_row(merged_context, response, decision, rules))
-
-        # 3) Routing files.
-        if decision == "manual_review":
-            append_jsonl(MANUAL_REVIEW_FILE, {
-                "validation_id": vid,
-                "processed_at": utcnow(),
-                "reasons": (result["qa"] or {}).get("issues") or [result["error"]],
-                "manual_review_reason": (response or {}).get("manual_review_reason"),
-                "confidence": (response or {}).get("confidence"),
-                "gemini_response": response,
-            })
-        elif decision in ("failed", "reject"):
-            append_jsonl(FAILURES_FILE, {
-                "validation_id": vid,
-                "processed_at": utcnow(),
-                "decision": decision,
-                "error": result["error"],
-                "qa_issues": (result["qa"] or {}).get("issues"),
-                "raw_text_excerpt": (result["raw_text"] or "")[:2000] or None,
-            })
-
-        # 4) Progress + derived final files, saved after EVERY variant.
-        count_key = {"auto_accept": "accepted", "manual_review": "manual_review",
-                     "reject": "rejected", "failed": "failed"}[decision]
-        prev = progress["processed"].get(vid)
-        if prev is not None:
-            prev_key = {"auto_accept": "accepted", "manual_review": "manual_review",
-                        "reject": "rejected", "failed": "failed"}.get(prev)
-            if prev_key:
-                progress["counts"][prev_key] = max(0, progress["counts"][prev_key] - 1)
-        progress["processed"][vid] = decision
-        progress["counts"][count_key] += 1
-        progress["last_processed_validation_id"] = vid
-        progress["grounding_enabled"] = grounding_enabled
-        save_progress(progress)
-        rebuild_final_clean_files(progress, rules, grounding_enabled)
-        write_run_summary(progress, rules, grounding_enabled, run_info)
-
-        log(f"  -> {decision} "
-            f"(confidence={(response or {}).get('confidence')}, "
-            f"attempts={result['attempts']})")
-
-        # 5) Checkpoint commit/push.
-        since_checkpoint += 1
-        if since_checkpoint >= max(1, args.push_every):
-            n_done = len(progress["processed"])
-            github_checkpoint.checkpoint(
-                f"validation checkpoint: processed {n_done}/{total_expected} variants",
-                OUTPUT_PATHS_FOR_CHECKPOINT, cwd=str(REPO_ROOT), do_push=do_push)
-            since_checkpoint = 0
-
-    if args.dry_run:
-        log("Dry run complete; no Gemini calls were made and no outputs were written.")
-        return 0
-
-    n_done = len(progress["processed"])
-    write_run_summary(progress, rules, grounding_enabled, run_info)
-    if n_done >= total_expected:
-        message = f"validation complete: processed {total_expected}/{total_expected} variants"
-    else:
-        message = f"validation checkpoint: processed {n_done}/{total_expected} variants"
-    github_checkpoint.checkpoint(message, OUTPUT_PATHS_FOR_CHECKPOINT,
-                                 cwd=str(REPO_ROOT), do_push=do_push)
-
-    counts = progress["counts"]
-    log(f"Run finished: processed={n_done}/{total_expected} "
-        f"accepted={counts['accepted']} manual_review={counts['manual_review']} "
-        f"rejected={counts['rejected']} failed={counts['failed']} "
-        f"grounding_enabled={grounding_enabled}")
+    cfg = runtime_config.resolve(runtime="cli")
+    result = run_validation(options, cfg=cfg)
+    if result["status"] in ("startup_failed", "blocked_no_api_key"):
+        return 2
     return 0
 
 

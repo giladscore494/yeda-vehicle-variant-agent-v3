@@ -10,33 +10,28 @@ Verifies:
   6. Merged context builds for one variant of each priority.
   7. Deterministic QA accepts a known-good synthetic response and
      routes a low-confidence response to manual_review.
-  8. The output directory is writable.
-  9. GEMINI_API_KEY presence is reported (value never printed).
+  8. The runtime-config resolver works without Streamlit secrets.
+  9. The output directory is writable.
+ 10. Secret presence is reported (values never printed).
 
-Exit code 0 = safe to start a validation run.
+Importable from the Streamlit app via run_checks(); exit code 0 = safe to run.
 """
 
 from __future__ import annotations
 
 import json
-import os
 import sys
 import tempfile
 from pathlib import Path
 
 SCRIPTS_DIR = Path(__file__).resolve().parent
 REPO_ROOT = SCRIPTS_DIR.parent
-sys.path.insert(0, str(SCRIPTS_DIR))
+if str(SCRIPTS_DIR) not in sys.path:
+    sys.path.insert(0, str(SCRIPTS_DIR))
 
 import deterministic_qa as qa  # noqa: E402
 import run_gemini_validation as engine  # noqa: E402
-
-CHECKS: list[tuple[str, bool, str]] = []
-
-
-def check(name: str, ok: bool, detail: str = "") -> None:
-    CHECKS.append((name, ok, detail))
-    print(f"  [{'OK' if ok else 'FAIL'}] {name}" + (f" — {detail}" if detail else ""))
+import runtime_config  # noqa: E402
 
 
 def synthetic_response(merged: dict, confidence: float) -> dict:
@@ -60,19 +55,16 @@ def synthetic_response(merged: dict, confidence: float) -> dict:
             "drivetrain": sv.get("drivetrain"), "trim": sv.get("trim"),
             "market_scope": "IL", "variant_id": sv.get("variant_id"),
         },
-        "fields_completed": [],
-        "fields_changed": [],
-        "critical_fields_changed": [],
+        "fields_completed": [], "fields_changed": [], "critical_fields_changed": [],
         "name_validation": {
-            "model_name_il_status": "verified",
-            "trim_name_il_status": "verified",
+            "model_name_il_status": "verified", "trim_name_il_status": "verified",
             "recommended_display_name_il": sv.get("global_model_name"),
             "global_vs_il_name_notes": "",
         },
         "duplicate_review": {
             "possible_duplicate_group": merged.get("possible_duplicate_group"),
-            "duplicate_decision": "keep_separate" if merged.get("possible_duplicate_group")
-                                   else "not_applicable",
+            "duplicate_decision": "keep_separate"
+                if merged.get("possible_duplicate_group") else "not_applicable",
             "duplicate_reason": "smoke test synthetic decision",
         },
         "split_review": {
@@ -89,33 +81,49 @@ def synthetic_response(merged: dict, confidence: float) -> dict:
     }
 
 
-def main() -> int:
-    print("== Smoke test: Gemini variant validation engine ==")
+def run_checks(log=print) -> tuple[bool, list[tuple[str, bool, str]]]:
+    """Run all smoke checks. Returns (all_passed, [(name, ok, detail), ...])."""
+    checks: list[tuple[str, bool, str]] = []
 
-    rules = json.loads(engine.FIELD_RULES_FILE.read_text(encoding="utf-8"))
-    schema = json.loads(engine.SCHEMA_FILE.read_text(encoding="utf-8"))
-    check("config/field_rules.json loads", True)
-    check("config/validation_schema.json loads", True)
+    def check(name: str, ok: bool, detail: str = "") -> None:
+        checks.append((name, ok, detail))
+        log(f"  [{'OK' if ok else 'FAIL'}] {name}" + (f" — {detail}" if detail else ""))
 
-    prompt = engine.PROMPT_FILE.read_text(encoding="utf-8")
-    check("prompt file loads", len(prompt) > 500,
-          str(engine.PROMPT_FILE.relative_to(REPO_ROOT)))
+    log("== Smoke test: Gemini variant validation engine ==")
+    try:
+        rules = engine.load_rules()
+        schema = engine.load_schema()
+        check("config/field_rules.json loads", True)
+        check("config/validation_schema.json loads", True)
+    except Exception as e:  # noqa: BLE001
+        check("config files load", False, str(e)[:200])
+        return False, checks
 
-    # Startup validation (exits process with code 2 on failure).
-    _, variants_by_id, instructions_by_id = engine.startup_validation(rules)
-    check("both input files load and pass startup validation", True)
+    try:
+        prompt = engine.load_prompt()
+        check("prompt file loads", len(prompt) > 500,
+              "prompts/gemini_variant_validation_prompt_two_file_context.md")
+    except Exception as e:  # noqa: BLE001
+        check("prompt file loads", False, str(e)[:200])
+        return False, checks
+
+    failures, variants_by_id, instructions_by_id = engine.startup_checks(rules)
+    check("both input files load and pass startup validation",
+          not failures, "; ".join(failures[:3]))
+    if failures:
+        return False, checks
     check("exactly 3712 unique validation_ids joined",
           len(variants_by_id) == 3712 and set(variants_by_id) == set(instructions_by_id),
           f"variants={len(variants_by_id)}, instructions={len(instructions_by_id)}")
 
-    # One merged context per priority.
     by_priority: dict[str, str] = {}
     for vid, instr in instructions_by_id.items():
         by_priority.setdefault(instr.get("validation_priority"), vid)
     for prio in rules["priority_order"]:
         vid = by_priority.get(prio)
         if vid is None:
-            check(f"merged context for priority={prio}", False, "no variant with this priority")
+            check(f"merged context for priority={prio}", False,
+                  "no variant with this priority")
             continue
         merged = engine.build_merged_context(
             variants_by_id[vid], instructions_by_id[vid], variants_by_id)
@@ -125,7 +133,6 @@ def main() -> int:
               and merged["validation_tasks"])
         check(f"merged context for priority={prio}", ok, vid)
 
-    # QA behavior on synthetic responses.
     sample_vid = by_priority.get("high") or next(iter(variants_by_id))
     merged = engine.build_merged_context(
         variants_by_id[sample_vid], instructions_by_id[sample_vid], variants_by_id)
@@ -152,24 +159,34 @@ def main() -> int:
     parsed = qa.parse_strict_json('```json\n{"a": 1}\n```')
     check("strict JSON parser strips accidental fences", parsed == {"a": 1})
 
-    # Output dir writable.
-    engine.OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     try:
-        with tempfile.NamedTemporaryFile(dir=engine.OUTPUT_DIR, suffix=".tmp"):
+        cfg = runtime_config.resolve(runtime="smoke_test")
+        rep = cfg.presence_report()
+        check("runtime config resolves without crashing", True,
+              f"source={rep['secrets_source']}, model={rep['model_id']}")
+        log(f"  [INFO] Gemini API key: {rep['gemini_api_key']} (value never shown)")
+        log(f"  [INFO] GitHub token: {rep['github_token']} (value never shown)")
+        log(f"  [INFO] grounding_enabled: {rep['grounding_enabled']}")
+    except Exception as e:  # noqa: BLE001
+        check("runtime config resolves without crashing", False, str(e)[:200])
+
+    engine.REAL_PATHS.base.mkdir(parents=True, exist_ok=True)
+    try:
+        with tempfile.NamedTemporaryFile(dir=engine.REAL_PATHS.base, suffix=".tmp"):
             pass
         check("output/ directory is writable", True)
     except OSError as e:
         check("output/ directory is writable", False, str(e))
 
-    has_key = bool(os.environ.get("GEMINI_API_KEY", "").strip())
-    print(f"  [INFO] GEMINI_API_KEY present: {has_key} (required for real runs)")
-    has_token = bool(os.environ.get("GH_PUSH_TOKEN", "").strip())
-    print(f"  [INFO] GH_PUSH_TOKEN present: {has_token} (required for checkpoint pushes)")
+    failed = [c for c in checks if not c[1]]
+    log(f"\n== Smoke test {'PASSED' if not failed else 'FAILED'}: "
+        f"{len(checks) - len(failed)}/{len(checks)} checks OK ==")
+    return not failed, checks
 
-    failed = [c for c in CHECKS if not c[1]]
-    print(f"\n== Smoke test {'PASSED' if not failed else 'FAILED'}: "
-          f"{len(CHECKS) - len(failed)}/{len(CHECKS)} checks OK ==")
-    return 0 if not failed else 1
+
+def main() -> int:
+    ok, _ = run_checks()
+    return 0 if ok else 1
 
 
 if __name__ == "__main__":

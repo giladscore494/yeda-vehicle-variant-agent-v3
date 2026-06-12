@@ -1,5 +1,10 @@
 name: Run Gemini Variant Validation
 
+# NOTE: the MAIN real validation run happens through the Streamlit app
+# (app.py) using Streamlit secrets. This workflow is kept for smoke tests,
+# dry-runs and optional manually-requested Action runs. When GitHub Actions
+# secrets are absent, the workflow degrades to dry-run instead of failing.
+
 on:
   workflow_dispatch:
     inputs:
@@ -22,6 +27,10 @@ on:
         required: false
       dry_run:
         description: "build contexts without calling Gemini (true/false)"
+        required: false
+        default: "true"
+      mock:
+        description: "offline mock validation into output/mock/ (true/false)"
         required: false
         default: "false"
 
@@ -79,23 +88,15 @@ jobs:
           if [ -n "${{ github.event.inputs.validation_id }}" ]; then
             ARGS="$ARGS --validation-id ${{ github.event.inputs.validation_id }}"
           fi
-          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+          if [ "${{ github.event.inputs.mock }}" = "true" ]; then
+            ARGS="$ARGS --mock --no-push"
+          elif [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            ARGS="$ARGS --dry-run"
+          elif [ -z "$GEMINI_API_KEY" ]; then
+            echo "::warning::GEMINI_API_KEY secret is not configured." \
+                 "The main real run goes through Streamlit (st.secrets)." \
+                 "Falling back to --dry-run instead of failing."
             ARGS="$ARGS --dry-run"
           fi
           echo "Running: python scripts/run_gemini_validation.py $ARGS"
           python scripts/run_gemini_validation.py $ARGS
-
-      - name: Final checkpoint on failure
-        if: failure()
-        env:
-          GH_PUSH_TOKEN: ${{ secrets.GH_PUSH_TOKEN }}
-          TARGET_BRANCH: ${{ github.ref_name }}
-        run: |
-          python - <<'EOF'
-          import sys
-          sys.path.insert(0, 'scripts')
-          import github_checkpoint
-          github_checkpoint.checkpoint(
-              "validation checkpoint: save progress after workflow failure",
-              ["output"], do_push=True)
-          EOF
