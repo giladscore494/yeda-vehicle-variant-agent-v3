@@ -70,10 +70,7 @@ def archive_and_reset(output_dir: Path | None = None,
             continue
         dest = archive_dir / name
         dest.parent.mkdir(parents=True, exist_ok=True)
-        if src.is_dir():
-            shutil.move(str(src), str(dest))
-        else:
-            shutil.move(str(src), str(dest))
+        shutil.move(str(src), str(dest))
         moved_count += 1
         log(f"  archived: {name}")
 

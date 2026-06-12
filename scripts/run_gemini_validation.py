@@ -1455,11 +1455,13 @@ def run_validation(options: RunOptions, cfg: runtime_config.RuntimeConfig | None
                     since_checkpoint = 0
 
             # ── Finalize model context ────────────────────────────────
-            final_ctx = mctx.finalize_context(active_ctx)
-            mctx.save_final_model_context(final_ctx, run_dir)
-            _write_model_run_summary(run_dir, make, model_name,
-                                     final_ctx, model_stats)
-            mctx.clear_active_context(paths.base)
+            try:
+                final_ctx = mctx.finalize_context(active_ctx)
+                mctx.save_final_model_context(final_ctx, run_dir)
+                _write_model_run_summary(run_dir, make, model_name,
+                                         final_ctx, model_stats)
+            finally:
+                mctx.clear_active_context(paths.base)
             log(f"[MODEL DONE] {make} {model_name}: "
                 f"clean={model_stats['clean_count']} "
                 f"rejected={model_stats['rejected_count']} "
