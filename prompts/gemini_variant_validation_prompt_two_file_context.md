@@ -10,6 +10,8 @@ You receive a merged context built from two repository files joined by `validati
 The merged context you receive contains:
 
 - `standard_variant` — the current best-known variant record
+- `technical_fingerprint` — the technical identity of this variant (make, model, year, engine, transmission, fuel_type, body_type, drivetrain, seats, generation, market_scope)
+- `source_trim_was_generic` — true if the source trim/name is weak/generic (Base, Standard, Unknown, N/A, null, empty)
 - `original_snapshot_summary` — audit context from the original source record
 - `effective_missing_standard_fields` — fields you must try to complete
 - `technical_identity_missing_fields` — identity fields that are missing
@@ -17,12 +19,33 @@ The merged context you receive contains:
 - `possible_duplicate_group` and `duplicate_group_records` (when applicable)
 - `canonical_identity_key`, `canonical_identity_hash`, `schema_family`, `original_status`
 - `source_basis` / `field_sources` when available
+- `active_model_context` (when available) — trims already known/processed for this model
 
 ## Non-negotiable output rules
 
 - Return STRICT JSON ONLY. No markdown, no code fences, no prose outside JSON, no comments, no trailing text.
 - The returned `validation_id` must exactly match the input `validation_id`.
 - Return exactly the schema below. Do not add or remove top-level keys.
+
+## Source data quality rules
+
+The source data is low quality. The source trim/name may be generic, translated, wrong, or incomplete.
+
+- Do NOT treat weak source names like Base, Standard, Unknown, N/A, null, or empty string as authoritative.
+- Identify the correct variant primarily by: technical fingerprint, Israeli-market evidence, official trim/variant name, and uniqueness compared with other trims of the same model.
+- If the source trim is weak/generic, identify what official Israeli marketed trim/name matches the technical fingerprint.
+- If multiple trims could match the same technical fingerprint, do NOT guess. Report ambiguity.
+
+## Per-model context rules
+
+When `active_model_context` is provided:
+
+- It contains trims, variants, and evidence already discovered for this make/model.
+- Match against the existing context FIRST before searching wider.
+- Determine what is unique about this trim compared with other trims already known for the same model.
+- Identify the lineup position: entry / mid / high / performance / special_edition / unknown.
+- Report whether this is a duplicate of a previously resolved variant.
+- Report whether multiple trims share the same technical identity.
 
 ## Behavior rules
 
@@ -49,6 +72,15 @@ The merged context you receive contains:
 - `manual_review` when: confidence < 0.85, Israeli model/trim naming is uncertain, a duplicate decision is unresolved, a combined trim may need splitting, evidence is contradictory, or grounding was needed but unavailable. This answer does NOT go to a human: the pipeline immediately runs an automatic targeted correction pass (Pass 2/3) for the same variant; if it stays unresolved after all passes it is excluded from the clean database (`rejected_from_clean`).
 - `reject` only when: the variant is clearly invalid, contradicts itself in a way that cannot be resolved, or required identity fields are impossible to validate. A rejected variant is excluded from the clean database.
 - Generic/placeholder trims ("Base", "Standard", "Unknown", null, empty) are never auto-accepted unless you verify the value is a real official Israeli marketed trim with strong evidence.
+
+## Audit wording preferences
+
+When rejecting or noting issues, prefer:
+- "not safely recoverable from available Israeli-market evidence"
+- "source row too weak to map to one verified Israeli variant"
+- "ambiguous between multiple trims"
+
+Do NOT say "does not exist in Israel" unless evidence specifically proves non-existence.
 
 ## Required output schema
 
@@ -104,7 +136,21 @@ Return exactly this JSON structure (fill all keys; use null where unknown):
   "manual_review_reason": "...",
   "evidence_summary": "...",
   "grounding_used": true,
-  "grounding_notes": "..."
+  "grounding_notes": "...",
+  "source_trim_was_generic": false,
+  "model_context_used": false,
+  "model_context_updated": false,
+  "technical_fingerprint_used": false,
+  "selected_verified_trim": null,
+  "selected_trim_lineup_position": "unknown",
+  "selected_trim_unique_differentiator": null,
+  "known_competing_trims": [],
+  "rejected_possible_trims": [],
+  "discovered_missing_variants": [],
+  "correction_reason": null,
+  "evidence_strength": "weak",
+  "safe_to_auto_resolve": false,
+  "recovery_used": false
 }
 
 ## Field semantics
@@ -115,3 +161,17 @@ Return exactly this JSON structure (fill all keys; use null where unknown):
 - `confidence`: your overall confidence (0.0–1.0) in the corrected variant being correct for the Israeli market.
 - `evidence_summary`: short, concrete description of the evidence behind completions/changes (importers, official IL sites, known market history). Required whenever you complete or change anything.
 - Treat "unknown", null, empty string, empty list, empty object and "N/A" as missing values — never output them as if they were real data.
+- `source_trim_was_generic`: whether the original source trim was a weak/generic name.
+- `model_context_used`: whether the active model context was consulted.
+- `model_context_updated`: whether new information was added to the model context.
+- `technical_fingerprint_used`: whether the technical fingerprint was used to identify the variant.
+- `selected_verified_trim`: the official Israeli trim name selected for this variant, or null.
+- `selected_trim_lineup_position`: entry / mid / high / performance / special_edition / unknown.
+- `selected_trim_unique_differentiator`: what makes this trim unique vs other trims of the same model.
+- `known_competing_trims`: other trims for the same model that were considered.
+- `rejected_possible_trims`: trims considered but ruled out and why.
+- `discovered_missing_variants`: list of {trim, evidence_summary, lineup_position, unique_differentiator} for IL trims found during validation but not present in the source database. These are expansion candidates only.
+- `correction_reason`: why the source data was corrected (if applicable).
+- `evidence_strength`: weak / moderate / strong / verified.
+- `safe_to_auto_resolve`: whether this variant can be safely auto-resolved.
+- `recovery_used`: whether a recovery/correction pass was needed.
