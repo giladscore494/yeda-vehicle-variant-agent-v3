@@ -28,6 +28,8 @@ import os
 from dataclasses import dataclass, field
 
 DEFAULT_MODEL_ID = "gemini-3.1-pro-preview"
+DEFAULT_OPENAI_MODEL_ID = "gpt-5.4"
+DEFAULT_ADJUDICATION_SCOPE = "all_non_trivial"
 DEFAULT_REPO_FULL_NAME = "giladscore494/yeda-vehicle-variant-agent-v3"
 DEFAULT_TARGET_BRANCH = "validation-v2-budgeted-dual-il-trims"
 DEFAULT_BASE_BRANCH = "main"
@@ -38,6 +40,10 @@ class RuntimeConfig:
     gemini_api_key: str = ""
     model_id: str = DEFAULT_MODEL_ID
     grounding_enabled: bool = True
+    openai_api_key: str = ""
+    openai_model_id: str = DEFAULT_OPENAI_MODEL_ID
+    openai_web_search_enabled: bool = True
+    adjudication_scope: str = DEFAULT_ADJUDICATION_SCOPE
     github_token: str = ""
     repo_full_name: str = DEFAULT_REPO_FULL_NAME
     target_branch: str = DEFAULT_TARGET_BRANCH
@@ -50,6 +56,10 @@ class RuntimeConfig:
         return bool(self.gemini_api_key.strip())
 
     @property
+    def openai_key_present(self) -> bool:
+        return bool(self.openai_api_key.strip())
+
+    @property
     def github_token_present(self) -> bool:
         return bool(self.github_token.strip())
 
@@ -59,8 +69,11 @@ class RuntimeConfig:
             "runtime": self.runtime,
             "secrets_source": self.secrets_source,
             "gemini_api_key": "present" if self.gemini_key_present else "MISSING",
+            "openai_api_key": "present" if self.openai_key_present else "MISSING",
             "github_token": "present" if self.github_token_present else "MISSING",
             "model_id": self.model_id,
+            "openai_model_id": self.openai_model_id,
+            "adjudication_scope": self.adjudication_scope,
             "grounding_enabled": self.grounding_enabled,
             "repo_full_name": self.repo_full_name,
             "target_branch": self.target_branch,
@@ -107,6 +120,8 @@ def resolve(runtime: str = "cli") -> RuntimeConfig:
     secrets = _load_streamlit_secrets()
     google = _section(secrets, "google") if secrets else {}
     github = _section(secrets, "github") if secrets else {}
+    openai_sec = _section(secrets, "openai") if secrets else {}
+    validation_sec = _section(secrets, "validation") if secrets else {}
 
     def pick(*candidates, default=""):
         for c in candidates:
@@ -129,6 +144,25 @@ def resolve(runtime: str = "cli") -> RuntimeConfig:
             default=DEFAULT_MODEL_ID,
         ),
         grounding_enabled=_as_bool(grounding_raw, True),
+        openai_api_key=pick(
+            openai_sec.get("api_key"),
+            os.environ.get("OPENAI_API_KEY"),
+        ),
+        openai_model_id=pick(
+            openai_sec.get("validator_model_id"),
+            os.environ.get("OPENAI_VALIDATOR_MODEL_ID"),
+            default=DEFAULT_OPENAI_MODEL_ID,
+        ),
+        openai_web_search_enabled=_as_bool(
+            openai_sec.get("web_search_enabled")
+            or os.environ.get("OPENAI_WEB_SEARCH_ENABLED"),
+            True,
+        ),
+        adjudication_scope=pick(
+            validation_sec.get("openai_adjudication_scope"),
+            os.environ.get("OPENAI_ADJUDICATION_SCOPE"),
+            default=DEFAULT_ADJUDICATION_SCOPE,
+        ),
         github_token=pick(
             github.get("token"),
             google.get("token"),

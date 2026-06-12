@@ -109,9 +109,13 @@ with st.sidebar:
     st.write(f"**Secrets source:** {rep['secrets_source']}")
     st.write(("✅" if cfg.gemini_key_present else "❌") +
              f" Gemini API key: **{rep['gemini_api_key']}**")
+    st.write(("✅" if cfg.openai_key_present else "⬜") +
+             f" OpenAI API key: **{rep['openai_api_key']}**")
     st.write(("✅" if cfg.github_token_present else "❌") +
              f" GitHub token: **{rep['github_token']}**")
     st.write(f"🌐 Grounding enabled: **{cfg.grounding_enabled}**")
+    st.write(f"🤖 Adjudication: **{rep['adjudication_scope']}** "
+             f"(model: {rep['openai_model_id']})")
     st.write(f"📦 Repo: `{cfg.repo_full_name}`")
     st.write(f"🌿 Target branch: `{cfg.target_branch}` (base: `{cfg.base_branch}`)")
 
@@ -155,14 +159,15 @@ counts = prog["counts"]
 completed = len(engine.completed_ids(prog))
 in_progress = {vid: rec for vid, rec in prog["records"].items()
                if not rec.get("final_decision")}
-c1, c2, c3, c4, c5, c6, c7 = st.columns(7)
+c1, c2, c3, c4, c5, c6, c7, c8 = st.columns(8)
 c1.metric("Total variants", TOTAL)
 c2.metric("Completed", completed)
 c3.metric("Accepted", counts["accepted"])
 c4.metric("Auto-resolved", counts["auto_resolved"])
 c5.metric("Rejected from clean", counts["rejected_from_clean"])
-c6.metric("Failed", counts["failed"])
-c7.metric("Max attempts", int(max_attempts))
+c6.metric("Split required", counts.get("split_required", 0))
+c7.metric("Failed", counts["failed"])
+c8.metric("Max attempts", int(max_attempts))
 if in_progress:
     sample_vid, sample_rec = next(iter(in_progress.items()))
     st.write(f"⏳ {len(in_progress)} variant(s) pending retry, e.g. "
