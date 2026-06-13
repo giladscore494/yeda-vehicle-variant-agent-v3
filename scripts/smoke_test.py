@@ -36,6 +36,7 @@ from scripts.run_paths import (  # noqa: E402
     REAL_OUTPUT_PATH,
     resolve_run_paths,
 )
+from scripts.reconcile import reconcile_validation_output  # noqa: E402
 from scripts.validator_engine import RunConfig, decide_mock, run_validation  # noqa: E402
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -121,6 +122,35 @@ def main() -> int:
         check("checkpoint can resume", s2.is_completed("VAL-000001"))
         atomic_write_json(out_p, {"k": "v"})
         check("atomic write not corrupt", json.load(open(out_p))["k"] == "v")
+
+    # 15b. deterministic audit reconciliation (cleanup only, never rejects)
+    src_variant = {"standard_variant": {"make": "Abarth", "model": "500",
+                                        "year_start": 2008, "year_end": 2015}}
+    recon = reconcile_validation_output(
+        src_variant,
+        build_output_row(
+            "VAL-000001", validation_decision="clean_partial",
+            year_start=2010, year_end=2015,
+            official_marketed_name_il="אבארט 500", canonical_trim=None,
+            trim_status="unresolved",
+            fields_left_unresolved=["official_marketed_name_il", "canonical_trim"],
+            evidence_sources=["iCar.co.il Abarth 500 catalog data"],
+            possible_trim_names=["Scorpione", "base", ""],
+        ),
+    )
+    check("reconcile never rejects clean_partial",
+          recon["validation_decision"] == "clean_partial")
+    check("reconcile records changed year_start",
+          any(c.get("field") == "year_start" and c.get("from") == 2008
+              and c.get("to") == 2010 for c in recon["fields_changed"]))
+    check("reconcile clears filled field from unresolved",
+          "official_marketed_name_il" not in recon["fields_left_unresolved"]
+          and "canonical_trim" in recon["fields_left_unresolved"])
+    check("reconcile structures evidence sources",
+          all(isinstance(s, dict) and "source_name" in s
+              for s in recon["evidence_sources"]))
+    check("reconcile drops placeholder trim candidates",
+          recon["possible_trim_names"] == ["Scorpione"])
 
     # 16-17. no OpenAI / no GPT adjudicator anywhere in source
     offenders = []
