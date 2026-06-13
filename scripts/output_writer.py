@@ -279,7 +279,10 @@ class OutputStore:
             "decision_counts": _new_decision_counts(),
             "grounding_cluster_count": 0,
             "gemini_call_count": 0,
+            "github_checkpoint_enabled": False,
             "github_checkpoint_count": 0,
+            "github_checkpoint_fail_count": 0,
+            "last_github_checkpoint_error": None,
             "last_validated_id": None,
             "schema_version": "v3_three_stage",
             "pipeline_version": "v3_three_stage",
@@ -359,9 +362,13 @@ class OutputStore:
                 self.metadata["decision_counts"][k] = cached_meta["decision_counts"].get(k, 0)
         for k in ("gemini_call_count", "github_checkpoint_count", "grounding_cluster_count",
                   "stage1_pro_calls", "stage2_guard_flags_total", "stage3_flash_calls",
-                  "flash_overrode_guard", "guard_overrode_flash"):
+                  "flash_overrode_guard", "guard_overrode_flash", "github_checkpoint_fail_count"):
             if cached_meta.get(k):
                 self.metadata[k] = cached_meta[k]
+        if "github_checkpoint_enabled" in cached_meta:
+            self.metadata["github_checkpoint_enabled"] = bool(cached_meta.get("github_checkpoint_enabled"))
+        if "last_github_checkpoint_error" in cached_meta:
+            self.metadata["last_github_checkpoint_error"] = cached_meta.get("last_github_checkpoint_error")
         if cp.get("last_validated_id"):
             self.metadata["last_validated_id"] = cp["last_validated_id"]
 
@@ -419,8 +426,16 @@ class OutputStore:
     def bump_gemini_calls(self, n: int = 1) -> None:
         self.metadata["gemini_call_count"] += n
 
+    def set_github_checkpoint_enabled(self, value: bool) -> None:
+        self.metadata["github_checkpoint_enabled"] = bool(value)
+
     def bump_github_checkpoints(self, n: int = 1) -> None:
         self.metadata["github_checkpoint_count"] += n
+        self.metadata["last_github_checkpoint_error"] = None
+
+    def record_github_checkpoint_failure(self, error: str) -> None:
+        self.metadata["github_checkpoint_fail_count"] += 1
+        self.metadata["last_github_checkpoint_error"] = str(error)
 
     def bump_stage1_pro_calls(self, n: int = 1) -> None:
         self.metadata["stage1_pro_calls"] += n
@@ -477,7 +492,10 @@ class OutputStore:
             "total_validated_variants": len(self.validated_by_id),
             "decision_counts": dict(self.metadata["decision_counts"]),
             "gemini_call_count": self.metadata["gemini_call_count"],
+            "github_checkpoint_enabled": self.metadata["github_checkpoint_enabled"],
             "github_checkpoint_count": self.metadata["github_checkpoint_count"],
+            "github_checkpoint_fail_count": self.metadata["github_checkpoint_fail_count"],
+            "last_github_checkpoint_error": self.metadata["last_github_checkpoint_error"],
             "grounding_cluster_count": self.metadata["grounding_cluster_count"],
             "stage1_pro_calls": self.metadata["stage1_pro_calls"],
             "stage2_guard_flags_total": self.metadata["stage2_guard_flags_total"],

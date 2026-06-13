@@ -93,3 +93,69 @@ def test_flash_cannot_return_reject_guard_stands():
     out = adj.adjudicate(row, flags)
     assert out["validation_decision"] == "clean_partial"
     assert out["adjudication_log"]
+
+
+def test_clean_partial_slash_with_explicit_split_evidence_becomes_split_required():
+    row = build_output_row(
+        "VAL-X",
+        canonical_trim="Competizione / Scorpione / Nuvolari S",
+        split_candidates=["Competizione", "Scorpione", "Nuvolari S"],
+        grounding_summary="These are distinct trims with different power outputs. A split is required.",
+        validation_decision="clean_partial",
+    )
+    out, _ = rec(row)
+    assert out["validation_decision"] == "split_required"
+    assert out["acceptance_tier"] == "none"
+    assert out["trim_status"] == "invalid"
+    assert out["trim_confidence"] == 0.0
+    assert any("Combined trim contains multiple distinct marketed trims" in issue for issue in out["non_blocking_trim_issues"])
+
+
+def test_500c_manual_guard_does_not_trigger_on_abarth_500_hatchback():
+    row = build_output_row(
+        "VAL-X",
+        canonical_make="Abarth",
+        canonical_model="500",
+        body_type="Hatchback",
+        canonical_trim="Competizione / Scorpione / Nuvolari S",
+        transmission="manual",
+        identity_status="verified",
+        identity_confidence=0.95,
+    )
+    out, _ = rec(row, variant(body_type="Hatchback"))
+    issues = " ".join(out.get("non_blocking_trim_issues") or [])
+    assert "500C/Cabriolet manual transmission" not in issues
+
+
+def test_500c_manual_guard_triggers_on_cabriolet_body():
+    row = build_output_row(
+        "VAL-X",
+        canonical_make="Abarth",
+        canonical_model="500",
+        body_type="Cabriolet",
+        canonical_trim=None,
+        transmission="manual",
+        identity_status="verified",
+        identity_confidence=0.95,
+        validation_decision="clean_exact",
+    )
+    out, _ = rec(row)
+    assert out["identity_status"] == "likely_valid"
+    assert out["identity_confidence"] == 0.7
+    assert out["validation_decision"] == "clean_partial"
+    assert any("manual transmission is not verified" in issue for issue in out["non_blocking_trim_issues"])
+
+
+def test_past_year_end_corrects_current_flags_false():
+    row = build_output_row("VAL-X", year_end=2016, is_currently_produced=True, is_currently_imported_il=True)
+    out, _ = rec(row)
+    assert out["is_currently_produced"] is False
+    assert out["is_currently_imported_il"] is False
+    assert any("year_end is a past year" in issue for issue in out["non_blocking_trim_issues"])
+
+
+def test_guard_corrected_reason_added_for_key_field_change():
+    row = build_output_row("VAL-X", canonical_make="Abarth", canonical_model="500", body_type="Cabriolet", transmission="manual", identity_status="verified", identity_confidence=0.95, validation_decision="clean_exact")
+    out, _ = rec(row)
+    assert "guard_corrected_reason" in out
+    assert "identity_status" in out["guard_corrected_reason"]

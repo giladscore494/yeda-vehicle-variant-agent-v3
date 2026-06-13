@@ -67,3 +67,20 @@ def test_github_module_has_no_token_print():
     # No print statement that references the token.
     for chunk in text.split("print(")[1:]:
         assert "token" not in chunk[:120].lower()
+
+
+def test_github_checkpoint_metadata_defaults_and_mutators(tmp_path):
+    out = os.path.join(tmp_path, "o.json")
+    cp = os.path.join(tmp_path, "o.checkpoint.json")
+    s = OutputStore(out, cp)
+    assert s.metadata["github_checkpoint_enabled"] is False
+    assert s.metadata["github_checkpoint_fail_count"] == 0
+    assert s.metadata["last_github_checkpoint_error"] is None
+    s.set_github_checkpoint_enabled(True)
+    s.bump_github_checkpoints()
+    s.record_github_checkpoint_failure("boom")
+    doc = s.summary_document()
+    assert doc["github_checkpoint_enabled"] is True
+    assert doc["github_checkpoint_count"] == 1
+    assert doc["github_checkpoint_fail_count"] == 1
+    assert doc["last_github_checkpoint_error"] == "boom"
