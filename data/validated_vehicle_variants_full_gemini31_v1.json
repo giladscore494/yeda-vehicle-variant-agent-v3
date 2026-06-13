@@ -8,23 +8,23 @@
     "run_timestamp_utc": "2026-06-13T22:03:47Z",
     "total_input_variants": 3712,
     "total_instruction_records": 3712,
-    "total_validated_variants": 1,
+    "total_validated_variants": 2,
     "decision_counts": {
       "clean_exact": 0,
-      "clean_partial": 1,
+      "clean_partial": 2,
       "split_required": 0,
       "reject": 0
     },
     "grounding_cluster_count": 3653,
-    "gemini_call_count": 1,
+    "gemini_call_count": 2,
     "github_checkpoint_enabled": true,
-    "github_checkpoint_count": 1,
+    "github_checkpoint_count": 2,
     "github_checkpoint_fail_count": 0,
     "last_github_checkpoint_error": null,
-    "last_validated_id": "VAL-000001",
+    "last_validated_id": "VAL-000002",
     "schema_version": "v3_three_stage",
     "pipeline_version": "v3_three_stage",
-    "stage1_pro_calls": 1,
+    "stage1_pro_calls": 2,
     "stage2_guard_flags_total": 0,
     "stage3_flash_calls": 0,
     "flash_overrode_guard": 0,
@@ -152,6 +152,121 @@
       "final_route": "clean_catalog",
       "route_reason": "Identity is publishable; unresolved non-blocking fields are retained for audit.",
       "duplicate_group_id": "dup-321059a7",
+      "duplicate_of": null,
+      "_guard_verifier_used": false
+    },
+    {
+      "validation_id": "VAL-000002",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000002",
+      "source_cluster_id": "CLU-7ea11c499a5f",
+      "grounding_cluster_id": "CLU-7ea11c499a5f",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "500",
+      "canonical_series_or_generation": "1st Gen",
+      "canonical_trim": null,
+      "official_marketed_name_il": "אבארט 500",
+      "body_type": "Hatchback",
+      "fuel_type": "petrol",
+      "engine": "1.4L Turbo",
+      "transmission": "manual",
+      "drivetrain": "FWD",
+      "year_start": 2010,
+      "year_end": 2024,
+      "is_currently_produced": false,
+      "is_currently_imported_il": false,
+      "market_scope": "IL",
+      "validation_decision": "clean_partial",
+      "acceptance_tier": "partial",
+      "identity_status": "verified",
+      "identity_confidence": 0.95,
+      "trim_status": "unresolved",
+      "trim_confidence": 0.0,
+      "grounding_summary": "The Abarth 500 was officially launched in Israel in June 2010. It was sold with a 1.4L Turbo petrol engine and manual transmission. The 'Base' trim is a generic placeholder, as actual marketed trims in Israel include Scorpione, Lusso, Competizione, and Turismo. The 1st generation petrol model continued to be sold in Israel until 2024. The vehicle is no longer imported as it was replaced by the electric 500e.",
+      "evidence_sources": [
+        {
+          "title": "500 אבארט: מבחן דרכים (וידאו) - אוטו",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFwajveLktNGky117-xYvUwU4x7vFdrJY7Gwj1yQLG-jq7Ui1AgBILqyk5u5pf6RrTfzjIdpXoD6LGxPCC5X0DCUtcfn7RtpIS5iTnGzqXbl180emQXjtsME9nSsGCmfPYHC3-VEwlMNfI=",
+          "source_name": "auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "year_range"
+          ]
+        },
+        {
+          "title": "אבארט 500 - אתר iCar",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHVsHqo5MRpETxb_SGk7ymeFziVxxsM878-fGE2kl0ZDXXPka0QlOBJgRTJFJ8AsgALv4X1DOIyLRtrELFnCImVDVKV9RgCSI_YS33McxDa-HrueHFI-JcyDmLO48QC1fueEPCvbay-RpNyckyhBrUSBoPeycPvQXBNKwhWCZESV1ASTDhBfPZ7m_E1gsZHW6PXsYdqwPn_pynIC_sBenM9rh-_1dnsWhGQRU4Oqh6EMP-kgyRj40GjRThiBcF7xuR6Ffm32iw=",
+          "source_name": "icar.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "engine",
+            "transmission",
+            "body_type"
+          ]
+        },
+        {
+          "title": "אבארט 500 1.4 ידני 180 כ\"ס Competizione 2024 | מפרט טכני - cartube",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHlIhQbaonLo3BhNrB5TEbjjfbq26Ok0xs5y55nPxuYChKUvj4WBy4cgkwg9fxwe7ffJTX0VFKhZMa1m261klU3r83MMgMC4DtnCFdj5jriMfT0sFsoFMFO9r6LVAxXyjXWq58hCVXUccAN1CWHqrtr3RuF6fHaxb0j971Pu5syCguv8nndHhALl5fB9rsdQjz9jdqR_7WdUW4gynUmNjjSw3aAU3pwYOv0D4iSDoU-jDP3_lZiVFl2_RtO1DLh-m71rAqaBOIs74_Q7qhFRlDOUycMsSeBx1snOJHP_skKZojxmOZgGpIf-mDn9PKAk86mSAEyatd_X0nnE90zd-YLFKFevGaxWA7xrH_a9N-vK1zT9RI9u6IMdRmJYiqO3bfaKdsh7XNz_E1Z5EX-ubYAh6NI014ItRBgDNcdSx9vKeQ=",
+          "source_name": "cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "year_range",
+            "trim_candidates",
+            "engine",
+            "transmission"
+          ]
+        },
+        {
+          "title": "אבארט 500 למכירה | יד2 רכב - אלפי מודעות חדשות בכל יום",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHndSEGgCpYNPsSWGZZTMX0l57y4jfdlP0WNg22bS-SUwbahHd3696-kYbvttoh2cjrW_ewr3sjnlfrKPD_OB4A8hGBXZqIF9mzm1aO9v7oBNlovrndvyFUW8U0GYgTxjkoMrFhb9SJ2uYW3fA3uX2jJePsjeZv",
+          "source_name": "yad2.co.il",
+          "source_type": "marketplace",
+          "supports": [
+            "market_presence_il",
+            "trim_candidates"
+          ]
+        }
+      ],
+      "possible_trim_names": [
+        "Scorpione",
+        "Lusso",
+        "Competizione",
+        "Turismo"
+      ],
+      "split_candidates": [],
+      "blocking_identity_issues": [],
+      "non_blocking_trim_issues": [
+        "Trim 'Base' is a generic placeholder and does not represent a specific marketed trim in Israel."
+      ],
+      "fields_changed": [
+        {
+          "field": "year_start",
+          "from": 2008,
+          "to": 2010,
+          "reason": "Model changed value during validation; see decision_reason/grounding_summary"
+        },
+        {
+          "field": "year_end",
+          "from": 2016,
+          "to": 2024,
+          "reason": "Model changed value during validation; see decision_reason/grounding_summary"
+        }
+      ],
+      "fields_left_unresolved": [
+        "canonical_trim"
+      ],
+      "decision_reason": "Vehicle identity is verified for the Israeli market, but the trim 'Base' is a generic placeholder. Validation decision is clean_partial.",
+      "_pipeline_version": "v3_three_stage",
+      "_flags_count": 0,
+      "_flash_used": false,
+      "adjudication_log": [],
+      "publishable_to_clean_catalog": true,
+      "final_route": "clean_catalog",
+      "route_reason": "Identity is publishable; unresolved non-blocking fields are retained for audit.",
+      "duplicate_group_id": "dup-54bc4e87",
       "duplicate_of": null,
       "_guard_verifier_used": false
     }
