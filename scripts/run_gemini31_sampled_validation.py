@@ -20,6 +20,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from scripts.contamination import ContaminationError  # noqa: E402
 from scripts.data_loader import validate_and_join  # noqa: E402
 from scripts.output_writer import MODEL_DEFAULT, OutputStore  # noqa: E402
+from scripts.config import load_shared_config  # noqa: E402
 from scripts.run_paths import ensure_mode_dirs, resolve_run_paths  # noqa: E402
 from scripts.validator_engine import GitHubSaver, RunConfig, run_validation  # noqa: E402
 
@@ -45,7 +46,8 @@ def build_parser() -> argparse.ArgumentParser:
 def main(argv=None) -> int:
     args = build_parser().parse_args(argv)
     mode = "real" if args.real else "mock"
-    model_id = os.environ.get("GEMINI_MODEL_ID", MODEL_DEFAULT)
+    shared_config = load_shared_config()
+    model_id = shared_config.gemini_validator_model_id
     run_paths = resolve_run_paths(mode, model=model_id)
 
     join = validate_and_join()
@@ -68,17 +70,17 @@ def main(argv=None) -> int:
     if mode == "real":
         from scripts.gemini_client import GeminiClient, GeminiSettings
 
-        api_key = os.environ.get("GEMINI_API_KEY", "")
+        api_key = shared_config.google_api_key
         if not api_key:
             print("ERROR: GEMINI_API_KEY not set; cannot run real mode.")
             return 2
-        grounding = os.environ.get("GROUNDING_ENABLED", "true").lower() != "false"
+        grounding = shared_config.grounding_enabled
         gemini_client = GeminiClient(
             GeminiSettings(api_key=api_key, model_id=model_id, grounding_enabled=grounding)
         )
 
     github_saver = None
-    if not args.no_github_push and run_paths.allow_github_push and os.environ.get("GITHUB_TOKEN"):
+    if not args.no_github_push and run_paths.allow_github_push and shared_config.github_token:
         from scripts.github_checkpoint import GitHubCheckpoint, resolve_config_from_env
 
         config, notes = resolve_config_from_env()
@@ -123,8 +125,8 @@ def main(argv=None) -> int:
     guard_verifier = None
     if mode == "real" and (args.guard_verifier or args.flash_adjudication):
         from scripts.openai_guard_verifier import OpenAIGuardVerifier, OpenAIGuardVerifierSettings
-        openai_api_key = os.environ.get("OPENAI_API_KEY", "")
-        openai_model_id = os.environ.get("OPENAI_VALIDATOR_MODEL_ID", args.flash_model_id)
+        openai_api_key = shared_config.openai_api_key
+        openai_model_id = shared_config.openai_validator_model_id
         if not openai_api_key:
             print("ERROR: OPENAI_API_KEY not set; cannot enable guard verifier.")
             return 2

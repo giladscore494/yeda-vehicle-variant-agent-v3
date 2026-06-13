@@ -146,3 +146,60 @@ def test_unresolved_language_fields_changed_and_source_type_rules():
     assert all(isinstance(item, dict) for item in out["fields_changed"])
     assert out["evidence_sources"][0]["source_type"] != "official_importer"
     assert "official_import_il" in out["evidence_sources"][0]["supports"]
+
+
+def test_openai_responses_parse_preferred_and_create_never_gets_response_format():
+    class Parsed:
+        def model_dump(self):
+            return {"verdict":"accept_guard","selected_decision":None,"allowed_patch":{},"confidence":0.7,"reason":"Guard stands.","safety_notes":[]}
+    class Resp:
+        output_parsed = Parsed()
+    class Responses:
+        def __init__(self):
+            self.parse_calls = 0
+            self.create_calls = []
+        def parse(self, **kwargs):
+            self.parse_calls += 1
+            assert kwargs["text_format"].__name__ == "VerifierOutputModel"
+            assert kwargs["max_output_tokens"] == 700
+            return Resp()
+        def create(self, **kwargs):
+            self.create_calls.append(kwargs)
+            assert "response_format" not in kwargs
+            raise AssertionError("create should not be used when parse works")
+    class Client:
+        def __init__(self):
+            self.responses = Responses()
+    client = Client()
+    verifier = OpenAIGuardVerifier(OpenAIGuardVerifierSettings(api_key="k", model_id="gpt-5.4", enabled=True), client=client)
+    out = verifier.adjudicate({"validation_id":"V", "adjudication_log":[]}, [make_flag(True)])
+    assert out["_guard_verifier_success"] is True
+    assert client.responses.parse_calls == 1
+    assert client.responses.create_calls == []
+
+
+def test_openai_create_structured_then_json_fallback_without_response_format_retry():
+    class Resp:
+        def __init__(self, text):
+            self.output_text = text
+    class Responses:
+        parse = None
+        def __init__(self):
+            self.create_calls = []
+        def create(self, **kwargs):
+            self.create_calls.append(kwargs)
+            assert "response_format" not in kwargs
+            if "text" in kwargs:
+                raise TypeError("text format unsupported")
+            return Resp(json.dumps({"verdict":"accept_guard","selected_decision":None,"allowed_patch":{},"confidence":0.6,"reason":"JSON fallback works.","safety_notes":[]}))
+    class Client:
+        def __init__(self):
+            self.responses = Responses()
+    client = Client()
+    verifier = OpenAIGuardVerifier(OpenAIGuardVerifierSettings(api_key="k", model_id="gpt-5.4", enabled=True), client=client)
+    out = verifier.adjudicate({"validation_id":"V", "adjudication_log":[]}, [make_flag(True)])
+    assert out["_guard_verifier_success"] is True
+    assert len(client.responses.create_calls) == 2
+    assert "text" in client.responses.create_calls[0]
+    assert "text" not in client.responses.create_calls[1]
+    assert all("response_format" not in c for c in client.responses.create_calls)

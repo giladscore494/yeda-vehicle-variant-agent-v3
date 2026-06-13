@@ -12,6 +12,8 @@ import time
 from dataclasses import dataclass
 from typing import Any, Dict, List, Set
 
+from pydantic import BaseModel, ConfigDict, Field
+
 from .gemini_client import parse_strict_json
 from .reconcile import GuardFlag
 
@@ -22,38 +24,18 @@ You are NOT performing full vehicle validation.
 You are NOT doing new research.
 You are only reviewing a specific Python guard-flagged issue.
 
-You receive:
-- the specific guard or guards that fired
-- the original model value before guard correction
-- the Python guard-corrected value
-- relevant vehicle fields only
-- a short grounding summary
-- compact evidence source summaries
-- allowed decisions
-- allowed patch fields
-
-Your job:
-1. Decide whether the Python guard correction should stand.
-2. If the correction is too strong or too weak, choose the safest allowed correction.
-3. Return strict JSON only.
+Return exactly this JSON object with no markdown, no extra keys, and no chain-of-thought:
+{"verdict":"accept_guard|modify_guard|reject_guard","selected_decision":null,"allowed_patch":{},"confidence":0.0,"reason":"One short sentence.","safety_notes":[]}
 
 Hard rules:
 - Do not revalidate the whole vehicle.
-- Do not introduce new evidence.
+- Do not introduce new evidence or sources.
 - Do not invent URLs.
-- Do not invent sources.
-- Do not add unsupported facts.
-- Do not reveal chain-of-thought.
 - Do not change fields outside allowed_patch_fields.
 - Do not return decisions outside allowed_decisions.
-- Do not convert weak/missing/generic trim into reject.
-- If uncertain, choose the safer lower-confidence option.
-- Prefer clean_partial over clean_exact when exact trim, market status, or technical identity is not fully verified.
-- Prefer split_required when combined values represent multiple separate variants.
-- Prefer review_queue when an identity-critical technical field remains unresolved.
+- Prefer clean_partial/review_queue-safe outcomes when exact trim, market status, or technical identity is not fully verified.
 - Final Python guards and routing will run after your answer and have final authority.
-
-Return strict JSON only."""
+- Return strict JSON only."""
 
 VERIFIER_OUTPUT_KEYS = {"verdict", "selected_decision", "allowed_patch", "confidence", "reason", "safety_notes"}
 VALID_VERDICTS = {"accept_guard", "modify_guard", "reject_guard"}
@@ -66,14 +48,23 @@ NEVER_PATCH_FIELDS = {
 RELEVANT_BY_FIELD = {
     "validation_decision": {"validation_decision", "identity_status", "identity_confidence", "trim_status", "trim_confidence", "fields_left_unresolved"},
     "canonical_trim": {"canonical_trim", "trim_status", "trim_confidence", "possible_trim_names", "split_candidates"},
-    "year_start": {"year_start", "year_end", "is_currently_produced", "is_currently_imported_il", "market_scope"},
-    "year_end": {"year_start", "year_end", "is_currently_produced", "is_currently_imported_il", "market_scope"},
+    "year_start": {"year_start", "year_end", "is_currently_produced", "is_currently_imported_il"},
+    "year_end": {"year_start", "year_end", "is_currently_produced", "is_currently_imported_il"},
     "is_currently_produced": {"year_end", "is_currently_produced", "is_currently_imported_il"},
     "is_currently_imported_il": {"year_end", "is_currently_produced", "is_currently_imported_il"},
     "identity_status": {"identity_status", "identity_confidence", "validation_decision", "fields_left_unresolved"},
     "transmission": {"transmission", "engine", "fuel_type", "body_type", "fields_left_unresolved", "validation_decision"},
 }
 BASE_RELEVANT_FIELDS = {"canonical_make", "canonical_model", "canonical_trim"}
+
+class VerifierOutputModel(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    verdict: str
+    selected_decision: str | None = None
+    allowed_patch: Dict[str, Any] = Field(default_factory=dict)
+    confidence: float
+    reason: str
+    safety_notes: List[Any] = Field(default_factory=list)
 
 @dataclass
 class OpenAIGuardVerifierSettings:
@@ -87,6 +78,9 @@ class OpenAIGuardVerifier:
         self.settings = settings
         self._client = client
         self.calls = 0
+        self.successes = 0
+        self.failures = 0
+        self.last_error: str | None = None
 
     def _ensure_client(self):
         if self._client is None:
@@ -114,66 +108,72 @@ class OpenAIGuardVerifier:
                 sources.append({"source_name": src.get("source_name"), "source_type": src.get("source_type"), "supports": src.get("supports", [])})
         return {
             "validation_id": row.get("validation_id"),
-            "guards": [
-                {
-                    "guard_name": f.guard_name,
-                    "severity": f.severity,
-                    "field_affected": f.field_affected,
-                    "original_value": f.original_value,
-                    "guard_value": f.guard_value,
-                    "reason": f.reason,
-                    "allowed_decisions": list(f.allowed_decisions),
-                    "allowed_patch_fields": [x for x in f.allowed_patch_fields if x not in NEVER_PATCH_FIELDS],
-                }
-                for f in scoped
-            ],
+            "guards": [{
+                "guard_name": f.guard_name, "severity": f.severity, "field_affected": f.field_affected,
+                "original_value": f.original_value, "guard_value": f.guard_value, "reason": f.reason,
+                "allowed_decisions": list(f.allowed_decisions),
+                "allowed_patch_fields": [x for x in f.allowed_patch_fields if x not in NEVER_PATCH_FIELDS],
+            } for f in scoped],
             "relevant_fields": {k: row.get(k) for k in sorted(relevant) if k in row},
-            "grounding_summary": (row.get("grounding_summary") or "")[:800],
+            "grounding_summary": (row.get("grounding_summary") or "")[:500],
             "evidence_source_summaries": sources[:8],
             "allowed_decisions": sorted(allowed_decisions),
             "allowed_patch_fields": sorted(x for x in allowed_fields if x not in NEVER_PATCH_FIELDS),
         }
 
+    @staticmethod
+    def _extract_text(resp: Any) -> str | None:
+        text = getattr(resp, "output_text", None)
+        if text is not None:
+            return text
+        parsed = getattr(resp, "output_parsed", None)
+        if parsed is not None:
+            if hasattr(parsed, "model_dump"):
+                return json.dumps(parsed.model_dump(), ensure_ascii=False)
+            if isinstance(parsed, dict):
+                return json.dumps(parsed, ensure_ascii=False)
+        parts = []
+        for item in getattr(resp, "output", []) or []:
+            for c in getattr(item, "content", []) or []:
+                if getattr(c, "text", None):
+                    parts.append(c.text)
+        return "".join(parts) if parts else None
+
+    def _input(self, content: str):
+        return [{"role": "system", "content": GUARD_VERIFIER_SYSTEM_PROMPT}, {"role": "user", "content": content}]
+
     def _generate(self, payload: Dict[str, Any]) -> Dict[str, Any]:
         client = self._ensure_client()
         content = json.dumps(payload, ensure_ascii=False, separators=(",", ":"))
-        last = None
-        for attempt in range(self.settings.max_retries + 1):
+        schema = VerifierOutputModel.model_json_schema()
+        failures: List[str] = []
+        attempts = ["responses.parse", "responses.create.text_schema", "responses.create.plain_json"]
+        for method in attempts:
             try:
-                resp = client.responses.create(
-                    model=self.settings.model_id,
-                    input=[
-                        {"role": "system", "content": GUARD_VERIFIER_SYSTEM_PROMPT},
-                        {"role": "user", "content": content},
-                    ],
-                    response_format={"type": "json_object"},
-                    max_completion_tokens=700,
-                )
-                text = getattr(resp, "output_text", None)
-                if text is None and getattr(resp, "output", None):
-                    parts = []
-                    for item in resp.output:
-                        for c in getattr(item, "content", []) or []:
-                            if getattr(c, "text", None):
-                                parts.append(c.text)
-                    text = "".join(parts)
-                return parse_strict_json(text)
-            except TypeError:
-                resp = client.responses.create(
-                    model=self.settings.model_id,
-                    input=[
-                        {"role": "system", "content": GUARD_VERIFIER_SYSTEM_PROMPT},
-                        {"role": "user", "content": content},
-                    ],
-                    response_format={"type": "json_object"},
-                    max_tokens=700,
-                )
-                return parse_strict_json(getattr(resp, "output_text", None))
+                if method == "responses.parse":
+                    parse = getattr(client.responses, "parse", None)
+                    if parse is None:
+                        raise TypeError("responses.parse unavailable")
+                    resp = parse(model=self.settings.model_id, input=self._input(content), text_format=VerifierOutputModel, max_output_tokens=700)
+                    parsed = getattr(resp, "output_parsed", None)
+                    if parsed is not None:
+                        return parsed.model_dump() if hasattr(parsed, "model_dump") else dict(parsed)
+                    return parse_strict_json(self._extract_text(resp))
+                if method == "responses.create.text_schema":
+                    resp = client.responses.create(
+                        model=self.settings.model_id,
+                        input=self._input(content),
+                        text={"format": {"type": "json_schema", "name": "guard_verifier_output", "schema": schema, "strict": True}},
+                        max_output_tokens=700,
+                    )
+                    return parse_strict_json(self._extract_text(resp))
+                json_prompt = content + "\nReturn JSON only matching the required schema."
+                resp = client.responses.create(model=self.settings.model_id, input=self._input(json_prompt), max_output_tokens=700)
+                return parse_strict_json(self._extract_text(resp))
             except Exception as exc:  # noqa: BLE001
-                last = exc
-                if attempt < self.settings.max_retries:
-                    time.sleep(1)
-        raise RuntimeError(f"OpenAI guard verifier failed: {last}")
+                failures.append(f"{method} failed: {exc}")
+                continue
+        raise RuntimeError("OpenAI guard verifier failed; " + " | ".join(failures))
 
     @staticmethod
     def validate_response(data: Dict[str, Any], payload: Dict[str, Any]) -> Dict[str, Any]:
@@ -185,10 +185,7 @@ class OpenAIGuardVerifier:
         decision = data.get("selected_decision")
         if decision is not None and decision not in allowed_decisions:
             raise ValueError("forbidden selected_decision")
-        try:
-            conf = float(data.get("confidence"))
-        except (TypeError, ValueError) as exc:
-            raise ValueError("invalid confidence") from exc
+        conf = float(data.get("confidence"))
         if not 0.0 <= conf <= 1.0:
             raise ValueError("invalid confidence")
         patch = data.get("allowed_patch")
@@ -206,6 +203,8 @@ class OpenAIGuardVerifier:
         scoped = self.adjudication_flags(flags)
         out = dict(row)
         log = list(out.get("adjudication_log") or [])
+        out["_guard_verifier_success"] = False
+        out["_guard_verifier_error"] = None
         if not scoped or not self.settings.enabled:
             out["adjudication_log"] = log
             return out
@@ -213,15 +212,21 @@ class OpenAIGuardVerifier:
         try:
             self.calls += 1
             data = self.validate_response(self._generate(payload), payload)
+            self.successes += 1
+            self.last_error = None
             before = out.get("validation_decision")
             for key, value in data["allowed_patch"].items():
                 out[key] = value
             if data.get("selected_decision") and "validation_decision" in payload.get("allowed_patch_fields", []):
                 out["validation_decision"] = data["selected_decision"]
             log.append({"guard_verifier": self.settings.model_id, "verdict": data["verdict"], "reason": data["reason"]})
+            out["_guard_verifier_success"] = True
             if out.get("validation_decision") != before:
                 out["_guard_verifier_overrode_guard"] = int(out.get("_guard_verifier_overrode_guard") or 0) + 1
         except Exception as exc:  # keep Python guard correction
+            self.failures += 1
+            self.last_error = str(exc)
+            out["_guard_verifier_error"] = str(exc)
             log.append({"guard_verifier": self.settings.model_id, "verdict": "invalid_or_failed", "reason": f"Guard verifier failed; Python guard correction stands: {exc}"})
         out["adjudication_log"] = log
         return out

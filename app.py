@@ -24,6 +24,7 @@ import os
 
 import streamlit as st
 
+from scripts.config import load_shared_config
 from scripts.contamination import ContaminationError
 from scripts.data_loader import (
     INSTRUCTIONS_PATH,
@@ -47,46 +48,31 @@ st.set_page_config(page_title="Gemini 3.1 Variant Validation Runner", layout="wi
 # Secret helpers (never expose values)
 # ---------------------------------------------------------------------------
 
-
-def _secret(section: str, key: str, default=None):
-    try:
-        return st.secrets[section][key]
-    except Exception:  # noqa: BLE001 - missing secrets are expected locally
-        return default
-
+_SHARED_CONFIG = load_shared_config()
 
 def get_github_token() -> str:
-    return _secret("github", "token", "") or ""
-
+    return _SHARED_CONFIG.github_token
 
 def get_gemini_api_key() -> str:
-    return _secret("google", "api_key", "") or ""
-
+    return _SHARED_CONFIG.google_api_key
 
 def get_model_id() -> str:
-    return _secret("google", "gemini_validator_model_id", MODEL_DEFAULT) or MODEL_DEFAULT
-
-
-def _secret_bool(key: str, default: bool) -> bool:
-    val = _secret("google", key, default)
-    if isinstance(val, str):
-        return val.strip().lower() not in {"false", "0", "no"}
-    return bool(val)
+    return _SHARED_CONFIG.gemini_validator_model_id or MODEL_DEFAULT
 
 def get_grounding_enabled() -> bool:
-    return _secret_bool("grounding_enabled", True)
+    return _SHARED_CONFIG.grounding_enabled
 
 def get_openai_api_key() -> str:
-    return _secret("openai", "api_key", "") or ""
+    return _SHARED_CONFIG.openai_api_key
 
 def get_guard_verifier_model_id() -> str:
-    return _secret("openai", "validator_model_id", "gpt-5.4") or "gpt-5.4"
+    return _SHARED_CONFIG.openai_validator_model_id or "gpt-5.4"
 
 def get_guard_verifier_enabled_default() -> bool:
     return False
 
 def get_force_per_variant_default() -> bool:
-    return _secret_bool("force_per_variant_validation", True)
+    return _SHARED_CONFIG.force_per_variant_validation
 
 
 def presence(value) -> str:
