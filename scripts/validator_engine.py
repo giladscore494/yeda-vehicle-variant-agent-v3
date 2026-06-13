@@ -380,6 +380,8 @@ def run_validation(
         idx = work_ids.index(config.start_after_validation_id)
         work_ids = work_ids[idx + 1 :]
 
+    store.set_github_checkpoint_enabled(github_saver is not None)
+
     result = RunResult(store=store, logs=logs)
 
     for vid in work_ids:
@@ -465,15 +467,21 @@ def run_validation(
             store.flush()
         else:
             store.flush()  # cheap enough; always keep disk current
+        _log(f"[{vid}] local checkpoint saved")
 
         # Auto-save to GitHub after the local save completes.
         if github_saver is not None:
             result.github_attempted = True
             try:
-                github_saver.save(vid)
                 store.bump_github_checkpoints()
+                store.flush()
+                github_saver.save(vid)
+                _log(f"[{vid}] GitHub checkpoint succeeded")
             except Exception as exc:  # noqa: BLE001 - surfaced to UI
-                _log(f"GITHUB SAVE FAILED {vid}: {exc}")
+                store.metadata["github_checkpoint_count"] = max(0, store.metadata.get("github_checkpoint_count", 0) - 1)
+                store.record_github_checkpoint_failure(str(exc))
+                store.flush()
+                _log(f"[{vid}] GitHub checkpoint failed: {exc}")
                 if config.stop_on_github_failure:
                     result.stopped_reason = "github_save_failed"
                     store.flush()
@@ -491,11 +499,16 @@ def run_validation(
                     "decision_counts": dict(store.metadata["decision_counts"]),
                     "gemini_call_count": store.metadata["gemini_call_count"],
                     "github_checkpoint_count": store.metadata["github_checkpoint_count"],
+                    "github_checkpoint_enabled": store.metadata.get("github_checkpoint_enabled", False),
+                    "github_checkpoint_fail_count": store.metadata.get("github_checkpoint_fail_count", 0),
+                    "last_github_checkpoint_error": store.metadata.get("last_github_checkpoint_error"),
                     "stage1_pro_calls": store.metadata.get("stage1_pro_calls", 0),
                     "stage2_guard_flags_total": store.metadata.get("stage2_guard_flags_total", 0),
                     "stage3_flash_calls": store.metadata.get("stage3_flash_calls", 0),
                 }
             )
+        if github_saver is None:
+            _log(f"[{vid}] GitHub checkpoint skipped")
 
     store.flush()
     if result.stopped_reason is None:

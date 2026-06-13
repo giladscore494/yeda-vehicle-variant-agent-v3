@@ -342,6 +342,36 @@ def main() -> int:
     check("source instructions file untouched",
           os.path.getmtime(data_loader.INSTRUCTIONS_PATH) == src_instr_mtime)
 
+    # 33-38. v3 stabilization guard regressions
+    split_guard = reconcile_validation_output({}, build_output_row(
+        "VAL-SPLIT", canonical_trim="Competizione / Scorpione / Nuvolari S",
+        split_candidates=["Competizione", "Scorpione", "Nuvolari S"],
+        grounding_summary="These are distinct trims with different power outputs. A split is required.",
+        validation_decision="clean_partial",
+    ))
+    check("slash split evidence -> split_required", split_guard["validation_decision"] == "split_required")
+
+    hatch = reconcile_validation_output({}, build_output_row(
+        "VAL-HATCH", canonical_make="Abarth", canonical_model="500", body_type="Hatchback",
+        canonical_trim="Competizione", transmission="manual", identity_status="verified",
+    ))
+    check("500C guard skips Hatchback", not any("500C/Cabriolet manual transmission" in i for i in hatch.get("non_blocking_trim_issues", [])))
+
+    cabrio = reconcile_validation_output({}, build_output_row(
+        "VAL-CAB", canonical_make="Abarth", canonical_model="500", body_type="Cabriolet",
+        canonical_trim=None, transmission="manual", identity_status="verified",
+        identity_confidence=0.95, validation_decision="clean_exact",
+    ))
+    check("500C guard fires on Cabriolet", cabrio["identity_status"] == "likely_valid" and cabrio["validation_decision"] == "clean_partial")
+    check("guard correction reason exists", bool(cabrio.get("guard_corrected_reason")))
+
+    past = reconcile_validation_output({}, build_output_row("VAL-YEAR", year_end=2016, is_currently_produced=True, is_currently_imported_il=True))
+    check("past year_end resets current flags", past["is_currently_produced"] is False and past["is_currently_imported_il"] is False)
+
+    meta_store = OutputStore(os.path.join(tempfile.gettempdir(), "meta-smoke.json"), os.path.join(tempfile.gettempdir(), "meta-smoke.cp.json"))
+    meta = meta_store.summary_document()
+    check("github checkpoint metadata fields exposed", all(k in meta for k in ("github_checkpoint_enabled", "github_checkpoint_fail_count", "last_github_checkpoint_error")))
+
     failed = [n for n, ok, _ in _results if not ok]
     print("\n" + "=" * 60)
     print(f"SMOKE RESULT: {len(_results) - len(failed)}/{len(_results)} passed")

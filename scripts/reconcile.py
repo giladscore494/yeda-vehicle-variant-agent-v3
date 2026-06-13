@@ -318,7 +318,7 @@ _UNDER_CONSIDERATION_PHRASES = [
     "not yet launched", "being evaluated", "could arrive", "might be imported",
     "לא הושק", "בשלב בחינה", "צפוי להגיע",
 ]
-_SPLIT_PHRASES = ["split is required", "must be split", "should be split", "requires splitting", "different power outputs", "distinct trims"]
+_SPLIT_PHRASES = ["split is required", "must be split", "should be split", "requires splitting", "different power outputs", "distinct trims", "different specifications", "separate variants"]
 _CURRENT_PHRASES = ["still current", "available", "launched recently", "currently sold", "currently produced", "imported now", "still imported"]
 
 SOURCE_TYPE_KEYWORDS = {
@@ -347,10 +347,43 @@ def _summary_wants_split(summary: str) -> bool:
     low = (summary or "").lower()
     return any(p in low for p in _SPLIT_PHRASES)
 
+def _split_evidence_text(row: Dict[str, Any]) -> str:
+    return " ".join(str(row.get(k) or "") for k in ("grounding_summary", "decision_reason"))
+
 def _prefer_split(row):
-    return bool(row.get("split_candidates")) or _summary_wants_split(row.get("grounding_summary", ""))
+    return bool(row.get("split_candidates")) or _summary_wants_split(_split_evidence_text(row))
+
+def _split_candidates_count(row: Dict[str, Any]) -> int:
+    candidates = row.get("split_candidates")
+    return len(candidates) if isinstance(candidates, list) else 0
+
+def _has_explicit_split_evidence(row: Dict[str, Any]) -> bool:
+    return _has_combined_trim(row.get("canonical_trim")) and _split_candidates_count(row) >= 2 and _summary_wants_split(_split_evidence_text(row))
+
+def _has_explicit_500c_cabriolet_evidence(row: Dict[str, Any]) -> bool:
+    make = str(row.get("canonical_make") or "").lower()
+    if make != "abarth":
+        return False
+    model = str(row.get("canonical_model") or "").lower()
+    trim_s = str(row.get("canonical_trim") or "").lower()
+    body = str(row.get("body_type") or "").lower()
+    marketed_il = str(row.get("official_marketed_name_il") or "")
+    return (
+        "500c" in model
+        or "500c" in trim_s
+        or any(x in body for x in ("cabriolet", "cabrio", "convertible"))
+        or "קבריולה" in marketed_il
+        or "קבריו" in marketed_il
+    )
+
+def _add_guard_corrected_reason(row: Dict[str, Any], before: Dict[str, Any]) -> None:
+    watched = ["validation_decision", "identity_status", "identity_confidence", "canonical_trim", "trim_status", "year_end", "is_currently_produced", "is_currently_imported_il"]
+    changes = [f"{k}: {before.get(k)!r} -> {row.get(k)!r}" for k in watched if before.get(k) != row.get(k)]
+    if changes:
+        row["guard_corrected_reason"] = "Python guards corrected the model output: " + "; ".join(changes) + "."
 
 def _apply_v3_guards(row: Dict[str, Any], flags: List[GuardFlag]) -> None:
+    before_guard_fields = dict(row)
     trim = row.get("canonical_trim")
     if isinstance(trim, str) and trim.strip().lower() in _GENERIC_TRIMS:
         old = row.get("validation_decision")
@@ -359,15 +392,23 @@ def _apply_v3_guards(row: Dict[str, Any], flags: List[GuardFlag]) -> None:
         _add_issue(row, f"Trim '{trim}' is a generic placeholder; reset to null/unresolved.")
         _add_flag(flags, "generic_trim", old, row.get("validation_decision"), "canonical_trim", "Generic trim reset to unresolved.")
 
-    if _has_combined_trim(row.get("canonical_trim")) and row.get("validation_decision") == "clean_exact":
+    if _has_explicit_split_evidence(row):
+        old = row.get("validation_decision")
+        row["validation_decision"] = "split_required"
+        row["acceptance_tier"] = "none"
+        row["trim_status"] = "invalid"
+        row["trim_confidence"] = 0.0
+        _add_issue(row, "Combined trim contains multiple distinct marketed trims and must be split into separate variants.")
+        _add_flag(flags, "slash_trim", old, "split_required", "validation_decision", "Combined trim has split candidates and explicit split evidence.")
+    elif _has_combined_trim(row.get("canonical_trim")) and row.get("validation_decision") == "clean_exact":
         old = row.get("validation_decision")
         row["validation_decision"] = "split_required" if _prefer_split(row) else "clean_partial"
         _add_issue(row, "Slash/combined trim cannot be clean_exact.")
         _add_flag(flags, "slash_trim", old, row.get("validation_decision"), "validation_decision", "Slash/combined trim cannot be clean_exact.")
 
-    if row.get("validation_decision") == "clean_exact" and _summary_wants_split(row.get("grounding_summary", "")):
+    if row.get("validation_decision") == "clean_exact" and _summary_wants_split(_split_evidence_text(row)):
         old = row.get("validation_decision")
-        row["validation_decision"] = "split_required" if any(p in (row.get("grounding_summary") or "").lower() for p in ["different power outputs", "distinct trims", "split is required", "must be split"]) else "clean_partial"
+        row["validation_decision"] = "split_required" if any(p in _split_evidence_text(row).lower() for p in ["different power outputs", "distinct trims", "different specifications", "separate variants", "split is required", "must be split"]) else "clean_partial"
         _add_issue(row, "Grounding summary conflicts with clean_exact decision.")
         _add_flag(flags, "grounding_summary_vs_decision", old, row.get("validation_decision"), "validation_decision", "Grounding summary indicates split/partial, not clean_exact.")
 
@@ -379,7 +420,12 @@ def _apply_v3_guards(row: Dict[str, Any], flags: List[GuardFlag]) -> None:
 
     cur = datetime.datetime.now(datetime.timezone.utc).year
     ye = row.get("year_end")
-    if isinstance(ye, int) and ye >= cur:
+    if isinstance(ye, int) and ye < cur and (row.get("is_currently_produced") is True or row.get("is_currently_imported_il") is True):
+        row["is_currently_produced"] = False
+        row["is_currently_imported_il"] = False
+        _add_issue(row, "Current-production/import flags corrected to false because year_end is a past year for this variant.")
+        _add_flag(flags, "year_end_current", None, None, "is_currently_produced", "Past year_end corrected active flags to false.")
+    elif isinstance(ye, int) and ye >= cur:
         summary = (row.get("grounding_summary") or "").lower()
         if row.get("is_currently_produced") is True or row.get("is_currently_imported_il") is True or any(p in summary for p in _CURRENT_PHRASES):
             row["year_end"] = None
@@ -387,9 +433,8 @@ def _apply_v3_guards(row: Dict[str, Any], flags: List[GuardFlag]) -> None:
         else:
             _add_issue(row, "year_end is current/future; verify it is not a placeholder for active production/import.")
 
-    make = str(row.get("canonical_make") or "").lower(); model = str(row.get("canonical_model") or "").lower()
-    body = str(row.get("body_type") or "").lower(); trim_s = str(row.get("canonical_trim") or "").lower(); trans = str(row.get("transmission") or "").lower()
-    is_500c = make == "abarth" and (model in {"500", "500c"} or "500c" in (model+body+trim_s)) and any(x in body+model+trim_s for x in ["cabrio", "convertible", "500c"])
+    trim_s = str(row.get("canonical_trim") or "").lower(); trans = str(row.get("transmission") or "").lower()
+    is_500c = _has_explicit_500c_cabriolet_evidence(row)
     if is_500c and trim_s in {"500c", "cabrio", "cabriolet", "convertible"}:
         row["canonical_trim"] = None; row["trim_status"] = "unresolved"; row["trim_confidence"] = 0.0
         _add_issue(row, "500C/Cabriolet is a body/model designation, not a verified trim.")
@@ -411,6 +456,8 @@ def _apply_v3_guards(row: Dict[str, Any], flags: List[GuardFlag]) -> None:
         row["fields_left_unresolved"] = [f for f in unresolved if f != "official_marketed_name_il"]
     elif row.get("identity_status") in {"verified", "likely_valid"} and "official_marketed_name_il" not in unresolved:
         unresolved.append("official_marketed_name_il"); row["fields_left_unresolved"] = unresolved
+
+    _add_guard_corrected_reason(row, before_guard_fields)
 
 # ---------------------------------------------------------------------------
 # Main entry point
