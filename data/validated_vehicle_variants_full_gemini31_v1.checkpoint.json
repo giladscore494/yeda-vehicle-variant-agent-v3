@@ -8,17 +8,17 @@
     "run_timestamp_utc": "2026-06-13T16:31:24Z",
     "total_input_variants": 3712,
     "total_instruction_records": 3712,
-    "total_validated_variants": 18,
+    "total_validated_variants": 19,
     "decision_counts": {
-      "clean_exact": 8,
+      "clean_exact": 9,
       "clean_partial": 8,
       "split_required": 2,
       "reject": 0
     },
     "grounding_cluster_count": 3653,
-    "gemini_call_count": 16,
-    "github_checkpoint_count": 16,
-    "last_validated_id": "VAL-000018"
+    "gemini_call_count": 17,
+    "github_checkpoint_count": 17,
+    "last_validated_id": "VAL-000019"
   },
   "completed_validation_ids": [
     "VAL-000001",
@@ -38,7 +38,8 @@
     "VAL-000015",
     "VAL-000016",
     "VAL-000017",
-    "VAL-000018"
+    "VAL-000018",
+    "VAL-000019"
   ],
   "failed_validation_ids": [],
   "validated_variants_by_id": {
@@ -1100,6 +1101,59 @@
         "official_marketed_name_il"
       ],
       "decision_reason": "The vehicle identity and trim (Turismo, 240 hp) are fully verified and match the manufacturer's specifications for this model."
+    },
+    "VAL-000019": {
+      "validation_id": "VAL-000019",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000019",
+      "source_cluster_id": "CLU-d50bf5702217",
+      "grounding_cluster_id": "CLU-d50bf5702217",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "600e",
+      "canonical_series_or_generation": "1",
+      "canonical_trim": "Scorpionissima",
+      "official_marketed_name_il": null,
+      "body_type": "Crossover",
+      "fuel_type": "electric",
+      "engine": "Electric (280 hp)",
+      "transmission": "automatic",
+      "drivetrain": "FWD",
+      "year_start": 2024,
+      "year_end": 2026,
+      "market_scope": "IL",
+      "validation_decision": "clean_exact",
+      "acceptance_tier": "exact",
+      "identity_status": "verified",
+      "identity_confidence": 0.95,
+      "trim_status": "verified",
+      "trim_confidence": 0.95,
+      "grounding_summary": "The Abarth 600e was revealed in 2024. The Scorpionissima is the launch edition trim featuring a 280 hp electric motor and FWD. It is currently under consideration for the Israeli market by the importer (Samelet) and is highly relevant. The technical specs and trim name exactly match the global and expected local specifications.",
+      "evidence_sources": [
+        {
+          "title": "https://www.cartube.co.il/חדשות-רכב/אבארט-600e-נחשף-קרוסאובר-ביצועים-חשמלי",
+          "url": "https://www.cartube.co.il/חדשות-רכב/אבארט-600e-נחשף-קרוסאובר-ביצועים-חשמלי",
+          "source_name": "www.cartube.co.il",
+          "source_type": "unknown",
+          "supports": []
+        },
+        {
+          "title": "https://www.sport5.co.il/articles.aspx?FolderID=8553&docID=486845",
+          "url": "https://www.sport5.co.il/articles.aspx?FolderID=8553&docID=486845",
+          "source_name": "www.sport5.co.il",
+          "source_type": "unknown",
+          "supports": []
+        }
+      ],
+      "possible_trim_names": [],
+      "split_candidates": [],
+      "blocking_identity_issues": [],
+      "non_blocking_trim_issues": [],
+      "fields_changed": [],
+      "fields_left_unresolved": [
+        "official_marketed_name_il"
+      ],
+      "decision_reason": "The vehicle identity and trim are fully verified. The Scorpionissima is a known 280 hp launch edition of the Abarth 600e. While not yet officially launched in Israel, it is under consideration and the specs are globally accurate."
     }
   },
   "cluster_cache": {
@@ -1497,14 +1551,36 @@
           "supports": []
         }
       ]
+    },
+    "CLU-d50bf5702217": {
+      "anchor_id": "VAL-000019",
+      "identity_status": "verified",
+      "identity_confidence": 0.95,
+      "grounding_summary": "The Abarth 600e was revealed in 2024. The Scorpionissima is the launch edition trim featuring a 280 hp electric motor and FWD. It is currently under consideration for the Israeli market by the importer (Samelet) and is highly relevant. The technical specs and trim name exactly match the global and expected local specifications.",
+      "evidence_sources": [
+        {
+          "title": "https://www.cartube.co.il/חדשות-רכב/אבארט-600e-נחשף-קרוסאובר-ביצועים-חשמלי",
+          "url": "https://www.cartube.co.il/חדשות-רכב/אבארט-600e-נחשף-קרוסאובר-ביצועים-חשמלי",
+          "source_name": "www.cartube.co.il",
+          "source_type": "unknown",
+          "supports": []
+        },
+        {
+          "title": "https://www.sport5.co.il/articles.aspx?FolderID=8553&docID=486845",
+          "url": "https://www.sport5.co.il/articles.aspx?FolderID=8553&docID=486845",
+          "source_name": "www.sport5.co.il",
+          "source_type": "unknown",
+          "supports": []
+        }
+      ]
     }
   },
   "decision_counts": {
-    "clean_exact": 8,
+    "clean_exact": 9,
     "clean_partial": 8,
     "split_required": 2,
     "reject": 0
   },
-  "last_validated_id": "VAL-000018",
-  "updated_at_utc": "2026-06-13T16:37:53Z"
+  "last_validated_id": "VAL-000019",
+  "updated_at_utc": "2026-06-13T16:38:23Z"
 }
