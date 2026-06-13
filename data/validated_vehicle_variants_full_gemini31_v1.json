@@ -8,24 +8,24 @@
     "run_timestamp_utc": "2026-06-13T18:17:36Z",
     "total_input_variants": 3712,
     "total_instruction_records": 3712,
-    "total_validated_variants": 2,
+    "total_validated_variants": 3,
     "decision_counts": {
       "clean_exact": 0,
       "clean_partial": 2,
-      "split_required": 0,
+      "split_required": 1,
       "reject": 0
     },
     "grounding_cluster_count": 3653,
-    "gemini_call_count": 2,
+    "gemini_call_count": 3,
     "github_checkpoint_enabled": true,
-    "github_checkpoint_count": 2,
+    "github_checkpoint_count": 3,
     "github_checkpoint_fail_count": 0,
     "last_github_checkpoint_error": null,
-    "last_validated_id": "VAL-000002",
+    "last_validated_id": "VAL-000003",
     "schema_version": "v3_three_stage",
     "pipeline_version": "v3_three_stage",
-    "stage1_pro_calls": 2,
-    "stage2_guard_flags_total": 0,
+    "stage1_pro_calls": 3,
+    "stage2_guard_flags_total": 2,
     "stage3_flash_calls": 0,
     "flash_overrode_guard": 0,
     "guard_overrode_flash": 0,
@@ -198,6 +198,93 @@
       "_flags_count": 0,
       "_flash_used": false,
       "adjudication_log": []
+    },
+    {
+      "validation_id": "VAL-000003",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000003",
+      "source_cluster_id": "CLU-d039ea7ad836",
+      "grounding_cluster_id": "CLU-d039ea7ad836",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "500",
+      "canonical_series_or_generation": "First Generation",
+      "canonical_trim": "Competizione / Scorpione / Nuvolari S",
+      "official_marketed_name_il": "אבארט 500",
+      "body_type": "Hatchback",
+      "fuel_type": "petrol",
+      "engine": "1.4L Turbo",
+      "transmission": "manual",
+      "drivetrain": "FWD",
+      "year_start": 2008,
+      "year_end": null,
+      "is_currently_produced": true,
+      "is_currently_imported_il": true,
+      "market_scope": "IL",
+      "validation_decision": "split_required",
+      "acceptance_tier": "none",
+      "identity_status": "verified",
+      "identity_confidence": 1.0,
+      "trim_status": "invalid",
+      "trim_confidence": 0.0,
+      "grounding_summary": "The Abarth 500 is officially marketed in Israel. However, the provided trim string 'Competizione / Scorpione / Nuvolari S' combines three distinct trim levels that have different engine outputs (e.g., Competizione has 180hp, Scorpione has 145hp, Nuvolari S has 165hp). Therefore, this variant must be split into separate variants for each trim.",
+      "evidence_sources": [
+        {
+          "title": "אבארט 500 1.4 ידני 180 כ\"ס Competizione 2024 | מפרט טכני - cartube",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEYYvSCVQ1Hwj5R8sWoaK2uxZlfZcGkPcti7e15WRFRx2YTxpdKERMch9GCGD6lfYzA2otR5pcBtvrTVA-0wvy-uty8KPFrsJByusWQNL5CvukHviTB87RKOxlAPu_OA2AeWslfywC1EW78XZW0O20EreEZOy9kvwUH4gb9tmxPf4ecHkOJdHo-jK7Fkf6_Anfzw8z8aBfLtT1mL_HBWrl4Xgz-ZmQx6IvaO_Hu0Y4_ALbLitlw4xmlCj4kgZ2efF1ENKl7yQ9CEf9Dc5sMhuVCVATYY_Ct8qQFaSMUbXGLg9XzK-Vqrwcs4JbNdx3sMfM-eciWLQ5Pdi-b_Ou1J_v_k_rynO9l1cFaO0qjamV2RVX1R0ylR2o3UZHbbiz-tN0MDd9ihmMrX4cr4jPKFHKpe_z9GfsBCfSTjVEJ7NJfhkY=",
+          "source_name": "cartube",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "exact_trim",
+            "engine",
+            "transmission"
+          ]
+        },
+        {
+          "title": "גודשת לכל פועל: אבארט 500 סקורפיונה במבחן - Wheel חדשות ומבצעי רכב",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG_niBH3znXlZa2xt5S6_QAnvNaqrv9fo0CD-M2qG_QC92W_NPgwBFvnWUC8mVL6D5euvmpjnWnmLE9AeLJy7N4iLnJfeiH0r2huJ5StEfdVaa643mc9a287Z1gPfC3A5Fe_VxRWiAxpcZh1L0pITaT8Tkmxf-wSlQPZ1A8AhicjTjpWv3Y-Nf4fHacHqQh14J8WJolN0uCpIHzkJ7BsNpsZ9wHhjLk96-Qd9QxrLHfd4JlxerXogCvD3DE-93uN7pe6rg_OghMa_KYZ4zWnyjgnUOUBpNjYmR-1dZZPHGh1MStuGGuDjnMJQ2_WdcswDoZHBQ9jCTABvmjnK6RGmZjajh8WvjXph1S297L3e-4",
+          "source_name": "Wheel",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "exact_trim"
+          ]
+        },
+        {
+          "title": "אבארט 500 Abarth Nuvolari נובולרי S 595 במבחן דרכים - גלגלים",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGoeNSQBlYpBktlp4_AJoQyPHP0d9bK5uZSZ8ruZ07ZSwmFXz5wXmPXRQ-72AzhB0Z_z6DqHZtR3uLT2HP53qkcWbIfMGGGeubkf3uav2_eQmPVJNbstOn_Qullb0ukEgyKQw-qZiKiy5luCFKbjQakchvYzCon9A-lV9t7FJRze__2rk2jAQCW2dAd0-GlQForxU-oYt3oKfRsKtZRzE24ry0E06hgtdaPfrhuWWlUskI8Jip0it1xiT54nLVrPGP92YI5CFpK8sKhO7ZHjSSxuTGE0nFMJFtgPoB7Mggz0eSsXzfScLVL2V1TdqugfVgAuzw59GbXKJQ0_77sF1KzHTJMF1kPYUMGq1279u0kIZKx9EI49Duu3noRQpeaAfv9-j0Eq9go7KusEwAPPdVY_MxO5Meb3iMzFRekV15pF3uN-nU2HOlfkHw=",
+          "source_name": "גלגלים",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "exact_trim"
+          ]
+        }
+      ],
+      "possible_trim_names": [
+        "Competizione",
+        "Scorpione",
+        "Nuvolari S"
+      ],
+      "split_candidates": [
+        "Competizione",
+        "Scorpione",
+        "Nuvolari S"
+      ],
+      "blocking_identity_issues": [],
+      "non_blocking_trim_issues": [
+        "Trim field contains multiple distinct trims that have different engine outputs and specifications.",
+        "Combined trim contains multiple distinct marketed trims and must be split into separate variants."
+      ],
+      "fields_changed": [],
+      "fields_left_unresolved": [],
+      "decision_reason": "The provided trim string combines three distinct trim levels (Competizione, Scorpione, Nuvolari S) which have different engine power outputs and specifications in the Israeli market. A split is required.",
+      "_pipeline_version": "v3_three_stage",
+      "_flags_count": 2,
+      "_flash_used": false,
+      "adjudication_log": [],
+      "guard_corrected_reason": "Python guards corrected the model output: year_end: 2026 -> None."
     }
   ]
 }
