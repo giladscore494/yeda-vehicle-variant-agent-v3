@@ -148,8 +148,10 @@ def main(argv=None) -> int:
     repair_adjudicator = None
     if mode == "real" and args.repair_adjudicator:
         from scripts.openai_repair_adjudicator import OpenAIRepairAdjudicator, OpenAIRepairAdjudicatorSettings
-        if shared_config.openai_api_key:
-            repair_adjudicator = OpenAIRepairAdjudicator(OpenAIRepairAdjudicatorSettings(api_key=shared_config.openai_api_key, model_id=args.repair_adjudicator_model, enabled=True, grounding_required=args.require_gpt54_grounding_for_repair))
+        if not shared_config.openai_api_key:
+            print("ERROR: OPENAI_API_KEY not set; cannot enable GPT-5.4 repair adjudicator. Refusing to run.")
+            return 2
+        repair_adjudicator = OpenAIRepairAdjudicator(OpenAIRepairAdjudicatorSettings(api_key=shared_config.openai_api_key, model_id=args.repair_adjudicator_model, enabled=True, grounding_required=args.require_gpt54_grounding_for_repair))
 
     result = run_validation(
         join,
