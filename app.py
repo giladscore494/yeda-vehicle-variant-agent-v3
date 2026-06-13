@@ -388,7 +388,7 @@ with rc1:
     )
     real_force = st.checkbox("Force reprocess (real)", value=False, key="real_force")
     real_stop_on_error = st.checkbox("Stop on first row error", value=False, key="real_soe")
-    real_guard_verifier_enabled = st.checkbox("GPT guard verifier enabled", value=guard_verifier_enabled_default, key="real_guard_verifier")
+    real_guard_verifier_enabled = st.checkbox("GPT-5.4 grounded repair adjudicator enabled", value=guard_verifier_enabled_default, key="real_guard_verifier")
     real_force_per_variant = st.checkbox("Force per-variant Gemini validation", value=force_per_variant_default, key="real_force_per_variant")
 with rc2:
     real_start_after = st.text_input("Start after id (real)", value="", key="real_start")
@@ -399,7 +399,7 @@ with rc2:
         "Auto-save real files to GitHub", value=bool(token), key="real_push"
     )
     real_stop_on_gh = st.checkbox("Stop on GitHub save failure", value=True, key="real_sogh")
-    real_guard_verifier_model_id = st.text_input("Guard verifier model id", value=guard_verifier_model_default, key="real_guard_verifier_model")
+    real_guard_verifier_model_id = st.text_input("Repair adjudicator model id", value=guard_verifier_model_default, key="real_guard_verifier_model")
 
 rrun_col, rreset_col = st.columns(2)
 real_run_clicked = rrun_col.button(
@@ -475,9 +475,19 @@ def _mode_progress(label: str, run_paths) -> None:
     v1, v2, v3, v4, v5 = st.columns(5)
     v1.metric("Stage 1 Pro", meta.get("stage1_pro_calls", 0))
     v2.metric("Guard flags", meta.get("stage2_guard_flags_total", 0))
-    v3.metric("Stage 3 guard verifier", meta.get("stage3_guard_verifier_calls", 0))
-    v4.metric("Verifier overrode", meta.get("guard_verifier_overrode_guard", 0))
-    v5.metric("Guard overrode", meta.get("guard_overrode_verifier", 0))
+    v3.metric("GPT-5.4 repair calls", meta.get("stage3_repair_adjudicator_calls", 0))
+    v4.metric("Repair patches", meta.get("stage3_repair_adjudicator_patches", 0))
+    v5.metric("Final seal blocks", meta.get("stage4_final_seal_blocks", 0))
+    st.caption(
+        "Gemini grounding missing="
+        f"{meta.get('stage1_gemini_grounding_missing', 0)} · "
+        "GPT-5.4 grounding missing="
+        f"{meta.get('stage3_repair_adjudicator_grounding_missing', 0)} · "
+        "clean blocks: grounding="
+        f"{meta.get('clean_catalog_blocks_by_grounding', 0)}, trim="
+        f"{meta.get('clean_catalog_blocks_by_unresolved_trim', 0)}, critical="
+        f"{meta.get('clean_catalog_blocks_by_unresolved_critical_field', 0)}"
+    )
 
     dc = meta.get("decision_counts", {})
     d1, d2, d3, d4 = st.columns(4)
@@ -493,7 +503,16 @@ def _mode_progress(label: str, run_paths) -> None:
     latest = store_view.latest_row()
     if latest:
         with st.expander(f"Latest {label} row"):
-            st.write(f"_guard_verifier_used: `{latest.get('_guard_verifier_used')}` · _flags_count: `{latest.get('_flags_count')}`")
+            st.write(f"_repair_adjudicator_triggered: `{latest.get('_repair_adjudicator_triggered')}` · _flags_count: `{latest.get('_flags_count')}`")
+            st.json({
+                "preflight_risk_tags": latest.get("preflight_risk_tags"),
+                "guard_flags": latest.get("guard_flags"),
+                "risk_score": latest.get("risk_score"),
+                "repair_decision": latest.get("_repair_decision"),
+                "field_patches": latest.get("field_patches"),
+                "grounding_status": latest.get("grounding_status"),
+                "final_seal_result": latest.get("final_seal_result"),
+            })
             if latest.get("adjudication_log"):
                 st.json(latest.get("adjudication_log"))
             st.json(latest)

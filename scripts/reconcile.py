@@ -820,3 +820,287 @@ def reconcile_validation_output(
     """Backwards-compatible deterministic cleanup API."""
     row, _flags = reconcile_validation_output_with_flags(source_variant, model_output, run_mode=run_mode)
     return row
+
+# ---------------------------------------------------------------------------
+# v4 grounded repair/final seal helpers
+# ---------------------------------------------------------------------------
+
+CRITICAL_FIELDS = (
+    "canonical_make", "canonical_model", "canonical_trim", "official_marketed_name_il",
+    "body_type", "fuel_type", "engine", "transmission", "drivetrain",
+    "year_start", "year_end", "is_currently_produced", "is_currently_imported_il",
+)
+_FIELD_CONFIDENCE_THRESHOLDS = {
+    "canonical_trim": 0.80,
+    "transmission": 0.75,
+    "engine": 0.75,
+    "fuel_type": 0.75,
+    "body_type": 0.70,
+    "drivetrain": 0.70,
+    "year_start": 0.75,
+    "year_end": 0.70,
+}
+_BODY_STYLE_TRIMS = {"500c", "cabriolet", "cabrio", "hatchback", "sedan", "suv", "sportback", "coupe", "convertible"}
+
+
+def compute_preflight_risk_tags(raw_variant: Dict[str, Any]) -> List[str]:
+    """Stage 0 deterministic risk tags. Never mutates input."""
+    std = get_standard(raw_variant or {})
+    trim = std.get("trim") or raw_variant.get("trim") or raw_variant.get("raw_trim_name") or raw_variant.get("canonical_trim")
+    body = std.get("body_type") or raw_variant.get("body_type")
+    tags: List[str] = []
+    trim_s = "" if trim is None else str(trim).strip()
+    trim_l = trim_s.lower()
+    if not trim_s:
+        tags += ["missing_trim", "placeholder_trim"]
+    trim_parts = [p.strip().lower() for p in re.split(r"/|\||,|\bor\b|\band\b|או|ו-", trim_l) if p.strip()]
+    if trim_l == "base" or "base" in trim_parts:
+        tags += ["base_trim", "placeholder_trim"]
+    if trim_l == "standard" or "standard" in trim_parts:
+        tags += ["standard_trim", "placeholder_trim"]
+    if trim_l in {"none", "null", "n/a", "na"} or any(p in {"none", "null", "n/a", "na"} for p in trim_parts):
+        tags += ["none_trim", "placeholder_trim"]
+    if _has_combined_trim(trim_s) or any(x in trim_l for x in (" או ", " ו-")):
+        tags.append("multi_trim_string")
+    if "/" in trim_s:
+        tags.append("slash_trim")
+    if "," in trim_s:
+        tags.append("comma_trim")
+    if any(x in trim_l for x in (" or ", " and ", " או ", " ו-")):
+        tags.append("hebrew_or_english_combined_trim")
+    if trim_l in _BODY_STYLE_TRIMS or (body and trim_l == str(body).strip().lower()):
+        tags.append("body_style_as_trim")
+    if not raw_variant.get("official_marketed_name_il") and not std.get("official_marketed_name_il"):
+        tags.append("weak_official_marketed_name")
+    cur = datetime.datetime.now(datetime.timezone.utc).year
+    ye = norm_year(std.get("year_end") or raw_variant.get("year_end"))
+    if isinstance(ye, int) and ye >= cur:
+        tags.append("current_or_future_year_end_placeholder")
+    ys = norm_year(std.get("year_start") or raw_variant.get("year_start"))
+    if isinstance(ys, int) and ys < 1990:
+        tags.append("global_launch_year_suspected")
+    if ys is None or ye is None:
+        tags.append("israel_market_year_risk")
+    if not (std.get("transmission") or raw_variant.get("transmission")):
+        tags.append("missing_transmission")
+    trans_l = str(std.get("transmission") or raw_variant.get("transmission") or "").lower()
+    if any(x in trans_l for x in ("disputed", "unknown", "special")):
+        tags.append("disputed_transmission_risk")
+    if not (std.get("drivetrain") or raw_variant.get("drivetrain")):
+        tags.append("unknown_drivetrain")
+    if not (std.get("make") and std.get("model")):
+        tags.append("duplicate_identity_risk")
+    if not raw_variant.get("evidence_sources"):
+        tags.append("low_auditability_risk")
+    out: List[str] = []
+    for tag in tags:
+        if tag not in out:
+            out.append(tag)
+    return out
+
+
+def _flag_to_dict(flag: GuardFlag) -> Dict[str, Any]:
+    return {
+        "guard_name": flag.guard_name,
+        "severity": flag.severity,
+        "field_affected": flag.field_affected,
+        "original_value": flag.original_value,
+        "guard_value": flag.guard_value,
+        "reason": flag.reason,
+        "risk_tags": list(flag.risk_tags),
+        "needs_repair_adjudication": bool(flag.needs_adjudication),
+        "allowed_patch_fields": list(flag.allowed_patch_fields),
+    }
+
+
+def assess_grounding(row: Dict[str, Any], *, repair_used: bool = False, require_gemini: bool = True, require_gpt54_for_repair: bool = True) -> Dict[str, Any]:
+    matrix = row.get("source_support_matrix") if isinstance(row.get("source_support_matrix"), list) else []
+    sources = row.get("evidence_sources") if isinstance(row.get("evidence_sources"), list) else []
+    meta = row.get("gemini_grounding_metadata") or row.get("grounding_metadata") or {}
+    audit = row.get("evidence_auditability") or ("acceptable" if sources or matrix else "missing")
+    gem_present = bool(meta or matrix or any(isinstance(s, dict) and s.get("url") for s in sources))
+    gem_quality = audit if audit in {"strong", "acceptable", "weak", "missing"} else ("acceptable" if gem_present else "missing")
+    gpt_required = bool(repair_used and require_gpt54_for_repair)
+    existing = row.get("grounding_status") if isinstance(row.get("grounding_status"), dict) else {}
+    gpt_present = bool(existing.get("gpt54_grounding_present") or row.get("gpt54_grounding_metadata") or row.get("gpt54_citations"))
+    gpt_quality = existing.get("gpt54_grounding_quality") or ("acceptable" if gpt_present else "missing")
+    gate = ((not require_gemini) or (gem_present and gem_quality in {"strong", "acceptable"})) and ((not gpt_required) or (gpt_present and gpt_quality in {"strong", "acceptable"}))
+    return {
+        "gemini_grounding_required": bool(require_gemini),
+        "gemini_grounding_present": bool(gem_present),
+        "gemini_grounding_quality": gem_quality if gem_present else "missing",
+        "gpt54_grounding_required": bool(gpt_required),
+        "gpt54_grounding_present": bool(gpt_present),
+        "gpt54_grounding_quality": gpt_quality if gpt_present else "missing",
+        "final_grounding_gate_passed": bool(gate),
+    }
+
+
+def _support_for(row: Dict[str, Any], field: str) -> Optional[Dict[str, Any]]:
+    for item in row.get("source_support_matrix") or []:
+        if isinstance(item, dict) and item.get("field") == field:
+            return item
+    return None
+
+
+def apply_deterministic_quality_guards(row: Dict[str, Any], flags: List[GuardFlag]) -> None:
+    fv = row.get("field_validation") if isinstance(row.get("field_validation"), dict) else {}
+    unresolved = row.get("fields_left_unresolved") if isinstance(row.get("fields_left_unresolved"), list) else []
+    # Ensure critical field_validation shape exists.
+    for field in CRITICAL_FIELDS:
+        if field not in fv:
+            fv[field] = {"status": "unresolved" if row.get(field) in (None, "", []) else "inferred", "confidence": 0.0, "evidence_strength": "missing", "source_indexes": [], "risk_tags": [], "notes": "Added by Python guard; Gemini omitted field validation."}
+            _add_flag(flags, "schema_field_validation_missing", None, field, field, "field_validation missing for critical field.", severity="medium", risk_tags=["schema"])
+    row["field_validation"] = fv
+
+    # Confidence/support thresholds.
+    for field, threshold in _FIELD_CONFIDENCE_THRESHOLDS.items():
+        info = fv.get(field) if isinstance(fv.get(field), dict) else {}
+        conf = info.get("confidence", row.get("trim_confidence") if field == "canonical_trim" else 0.0)
+        try:
+            conf_f = float(conf or 0.0)
+        except (TypeError, ValueError):
+            conf_f = 0.0
+        support = _support_for(row, field)
+        support_level = support.get("support_level") if isinstance(support, dict) else info.get("evidence_strength")
+        if row.get(field) not in (None, "", []) and (conf_f < threshold or support_level in {"missing", "contradictory", None}):
+            if field not in unresolved:
+                unresolved.append(field)
+            _add_flag(flags, "field_confidence_or_evidence_low", row.get(field), None, field, f"{field} lacks confidence/support required for clean_catalog.", severity="high", risk_tags=["field_confidence", "evidence"])
+
+    # Issues/text unresolved => field unresolved and technical fields nullified if unsafe.
+    for field in _text_fields_unresolved(row):
+        if field not in unresolved:
+            unresolved.append(field)
+        if field in _IDENTITY_CRITICAL_FIELDS and row.get(field) not in (None, "", []):
+            old = row.get(field)
+            row[field] = None
+            _add_flag(flags, "populated_field_marked_unresolved", old, None, field, f"Audit/issues mark {field} unresolved; canonical value nullified.", severity="critical", risk_tags=["audit_consistency", "populated_unresolved"])
+    row["fields_left_unresolved"] = unresolved
+
+    # Domain trims.
+    trim = row.get("canonical_trim")
+    trim_l = str(trim or "").strip().lower()
+    if trim in (None, "", []) or trim_l in _GENERIC_TRIMS or trim_l in _BODY_STYLE_TRIMS:
+        if trim_l in _BODY_STYLE_TRIMS or trim_l in _GENERIC_TRIMS:
+            _add_flag(flags, "body_or_placeholder_trim", trim, None, "canonical_trim", "Placeholder/body-style trim cannot be canonical without direct importer evidence.", severity="high", risk_tags=["trim_quality"])
+        if trim in (None, "", []) or trim_l in _GENERIC_TRIMS or trim_l in _BODY_STYLE_TRIMS:
+            row["canonical_trim"] = None; row["trim_status"] = "unresolved"; row["trim_confidence"] = 0.0
+            if "canonical_trim" not in unresolved:
+                unresolved.append("canonical_trim")
+            row["fields_left_unresolved"] = unresolved
+            if row.get("validation_decision") == "clean_exact":
+                row["validation_decision"] = "clean_partial"
+    if _has_combined_trim(trim) or row.get("split_candidates"):
+        row["validation_decision"] = "split_required"
+        row["publishable_to_clean_catalog"] = False
+        _add_flag(flags, "split_required_routing", trim, "split_required", "validation_decision", "Combined trim/split candidates require split_queue.", severity="high", risk_tags=["split"])
+
+    # Summary current contradiction: rewrite stale claims.
+    summary = str(row.get("grounding_summary") or "")
+    if (row.get("is_currently_produced") in {False, None} or row.get("is_currently_imported_il") in {False, None}) and re.search(r"current(?:ly)?|still\s+(?:sold|imported|produced|manufactured)", summary, re.I):
+        old = summary
+        row["grounding_summary"] = re.sub(r"[^.]*\b(?:currently|still)\b[^.]*\.?(\s*)", "", summary, flags=re.I).strip() or "Current production/import is not verified by final fields."
+        _add_flag(flags, "current_status_contradiction", old, row["grounding_summary"], "grounding_summary", "Summary claimed current status while current flags are null/false; summary rewritten.", severity="high", risk_tags=["current_status", "summary_rewrite"])
+
+
+def determine_final_route(row: Dict[str, Any], flags: List[GuardFlag]) -> Tuple[str, bool, str]:
+    unresolved = set(row.get("fields_left_unresolved") or [])
+    high_flags = [f for f in flags if f.severity in {"high", "critical"}]
+    if row.get("duplicate_of"):
+        return "duplicate_queue", False, "duplicate_of is set."
+    if row.get("validation_decision") == "split_required" or row.get("split_candidates") or _has_combined_trim(row.get("canonical_trim")):
+        return "split_queue", False, "split_required rows or combined trims must be split before publishing."
+    if row.get("identity_status") == "invalid" or row.get("validation_decision") == "reject":
+        return "rejected", False, "Identity invalid or validation decision reject."
+    grounding = row.get("grounding_status") or {}
+    clean_ok = (
+        row.get("validation_decision") == "clean_exact"
+        and row.get("identity_status") == "verified"
+        and row.get("trim_status") == "verified"
+        and row.get("canonical_trim") not in (None, "", [])
+        and not (unresolved & _IDENTITY_CRITICAL_FIELDS)
+        and "canonical_trim" not in unresolved
+        and not row.get("blocking_identity_issues")
+        and not row.get("split_candidates")
+        and row.get("duplicate_of") is None
+        and row.get("evidence_auditability") in {"strong", "acceptable"}
+        and grounding.get("final_grounding_gate_passed") is True
+        and not high_flags
+    )
+    if clean_ok:
+        return "clean_catalog", True, "Final seal passed strict clean_catalog policy."
+    if row.get("trim_status") == "unresolved" and row.get("identity_status") in {"verified", "likely_valid"} and not (unresolved & _IDENTITY_CRITICAL_FIELDS):
+        return "partial_queue", False, "Verified/likely identity with unresolved trim is retained for partial review."
+    return "review_queue", False, "Final seal blocked clean_catalog because unresolved, weak-grounded, contradictory, or non-exact fields remain."
+
+
+def compute_repair_risk_score(row: Dict[str, Any], flags: List[GuardFlag], *, route_changed: bool = False) -> int:
+    score = 0
+    for f in flags:
+        score += {"critical": 100, "high": 50, "medium": 15, "low": 0}.get(f.severity, 0)
+        if any(t in f.risk_tags for t in ("audit_consistency", "field_confidence")):
+            score += 50
+        if "current_status" in f.risk_tags:
+            score += 50
+        if "populated_unresolved" in f.risk_tags:
+            score += 60
+    if row.get("validation_decision") == "clean_exact" or row.get("final_route") == "clean_catalog":
+        score += 40
+    if row.get("evidence_auditability") == "weak":
+        score += 30
+    if set(row.get("fields_left_unresolved") or []) & (_IDENTITY_CRITICAL_FIELDS | {"canonical_trim"}):
+        score += 50
+    if row.get("validation_decision") == "split_required" or row.get("split_candidates"):
+        score += 40
+    if route_changed:
+        score += 25
+    gs = row.get("grounding_status") or {}
+    if gs.get("gemini_grounding_quality") in {"weak", "missing"} or not gs.get("final_grounding_gate_passed"):
+        score += 60
+    return score
+
+
+def should_trigger_repair(row: Dict[str, Any], flags: List[GuardFlag], risk_score: int, mode: str = "all_clean_candidates", route_changed: bool = False) -> bool:
+    if mode == "all_rows":
+        return True
+    if risk_score >= 50 or route_changed or any(f.severity in {"high", "critical"} for f in flags):
+        return True
+    if mode == "all_clean_candidates" and (row.get("validation_decision") == "clean_exact" or row.get("final_route") == "clean_catalog"):
+        return True
+    return False
+
+
+def final_seal(row: Dict[str, Any], original_gemini_output: Optional[Dict[str, Any]] = None, repair_result: Optional[Dict[str, Any]] = None, guard_flags: Optional[List[Any]] = None, *, require_gemini_grounding: bool = True, require_gpt54_grounding_for_repair: bool = True) -> Tuple[Dict[str, Any], List[GuardFlag]]:
+    """Stage 4: Python-only publication authority."""
+    sealed = dict(row or {})
+    flags: List[GuardFlag] = []
+    for f in guard_flags or []:
+        if isinstance(f, GuardFlag):
+            flags.append(f)
+    # Guarantee schema-complete known keys without rejecting extensibility metadata.
+    from .output_writer import empty_output_row
+    template = empty_output_row(sealed.get("validation_id", ""))
+    for k, v in template.items():
+        sealed.setdefault(k, v)
+    if "field_validation" not in sealed:
+        sealed["field_validation"] = {}
+    if "source_support_matrix" not in sealed:
+        sealed["source_support_matrix"] = []
+    sealed.setdefault("evidence_auditability", "missing")
+    repair_used = bool(repair_result)
+    sealed["grounding_status"] = assess_grounding(sealed, repair_used=repair_used, require_gemini=require_gemini_grounding, require_gpt54_for_repair=require_gpt54_grounding_for_repair)
+    apply_deterministic_quality_guards(sealed, flags)
+    sealed = enforce_consistency(sealed)
+    sealed["grounding_status"] = assess_grounding(sealed, repair_used=repair_used, require_gemini=require_gemini_grounding, require_gpt54_for_repair=require_gpt54_grounding_for_repair)
+    route, pub, reason = determine_final_route(sealed, flags)
+    old_route = sealed.get("final_route")
+    if old_route != route:
+        _add_flag(flags, "final_seal_route_override", old_route, route, "final_route", reason, severity="high" if old_route == "clean_catalog" else "medium", risk_tags=["routing", "final_seal"])
+    sealed["final_route"] = route
+    sealed["publishable_to_clean_catalog"] = pub
+    sealed["route_reason"] = reason
+    unresolved = sealed.get("fields_left_unresolved") or []
+    sealed["decision_reason"] = f"Final seal route={route}; validation_decision={sealed.get('validation_decision')}; identity_status={sealed.get('identity_status')}; trim_status={sealed.get('trim_status')}." + (f" Unresolved fields: {', '.join(map(str, unresolved))}." if unresolved else "")
+    sealed["final_seal_result"] = {"passed": bool(pub or route in {"partial_queue", "split_queue", "duplicate_queue", "review_queue", "rejected"}), "guard_flags": [_flag_to_dict(f) for f in flags], "blocks_clean_catalog": not pub}
+    return sealed, flags
