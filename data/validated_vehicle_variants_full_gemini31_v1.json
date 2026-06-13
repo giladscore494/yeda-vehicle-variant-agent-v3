@@ -8,17 +8,17 @@
     "run_timestamp_utc": "2026-06-13T16:31:24Z",
     "total_input_variants": 3712,
     "total_instruction_records": 3712,
-    "total_validated_variants": 3,
+    "total_validated_variants": 4,
     "decision_counts": {
-      "clean_exact": 0,
+      "clean_exact": 1,
       "clean_partial": 2,
       "split_required": 1,
       "reject": 0
     },
     "grounding_cluster_count": 3653,
     "gemini_call_count": 2,
-    "github_checkpoint_count": 1,
-    "last_validated_id": "VAL-000003"
+    "github_checkpoint_count": 2,
+    "last_validated_id": "VAL-000004"
   },
   "validated_variants": [
     {
@@ -173,6 +173,59 @@
       "fields_changed": [],
       "fields_left_unresolved": [],
       "decision_reason": "The trim field explicitly combines multiple distinct marketed trims (Competizione, Scorpione, Nuvolari S) which correspond to different engine power outputs and specifications in Israel. A split is required to represent these as separate variants."
+    },
+    {
+      "validation_id": "VAL-000004",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000004",
+      "source_cluster_id": "CLU-d039ea7ad836",
+      "grounding_cluster_id": "CLU-d039ea7ad836",
+      "evidence_reused_from": "VAL-000003",
+      "canonical_make": "Abarth",
+      "canonical_model": "500",
+      "canonical_series_or_generation": "First Generation",
+      "canonical_trim": "Turismo / Competizione",
+      "official_marketed_name_il": null,
+      "body_type": "Hatchback",
+      "fuel_type": "petrol",
+      "engine": "1.4L Turbo",
+      "transmission": "manual",
+      "drivetrain": "FWD",
+      "year_start": 2008,
+      "year_end": 2026,
+      "market_scope": "IL",
+      "validation_decision": "clean_exact",
+      "acceptance_tier": "exact",
+      "identity_status": "verified",
+      "identity_confidence": 0.95,
+      "trim_status": "verified",
+      "trim_confidence": 0.6,
+      "grounding_summary": "The Abarth 500 is a verified model in Israel. However, the provided trim string combines 'Competizione', 'Scorpione', and 'Nuvolari S'. Market evidence from Israeli listings (such as Yad2 and Autoboom) shows these are distinct trims with different power outputs (e.g., Scorpione 145hp, Competizione 160hp/180hp, Nuvolari 165hp). Therefore, they must be split into separate variants.",
+      "evidence_sources": [
+        {
+          "title": "yad2.co.il",
+          "url": null,
+          "source_name": "yad2.co.il",
+          "source_type": "unknown",
+          "supports": []
+        },
+        {
+          "title": "autoboom.co.il",
+          "url": null,
+          "source_name": "autoboom.co.il",
+          "source_type": "unknown",
+          "supports": []
+        }
+      ],
+      "possible_trim_names": [],
+      "split_candidates": [],
+      "blocking_identity_issues": [],
+      "non_blocking_trim_issues": [],
+      "fields_changed": [],
+      "fields_left_unresolved": [
+        "official_marketed_name_il"
+      ],
+      "decision_reason": "Identity grounding reused from cluster anchor VAL-000003; trim evaluated per-row."
     }
   ]
 }
