@@ -83,6 +83,7 @@ class GuardFlag:
     recommended_verifier_model: str = "none"
     allowed_decisions: List[str] = field(default_factory=list)
     allowed_patch_fields: List[str] = field(default_factory=list)
+    risk_tags: List[str] = field(default_factory=list)
 
     @property
     def original_decision(self) -> Any:  # backwards-compatible test/API alias
@@ -127,7 +128,13 @@ _ALLOWED_DECISIONS_BY_GUARD = {
     "decision_reason_conflict": ["clean_exact", "clean_partial", "split_required"],
     "identity_confidence_downgrade": ["clean_exact", "clean_partial"],
     "technical_unresolved_publishability": ["clean_partial"],
+    "clean_catalog_safety": ["clean_partial"],
+    "no_clean_exact_unresolved": ["clean_partial", "split_required"],
+    "unresolved_field_sync": ["clean_exact", "clean_partial"],
+    "split_issue_blocking_identity": ["split_required", "clean_partial"],
+    "source_classification_risk": ["clean_exact", "clean_partial", "split_required"],
 }
+
 
 _ALLOWED_PATCH_FIELDS_BY_GUARD = {
     "slash_trim": ["validation_decision", "trim_status", "trim_confidence", "canonical_trim"],
@@ -140,10 +147,16 @@ _ALLOWED_PATCH_FIELDS_BY_GUARD = {
     "decision_reason_conflict": ["validation_decision", "identity_status", "identity_confidence", "fields_left_unresolved"],
     "identity_confidence_downgrade": ["identity_status", "identity_confidence", "validation_decision"],
     "technical_unresolved_publishability": ["validation_decision", "identity_status", "identity_confidence", "fields_left_unresolved"],
+    "clean_catalog_safety": ["validation_decision", "identity_status", "identity_confidence", "fields_left_unresolved"],
+    "no_clean_exact_unresolved": ["validation_decision", "identity_status", "identity_confidence", "trim_status", "trim_confidence", "canonical_trim"],
+    "unresolved_field_sync": ["fields_left_unresolved", "identity_status", "identity_confidence", "validation_decision"],
+    "split_issue_blocking_identity": ["blocking_identity_issues", "non_blocking_trim_issues", "validation_decision"],
+    "source_classification_risk": ["evidence_sources"],
 }
 
-def _add_flag(flags, name, old, new, field, reason, severity="medium"):
-    needs = name in NEEDS_ADJUDICATION
+
+def _add_flag(flags, name, old, new, field, reason, severity="medium", risk_tags=None):
+    needs = name in NEEDS_ADJUDICATION or severity in {"high", "critical"}
     flags.append(GuardFlag(
         guard_name=name,
         severity=severity,
@@ -155,6 +168,7 @@ def _add_flag(flags, name, old, new, field, reason, severity="medium"):
         recommended_verifier_model="gpt-5.4" if needs else "none",
         allowed_decisions=list(_ALLOWED_DECISIONS_BY_GUARD.get(name, [])),
         allowed_patch_fields=list(_ALLOWED_PATCH_FIELDS_BY_GUARD.get(name, [])),
+        risk_tags=list(risk_tags or []),
     ))
 
 def _add_issue(row, msg):
@@ -508,6 +522,129 @@ def _add_guard_corrected_reason(row: Dict[str, Any], before: Dict[str, Any]) -> 
         if "Guard correction:" not in reason:
             row["decision_reason"] = (reason + " " if reason else "") + "Guard correction: " + note
 
+
+def _sentence_mentions_unresolved(sentence: str) -> bool:
+    return any(term in sentence for term in ("unresolved", "uncertain", "not verified", "disputed", "ambiguous", "cannot be determined", "left unresolved", "weakly inferred", "special-order-only", "rare", "unknown"))
+
+def _text_fields_unresolved(row: Dict[str, Any]) -> List[str]:
+    """Precise sync: only add a field when the same sentence marks it unresolved."""
+    aliases = {
+        "transmission": ("transmission", "gearbox"),
+        "engine": ("engine",),
+        "year_end": ("year_end", "end year"),
+        "canonical_trim": ("canonical_trim", "trim"),
+        "fuel_type": ("fuel_type", "fuel"),
+        "body_type": ("body_type", "body"),
+        "drivetrain": ("drivetrain",),
+        "year_start": ("year_start", "start year"),
+    }
+    haystack = " ".join(str(row.get(k) or "") for k in ("grounding_summary", "decision_reason", "guard_corrected_reason", "blocking_identity_issues", "non_blocking_trim_issues"))
+    sentences = re.split(r"[.!?;\n]+", haystack.lower())
+    found: List[str] = []
+    for sentence in sentences:
+        if not _sentence_mentions_unresolved(sentence):
+            continue
+        if " verified" in sentence and not any(x in sentence for x in ("not verified", "unverified")):
+            continue
+        for field, names in aliases.items():
+            if any(name in sentence for name in names) and field not in found:
+                found.append(field)
+    return found
+
+def _is_split_only_issue(text: str) -> bool:
+    low = str(text or "").lower()
+    if not any(p in low for p in _SPLIT_PHRASES + ["split_required", "combined trim", "multiple trims"]):
+        return False
+    contradiction_terms = ("wrong make", "wrong model", "wrong market", "impossible", "incompatible", "identity contradiction", "powertrain contradiction")
+    return not any(t in low for t in contradiction_terms)
+
+def _apply_strict_audit_guards(row: Dict[str, Any], flags: List[GuardFlag]) -> None:
+    unresolved = row.get("fields_left_unresolved") if isinstance(row.get("fields_left_unresolved"), list) else []
+    for field in _text_fields_unresolved(row):
+        if field not in unresolved:
+            unresolved.append(field)
+            sev = "high" if field in _IDENTITY_CRITICAL_FIELDS else "medium"
+            _add_flag(flags, "unresolved_field_sync", None, field, field, f"Audit text marks {field} unresolved but fields_left_unresolved omitted it.", severity=sev, risk_tags=["audit_consistency", "identity_critical"] if sev == "high" else ["audit_consistency"])
+    row["fields_left_unresolved"] = unresolved
+
+    blocking = row.get("blocking_identity_issues") if isinstance(row.get("blocking_identity_issues"), list) else []
+    moved = [issue for issue in blocking if _is_split_only_issue(issue)]
+    if moved:
+        row["blocking_identity_issues"] = [issue for issue in blocking if issue not in moved]
+        nonblocking = row.get("non_blocking_trim_issues") if isinstance(row.get("non_blocking_trim_issues"), list) else []
+        for issue in moved:
+            if issue not in nonblocking:
+                nonblocking.append(issue)
+        row["non_blocking_trim_issues"] = nonblocking
+        _add_flag(flags, "split_issue_blocking_identity", blocking, row["blocking_identity_issues"], "blocking_identity_issues", "Split-only trim issue moved out of blocking identity issues.", severity="medium", risk_tags=["split", "audit_consistency"])
+
+    # Explanation/final-field contradictions that can affect audit or publishability.
+    text = " ".join(str(row.get(k) or "") for k in ("decision_reason", "grounding_summary", "guard_corrected_reason")).lower()
+    if row.get("identity_status") in {"likely_valid", "uncertain"} and re.search(r"identity (?:is |was )?verified|verified identity", text):
+        _add_flag(flags, "decision_reason_conflict", row.get("identity_status"), row.get("identity_status"), "identity_status", "Audit text claims verified identity while final identity_status is not verified.", severity="high", risk_tags=["audit_consistency", "publishability"])
+    if row.get("trim_status") in {"unresolved", "invalid"} and re.search(r"(?:exact )?trim (?:is |was )?verified|verified trim", text):
+        _add_flag(flags, "decision_reason_conflict", row.get("trim_status"), row.get("trim_status"), "canonical_trim", "Audit text claims verified trim while final trim_status is unresolved/invalid.", severity="medium", risk_tags=["audit_consistency"])
+    if (row.get("is_currently_produced") in {False, None} or row.get("is_currently_imported_il") in {False, None}) and re.search(r"current(?:ly)? (?:produced|imported|sold)|still (?:produced|imported|sold)", text):
+        _add_flag(flags, "current_status_conflict", None, None, "is_currently_imported_il", "Audit text contains current-status claims not supported by final current flags.", severity="high", risk_tags=["current_status", "publishability"])
+
+    # Source classification risk: flag likely title-derived official classifications.
+    for src in row.get("evidence_sources") or []:
+        if not isinstance(src, dict):
+            continue
+        actual = classify_source_type(str(src.get("source_name") or ""), str(src.get("url") or ""), "")
+        claimed = src.get("source_type")
+        if claimed in {"official_importer", "manufacturer"} and actual not in {claimed, "unknown"}:
+            old = claimed
+            src["source_type"] = actual
+            _add_flag(flags, "source_classification_risk", old, actual, "source_type", "source_type corrected using source_name/domain rather than title text.", severity="medium", risk_tags=["source_classification", "audit_consistency"])
+
+    # Confidence mismatch deterministic downgrades.
+    if row.get("identity_status") == "likely_valid" and float(row.get("identity_confidence") or 0) >= 0.99:
+        old = row.get("identity_confidence"); row["identity_confidence"] = 0.85
+        _add_flag(flags, "identity_confidence_downgrade", old, row["identity_confidence"], "identity_confidence", "likely_valid identity should not retain exact-level confidence.", severity="medium")
+    if row.get("identity_status") == "uncertain" and float(row.get("identity_confidence") or 0) > 0.7:
+        old = row.get("identity_confidence"); row["identity_confidence"] = 0.7
+        _add_flag(flags, "identity_confidence_downgrade", old, row["identity_confidence"], "identity_confidence", "uncertain identity should not retain very high confidence.", severity="high")
+    if row.get("trim_status") in {"unresolved", "invalid"} and float(row.get("trim_confidence") or 0) > 0.2:
+        old = row.get("trim_confidence"); row["trim_confidence"] = 0.0
+        _add_flag(flags, "confidence_mismatch", old, 0.0, "trim_confidence", "Unresolved/invalid trim confidence reset to 0.0.", severity="low")
+
+    # clean_exact and clean catalog safety restrictions.
+    unresolved = row.get("fields_left_unresolved") if isinstance(row.get("fields_left_unresolved"), list) else []
+    clean_exact_bad = (
+        row.get("validation_decision") == "clean_exact" and row.get("canonical_make") not in (None, "", []) and row.get("canonical_model") not in (None, "", []) and (
+            row.get("canonical_trim") in (None, "", [])
+            or row.get("trim_status") in {"unresolved", "invalid"}
+            or row.get("identity_status") != "verified"
+            or any(f in unresolved for f in _IDENTITY_CRITICAL_FIELDS)
+            or _has_combined_trim(row.get("canonical_trim"))
+            or bool(row.get("split_candidates"))
+            or any(is_weak_trim(str(row.get("canonical_trim") or "")) for _ in [0])
+        )
+    )
+    if clean_exact_bad:
+        old = row.get("validation_decision")
+        row["validation_decision"] = "split_required" if (row.get("split_candidates") or _prefer_split(row)) else "clean_partial"
+        _add_flag(flags, "no_clean_exact_unresolved", old, row["validation_decision"], "validation_decision", "clean_exact violated exact-publishability restrictions.", severity="high", risk_tags=["publishability", "clean_exact"])
+
+    if row.get("final_route") == "clean_catalog":
+        bad = row.get("identity_status") != "verified" or row.get("validation_decision") not in {"clean_exact", "clean_partial"} or any(f in unresolved for f in _IDENTITY_CRITICAL_FIELDS) or bool(row.get("blocking_identity_issues")) or bool(row.get("split_candidates"))
+        if bad:
+            _add_flag(flags, "clean_catalog_safety", True, False, "final_route", "clean_catalog route contains identity-critical unresolved, blocking, split, or non-publishable state.", severity="high", risk_tags=["publishability", "routing"])
+
+def _final_audit_consistency(row: Dict[str, Any], original: Dict[str, Any]) -> None:
+    """Rebuild final audit text from actual final fields; no stale guard diffs."""
+    unresolved = row.get("fields_left_unresolved") if isinstance(row.get("fields_left_unresolved"), list) else []
+    parts = [f"Final decision {row.get('validation_decision')} with identity_status={row.get('identity_status')} and trim_status={row.get('trim_status')}."]
+    if unresolved:
+        parts.append("Unresolved fields: " + ", ".join(map(str, unresolved)) + ".")
+    if row.get("is_currently_produced") is not True and row.get("is_currently_imported_il") is not True:
+        parts.append("Current production/import is not verified by final fields.")
+    row["decision_reason"] = " ".join(parts)
+    watched = ["validation_decision", "identity_status", "identity_confidence", "canonical_trim", "trim_status", "trim_confidence", "year_start", "year_end", "is_currently_produced", "is_currently_imported_il", "transmission", "fields_left_unresolved"]
+    changes = [f"{k}: {original.get(k)!r} -> {row.get(k)!r}" for k in watched if original.get(k) != row.get(k)]
+    row["guard_corrected_reason"] = "Final guards made no material changes." if not changes else "Final Python guards corrected the Stage 1 output: " + "; ".join(changes) + "."
+
 def _apply_v3_guards(row: Dict[str, Any], flags: List[GuardFlag]) -> None:
     before_guard_fields = dict(row)
     trim = row.get("canonical_trim")
@@ -617,6 +754,7 @@ def _apply_v3_guards(row: Dict[str, Any], flags: List[GuardFlag]) -> None:
         _add_flag(flags, "no_clean_exact_unresolved", old, row.get("validation_decision"), "validation_decision", "clean_exact is not allowed with unresolved/corrected identity or trim issues.")
 
     _sync_unresolved_language(row)
+    _apply_strict_audit_guards(row, flags)
     unresolved = row.get("fields_left_unresolved") if isinstance(row.get("fields_left_unresolved"), list) else []
     if row.get("validation_decision") == "clean_exact" and any(f in _IDENTITY_CRITICAL_FIELDS for f in unresolved):
         old = row.get("validation_decision")
@@ -663,6 +801,9 @@ def reconcile_validation_output_with_flags(
 
     before_decision = row.get("validation_decision")
     row = enforce_consistency(row)
+    if final_pass:
+        _apply_strict_audit_guards(row, flags)
+        _final_audit_consistency(row, model_output)
     if before_decision != row.get("validation_decision"):
         _add_flag(flags, "acceptance_tier_sync", before_decision, row.get("validation_decision"), "validation_decision", "Decision/tier consistency enforced.")
     decision = row.get("validation_decision")
