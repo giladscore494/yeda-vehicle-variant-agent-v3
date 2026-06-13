@@ -8,17 +8,17 @@
     "run_timestamp_utc": "2026-06-13T16:31:24Z",
     "total_input_variants": 3712,
     "total_instruction_records": 3712,
-    "total_validated_variants": 16,
+    "total_validated_variants": 17,
     "decision_counts": {
-      "clean_exact": 6,
+      "clean_exact": 7,
       "clean_partial": 8,
       "split_required": 2,
       "reject": 0
     },
     "grounding_cluster_count": 3653,
-    "gemini_call_count": 14,
-    "github_checkpoint_count": 14,
-    "last_validated_id": "VAL-000016"
+    "gemini_call_count": 15,
+    "github_checkpoint_count": 15,
+    "last_validated_id": "VAL-000017"
   },
   "validated_variants": [
     {
@@ -947,6 +947,85 @@
       "fields_changed": [],
       "fields_left_unresolved": [],
       "decision_reason": "The vehicle identity and trim are fully verified for the Israeli market based on local automotive publications and importer specifications."
+    },
+    {
+      "validation_id": "VAL-000017",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000017",
+      "source_cluster_id": "CLU-63b71846b022",
+      "grounding_cluster_id": "CLU-63b71846b022",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "500e",
+      "canonical_series_or_generation": "1st",
+      "canonical_trim": "Turismo",
+      "official_marketed_name_il": "אבארט 500e",
+      "body_type": "Hatchback",
+      "fuel_type": "electric",
+      "engine": "Electric 155 hp",
+      "transmission": "automatic",
+      "drivetrain": "FWD",
+      "year_start": 2024,
+      "year_end": 2026,
+      "market_scope": "IL",
+      "validation_decision": "clean_exact",
+      "acceptance_tier": "exact",
+      "identity_status": "verified",
+      "identity_confidence": 0.95,
+      "trim_status": "verified",
+      "trim_confidence": 0.95,
+      "grounding_summary": "The Abarth 500e was launched in Israel around 2023/2024. It is available in the Turismo trim with a 155 hp electric motor, FWD, and automatic transmission. Both Hatchback and Cabriolet body styles are offered. The details match the variant perfectly.",
+      "evidence_sources": [
+        {
+          "title": "1.1.1",
+          "url": null,
+          "source_name": "1.1.1",
+          "source_type": "unknown",
+          "supports": []
+        },
+        {
+          "title": "1.1.3",
+          "url": null,
+          "source_name": "1.1.3",
+          "source_type": "unknown",
+          "supports": []
+        },
+        {
+          "title": "1.1.8",
+          "url": null,
+          "source_name": "1.1.8",
+          "source_type": "unknown",
+          "supports": []
+        },
+        {
+          "title": "1.1.9",
+          "url": null,
+          "source_name": "1.1.9",
+          "source_type": "unknown",
+          "supports": []
+        },
+        {
+          "title": "1.2.1",
+          "url": null,
+          "source_name": "1.2.1",
+          "source_type": "unknown",
+          "supports": []
+        },
+        {
+          "title": "1.2.4",
+          "url": null,
+          "source_name": "1.2.4",
+          "source_type": "unknown",
+          "supports": []
+        }
+      ],
+      "possible_trim_names": [],
+      "split_candidates": [],
+      "blocking_identity_issues": [],
+      "non_blocking_trim_issues": [],
+      "fields_changed": [],
+      "fields_left_unresolved": [],
+      "decision_reason": "The vehicle identity and trim are fully verified for the Israeli market. The Abarth 500e Turismo Hatchback with 155 hp is a known and marketed configuration."
     }
   ]
 }
