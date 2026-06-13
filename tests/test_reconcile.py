@@ -155,7 +155,7 @@ def test_evidence_sources_normalized_to_objects():
         assert set(src.keys()) == {"title", "url", "source_name", "source_type", "supports"}
     first = out["evidence_sources"][0]
     assert first["source_name"] == "iCar.co.il"
-    assert first["source_type"] == "unknown"
+    assert first["source_type"] == "editorial"
     second = out["evidence_sources"][1]
     assert second["url"] == "https://icar.co.il/abarth"
     assert second["source_name"] == "icar.co.il"
@@ -214,11 +214,28 @@ def test_trim_status_consistent_with_canonical_trim():
 def test_acceptance_tier_matches_decision():
     for decision, tier in (
         ("clean_exact", "exact"), ("clean_partial", "partial"),
-        ("split_required", "none"), ("reject", "none"),
+        ("split_required", "none"),
     ):
         row = build_output_row("VAL-1", validation_decision=decision)
         out = reconcile_validation_output(_variant(), row)
         assert out["acceptance_tier"] == tier
+
+
+def test_reject_without_blocking_issues_downgraded_to_partial():
+    row = build_output_row("VAL-1", validation_decision="reject")
+    out = reconcile_validation_output(_variant(), row)
+    assert out["validation_decision"] == "clean_partial"
+    assert out["acceptance_tier"] == "partial"
+
+
+def test_reject_with_blocking_issues_stays_reject():
+    row = build_output_row(
+        "VAL-1", validation_decision="reject",
+        blocking_identity_issues=["make/model combination does not exist"],
+    )
+    out = reconcile_validation_output(_variant(), row)
+    assert out["validation_decision"] == "reject"
+    assert out["acceptance_tier"] == "none"
 
 
 def test_possible_trim_names_drops_placeholders_keeps_real():
@@ -228,3 +245,48 @@ def test_possible_trim_names_drops_placeholders_keeps_real():
     )
     out = reconcile_validation_output(_variant(), row)
     assert out["possible_trim_names"] == ["Scorpione", "Esseesse"]
+
+
+# --------------------------------------------------------------------------
+# v2 post-processing guards
+# --------------------------------------------------------------------------
+
+
+def test_slash_trim_downgrades_clean_exact():
+    row = build_output_row(
+        "VAL-1", validation_decision="clean_exact",
+        canonical_trim="Turismo / Competizione",
+    )
+    out = reconcile_validation_output(_variant(), row)
+    assert out["validation_decision"] == "clean_partial"
+    assert out["acceptance_tier"] == "partial"
+    assert any("Slash" in i for i in out["non_blocking_trim_issues"])
+
+
+def test_under_consideration_downgrades_clean_exact():
+    row = build_output_row(
+        "VAL-1", validation_decision="clean_exact",
+        grounding_summary="This model is under consideration for Israeli import.",
+    )
+    out = reconcile_validation_output(_variant(), row)
+    assert out["validation_decision"] == "clean_partial"
+    assert out["is_currently_imported_il"] is None
+
+
+def test_year_end_cleared_when_still_produced():
+    row = build_output_row(
+        "VAL-1", validation_decision="clean_exact",
+        is_currently_produced=True, year_end=2026,
+    )
+    out = reconcile_validation_output(_variant(), row)
+    assert out["year_end"] is None
+
+
+def test_source_type_classification():
+    from scripts.reconcile import classify_source_type
+    assert classify_source_type("yad2.co.il", "") == "marketplace"
+    assert classify_source_type("icar.co.il", "") == "editorial"
+    assert classify_source_type("data.gov.il", "") == "government"
+    assert classify_source_type("abarth.co.il", "") == "official_importer"
+    assert classify_source_type("reddit", "") == "forum_community"
+    assert classify_source_type("some random thing", "") == "unknown"

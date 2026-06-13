@@ -83,6 +83,8 @@ def empty_output_row(validation_id: str) -> Dict[str, Any]:
         "drivetrain": None,
         "year_start": None,
         "year_end": None,
+        "is_currently_produced": None,
+        "is_currently_imported_il": None,
         "market_scope": "IL",
         "validation_decision": "clean_exact",
         "acceptance_tier": "exact",
