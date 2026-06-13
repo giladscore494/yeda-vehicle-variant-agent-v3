@@ -1,13 +1,22 @@
-.env
-.env.local
+# Never commit secrets
+.streamlit/secrets.toml
 *.env
-secrets.py
-data/runtime/current_run.json
-data/canonical/*backup*.json
-data/canonical/*_backup_*.json
-data/backups/
+.env
+
+# Python
 __pycache__/
-.pytest_cache/
-tmp/
 *.pyc
+.pytest_cache/
 *.egg-info/
+
+# Atomic-write temp files
+*.tmp
+
+# Runtime validation outputs — recreated only by their own run mode.
+# Keeping these out of git prevents mock/real rows from ever being mixed at
+# the VCS level. Real-mode GitHub auto-save still pushes them via the
+# Contents API independently of local tracking.
+/data/validated_vehicle_variants_full_gemini31_v1.json
+/data/validated_vehicle_variants_full_gemini31_v1.checkpoint.json
+/data/validation_run_summary_gemini31.json
+/data/mock/

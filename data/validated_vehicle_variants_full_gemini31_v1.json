@@ -1,0 +1,543 @@
+{
+  "metadata": {
+    "engine": "gemini31_streamlit_sampled_validation",
+    "run_mode": "real",
+    "is_mock_output": false,
+    "model": "gemini-3.1-pro-preview",
+    "market": "IL",
+    "run_timestamp_utc": "2026-06-13T21:32:14Z",
+    "total_input_variants": 3712,
+    "total_instruction_records": 3712,
+    "total_validated_variants": 5,
+    "decision_counts": {
+      "clean_exact": 0,
+      "clean_partial": 3,
+      "split_required": 2,
+      "reject": 0
+    },
+    "grounding_cluster_count": 3653,
+    "gemini_call_count": 5,
+    "github_checkpoint_enabled": true,
+    "github_checkpoint_count": 5,
+    "github_checkpoint_fail_count": 0,
+    "last_github_checkpoint_error": null,
+    "last_validated_id": "VAL-000005",
+    "schema_version": "v3_three_stage",
+    "pipeline_version": "v3_three_stage",
+    "stage1_pro_calls": 5,
+    "stage2_guard_flags_total": 4,
+    "stage3_flash_calls": 0,
+    "flash_overrode_guard": 0,
+    "guard_overrode_flash": 0,
+    "stage3_guard_verifier_calls": 3,
+    "stage3_guard_verifier_attempts": 3,
+    "stage3_guard_verifier_successes": 3,
+    "stage3_guard_verifier_failures": 0,
+    "stage3_guard_verifier_model": "gpt-5.4",
+    "stage3_openai_guard_verifier_calls": 3,
+    "stage3_adjudicator_calls_total": 3,
+    "last_guard_verifier_error": null,
+    "guard_verifier_overrode_guard": 0,
+    "guard_overrode_verifier": 0,
+    "force_per_variant_validation": true
+  },
+  "validated_variants": [
+    {
+      "validation_id": "VAL-000001",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000001",
+      "source_cluster_id": "CLU-7ea11c499a5f",
+      "grounding_cluster_id": "CLU-7ea11c499a5f",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "500",
+      "canonical_series_or_generation": "1st Gen",
+      "canonical_trim": null,
+      "official_marketed_name_il": "אבארט 500",
+      "body_type": "Hatchback",
+      "fuel_type": "petrol",
+      "engine": "1.4L Turbo",
+      "transmission": "manual",
+      "drivetrain": "FWD",
+      "year_start": 2010,
+      "year_end": 2016,
+      "is_currently_produced": false,
+      "is_currently_imported_il": false,
+      "market_scope": "IL",
+      "validation_decision": "clean_partial",
+      "acceptance_tier": "partial",
+      "identity_status": "verified",
+      "identity_confidence": 0.95,
+      "trim_status": "unresolved",
+      "trim_confidence": 0.0,
+      "grounding_summary": "The Abarth 500 was officially launched in Israel in June 2010, correcting the 2008 global launch year. It was offered with a 1.4L Turbo engine and a choice of 5-speed manual or 5-speed robotic transmissions. The input trim 'Base' is a generic term; the actual entry-level trim in Israel was 'Scorpione', alongside 'Lusso' and 'Competizione'. The model was replaced by the Abarth 595 in late 2016.",
+      "evidence_sources": [
+        {
+          "title": "אבארט 500 2008 יד שניה - אוטו",
+          "url": null,
+          "source_name": "auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "year_range",
+            "engine",
+            "transmission",
+            "trim_candidates"
+          ]
+        },
+        {
+          "title": "אבארט 500 - אתר iCar",
+          "url": null,
+          "source_name": "icar.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "year_range",
+            "engine"
+          ]
+        }
+      ],
+      "possible_trim_names": [
+        "Scorpione",
+        "Lusso",
+        "Competizione",
+        "San Marino"
+      ],
+      "split_candidates": [],
+      "blocking_identity_issues": [],
+      "non_blocking_trim_issues": [
+        "Input trim 'Base' is a generic placeholder. Actual trims include Scorpione, Lusso, and Competizione."
+      ],
+      "fields_changed": [
+        {
+          "field": "year_start",
+          "from": 2008,
+          "to": 2010,
+          "reason": "Model changed value during validation; see decision_reason/grounding_summary"
+        }
+      ],
+      "fields_left_unresolved": [
+        "canonical_trim"
+      ],
+      "decision_reason": "Vehicle identity is verified for the Israeli market, but the start year was corrected to 2010 based on official local launch dates. The input trim 'Base' is a generic placeholder and has been marked unresolved, as the actual entry-level trim was 'Scorpione'. Validation is clean_partial due to the unresolved trim.",
+      "_pipeline_version": "v3_three_stage",
+      "_flags_count": 0,
+      "_flash_used": false,
+      "adjudication_log": [],
+      "publishable_to_clean_catalog": true,
+      "final_route": "clean_catalog",
+      "route_reason": "Identity is publishable; unresolved non-blocking fields are retained for audit.",
+      "duplicate_group_id": "dup-321059a7",
+      "duplicate_of": null,
+      "_guard_verifier_used": false
+    },
+    {
+      "validation_id": "VAL-000002",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000002",
+      "source_cluster_id": "CLU-7ea11c499a5f",
+      "grounding_cluster_id": "CLU-7ea11c499a5f",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "500",
+      "canonical_series_or_generation": "1st Gen",
+      "canonical_trim": null,
+      "official_marketed_name_il": "אבארט 500",
+      "body_type": "Hatchback",
+      "fuel_type": "petrol",
+      "engine": "1.4L Turbo",
+      "transmission": "manual",
+      "drivetrain": "FWD",
+      "year_start": 2010,
+      "year_end": 2016,
+      "is_currently_produced": false,
+      "is_currently_imported_il": false,
+      "market_scope": "IL",
+      "validation_decision": "clean_partial",
+      "acceptance_tier": "partial",
+      "identity_status": "verified",
+      "identity_confidence": 0.95,
+      "trim_status": "unresolved",
+      "trim_confidence": 0.0,
+      "grounding_summary": "The Abarth 500 was officially imported to Israel starting in 2010 with a 1.4L Turbo engine and manual transmission. The input trim 'Base' is a generic placeholder and not an official trim name, so it has been removed. The actual entry-level trim in Israel was 'Scorpione'.",
+      "evidence_sources": [
+        {
+          "title": "אבארט 500 2008 יד שניה - אוטו",
+          "url": null,
+          "source_name": "auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "year_range",
+            "engine",
+            "transmission",
+            "trim_candidates"
+          ]
+        },
+        {
+          "title": "אבארט 500 - אתר iCar",
+          "url": null,
+          "source_name": "icar.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "year_range",
+            "engine"
+          ]
+        }
+      ],
+      "possible_trim_names": [
+        "Scorpione",
+        "Lusso",
+        "Competizione"
+      ],
+      "split_candidates": [],
+      "blocking_identity_issues": [],
+      "non_blocking_trim_issues": [
+        "Input trim 'Base' is a generic placeholder, not an official marketed trim."
+      ],
+      "fields_changed": [
+        {
+          "field": "year_start",
+          "from": 2008,
+          "to": 2010,
+          "reason": "Model changed value during validation; see decision_reason/grounding_summary"
+        }
+      ],
+      "fields_left_unresolved": [
+        "canonical_trim"
+      ],
+      "decision_reason": "Vehicle identity is verified for the Israeli market, but the provided trim 'Base' is a generic placeholder. Validation decision is clean_partial.",
+      "_pipeline_version": "v3_three_stage",
+      "_flags_count": 0,
+      "_flash_used": false,
+      "adjudication_log": [],
+      "publishable_to_clean_catalog": false,
+      "final_route": "duplicate_queue",
+      "route_reason": "Content duplicate of VAL-000001; kept in full staging output only.",
+      "duplicate_group_id": "dup-321059a7",
+      "duplicate_of": "VAL-000001",
+      "_guard_verifier_used": false
+    },
+    {
+      "validation_id": "VAL-000003",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000003",
+      "source_cluster_id": "CLU-d039ea7ad836",
+      "grounding_cluster_id": "CLU-d039ea7ad836",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "500",
+      "canonical_series_or_generation": "First Generation",
+      "canonical_trim": "Competizione / Scorpione / Nuvolari S",
+      "official_marketed_name_il": "אבארט 500",
+      "body_type": "Hatchback",
+      "fuel_type": "petrol",
+      "engine": "1.4L Turbo",
+      "transmission": "manual",
+      "drivetrain": "FWD",
+      "year_start": 2010,
+      "year_end": 2024,
+      "is_currently_produced": false,
+      "is_currently_imported_il": false,
+      "market_scope": "IL",
+      "validation_decision": "split_required",
+      "acceptance_tier": "none",
+      "identity_status": "likely_valid",
+      "identity_confidence": 0.9,
+      "trim_status": "invalid",
+      "trim_confidence": 0.0,
+      "grounding_summary": "The Abarth 500 (later updated and marketed as the 595) was officially imported to Israel starting around 2010. The 1.4L Turbo ICE model ended production and import around 2024, being replaced by the electric 500e. The provided trim string 'Competizione / Scorpione / Nuvolari S' combines multiple distinct trims with different power outputs and specifications (e.g., Competizione has 180hp, while Scorpione and Nuvolari have 140-165hp). Therefore, a split is required to represent these as individual variants.",
+      "evidence_sources": [
+        {
+          "title": "אבארט 595 2023 יד שניה - אוטו",
+          "url": null,
+          "source_name": "Auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "exact_trim",
+            "split_required",
+            "engine"
+          ]
+        },
+        {
+          "title": "Abarth 500 1 generation 2010-2016 in Israel - AUTOBOOM",
+          "url": null,
+          "source_name": "Autoboom",
+          "source_type": "marketplace",
+          "supports": [
+            "year_range",
+            "market_presence_il"
+          ]
+        },
+        {
+          "title": "Fiat 500 and Abarth 595 retired after 17 years on sale - Autocar",
+          "url": null,
+          "source_name": "Autocar",
+          "source_type": "editorial",
+          "supports": [
+            "year_range"
+          ]
+        }
+      ],
+      "possible_trim_names": [
+        "Competizione",
+        "Scorpione",
+        "Nuvolari S",
+        "Scorpione Nuvolari"
+      ],
+      "split_candidates": [
+        "Competizione",
+        "Scorpione",
+        "Nuvolari S"
+      ],
+      "blocking_identity_issues": [],
+      "non_blocking_trim_issues": [
+        "Trim string combines multiple distinct trims with different specifications (Competizione is 180hp, Scorpione/Nuvolari are 140-165hp).",
+        "Combined trim contains multiple distinct marketed trims and must be split into separate variants."
+      ],
+      "fields_changed": [
+        {
+          "field": "year_start",
+          "from": 2008,
+          "to": 2010,
+          "reason": "Model changed value during validation; see decision_reason/grounding_summary"
+        },
+        {
+          "field": "year_end",
+          "from": 2026,
+          "to": 2024,
+          "reason": "Model changed value during validation; see decision_reason/grounding_summary"
+        }
+      ],
+      "fields_left_unresolved": [],
+      "decision_reason": "The trim string combines multiple distinct marketed trims (Competizione, Scorpione, Nuvolari S) which have different power outputs and specifications. A split is required to represent these as individual variants. Additionally, the Israeli market start year was corrected to 2010 and the end year to 2024, as the ICE model is no longer produced. Guard correction: Python guards corrected the model output: trim_status: 'inferred' -> 'invalid'.",
+      "_pipeline_version": "v3_three_stage",
+      "_flags_count": 1,
+      "_flash_used": false,
+      "adjudication_log": [
+        {
+          "guard_verifier": "gpt-5.4",
+          "verdict": "accept_guard",
+          "reason": "The combined trim clearly requires splitting into distinct variants."
+        }
+      ],
+      "publishable_to_clean_catalog": false,
+      "final_route": "split_queue",
+      "route_reason": "split_required rows must be split before clean catalog publishing.",
+      "duplicate_group_id": "dup-61fb7694",
+      "duplicate_of": null,
+      "guard_corrected_reason": "Python guards corrected the model output: trim_status: 'inferred' -> 'invalid'.",
+      "_guard_verifier_success": true,
+      "_guard_verifier_error": null,
+      "_guard_verifier_used": true
+    },
+    {
+      "validation_id": "VAL-000004",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000004",
+      "source_cluster_id": "CLU-d039ea7ad836",
+      "grounding_cluster_id": "CLU-d039ea7ad836",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "500",
+      "canonical_series_or_generation": "First Generation",
+      "canonical_trim": "Turismo / Competizione",
+      "official_marketed_name_il": "אבארט 500",
+      "body_type": "Hatchback",
+      "fuel_type": "petrol",
+      "engine": "1.4L Turbo",
+      "transmission": "manual",
+      "drivetrain": "FWD",
+      "year_start": 2010,
+      "year_end": 2024,
+      "is_currently_produced": false,
+      "is_currently_imported_il": false,
+      "market_scope": "IL",
+      "validation_decision": "split_required",
+      "acceptance_tier": "none",
+      "identity_status": "likely_valid",
+      "identity_confidence": 0.9,
+      "trim_status": "invalid",
+      "trim_confidence": 0.0,
+      "grounding_summary": "The Abarth 500 (later updated and marketed as the 595) was officially imported to Israel starting around 2010. The 1.4L Turbo ICE model ended production and import around 2024, being replaced by the electric 500e. The provided trim string 'Turismo / Competizione' combines two distinct trims with different power outputs (Turismo has 165 hp, Competizione has 180 hp). Therefore, a split is required to represent these as individual variants.",
+      "evidence_sources": [
+        {
+          "title": "אבארט 500 למכירה | יד2 רכב",
+          "url": null,
+          "source_name": "Yad2",
+          "source_type": "marketplace",
+          "supports": [
+            "market_presence_il",
+            "exact_trim",
+            "split_required"
+          ]
+        },
+        {
+          "title": "אבארט 595 - מחירון, חוות דעת ומידע טכני | אוטו",
+          "url": null,
+          "source_name": "Auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "year_range",
+            "engine"
+          ]
+        }
+      ],
+      "possible_trim_names": [
+        "Turismo",
+        "Competizione"
+      ],
+      "split_candidates": [
+        "Turismo",
+        "Competizione"
+      ],
+      "blocking_identity_issues": [],
+      "non_blocking_trim_issues": [
+        "Trim string 'Turismo / Competizione' combines multiple distinct trims with different power outputs (165 hp vs 180 hp).",
+        "Combined trim contains multiple distinct marketed trims and must be split into separate variants."
+      ],
+      "fields_changed": [
+        {
+          "field": "year_start",
+          "from": 2008,
+          "to": 2010,
+          "reason": "Model changed value during validation; see decision_reason/grounding_summary"
+        },
+        {
+          "field": "year_end",
+          "from": 2026,
+          "to": 2024,
+          "reason": "Model changed value during validation; see decision_reason/grounding_summary"
+        }
+      ],
+      "fields_left_unresolved": [],
+      "decision_reason": "The trim string combines two distinct trims (Turismo and Competizione) with different specifications and power outputs, requiring a split into separate variants.",
+      "_pipeline_version": "v3_three_stage",
+      "_flags_count": 1,
+      "_flash_used": false,
+      "adjudication_log": [
+        {
+          "guard_verifier": "gpt-5.4",
+          "verdict": "accept_guard",
+          "reason": "The combined trim explicitly spans two distinct variants, so split_required is appropriate."
+        }
+      ],
+      "publishable_to_clean_catalog": false,
+      "final_route": "split_queue",
+      "route_reason": "split_required rows must be split before clean catalog publishing.",
+      "duplicate_group_id": "dup-cb35f73e",
+      "duplicate_of": null,
+      "_guard_verifier_success": true,
+      "_guard_verifier_error": null,
+      "_guard_verifier_used": true
+    },
+    {
+      "validation_id": "VAL-000005",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000005",
+      "source_cluster_id": "CLU-b55fc8fd404e",
+      "grounding_cluster_id": "CLU-b55fc8fd404e",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "500",
+      "canonical_series_or_generation": "1st Gen",
+      "canonical_trim": null,
+      "official_marketed_name_il": "אבארט 500",
+      "body_type": "Cabriolet",
+      "fuel_type": "petrol",
+      "engine": "1.4L Turbo",
+      "transmission": "manual",
+      "drivetrain": "FWD",
+      "year_start": 2010,
+      "year_end": 2016,
+      "is_currently_produced": false,
+      "is_currently_imported_il": false,
+      "market_scope": "IL",
+      "validation_decision": "clean_partial",
+      "acceptance_tier": "partial",
+      "identity_status": "uncertain",
+      "identity_confidence": 0.7,
+      "trim_status": "unresolved",
+      "trim_confidence": 0.0,
+      "grounding_summary": "The Abarth 500 Cabriolet (often referred to as 500C) was officially imported to Israel between 2010 and 2016. It was available with a 1.4L Turbo engine and both robotic and manual transmissions (manual initially by special order, later in specific trims). The provided trim '500C' is a body style indicator rather than a specific marketed trim level (actual trims include Scorpione, Turismo, Competizione, San Marino, Lusso). Therefore, the trim is marked as unresolved, leading to a clean_partial decision.",
+      "evidence_sources": [
+        {
+          "title": "אבארט 500 - מחירון, חוות דעת ומידע טכני | אוטו",
+          "url": null,
+          "source_name": "auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "year_range",
+            "engine",
+            "transmission",
+            "body_type",
+            "trim_candidates"
+          ]
+        },
+        {
+          "title": "מחירון של אבארט - יד2",
+          "url": null,
+          "source_name": "yad2.co.il",
+          "source_type": "marketplace",
+          "supports": [
+            "market_presence_il",
+            "year_range",
+            "trim_candidates",
+            "transmission"
+          ]
+        },
+        {
+          "title": "אבארט קבריולט בישראל – החל מ-180,000 שקל - cartube",
+          "url": null,
+          "source_name": "cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "official_import_il",
+            "body_type",
+            "transmission"
+          ]
+        }
+      ],
+      "possible_trim_names": [
+        "Scorpione",
+        "Lusso",
+        "San Marino",
+        "Turismo",
+        "Competizione"
+      ],
+      "split_candidates": [],
+      "blocking_identity_issues": [],
+      "non_blocking_trim_issues": [
+        "The provided trim '500C' designates the Cabriolet body style rather than a specific equipment trim level. Actual trims for the Israeli market include Scorpione, Turismo, Competizione, San Marino, and Lusso.",
+        "500C/Cabriolet is a body/model designation, not a verified trim.",
+        "Abarth 500C/Cabriolet manual transmission is not verified for the Israeli market; transmission left unresolved."
+      ],
+      "fields_changed": [],
+      "fields_left_unresolved": [],
+      "decision_reason": "The core identity of the Abarth 500 Cabriolet 1.4L Turbo manual (2010-2016) is verified for the Israeli market. However, the provided trim '500C' is a generic body style indicator rather than a specific trim level. The exact trim is unresolved, resulting in a clean_partial validation. Guard correction: Python guards corrected the model output: identity_status: 'verified' -> 'likely_valid'; identity_confidence: 0.95 -> 0.7; canonical_trim: '500C' -> None; trim_status: 'inferred' -> 'unresolved'.",
+      "_pipeline_version": "v3_three_stage",
+      "_flags_count": 2,
+      "_flash_used": false,
+      "adjudication_log": [
+        {
+          "guard_verifier": "gpt-5.4",
+          "verdict": "modify_guard",
+          "reason": "Guard requires unresolved transmission to keep identity in partial status."
+        }
+      ],
+      "publishable_to_clean_catalog": false,
+      "final_route": "review_queue",
+      "route_reason": "identity_status blocks clean catalog publishing",
+      "duplicate_group_id": "dup-65a8cade",
+      "duplicate_of": null,
+      "guard_corrected_reason": "Python guards corrected the model output: identity_status: 'verified' -> 'likely_valid'; identity_confidence: 0.95 -> 0.7; canonical_trim: '500C' -> None; trim_status: 'inferred' -> 'unresolved'.",
+      "_guard_verifier_success": true,
+      "_guard_verifier_error": null,
+      "_guard_verifier_used": true
+    }
+  ]
+}
