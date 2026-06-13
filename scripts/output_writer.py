@@ -15,19 +15,25 @@ import json
 import os
 from typing import Any, Dict, List, Optional
 
-from .data_loader import DATA_DIR
-
-# ---------------------------------------------------------------------------
-# Paths
-# ---------------------------------------------------------------------------
-
-OUTPUT_PATH = os.path.join(DATA_DIR, "validated_vehicle_variants_full_gemini31_v1.json")
-CHECKPOINT_PATH = os.path.join(
-    DATA_DIR, "validated_vehicle_variants_full_gemini31_v1.checkpoint.json"
+from .contamination import assert_file_matches_mode
+from .run_paths import (
+    REAL_CHECKPOINT_PATH,
+    REAL_ENGINE,
+    REAL_MODEL_DEFAULT,
+    REAL_OUTPUT_PATH,
+    REAL_SUMMARY_PATH,
 )
-RUN_SUMMARY_PATH = os.path.join(DATA_DIR, "validation_run_summary_gemini31.json")
 
-MODEL_DEFAULT = "gemini-3.1-pro-preview"
+# ---------------------------------------------------------------------------
+# Paths (default to the real-mode dataset; see scripts/run_paths.py for the
+# full mode-aware bundle). Kept as names for backwards compatibility.
+# ---------------------------------------------------------------------------
+
+OUTPUT_PATH = REAL_OUTPUT_PATH
+CHECKPOINT_PATH = REAL_CHECKPOINT_PATH
+RUN_SUMMARY_PATH = REAL_SUMMARY_PATH
+
+MODEL_DEFAULT = REAL_MODEL_DEFAULT
 
 # ---------------------------------------------------------------------------
 # Allowed enums
@@ -60,6 +66,7 @@ def empty_output_row(validation_id: str) -> Dict[str, Any]:
     """A fully-defaulted output row with every required field present."""
     return {
         "validation_id": validation_id,
+        "run_mode": None,
         "source_validation_id": validation_id,
         "source_cluster_id": None,
         "grounding_cluster_id": None,
@@ -186,6 +193,41 @@ def _new_decision_counts() -> Dict[str, int]:
 
 
 # ---------------------------------------------------------------------------
+# Reset helpers (mode-scoped; never touch the two source files)
+# ---------------------------------------------------------------------------
+
+
+def _reset_paths(paths: List[str], log: Optional[Any] = None) -> List[str]:
+    """Delete the given runtime files if present. Returns what was removed."""
+    removed: List[str] = []
+    for path in paths:
+        if path and os.path.exists(path):
+            os.remove(path)
+            removed.append(os.path.basename(path))
+            if log:
+                log(f"reset: removed {path}")
+    if log and not removed:
+        log("reset: nothing to remove")
+    return removed
+
+
+def reset_mock_outputs(log: Optional[Any] = None) -> List[str]:
+    """Delete only the mock output/checkpoint/summary files."""
+    from .run_paths import resolve_run_paths
+
+    rp = resolve_run_paths("mock")
+    return _reset_paths([rp.output_path, rp.checkpoint_path, rp.summary_path], log)
+
+
+def reset_real_outputs(log: Optional[Any] = None) -> List[str]:
+    """Delete only the real output/checkpoint/summary files."""
+    from .run_paths import resolve_run_paths
+
+    rp = resolve_run_paths("real")
+    return _reset_paths([rp.output_path, rp.checkpoint_path, rp.summary_path], log)
+
+
+# ---------------------------------------------------------------------------
 # Output + checkpoint store
 # ---------------------------------------------------------------------------
 
@@ -200,13 +242,28 @@ class OutputStore:
         model: str = MODEL_DEFAULT,
         total_input_variants: int = 0,
         total_instruction_records: int = 0,
+        *,
+        run_mode: str = "real",
+        engine: Optional[str] = None,
+        summary_path: Optional[str] = None,
+        is_mock_output: Optional[bool] = None,
     ) -> None:
         self.output_path = output_path
         self.checkpoint_path = checkpoint_path
+        # When no summary path is given, derive one next to the output file so
+        # an ad-hoc store (e.g. in tests) never writes into the real data dir.
+        self.summary_path = summary_path or f"{output_path}.summary.json"
         self.model = model
+        self.run_mode = run_mode
+        if engine is None:
+            engine = REAL_ENGINE
+        if is_mock_output is None:
+            is_mock_output = run_mode == "mock"
 
         self.metadata: Dict[str, Any] = {
-            "engine": "gemini31_streamlit_sampled_validation",
+            "engine": engine,
+            "run_mode": run_mode,
+            "is_mock_output": is_mock_output,
             "model": model,
             "market": "IL",
             "run_timestamp_utc": None,
@@ -226,10 +283,41 @@ class OutputStore:
         self.failed_ids: List[str] = []
         self.cluster_cache: Dict[str, Any] = {}
 
+    @classmethod
+    def for_paths(
+        cls,
+        run_paths,
+        *,
+        total_input_variants: int = 0,
+        total_instruction_records: int = 0,
+    ) -> "OutputStore":
+        """Construct a store wired to a mode-resolved ``RunPaths`` bundle."""
+        return cls(
+            output_path=run_paths.output_path,
+            checkpoint_path=run_paths.checkpoint_path,
+            model=run_paths.model,
+            total_input_variants=total_input_variants,
+            total_instruction_records=total_instruction_records,
+            run_mode=run_paths.mode,
+            engine=run_paths.engine,
+            summary_path=run_paths.summary_path,
+            is_mock_output=run_paths.is_mock_output,
+        )
+
     # -- load / resume -----------------------------------------------------
 
+    def check_contamination(self) -> None:
+        """Fail safely if any target file belongs to the other run mode."""
+        for path in (self.output_path, self.checkpoint_path):
+            assert_file_matches_mode(path, self.run_mode)
+
     def load_existing(self) -> None:
-        """Reconcile any on-disk output + checkpoint into memory."""
+        """Reconcile any on-disk output + checkpoint into memory.
+
+        Refuses to absorb a file that belongs to the other run mode so a real
+        run can never reuse mock checkpoint data (and vice versa).
+        """
+        self.check_contamination()
         if os.path.exists(self.checkpoint_path):
             try:
                 cp = json.load(open(self.checkpoint_path, encoding="utf-8"))
@@ -269,6 +357,9 @@ class OutputStore:
         vid = row.get("validation_id")
         if not vid:
             return
+        # Backfill run_mode on absorbed rows (contamination is already ruled out).
+        if not row.get("run_mode"):
+            row["run_mode"] = self.run_mode
         if vid not in self.validated_by_id:
             self.order.append(vid)
         self.validated_by_id[vid] = row
@@ -282,6 +373,9 @@ class OutputStore:
 
     def record(self, row: Dict[str, Any]) -> None:
         """Add/replace a validated row and update counts."""
+        # Every row is stamped with this store's run mode so contamination is
+        # deterministically detectable later.
+        row["run_mode"] = self.run_mode
         vid = row["validation_id"]
         previous = self.validated_by_id.get(vid)
         if previous is not None:
@@ -335,10 +429,32 @@ class OutputStore:
             "updated_at_utc": utc_now_iso(),
         }
 
+    def summary_document(self) -> Dict[str, Any]:
+        return {
+            "engine": self.metadata["engine"],
+            "run_mode": self.run_mode,
+            "is_mock_output": self.metadata["is_mock_output"],
+            "model": self.metadata["model"],
+            "market": self.metadata["market"],
+            "run_timestamp_utc": self.metadata.get("run_timestamp_utc") or utc_now_iso(),
+            "output_path": os.path.basename(self.output_path),
+            "checkpoint_path": os.path.basename(self.checkpoint_path),
+            "total_input_variants": self.metadata["total_input_variants"],
+            "total_validated_variants": len(self.validated_by_id),
+            "decision_counts": dict(self.metadata["decision_counts"]),
+            "gemini_call_count": self.metadata["gemini_call_count"],
+            "github_checkpoint_count": self.metadata["github_checkpoint_count"],
+            "grounding_cluster_count": self.metadata["grounding_cluster_count"],
+            "failed_validation_ids": list(self.failed_ids),
+            "last_validated_id": self.metadata["last_validated_id"],
+            "updated_at_utc": utc_now_iso(),
+        }
+
     def flush(self) -> None:
-        """Atomically persist both the output and checkpoint files locally."""
+        """Atomically persist the output, checkpoint, and summary files."""
         atomic_write_json(self.output_path, self.output_document())
         atomic_write_json(self.checkpoint_path, self.checkpoint_document())
+        atomic_write_json(self.summary_path, self.summary_document())
 
     def latest_row(self) -> Optional[Dict[str, Any]]:
         vid = self.metadata.get("last_validated_id")

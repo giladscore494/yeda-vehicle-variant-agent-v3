@@ -17,13 +17,10 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+from scripts.contamination import ContaminationError  # noqa: E402
 from scripts.data_loader import validate_and_join  # noqa: E402
-from scripts.output_writer import (  # noqa: E402
-    CHECKPOINT_PATH,
-    MODEL_DEFAULT,
-    OUTPUT_PATH,
-    OutputStore,
-)
+from scripts.output_writer import MODEL_DEFAULT, OutputStore  # noqa: E402
+from scripts.run_paths import ensure_mode_dirs, resolve_run_paths  # noqa: E402
 from scripts.validator_engine import GitHubSaver, RunConfig, run_validation  # noqa: E402
 
 
@@ -36,7 +33,6 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--force-reprocess", action="store_true")
     p.add_argument("--start-after-validation-id", default=None)
     p.add_argument("--checkpoint-every", type=int, default=1)
-    p.add_argument("--output", default=OUTPUT_PATH)
     p.add_argument("--dry-run", action="store_true", help="validate join only; do not write")
     p.add_argument("--no-github-push", action="store_true")
     return p
@@ -45,6 +41,8 @@ def build_parser() -> argparse.ArgumentParser:
 def main(argv=None) -> int:
     args = build_parser().parse_args(argv)
     mode = "real" if args.real else "mock"
+    model_id = os.environ.get("GEMINI_MODEL_ID", MODEL_DEFAULT)
+    run_paths = resolve_run_paths(mode, model=model_id)
 
     join = validate_and_join()
     print(f"Join: ok={join.ok} variants={join.variant_count} "
@@ -60,8 +58,9 @@ def main(argv=None) -> int:
         print("Dry run complete (no validation performed).")
         return 0
 
+    ensure_mode_dirs(run_paths)
+
     gemini_client = None
-    model_id = os.environ.get("GEMINI_MODEL_ID", MODEL_DEFAULT)
     if mode == "real":
         from scripts.gemini_client import GeminiClient, GeminiSettings
 
@@ -75,7 +74,7 @@ def main(argv=None) -> int:
         )
 
     github_saver = None
-    if not args.no_github_push and os.environ.get("GITHUB_TOKEN"):
+    if not args.no_github_push and run_paths.allow_github_push and os.environ.get("GITHUB_TOKEN"):
         from scripts.github_checkpoint import GitHubCheckpoint, resolve_config_from_env
 
         config, notes = resolve_config_from_env()
@@ -83,22 +82,26 @@ def main(argv=None) -> int:
             try:
                 checkpoint = GitHubCheckpoint(config)
                 github_saver = GitHubSaver(
-                    checkpoint, [args.output, CHECKPOINT_PATH]
+                    checkpoint, run_paths.github_paths, commit_prefix=run_paths.commit_prefix
                 )
                 print(f"GitHub auto-save enabled: {config.repo}@{config.branch}")
             except Exception as exc:  # noqa: BLE001
                 print(f"GitHub auto-save disabled: {exc}")
         else:
             print(f"GitHub auto-save disabled: {', '.join(notes)}")
+    elif not run_paths.allow_github_push:
+        print("GitHub auto-save disabled for mock mode.")
 
-    store = OutputStore(
-        output_path=args.output,
-        checkpoint_path=CHECKPOINT_PATH,
-        model=model_id,
+    store = OutputStore.for_paths(
+        run_paths,
         total_input_variants=join.variant_count,
         total_instruction_records=join.instruction_count,
     )
-    store.load_existing()
+    try:
+        store.load_existing()
+    except ContaminationError as exc:
+        print(f"ERROR: {exc}")
+        return 3
 
     config = RunConfig(
         mode=mode,
@@ -124,7 +127,8 @@ def main(argv=None) -> int:
     print(f"decision_counts={store.metadata['decision_counts']}")
     print(f"gemini_call_count={store.metadata['gemini_call_count']}")
     print(f"github_checkpoint_count={store.metadata['github_checkpoint_count']}")
-    print(f"output -> {args.output}")
+    print(f"output -> {run_paths.output_path}")
+    print(f"summary -> {run_paths.summary_path}")
     return 0
 
 
