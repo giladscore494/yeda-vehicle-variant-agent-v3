@@ -8,24 +8,24 @@
     "run_timestamp_utc": "2026-06-13T19:25:01Z",
     "total_input_variants": 3712,
     "total_instruction_records": 3712,
-    "total_validated_variants": 7,
+    "total_validated_variants": 8,
     "decision_counts": {
       "clean_exact": 0,
-      "clean_partial": 5,
+      "clean_partial": 6,
       "split_required": 2,
       "reject": 0
     },
     "grounding_cluster_count": 3653,
-    "gemini_call_count": 7,
+    "gemini_call_count": 8,
     "github_checkpoint_enabled": true,
-    "github_checkpoint_count": 7,
+    "github_checkpoint_count": 8,
     "github_checkpoint_fail_count": 0,
     "last_github_checkpoint_error": null,
-    "last_validated_id": "VAL-000007",
+    "last_validated_id": "VAL-000008",
     "schema_version": "v3_three_stage",
     "pipeline_version": "v3_three_stage",
-    "stage1_pro_calls": 7,
-    "stage2_guard_flags_total": 4,
+    "stage1_pro_calls": 8,
+    "stage2_guard_flags_total": 5,
     "stage3_flash_calls": 0,
     "flash_overrode_guard": 0,
     "guard_overrode_flash": 0,
@@ -38,7 +38,8 @@
     "VAL-000004",
     "VAL-000005",
     "VAL-000006",
-    "VAL-000007"
+    "VAL-000007",
+    "VAL-000008"
   ],
   "failed_validation_ids": [],
   "validated_variants_by_id": {
@@ -663,6 +664,100 @@
       "route_reason": "Routing not yet assigned.",
       "duplicate_group_id": null,
       "duplicate_of": null
+    },
+    "VAL-000008": {
+      "validation_id": "VAL-000008",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000008",
+      "source_cluster_id": "CLU-00815c8cd105",
+      "grounding_cluster_id": "CLU-00815c8cd105",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "500",
+      "canonical_series_or_generation": null,
+      "canonical_trim": null,
+      "official_marketed_name_il": "אבארט 595",
+      "body_type": "hatchback",
+      "fuel_type": "petrol",
+      "engine": "1.4 Turbo 165",
+      "transmission": "manual",
+      "drivetrain": "FWD",
+      "year_start": 2018,
+      "year_end": 2023,
+      "is_currently_produced": false,
+      "is_currently_imported_il": false,
+      "market_scope": "IL",
+      "validation_decision": "clean_partial",
+      "acceptance_tier": "partial",
+      "identity_status": "verified",
+      "identity_confidence": 0.95,
+      "trim_status": "unresolved",
+      "trim_confidence": 0.0,
+      "grounding_summary": "The Abarth 500/595 with a 1.4 Turbo 165 hp engine and manual transmission is officially sold in Israel. It is marketed primarily as the 'Abarth 595'. Multiple trims have used this exact powertrain configuration over the years, including the 'Turismo' and the newer 'Nuvolari' (introduced around late 2022). Since the input trim is null and multiple trims exist, the exact trim cannot be resolved, resulting in a clean_partial decision. The vehicle is still imported to Israel, so year_end has been updated to null.",
+      "evidence_sources": [
+        {
+          "title": "אבארט ישראל | Abarth nuvolari | אבארט 595 נובולארי",
+          "url": null,
+          "source_name": "abarth.co.il",
+          "source_type": "official_importer",
+          "supports": [
+            "market_presence_il",
+            "official_import_il",
+            "engine",
+            "transmission",
+            "trim_candidates"
+          ]
+        },
+        {
+          "title": "אבארט 595 - מחירון, חוות דעת ומידע טכני | אוטו",
+          "url": null,
+          "source_name": "auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "engine",
+            "transmission",
+            "body_type"
+          ]
+        },
+        {
+          "title": "אבארט 595 נובולארי 2023 בישראל - מחיר 135,900 שקל - cartube",
+          "url": null,
+          "source_name": "cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "year_range",
+            "engine",
+            "transmission",
+            "trim_candidates"
+          ]
+        }
+      ],
+      "possible_trim_names": [
+        "Turismo",
+        "Nuvolari"
+      ],
+      "split_candidates": [],
+      "blocking_identity_issues": [],
+      "non_blocking_trim_issues": [
+        "Trim is null. Multiple trims (Turismo, Nuvolari) share this exact powertrain in Israel.",
+        "Current-production/import flags corrected to false because year_end is a past year for this variant."
+      ],
+      "fields_changed": [],
+      "fields_left_unresolved": [
+        "canonical_trim"
+      ],
+      "decision_reason": "The vehicle identity (Abarth 500/595, 1.4 Turbo 165 hp, manual, hatchback) is fully verified for the Israeli market. However, the trim field is null, and multiple trims (Turismo, Nuvolari) match this specification. Therefore, the variant is valid but incomplete, resulting in a clean_partial decision. Guard correction: Python guards corrected the model output: is_currently_produced: True -> False; is_currently_imported_il: True -> False.",
+      "_pipeline_version": "v3_three_stage",
+      "_flags_count": 1,
+      "_flash_used": false,
+      "adjudication_log": [],
+      "publishable_to_clean_catalog": false,
+      "final_route": "review_queue",
+      "route_reason": "Routing not yet assigned.",
+      "duplicate_group_id": null,
+      "duplicate_of": null,
+      "guard_corrected_reason": "Python guards corrected the model output: is_currently_produced: True -> False; is_currently_imported_il: True -> False."
     }
   },
   "cluster_cache": {
@@ -832,14 +927,59 @@
           ]
         }
       ]
+    },
+    "CLU-00815c8cd105": {
+      "anchor_id": "VAL-000008",
+      "identity_status": "verified",
+      "identity_confidence": 0.95,
+      "grounding_summary": "The Abarth 500/595 with a 1.4 Turbo 165 hp engine and manual transmission is officially sold in Israel. It is marketed primarily as the 'Abarth 595'. Multiple trims have used this exact powertrain configuration over the years, including the 'Turismo' and the newer 'Nuvolari' (introduced around late 2022). Since the input trim is null and multiple trims exist, the exact trim cannot be resolved, resulting in a clean_partial decision. The vehicle is still imported to Israel, so year_end has been updated to null.",
+      "evidence_sources": [
+        {
+          "title": "אבארט ישראל | Abarth nuvolari | אבארט 595 נובולארי",
+          "url": null,
+          "source_name": "abarth.co.il",
+          "source_type": "official_importer",
+          "supports": [
+            "market_presence_il",
+            "official_import_il",
+            "engine",
+            "transmission",
+            "trim_candidates"
+          ]
+        },
+        {
+          "title": "אבארט 595 - מחירון, חוות דעת ומידע טכני | אוטו",
+          "url": null,
+          "source_name": "auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "engine",
+            "transmission",
+            "body_type"
+          ]
+        },
+        {
+          "title": "אבארט 595 נובולארי 2023 בישראל - מחיר 135,900 שקל - cartube",
+          "url": null,
+          "source_name": "cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "year_range",
+            "engine",
+            "transmission",
+            "trim_candidates"
+          ]
+        }
+      ]
     }
   },
   "decision_counts": {
     "clean_exact": 0,
-    "clean_partial": 5,
+    "clean_partial": 6,
     "split_required": 2,
     "reject": 0
   },
-  "last_validated_id": "VAL-000007",
-  "updated_at_utc": "2026-06-13T19:26:57Z"
+  "last_validated_id": "VAL-000008",
+  "updated_at_utc": "2026-06-13T19:27:43Z"
 }
