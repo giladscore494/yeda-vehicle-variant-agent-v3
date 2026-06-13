@@ -444,7 +444,12 @@ def run_validation(
                         row = guard_verifier.adjudicate(row, flags, original_model_output=original_row)
                         calls = max(0, int(getattr(guard_verifier, "calls", 0)) - int(before_calls))
                         if calls:
-                            store.bump_stage3_guard_verifier_calls(calls)
+                            store.bump_stage3_guard_verifier_attempts(calls)
+                            # Row-level adjudication is one scoped call in this pipeline.
+                            if row.get("_guard_verifier_success"):
+                                store.bump_stage3_guard_verifier_successes(1)
+                            elif row.get("_guard_verifier_error"):
+                                store.bump_stage3_guard_verifier_failures(1, row.get("_guard_verifier_error"))
                         if hasattr(guard_verifier, "settings"):
                             store.set_guard_verifier_model(guard_verifier.settings.model_id)
                         if row.get("_guard_verifier_overrode_guard"):

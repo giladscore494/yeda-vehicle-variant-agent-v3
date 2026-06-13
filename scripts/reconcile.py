@@ -382,7 +382,8 @@ _UNDER_CONSIDERATION_PHRASES = [
     "לא הושק", "בשלב בחינה", "צפוי להגיע",
 ]
 _SPLIT_PHRASES = ["split is required", "must be split", "should be split", "requires splitting", "different power outputs", "distinct trims", "different specifications", "separate variants"]
-_CURRENT_PHRASES = ["still current", "available", "launched recently", "currently sold", "currently produced", "imported now", "still imported"]
+_CURRENT_IMPORT_PHRASES = ["currently sold", "officially sold", "currently imported", "imported now", "still imported", "available from the importer"]
+_CURRENT_PRODUCTION_PHRASES = ["currently produced", "still produced", "still manufactured", "in production"]
 _UNRESOLVED_TERMS = ["unresolved", "uncertain", "not verified", "disputed", "ambiguous", "special-order-only", "rare", "weakly inferred", "cannot be determined", "left unresolved"]
 _IDENTITY_CRITICAL_FIELDS = {"fuel_type", "engine", "transmission", "drivetrain", "body_type", "year_start", "year_end"}
 
@@ -485,9 +486,16 @@ def _sync_unresolved_language(row: Dict[str, Any]) -> None:
     if not any(term in low for term in _UNRESOLVED_TERMS):
         row["fields_left_unresolved"] = unresolved
         return
+    sentences = re.split(r"[.!?;\n]+", low)
+    unresolved_patterns = ("unresolved", "uncertain", "not verified", "disputed", "ambiguous", "cannot be determined", "left unresolved", "weakly inferred", "special-order-only", "rare")
     for key, field in text_by_field.items():
-        if key in low and field not in unresolved:
-            unresolved.append(field)
+        for sentence in sentences:
+            if key not in sentence:
+                continue
+            if any(term in sentence for term in unresolved_patterns) and not any(f"{key} is verified" in sentence or f"{key} verified" in sentence for _ in [0]):
+                if field not in unresolved:
+                    unresolved.append(field)
+                break
     row["fields_left_unresolved"] = unresolved
 
 def _add_guard_corrected_reason(row: Dict[str, Any], before: Dict[str, Any]) -> None:
@@ -547,18 +555,30 @@ def _apply_v3_guards(row: Dict[str, Any], flags: List[GuardFlag]) -> None:
 
     cur = datetime.datetime.now(datetime.timezone.utc).year
     ye = row.get("year_end")
+    current_text = " ".join(str(row.get(k) or "") for k in ("grounding_summary", "decision_reason")).lower()
+    has_prod_evidence = any(p in current_text for p in _CURRENT_PRODUCTION_PHRASES)
+    has_import_evidence = any(p in current_text for p in _CURRENT_IMPORT_PHRASES)
+    if ye is None and row.get("is_currently_produced") is True and not has_prod_evidence:
+        old = row.get("is_currently_produced")
+        row["is_currently_produced"] = None
+        _add_issue(row, "Current production was not explicitly supported; year_end=null alone is not current-production evidence.")
+        _add_flag(flags, "current_status_conflict", old, None, "is_currently_produced", "Current production requires explicit production evidence.", severity="high")
+    if ye is None and row.get("is_currently_imported_il") is True and not has_import_evidence:
+        old = row.get("is_currently_imported_il")
+        row["is_currently_imported_il"] = None
+        _add_issue(row, "Current official Israel import/sale was not explicitly supported; year_end=null alone is not current-import evidence.")
+        _add_flag(flags, "current_status_conflict", old, None, "is_currently_imported_il", "Current import requires explicit local sale/import evidence.", severity="high")
     if isinstance(ye, int) and ye < cur and (row.get("is_currently_produced") is True or row.get("is_currently_imported_il") is True):
         row["is_currently_produced"] = False
         row["is_currently_imported_il"] = False
         _add_issue(row, "Current-production/import flags corrected to false because year_end is a past year for this variant.")
         _add_flag(flags, "year_end_current", None, None, "is_currently_produced", "Past year_end corrected active flags to false.")
     elif isinstance(ye, int) and ye >= cur:
-        summary = (row.get("grounding_summary") or "").lower()
-        if row.get("is_currently_produced") is True or row.get("is_currently_imported_il") is True or any(p in summary for p in _CURRENT_PHRASES):
-            row["year_end"] = None
-            _add_flag(flags, "year_end_current", None, None, "year_end", "Current/future year_end reset to null for active vehicle.")
-        else:
-            _add_issue(row, "year_end is current/future; verify it is not a placeholder for active production/import.")
+        old = ye
+        row["year_end"] = None
+        _record_change(row, "year_end", old, None, "Current/future year_end was not kept as a placeholder; reset to null unless strongly supported as an end year.")
+        _add_issue(row, "year_end was current/future and not kept as a placeholder.")
+        _add_flag(flags, "year_end_current", old, None, "year_end", "Current/future year_end reset to null because placeholder end years are not allowed.")
 
     trim_s = str(row.get("canonical_trim") or "").lower(); trans = str(row.get("transmission") or "").lower()
     is_500c = _has_explicit_500c_cabriolet_evidence(row)
@@ -588,7 +608,7 @@ def _apply_v3_guards(row: Dict[str, Any], flags: List[GuardFlag]) -> None:
         or row.get("split_candidates")
         or _has_combined_trim(row.get("canonical_trim"))
         or row.get("identity_status") in {"likely_valid", "uncertain"}
-        or "transmission" in unresolved
+        or any(f in unresolved for f in _IDENTITY_CRITICAL_FIELDS)
         or any(p in (row.get("grounding_summary") or "").lower() for p in _UNDER_CONSIDERATION_PHRASES)
     ):
         old = row.get("validation_decision")

@@ -365,8 +365,13 @@ class OutputStore:
             "flash_overrode_guard": 0,
             "guard_overrode_flash": 0,
             "stage3_guard_verifier_calls": 0,
+            "stage3_guard_verifier_attempts": 0,
+            "stage3_guard_verifier_successes": 0,
+            "stage3_guard_verifier_failures": 0,
             "stage3_guard_verifier_model": "gpt-5.4",
             "stage3_openai_guard_verifier_calls": 0,
+            "stage3_adjudicator_calls_total": 0,
+            "last_guard_verifier_error": None,
             "guard_verifier_overrode_guard": 0,
             "guard_overrode_verifier": 0,
             "force_per_variant_validation": True,
@@ -441,7 +446,9 @@ class OutputStore:
         for k in ("gemini_call_count", "github_checkpoint_count", "grounding_cluster_count",
                   "stage1_pro_calls", "stage2_guard_flags_total", "stage3_flash_calls",
                   "flash_overrode_guard", "guard_overrode_flash", "stage3_guard_verifier_calls",
-                  "stage3_openai_guard_verifier_calls", "guard_verifier_overrode_guard",
+                  "stage3_openai_guard_verifier_calls", "stage3_guard_verifier_attempts",
+                  "stage3_guard_verifier_successes", "stage3_guard_verifier_failures",
+                  "stage3_adjudicator_calls_total", "guard_verifier_overrode_guard",
                   "guard_overrode_verifier", "github_checkpoint_fail_count"):
             if cached_meta.get(k):
                 self.metadata[k] = cached_meta[k]
@@ -532,10 +539,23 @@ class OutputStore:
     def bump_guard_overrode_flash(self, n: int = 1) -> None:
         self.metadata["guard_overrode_flash"] += n
 
-    def bump_stage3_guard_verifier_calls(self, n: int = 1) -> None:
+    def bump_stage3_guard_verifier_attempts(self, n: int = 1) -> None:
         self.metadata["stage3_guard_verifier_calls"] += n
+        self.metadata["stage3_guard_verifier_attempts"] += n
         self.metadata["stage3_openai_guard_verifier_calls"] += n
-        self.metadata["stage3_flash_calls"] += n  # legacy compatibility
+        self.metadata["stage3_adjudicator_calls_total"] += n
+
+    def bump_stage3_guard_verifier_successes(self, n: int = 1) -> None:
+        self.metadata["stage3_guard_verifier_successes"] += n
+        self.metadata["last_guard_verifier_error"] = None
+
+    def bump_stage3_guard_verifier_failures(self, n: int = 1, error: str | None = None) -> None:
+        self.metadata["stage3_guard_verifier_failures"] += n
+        if error:
+            self.metadata["last_guard_verifier_error"] = str(error)
+
+    def bump_stage3_guard_verifier_calls(self, n: int = 1) -> None:
+        self.bump_stage3_guard_verifier_attempts(n)
 
     def bump_guard_verifier_overrode_guard(self, n: int = 1) -> None:
         self.metadata["guard_verifier_overrode_guard"] += n
@@ -601,6 +621,11 @@ class OutputStore:
             "stage3_guard_verifier_calls": self.metadata["stage3_guard_verifier_calls"],
             "stage3_guard_verifier_model": self.metadata["stage3_guard_verifier_model"],
             "stage3_openai_guard_verifier_calls": self.metadata["stage3_openai_guard_verifier_calls"],
+            "stage3_guard_verifier_attempts": self.metadata["stage3_guard_verifier_attempts"],
+            "stage3_guard_verifier_successes": self.metadata["stage3_guard_verifier_successes"],
+            "stage3_guard_verifier_failures": self.metadata["stage3_guard_verifier_failures"],
+            "stage3_adjudicator_calls_total": self.metadata["stage3_adjudicator_calls_total"],
+            "last_guard_verifier_error": self.metadata["last_guard_verifier_error"],
             "guard_verifier_overrode_guard": self.metadata["guard_verifier_overrode_guard"],
             "guard_overrode_verifier": self.metadata["guard_overrode_verifier"],
             "force_per_variant_validation": self.metadata["force_per_variant_validation"],
