@@ -3,27 +3,28 @@
     "engine": "gemini31_streamlit_sampled_validation",
     "model": "gemini-3.1-pro-preview",
     "market": "IL",
-    "run_timestamp_utc": "2026-06-13T15:11:58Z",
+    "run_timestamp_utc": "2026-06-13T15:15:49Z",
     "total_input_variants": 3712,
     "total_instruction_records": 3712,
-    "total_validated_variants": 5,
+    "total_validated_variants": 6,
     "decision_counts": {
       "clean_exact": 1,
-      "clean_partial": 2,
+      "clean_partial": 3,
       "split_required": 2,
       "reject": 0
     },
     "grounding_cluster_count": 3653,
-    "gemini_call_count": 0,
-    "github_checkpoint_count": 4,
-    "last_validated_id": "VAL-000005"
+    "gemini_call_count": 1,
+    "github_checkpoint_count": 5,
+    "last_validated_id": "VAL-000006"
   },
   "completed_validation_ids": [
     "VAL-000001",
     "VAL-000002",
     "VAL-000003",
     "VAL-000004",
-    "VAL-000005"
+    "VAL-000005",
+    "VAL-000006"
   ],
   "failed_validation_ids": [],
   "validated_variants_by_id": {
@@ -234,15 +235,74 @@
         "official_marketed_name_il"
       ],
       "decision_reason": "Valid identity with a concrete trim."
+    },
+    "VAL-000006": {
+      "validation_id": "VAL-000006",
+      "source_validation_id": "VAL-000006",
+      "source_cluster_id": "CLU-e1e2ec71e348",
+      "grounding_cluster_id": "CLU-e1e2ec71e348",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "500",
+      "canonical_series_or_generation": null,
+      "canonical_trim": null,
+      "official_marketed_name_il": "אבארט 500",
+      "body_type": "hatchback",
+      "fuel_type": "petrol",
+      "engine": "1.4 Turbo",
+      "transmission": null,
+      "drivetrain": "FWD",
+      "year_start": 2018,
+      "year_end": 2023,
+      "market_scope": "IL",
+      "validation_decision": "clean_partial",
+      "acceptance_tier": "partial",
+      "identity_status": "likely_valid",
+      "identity_confidence": 0.95,
+      "trim_status": "unresolved",
+      "trim_confidence": 0.0,
+      "grounding_summary": "The Abarth 500 1.4 Turbo hatchback was officially sold in Israel during 2018-2023. The model was offered in multiple trims (such as Scorpione, Turismo, Competizione, Nuvolari) and with both manual and automated manual transmissions. Since the transmission and trim are missing, this is a valid but partial model-level identity.",
+      "evidence_sources": [
+        "iCar.co.il"
+      ],
+      "possible_trim_names": [
+        "Scorpione",
+        "Turismo",
+        "Competizione",
+        "Nuvolari",
+        "Racing Style"
+      ],
+      "split_candidates": [],
+      "blocking_identity_issues": [],
+      "non_blocking_trim_issues": [
+        "Trim level is missing",
+        "Transmission type is missing"
+      ],
+      "fields_changed": [],
+      "fields_left_unresolved": [
+        "canonical_trim",
+        "official_marketed_name_il"
+      ],
+      "decision_reason": "Core vehicle identity is verified for the Israeli market, but the lack of transmission and trim information makes it a partial variant."
     }
   },
-  "cluster_cache": {},
+  "cluster_cache": {
+    "CLU-e1e2ec71e348": {
+      "anchor_id": "VAL-000006",
+      "identity_status": "likely_valid",
+      "identity_confidence": 0.95,
+      "grounding_summary": "The Abarth 500 1.4 Turbo hatchback was officially sold in Israel during 2018-2023. The model was offered in multiple trims (such as Scorpione, Turismo, Competizione, Nuvolari) and with both manual and automated manual transmissions. Since the transmission and trim are missing, this is a valid but partial model-level identity.",
+      "evidence_sources": [
+        "iCar.co.il"
+      ]
+    }
+  },
   "decision_counts": {
     "clean_exact": 1,
-    "clean_partial": 2,
+    "clean_partial": 3,
     "split_required": 2,
     "reject": 0
   },
-  "last_validated_id": "VAL-000005",
-  "updated_at_utc": "2026-06-13T15:12:04Z"
+  "last_validated_id": "VAL-000006",
+  "updated_at_utc": "2026-06-13T15:15:49Z"
 }
