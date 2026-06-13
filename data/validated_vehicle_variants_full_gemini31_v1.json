@@ -8,24 +8,24 @@
     "run_timestamp_utc": "2026-06-13T19:25:01Z",
     "total_input_variants": 3712,
     "total_instruction_records": 3712,
-    "total_validated_variants": 9,
+    "total_validated_variants": 10,
     "decision_counts": {
-      "clean_exact": 0,
+      "clean_exact": 1,
       "clean_partial": 7,
       "split_required": 2,
       "reject": 0
     },
     "grounding_cluster_count": 3653,
-    "gemini_call_count": 9,
+    "gemini_call_count": 10,
     "github_checkpoint_enabled": true,
-    "github_checkpoint_count": 9,
+    "github_checkpoint_count": 10,
     "github_checkpoint_fail_count": 0,
     "last_github_checkpoint_error": null,
-    "last_validated_id": "VAL-000009",
+    "last_validated_id": "VAL-000010",
     "schema_version": "v3_three_stage",
     "pipeline_version": "v3_three_stage",
-    "stage1_pro_calls": 9,
-    "stage2_guard_flags_total": 5,
+    "stage1_pro_calls": 10,
+    "stage2_guard_flags_total": 6,
     "stage3_flash_calls": 0,
     "flash_overrode_guard": 0,
     "guard_overrode_flash": 0,
@@ -845,6 +845,93 @@
       "route_reason": "Identity is publishable; unresolved non-blocking fields are retained for audit.",
       "duplicate_group_id": "dup-73365a29",
       "duplicate_of": null
+    },
+    {
+      "validation_id": "VAL-000010",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000010",
+      "source_cluster_id": "CLU-ee56004c3c90",
+      "grounding_cluster_id": "CLU-ee56004c3c90",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "500",
+      "canonical_series_or_generation": "2nd Gen",
+      "canonical_trim": "500e Scorpionissima",
+      "official_marketed_name_il": "אבארט 500e",
+      "body_type": "Hatchback",
+      "fuel_type": "electric",
+      "engine": "Electric Motor",
+      "transmission": "automatic",
+      "drivetrain": "FWD",
+      "year_start": 2024,
+      "year_end": null,
+      "is_currently_produced": true,
+      "is_currently_imported_il": true,
+      "market_scope": "IL",
+      "validation_decision": "clean_exact",
+      "acceptance_tier": "exact",
+      "identity_status": "verified",
+      "identity_confidence": 0.95,
+      "trim_status": "verified",
+      "trim_confidence": 0.9,
+      "grounding_summary": "The Abarth 500e was officially launched in Israel in January 2024. The Scorpionissima was a limited launch edition offered to the local Abarth community. The technical specifications (electric motor, automatic/1-speed transmission, FWD, hatchback) match the Israeli market data. The year_end was updated to null as the vehicle is still currently imported.",
+      "evidence_sources": [
+        {
+          "title": "אבארט 500e טוריסמו החשמלית 2024 בישראל - מחיר החל מ-219,900 שקל",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH09kgB3knHGdhGEze8MWgNMsctVaVedJIOLKVTRhQeuYRCgyrfCLdACc7oaLdRLIuaC1wcSkYbl5OME4WlaXZjaznjiSIiLADYyND2cmwQNQytWFdR9Ra56fs3XGkNc5bs2TJ0yAqMYfmT2RDfGSmNlcD3AA9q-xglXfcoKJM6dbJiCNNa23RauV2rNBpOv0hAWkSEZl3AAA1HZqEraL5WhBmTWRBc_Oos9Ks6WhQ__4MknfZ-4kz2vhYZJJBrvcdzYIWEDewHLWNQR3_a3UFVsL6pJ1hCwsRfEqHvx7tnmkYy5IIJS6mbnxaa-mpjAxZcBhpQaLGlLxxSL-nj1KOB_0-YUmSi_hxH-zriZi0uNskLtGF085XX1aRmUn6HnMVGkPh-K8K2QcnxMeE7tR5SaQhbaBrqzvfxNZ4uNlgfFMwRBew-OCk2ljBrCvp2Zc0IE8M4c-ypug==",
+          "source_name": "cartube",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "official_import_il",
+            "year_range",
+            "engine",
+            "fuel_type",
+            "body_type"
+          ]
+        },
+        {
+          "title": "אבארט 500 מתחשמלת 🏎️ בפורטל הרכב גיר",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEgzsQluFLMRxd1K0dVAe9AFySv8IKmrKSAi2mS_evnxMy2usEHakeNywWYX3JyiMQaFs8pgfOEEpZJ2FSjuObu4o4GMtNG4BTOi-JDuZhCKqYASVFzc1iiEy_nijAhfzhe6eAKXIVHeuI7_m4rHX362vjiluS062JDqbZNXmPGH2jwvNbn_xYnJIiGcS27iUjqABjj-eLeqbNZQLNQoD4oQiWdK2YKN8UGevc=",
+          "source_name": "gear.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "exact_trim",
+            "market_presence_il"
+          ]
+        },
+        {
+          "title": "Abarth 500, 2 generation, cabrio 500e Scorpionissima AT, 155 hp, fwd type of drive in Israel",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEA7H-K9l1otlLA3-dJCc3iYkF4fS_3ArUmAdVOVz-2cqafMUWdAvf4AvHnVetwWa-HWUflIDJS6xtgyFZMbtzHeVmIvXS-qc_yPvQNARxNN57s7_hoVB0fg632FAHlmdy_En70y0Icbm_KprFGdnD8KB2tCvHCd1WijL3RKbJYYw==",
+          "source_name": "Autoboom",
+          "source_type": "marketplace",
+          "supports": [
+            "exact_trim",
+            "transmission",
+            "drivetrain"
+          ]
+        }
+      ],
+      "possible_trim_names": [
+        "500e Scorpionissima",
+        "500e Turismo"
+      ],
+      "split_candidates": [],
+      "blocking_identity_issues": [],
+      "non_blocking_trim_issues": [],
+      "fields_changed": [],
+      "fields_left_unresolved": [],
+      "decision_reason": "The Abarth 500e was officially launched in Israel in January 2024. The Scorpionissima was a limited launch edition offered to the local Abarth community. The technical specifications (electric motor, automatic/1-speed transmission, FWD, hatchback) match the Israeli market data. The year_end was updated to null as the vehicle is still currently imported. Guard correction: Python guards corrected the model output: year_end: 2026 -> None.",
+      "_pipeline_version": "v3_three_stage",
+      "_flags_count": 1,
+      "_flash_used": false,
+      "adjudication_log": [],
+      "publishable_to_clean_catalog": true,
+      "final_route": "clean_catalog",
+      "route_reason": "Identity is publishable; unresolved non-blocking fields are retained for audit.",
+      "duplicate_group_id": "dup-ca3f3ef5",
+      "duplicate_of": null,
+      "guard_corrected_reason": "Python guards corrected the model output: year_end: 2026 -> None."
     }
   ]
 }
