@@ -8,24 +8,24 @@
     "run_timestamp_utc": "2026-06-13T18:25:45Z",
     "total_input_variants": 3712,
     "total_instruction_records": 3712,
-    "total_validated_variants": 10,
+    "total_validated_variants": 11,
     "decision_counts": {
       "clean_exact": 1,
       "clean_partial": 7,
-      "split_required": 2,
+      "split_required": 3,
       "reject": 0
     },
     "grounding_cluster_count": 3653,
-    "gemini_call_count": 10,
+    "gemini_call_count": 11,
     "github_checkpoint_enabled": true,
-    "github_checkpoint_count": 10,
+    "github_checkpoint_count": 11,
     "github_checkpoint_fail_count": 0,
     "last_github_checkpoint_error": null,
-    "last_validated_id": "VAL-000010",
+    "last_validated_id": "VAL-000011",
     "schema_version": "v3_three_stage",
     "pipeline_version": "v3_three_stage",
-    "stage1_pro_calls": 10,
-    "stage2_guard_flags_total": 8,
+    "stage1_pro_calls": 11,
+    "stage2_guard_flags_total": 10,
     "stage3_flash_calls": 0,
     "flash_overrode_guard": 0,
     "guard_overrode_flash": 0,
@@ -882,6 +882,94 @@
       "decision_reason": "The Abarth 500e Scorpionissima trim is verified as a limited launch edition sold in the Israeli market starting in 2024. All identity and trim fields are confirmed.",
       "_pipeline_version": "v3_three_stage",
       "_flags_count": 1,
+      "_flash_used": false,
+      "adjudication_log": [],
+      "guard_corrected_reason": "Python guards corrected the model output: year_end: 2026 -> None."
+    },
+    {
+      "validation_id": "VAL-000011",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000011",
+      "source_cluster_id": "CLU-faa6df352bcf",
+      "grounding_cluster_id": "CLU-faa6df352bcf",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "500",
+      "canonical_series_or_generation": "Second Generation",
+      "canonical_trim": "Scorpionissima / Turismo",
+      "official_marketed_name_il": "אבארט 500e",
+      "body_type": "Hatchback",
+      "fuel_type": "electric",
+      "engine": "Electric Motor",
+      "transmission": "single_speed_ev",
+      "drivetrain": "FWD",
+      "year_start": 2024,
+      "year_end": null,
+      "is_currently_produced": true,
+      "is_currently_imported_il": true,
+      "market_scope": "IL",
+      "validation_decision": "split_required",
+      "acceptance_tier": "none",
+      "identity_status": "verified",
+      "identity_confidence": 0.95,
+      "trim_status": "invalid",
+      "trim_confidence": 0.0,
+      "grounding_summary": "The Abarth 500e (electric) was launched in Israel in January 2024 by the official importer, Samelet, in Hatchback and Cabrio body styles. The official marketed name is 'אבארט 500e'. The provided trim 'Scorpionissima / Turismo' combines two distinct global trims: the limited launch edition 'Scorpionissima' and the regular 'Turismo' trim (which is the primary trim marketed in Israel). Because these are distinct specifications, a split is required.",
+      "evidence_sources": [
+        {
+          "title": "אבארט 500e החדשה בארץ – מחיר החל מ-220,000 שקלים - אוטו",
+          "url": null,
+          "source_name": "Auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "official_import_il",
+            "year_range",
+            "engine",
+            "fuel_type",
+            "body_type"
+          ]
+        },
+        {
+          "title": "אבארט מתחשמלת: סמלת משיקה את אבארט 500e טוריסמו החשמלית",
+          "url": null,
+          "source_name": "Girafa",
+          "source_type": "official_importer",
+          "supports": [
+            "market_presence_il",
+            "trim_candidates"
+          ]
+        },
+        {
+          "title": "Abarth's new era continues. The Scorpion family is expanding with the new all-electric Abarth 500e line-up",
+          "url": null,
+          "source_name": "Stellantis Media",
+          "source_type": "manufacturer",
+          "supports": [
+            "global_model_exists",
+            "split_required",
+            "trim_candidates"
+          ]
+        }
+      ],
+      "possible_trim_names": [
+        "Scorpionissima",
+        "Turismo"
+      ],
+      "split_candidates": [
+        "Scorpionissima",
+        "Turismo"
+      ],
+      "blocking_identity_issues": [],
+      "non_blocking_trim_issues": [
+        "The trim field contains multiple distinct trims ('Scorpionissima' and 'Turismo') separated by a slash, requiring a split into separate variants.",
+        "Combined trim contains multiple distinct marketed trims and must be split into separate variants."
+      ],
+      "fields_changed": [],
+      "fields_left_unresolved": [],
+      "decision_reason": "The vehicle identity is verified as the Abarth 500e, officially imported to Israel since 2024. However, the provided trim string combines two distinct trims ('Scorpionissima' and 'Turismo'). A split is required to accurately represent these as separate variants in the catalog. The year_end was updated to null as the model is currently active.",
+      "_pipeline_version": "v3_three_stage",
+      "_flags_count": 2,
       "_flash_used": false,
       "adjudication_log": [],
       "guard_corrected_reason": "Python guards corrected the model output: year_end: 2026 -> None."
