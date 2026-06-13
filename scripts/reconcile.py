@@ -92,6 +92,7 @@ NO_ADJUDICATION_NEEDED = {
     "classify_source_types",
     "generic_trim",
     "year_end_current",
+    "year_start_il_market",
     "official_name_unresolved",
     "no_reject_without_blocking_issue",
     "acceptance_tier_sync",
@@ -129,11 +130,17 @@ def _audit_field_changes(
     existing = row.get("fields_changed")
     if not isinstance(existing, list):
         existing = []
+    normalized_existing: List[Dict[str, Any]] = []
+    for item in existing:
+        if isinstance(item, dict) and item.get("field"):
+            normalized_existing.append(item)
+        elif isinstance(item, str):
+            normalized_existing.append({"field": item, "from": None, "to": None, "reason": "Legacy string change normalized by guard."})
     already_tracked = {
-        e.get("field") for e in existing if isinstance(e, dict) and e.get("field")
+        e.get("field") for e in normalized_existing if isinstance(e, dict) and e.get("field")
     }
 
-    changes: List[Dict[str, Any]] = list(existing)
+    changes: List[Dict[str, Any]] = list(normalized_existing)
     for out_field, src_field in _OUTPUT_TO_SOURCE.items():
         if out_field in already_tracked:
             continue
@@ -322,20 +329,56 @@ _SPLIT_PHRASES = ["split is required", "must be split", "should be split", "requ
 _CURRENT_PHRASES = ["still current", "available", "launched recently", "currently sold", "currently produced", "imported now", "still imported"]
 
 SOURCE_TYPE_KEYWORDS = {
-    "official_importer": ["abarth.co.il", "samelet.co.il", "kolmemotors", "colmobil", "importer", "סמלת"],
+    "official_importer": ["abarth.co.il", "samelet", "samelet.co.il", "סמלת", "kolmemotors", "colmobil"],
     "manufacturer": ["abarth.com", "fiat.com", "stellantis.com"],
     "marketplace": ["yad2", "autoboom", "wisecars", "ad.co.il", "lomoto"],
-    "editorial": ["icar", "auto.co.il", "cartube", "gear.co.il", "wheel.co.il", "thecar", "over-drive", "walla", "sport5", "ynet", "mako", "car-pad", "queen of road"],
-    "government": ["data.gov.il", "transport ministry", "משרד התחבורה", "רשות הרישוי"],
+    "editorial": ["icar", "auto.co.il", "cartube", "gear", "wheel", "thecar", "over-drive", "walla", "sport5", "ynet", "mako", "girafa", "carzone", "car-pad", "queen of road", "גלגלים", "אוטו"],
+    "government": ["data.gov.il", "transport ministry", "ministry of transport", "משרד התחבורה", "רשות הרישוי"],
     "forum_community": ["forum", "community", "reddit"],
 }
 
+_SOURCE_TYPE_ORDER = ("editorial", "official_importer", "manufacturer", "marketplace", "government", "forum_community")
+
 def classify_source_type(source_name: str, url: str, title: str = "") -> str:
-    text = " ".join(str(x or "").lower() for x in (source_name, url, title))
-    for stype in ("official_importer", "manufacturer", "marketplace", "editorial", "government", "forum_community"):
-        if any(k.lower() in text for k in SOURCE_TYPE_KEYWORDS[stype]):
+    # Classify by source_name/domain first. Title is intentionally ignored for
+    # known source/domain matches so editorial articles mentioning importers do
+    # not become official_importer sources.
+    source_text = " ".join(str(x or "").lower() for x in (source_name, url))
+    for stype in _SOURCE_TYPE_ORDER:
+        if any(k.lower() in source_text for k in SOURCE_TYPE_KEYWORDS[stype]):
+            return stype
+    title_text = str(title or "").lower()
+    for stype in ("manufacturer", "marketplace", "government", "forum_community", "editorial"):
+        if any(k.lower() in title_text for k in SOURCE_TYPE_KEYWORDS[stype]):
             return stype
     return "unknown"
+
+
+_IL_YEAR_PATTERNS = [
+    re.compile(r"(?:officially\s+imported\s+to\s+israel\s+starting(?:\s+around)?\s+in|launched\s+in\s+israel\s+in|arrived\s+in\s+israel\s+in)\s+(20\d{2}|19\d{2})", re.I),
+    re.compile(r"(?:הושק\s+בישראל\s+ב|החל\s+שיווק\s+בישראל\s+ב)[-־]?(20\d{2}|19\d{2})"),
+]
+
+def _extract_clear_il_start_year(text: str) -> Optional[int]:
+    for pat in _IL_YEAR_PATTERNS:
+        m = pat.search(text or "")
+        if m:
+            return int(m.group(1))
+    return None
+
+def _record_change(row: Dict[str, Any], field: str, old: Any, new: Any, reason: str) -> None:
+    changes = row.get("fields_changed")
+    if not isinstance(changes, list):
+        changes = []
+    normalized = []
+    for item in changes:
+        if isinstance(item, dict) and item.get("field"):
+            normalized.append(item)
+        elif isinstance(item, str):
+            normalized.append({"field": item, "from": None, "to": None, "reason": "Legacy string change normalized by guard."})
+    if not any(c.get("field") == field and c.get("to") == new for c in normalized):
+        normalized.append({"field": field, "from": old, "to": new, "reason": reason})
+    row["fields_changed"] = normalized
 
 def _has_combined_trim(trim: Any) -> bool:
     if not isinstance(trim, str) or not trim.strip():
@@ -377,10 +420,14 @@ def _has_explicit_500c_cabriolet_evidence(row: Dict[str, Any]) -> bool:
     )
 
 def _add_guard_corrected_reason(row: Dict[str, Any], before: Dict[str, Any]) -> None:
-    watched = ["validation_decision", "identity_status", "identity_confidence", "canonical_trim", "trim_status", "year_end", "is_currently_produced", "is_currently_imported_il"]
+    watched = ["validation_decision", "identity_status", "identity_confidence", "canonical_trim", "trim_status", "trim_confidence", "year_start", "year_end", "is_currently_produced", "is_currently_imported_il", "transmission"]
     changes = [f"{k}: {before.get(k)!r} -> {row.get(k)!r}" for k in watched if before.get(k) != row.get(k)]
     if changes:
-        row["guard_corrected_reason"] = "Python guards corrected the model output: " + "; ".join(changes) + "."
+        note = "Python guards corrected the model output: " + "; ".join(changes) + "."
+        row["guard_corrected_reason"] = note
+        reason = row.get("decision_reason") or ""
+        if "Guard correction:" not in reason:
+            row["decision_reason"] = (reason + " " if reason else "") + "Guard correction: " + note
 
 def _apply_v3_guards(row: Dict[str, Any], flags: List[GuardFlag]) -> None:
     before_guard_fields = dict(row)
@@ -418,6 +465,15 @@ def _apply_v3_guards(row: Dict[str, Any], flags: List[GuardFlag]) -> None:
         _add_issue(row, "Israeli market sale/import not fully verified; source indicates expected or under consideration.")
         _add_flag(flags, "under_consideration", old, "clean_partial", "validation_decision", "Only expected/under consideration market status found.")
 
+    il_start = _extract_clear_il_start_year(" ".join(str(row.get(k) or "") for k in ("grounding_summary", "decision_reason")))
+    ys = row.get("year_start")
+    if isinstance(ys, int) and isinstance(il_start, int) and il_start > ys:
+        reason = f"Israeli-market import/start year is {il_start}; {ys} appears to be global launch year."
+        row["year_start"] = il_start
+        _record_change(row, "year_start", ys, il_start, reason)
+        _add_issue(row, reason)
+        _add_flag(flags, "year_start_il_market", None, None, "year_start", reason)
+
     cur = datetime.datetime.now(datetime.timezone.utc).year
     ye = row.get("year_end")
     if isinstance(ye, int) and ye < cur and (row.get("is_currently_produced") is True or row.get("is_currently_imported_il") is True):
@@ -442,7 +498,11 @@ def _apply_v3_guards(row: Dict[str, Any], flags: List[GuardFlag]) -> None:
     if is_500c and "manual" in trans and row.get("identity_status") == "verified":
         old = row.get("validation_decision")
         row["identity_status"] = "likely_valid"; row["identity_confidence"] = min(float(row.get("identity_confidence") or 0.7), 0.7); row["validation_decision"] = "clean_partial"
-        _add_issue(row, "Abarth 500C/Cabriolet manual transmission is not verified for the Israeli market; local sources indicate robotic/automated-manual only.")
+        unresolved = row.get("fields_left_unresolved") if isinstance(row.get("fields_left_unresolved"), list) else []
+        if "transmission" not in unresolved:
+            unresolved.append("transmission")
+        row["fields_left_unresolved"] = unresolved
+        _add_issue(row, "Abarth 500C/Cabriolet manual transmission is not verified for the Israeli market; transmission left unresolved.")
         _add_flag(flags, "domain_500c_transmission", old, "clean_partial", "identity_status", "Manual transmission not verified for Israeli Abarth 500C/Cabriolet.")
 
     if row.get("validation_decision") == "reject" and not row.get("blocking_identity_issues"):
@@ -452,6 +512,19 @@ def _apply_v3_guards(row: Dict[str, Any], flags: List[GuardFlag]) -> None:
         _add_flag(flags, "no_reject_without_blocking_issue", old, "clean_partial", "validation_decision", "Reject without blocking identity issue downgraded.")
 
     unresolved = row.get("fields_left_unresolved") if isinstance(row.get("fields_left_unresolved"), list) else []
+    if row.get("validation_decision") == "clean_exact" and float(row.get("identity_confidence") or 0.0) > 0 and (
+        row.get("trim_status") in {"unresolved", "invalid"}
+        or row.get("split_candidates")
+        or _has_combined_trim(row.get("canonical_trim"))
+        or row.get("identity_status") in {"likely_valid", "uncertain"}
+        or "transmission" in unresolved
+        or any(p in (row.get("grounding_summary") or "").lower() for p in _UNDER_CONSIDERATION_PHRASES)
+    ):
+        old = row.get("validation_decision")
+        row["validation_decision"] = "split_required" if (row.get("split_candidates") or _prefer_split(row)) else "clean_partial"
+        _add_issue(row, "clean_exact downgraded because trim/identity/market evidence remains unresolved or corrected.")
+        _add_flag(flags, "no_clean_exact_unresolved", old, row.get("validation_decision"), "validation_decision", "clean_exact is not allowed with unresolved/corrected identity or trim issues.")
+
     if row.get("official_marketed_name_il") not in (None, "", []):
         row["fields_left_unresolved"] = [f for f in unresolved if f != "official_marketed_name_il"]
     elif row.get("identity_status") in {"verified", "likely_valid"} and "official_marketed_name_il" not in unresolved:

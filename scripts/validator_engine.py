@@ -417,7 +417,8 @@ def run_validation(
                     store.bump_gemini_calls()
                     store.bump_stage1_pro_calls()
                     result.gemini_called = True
-                    row = coerce_gemini_row(vid, raw, identity, trim_info, cluster, variant, run_reconcile=False)
+                    original_row = coerce_gemini_row(vid, raw, identity, trim_info, cluster, variant, run_reconcile=False)
+                    row = original_row
 
                     # Stage 2: deterministic guards.
                     row, flags = reconcile_validation_output_with_flags(variant, row, run_mode="real")
@@ -428,7 +429,7 @@ def run_validation(
                     # Stage 3: optional Flash adjudication, followed by final guard authority.
                     flash_used = bool(flags and config.flash_adjudication_enabled and flash_adjudicator is not None)
                     if flash_used:
-                        row = flash_adjudicator.adjudicate(row, flags)
+                        row = flash_adjudicator.adjudicate(row, flags, original_model_output=original_row)
                         store.bump_stage3_flash_calls(1)
                         if row.get("_flash_overrode_guard"):
                             store.bump_flash_overrode_guard(int(row.get("_flash_overrode_guard") or 0))
