@@ -6,17 +6,17 @@
     "run_timestamp_utc": "2026-06-13T15:11:58Z",
     "total_input_variants": 3712,
     "total_instruction_records": 3712,
-    "total_validated_variants": 4,
+    "total_validated_variants": 5,
     "decision_counts": {
-      "clean_exact": 0,
+      "clean_exact": 1,
       "clean_partial": 2,
       "split_required": 2,
       "reject": 0
     },
     "grounding_cluster_count": 3653,
     "gemini_call_count": 0,
-    "github_checkpoint_count": 3,
-    "last_validated_id": "VAL-000004"
+    "github_checkpoint_count": 4,
+    "last_validated_id": "VAL-000005"
   },
   "validated_variants": [
     {
@@ -189,6 +189,43 @@
         "official_marketed_name_il"
       ],
       "decision_reason": "Row appears to bundle multiple distinct trims."
+    },
+    {
+      "validation_id": "VAL-000005",
+      "source_validation_id": "VAL-000005",
+      "source_cluster_id": "CLU-b55fc8fd404e",
+      "grounding_cluster_id": "CLU-b55fc8fd404e",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "500",
+      "canonical_series_or_generation": "1st Gen",
+      "canonical_trim": "500C",
+      "official_marketed_name_il": null,
+      "body_type": "Cabriolet",
+      "fuel_type": "petrol",
+      "engine": "1.4L Turbo",
+      "transmission": "manual",
+      "drivetrain": "FWD",
+      "year_start": 2010,
+      "year_end": 2016,
+      "market_scope": "IL",
+      "validation_decision": "clean_exact",
+      "acceptance_tier": "exact",
+      "identity_status": "likely_valid",
+      "identity_confidence": 0.8,
+      "trim_status": "verified",
+      "trim_confidence": 0.7,
+      "grounding_summary": "mock: no external grounding performed",
+      "evidence_sources": [],
+      "possible_trim_names": [],
+      "split_candidates": [],
+      "blocking_identity_issues": [],
+      "non_blocking_trim_issues": [],
+      "fields_changed": [],
+      "fields_left_unresolved": [
+        "official_marketed_name_il"
+      ],
+      "decision_reason": "Valid identity with a concrete trim."
     }
   ]
 }
