@@ -5,7 +5,7 @@ Gemini call per cluster anchor (or per row when reuse is not possible),
 requests strict JSON, parses it, and retries on transient/parse errors a
 bounded number of times.
 
-Prompt version: gemini31_validation_v2_evidence_current_year
+Prompt version: gemini31_validation_v3_three_stage
 Two-layer structure: System Prompt (fixed, sent once) + User Turn (dynamic).
 """
 
@@ -26,7 +26,8 @@ DEFAULT_MODEL_ID = "gemini-3.1-pro-preview"
 SYSTEM_PROMPT = """\
 You are an Israeli automotive market validation engine.
 
-Your job: validate a single vehicle variant for the Israeli used-car market.
+Your job: validate this exact validation_id as a single vehicle variant for the Israeli used-car market.
+Cluster evidence is context only; do not inherit trim, decision, or unresolved fields from the anchor. Return a per-variant decision.
 Return strict JSON only. No prose. No markdown. No explanation outside the JSON.
 
 ---
@@ -75,7 +76,8 @@ If ANY condition above is missing → use clean_partial, not reject.
 - "Under consideration for Israel" → is_currently_imported_il: null (not true).
 
 ### canonical_trim
-- If the trim field contains "/" or "|" or a comma-separated list of distinct trims → this is NOT clean_exact.
+- If trim is Base/Standard/Basic/Default/Regular/Entry/N/A/NA/None/null/בסיס/סטנדרט → canonical_trim must be null, trim_status unresolved, and validation_decision should be clean_partial if identity is valid.
+- If the trim field contains "/" or "|" or " or " or " and " or a comma-separated list of distinct trims → this is NOT clean_exact.
 - If the trims are technically distinct (different power, different spec) → split_required.
 - If the slash is a vague candidate list with one underlying spec → clean_partial.
 
@@ -313,6 +315,31 @@ class GeminiClient:
             response_mime_type="application/json" if tools is None else None,
             temperature=0.2,
         )
+
+    def generate_json(self, system: str, user: str, model_id: Optional[str] = None, temperature: float = 0.0) -> Dict[str, Any]:
+        """Run a generic Gemini JSON generation call."""
+        from google.genai import types
+
+        client = self._ensure_client()
+        config = types.GenerateContentConfig(
+            system_instruction=system,
+            response_mime_type="application/json",
+            temperature=temperature,
+        )
+        last_err: Optional[Exception] = None
+        for attempt in range(self.settings.max_retries + 1):
+            try:
+                resp = client.models.generate_content(
+                    model=model_id or self.settings.model_id,
+                    contents=user,
+                    config=config,
+                )
+                return parse_strict_json(getattr(resp, "text", None))
+            except Exception as exc:  # noqa: BLE001
+                last_err = exc
+            if attempt < self.settings.max_retries:
+                time.sleep(min(2 ** attempt, 8))
+        raise RuntimeError(f"Gemini JSON generation failed: {last_err}")
 
     def validate(
         self,

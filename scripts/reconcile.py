@@ -25,7 +25,8 @@ from __future__ import annotations
 
 import datetime
 import re
-from typing import Any, Dict, List, Optional
+from dataclasses import dataclass
+from typing import Any, Dict, List, Optional, Tuple
 
 from .data_loader import get_standard
 from .normalization import is_weak_trim, norm_str, norm_year
@@ -68,6 +69,44 @@ _RESOLVE_WHEN_FILLED = (
 _CHANGE_REASON = (
     "Model changed value during validation; see decision_reason/grounding_summary"
 )
+
+
+@dataclass
+class GuardFlag:
+    guard_name: str
+    original_decision: str | None
+    new_decision: str | None
+    field_affected: str
+    reason: str
+    needs_adjudication: bool
+
+NEEDS_ADJUDICATION = {
+    "slash_trim",
+    "grounding_summary_vs_decision",
+    "under_consideration",
+    "domain_500c_transmission",
+}
+
+NO_ADJUDICATION_NEEDED = {
+    "normalize_evidence_sources",
+    "classify_source_types",
+    "generic_trim",
+    "year_end_current",
+    "official_name_unresolved",
+    "no_reject_without_blocking_issue",
+    "acceptance_tier_sync",
+}
+
+def _add_flag(flags, name, old, new, field, reason):
+    flags.append(GuardFlag(name, old, new, field, reason, name in NEEDS_ADJUDICATION))
+
+def _add_issue(row, msg):
+    issues = row.get("non_blocking_trim_issues")
+    if not isinstance(issues, list):
+        issues = []
+        row["non_blocking_trim_issues"] = issues
+    if msg not in issues:
+        issues.append(msg)
 
 
 def _normalize_for_compare(field: str, value: Any) -> Any:
@@ -183,7 +222,7 @@ def _normalize_evidence_source(item: Any) -> Optional[Dict[str, Any]]:
             supports = []
         title = item.get("title") or item.get("name") or (url if isinstance(url, str) else "")
         raw_type = item.get("source_type") or "unknown"
-        classified = classify_source_type(source_name or "", url or "")
+        classified = classify_source_type(source_name or "", url or "", title or "")
         source_type = classified if classified != "unknown" else raw_type
         return {
             "title": title,
@@ -205,7 +244,7 @@ def _normalize_evidence_source(item: Any) -> Optional[Dict[str, Any]]:
             source_name = re.sub(r"^https?://", "", url).split("/")[0] or None
         elif tokens and _looks_like_domain(tokens[0]):
             source_name = tokens[0]
-        source_type = classify_source_type(source_name or "", url or "")
+        source_type = classify_source_type(source_name or "", url or "", text)
         return {
             "title": text,
             "url": url,
@@ -269,136 +308,124 @@ def _strip_mock_marker(row: Dict[str, Any]) -> None:
 
 
 # ---------------------------------------------------------------------------
-# v2 post-processing guards
+# v3 post-processing guards
 # ---------------------------------------------------------------------------
 
 _SLASH_SEPARATORS = ["/", "|", " or ", " and "]
-
+_GENERIC_TRIMS = {"base", "standard", "basic", "default", "regular", "entry", "n/a", "na", "none", "null", "בסיס", "סטנדרט"}
 _UNDER_CONSIDERATION_PHRASES = [
-    "under consideration",
-    "expected to arrive",
-    "may arrive",
-    "importer is evaluating",
-    "not yet launched",
-    "being evaluated",
+    "under consideration", "expected to arrive", "may arrive", "importer is evaluating",
+    "not yet launched", "being evaluated", "could arrive", "might be imported",
+    "לא הושק", "בשלב בחינה", "צפוי להגיע",
 ]
+_SPLIT_PHRASES = ["split is required", "must be split", "should be split", "requires splitting", "different power outputs", "distinct trims"]
+_CURRENT_PHRASES = ["still current", "available", "launched recently", "currently sold", "currently produced", "imported now", "still imported"]
 
-SOURCE_TYPE_MAP = {
-    "abarth.co.il": "official_importer",
-    "samelet.co.il": "official_importer",
-    "abarth.com": "manufacturer",
-    "fiat.com": "manufacturer",
-    "yad2.co.il": "marketplace",
-    "autoboom.co.il": "marketplace",
-    "wisecars.co.il": "marketplace",
-    "cartube.co.il": "marketplace",
-    "icar.co.il": "editorial",
-    "auto.co.il": "editorial",
-    "gear.co.il": "editorial",
-    "wheel.co.il": "editorial",
-    "thecar.co.il": "editorial",
-    "over-drive.co.il": "editorial",
-    "data.gov.il": "government",
+SOURCE_TYPE_KEYWORDS = {
+    "official_importer": ["abarth.co.il", "samelet.co.il", "kolmemotors", "colmobil", "importer", "סמלת"],
+    "manufacturer": ["abarth.com", "fiat.com", "stellantis.com"],
+    "marketplace": ["yad2", "autoboom", "wisecars", "ad.co.il", "lomoto"],
+    "editorial": ["icar", "auto.co.il", "cartube", "gear.co.il", "wheel.co.il", "thecar", "over-drive", "walla", "sport5", "ynet", "mako", "car-pad", "queen of road"],
+    "government": ["data.gov.il", "transport ministry", "משרד התחבורה", "רשות הרישוי"],
+    "forum_community": ["forum", "community", "reddit"],
 }
 
-
-def classify_source_type(source_name: str, url: str) -> str:
-    """Classify an evidence source into a source_type category."""
-    name_lower = (source_name or "").lower()
-    url_lower = (url or "").lower()
-    for domain, stype in SOURCE_TYPE_MAP.items():
-        if domain in name_lower or domain in url_lower:
+def classify_source_type(source_name: str, url: str, title: str = "") -> str:
+    text = " ".join(str(x or "").lower() for x in (source_name, url, title))
+    for stype in ("official_importer", "manufacturer", "marketplace", "editorial", "government", "forum_community"):
+        if any(k.lower() in text for k in SOURCE_TYPE_KEYWORDS[stype]):
             return stype
-    if any(x in name_lower for x in ["yad2", "autoboom", "wisecars"]):
-        return "marketplace"
-    if any(x in name_lower for x in [
-        "icar", "cartube", "gear", "auto.co", "wheel", "thecar",
-        "walla", "sport5", "ynet", "over-drive",
-    ]):
-        return "editorial"
-    if any(x in name_lower for x in ["data.gov", "transport ministry", "משרד התחבורה"]):
-        return "government"
-    if any(x in name_lower for x in ["forum", "community", "reddit"]):
-        return "forum_community"
     return "unknown"
 
+def _has_combined_trim(trim: Any) -> bool:
+    if not isinstance(trim, str) or not trim.strip():
+        return False
+    low = f" {trim.lower()} "
+    return any(sep in low for sep in _SLASH_SEPARATORS) or ("," in trim and len([p for p in trim.split(",") if p.strip()]) > 1)
 
-def _guard_slash_trim(row: Dict[str, Any]) -> None:
-    """Slash/combined trim → cannot be clean_exact."""
-    if row["validation_decision"] != "clean_exact":
-        return
-    trim = row.get("canonical_trim") or ""
-    if any(sep in trim for sep in _SLASH_SEPARATORS):
-        row["validation_decision"] = "clean_partial"
-        row["acceptance_tier"] = "partial"
-        issues = row.get("non_blocking_trim_issues")
-        if not isinstance(issues, list):
-            issues = []
-            row["non_blocking_trim_issues"] = issues
-        issues.append(
-            "Slash/combined trim detected; downgraded from clean_exact to clean_partial."
-        )
+def _summary_wants_split(summary: str) -> bool:
+    low = (summary or "").lower()
+    return any(p in low for p in _SPLIT_PHRASES)
 
+def _prefer_split(row):
+    return bool(row.get("split_candidates")) or _summary_wants_split(row.get("grounding_summary", ""))
 
-def _guard_under_consideration(row: Dict[str, Any]) -> None:
-    """Under-consideration language → cannot be clean_exact."""
-    if row["validation_decision"] != "clean_exact":
-        return
-    summary = (row.get("grounding_summary") or "").lower()
-    if any(phrase in summary for phrase in _UNDER_CONSIDERATION_PHRASES):
-        row["validation_decision"] = "clean_partial"
-        row["acceptance_tier"] = "partial"
-        row["identity_status"] = "likely_valid"
-        row["is_currently_imported_il"] = None
-        issues = row.get("non_blocking_trim_issues")
-        if not isinstance(issues, list):
-            issues = []
-            row["non_blocking_trim_issues"] = issues
-        issues.append(
-            "Israeli market sale/import not fully verified; source indicates expected or under consideration."
-        )
+def _apply_v3_guards(row: Dict[str, Any], flags: List[GuardFlag]) -> None:
+    trim = row.get("canonical_trim")
+    if isinstance(trim, str) and trim.strip().lower() in _GENERIC_TRIMS:
+        old = row.get("validation_decision")
+        row["canonical_trim"] = None; row["trim_status"] = "unresolved"; row["trim_confidence"] = 0.0
+        if old == "clean_exact": row["validation_decision"] = "clean_partial"
+        _add_issue(row, f"Trim '{trim}' is a generic placeholder; reset to null/unresolved.")
+        _add_flag(flags, "generic_trim", old, row.get("validation_decision"), "canonical_trim", "Generic trim reset to unresolved.")
 
+    if _has_combined_trim(row.get("canonical_trim")) and row.get("validation_decision") == "clean_exact":
+        old = row.get("validation_decision")
+        row["validation_decision"] = "split_required" if _prefer_split(row) else "clean_partial"
+        _add_issue(row, "Slash/combined trim cannot be clean_exact.")
+        _add_flag(flags, "slash_trim", old, row.get("validation_decision"), "validation_decision", "Slash/combined trim cannot be clean_exact.")
 
-def _guard_year_end(row: Dict[str, Any]) -> None:
-    """year_end normalization: still-active vehicles must not have a current/future year_end."""
-    if row.get("is_currently_produced") is True or row.get("is_currently_imported_il") is True:
-        current_year = datetime.datetime.now(datetime.timezone.utc).year
-        if row.get("year_end") and row["year_end"] >= current_year:
+    if row.get("validation_decision") == "clean_exact" and _summary_wants_split(row.get("grounding_summary", "")):
+        old = row.get("validation_decision")
+        row["validation_decision"] = "split_required" if any(p in (row.get("grounding_summary") or "").lower() for p in ["different power outputs", "distinct trims", "split is required", "must be split"]) else "clean_partial"
+        _add_issue(row, "Grounding summary conflicts with clean_exact decision.")
+        _add_flag(flags, "grounding_summary_vs_decision", old, row.get("validation_decision"), "validation_decision", "Grounding summary indicates split/partial, not clean_exact.")
+
+    if row.get("validation_decision") == "clean_exact" and any(p in (row.get("grounding_summary") or "").lower() for p in _UNDER_CONSIDERATION_PHRASES):
+        old = row.get("validation_decision")
+        row["validation_decision"] = "clean_partial"; row["identity_status"] = "likely_valid"; row["is_currently_imported_il"] = None
+        _add_issue(row, "Israeli market sale/import not fully verified; source indicates expected or under consideration.")
+        _add_flag(flags, "under_consideration", old, "clean_partial", "validation_decision", "Only expected/under consideration market status found.")
+
+    cur = datetime.datetime.now(datetime.timezone.utc).year
+    ye = row.get("year_end")
+    if isinstance(ye, int) and ye >= cur:
+        summary = (row.get("grounding_summary") or "").lower()
+        if row.get("is_currently_produced") is True or row.get("is_currently_imported_il") is True or any(p in summary for p in _CURRENT_PHRASES):
             row["year_end"] = None
+            _add_flag(flags, "year_end_current", None, None, "year_end", "Current/future year_end reset to null for active vehicle.")
+        else:
+            _add_issue(row, "year_end is current/future; verify it is not a placeholder for active production/import.")
 
+    make = str(row.get("canonical_make") or "").lower(); model = str(row.get("canonical_model") or "").lower()
+    body = str(row.get("body_type") or "").lower(); trim_s = str(row.get("canonical_trim") or "").lower(); trans = str(row.get("transmission") or "").lower()
+    is_500c = make == "abarth" and (model in {"500", "500c"} or "500c" in (model+body+trim_s)) and any(x in body+model+trim_s for x in ["cabrio", "convertible", "500c"])
+    if is_500c and trim_s in {"500c", "cabrio", "cabriolet", "convertible"}:
+        row["canonical_trim"] = None; row["trim_status"] = "unresolved"; row["trim_confidence"] = 0.0
+        _add_issue(row, "500C/Cabriolet is a body/model designation, not a verified trim.")
+        _add_flag(flags, "generic_trim", None, None, "canonical_trim", "500C/Cabriolet trim cleanup.")
+    if is_500c and "manual" in trans and row.get("identity_status") == "verified":
+        old = row.get("validation_decision")
+        row["identity_status"] = "likely_valid"; row["identity_confidence"] = min(float(row.get("identity_confidence") or 0.7), 0.7); row["validation_decision"] = "clean_partial"
+        _add_issue(row, "Abarth 500C/Cabriolet manual transmission is not verified for the Israeli market; local sources indicate robotic/automated-manual only.")
+        _add_flag(flags, "domain_500c_transmission", old, "clean_partial", "identity_status", "Manual transmission not verified for Israeli Abarth 500C/Cabriolet.")
 
-def _guard_trim_only_reject(row: Dict[str, Any]) -> None:
-    """Trim-only uncertainty never becomes reject."""
-    if row["validation_decision"] != "reject":
-        return
-    has_blocking_identity = bool(row.get("blocking_identity_issues"))
-    if not has_blocking_identity:
+    if row.get("validation_decision") == "reject" and not row.get("blocking_identity_issues"):
+        old = row.get("validation_decision")
         row["validation_decision"] = "clean_partial"
-        row["acceptance_tier"] = "partial"
-        issues = row.get("non_blocking_trim_issues")
-        if not isinstance(issues, list):
-            issues = []
-            row["non_blocking_trim_issues"] = issues
-        issues.append(
-            "Reject downgraded to clean_partial: no blocking identity issue found."
-        )
+        _add_issue(row, "Reject downgraded to clean_partial: no blocking identity issue found.")
+        _add_flag(flags, "no_reject_without_blocking_issue", old, "clean_partial", "validation_decision", "Reject without blocking identity issue downgraded.")
 
+    unresolved = row.get("fields_left_unresolved") if isinstance(row.get("fields_left_unresolved"), list) else []
+    if row.get("official_marketed_name_il") not in (None, "", []):
+        row["fields_left_unresolved"] = [f for f in unresolved if f != "official_marketed_name_il"]
+    elif row.get("identity_status") in {"verified", "likely_valid"} and "official_marketed_name_il" not in unresolved:
+        unresolved.append("official_marketed_name_il"); row["fields_left_unresolved"] = unresolved
 
 # ---------------------------------------------------------------------------
 # Main entry point
 # ---------------------------------------------------------------------------
 
 
-def reconcile_validation_output(
+def reconcile_validation_output_with_flags(
     source_variant: Dict[str, Any],
     model_output: Dict[str, Any],
     *,
     run_mode: str = "real",
-) -> Dict[str, Any]:
-    """Deterministically clean & reconcile a validated row.
-
-    Never rejects, never tightens acceptance. Returns the same row, cleaned.
-    """
+    final_pass: bool = False,
+) -> Tuple[Dict[str, Any], List[GuardFlag]]:
+    """Deterministically clean & reconcile a validated row and return guard flags."""
+    flags: List[GuardFlag] = []
     row = dict(model_output)
     source_std = get_standard(source_variant or {})
 
@@ -408,17 +435,27 @@ def reconcile_validation_output(
     row["fields_changed"] = _audit_field_changes(source_std, row)
     row["trim_status"] = _reconcile_trim_status(row)
     row["fields_left_unresolved"] = _clean_unresolved(row)
-    row["evidence_sources"] = _normalize_evidence_sources(row.get("evidence_sources"))
+    before_sources = row.get("evidence_sources")
+    row["evidence_sources"] = _normalize_evidence_sources(before_sources)
     row["possible_trim_names"] = _clean_possible_trim_names(row.get("possible_trim_names"))
 
-    # v2 post-processing guards (deterministic, applied after every Gemini response)
-    _guard_slash_trim(row)
-    _guard_under_consideration(row)
-    _guard_year_end(row)
-    _guard_trim_only_reject(row)
+    _apply_v3_guards(row, flags)
 
+    before_decision = row.get("validation_decision")
     row = enforce_consistency(row)
+    if before_decision != row.get("validation_decision"):
+        _add_flag(flags, "acceptance_tier_sync", before_decision, row.get("validation_decision"), "validation_decision", "Decision/tier consistency enforced.")
     decision = row.get("validation_decision")
     if decision in DECISION_TIER:
         row["acceptance_tier"] = DECISION_TIER[decision]
+    return row, flags
+
+def reconcile_validation_output(
+    source_variant: Dict[str, Any],
+    model_output: Dict[str, Any],
+    *,
+    run_mode: str = "real",
+) -> Dict[str, Any]:
+    """Backwards-compatible deterministic cleanup API."""
+    row, _flags = reconcile_validation_output_with_flags(source_variant, model_output, run_mode=run_mode)
     return row

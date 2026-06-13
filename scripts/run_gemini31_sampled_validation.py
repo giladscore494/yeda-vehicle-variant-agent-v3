@@ -35,6 +35,9 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--checkpoint-every", type=int, default=1)
     p.add_argument("--dry-run", action="store_true", help="validate join only; do not write")
     p.add_argument("--no-github-push", action="store_true")
+    p.add_argument("--flash-adjudication", action="store_true", help="enable optional Gemini Flash adjudication for flagged guard conflicts")
+    p.add_argument("--flash-model-id", default=os.environ.get("GEMINI_FLASH_MODEL_ID", "gemini-2.5-flash"))
+    p.add_argument("--no-force-per-variant-validation", action="store_true", help="legacy mode: allow cluster row reuse in real mode")
     return p
 
 
@@ -110,7 +113,15 @@ def main(argv=None) -> int:
         start_after_validation_id=args.start_after_validation_id,
         checkpoint_every=args.checkpoint_every,
         stop_on_github_failure=not args.no_github_push,
+        flash_adjudication_enabled=args.flash_adjudication,
+        flash_model_id=args.flash_model_id,
+        force_per_variant_validation=not args.no_force_per_variant_validation,
     )
+
+    flash_adjudicator = None
+    if mode == "real" and args.flash_adjudication:
+        from scripts.flash_adjudicator import FlashAdjudicator, FlashSettings
+        flash_adjudicator = FlashAdjudicator(FlashSettings(api_key=os.environ.get("GEMINI_API_KEY", ""), model_id=args.flash_model_id, enabled=True))
 
     result = run_validation(
         join,
@@ -120,6 +131,7 @@ def main(argv=None) -> int:
         github_saver=github_saver,
         model_id=model_id,
         log=lambda m: print(m),
+        flash_adjudicator=flash_adjudicator,
     )
 
     print("\n=== SUMMARY ===")
@@ -127,6 +139,9 @@ def main(argv=None) -> int:
     print(f"decision_counts={store.metadata['decision_counts']}")
     print(f"gemini_call_count={store.metadata['gemini_call_count']}")
     print(f"github_checkpoint_count={store.metadata['github_checkpoint_count']}")
+    print(f"stage1_pro_calls={store.metadata.get('stage1_pro_calls', 0)}")
+    print(f"stage2_guard_flags_total={store.metadata.get('stage2_guard_flags_total', 0)}")
+    print(f"stage3_flash_calls={store.metadata.get('stage3_flash_calls', 0)}")
     print(f"output -> {run_paths.output_path}")
     print(f"summary -> {run_paths.summary_path}")
     return 0

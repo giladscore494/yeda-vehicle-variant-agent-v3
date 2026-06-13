@@ -23,7 +23,7 @@ from .output_writer import (
     OutputStore,
     build_output_row,
 )
-from .reconcile import reconcile_validation_output
+from .reconcile import reconcile_validation_output, reconcile_validation_output_with_flags
 
 # Delimiters that suggest a single row bundles multiple distinct trims.
 _SPLIT_DELIMITERS = (" / ", "/", " or ", ",", " + ", "+", " & ", "&", ";", "|")
@@ -177,6 +177,8 @@ def coerce_gemini_row(
     trim_info: Dict[str, Any],
     cluster: Cluster,
     variant: Optional[Dict[str, Any]] = None,
+    *,
+    run_reconcile: bool = True,
 ) -> Dict[str, Any]:
     """Map a raw Gemini JSON response into a schema-complete output row."""
     overrides = _identity_overrides(identity, trim_info)
@@ -215,7 +217,9 @@ def coerce_gemini_row(
     overrides["grounding_cluster_id"] = cluster.cluster_id
     row = build_output_row(validation_id, **overrides)
     # Deterministic audit post-processing (cleanup only; never rejects).
-    return reconcile_validation_output(variant or {}, row, run_mode="real")
+    if run_reconcile:
+        return reconcile_validation_output(variant or {}, row, run_mode="real")
+    return row
 
 
 def build_reused_row(
@@ -283,6 +287,9 @@ class RunConfig:
     checkpoint_every: int = 1
     stop_on_github_failure: bool = True
     stop_on_error: bool = False
+    flash_adjudication_enabled: bool = False
+    flash_model_id: str = "gemini-2.5-flash"
+    force_per_variant_validation: bool = True
 
 
 @dataclass
@@ -322,6 +329,7 @@ def run_validation(
     model_id: str = MODEL_DEFAULT,
     log: Optional[Callable[[str], None]] = None,
     on_progress: Optional[Callable[[Dict[str, Any]], None]] = None,
+    flash_adjudicator=None,
 ) -> RunResult:
     """Run validation over the joined dataset and persist after each variant."""
     logs: List[str] = []
@@ -361,6 +369,8 @@ def run_validation(
         )
         return RunResult(store=store, stopped_reason="mode_mismatch", logs=logs)
     store.set_cluster_count(clusters.cluster_count)
+    if hasattr(store, "set_force_per_variant_validation"):
+        store.set_force_per_variant_validation(config.force_per_variant_validation)
 
     by_id = {v.get("validation_id"): v for v in join.variants}
 
@@ -391,19 +401,50 @@ def run_validation(
         try:
             if config.mode == "mock":
                 row = build_mock_row(vid, identity, trim_info, cluster)
+                row, flags = reconcile_validation_output_with_flags(variant, row, run_mode="mock")
+                row["_pipeline_version"] = "v3_three_stage"
+                row["_flags_count"] = len(flags)
+                row["_flash_used"] = False
+                row.setdefault("adjudication_log", [])
             else:
                 evidence = store.cluster_cache.get(cluster.cluster_id)
-                if evidence is None:
-                    # Anchor: perform the single grounded Gemini call.
+                if evidence is None or config.force_per_variant_validation:
+                    # Stage 1: always validate this exact variant when forced (default).
                     payload = {"validation_id": vid, "standard_variant": get_standard(variant)}
-                    raw = gemini_client.validate(payload, instruction, None)
+                    raw = gemini_client.validate(payload, instruction, evidence)
                     store.bump_gemini_calls()
+                    store.bump_stage1_pro_calls()
                     result.gemini_called = True
-                    row = coerce_gemini_row(vid, raw, identity, trim_info, cluster, variant)
-                    store.cluster_cache[cluster.cluster_id] = evidence_from_row(row, vid)
+                    row = coerce_gemini_row(vid, raw, identity, trim_info, cluster, variant, run_reconcile=False)
+
+                    # Stage 2: deterministic guards.
+                    row, flags = reconcile_validation_output_with_flags(variant, row, run_mode="real")
+                    store.bump_stage2_guard_flags(len(flags))
+                    if cluster.cluster_id not in store.cluster_cache:
+                        store.cluster_cache[cluster.cluster_id] = evidence_from_row(row, vid)
+
+                    # Stage 3: optional Flash adjudication, followed by final guard authority.
+                    flash_used = bool(flags and config.flash_adjudication_enabled and flash_adjudicator is not None)
+                    if flash_used:
+                        row = flash_adjudicator.adjudicate(row, flags)
+                        store.bump_stage3_flash_calls(1)
+                        if row.get("_flash_overrode_guard"):
+                            store.bump_flash_overrode_guard(int(row.get("_flash_overrode_guard") or 0))
+                        before_final = row.get("validation_decision")
+                        row, final_flags = reconcile_validation_output_with_flags(variant, row, run_mode="real", final_pass=True)
+                        if before_final != row.get("validation_decision"):
+                            store.bump_guard_overrode_flash(1)
+                    row["_pipeline_version"] = "v3_three_stage"
+                    row["_flags_count"] = len(flags)
+                    row["_flash_used"] = flash_used
+                    row.setdefault("adjudication_log", [])
                 else:
-                    # Member: reuse cluster identity grounding (no Gemini call).
+                    # Legacy fallback only when force_per_variant_validation is explicitly disabled.
                     row = build_reused_row(vid, identity, trim_info, cluster, evidence, variant)
+                    row["_pipeline_version"] = "v3_three_stage"
+                    row["_flags_count"] = 0
+                    row["_flash_used"] = False
+                    row.setdefault("adjudication_log", [])
 
             store.record(row)
             _log(
@@ -450,6 +491,9 @@ def run_validation(
                     "decision_counts": dict(store.metadata["decision_counts"]),
                     "gemini_call_count": store.metadata["gemini_call_count"],
                     "github_checkpoint_count": store.metadata["github_checkpoint_count"],
+                    "stage1_pro_calls": store.metadata.get("stage1_pro_calls", 0),
+                    "stage2_guard_flags_total": store.metadata.get("stage2_guard_flags_total", 0),
+                    "stage3_flash_calls": store.metadata.get("stage3_flash_calls", 0),
                 }
             )
 
