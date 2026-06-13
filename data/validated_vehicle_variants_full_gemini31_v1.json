@@ -5,26 +5,26 @@
     "is_mock_output": false,
     "model": "gemini-3.1-pro-preview",
     "market": "IL",
-    "run_timestamp_utc": "2026-06-13T18:17:36Z",
+    "run_timestamp_utc": "2026-06-13T18:25:45Z",
     "total_input_variants": 3712,
     "total_instruction_records": 3712,
-    "total_validated_variants": 5,
+    "total_validated_variants": 6,
     "decision_counts": {
       "clean_exact": 0,
-      "clean_partial": 3,
+      "clean_partial": 4,
       "split_required": 2,
       "reject": 0
     },
     "grounding_cluster_count": 3653,
-    "gemini_call_count": 5,
+    "gemini_call_count": 6,
     "github_checkpoint_enabled": true,
-    "github_checkpoint_count": 5,
+    "github_checkpoint_count": 6,
     "github_checkpoint_fail_count": 0,
     "last_github_checkpoint_error": null,
-    "last_validated_id": "VAL-000005",
+    "last_validated_id": "VAL-000006",
     "schema_version": "v3_three_stage",
     "pipeline_version": "v3_three_stage",
-    "stage1_pro_calls": 5,
+    "stage1_pro_calls": 6,
     "stage2_guard_flags_total": 6,
     "stage3_flash_calls": 0,
     "flash_overrode_guard": 0,
@@ -459,6 +459,95 @@
       "_flash_used": false,
       "adjudication_log": [],
       "guard_corrected_reason": "Python guards corrected the model output: identity_status: 'verified' -> 'likely_valid'; identity_confidence: 0.95 -> 0.7; canonical_trim: '500C' -> None; trim_status: 'inferred' -> 'unresolved'."
+    },
+    {
+      "validation_id": "VAL-000006",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000006",
+      "source_cluster_id": "CLU-e1e2ec71e348",
+      "grounding_cluster_id": "CLU-e1e2ec71e348",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "500",
+      "canonical_series_or_generation": null,
+      "canonical_trim": null,
+      "official_marketed_name_il": "אבארט 500",
+      "body_type": "hatchback",
+      "fuel_type": "petrol",
+      "engine": "1.4 Turbo",
+      "transmission": null,
+      "drivetrain": "FWD",
+      "year_start": 2018,
+      "year_end": 2023,
+      "is_currently_produced": false,
+      "is_currently_imported_il": false,
+      "market_scope": "IL",
+      "validation_decision": "clean_partial",
+      "acceptance_tier": "partial",
+      "identity_status": "verified",
+      "identity_confidence": 0.95,
+      "trim_status": "unresolved",
+      "trim_confidence": 0.0,
+      "grounding_summary": "The Abarth 500 1.4 Turbo hatchback was officially imported and sold in Israel between 2018 and 2023. It was offered with both manual and robotic (MTA) transmissions, and in several trims including Turismo, Competizione, Scorpione, and Nuvolari. Production of the ICE Abarth 500 has ended globally as the brand transitions to EVs. The variant identity is verified, but the exact trim and transmission are missing, resulting in a clean_partial decision.",
+      "evidence_sources": [
+        {
+          "title": "אבארט 500 | מחירון ומפרט טכני - cartube",
+          "url": null,
+          "source_name": "cartube",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "official_import_il",
+            "trim_candidates",
+            "engine",
+            "transmission"
+          ]
+        },
+        {
+          "title": "אבארט 500 ‏ 2010-2025 יד שניה - iCar",
+          "url": null,
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "year_range",
+            "trim_candidates"
+          ]
+        },
+        {
+          "title": "End of line models - Abarth",
+          "url": null,
+          "source_name": "Abarth",
+          "source_type": "manufacturer",
+          "supports": [
+            "global_model_exists",
+            "year_range"
+          ]
+        }
+      ],
+      "possible_trim_names": [
+        "Turismo",
+        "Competizione",
+        "Nuvolari",
+        "Nuvolari S",
+        "Scorpione",
+        "Racing Style"
+      ],
+      "split_candidates": [],
+      "blocking_identity_issues": [],
+      "non_blocking_trim_issues": [
+        "Trim is null",
+        "Transmission is null"
+      ],
+      "fields_changed": [],
+      "fields_left_unresolved": [
+        "canonical_trim"
+      ],
+      "decision_reason": "Vehicle identity is verified for the Israeli market, but the trim and transmission fields are null. Since multiple trims and transmissions were offered, these fields remain unresolved, leading to a partial validation.",
+      "_pipeline_version": "v3_three_stage",
+      "_flags_count": 0,
+      "_flash_used": false,
+      "adjudication_log": []
     }
   ]
 }
