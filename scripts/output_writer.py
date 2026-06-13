@@ -92,6 +92,18 @@ def empty_output_row(validation_id: str) -> Dict[str, Any]:
         "identity_confidence": 0.0,
         "trim_status": "verified",
         "trim_confidence": 0.0,
+        "field_validation": {},
+        "source_support_matrix": [],
+        "evidence_auditability": "missing",
+        "grounding_status": {
+            "gemini_grounding_required": True,
+            "gemini_grounding_present": False,
+            "gemini_grounding_quality": "missing",
+            "gpt54_grounding_required": False,
+            "gpt54_grounding_present": False,
+            "gpt54_grounding_quality": "missing",
+            "final_grounding_gate_passed": False,
+        },
         "grounding_summary": "",
         "evidence_sources": [],
         "possible_trim_names": [],
@@ -216,6 +228,10 @@ def _blocking_publish_issues(row: Dict[str, Any]) -> List[str]:
     return issues
 
 def route_validated_rows(rows: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    # Final-sealed rows already carry Python-authoritative routing. Preserve it
+    # so models/legacy routing cannot publish rows directly to clean_catalog.
+    if any(isinstance(r, dict) and r.get("final_seal_result") for r in rows):
+        return [dict(r) for r in rows]
     first_by_fp: Dict[str, str] = {}
     group_by_fp: Dict[str, str] = {}
     routed: List[Dict[str, Any]] = []
@@ -375,6 +391,35 @@ class OutputStore:
             "guard_verifier_overrode_guard": 0,
             "guard_overrode_verifier": 0,
             "force_per_variant_validation": True,
+            "stage0_preflight_risk_rows": 0,
+            "stage1_gemini_grounding_required": 0,
+            "stage1_gemini_grounding_present": 0,
+            "stage1_gemini_grounding_missing": 0,
+            "stage1_gemini_weak_grounding_rows": 0,
+            "stage2_guard_flags_low": 0,
+            "stage2_guard_flags_medium": 0,
+            "stage2_guard_flags_high": 0,
+            "stage2_guard_flags_critical": 0,
+            "stage2_guard_patches_applied": 0,
+            "stage25_repair_risk_scored_rows": 0,
+            "stage25_repair_triggered_rows": 0,
+            "stage3_repair_adjudicator_calls": 0,
+            "stage3_repair_adjudicator_successes": 0,
+            "stage3_repair_adjudicator_failures": 0,
+            "stage3_repair_adjudicator_patches": 0,
+            "stage3_repair_adjudicator_routing_changes": 0,
+            "stage3_repair_adjudicator_summary_rewrites": 0,
+            "stage3_repair_adjudicator_grounding_required": 0,
+            "stage3_repair_adjudicator_grounding_present": 0,
+            "stage3_repair_adjudicator_grounding_missing": 0,
+            "stage4_final_seal_passed": 0,
+            "stage4_final_seal_blocks": 0,
+            "stage4_final_guard_conflicts_remaining": 0,
+            "clean_catalog_blocks_by_repair": 0,
+            "clean_catalog_blocks_by_final_seal": 0,
+            "clean_catalog_blocks_by_grounding": 0,
+            "clean_catalog_blocks_by_unresolved_trim": 0,
+            "clean_catalog_blocks_by_unresolved_critical_field": 0,
         }
         # Ordered storage by id (preserves input order on flush).
         self.validated_by_id: Dict[str, Dict[str, Any]] = {}
@@ -505,6 +550,31 @@ class OutputStore:
             self.metadata["decision_counts"][dec] += 1
         self.metadata["last_validated_id"] = vid
         self.metadata["total_validated_variants"] = len(self.validated_by_id)
+        if row.get("final_seal_result"):
+            if row["final_seal_result"].get("blocks_clean_catalog"):
+                self.metadata["stage4_final_seal_blocks"] = self.metadata.get("stage4_final_seal_blocks", 0) + 1
+                self.metadata["clean_catalog_blocks_by_final_seal"] = self.metadata.get("clean_catalog_blocks_by_final_seal", 0) + 1
+            else:
+                self.metadata["stage4_final_seal_passed"] = self.metadata.get("stage4_final_seal_passed", 0) + 1
+        gs = row.get("grounding_status") if isinstance(row.get("grounding_status"), dict) else {}
+        if gs:
+            self.metadata["stage1_gemini_grounding_required"] = self.metadata.get("stage1_gemini_grounding_required", 0) + int(bool(gs.get("gemini_grounding_required")))
+            self.metadata["stage1_gemini_grounding_present"] = self.metadata.get("stage1_gemini_grounding_present", 0) + int(bool(gs.get("gemini_grounding_present")))
+            self.metadata["stage1_gemini_grounding_missing"] = self.metadata.get("stage1_gemini_grounding_missing", 0) + int(not bool(gs.get("gemini_grounding_present")))
+            self.metadata["stage1_gemini_weak_grounding_rows"] = self.metadata.get("stage1_gemini_weak_grounding_rows", 0) + int(gs.get("gemini_grounding_quality") in {"weak", "missing"})
+            if gs.get("gpt54_grounding_required"):
+                self.metadata["stage3_repair_adjudicator_grounding_required"] = self.metadata.get("stage3_repair_adjudicator_grounding_required", 0) + 1
+                if gs.get("gpt54_grounding_present"):
+                    self.metadata["stage3_repair_adjudicator_grounding_present"] = self.metadata.get("stage3_repair_adjudicator_grounding_present", 0) + 1
+                else:
+                    self.metadata["stage3_repair_adjudicator_grounding_missing"] = self.metadata.get("stage3_repair_adjudicator_grounding_missing", 0) + 1
+            if not gs.get("final_grounding_gate_passed"):
+                self.metadata["clean_catalog_blocks_by_grounding"] = self.metadata.get("clean_catalog_blocks_by_grounding", 0) + 1
+        unresolved = set(row.get("fields_left_unresolved") or [])
+        if row.get("canonical_trim") in (None, "", []) or row.get("trim_status") == "unresolved" or "canonical_trim" in unresolved:
+            self.metadata["clean_catalog_blocks_by_unresolved_trim"] = self.metadata.get("clean_catalog_blocks_by_unresolved_trim", 0) + 1
+        if unresolved & IDENTITY_CRITICAL_UNRESOLVED_FIELDS:
+            self.metadata["clean_catalog_blocks_by_unresolved_critical_field"] = self.metadata.get("clean_catalog_blocks_by_unresolved_critical_field", 0) + 1
 
     def record_failure(self, validation_id: str) -> None:
         if validation_id not in self.failed_ids:

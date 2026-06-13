@@ -24,6 +24,7 @@ from .output_writer import (
     build_output_row,
 )
 from .reconcile import reconcile_validation_output, reconcile_validation_output_with_flags
+from .reconcile import compute_preflight_risk_tags, compute_repair_risk_score, final_seal, should_trigger_repair
 
 # Delimiters that suggest a single row bundles multiple distinct trims.
 _SPLIT_DELIMITERS = (" / ", "/", " or ", ",", " + ", "+", " & ", "&", ";", "|")
@@ -203,6 +204,13 @@ def coerce_gemini_row(
         "identity_confidence",
         "trim_status",
         "trim_confidence",
+        "field_validation",
+        "source_support_matrix",
+        "evidence_auditability",
+        "grounded_searches_performed",
+        "grounding_failures",
+        "grounding_status",
+        "gemini_grounding_metadata",
         "grounding_summary",
         "evidence_sources",
         "possible_trim_names",
@@ -290,6 +298,13 @@ class RunConfig:
     flash_adjudication_enabled: bool = False
     flash_model_id: str = "gemini-2.5-flash"
     guard_verifier_enabled: bool = False
+    repair_adjudicator_enabled: bool = True
+    repair_adjudicator_model_id: str = "gpt-5.4"
+    repair_adjudicator_mode: str = "all_clean_candidates"
+    repair_adjudicator_grounding_required: bool = True
+    final_seal_enabled: bool = True
+    require_gemini_grounding: bool = True
+    strict_clean_catalog: bool = True
     force_per_variant_validation: bool = True
 
 
@@ -332,6 +347,7 @@ def run_validation(
     on_progress: Optional[Callable[[Dict[str, Any]], None]] = None,
     flash_adjudicator=None,
     guard_verifier=None,
+    repair_adjudicator=None,
 ) -> RunResult:
     """Run validation over the joined dataset and persist after each variant."""
     logs: List[str] = []
@@ -401,6 +417,9 @@ def run_validation(
         identity = extract_identity(variant)
         trim_info = extract_trim(variant)
         cluster = clusters.cluster_for(vid)
+        preflight_risk_tags = compute_preflight_risk_tags(variant)
+        if preflight_risk_tags:
+            store.metadata["stage0_preflight_risk_rows"] = store.metadata.get("stage0_preflight_risk_rows", 0) + 1
 
         try:
             if config.mode == "mock":
@@ -414,7 +433,7 @@ def run_validation(
                 evidence = store.cluster_cache.get(cluster.cluster_id)
                 if evidence is None or config.force_per_variant_validation:
                     # Stage 1: always validate this exact variant when forced (default).
-                    payload = {"validation_id": vid, "standard_variant": get_standard(variant)}
+                    payload = {"validation_id": vid, "standard_variant": get_standard(variant), "preflight_risk_tags": preflight_risk_tags}
                     raw = gemini_client.validate(payload, instruction, evidence)
                     store.bump_gemini_calls()
                     store.bump_stage1_pro_calls()
@@ -424,11 +443,19 @@ def run_validation(
 
                     # Stage 2: deterministic guards.
                     row, flags = reconcile_validation_output_with_flags(variant, row, run_mode="real")
+                    row["preflight_risk_tags"] = preflight_risk_tags
+                    row, seal_flags = final_seal(row, original_row, None, flags, require_gemini_grounding=config.require_gemini_grounding, require_gpt54_grounding_for_repair=config.repair_adjudicator_grounding_required)
+                    flags = flags + seal_flags
+                    risk_score = compute_repair_risk_score(row, flags)
+                    row["risk_score"] = risk_score
+                    repair_triggered = should_trigger_repair(row, flags, risk_score, mode=config.repair_adjudicator_mode)
+                    row["_repair_adjudicator_triggered"] = repair_triggered
                     store.bump_stage2_guard_flags(len(flags))
                     if cluster.cluster_id not in store.cluster_cache:
                         store.cluster_cache[cluster.cluster_id] = evidence_from_row(row, vid)
 
-                    # Stage 3: optional GPT guard-scoped verification, followed by final guard authority.
+                    # Stage 3: GPT-5.4 grounded repair adjudicator (preferred),
+                    # or legacy guard-scoped verifier only when explicitly used.
                     adjudication_flags = [
                         f for f in flags
                         if f.needs_adjudication and f.recommended_verifier_model == "gpt-5.4"
@@ -439,6 +466,35 @@ def run_validation(
                         and guard_verifier is not None
                     )
                     flash_used = False
+                    if repair_triggered and config.repair_adjudicator_enabled and repair_adjudicator is not None:
+                        store.metadata["stage25_repair_risk_scored_rows"] = store.metadata.get("stage25_repair_risk_scored_rows", 0) + 1
+                        store.metadata["stage25_repair_triggered_rows"] = store.metadata.get("stage25_repair_triggered_rows", 0) + 1
+                        try:
+                            payload = repair_adjudicator.build_payload(
+                                raw_input_variant=variant,
+                                original_gemini_output=original_row,
+                                guarded_output=row,
+                                guard_flags=flags,
+                                risk_score=risk_score,
+                                preflight_risk_tags=preflight_risk_tags,
+                            )
+                            repair_result = repair_adjudicator.adjudicate(payload)
+                            store.metadata["stage3_repair_adjudicator_calls"] = store.metadata.get("stage3_repair_adjudicator_calls", 0) + 1
+                            store.metadata["stage3_repair_adjudicator_successes"] = store.metadata.get("stage3_repair_adjudicator_successes", 0) + 1
+                            row = repair_result.get("patched_variant") or row
+                            row["_repair_decision"] = repair_result.get("repair_decision")
+                            row["field_patches"] = repair_result.get("field_patches", [])
+                            if row.get("field_patches"):
+                                store.metadata["stage3_repair_adjudicator_patches"] = store.metadata.get("stage3_repair_adjudicator_patches", 0) + len(row.get("field_patches", []))
+                            row, final_flags = final_seal(row, original_row, repair_result, flags, require_gemini_grounding=config.require_gemini_grounding, require_gpt54_grounding_for_repair=config.repair_adjudicator_grounding_required)
+                            flags = flags + final_flags
+                        except Exception as exc:  # fail closed
+                            store.metadata["stage3_repair_adjudicator_calls"] = store.metadata.get("stage3_repair_adjudicator_calls", 0) + 1
+                            store.metadata["stage3_repair_adjudicator_failures"] = store.metadata.get("stage3_repair_adjudicator_failures", 0) + 1
+                            row["_repair_adjudicator_error"] = str(exc)
+                            row["validation_decision"] = "clean_partial" if row.get("identity_status") in {"verified", "likely_valid"} else row.get("validation_decision")
+                            row, final_flags = final_seal(row, original_row, {"error": str(exc)}, flags, require_gemini_grounding=config.require_gemini_grounding, require_gpt54_grounding_for_repair=config.repair_adjudicator_grounding_required)
+                            flags = flags + final_flags
                     if verifier_used:
                         before_calls = getattr(guard_verifier, "calls", 0)
                         row = guard_verifier.adjudicate(row, flags, original_model_output=original_row)
@@ -462,6 +518,7 @@ def run_validation(
                     row["_flags_count"] = len(flags)
                     row["_flash_used"] = flash_used
                     row["_guard_verifier_used"] = verifier_used
+                    row.setdefault("guard_flags", [getattr(f, "__dict__", f) for f in flags])
                     row.setdefault("adjudication_log", [])
                 else:
                     # Legacy fallback only when force_per_variant_validation is explicitly disabled.

@@ -36,7 +36,14 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--checkpoint-every", type=int, default=1)
     p.add_argument("--dry-run", action="store_true", help="validate join only; do not write")
     p.add_argument("--no-github-push", action="store_true")
-    p.add_argument("--guard-verifier", action="store_true", help="enable optional GPT guard-scoped verification for adjudication-needed guard conflicts")
+    p.add_argument("--legacy-guard-verifier", "--guard-verifier", dest="guard_verifier", action="store_true", help="enable legacy GPT guard-scoped verifier (off by default)")
+    p.add_argument("--repair-adjudicator", action=argparse.BooleanOptionalAction, default=True)
+    p.add_argument("--repair-adjudicator-model", default="gpt-5.4")
+    p.add_argument("--repair-adjudicator-mode", choices=["risk_only", "all_clean_candidates", "all_rows"], default="all_clean_candidates")
+    p.add_argument("--require-gemini-grounding", action=argparse.BooleanOptionalAction, default=True)
+    p.add_argument("--require-gpt54-grounding-for-repair", action=argparse.BooleanOptionalAction, default=True)
+    p.add_argument("--final-seal", action=argparse.BooleanOptionalAction, default=True)
+    p.add_argument("--strict-clean-catalog", action=argparse.BooleanOptionalAction, default=True)
     p.add_argument("--flash-adjudication", action="store_true", help=argparse.SUPPRESS)
     p.add_argument("--flash-model-id", default=os.environ.get("OPENAI_VALIDATOR_MODEL_ID", "gpt-5.4"), help=argparse.SUPPRESS)
     p.add_argument("--no-force-per-variant-validation", action="store_true", help="legacy mode: allow cluster row reuse in real mode")
@@ -119,6 +126,13 @@ def main(argv=None) -> int:
         flash_adjudication_enabled=False,
         flash_model_id=args.flash_model_id,
         guard_verifier_enabled=args.guard_verifier or args.flash_adjudication,
+        repair_adjudicator_enabled=args.repair_adjudicator,
+        repair_adjudicator_model_id=args.repair_adjudicator_model,
+        repair_adjudicator_mode=args.repair_adjudicator_mode,
+        repair_adjudicator_grounding_required=args.require_gpt54_grounding_for_repair,
+        final_seal_enabled=args.final_seal,
+        require_gemini_grounding=args.require_gemini_grounding,
+        strict_clean_catalog=args.strict_clean_catalog,
         force_per_variant_validation=not args.no_force_per_variant_validation,
     )
 
@@ -131,6 +145,11 @@ def main(argv=None) -> int:
             print("ERROR: OPENAI_API_KEY not set; cannot enable guard verifier.")
             return 2
         guard_verifier = OpenAIGuardVerifier(OpenAIGuardVerifierSettings(api_key=openai_api_key, model_id=openai_model_id, enabled=True))
+    repair_adjudicator = None
+    if mode == "real" and args.repair_adjudicator:
+        from scripts.openai_repair_adjudicator import OpenAIRepairAdjudicator, OpenAIRepairAdjudicatorSettings
+        if shared_config.openai_api_key:
+            repair_adjudicator = OpenAIRepairAdjudicator(OpenAIRepairAdjudicatorSettings(api_key=shared_config.openai_api_key, model_id=args.repair_adjudicator_model, enabled=True, grounding_required=args.require_gpt54_grounding_for_repair))
 
     result = run_validation(
         join,
@@ -142,6 +161,7 @@ def main(argv=None) -> int:
         log=lambda m: print(m),
         flash_adjudicator=None,
         guard_verifier=guard_verifier,
+        repair_adjudicator=repair_adjudicator,
     )
 
     print("\n=== SUMMARY ===")

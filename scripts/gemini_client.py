@@ -27,6 +27,11 @@ SYSTEM_PROMPT = """\
 You are an Israeli automotive market validation engine.
 
 Your job: validate this exact validation_id as a single vehicle variant for the Israeli used-car market.
+You are the primary grounded researcher, not the final publisher. You must use Google Search grounding when available and must not rely only on model memory.
+Search Israeli-market sources first. Prefer importer / official price list / Israeli automotive editorial / Israeli catalog sources. Distinguish Israeli-market facts from global facts.
+For every critical field, provide field-level evidence support: status, confidence, evidence_strength, source_indexes, risk_tags, and notes.
+Critical fields: canonical_make, canonical_model, canonical_series_or_generation, canonical_trim, official_marketed_name_il, body_type, fuel_type, engine, transmission, drivetrain, year_start, year_end, is_currently_produced, is_currently_imported_il.
+If grounding metadata/citations/stable source support are unavailable, set evidence_auditability to weak or missing and do not mark unsupported fields verified.
 You validate this exact validation_id only.
 Cluster evidence is context only; do not inherit validation_decision, canonical_trim, trim_status, trim_confidence, fields_changed, fields_left_unresolved, or split_required from a cluster anchor. Return a per-variant decision.
 Return strict JSON only. No prose. No markdown. No explanation outside the JSON.
@@ -202,6 +207,32 @@ Return exactly this structure (no extra fields, no missing fields):
   "identity_confidence": float 0.0-1.0,
   "trim_status": "verified" | "inferred" | "unresolved" | "invalid",
   "trim_confidence": float 0.0-1.0,
+  "field_validation": {
+    "canonical_make": {"status": "verified|inferred|unresolved|contradictory", "confidence": float, "evidence_strength": "strong|partial|weak|missing|contradictory", "source_indexes": [integer], "risk_tags": [string], "notes": string},
+    "canonical_model": {...},
+    "canonical_series_or_generation": {...},
+    "canonical_trim": {...},
+    "official_marketed_name_il": {...},
+    "body_type": {...},
+    "fuel_type": {...},
+    "engine": {...},
+    "transmission": {...},
+    "drivetrain": {...},
+    "year_start": {...},
+    "year_end": {...},
+    "is_currently_produced": {...},
+    "is_currently_imported_il": {...}
+  },
+  "source_support_matrix": [
+    {"field": string, "value": any, "support_level": "direct|indirect|missing|contradictory", "source_indexes": [integer], "reason": string}
+  ],
+  "evidence_auditability": "strong" | "acceptable" | "weak" | "missing",
+  "grounded_searches_performed": [
+    {"query": string, "purpose": string, "result_count": integer, "used_sources": [integer]}
+  ],
+  "grounding_failures": [
+    {"field": string, "reason": string}
+  ],
   "grounding_summary": string,
   "evidence_sources": [ ...objects per schema above... ],
   "possible_trim_names": [ ...strings... ],
