@@ -159,3 +159,39 @@ def test_guard_corrected_reason_added_for_key_field_change():
     out, _ = rec(row)
     assert "guard_corrected_reason" in out
     assert "identity_status" in out["guard_corrected_reason"]
+
+
+def test_israeli_market_year_start_guard_updates_clear_later_year():
+    row = build_output_row(
+        "VAL-X",
+        year_start=2008,
+        grounding_summary="officially imported to Israel starting in 2010",
+        decision_reason="global launch was earlier",
+    )
+    out, flags = rec(row)
+    assert out["year_start"] == 2010
+    assert any(c["field"] == "year_start" and c["from"] == 2008 and c["to"] == 2010 for c in out["fields_changed"])
+    assert any(f.guard_name == "year_start_il_market" for f in flags)
+
+
+def test_israeli_market_year_start_guard_ignores_vague_evidence():
+    row = build_output_row("VAL-X", year_start=2008, grounding_summary="imported to Israel around the early 2010s")
+    out, _ = rec(row)
+    assert out["year_start"] == 2008
+
+
+def test_girafa_source_remains_editorial_with_official_import_support():
+    row = build_output_row(
+        "VAL-X",
+        evidence_sources=[{"source_name": "Girafa", "title": "סמלת משיקה", "source_type": "official_importer", "supports": ["official_import_il"]}],
+    )
+    out, _ = rec(row)
+    src = out["evidence_sources"][0]
+    assert src["source_type"] == "editorial"
+    assert "official_import_il" in src["supports"]
+
+
+def test_fields_changed_strings_are_normalized_to_objects():
+    row = build_output_row("VAL-X", fields_changed=["year_start"])
+    out, _ = rec(row)
+    assert all(isinstance(item, dict) for item in out["fields_changed"])

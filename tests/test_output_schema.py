@@ -51,3 +51,22 @@ def test_weak_trim_partial_shape():
     assert row["validation_decision"] == "clean_partial"
     assert row["acceptance_tier"] == "partial"
     assert row["trim_status"] == "unresolved"
+
+
+def test_final_routing_and_duplicates():
+    from scripts.output_writer import route_validated_rows
+
+    rows = [
+        build_output_row("VAL-1", canonical_make="Abarth", canonical_model="500", canonical_trim="Turismo", validation_decision="clean_exact"),
+        build_output_row("VAL-2", canonical_make="Abarth", canonical_model="500", canonical_trim="Turismo", validation_decision="clean_partial", identity_status="likely_valid"),
+        build_output_row("VAL-3", validation_decision="split_required"),
+        build_output_row("VAL-4", validation_decision="reject"),
+    ]
+    routed = route_validated_rows(rows)
+    assert routed[0]["final_route"] == "clean_catalog"
+    assert routed[0]["publishable_to_clean_catalog"] is True
+    assert routed[1]["final_route"] == "duplicate_queue"
+    assert routed[1]["duplicate_of"] == "VAL-1"
+    assert routed[2]["final_route"] == "split_queue"
+    assert routed[2]["publishable_to_clean_catalog"] is False
+    assert routed[3]["final_route"] == "rejected"

@@ -13,7 +13,7 @@ from __future__ import annotations
 import datetime
 import json
 import os
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Tuple
 
 from .contamination import assert_file_matches_mode
 from .run_paths import (
@@ -105,6 +105,11 @@ def empty_output_row(validation_id: str) -> Dict[str, Any]:
         "_flags_count": 0,
         "_flash_used": False,
         "adjudication_log": [],
+        "publishable_to_clean_catalog": False,
+        "final_route": "review_queue",
+        "route_reason": "Routing not yet assigned.",
+        "duplicate_group_id": None,
+        "duplicate_of": None,
     }
 
 
@@ -177,6 +182,72 @@ def validate_output_row(row: Dict[str, Any]) -> List[str]:
         )
     return problems
 
+
+
+# ---------------------------------------------------------------------------
+# Final catalog routing + duplicate detection
+# ---------------------------------------------------------------------------
+
+_DUP_FIELDS = (
+    "canonical_make", "canonical_model", "canonical_series_or_generation", "canonical_trim",
+    "body_type", "fuel_type", "engine", "transmission", "drivetrain",
+    "year_start", "year_end", "market_scope",
+)
+
+def _norm_fingerprint_value(value: Any) -> str:
+    if value in (None, "", []):
+        return "∅"
+    text = " ".join(str(value).strip().lower().split())
+    aliases = {"automatic": "auto", "automated manual": "robotic", "amt": "robotic", "fwd": "front"}
+    return aliases.get(text, text)
+
+def content_fingerprint(row: Dict[str, Any]) -> str:
+    return "|".join(_norm_fingerprint_value(row.get(f)) for f in _DUP_FIELDS)
+
+def _blocking_publish_issues(row: Dict[str, Any]) -> List[str]:
+    issues = list(row.get("blocking_identity_issues") or [])
+    if row.get("identity_status") not in {"verified", "likely_valid"}:
+        issues.append("identity_status blocks clean catalog publishing")
+    unresolved = set(row.get("fields_left_unresolved") or [])
+    if "transmission" in unresolved:
+        issues.append("transmission remains unresolved")
+    return issues
+
+def route_validated_rows(rows: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    first_by_fp: Dict[str, str] = {}
+    group_by_fp: Dict[str, str] = {}
+    routed: List[Dict[str, Any]] = []
+    for row in rows:
+        row = dict(row)
+        fp = content_fingerprint(row)
+        row["duplicate_group_id"] = group_by_fp.setdefault(fp, f"dup-{abs(hash(fp)) & 0xffffffff:08x}")
+        row["duplicate_of"] = None
+        decision = row.get("validation_decision")
+        blocking = _blocking_publish_issues(row)
+        if fp in first_by_fp and decision in {"clean_exact", "clean_partial"}:
+            row["duplicate_of"] = first_by_fp[fp]
+            row["publishable_to_clean_catalog"] = False
+            row["final_route"] = "duplicate_queue"
+            row["route_reason"] = f"Content duplicate of {row['duplicate_of']}; kept in full staging output only."
+        elif decision == "split_required":
+            row["publishable_to_clean_catalog"] = False
+            row["final_route"] = "split_queue"
+            row["route_reason"] = "split_required rows must be split before clean catalog publishing."
+        elif decision == "reject":
+            row["publishable_to_clean_catalog"] = False
+            row["final_route"] = "rejected"
+            row["route_reason"] = "Rejected by validation decision."
+        elif decision in {"clean_exact", "clean_partial"} and not blocking:
+            row["publishable_to_clean_catalog"] = True
+            row["final_route"] = "clean_catalog"
+            row["route_reason"] = "Identity is publishable; unresolved non-blocking fields are retained for audit."
+            first_by_fp.setdefault(fp, row.get("validation_id"))
+        else:
+            row["publishable_to_clean_catalog"] = False
+            row["final_route"] = "review_queue"
+            row["route_reason"] = "; ".join(blocking) or "Unresolved issue blocks clean catalog publishing."
+        routed.append(row)
+    return routed
 
 # ---------------------------------------------------------------------------
 # Atomic write
@@ -463,7 +534,7 @@ class OutputStore:
     def output_document(self) -> Dict[str, Any]:
         self.metadata["run_timestamp_utc"] = self.metadata.get("run_timestamp_utc") or utc_now_iso()
         self.metadata["total_validated_variants"] = len(self.validated_by_id)
-        rows = [self.validated_by_id[v] for v in self.order if v in self.validated_by_id]
+        rows = route_validated_rows([self.validated_by_id[v] for v in self.order if v in self.validated_by_id])
         return {"metadata": dict(self.metadata), "validated_variants": rows}
 
     def checkpoint_document(self) -> Dict[str, Any]:
