@@ -8,17 +8,17 @@
     "run_timestamp_utc": "2026-06-13T16:31:24Z",
     "total_input_variants": 3712,
     "total_instruction_records": 3712,
-    "total_validated_variants": 5,
+    "total_validated_variants": 6,
     "decision_counts": {
       "clean_exact": 1,
-      "clean_partial": 3,
+      "clean_partial": 4,
       "split_required": 1,
       "reject": 0
     },
     "grounding_cluster_count": 3653,
-    "gemini_call_count": 3,
-    "github_checkpoint_count": 3,
-    "last_validated_id": "VAL-000005"
+    "gemini_call_count": 4,
+    "github_checkpoint_count": 4,
+    "last_validated_id": "VAL-000006"
   },
   "validated_variants": [
     {
@@ -291,6 +291,62 @@
       "fields_changed": [],
       "fields_left_unresolved": [],
       "decision_reason": "The core vehicle identity (Abarth 500 Cabriolet, 1.4L Turbo, manual) is valid for the Israeli market, as the manual was available by special order. However, '500C' is a generic model/body designation rather than a specific trim level, so the trim remains unresolved."
+    },
+    {
+      "validation_id": "VAL-000006",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000006",
+      "source_cluster_id": "CLU-e1e2ec71e348",
+      "grounding_cluster_id": "CLU-e1e2ec71e348",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "500",
+      "canonical_series_or_generation": null,
+      "canonical_trim": null,
+      "official_marketed_name_il": "אבארט 500",
+      "body_type": "hatchback",
+      "fuel_type": "petrol",
+      "engine": "1.4 Turbo",
+      "transmission": null,
+      "drivetrain": "FWD",
+      "year_start": 2018,
+      "year_end": 2023,
+      "market_scope": "IL",
+      "validation_decision": "clean_partial",
+      "acceptance_tier": "partial",
+      "identity_status": "verified",
+      "identity_confidence": 0.95,
+      "trim_status": "unresolved",
+      "trim_confidence": 0.0,
+      "grounding_summary": "The Abarth 500 1.4 Turbo hatchback was sold in Israel during 2018-2023. It was offered with both manual and robotic transmissions across multiple trims (e.g., Turismo, Competizione). Since transmission and trim are missing, this is a valid partial variant.",
+      "evidence_sources": [
+        {
+          "title": "iCar Israel Abarth 500 catalog",
+          "url": null,
+          "source_name": null,
+          "source_type": "unknown",
+          "supports": []
+        }
+      ],
+      "possible_trim_names": [
+        "Turismo",
+        "Competizione",
+        "Scorpione",
+        "Nuvolari",
+        "Nuvolari S",
+        "Racing Style"
+      ],
+      "split_candidates": [],
+      "blocking_identity_issues": [],
+      "non_blocking_trim_issues": [
+        "Trim is missing",
+        "Transmission is missing"
+      ],
+      "fields_changed": [],
+      "fields_left_unresolved": [
+        "canonical_trim"
+      ],
+      "decision_reason": "Vehicle identity is verified for the Israeli market. Trim and transmission are missing, making it a valid partial variant."
     }
   ]
 }
