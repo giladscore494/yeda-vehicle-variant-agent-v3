@@ -8,25 +8,25 @@
     "run_timestamp_utc": "2026-06-13T19:34:47Z",
     "total_input_variants": 3712,
     "total_instruction_records": 3712,
-    "total_validated_variants": 2,
+    "total_validated_variants": 3,
     "decision_counts": {
       "clean_exact": 0,
       "clean_partial": 2,
-      "split_required": 0,
+      "split_required": 1,
       "reject": 0
     },
     "grounding_cluster_count": 3653,
-    "gemini_call_count": 2,
+    "gemini_call_count": 3,
     "github_checkpoint_enabled": true,
-    "github_checkpoint_count": 2,
+    "github_checkpoint_count": 3,
     "github_checkpoint_fail_count": 0,
     "last_github_checkpoint_error": null,
-    "last_validated_id": "VAL-000002",
+    "last_validated_id": "VAL-000003",
     "schema_version": "v3_three_stage",
     "pipeline_version": "v3_three_stage",
-    "stage1_pro_calls": 2,
-    "stage2_guard_flags_total": 0,
-    "stage3_flash_calls": 0,
+    "stage1_pro_calls": 3,
+    "stage2_guard_flags_total": 2,
+    "stage3_flash_calls": 1,
     "flash_overrode_guard": 0,
     "guard_overrode_flash": 0,
     "force_per_variant_validation": true
@@ -224,6 +224,105 @@
       "route_reason": "Content duplicate of VAL-000001; kept in full staging output only.",
       "duplicate_group_id": "dup-f5f88b4c",
       "duplicate_of": "VAL-000001"
+    },
+    {
+      "validation_id": "VAL-000003",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000003",
+      "source_cluster_id": "CLU-d039ea7ad836",
+      "grounding_cluster_id": "CLU-d039ea7ad836",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "500",
+      "canonical_series_or_generation": "First Generation",
+      "canonical_trim": "Competizione / Scorpione / Nuvolari S",
+      "official_marketed_name_il": "אבארט 500",
+      "body_type": "Hatchback",
+      "fuel_type": "petrol",
+      "engine": "1.4L Turbo",
+      "transmission": "manual",
+      "drivetrain": "FWD",
+      "year_start": 2010,
+      "year_end": null,
+      "is_currently_produced": true,
+      "is_currently_imported_il": true,
+      "market_scope": "IL",
+      "validation_decision": "split_required",
+      "acceptance_tier": "none",
+      "identity_status": "verified",
+      "identity_confidence": 0.95,
+      "trim_status": "invalid",
+      "trim_confidence": 0.0,
+      "grounding_summary": "The Abarth 500 (also marketed as 595) was officially imported to Israel starting in June 2010. The provided trim string contains multiple distinct trims (Competizione, Scorpione, Nuvolari S) which have different engine power outputs (ranging from 135 hp to 180 hp) and specifications. Therefore, these must be split into separate variants.",
+      "evidence_sources": [
+        {
+          "title": "אבארט 500 - מחירון, חוות דעת ומידע טכני | אוטו",
+          "url": null,
+          "source_name": "אוטו",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "year_range",
+            "trim_candidates",
+            "split_required",
+            "engine",
+            "transmission"
+          ]
+        },
+        {
+          "title": "מחירון של אבארט 500 - יד2",
+          "url": null,
+          "source_name": "יד2",
+          "source_type": "marketplace",
+          "supports": [
+            "trim_candidates",
+            "market_presence_il"
+          ]
+        }
+      ],
+      "possible_trim_names": [
+        "Competizione",
+        "Scorpione",
+        "Nuvolari S"
+      ],
+      "split_candidates": [
+        "Competizione",
+        "Scorpione",
+        "Nuvolari S"
+      ],
+      "blocking_identity_issues": [
+        "Trim field contains multiple technically distinct trims (Competizione, Scorpione, Nuvolari S) with different power outputs, requiring a split."
+      ],
+      "non_blocking_trim_issues": [
+        "Combined trim contains multiple distinct marketed trims and must be split into separate variants."
+      ],
+      "fields_changed": [
+        {
+          "field": "year_start",
+          "from": 2008,
+          "to": 2010,
+          "reason": "Model changed value during validation; see decision_reason/grounding_summary"
+        }
+      ],
+      "fields_left_unresolved": [],
+      "decision_reason": "The trim field lists multiple distinct trims (Competizione, Scorpione, Nuvolari S) that have different power outputs and specifications in the Israeli market. A split is required to represent each variant accurately. Guard correction: Python guards corrected the model output: trim_status: 'inferred' -> 'invalid'; year_end: 2026 -> None.",
+      "_pipeline_version": "v3_three_stage",
+      "_flags_count": 2,
+      "_flash_used": true,
+      "adjudication_log": [
+        {
+          "guard": "slash_trim",
+          "guard_changed_to": "split_required",
+          "flash_decided": "split_required",
+          "flash_reason": "The slash-separated trim represents multiple distinct Abarth 500 variants with different specifications in Israel, which requires a split."
+        }
+      ],
+      "publishable_to_clean_catalog": false,
+      "final_route": "split_queue",
+      "route_reason": "split_required rows must be split before clean catalog publishing.",
+      "duplicate_group_id": "dup-676d5db5",
+      "duplicate_of": null,
+      "guard_corrected_reason": "Python guards corrected the model output: trim_status: 'inferred' -> 'invalid'; year_end: 2026 -> None."
     }
   ]
 }
