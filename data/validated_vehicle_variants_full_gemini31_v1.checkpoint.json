@@ -8,34 +8,34 @@
     "run_timestamp_utc": "2026-06-13T22:03:47Z",
     "total_input_variants": 3712,
     "total_instruction_records": 3712,
-    "total_validated_variants": 3,
+    "total_validated_variants": 4,
     "decision_counts": {
       "clean_exact": 0,
       "clean_partial": 2,
-      "split_required": 1,
+      "split_required": 2,
       "reject": 0
     },
     "grounding_cluster_count": 3653,
-    "gemini_call_count": 3,
+    "gemini_call_count": 4,
     "github_checkpoint_enabled": true,
-    "github_checkpoint_count": 3,
+    "github_checkpoint_count": 4,
     "github_checkpoint_fail_count": 0,
     "last_github_checkpoint_error": null,
-    "last_validated_id": "VAL-000003",
+    "last_validated_id": "VAL-000004",
     "schema_version": "v3_three_stage",
     "pipeline_version": "v3_three_stage",
-    "stage1_pro_calls": 3,
-    "stage2_guard_flags_total": 2,
+    "stage1_pro_calls": 4,
+    "stage2_guard_flags_total": 3,
     "stage3_flash_calls": 0,
     "flash_overrode_guard": 0,
     "guard_overrode_flash": 0,
-    "stage3_guard_verifier_calls": 1,
-    "stage3_guard_verifier_attempts": 1,
-    "stage3_guard_verifier_successes": 1,
+    "stage3_guard_verifier_calls": 2,
+    "stage3_guard_verifier_attempts": 2,
+    "stage3_guard_verifier_successes": 2,
     "stage3_guard_verifier_failures": 0,
     "stage3_guard_verifier_model": "gpt-5.4",
-    "stage3_openai_guard_verifier_calls": 1,
-    "stage3_adjudicator_calls_total": 1,
+    "stage3_openai_guard_verifier_calls": 2,
+    "stage3_adjudicator_calls_total": 2,
     "last_guard_verifier_error": null,
     "guard_verifier_overrode_guard": 0,
     "guard_overrode_verifier": 0,
@@ -44,7 +44,8 @@
   "completed_validation_ids": [
     "VAL-000001",
     "VAL-000002",
-    "VAL-000003"
+    "VAL-000003",
+    "VAL-000004"
   ],
   "failed_validation_ids": [],
   "validated_variants_by_id": {
@@ -385,6 +386,116 @@
       "_guard_verifier_success": true,
       "_guard_verifier_error": null,
       "_guard_verifier_used": true
+    },
+    "VAL-000004": {
+      "validation_id": "VAL-000004",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000004",
+      "source_cluster_id": "CLU-d039ea7ad836",
+      "grounding_cluster_id": "CLU-d039ea7ad836",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "500",
+      "canonical_series_or_generation": "First Generation",
+      "canonical_trim": "Turismo / Competizione",
+      "official_marketed_name_il": "אבארט 500",
+      "body_type": "Hatchback",
+      "fuel_type": "petrol",
+      "engine": "1.4L Turbo",
+      "transmission": "manual",
+      "drivetrain": "FWD",
+      "year_start": 2010,
+      "year_end": 2024,
+      "is_currently_produced": false,
+      "is_currently_imported_il": false,
+      "market_scope": "IL",
+      "validation_decision": "split_required",
+      "acceptance_tier": "none",
+      "identity_status": "likely_valid",
+      "identity_confidence": 0.9,
+      "trim_status": "invalid",
+      "trim_confidence": 0.0,
+      "grounding_summary": "The Abarth 500 was officially imported to Israel starting in June 2010. The petrol models (including the 595/695 designations) were discontinued around 2024, replaced by the electric 500e. The provided trim string 'Turismo / Competizione' lists two distinct trims that were sold in Israel with different power outputs (Turismo at 165 hp, Competizione at 180 hp). Therefore, the variant must be split into separate records for each trim.",
+      "evidence_sources": [
+        {
+          "title": "חדשות רכב - השקה: אבארת' משתזפת בת\"א - iCar",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHuFh_M8ErbT-aIFEMPmvU5joZ9pwjSKtlDoleaf1TIeVqn8upDyXyFdYrUXzGY-N3wkF1zPrSr8YeXP3P79JIfLg8hy_UJjaemibisoM_yvXn-sNMDHZdryojudDDft1zEPBNYi2WT4l8nN56kckF65JuCP4j_jzIDEmtXmZ28LkTNLigfkQiaGQ7-nMSaMwWZDvLEdnVIcOVMBjUb0tTcNuE_x4XH65O-Ki4N96yTpmVhN1_aVPiP_tfVLa0pGBBGpvSOFk5sy8dF41_hn2PLXe5rAbnqDtfL-s0lRYcZqoOc4g6dD86DxLObhFo4eX2-uHliLQ==",
+          "source_name": "icar.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "year_range",
+            "engine",
+            "transmission"
+          ]
+        },
+        {
+          "title": "אבארט 595 2022 1.4 טורבו סקורפיון אוטומט 🏎️ בפורטל הרכב גיר",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEMgIr5M66vHHvGUI8aZ6TOhACA4RdqejBDjJU7K7Yj7ItngKKO8i9sJUxGjSR8ig8WxGMcM0AHx9WMi2zDTKtPFliMGDPaYlzNoN_C1MRK7aPfn68UwPoVk6n3oFJmnQ7GL3HXsso0xC4Taa9eUD6mkK-kqEKB4t2wUrODUAIm3zrw90POhwMrvP2BD_eHfzxK7ZZJU9cD87aE80vNazynJdcRLrbwif6yPp6AisKZVKUjMUPO7F-MFAQN60uF4c0iQnZCNgk1bdS74TbYrXiF2lrczrZByxsF3kJYj5PGX0oJuS1_uhki87N9JaDKUumtxDQg2Jg_CMQx5cLLYNMtYgvkFoOkPwsb4tE=",
+          "source_name": "gear.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "split_required",
+            "trim_candidates"
+          ]
+        },
+        {
+          "title": "אבארט שוקלת לחזור לבנזין: הלקוחות לא רוצים חשמל - אוטו",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFF_-AKGm84pBRQWjaecyZxGLcYo1s4-9DN5GSkKLlhmZYyvjwHTGkr1CXgdJ7YkZu950rlE0qRu9gbGjcG4yTFJc6nWVFvuzfJErBcZGaa1K9QC1g3Lo7D82x70kgttYzzDE7w_EnpyXXLhiTltoLyl9p0gR0Yb3NOTJ9cZ6IvHKX4QCO3-EcPDg==",
+          "source_name": "auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "year_range"
+          ]
+        }
+      ],
+      "possible_trim_names": [
+        "Turismo",
+        "Competizione"
+      ],
+      "split_candidates": [
+        "Turismo",
+        "Competizione"
+      ],
+      "blocking_identity_issues": [],
+      "non_blocking_trim_issues": [
+        "Trim string combines multiple distinct trims (Turismo and Competizione) with different specifications, requiring a split.",
+        "Combined trim contains multiple distinct marketed trims and must be split into separate variants."
+      ],
+      "fields_changed": [
+        {
+          "field": "year_start",
+          "from": 2008,
+          "to": 2010,
+          "reason": "Model changed value during validation; see decision_reason/grounding_summary"
+        },
+        {
+          "field": "year_end",
+          "from": 2026,
+          "to": 2024,
+          "reason": "Model changed value during validation; see decision_reason/grounding_summary"
+        }
+      ],
+      "fields_left_unresolved": [],
+      "decision_reason": "The trim string combines 'Turismo' and 'Competizione', which are distinct trims with different power outputs (165 hp vs 180 hp) sold in Israel. A split is required to represent each variant accurately.",
+      "_pipeline_version": "v3_three_stage",
+      "_flags_count": 1,
+      "_flash_used": false,
+      "adjudication_log": [
+        {
+          "guard_verifier": "gpt-5.4",
+          "verdict": "accept_guard",
+          "reason": "The combined trim clearly maps to two distinct Israeli-market trims, so split_required is appropriate."
+        }
+      ],
+      "publishable_to_clean_catalog": false,
+      "final_route": "review_queue",
+      "route_reason": "Routing not yet assigned.",
+      "duplicate_group_id": null,
+      "duplicate_of": null,
+      "_guard_verifier_success": true,
+      "_guard_verifier_error": null,
+      "_guard_verifier_used": true
     }
   },
   "cluster_cache": {
@@ -476,9 +587,9 @@
   "decision_counts": {
     "clean_exact": 0,
     "clean_partial": 2,
-    "split_required": 1,
+    "split_required": 2,
     "reject": 0
   },
-  "last_validated_id": "VAL-000003",
-  "updated_at_utc": "2026-06-13T22:05:04Z"
+  "last_validated_id": "VAL-000004",
+  "updated_at_utc": "2026-06-13T22:05:51Z"
 }
