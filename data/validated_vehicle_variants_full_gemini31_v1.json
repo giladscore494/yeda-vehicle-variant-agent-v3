@@ -8,34 +8,34 @@
     "run_timestamp_utc": "2026-06-13T20:33:34Z",
     "total_input_variants": 3712,
     "total_instruction_records": 3712,
-    "total_validated_variants": 3,
+    "total_validated_variants": 4,
     "decision_counts": {
       "clean_exact": 0,
       "clean_partial": 2,
-      "split_required": 1,
+      "split_required": 2,
       "reject": 0
     },
     "grounding_cluster_count": 3653,
-    "gemini_call_count": 3,
+    "gemini_call_count": 4,
     "github_checkpoint_enabled": true,
-    "github_checkpoint_count": 3,
+    "github_checkpoint_count": 4,
     "github_checkpoint_fail_count": 0,
     "last_github_checkpoint_error": null,
-    "last_validated_id": "VAL-000003",
+    "last_validated_id": "VAL-000004",
     "schema_version": "v3_three_stage",
     "pipeline_version": "v3_three_stage",
-    "stage1_pro_calls": 3,
-    "stage2_guard_flags_total": 2,
+    "stage1_pro_calls": 4,
+    "stage2_guard_flags_total": 4,
     "stage3_flash_calls": 0,
     "flash_overrode_guard": 0,
     "guard_overrode_flash": 0,
-    "stage3_guard_verifier_calls": 1,
-    "stage3_guard_verifier_attempts": 1,
-    "stage3_guard_verifier_successes": 1,
+    "stage3_guard_verifier_calls": 2,
+    "stage3_guard_verifier_attempts": 2,
+    "stage3_guard_verifier_successes": 2,
     "stage3_guard_verifier_failures": 0,
     "stage3_guard_verifier_model": "gpt-5.4",
-    "stage3_openai_guard_verifier_calls": 1,
-    "stage3_adjudicator_calls_total": 1,
+    "stage3_openai_guard_verifier_calls": 2,
+    "stage3_adjudicator_calls_total": 2,
     "last_guard_verifier_error": null,
     "guard_verifier_overrode_guard": 0,
     "guard_overrode_verifier": 0,
@@ -342,6 +342,120 @@
       "duplicate_group_id": "dup-22b6f230",
       "duplicate_of": null,
       "guard_corrected_reason": "Python guards corrected the model output: is_currently_produced: True -> None; is_currently_imported_il: True -> None.",
+      "_guard_verifier_success": true,
+      "_guard_verifier_error": null,
+      "_guard_verifier_used": true
+    },
+    {
+      "validation_id": "VAL-000004",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000004",
+      "source_cluster_id": "CLU-d039ea7ad836",
+      "grounding_cluster_id": "CLU-d039ea7ad836",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "500",
+      "canonical_series_or_generation": "First Generation",
+      "canonical_trim": "Turismo / Competizione",
+      "official_marketed_name_il": "אבארט 500",
+      "body_type": "Hatchback",
+      "fuel_type": "petrol",
+      "engine": "1.4L Turbo",
+      "transmission": "manual",
+      "drivetrain": "FWD",
+      "year_start": 2010,
+      "year_end": null,
+      "is_currently_produced": null,
+      "is_currently_imported_il": null,
+      "market_scope": "IL",
+      "validation_decision": "split_required",
+      "acceptance_tier": "none",
+      "identity_status": "verified",
+      "identity_confidence": 0.95,
+      "trim_status": "invalid",
+      "trim_confidence": 0.0,
+      "grounding_summary": "The Abarth 500 was officially launched in Israel in 2010. It is offered with a 1.4L Turbo engine and manual transmission. The provided trim string 'Turismo / Competizione' combines two distinct trims that have different power outputs (Turismo typically 160-165 hp, Competizione 180 hp) and must be split into separate records. The exact end year of the ICE version is uncertain due to the transition to the electric 500e.",
+      "evidence_sources": [
+        {
+          "title": "500 אבארט: מבחן דרכים (וידאו) - אוטו",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHWtdp7hLMYLIZ5U66RKA2nJLuRgEqtnBbFw4koT4rArTF8jFAqSn9CAJ9VEj3mqb_fOfAGBgZxHYwV08cZNqYS2NVohcxx07Wv0k1zVusrkoIknP_vQQTdQ3vx7-gHXW4CqOyiAAdZELw=",
+          "source_name": "Auto",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "year_range"
+          ]
+        },
+        {
+          "title": "אבארט 500 1.4 ידני 180 כ\"ס Competizione 2024 | מפרט טכני - cartube",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFyh2qfQE9uAJuAH8UeG9wleyy9jbl0hykFHHT4TMmutX4au4cZxkenaPCq6EgRuNyiwq0GcvNaCAcaxQZgnRX-bgzkECVQDeTKNLy4n6JFZPYtJj7pgkNKzzzEU0tCfLkJnHYa88xdK0DMoyz_SBwq3j5vihjyNfX0tulyJP9DszeRrff_X1TTAh9_UUlQM903iDGiqCZuUQB2Jk48RMDA1l3b2E4xiSKgzGsads_iDqYw6IRWzuvqhjHkUVm7TwK3ZOqW3xO1xbKTwipa_CG8kA7MYqnETIei6HylMCwj1zuO1T7vzLuRY08t2OWTvKHXx14Z1rQpRGxlLt50VdN_pFePlbo3NS3OsmEGiY7Bxatk5LHhLRoIUEZCFR5P9Qq592TTP0tdQ8kwQk09KLwQRqIuMk36tspuURGnUjudJ5Q=",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "exact_trim",
+            "engine",
+            "transmission",
+            "split_required"
+          ]
+        },
+        {
+          "title": "אבארט 500 ‏ 2010-2025 יד שניה - iCar",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHJh3Bn4eLhZF2ohLSO9Cp0D65dh8RBJFNIBBefBQOV5hWInaAwRtO0R9K6aa2JOZyg64XoIT72TfXjdHG3RTxmJ_Dt9W4g6mAY_auSRBJzVUKMhqLZyyLh_jrS4rQ30FiWApu66kj1TV-LjS7XBplr1N0z71zTOr2KRmgPEMDPXDu4wGelRCFEBXmXwKaILLmNP6PPYLuC6AC_EpfJHsXvYghQtmK03rUsB1GItK4vJyd657X-J6cPciC-aofNiehkxNIYda3ExDjbbLCg-8VXfsALETEjy_UFrQB3YErqexcw",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "trim_candidates"
+          ]
+        }
+      ],
+      "possible_trim_names": [
+        "Turismo",
+        "Competizione"
+      ],
+      "split_candidates": [
+        "Turismo",
+        "Competizione"
+      ],
+      "blocking_identity_issues": [
+        "The trim string 'Turismo / Competizione' combines two distinct marketed variants with different power outputs and specifications. They must be split into separate records."
+      ],
+      "non_blocking_trim_issues": [
+        "Combined trim contains multiple distinct marketed trims and must be split into separate variants.",
+        "year_end was current/future and not kept as a placeholder."
+      ],
+      "fields_changed": [
+        {
+          "field": "year_start",
+          "from": 2008,
+          "to": 2010,
+          "reason": "Model changed value during validation; see decision_reason/grounding_summary"
+        },
+        {
+          "field": "year_end",
+          "from": 2026,
+          "to": null,
+          "reason": "Current/future year_end was not kept as a placeholder; reset to null unless strongly supported as an end year."
+        }
+      ],
+      "fields_left_unresolved": [],
+      "decision_reason": "The vehicle identity is valid for the Israeli market, but the provided trim string 'Turismo / Competizione' combines two distinct variants (Turismo and Competizione) which have different specifications and power outputs. A split is required. Guard correction: Python guards corrected the model output: year_end: 2026 -> None.",
+      "_pipeline_version": "v3_three_stage",
+      "_flags_count": 2,
+      "_flash_used": false,
+      "adjudication_log": [
+        {
+          "guard_verifier": "gpt-5.4",
+          "verdict": "accept_guard",
+          "reason": "The combined trim clearly contains two distinct trims and should remain split_required."
+        }
+      ],
+      "publishable_to_clean_catalog": false,
+      "final_route": "split_queue",
+      "route_reason": "split_required rows must be split before clean catalog publishing.",
+      "duplicate_group_id": "dup-445dd2b0",
+      "duplicate_of": null,
+      "guard_corrected_reason": "Python guards corrected the model output: year_end: 2026 -> None.",
       "_guard_verifier_success": true,
       "_guard_verifier_error": null,
       "_guard_verifier_used": true
