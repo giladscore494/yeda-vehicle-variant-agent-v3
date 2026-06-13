@@ -8,17 +8,17 @@
     "run_timestamp_utc": "2026-06-13T16:31:24Z",
     "total_input_variants": 3712,
     "total_instruction_records": 3712,
-    "total_validated_variants": 17,
+    "total_validated_variants": 18,
     "decision_counts": {
-      "clean_exact": 7,
+      "clean_exact": 8,
       "clean_partial": 8,
       "split_required": 2,
       "reject": 0
     },
     "grounding_cluster_count": 3653,
-    "gemini_call_count": 15,
-    "github_checkpoint_count": 15,
-    "last_validated_id": "VAL-000017"
+    "gemini_call_count": 16,
+    "github_checkpoint_count": 16,
+    "last_validated_id": "VAL-000018"
   },
   "validated_variants": [
     {
@@ -1026,6 +1026,59 @@
       "fields_changed": [],
       "fields_left_unresolved": [],
       "decision_reason": "The vehicle identity and trim are fully verified for the Israeli market. The Abarth 500e Turismo Hatchback with 155 hp is a known and marketed configuration."
+    },
+    {
+      "validation_id": "VAL-000018",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000018",
+      "source_cluster_id": "CLU-d6749f0f8148",
+      "grounding_cluster_id": "CLU-d6749f0f8148",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "600e",
+      "canonical_series_or_generation": "1",
+      "canonical_trim": "Turismo",
+      "official_marketed_name_il": null,
+      "body_type": "Crossover",
+      "fuel_type": "electric",
+      "engine": "Electric (240 hp)",
+      "transmission": "automatic",
+      "drivetrain": "FWD",
+      "year_start": 2024,
+      "year_end": 2026,
+      "market_scope": "IL",
+      "validation_decision": "clean_exact",
+      "acceptance_tier": "exact",
+      "identity_status": "verified",
+      "identity_confidence": 0.95,
+      "trim_status": "verified",
+      "trim_confidence": 0.95,
+      "grounding_summary": "The Abarth 600e is a valid electric crossover introduced in 2024. The 'Turismo' trim is officially offered with a 175 kW (240 hp) electric motor and FWD, perfectly matching the provided variant details. It is documented in Israeli automotive media, though full local marketing may still be rolling out.",
+      "evidence_sources": [
+        {
+          "title": "Auto.co.il review of Abarth 600e",
+          "url": null,
+          "source_name": "Auto.co.il",
+          "source_type": "unknown",
+          "supports": []
+        },
+        {
+          "title": "Autoboom Israel Abarth 600e page",
+          "url": null,
+          "source_name": null,
+          "source_type": "unknown",
+          "supports": []
+        }
+      ],
+      "possible_trim_names": [],
+      "split_candidates": [],
+      "blocking_identity_issues": [],
+      "non_blocking_trim_issues": [],
+      "fields_changed": [],
+      "fields_left_unresolved": [
+        "official_marketed_name_il"
+      ],
+      "decision_reason": "The vehicle identity and trim (Turismo, 240 hp) are fully verified and match the manufacturer's specifications for this model."
     }
   ]
 }
