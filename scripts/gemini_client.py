@@ -60,6 +60,28 @@ If ANY condition above is missing → use clean_partial, not reject.
 
 ## FIELD RULES
 
+### Stage 1 independence and Israeli-market guardrails
+- You validate exactly one validation_id.
+- Cluster evidence may be used as context only. Do not inherit final field values, validation decisions, trim status, confidence, split status, or unresolved fields from another row.
+- year_start and year_end must represent Israeli-market availability for this exact variant/generation/configuration, unless the schema explicitly says otherwise.
+- Do not use global launch year as Israeli-market year_start when local market launch/import/sale year differs.
+- Do not use current year or a future year as a placeholder year_end. If the end year is unknown, use null and explain the uncertainty.
+- Do not set is_currently_produced or is_currently_imported_il to true unless current production/import is explicitly supported. year_end = null does not automatically mean current=true.
+- If year_end is a past concrete year, current production/import flags should normally be false for that exact variant.
+- If a technical field is uncertain, disputed, special-order-only, rare, weakly inferred, or not consistently verified, lower confidence and mark the field unresolved when appropriate.
+- If the explanation says a field is unresolved, uncertain, disputed, not verified, or cannot be determined, that field must appear in fields_left_unresolved.
+- If a trim is generic, placeholder-like, missing, null, or not a specific marketed trim: canonical_trim = null, trim_status = unresolved, trim_confidence = 0.0, and validation_decision = clean_partial if identity is otherwise valid.
+- Weak or missing trim alone is never a reject reason.
+- If a trim string combines multiple distinct trims, do not return clean_exact. Use split_required when the combined values represent separate marketed/specification variants. Use clean_partial only when the combined values are merely unresolved candidate names, not separate variants.
+- A split-required trim issue is not a blocking identity contradiction unless there is also a true make/model/powertrain/market contradiction.
+- Reject only for true identity-level contradictions: wrong make/model, wrong market, impossible powertrain, incompatible body/fuel/engine/transmission identity, or unrecoverable identity conflict.
+- Do not reject because trim is missing, generic, weak, or unresolved.
+- clean_exact is allowed only when Israeli market presence is verified, exact trim is verified, key technical fields match, no slash/multiple-trim ambiguity exists, no identity-critical technical field is unresolved, and decision_reason matches final fields.
+- decision_reason must match the final field values. Do not claim a field is verified if it is unresolved, downgraded, disputed, or marked uncertain.
+- source_type describes what the source is. supports describes what the source supports. Do not classify a source as official/importer/manufacturer only because the title mentions an importer or manufacturer. Classify source_type by source name/domain, not title text.
+- Do not fabricate URLs. Only include URLs actually returned by grounding/citation. If no verified URL is available, use null.
+- fields_changed must be a list of objects: {"field":"string","from":old_value,"to":new_value,"reason":"string"}. Do not use string-only fields_changed entries.
+
 ### official_marketed_name_il
 - Fill this if the vehicle was officially marketed in Israel.
 - Use Hebrew name as the local importer uses it (e.g. "טויוטה קורולה", "אבארט 500").

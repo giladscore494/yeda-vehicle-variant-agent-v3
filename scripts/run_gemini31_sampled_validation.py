@@ -6,7 +6,7 @@ Examples:
     python scripts/run_gemini31_sampled_validation.py --real
 
 Reads configuration from environment variables (not Streamlit secrets):
-    GEMINI_API_KEY, GITHUB_TOKEN, GITHUB_REPO, GITHUB_BRANCH
+    GEMINI_API_KEY, OPENAI_API_KEY, OPENAI_VALIDATOR_MODEL_ID, GITHUB_TOKEN, GITHUB_REPO, GITHUB_BRANCH
 """
 
 from __future__ import annotations
@@ -35,8 +35,9 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--checkpoint-every", type=int, default=1)
     p.add_argument("--dry-run", action="store_true", help="validate join only; do not write")
     p.add_argument("--no-github-push", action="store_true")
-    p.add_argument("--flash-adjudication", action="store_true", help="enable optional Gemini Flash adjudication for flagged guard conflicts")
-    p.add_argument("--flash-model-id", default=os.environ.get("GEMINI_FLASH_MODEL_ID", "gemini-2.5-flash"))
+    p.add_argument("--guard-verifier", action="store_true", help="enable optional GPT guard-scoped verification for adjudication-needed guard conflicts")
+    p.add_argument("--flash-adjudication", action="store_true", help=argparse.SUPPRESS)
+    p.add_argument("--flash-model-id", default=os.environ.get("OPENAI_VALIDATOR_MODEL_ID", "gpt-5.4"), help=argparse.SUPPRESS)
     p.add_argument("--no-force-per-variant-validation", action="store_true", help="legacy mode: allow cluster row reuse in real mode")
     return p
 
@@ -113,15 +114,21 @@ def main(argv=None) -> int:
         start_after_validation_id=args.start_after_validation_id,
         checkpoint_every=args.checkpoint_every,
         stop_on_github_failure=not args.no_github_push,
-        flash_adjudication_enabled=args.flash_adjudication,
+        flash_adjudication_enabled=False,
         flash_model_id=args.flash_model_id,
+        guard_verifier_enabled=args.guard_verifier or args.flash_adjudication,
         force_per_variant_validation=not args.no_force_per_variant_validation,
     )
 
-    flash_adjudicator = None
-    if mode == "real" and args.flash_adjudication:
-        from scripts.flash_adjudicator import FlashAdjudicator, FlashSettings
-        flash_adjudicator = FlashAdjudicator(FlashSettings(api_key=os.environ.get("GEMINI_API_KEY", ""), model_id=args.flash_model_id, enabled=True))
+    guard_verifier = None
+    if mode == "real" and (args.guard_verifier or args.flash_adjudication):
+        from scripts.openai_guard_verifier import OpenAIGuardVerifier, OpenAIGuardVerifierSettings
+        openai_api_key = os.environ.get("OPENAI_API_KEY", "")
+        openai_model_id = os.environ.get("OPENAI_VALIDATOR_MODEL_ID", args.flash_model_id)
+        if not openai_api_key:
+            print("ERROR: OPENAI_API_KEY not set; cannot enable guard verifier.")
+            return 2
+        guard_verifier = OpenAIGuardVerifier(OpenAIGuardVerifierSettings(api_key=openai_api_key, model_id=openai_model_id, enabled=True))
 
     result = run_validation(
         join,
@@ -131,7 +138,8 @@ def main(argv=None) -> int:
         github_saver=github_saver,
         model_id=model_id,
         log=lambda m: print(m),
-        flash_adjudicator=flash_adjudicator,
+        flash_adjudicator=None,
+        guard_verifier=guard_verifier,
     )
 
     print("\n=== SUMMARY ===")
@@ -142,6 +150,7 @@ def main(argv=None) -> int:
     print(f"stage1_pro_calls={store.metadata.get('stage1_pro_calls', 0)}")
     print(f"stage2_guard_flags_total={store.metadata.get('stage2_guard_flags_total', 0)}")
     print(f"stage3_flash_calls={store.metadata.get('stage3_flash_calls', 0)}")
+    print(f"stage3_guard_verifier_calls={store.metadata.get('stage3_guard_verifier_calls', 0)}")
     print(f"output -> {run_paths.output_path}")
     print(f"summary -> {run_paths.summary_path}")
     return 0

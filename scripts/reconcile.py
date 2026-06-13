@@ -25,7 +25,7 @@ from __future__ import annotations
 
 import datetime
 import re
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional, Tuple
 
 from .data_loader import get_standard
@@ -74,17 +74,35 @@ _CHANGE_REASON = (
 @dataclass
 class GuardFlag:
     guard_name: str
-    original_decision: str | None
-    new_decision: str | None
+    severity: str
     field_affected: str
+    original_value: Any
+    guard_value: Any
     reason: str
-    needs_adjudication: bool
+    needs_adjudication: bool = False
+    recommended_verifier_model: str = "none"
+    allowed_decisions: List[str] = field(default_factory=list)
+    allowed_patch_fields: List[str] = field(default_factory=list)
+
+    @property
+    def original_decision(self) -> Any:  # backwards-compatible test/API alias
+        return self.original_value
+
+    @property
+    def new_decision(self) -> Any:  # backwards-compatible test/API alias
+        return self.guard_value
 
 NEEDS_ADJUDICATION = {
     "slash_trim",
     "grounding_summary_vs_decision",
     "under_consideration",
     "domain_500c_transmission",
+    "year_start_il_market",
+    "market_year_conflict",
+    "current_status_conflict",
+    "decision_reason_conflict",
+    "identity_confidence_downgrade",
+    "technical_unresolved_publishability",
 }
 
 NO_ADJUDICATION_NEEDED = {
@@ -98,8 +116,46 @@ NO_ADJUDICATION_NEEDED = {
     "acceptance_tier_sync",
 }
 
-def _add_flag(flags, name, old, new, field, reason):
-    flags.append(GuardFlag(name, old, new, field, reason, name in NEEDS_ADJUDICATION))
+_ALLOWED_DECISIONS_BY_GUARD = {
+    "slash_trim": ["split_required", "clean_partial"],
+    "grounding_summary_vs_decision": ["split_required", "clean_partial"],
+    "under_consideration": ["clean_exact", "clean_partial"],
+    "domain_500c_transmission": ["clean_exact", "clean_partial"],
+    "year_start_il_market": ["clean_exact", "clean_partial"],
+    "market_year_conflict": ["clean_exact", "clean_partial"],
+    "current_status_conflict": ["clean_exact", "clean_partial"],
+    "decision_reason_conflict": ["clean_exact", "clean_partial", "split_required"],
+    "identity_confidence_downgrade": ["clean_exact", "clean_partial"],
+    "technical_unresolved_publishability": ["clean_partial"],
+}
+
+_ALLOWED_PATCH_FIELDS_BY_GUARD = {
+    "slash_trim": ["validation_decision", "trim_status", "trim_confidence", "canonical_trim"],
+    "grounding_summary_vs_decision": ["validation_decision", "identity_status", "identity_confidence", "trim_status"],
+    "under_consideration": ["validation_decision", "identity_status", "identity_confidence", "is_currently_imported_il"],
+    "domain_500c_transmission": ["validation_decision", "identity_status", "identity_confidence", "fields_left_unresolved"],
+    "year_start_il_market": ["year_start", "validation_decision", "identity_status", "identity_confidence"],
+    "market_year_conflict": ["year_start", "year_end", "validation_decision", "identity_status", "identity_confidence"],
+    "current_status_conflict": ["year_end", "is_currently_produced", "is_currently_imported_il", "validation_decision"],
+    "decision_reason_conflict": ["validation_decision", "identity_status", "identity_confidence", "fields_left_unresolved"],
+    "identity_confidence_downgrade": ["identity_status", "identity_confidence", "validation_decision"],
+    "technical_unresolved_publishability": ["validation_decision", "identity_status", "identity_confidence", "fields_left_unresolved"],
+}
+
+def _add_flag(flags, name, old, new, field, reason, severity="medium"):
+    needs = name in NEEDS_ADJUDICATION
+    flags.append(GuardFlag(
+        guard_name=name,
+        severity=severity,
+        field_affected=field,
+        original_value=old,
+        guard_value=new,
+        reason=reason,
+        needs_adjudication=needs,
+        recommended_verifier_model="gpt-5.4" if needs else "none",
+        allowed_decisions=list(_ALLOWED_DECISIONS_BY_GUARD.get(name, [])),
+        allowed_patch_fields=list(_ALLOWED_PATCH_FIELDS_BY_GUARD.get(name, [])),
+    ))
 
 def _add_issue(row, msg):
     issues = row.get("non_blocking_trim_issues")
@@ -327,6 +383,8 @@ _UNDER_CONSIDERATION_PHRASES = [
 ]
 _SPLIT_PHRASES = ["split is required", "must be split", "should be split", "requires splitting", "different power outputs", "distinct trims", "different specifications", "separate variants"]
 _CURRENT_PHRASES = ["still current", "available", "launched recently", "currently sold", "currently produced", "imported now", "still imported"]
+_UNRESOLVED_TERMS = ["unresolved", "uncertain", "not verified", "disputed", "ambiguous", "special-order-only", "rare", "weakly inferred", "cannot be determined", "left unresolved"]
+_IDENTITY_CRITICAL_FIELDS = {"fuel_type", "engine", "transmission", "drivetrain", "body_type", "year_start", "year_end"}
 
 SOURCE_TYPE_KEYWORDS = {
     "official_importer": ["abarth.co.il", "samelet", "samelet.co.il", "סמלת", "kolmemotors", "colmobil"],
@@ -418,6 +476,19 @@ def _has_explicit_500c_cabriolet_evidence(row: Dict[str, Any]) -> bool:
         or "קבריולה" in marketed_il
         or "קבריו" in marketed_il
     )
+
+def _sync_unresolved_language(row: Dict[str, Any]) -> None:
+    unresolved = row.get("fields_left_unresolved") if isinstance(row.get("fields_left_unresolved"), list) else []
+    text_by_field = {str(f).lower(): f for f in _OUTPUT_TO_SOURCE}
+    haystack = " ".join(str(row.get(k) or "") for k in ("grounding_summary", "decision_reason", "guard_corrected_reason"))
+    low = haystack.lower()
+    if not any(term in low for term in _UNRESOLVED_TERMS):
+        row["fields_left_unresolved"] = unresolved
+        return
+    for key, field in text_by_field.items():
+        if key in low and field not in unresolved:
+            unresolved.append(field)
+    row["fields_left_unresolved"] = unresolved
 
 def _add_guard_corrected_reason(row: Dict[str, Any], before: Dict[str, Any]) -> None:
     watched = ["validation_decision", "identity_status", "identity_confidence", "canonical_trim", "trim_status", "trim_confidence", "year_start", "year_end", "is_currently_produced", "is_currently_imported_il", "transmission"]
@@ -524,6 +595,15 @@ def _apply_v3_guards(row: Dict[str, Any], flags: List[GuardFlag]) -> None:
         row["validation_decision"] = "split_required" if (row.get("split_candidates") or _prefer_split(row)) else "clean_partial"
         _add_issue(row, "clean_exact downgraded because trim/identity/market evidence remains unresolved or corrected.")
         _add_flag(flags, "no_clean_exact_unresolved", old, row.get("validation_decision"), "validation_decision", "clean_exact is not allowed with unresolved/corrected identity or trim issues.")
+
+    _sync_unresolved_language(row)
+    unresolved = row.get("fields_left_unresolved") if isinstance(row.get("fields_left_unresolved"), list) else []
+    if row.get("validation_decision") == "clean_exact" and any(f in _IDENTITY_CRITICAL_FIELDS for f in unresolved):
+        old = row.get("validation_decision")
+        row["validation_decision"] = "clean_partial"
+        row["identity_status"] = "likely_valid" if row.get("identity_status") == "verified" else row.get("identity_status")
+        _add_issue(row, "clean_exact downgraded because an identity-critical technical field remains unresolved.")
+        _add_flag(flags, "technical_unresolved_publishability", old, "clean_partial", "validation_decision", "Identity-critical technical field unresolved.", severity="high")
 
     if row.get("official_marketed_name_il") not in (None, "", []):
         row["fields_left_unresolved"] = [f for f in unresolved if f != "official_marketed_name_il"]
