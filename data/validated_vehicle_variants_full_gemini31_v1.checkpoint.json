@@ -5,23 +5,24 @@
     "is_mock_output": false,
     "model": "gemini-3.1-pro-preview",
     "market": "IL",
-    "run_timestamp_utc": "2026-06-13T15:34:40Z",
+    "run_timestamp_utc": "2026-06-13T16:31:24Z",
     "total_input_variants": 3712,
     "total_instruction_records": 3712,
-    "total_validated_variants": 1,
+    "total_validated_variants": 2,
     "decision_counts": {
       "clean_exact": 0,
-      "clean_partial": 1,
+      "clean_partial": 2,
       "split_required": 0,
       "reject": 0
     },
     "grounding_cluster_count": 3653,
     "gemini_call_count": 1,
     "github_checkpoint_count": 0,
-    "last_validated_id": "VAL-000001"
+    "last_validated_id": "VAL-000002"
   },
   "completed_validation_ids": [
-    "VAL-000001"
+    "VAL-000001",
+    "VAL-000002"
   ],
   "failed_validation_ids": [],
   "validated_variants_by_id": {
@@ -71,6 +72,55 @@
         "official_marketed_name_il"
       ],
       "decision_reason": "The core vehicle identity is valid and verified for the Israeli market, with the start year corrected to 2010. The trim remains generic and unresolved, qualifying for a clean_partial acceptance."
+    },
+    "VAL-000002": {
+      "validation_id": "VAL-000002",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000002",
+      "source_cluster_id": "CLU-7ea11c499a5f",
+      "grounding_cluster_id": "CLU-7ea11c499a5f",
+      "evidence_reused_from": "VAL-000001",
+      "canonical_make": "Abarth",
+      "canonical_model": "500",
+      "canonical_series_or_generation": "1st Gen",
+      "canonical_trim": null,
+      "official_marketed_name_il": null,
+      "body_type": "Hatchback",
+      "fuel_type": "petrol",
+      "engine": "1.4L Turbo",
+      "transmission": "manual",
+      "drivetrain": "FWD",
+      "year_start": 2008,
+      "year_end": 2016,
+      "market_scope": "IL",
+      "validation_decision": "clean_partial",
+      "acceptance_tier": "partial",
+      "identity_status": "likely_valid",
+      "identity_confidence": 0.9,
+      "trim_status": "unresolved",
+      "trim_confidence": 0.2,
+      "grounding_summary": "The Abarth 500 was officially imported to Israel starting in 2010. The 1.4L Turbo engine paired with a manual transmission was a standard configuration. The 'Base' trim is generic; actual marketed trims in Israel included Scorpione and Lusso.",
+      "evidence_sources": [
+        {
+          "title": "iCar.co.il Abarth 500 historical reviews and catalog data",
+          "url": null,
+          "source_name": "iCar.co.il",
+          "source_type": "unknown",
+          "supports": []
+        }
+      ],
+      "possible_trim_names": [],
+      "split_candidates": [],
+      "blocking_identity_issues": [],
+      "non_blocking_trim_issues": [
+        "trim_weak_or_missing"
+      ],
+      "fields_changed": [],
+      "fields_left_unresolved": [
+        "canonical_trim",
+        "official_marketed_name_il"
+      ],
+      "decision_reason": "Identity grounding reused from cluster anchor VAL-000001; trim evaluated per-row."
     }
   },
   "cluster_cache": {
@@ -86,10 +136,10 @@
   },
   "decision_counts": {
     "clean_exact": 0,
-    "clean_partial": 1,
+    "clean_partial": 2,
     "split_required": 0,
     "reject": 0
   },
-  "last_validated_id": "VAL-000001",
-  "updated_at_utc": "2026-06-13T15:34:40Z"
+  "last_validated_id": "VAL-000002",
+  "updated_at_utc": "2026-06-13T16:31:24Z"
 }
