@@ -8,21 +8,22 @@
     "run_timestamp_utc": "2026-06-13T16:31:24Z",
     "total_input_variants": 3712,
     "total_instruction_records": 3712,
-    "total_validated_variants": 2,
+    "total_validated_variants": 3,
     "decision_counts": {
       "clean_exact": 0,
       "clean_partial": 2,
-      "split_required": 0,
+      "split_required": 1,
       "reject": 0
     },
     "grounding_cluster_count": 3653,
-    "gemini_call_count": 1,
-    "github_checkpoint_count": 0,
-    "last_validated_id": "VAL-000002"
+    "gemini_call_count": 2,
+    "github_checkpoint_count": 1,
+    "last_validated_id": "VAL-000003"
   },
   "completed_validation_ids": [
     "VAL-000001",
-    "VAL-000002"
+    "VAL-000002",
+    "VAL-000003"
   ],
   "failed_validation_ids": [],
   "validated_variants_by_id": {
@@ -121,6 +122,63 @@
         "official_marketed_name_il"
       ],
       "decision_reason": "Identity grounding reused from cluster anchor VAL-000001; trim evaluated per-row."
+    },
+    "VAL-000003": {
+      "validation_id": "VAL-000003",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000003",
+      "source_cluster_id": "CLU-d039ea7ad836",
+      "grounding_cluster_id": "CLU-d039ea7ad836",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "500",
+      "canonical_series_or_generation": "First Generation",
+      "canonical_trim": "Competizione / Scorpione / Nuvolari S",
+      "official_marketed_name_il": "אברת' 500",
+      "body_type": "Hatchback",
+      "fuel_type": "Petrol",
+      "engine": "1.4L Turbo",
+      "transmission": "Manual",
+      "drivetrain": "FWD",
+      "year_start": 2008,
+      "year_end": 2026,
+      "market_scope": "IL",
+      "validation_decision": "split_required",
+      "acceptance_tier": "none",
+      "identity_status": "verified",
+      "identity_confidence": 0.95,
+      "trim_status": "invalid",
+      "trim_confidence": 0.0,
+      "grounding_summary": "The Abarth 500 is a verified model in Israel. However, the provided trim string combines 'Competizione', 'Scorpione', and 'Nuvolari S'. Market evidence from Israeli listings (such as Yad2 and Autoboom) shows these are distinct trims with different power outputs (e.g., Scorpione 145hp, Competizione 160hp/180hp, Nuvolari 165hp). Therefore, they must be split into separate variants.",
+      "evidence_sources": [
+        {
+          "title": "yad2.co.il",
+          "url": null,
+          "source_name": "yad2.co.il",
+          "source_type": "unknown",
+          "supports": []
+        },
+        {
+          "title": "autoboom.co.il",
+          "url": null,
+          "source_name": "autoboom.co.il",
+          "source_type": "unknown",
+          "supports": []
+        }
+      ],
+      "possible_trim_names": [],
+      "split_candidates": [
+        "Competizione",
+        "Scorpione",
+        "Nuvolari S"
+      ],
+      "blocking_identity_issues": [],
+      "non_blocking_trim_issues": [
+        "Trim field combines multiple distinct trims with different technical specifications"
+      ],
+      "fields_changed": [],
+      "fields_left_unresolved": [],
+      "decision_reason": "The trim field explicitly combines multiple distinct marketed trims (Competizione, Scorpione, Nuvolari S) which correspond to different engine power outputs and specifications in Israel. A split is required to represent these as separate variants."
     }
   },
   "cluster_cache": {
@@ -132,14 +190,36 @@
       "evidence_sources": [
         "iCar.co.il Abarth 500 historical reviews and catalog data"
       ]
+    },
+    "CLU-d039ea7ad836": {
+      "anchor_id": "VAL-000003",
+      "identity_status": "verified",
+      "identity_confidence": 0.95,
+      "grounding_summary": "The Abarth 500 is a verified model in Israel. However, the provided trim string combines 'Competizione', 'Scorpione', and 'Nuvolari S'. Market evidence from Israeli listings (such as Yad2 and Autoboom) shows these are distinct trims with different power outputs (e.g., Scorpione 145hp, Competizione 160hp/180hp, Nuvolari 165hp). Therefore, they must be split into separate variants.",
+      "evidence_sources": [
+        {
+          "title": "yad2.co.il",
+          "url": null,
+          "source_name": "yad2.co.il",
+          "source_type": "unknown",
+          "supports": []
+        },
+        {
+          "title": "autoboom.co.il",
+          "url": null,
+          "source_name": "autoboom.co.il",
+          "source_type": "unknown",
+          "supports": []
+        }
+      ]
     }
   },
   "decision_counts": {
     "clean_exact": 0,
     "clean_partial": 2,
-    "split_required": 0,
+    "split_required": 1,
     "reject": 0
   },
-  "last_validated_id": "VAL-000002",
-  "updated_at_utc": "2026-06-13T16:31:24Z"
+  "last_validated_id": "VAL-000003",
+  "updated_at_utc": "2026-06-13T16:31:57Z"
 }
