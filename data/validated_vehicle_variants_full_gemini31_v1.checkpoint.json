@@ -8,17 +8,17 @@
     "run_timestamp_utc": "2026-06-13T16:31:24Z",
     "total_input_variants": 3712,
     "total_instruction_records": 3712,
-    "total_validated_variants": 20,
+    "total_validated_variants": 21,
     "decision_counts": {
       "clean_exact": 9,
-      "clean_partial": 8,
+      "clean_partial": 9,
       "split_required": 2,
       "reject": 1
     },
     "grounding_cluster_count": 3653,
-    "gemini_call_count": 18,
-    "github_checkpoint_count": 18,
-    "last_validated_id": "VAL-000020"
+    "gemini_call_count": 19,
+    "github_checkpoint_count": 19,
+    "last_validated_id": "VAL-000021"
   },
   "completed_validation_ids": [
     "VAL-000001",
@@ -40,7 +40,8 @@
     "VAL-000017",
     "VAL-000018",
     "VAL-000019",
-    "VAL-000020"
+    "VAL-000020",
+    "VAL-000021"
   ],
   "failed_validation_ids": [],
   "validated_variants_by_id": {
@@ -1224,6 +1225,57 @@
         "official_marketed_name_il"
       ],
       "decision_reason": "Rejected due to an identity-level contradiction between the make/model (Abarth 600e) and the engine specification (115kW, which belongs to the Fiat 600e)."
+    },
+    "VAL-000021": {
+      "validation_id": "VAL-000021",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000021",
+      "source_cluster_id": "CLU-3f6247f66c7b",
+      "grounding_cluster_id": "CLU-3f6247f66c7b",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "600e",
+      "canonical_series_or_generation": "1",
+      "canonical_trim": null,
+      "official_marketed_name_il": null,
+      "body_type": "crossover",
+      "fuel_type": "electric",
+      "engine": "electric 176kW",
+      "transmission": "1-speed automatic",
+      "drivetrain": "FWD",
+      "year_start": 2024,
+      "year_end": 2026,
+      "market_scope": "IL",
+      "validation_decision": "clean_partial",
+      "acceptance_tier": "partial",
+      "identity_status": "likely_valid",
+      "identity_confidence": 0.9,
+      "trim_status": "unresolved",
+      "trim_confidence": 0.0,
+      "grounding_summary": "The Abarth 600e is a valid global model revealed in late 2024. The 176kW (240 PS) version corresponds to the 'Turismo' trim. The model is under consideration for the Israeli market by the importer Samelet, making it a plausible candidate.",
+      "evidence_sources": [
+        {
+          "title": "Auto.co.il (Oct 2024): Abarth 600e revealed with 175kW/240hp Turismo and 206kW/280hp Scorpionissima versions. Importer Samelet is evaluating it for Israel.",
+          "url": null,
+          "source_name": "Auto.co.il",
+          "source_type": "unknown",
+          "supports": []
+        }
+      ],
+      "possible_trim_names": [
+        "Turismo"
+      ],
+      "split_candidates": [],
+      "blocking_identity_issues": [],
+      "non_blocking_trim_issues": [
+        "Trim is missing, but the 176kW engine strongly points to the Turismo trim."
+      ],
+      "fields_changed": [],
+      "fields_left_unresolved": [
+        "canonical_trim",
+        "official_marketed_name_il"
+      ],
+      "decision_reason": "Core identity is valid and plausible for the Israeli market. Trim is missing, so returning clean_partial with Turismo as a possible trim."
     }
   },
   "cluster_cache": {
@@ -1679,14 +1731,29 @@
           "supports": []
         }
       ]
+    },
+    "CLU-3f6247f66c7b": {
+      "anchor_id": "VAL-000021",
+      "identity_status": "likely_valid",
+      "identity_confidence": 0.9,
+      "grounding_summary": "The Abarth 600e is a valid global model revealed in late 2024. The 176kW (240 PS) version corresponds to the 'Turismo' trim. The model is under consideration for the Israeli market by the importer Samelet, making it a plausible candidate.",
+      "evidence_sources": [
+        {
+          "title": "Auto.co.il (Oct 2024): Abarth 600e revealed with 175kW/240hp Turismo and 206kW/280hp Scorpionissima versions. Importer Samelet is evaluating it for Israel.",
+          "url": null,
+          "source_name": "Auto.co.il",
+          "source_type": "unknown",
+          "supports": []
+        }
+      ]
     }
   },
   "decision_counts": {
     "clean_exact": 9,
-    "clean_partial": 8,
+    "clean_partial": 9,
     "split_required": 2,
     "reject": 1
   },
-  "last_validated_id": "VAL-000020",
-  "updated_at_utc": "2026-06-13T16:38:47Z"
+  "last_validated_id": "VAL-000021",
+  "updated_at_utc": "2026-06-13T16:39:24Z"
 }
