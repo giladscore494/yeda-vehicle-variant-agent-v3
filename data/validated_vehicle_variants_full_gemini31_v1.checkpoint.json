@@ -8,17 +8,17 @@
     "run_timestamp_utc": "2026-06-13T16:31:24Z",
     "total_input_variants": 3712,
     "total_instruction_records": 3712,
-    "total_validated_variants": 6,
+    "total_validated_variants": 7,
     "decision_counts": {
       "clean_exact": 1,
-      "clean_partial": 4,
+      "clean_partial": 5,
       "split_required": 1,
       "reject": 0
     },
     "grounding_cluster_count": 3653,
-    "gemini_call_count": 4,
-    "github_checkpoint_count": 4,
-    "last_validated_id": "VAL-000006"
+    "gemini_call_count": 5,
+    "github_checkpoint_count": 5,
+    "last_validated_id": "VAL-000007"
   },
   "completed_validation_ids": [
     "VAL-000001",
@@ -26,7 +26,8 @@
     "VAL-000003",
     "VAL-000004",
     "VAL-000005",
-    "VAL-000006"
+    "VAL-000006",
+    "VAL-000007"
   ],
   "failed_validation_ids": [],
   "validated_variants_by_id": {
@@ -356,6 +357,68 @@
         "canonical_trim"
       ],
       "decision_reason": "Vehicle identity is verified for the Israeli market. Trim and transmission are missing, making it a valid partial variant."
+    },
+    "VAL-000007": {
+      "validation_id": "VAL-000007",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000007",
+      "source_cluster_id": "CLU-a0de00c87874",
+      "grounding_cluster_id": "CLU-a0de00c87874",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "500",
+      "canonical_series_or_generation": "1",
+      "canonical_trim": "Scorpione",
+      "official_marketed_name_il": "אבארט 500",
+      "body_type": "hatchback",
+      "fuel_type": "petrol",
+      "engine": "1.4 Turbo 145",
+      "transmission": "manual",
+      "drivetrain": "FWD",
+      "year_start": 2018,
+      "year_end": 2023,
+      "market_scope": "IL",
+      "validation_decision": "clean_partial",
+      "acceptance_tier": "partial",
+      "identity_status": "verified",
+      "identity_confidence": 0.95,
+      "trim_status": "inferred",
+      "trim_confidence": 0.9,
+      "grounding_summary": "The Abarth 500 (also widely marketed as Abarth 595) with the 1.4 Turbo 145 hp engine and manual transmission was sold in Israel. The 145 hp output is specifically associated with the 'Scorpione' trim level.",
+      "evidence_sources": [
+        {
+          "title": "iCar: אבארט 500 2018 יד שניה 1.4 ידני Scorpione",
+          "url": null,
+          "source_name": null,
+          "source_type": "unknown",
+          "supports": []
+        },
+        {
+          "title": "Auto magazine: אבארט 595 2018 ידני, 1.4 ל' טורבו, Scorpione",
+          "url": null,
+          "source_name": null,
+          "source_type": "unknown",
+          "supports": []
+        },
+        {
+          "title": "TheCar: אבארט 595 סקורפיונה במבחן דרכים (145 כ\"ס, ידני)",
+          "url": null,
+          "source_name": null,
+          "source_type": "unknown",
+          "supports": []
+        }
+      ],
+      "possible_trim_names": [
+        "Scorpione"
+      ],
+      "split_candidates": [],
+      "blocking_identity_issues": [],
+      "non_blocking_trim_issues": [
+        "Original trim was null, inferred as Scorpione based on the 145 hp engine output."
+      ],
+      "fields_changed": [],
+      "fields_left_unresolved": [],
+      "decision_reason": "Core identity is verified. The 145 hp manual version corresponds to the Scorpione trim. Since the original trim was missing, returning clean_partial with the inferred trim."
     }
   },
   "cluster_cache": {
@@ -433,14 +496,43 @@
           "supports": []
         }
       ]
+    },
+    "CLU-a0de00c87874": {
+      "anchor_id": "VAL-000007",
+      "identity_status": "verified",
+      "identity_confidence": 0.95,
+      "grounding_summary": "The Abarth 500 (also widely marketed as Abarth 595) with the 1.4 Turbo 145 hp engine and manual transmission was sold in Israel. The 145 hp output is specifically associated with the 'Scorpione' trim level.",
+      "evidence_sources": [
+        {
+          "title": "iCar: אבארט 500 2018 יד שניה 1.4 ידני Scorpione",
+          "url": null,
+          "source_name": null,
+          "source_type": "unknown",
+          "supports": []
+        },
+        {
+          "title": "Auto magazine: אבארט 595 2018 ידני, 1.4 ל' טורבו, Scorpione",
+          "url": null,
+          "source_name": null,
+          "source_type": "unknown",
+          "supports": []
+        },
+        {
+          "title": "TheCar: אבארט 595 סקורפיונה במבחן דרכים (145 כ\"ס, ידני)",
+          "url": null,
+          "source_name": null,
+          "source_type": "unknown",
+          "supports": []
+        }
+      ]
     }
   },
   "decision_counts": {
     "clean_exact": 1,
-    "clean_partial": 4,
+    "clean_partial": 5,
     "split_required": 1,
     "reject": 0
   },
-  "last_validated_id": "VAL-000006",
-  "updated_at_utc": "2026-06-13T16:32:55Z"
+  "last_validated_id": "VAL-000007",
+  "updated_at_utc": "2026-06-13T16:33:27Z"
 }
