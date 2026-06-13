@@ -8,24 +8,24 @@
     "run_timestamp_utc": "2026-06-13T18:25:45Z",
     "total_input_variants": 3712,
     "total_instruction_records": 3712,
-    "total_validated_variants": 8,
+    "total_validated_variants": 9,
     "decision_counts": {
       "clean_exact": 0,
-      "clean_partial": 6,
+      "clean_partial": 7,
       "split_required": 2,
       "reject": 0
     },
     "grounding_cluster_count": 3653,
-    "gemini_call_count": 8,
+    "gemini_call_count": 9,
     "github_checkpoint_enabled": true,
-    "github_checkpoint_count": 8,
+    "github_checkpoint_count": 9,
     "github_checkpoint_fail_count": 0,
     "last_github_checkpoint_error": null,
-    "last_validated_id": "VAL-000008",
+    "last_validated_id": "VAL-000009",
     "schema_version": "v3_three_stage",
     "pipeline_version": "v3_three_stage",
-    "stage1_pro_calls": 8,
-    "stage2_guard_flags_total": 6,
+    "stage1_pro_calls": 9,
+    "stage2_guard_flags_total": 7,
     "stage3_flash_calls": 0,
     "flash_overrode_guard": 0,
     "guard_overrode_flash": 0,
@@ -39,7 +39,8 @@
     "VAL-000005",
     "VAL-000006",
     "VAL-000007",
-    "VAL-000008"
+    "VAL-000008",
+    "VAL-000009"
   ],
   "failed_validation_ids": [],
   "validated_variants_by_id": {
@@ -727,6 +728,93 @@
       "_flags_count": 0,
       "_flash_used": false,
       "adjudication_log": []
+    },
+    "VAL-000009": {
+      "validation_id": "VAL-000009",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000009",
+      "source_cluster_id": "CLU-e0f4447de8c4",
+      "grounding_cluster_id": "CLU-e0f4447de8c4",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "500",
+      "canonical_series_or_generation": null,
+      "canonical_trim": null,
+      "official_marketed_name_il": "אבארט 500",
+      "body_type": "hatchback",
+      "fuel_type": "petrol",
+      "engine": "1.4 Turbo 180",
+      "transmission": "manual",
+      "drivetrain": "FWD",
+      "year_start": 2018,
+      "year_end": 2023,
+      "is_currently_produced": false,
+      "is_currently_imported_il": false,
+      "market_scope": "IL",
+      "validation_decision": "clean_partial",
+      "acceptance_tier": "partial",
+      "identity_status": "verified",
+      "identity_confidence": 0.95,
+      "trim_status": "unresolved",
+      "trim_confidence": 0.0,
+      "grounding_summary": "The Abarth 500 (also marketed as 595) with a 1.4 Turbo 180 hp engine and manual transmission is verified for the Israeli market. It is primarily sold under the 'Competizione' and 'Racing Style' trims. Since the trim is missing from the input, the variant is marked as clean_partial. The vehicle is still imported to Israel as of 2024-2025, so year_end has been set to null.",
+      "evidence_sources": [
+        {
+          "title": "אבארט 500 1.4 ידני 180 כ\"ס Competizione 2024 | מפרט טכני - cartube",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEH1NCsuwJQjjaGoRmWVWQ9TZd_r4ZUp1FFoujFJ96to6Ak6vsK9w_W06u21ad2xPaeE9_67B556aBwNUhqHC2sSENcmb72oMz2sihxNphDJB1N8WO5K7e6BktOfuv8mVjgJVKXFFK9C7U3V0-41cY6buojBKrxV25NOUQAfrMT-OHneRWc0h7nUscu0l7BCJ2PgWoh8PSuF0SCjxKOdMGoxXUokG1CzUpk3dGsbKfEW-ZAooV8FArPrvll1LeIyTaZmgYuuEbHE55lwEdpuFKm5RN3mp__WrpT13lwosyvqvxRZ72w3fSebTH3SkyLqvFUuVZM1-5JSC9savJ4XT6xVd4w4jWmdUtrtQQB4srlJ0W0GrWc45w3Nw7wJeTqomaD9KElfmj3o3vK-Iax99PMRx85m1DLK1sE6OM9apb-FM4=",
+          "source_name": "cartube",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "exact_trim",
+            "engine",
+            "transmission",
+            "year_range"
+          ]
+        },
+        {
+          "title": "אבארט 500 2023 יד שניה 1.4 ידני 180 כ\"ס Competizione - iCar",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGDQ5TWhH6p-glsPjAb2eFazpGZno4GKkxiBwAbZDr7i1017zvs21ZBOHEr5HRp9AmN8BILCft5R9yVOyU9pzdjvnRZ_-HULDuKfKkqMLVgxJ1oQgXquZPG-oODmspfg_6nIAhcn9_GyOKoP2pcii-LMXDGjX3OLAvWRBNWP6J-chJdUrY3K0vcRgdR2g4qxvkmRkNoFv2Galu50vWj1WgiCx9TalOyyLu4qKM98ume2rKa2f7GR2-8i-wVxOL9u7ul7QG1pFjEzrASzcp1H9NvSXnokM2YpBbBDBtC54YOqjv9wLCdIIp19WLQdGkk1w==",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "trim_candidates",
+            "engine",
+            "transmission"
+          ]
+        },
+        {
+          "title": "אבארט 500 למכירה | יד2 רכב - אלפי מודעות חדשות בכל יום",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHZI4E_naz9ZhuRbNUhAP2f_Om8P6uqsYc4inAGV5KyVIkZApPKUg3zcu3TB2RXUbOx0acJ1tmOIFudiR2wndY0hH1GrDeO3HZGpCL52snplqpFIzpEDQGDIc5KI1SQ-2mPfW0Ax5-mHkW_MzsGE2563j1zPZCM",
+          "source_name": "yad2",
+          "source_type": "marketplace",
+          "supports": [
+            "market_presence_il",
+            "trim_candidates"
+          ]
+        }
+      ],
+      "possible_trim_names": [
+        "Competizione",
+        "Racing Style"
+      ],
+      "split_candidates": [],
+      "blocking_identity_issues": [],
+      "non_blocking_trim_issues": [
+        "Trim is missing (null).",
+        "Current-production/import flags corrected to false because year_end is a past year for this variant."
+      ],
+      "fields_changed": [],
+      "fields_left_unresolved": [
+        "canonical_trim"
+      ],
+      "decision_reason": "Valid identity verified for the Israeli market. Trim is missing, requiring a clean_partial decision.",
+      "_pipeline_version": "v3_three_stage",
+      "_flags_count": 1,
+      "_flash_used": false,
+      "adjudication_log": [],
+      "guard_corrected_reason": "Python guards corrected the model output: is_currently_produced: True -> False; is_currently_imported_il: True -> False."
     }
   },
   "cluster_cache": {
@@ -977,14 +1065,57 @@
           ]
         }
       ]
+    },
+    "CLU-e0f4447de8c4": {
+      "anchor_id": "VAL-000009",
+      "identity_status": "verified",
+      "identity_confidence": 0.95,
+      "grounding_summary": "The Abarth 500 (also marketed as 595) with a 1.4 Turbo 180 hp engine and manual transmission is verified for the Israeli market. It is primarily sold under the 'Competizione' and 'Racing Style' trims. Since the trim is missing from the input, the variant is marked as clean_partial. The vehicle is still imported to Israel as of 2024-2025, so year_end has been set to null.",
+      "evidence_sources": [
+        {
+          "title": "אבארט 500 1.4 ידני 180 כ\"ס Competizione 2024 | מפרט טכני - cartube",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEH1NCsuwJQjjaGoRmWVWQ9TZd_r4ZUp1FFoujFJ96to6Ak6vsK9w_W06u21ad2xPaeE9_67B556aBwNUhqHC2sSENcmb72oMz2sihxNphDJB1N8WO5K7e6BktOfuv8mVjgJVKXFFK9C7U3V0-41cY6buojBKrxV25NOUQAfrMT-OHneRWc0h7nUscu0l7BCJ2PgWoh8PSuF0SCjxKOdMGoxXUokG1CzUpk3dGsbKfEW-ZAooV8FArPrvll1LeIyTaZmgYuuEbHE55lwEdpuFKm5RN3mp__WrpT13lwosyvqvxRZ72w3fSebTH3SkyLqvFUuVZM1-5JSC9savJ4XT6xVd4w4jWmdUtrtQQB4srlJ0W0GrWc45w3Nw7wJeTqomaD9KElfmj3o3vK-Iax99PMRx85m1DLK1sE6OM9apb-FM4=",
+          "source_name": "cartube",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "exact_trim",
+            "engine",
+            "transmission",
+            "year_range"
+          ]
+        },
+        {
+          "title": "אבארט 500 2023 יד שניה 1.4 ידני 180 כ\"ס Competizione - iCar",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGDQ5TWhH6p-glsPjAb2eFazpGZno4GKkxiBwAbZDr7i1017zvs21ZBOHEr5HRp9AmN8BILCft5R9yVOyU9pzdjvnRZ_-HULDuKfKkqMLVgxJ1oQgXquZPG-oODmspfg_6nIAhcn9_GyOKoP2pcii-LMXDGjX3OLAvWRBNWP6J-chJdUrY3K0vcRgdR2g4qxvkmRkNoFv2Galu50vWj1WgiCx9TalOyyLu4qKM98ume2rKa2f7GR2-8i-wVxOL9u7ul7QG1pFjEzrASzcp1H9NvSXnokM2YpBbBDBtC54YOqjv9wLCdIIp19WLQdGkk1w==",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "trim_candidates",
+            "engine",
+            "transmission"
+          ]
+        },
+        {
+          "title": "אבארט 500 למכירה | יד2 רכב - אלפי מודעות חדשות בכל יום",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHZI4E_naz9ZhuRbNUhAP2f_Om8P6uqsYc4inAGV5KyVIkZApPKUg3zcu3TB2RXUbOx0acJ1tmOIFudiR2wndY0hH1GrDeO3HZGpCL52snplqpFIzpEDQGDIc5KI1SQ-2mPfW0Ax5-mHkW_MzsGE2563j1zPZCM",
+          "source_name": "yad2",
+          "source_type": "marketplace",
+          "supports": [
+            "market_presence_il",
+            "trim_candidates"
+          ]
+        }
+      ]
     }
   },
   "decision_counts": {
     "clean_exact": 0,
-    "clean_partial": 6,
+    "clean_partial": 7,
     "split_required": 2,
     "reject": 0
   },
-  "last_validated_id": "VAL-000008",
-  "updated_at_utc": "2026-06-13T18:27:07Z"
+  "last_validated_id": "VAL-000009",
+  "updated_at_utc": "2026-06-13T18:27:51Z"
 }
