@@ -8,17 +8,17 @@
     "run_timestamp_utc": "2026-06-13T16:31:24Z",
     "total_input_variants": 3712,
     "total_instruction_records": 3712,
-    "total_validated_variants": 14,
+    "total_validated_variants": 15,
     "decision_counts": {
-      "clean_exact": 4,
+      "clean_exact": 5,
       "clean_partial": 8,
       "split_required": 2,
       "reject": 0
     },
     "grounding_cluster_count": 3653,
-    "gemini_call_count": 12,
-    "github_checkpoint_count": 12,
-    "last_validated_id": "VAL-000014"
+    "gemini_call_count": 13,
+    "github_checkpoint_count": 13,
+    "last_validated_id": "VAL-000015"
   },
   "completed_validation_ids": [
     "VAL-000001",
@@ -34,7 +34,8 @@
     "VAL-000011",
     "VAL-000012",
     "VAL-000013",
-    "VAL-000014"
+    "VAL-000014",
+    "VAL-000015"
   ],
   "failed_validation_ids": [],
   "validated_variants_by_id": {
@@ -859,6 +860,57 @@
       "fields_changed": [],
       "fields_left_unresolved": [],
       "decision_reason": "The vehicle identity and trim are fully verified for the Israeli market with matching technical specifications."
+    },
+    "VAL-000015": {
+      "validation_id": "VAL-000015",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000015",
+      "source_cluster_id": "CLU-70e1dd8ebc1d",
+      "grounding_cluster_id": "CLU-70e1dd8ebc1d",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "500e",
+      "canonical_series_or_generation": "2",
+      "canonical_trim": "Turismo",
+      "official_marketed_name_il": "אבארט 500e",
+      "body_type": "Hatchback",
+      "fuel_type": "electric",
+      "engine": "114 kW (155 hp) Electric Motor",
+      "transmission": "automatic",
+      "drivetrain": "FWD",
+      "year_start": 2024,
+      "year_end": 2026,
+      "market_scope": "IL",
+      "validation_decision": "clean_exact",
+      "acceptance_tier": "exact",
+      "identity_status": "verified",
+      "identity_confidence": 1.0,
+      "trim_status": "verified",
+      "trim_confidence": 1.0,
+      "grounding_summary": "The Abarth 500e was officially launched in Israel in January 2024. It is equipped with a 155 hp electric motor and is offered in the 'Turismo' trim level as a 3-door hatchback and cabriolet.",
+      "evidence_sources": [
+        {
+          "title": "cartube.co.il - אבארט 500e טוריסמו החשמלית 2024 בישראל",
+          "url": null,
+          "source_name": "cartube.co.il",
+          "source_type": "unknown",
+          "supports": []
+        },
+        {
+          "title": "icar.co.il - אבארט 500e",
+          "url": null,
+          "source_name": "icar.co.il",
+          "source_type": "unknown",
+          "supports": []
+        }
+      ],
+      "possible_trim_names": [],
+      "split_candidates": [],
+      "blocking_identity_issues": [],
+      "non_blocking_trim_issues": [],
+      "fields_changed": [],
+      "fields_left_unresolved": [],
+      "decision_reason": "The vehicle identity and trim perfectly match the Israeli market offerings for the Abarth 500e."
     }
   },
   "cluster_cache": {
@@ -1140,14 +1192,36 @@
           "supports": []
         }
       ]
+    },
+    "CLU-70e1dd8ebc1d": {
+      "anchor_id": "VAL-000015",
+      "identity_status": "verified",
+      "identity_confidence": 1.0,
+      "grounding_summary": "The Abarth 500e was officially launched in Israel in January 2024. It is equipped with a 155 hp electric motor and is offered in the 'Turismo' trim level as a 3-door hatchback and cabriolet.",
+      "evidence_sources": [
+        {
+          "title": "cartube.co.il - אבארט 500e טוריסמו החשמלית 2024 בישראל",
+          "url": null,
+          "source_name": "cartube.co.il",
+          "source_type": "unknown",
+          "supports": []
+        },
+        {
+          "title": "icar.co.il - אבארט 500e",
+          "url": null,
+          "source_name": "icar.co.il",
+          "source_type": "unknown",
+          "supports": []
+        }
+      ]
     }
   },
   "decision_counts": {
-    "clean_exact": 4,
+    "clean_exact": 5,
     "clean_partial": 8,
     "split_required": 2,
     "reject": 0
   },
-  "last_validated_id": "VAL-000014",
-  "updated_at_utc": "2026-06-13T16:36:35Z"
+  "last_validated_id": "VAL-000015",
+  "updated_at_utc": "2026-06-13T16:36:59Z"
 }
