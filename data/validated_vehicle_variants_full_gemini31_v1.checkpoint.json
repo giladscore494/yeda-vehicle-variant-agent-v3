@@ -8,24 +8,24 @@
     "run_timestamp_utc": "2026-06-13T19:21:59Z",
     "total_input_variants": 3712,
     "total_instruction_records": 3712,
-    "total_validated_variants": 2,
+    "total_validated_variants": 3,
     "decision_counts": {
       "clean_exact": 0,
       "clean_partial": 2,
-      "split_required": 0,
+      "split_required": 1,
       "reject": 0
     },
     "grounding_cluster_count": 3653,
-    "gemini_call_count": 2,
+    "gemini_call_count": 3,
     "github_checkpoint_enabled": true,
-    "github_checkpoint_count": 2,
+    "github_checkpoint_count": 3,
     "github_checkpoint_fail_count": 0,
     "last_github_checkpoint_error": null,
-    "last_validated_id": "VAL-000002",
+    "last_validated_id": "VAL-000003",
     "schema_version": "v3_three_stage",
     "pipeline_version": "v3_three_stage",
-    "stage1_pro_calls": 2,
-    "stage2_guard_flags_total": 0,
+    "stage1_pro_calls": 3,
+    "stage2_guard_flags_total": 1,
     "stage3_flash_calls": 0,
     "flash_overrode_guard": 0,
     "guard_overrode_flash": 0,
@@ -33,7 +33,8 @@
   },
   "completed_validation_ids": [
     "VAL-000001",
-    "VAL-000002"
+    "VAL-000002",
+    "VAL-000003"
   ],
   "failed_validation_ids": [],
   "validated_variants_by_id": {
@@ -223,6 +224,96 @@
       "route_reason": "Routing not yet assigned.",
       "duplicate_group_id": null,
       "duplicate_of": null
+    },
+    "VAL-000003": {
+      "validation_id": "VAL-000003",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000003",
+      "source_cluster_id": "CLU-d039ea7ad836",
+      "grounding_cluster_id": "CLU-d039ea7ad836",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "500",
+      "canonical_series_or_generation": "First Generation",
+      "canonical_trim": "Competizione / Scorpione / Nuvolari S",
+      "official_marketed_name_il": "אבארט 500",
+      "body_type": "Hatchback",
+      "fuel_type": "petrol",
+      "engine": "1.4L Turbo",
+      "transmission": "manual",
+      "drivetrain": "FWD",
+      "year_start": 2008,
+      "year_end": 2024,
+      "is_currently_produced": false,
+      "is_currently_imported_il": false,
+      "market_scope": "IL",
+      "validation_decision": "split_required",
+      "acceptance_tier": "none",
+      "identity_status": "verified",
+      "identity_confidence": 0.95,
+      "trim_status": "invalid",
+      "trim_confidence": 0.0,
+      "grounding_summary": "The Abarth 500 was officially imported to Israel. However, the provided trim string 'Competizione / Scorpione / Nuvolari S' combines three technically distinct trims. Competizione is a high-performance trim (up to 180hp), Scorpione was the entry-level trim (135-145hp), and Nuvolari S replaced the Scorpione as the entry-level trim with 165hp. Because these trims have different power outputs and specifications, they must be split into separate variants. The petrol model's production ended around 2024, replaced by the electric 500e.",
+      "evidence_sources": [
+        {
+          "title": "אבארט 500 - מחירון, חוות דעת ומידע טכני | אוטו",
+          "url": "https://www.auto.co.il/model/abarth-500_g134",
+          "source_name": "auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "official_import_il",
+            "exact_trim",
+            "split_required",
+            "engine",
+            "transmission"
+          ]
+        },
+        {
+          "title": "אבארט 595 נובולארי 2023 בישראל - מחיר 135,900 שקל - cartube",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%90%D7%91%D7%90%D7%A8%D7%98-595-%D7%A0%D7%95%D7%91%D7%95%D7%9C%D7%90%D7%A8%D7%99-2023-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-135-900-%D7%A9%D7%A7%D7%9C",
+          "source_name": "cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "trim_candidates",
+            "split_required"
+          ]
+        }
+      ],
+      "possible_trim_names": [
+        "Competizione",
+        "Scorpione",
+        "Nuvolari S"
+      ],
+      "split_candidates": [
+        "Competizione",
+        "Scorpione",
+        "Nuvolari S"
+      ],
+      "blocking_identity_issues": [],
+      "non_blocking_trim_issues": [
+        "Trim field contains multiple distinct trims with different power outputs (Competizione, Scorpione, Nuvolari S) which require splitting.",
+        "Combined trim contains multiple distinct marketed trims and must be split into separate variants."
+      ],
+      "fields_changed": [
+        {
+          "field": "year_end",
+          "from": 2026,
+          "to": 2024,
+          "reason": "Model changed value during validation; see decision_reason/grounding_summary"
+        }
+      ],
+      "fields_left_unresolved": [],
+      "decision_reason": "The trim field combines 'Competizione', 'Scorpione', and 'Nuvolari S'. These are distinct trim levels with different engine outputs (e.g., 145hp vs 165hp vs 180hp) and specifications in the Israeli market. They must be split into separate variant records.",
+      "_pipeline_version": "v3_three_stage",
+      "_flags_count": 1,
+      "_flash_used": false,
+      "adjudication_log": [],
+      "publishable_to_clean_catalog": false,
+      "final_route": "review_queue",
+      "route_reason": "Routing not yet assigned.",
+      "duplicate_group_id": null,
+      "duplicate_of": null
     }
   },
   "cluster_cache": {
@@ -265,14 +356,46 @@
           ]
         }
       ]
+    },
+    "CLU-d039ea7ad836": {
+      "anchor_id": "VAL-000003",
+      "identity_status": "verified",
+      "identity_confidence": 0.95,
+      "grounding_summary": "The Abarth 500 was officially imported to Israel. However, the provided trim string 'Competizione / Scorpione / Nuvolari S' combines three technically distinct trims. Competizione is a high-performance trim (up to 180hp), Scorpione was the entry-level trim (135-145hp), and Nuvolari S replaced the Scorpione as the entry-level trim with 165hp. Because these trims have different power outputs and specifications, they must be split into separate variants. The petrol model's production ended around 2024, replaced by the electric 500e.",
+      "evidence_sources": [
+        {
+          "title": "אבארט 500 - מחירון, חוות דעת ומידע טכני | אוטו",
+          "url": "https://www.auto.co.il/model/abarth-500_g134",
+          "source_name": "auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "official_import_il",
+            "exact_trim",
+            "split_required",
+            "engine",
+            "transmission"
+          ]
+        },
+        {
+          "title": "אבארט 595 נובולארי 2023 בישראל - מחיר 135,900 שקל - cartube",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%90%D7%91%D7%90%D7%A8%D7%98-595-%D7%A0%D7%95%D7%91%D7%95%D7%9C%D7%90%D7%A8%D7%99-2023-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-135-900-%D7%A9%D7%A7%D7%9C",
+          "source_name": "cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "trim_candidates",
+            "split_required"
+          ]
+        }
+      ]
     }
   },
   "decision_counts": {
     "clean_exact": 0,
     "clean_partial": 2,
-    "split_required": 0,
+    "split_required": 1,
     "reject": 0
   },
-  "last_validated_id": "VAL-000002",
-  "updated_at_utc": "2026-06-13T19:22:39Z"
+  "last_validated_id": "VAL-000003",
+  "updated_at_utc": "2026-06-13T19:23:28Z"
 }
