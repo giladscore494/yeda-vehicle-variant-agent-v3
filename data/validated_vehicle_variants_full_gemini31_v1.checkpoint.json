@@ -8,23 +8,23 @@
     "run_timestamp_utc": "2026-06-13T21:32:14Z",
     "total_input_variants": 3712,
     "total_instruction_records": 3712,
-    "total_validated_variants": 1,
+    "total_validated_variants": 2,
     "decision_counts": {
       "clean_exact": 0,
-      "clean_partial": 1,
+      "clean_partial": 2,
       "split_required": 0,
       "reject": 0
     },
     "grounding_cluster_count": 3653,
-    "gemini_call_count": 1,
+    "gemini_call_count": 2,
     "github_checkpoint_enabled": true,
-    "github_checkpoint_count": 1,
+    "github_checkpoint_count": 2,
     "github_checkpoint_fail_count": 0,
     "last_github_checkpoint_error": null,
-    "last_validated_id": "VAL-000001",
+    "last_validated_id": "VAL-000002",
     "schema_version": "v3_three_stage",
     "pipeline_version": "v3_three_stage",
-    "stage1_pro_calls": 1,
+    "stage1_pro_calls": 2,
     "stage2_guard_flags_total": 0,
     "stage3_flash_calls": 0,
     "flash_overrode_guard": 0,
@@ -42,7 +42,8 @@
     "force_per_variant_validation": true
   },
   "completed_validation_ids": [
-    "VAL-000001"
+    "VAL-000001",
+    "VAL-000002"
   ],
   "failed_validation_ids": [],
   "validated_variants_by_id": {
@@ -134,6 +135,94 @@
       "duplicate_group_id": null,
       "duplicate_of": null,
       "_guard_verifier_used": false
+    },
+    "VAL-000002": {
+      "validation_id": "VAL-000002",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000002",
+      "source_cluster_id": "CLU-7ea11c499a5f",
+      "grounding_cluster_id": "CLU-7ea11c499a5f",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "500",
+      "canonical_series_or_generation": "1st Gen",
+      "canonical_trim": null,
+      "official_marketed_name_il": "אבארט 500",
+      "body_type": "Hatchback",
+      "fuel_type": "petrol",
+      "engine": "1.4L Turbo",
+      "transmission": "manual",
+      "drivetrain": "FWD",
+      "year_start": 2010,
+      "year_end": 2016,
+      "is_currently_produced": false,
+      "is_currently_imported_il": false,
+      "market_scope": "IL",
+      "validation_decision": "clean_partial",
+      "acceptance_tier": "partial",
+      "identity_status": "verified",
+      "identity_confidence": 0.95,
+      "trim_status": "unresolved",
+      "trim_confidence": 0.0,
+      "grounding_summary": "The Abarth 500 was officially imported to Israel starting in 2010 with a 1.4L Turbo engine and manual transmission. The input trim 'Base' is a generic placeholder and not an official trim name, so it has been removed. The actual entry-level trim in Israel was 'Scorpione'.",
+      "evidence_sources": [
+        {
+          "title": "אבארט 500 2008 יד שניה - אוטו",
+          "url": null,
+          "source_name": "auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "year_range",
+            "engine",
+            "transmission",
+            "trim_candidates"
+          ]
+        },
+        {
+          "title": "אבארט 500 - אתר iCar",
+          "url": null,
+          "source_name": "icar.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "year_range",
+            "engine"
+          ]
+        }
+      ],
+      "possible_trim_names": [
+        "Scorpione",
+        "Lusso",
+        "Competizione"
+      ],
+      "split_candidates": [],
+      "blocking_identity_issues": [],
+      "non_blocking_trim_issues": [
+        "Input trim 'Base' is a generic placeholder, not an official marketed trim."
+      ],
+      "fields_changed": [
+        {
+          "field": "year_start",
+          "from": 2008,
+          "to": 2010,
+          "reason": "Model changed value during validation; see decision_reason/grounding_summary"
+        }
+      ],
+      "fields_left_unresolved": [
+        "canonical_trim"
+      ],
+      "decision_reason": "Vehicle identity is verified for the Israeli market, but the provided trim 'Base' is a generic placeholder. Validation decision is clean_partial.",
+      "_pipeline_version": "v3_three_stage",
+      "_flags_count": 0,
+      "_flash_used": false,
+      "adjudication_log": [],
+      "publishable_to_clean_catalog": false,
+      "final_route": "review_queue",
+      "route_reason": "Routing not yet assigned.",
+      "duplicate_group_id": null,
+      "duplicate_of": null,
+      "_guard_verifier_used": false
     }
   },
   "cluster_cache": {
@@ -172,10 +261,10 @@
   },
   "decision_counts": {
     "clean_exact": 0,
-    "clean_partial": 1,
+    "clean_partial": 2,
     "split_required": 0,
     "reject": 0
   },
-  "last_validated_id": "VAL-000001",
-  "updated_at_utc": "2026-06-13T21:32:14Z"
+  "last_validated_id": "VAL-000002",
+  "updated_at_utc": "2026-06-13T21:32:32Z"
 }
