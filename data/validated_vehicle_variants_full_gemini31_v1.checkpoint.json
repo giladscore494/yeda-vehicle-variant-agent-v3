@@ -8,23 +8,23 @@
     "run_timestamp_utc": "2026-06-13T18:25:45Z",
     "total_input_variants": 3712,
     "total_instruction_records": 3712,
-    "total_validated_variants": 7,
+    "total_validated_variants": 8,
     "decision_counts": {
       "clean_exact": 0,
-      "clean_partial": 5,
+      "clean_partial": 6,
       "split_required": 2,
       "reject": 0
     },
     "grounding_cluster_count": 3653,
-    "gemini_call_count": 7,
+    "gemini_call_count": 8,
     "github_checkpoint_enabled": true,
-    "github_checkpoint_count": 7,
+    "github_checkpoint_count": 8,
     "github_checkpoint_fail_count": 0,
     "last_github_checkpoint_error": null,
-    "last_validated_id": "VAL-000007",
+    "last_validated_id": "VAL-000008",
     "schema_version": "v3_three_stage",
     "pipeline_version": "v3_three_stage",
-    "stage1_pro_calls": 7,
+    "stage1_pro_calls": 8,
     "stage2_guard_flags_total": 6,
     "stage3_flash_calls": 0,
     "flash_overrode_guard": 0,
@@ -38,7 +38,8 @@
     "VAL-000004",
     "VAL-000005",
     "VAL-000006",
-    "VAL-000007"
+    "VAL-000007",
+    "VAL-000008"
   ],
   "failed_validation_ids": [],
   "validated_variants_by_id": {
@@ -641,6 +642,91 @@
       "_flags_count": 0,
       "_flash_used": false,
       "adjudication_log": []
+    },
+    "VAL-000008": {
+      "validation_id": "VAL-000008",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000008",
+      "source_cluster_id": "CLU-00815c8cd105",
+      "grounding_cluster_id": "CLU-00815c8cd105",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "500",
+      "canonical_series_or_generation": null,
+      "canonical_trim": null,
+      "official_marketed_name_il": "אבארט 500",
+      "body_type": "hatchback",
+      "fuel_type": "petrol",
+      "engine": "1.4 Turbo 165",
+      "transmission": "manual",
+      "drivetrain": "FWD",
+      "year_start": 2018,
+      "year_end": 2023,
+      "is_currently_produced": false,
+      "is_currently_imported_il": false,
+      "market_scope": "IL",
+      "validation_decision": "clean_partial",
+      "acceptance_tier": "partial",
+      "identity_status": "verified",
+      "identity_confidence": 0.95,
+      "trim_status": "unresolved",
+      "trim_confidence": 0.0,
+      "grounding_summary": "The Abarth 500 (often marketed as Abarth 595 for the 165 hp versions) with a 1.4 Turbo 165 hp engine and manual transmission is verified for the Israeli market. Trims include Turismo and Nuvolari. Since the trim is missing from the input, the variant is marked as clean_partial.",
+      "evidence_sources": [
+        {
+          "title": "אבארט 500 1.4 ידני 165 כ\"ס Nuvolari 2023 | מפרט טכני - cartube",
+          "url": null,
+          "source_name": "cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "engine",
+            "transmission",
+            "trim_candidates",
+            "year_range"
+          ]
+        },
+        {
+          "title": "אבארט 595 - מחירון, חוות דעת ומידע טכני | אוטו",
+          "url": null,
+          "source_name": "auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "engine",
+            "body_type"
+          ]
+        },
+        {
+          "title": "אבארט 500 למכירה | יד2 רכב - אלפי מודעות חדשות בכל יום",
+          "url": null,
+          "source_name": "yad2.co.il",
+          "source_type": "marketplace",
+          "supports": [
+            "market_presence_il",
+            "trim_candidates"
+          ]
+        }
+      ],
+      "possible_trim_names": [
+        "Turismo",
+        "Nuvolari",
+        "Nuvolari S"
+      ],
+      "split_candidates": [],
+      "blocking_identity_issues": [],
+      "non_blocking_trim_issues": [
+        "Trim is missing from the input data."
+      ],
+      "fields_changed": [],
+      "fields_left_unresolved": [
+        "canonical_trim"
+      ],
+      "decision_reason": "Core identity is verified for the Israeli market, but the trim is missing. Valid trims for this configuration include Turismo and Nuvolari.",
+      "_pipeline_version": "v3_three_stage",
+      "_flags_count": 0,
+      "_flash_used": false,
+      "adjudication_log": []
     }
   },
   "cluster_cache": {
@@ -849,14 +935,56 @@
           ]
         }
       ]
+    },
+    "CLU-00815c8cd105": {
+      "anchor_id": "VAL-000008",
+      "identity_status": "verified",
+      "identity_confidence": 0.95,
+      "grounding_summary": "The Abarth 500 (often marketed as Abarth 595 for the 165 hp versions) with a 1.4 Turbo 165 hp engine and manual transmission is verified for the Israeli market. Trims include Turismo and Nuvolari. Since the trim is missing from the input, the variant is marked as clean_partial.",
+      "evidence_sources": [
+        {
+          "title": "אבארט 500 1.4 ידני 165 כ\"ס Nuvolari 2023 | מפרט טכני - cartube",
+          "url": null,
+          "source_name": "cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "engine",
+            "transmission",
+            "trim_candidates",
+            "year_range"
+          ]
+        },
+        {
+          "title": "אבארט 595 - מחירון, חוות דעת ומידע טכני | אוטו",
+          "url": null,
+          "source_name": "auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "engine",
+            "body_type"
+          ]
+        },
+        {
+          "title": "אבארט 500 למכירה | יד2 רכב - אלפי מודעות חדשות בכל יום",
+          "url": null,
+          "source_name": "yad2.co.il",
+          "source_type": "marketplace",
+          "supports": [
+            "market_presence_il",
+            "trim_candidates"
+          ]
+        }
+      ]
     }
   },
   "decision_counts": {
     "clean_exact": 0,
-    "clean_partial": 5,
+    "clean_partial": 6,
     "split_required": 2,
     "reject": 0
   },
-  "last_validated_id": "VAL-000007",
-  "updated_at_utc": "2026-06-13T18:26:24Z"
+  "last_validated_id": "VAL-000008",
+  "updated_at_utc": "2026-06-13T18:27:07Z"
 }
