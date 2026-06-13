@@ -8,25 +8,25 @@
     "run_timestamp_utc": "2026-06-13T19:34:47Z",
     "total_input_variants": 3712,
     "total_instruction_records": 3712,
-    "total_validated_variants": 3,
+    "total_validated_variants": 4,
     "decision_counts": {
       "clean_exact": 0,
       "clean_partial": 2,
-      "split_required": 1,
+      "split_required": 2,
       "reject": 0
     },
     "grounding_cluster_count": 3653,
-    "gemini_call_count": 3,
+    "gemini_call_count": 4,
     "github_checkpoint_enabled": true,
-    "github_checkpoint_count": 3,
+    "github_checkpoint_count": 4,
     "github_checkpoint_fail_count": 0,
     "last_github_checkpoint_error": null,
-    "last_validated_id": "VAL-000003",
+    "last_validated_id": "VAL-000004",
     "schema_version": "v3_three_stage",
     "pipeline_version": "v3_three_stage",
-    "stage1_pro_calls": 3,
-    "stage2_guard_flags_total": 2,
-    "stage3_flash_calls": 1,
+    "stage1_pro_calls": 4,
+    "stage2_guard_flags_total": 3,
+    "stage3_flash_calls": 2,
     "flash_overrode_guard": 0,
     "guard_overrode_flash": 0,
     "force_per_variant_validation": true
@@ -323,6 +323,92 @@
       "duplicate_group_id": "dup-676d5db5",
       "duplicate_of": null,
       "guard_corrected_reason": "Python guards corrected the model output: trim_status: 'inferred' -> 'invalid'; year_end: 2026 -> None."
+    },
+    {
+      "validation_id": "VAL-000004",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000004",
+      "source_cluster_id": "CLU-d039ea7ad836",
+      "grounding_cluster_id": "CLU-d039ea7ad836",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "500",
+      "canonical_series_or_generation": "First Generation",
+      "canonical_trim": "Turismo / Competizione",
+      "official_marketed_name_il": "אבארט 500",
+      "body_type": "Hatchback",
+      "fuel_type": "petrol",
+      "engine": "1.4L Turbo",
+      "transmission": "manual",
+      "drivetrain": "FWD",
+      "year_start": 2010,
+      "year_end": 2026,
+      "is_currently_produced": false,
+      "is_currently_imported_il": null,
+      "market_scope": "IL",
+      "validation_decision": "split_required",
+      "acceptance_tier": "none",
+      "identity_status": "verified",
+      "identity_confidence": 0.95,
+      "trim_status": "invalid",
+      "trim_confidence": 0.0,
+      "grounding_summary": "The Abarth 500 was officially imported to Israel starting in 2010. The provided trim string 'Turismo / Competizione' combines two distinct trims that have different engine power outputs (e.g., 165 hp for Turismo and 180 hp for Competizione) and specifications. Therefore, these must be split into separate variants.",
+      "evidence_sources": [
+        {
+          "title": "אבארט 500 ‏ 2010-2025 יד שניה - iCar",
+          "url": null,
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "year_range",
+            "trim_candidates",
+            "split_required",
+            "engine",
+            "transmission"
+          ]
+        }
+      ],
+      "possible_trim_names": [
+        "Turismo",
+        "Competizione"
+      ],
+      "split_candidates": [
+        "Turismo",
+        "Competizione"
+      ],
+      "blocking_identity_issues": [],
+      "non_blocking_trim_issues": [
+        "Trim string combines multiple distinct trims (Turismo and Competizione) which have different power outputs and specifications.",
+        "Combined trim contains multiple distinct marketed trims and must be split into separate variants.",
+        "year_end is current/future; verify it is not a placeholder for active production/import."
+      ],
+      "fields_changed": [
+        {
+          "field": "year_start",
+          "from": 2008,
+          "to": 2010,
+          "reason": "Model changed value during validation; see decision_reason/grounding_summary"
+        }
+      ],
+      "fields_left_unresolved": [],
+      "decision_reason": "The trim field contains multiple distinct trims (Turismo and Competizione) separated by a slash. These trims represent different performance levels (e.g., 165 hp vs 180 hp) and must be split into separate variants.",
+      "_pipeline_version": "v3_three_stage",
+      "_flags_count": 1,
+      "_flash_used": true,
+      "adjudication_log": [
+        {
+          "guard": "slash_trim",
+          "guard_changed_to": "split_required",
+          "flash_decided": "split_required",
+          "flash_reason": "The combined slash trim represents two distinct performance trims in the Israeli market and must be split."
+        }
+      ],
+      "publishable_to_clean_catalog": false,
+      "final_route": "split_queue",
+      "route_reason": "split_required rows must be split before clean catalog publishing.",
+      "duplicate_group_id": "dup-c0a7983b",
+      "duplicate_of": null
     }
   ]
 }
