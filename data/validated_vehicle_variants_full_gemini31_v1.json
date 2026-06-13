@@ -8,17 +8,17 @@
     "run_timestamp_utc": "2026-06-13T17:10:40Z",
     "total_input_variants": 3712,
     "total_instruction_records": 3712,
-    "total_validated_variants": 2,
+    "total_validated_variants": 3,
     "decision_counts": {
       "clean_exact": 0,
       "clean_partial": 2,
-      "split_required": 0,
+      "split_required": 1,
       "reject": 0
     },
     "grounding_cluster_count": 3653,
-    "gemini_call_count": 1,
-    "github_checkpoint_count": 1,
-    "last_validated_id": "VAL-000002"
+    "gemini_call_count": 2,
+    "github_checkpoint_count": 2,
+    "last_validated_id": "VAL-000003"
   },
   "validated_variants": [
     {
@@ -129,6 +129,81 @@
         "official_marketed_name_il"
       ],
       "decision_reason": "Identity grounding reused from cluster anchor VAL-000001; trim evaluated per-row."
+    },
+    {
+      "validation_id": "VAL-000003",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000003",
+      "source_cluster_id": "CLU-d039ea7ad836",
+      "grounding_cluster_id": "CLU-d039ea7ad836",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "500",
+      "canonical_series_or_generation": "First Generation",
+      "canonical_trim": "Competizione / Scorpione / Nuvolari S",
+      "official_marketed_name_il": "אבארט 500",
+      "body_type": "Hatchback",
+      "fuel_type": "petrol",
+      "engine": "1.4L Turbo",
+      "transmission": "manual",
+      "drivetrain": "FWD",
+      "year_start": 2008,
+      "year_end": 2026,
+      "market_scope": "IL",
+      "validation_decision": "split_required",
+      "acceptance_tier": "none",
+      "identity_status": "verified",
+      "identity_confidence": 0.95,
+      "trim_status": "invalid",
+      "trim_confidence": 0.0,
+      "grounding_summary": "The Abarth 500 is marketed in Israel, but the provided trim string combines three distinct trims (Competizione, Scorpione, Nuvolari S). These trims have different power outputs (e.g., 145 hp, 165 hp, 180 hp) and equipment levels, requiring them to be split into separate variants.",
+      "evidence_sources": [
+        {
+          "title": "iCar Israel",
+          "url": null,
+          "source_name": null,
+          "source_type": "unknown",
+          "supports": []
+        },
+        {
+          "title": "Cartube Israel",
+          "url": null,
+          "source_name": null,
+          "source_type": "unknown",
+          "supports": []
+        },
+        {
+          "title": "Yad2 Israel",
+          "url": null,
+          "source_name": null,
+          "source_type": "unknown",
+          "supports": []
+        },
+        {
+          "title": "Auto.co.il",
+          "url": null,
+          "source_name": "Auto.co.il",
+          "source_type": "unknown",
+          "supports": []
+        }
+      ],
+      "possible_trim_names": [
+        "Competizione",
+        "Scorpione",
+        "Nuvolari S"
+      ],
+      "split_candidates": [
+        "Competizione",
+        "Scorpione",
+        "Nuvolari S"
+      ],
+      "blocking_identity_issues": [
+        "Trim field combines multiple distinct marketed trims that must be split."
+      ],
+      "non_blocking_trim_issues": [],
+      "fields_changed": [],
+      "fields_left_unresolved": [],
+      "decision_reason": "The variant combines multiple distinct trims (Competizione, Scorpione, Nuvolari S) which represent different performance levels in the Israeli market. A split is required."
     }
   ]
 }
