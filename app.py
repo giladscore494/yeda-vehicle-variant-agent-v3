@@ -1,6 +1,6 @@
 """Streamlit validation runner for the Gemini 3.1 sampled vehicle variant engine.
 
-Gemini-only. No OpenAI. No GPT adjudicator. No dual-model flow.
+Gemini 3.1 is the main validator; OpenAI is used only for optional guard-scoped verification.
 
 Mock and real runs are completely isolated: separate output files, separate
 checkpoints, separate summaries, separate UI sections. A mock run can never
@@ -11,8 +11,8 @@ Secrets (exact paths):
     st.secrets["google"]["api_key"]
     st.secrets["google"]["gemini_validator_model_id"]   (default gemini-3.1-pro-preview)
     st.secrets["google"]["grounding_enabled"]            (default true)
-    st.secrets["google"]["gemini_flash_model_id"]         (default gemini-2.5-flash)
-    st.secrets["google"]["flash_adjudication_enabled"]    (default false)
+    st.secrets["openai"]["api_key"]                       (guard verifier only)
+    st.secrets["openai"]["validator_model_id"]            (default gpt-5.4)
     st.secrets["google"]["force_per_variant_validation"]  (default true)
 
 Secret values are never printed — only presence/missing status is shown.
@@ -76,11 +76,14 @@ def _secret_bool(key: str, default: bool) -> bool:
 def get_grounding_enabled() -> bool:
     return _secret_bool("grounding_enabled", True)
 
-def get_flash_model_id() -> str:
-    return _secret("google", "gemini_flash_model_id", "gemini-2.5-flash") or "gemini-2.5-flash"
+def get_openai_api_key() -> str:
+    return _secret("openai", "api_key", "") or ""
 
-def get_flash_enabled_default() -> bool:
-    return _secret_bool("flash_adjudication_enabled", False)
+def get_guard_verifier_model_id() -> str:
+    return _secret("openai", "validator_model_id", "gpt-5.4") or "gpt-5.4"
+
+def get_guard_verifier_enabled_default() -> bool:
+    return False
 
 def get_force_per_variant_default() -> bool:
     return _secret_bool("force_per_variant_validation", True)
@@ -119,8 +122,9 @@ token = get_github_token()
 api_key = get_gemini_api_key()
 model_id = get_model_id()
 grounding = get_grounding_enabled()
-flash_model_default = get_flash_model_id()
-flash_enabled_default = get_flash_enabled_default()
+openai_api_key = get_openai_api_key()
+guard_verifier_model_default = get_guard_verifier_model_id()
+guard_verifier_enabled_default = get_guard_verifier_enabled_default()
 force_per_variant_default = get_force_per_variant_default()
 
 MOCK_PATHS = resolve_run_paths("mock")
@@ -143,7 +147,8 @@ with col_b:
     st.write(f"GitHub token: {presence(token)}")
     st.write(f"model id: `{model_id}`")
     st.write(f"grounding enabled: `{grounding}`")
-    st.write(f"Flash adjudication default: `{flash_enabled_default}`")
+    st.write(f"OpenAI guard verifier key: {presence(openai_api_key)}")
+    st.write(f"guard verifier model id: `{guard_verifier_model_default}`")
     st.write(f"force per-variant default: `{force_per_variant_default}`")
 with col_c:
     st.subheader("Output files")
@@ -198,8 +203,8 @@ def execute_run(
     push_to_github: bool,
     stop_on_github_failure: bool,
     stop_on_error: bool,
-    flash_adjudication_enabled: bool = False,
-    flash_model_id: str = "gemini-2.5-flash",
+    guard_verifier_enabled: bool = False,
+    guard_verifier_model_id: str = "gpt-5.4",
     force_per_variant_validation: bool = True,
 ) -> None:
     mode = run_paths.mode
@@ -226,10 +231,13 @@ def execute_run(
             )
         )
 
-    flash_adjudicator = None
-    if mode == "real" and flash_adjudication_enabled:
-        from scripts.flash_adjudicator import FlashAdjudicator, FlashSettings
-        flash_adjudicator = FlashAdjudicator(FlashSettings(api_key=api_key, model_id=flash_model_id, enabled=True))
+    guard_verifier = None
+    if mode == "real" and guard_verifier_enabled:
+        if not openai_api_key:
+            st.error("Guard verifier requested but st.secrets['openai']['api_key'] is missing.")
+            return
+        from scripts.openai_guard_verifier import OpenAIGuardVerifier, OpenAIGuardVerifierSettings
+        guard_verifier = OpenAIGuardVerifier(OpenAIGuardVerifierSettings(api_key=openai_api_key, model_id=guard_verifier_model_id, enabled=True))
 
     github_saver = None
     if push_to_github and run_paths.allow_github_push:
@@ -284,8 +292,9 @@ def execute_run(
         checkpoint_every=int(checkpoint_every),
         stop_on_github_failure=stop_on_github_failure,
         stop_on_error=stop_on_error,
-        flash_adjudication_enabled=flash_adjudication_enabled,
-        flash_model_id=flash_model_id,
+        flash_adjudication_enabled=False,
+        flash_model_id=guard_verifier_model_id,
+        guard_verifier_enabled=guard_verifier_enabled,
         force_per_variant_validation=force_per_variant_validation,
     )
 
@@ -302,7 +311,8 @@ def execute_run(
             model_id=run_paths.model,
             log=log_line,
             on_progress=_on_progress,
-            flash_adjudicator=flash_adjudicator,
+            flash_adjudicator=None,
+            guard_verifier=guard_verifier,
         )
     st.session_state.run_result = {
         "mode": mode,
@@ -392,7 +402,7 @@ with rc1:
     )
     real_force = st.checkbox("Force reprocess (real)", value=False, key="real_force")
     real_stop_on_error = st.checkbox("Stop on first row error", value=False, key="real_soe")
-    real_flash_enabled = st.checkbox("Flash adjudication enabled", value=flash_enabled_default, key="real_flash")
+    real_guard_verifier_enabled = st.checkbox("GPT guard verifier enabled", value=guard_verifier_enabled_default, key="real_guard_verifier")
     real_force_per_variant = st.checkbox("Force per-variant Gemini validation", value=force_per_variant_default, key="real_force_per_variant")
 with rc2:
     real_start_after = st.text_input("Start after id (real)", value="", key="real_start")
@@ -403,7 +413,7 @@ with rc2:
         "Auto-save real files to GitHub", value=bool(token), key="real_push"
     )
     real_stop_on_gh = st.checkbox("Stop on GitHub save failure", value=True, key="real_sogh")
-    real_flash_model_id = st.text_input("Flash model id", value=flash_model_default, key="real_flash_model")
+    real_guard_verifier_model_id = st.text_input("Guard verifier model id", value=guard_verifier_model_default, key="real_guard_verifier_model")
 
 rrun_col, rreset_col = st.columns(2)
 real_run_clicked = rrun_col.button(
@@ -429,8 +439,8 @@ if real_run_clicked:
         push_to_github=real_push,
         stop_on_github_failure=real_stop_on_gh,
         stop_on_error=real_stop_on_error,
-        flash_adjudication_enabled=real_flash_enabled,
-        flash_model_id=real_flash_model_id,
+        guard_verifier_enabled=real_guard_verifier_enabled,
+        guard_verifier_model_id=real_guard_verifier_model_id,
         force_per_variant_validation=real_force_per_variant,
     )
 
@@ -479,9 +489,9 @@ def _mode_progress(label: str, run_paths) -> None:
     v1, v2, v3, v4, v5 = st.columns(5)
     v1.metric("Stage 1 Pro", meta.get("stage1_pro_calls", 0))
     v2.metric("Guard flags", meta.get("stage2_guard_flags_total", 0))
-    v3.metric("Stage 3 Flash", meta.get("stage3_flash_calls", 0))
-    v4.metric("Flash overrode", meta.get("flash_overrode_guard", 0))
-    v5.metric("Guard overrode", meta.get("guard_overrode_flash", 0))
+    v3.metric("Stage 3 guard verifier", meta.get("stage3_guard_verifier_calls", 0))
+    v4.metric("Verifier overrode", meta.get("guard_verifier_overrode_guard", 0))
+    v5.metric("Guard overrode", meta.get("guard_overrode_verifier", 0))
 
     dc = meta.get("decision_counts", {})
     d1, d2, d3, d4 = st.columns(4)
@@ -497,7 +507,7 @@ def _mode_progress(label: str, run_paths) -> None:
     latest = store_view.latest_row()
     if latest:
         with st.expander(f"Latest {label} row"):
-            st.write(f"_flash_used: `{latest.get('_flash_used')}` · _flags_count: `{latest.get('_flags_count')}`")
+            st.write(f"_guard_verifier_used: `{latest.get('_guard_verifier_used')}` · _flags_count: `{latest.get('_flags_count')}`")
             if latest.get("adjudication_log"):
                 st.json(latest.get("adjudication_log"))
             st.json(latest)

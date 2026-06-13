@@ -289,6 +289,7 @@ class RunConfig:
     stop_on_error: bool = False
     flash_adjudication_enabled: bool = False
     flash_model_id: str = "gemini-2.5-flash"
+    guard_verifier_enabled: bool = False
     force_per_variant_validation: bool = True
 
 
@@ -330,6 +331,7 @@ def run_validation(
     log: Optional[Callable[[str], None]] = None,
     on_progress: Optional[Callable[[Dict[str, Any]], None]] = None,
     flash_adjudicator=None,
+    guard_verifier=None,
 ) -> RunResult:
     """Run validation over the joined dataset and persist after each variant."""
     logs: List[str] = []
@@ -426,20 +428,35 @@ def run_validation(
                     if cluster.cluster_id not in store.cluster_cache:
                         store.cluster_cache[cluster.cluster_id] = evidence_from_row(row, vid)
 
-                    # Stage 3: optional Flash adjudication, followed by final guard authority.
-                    flash_used = bool(flags and config.flash_adjudication_enabled and flash_adjudicator is not None)
-                    if flash_used:
-                        row = flash_adjudicator.adjudicate(row, flags, original_model_output=original_row)
-                        store.bump_stage3_flash_calls(1)
-                        if row.get("_flash_overrode_guard"):
-                            store.bump_flash_overrode_guard(int(row.get("_flash_overrode_guard") or 0))
+                    # Stage 3: optional GPT guard-scoped verification, followed by final guard authority.
+                    adjudication_flags = [
+                        f for f in flags
+                        if f.needs_adjudication and f.recommended_verifier_model == "gpt-5.4"
+                    ]
+                    verifier_used = bool(
+                        adjudication_flags
+                        and config.guard_verifier_enabled
+                        and guard_verifier is not None
+                    )
+                    flash_used = False
+                    if verifier_used:
+                        before_calls = getattr(guard_verifier, "calls", 0)
+                        row = guard_verifier.adjudicate(row, flags, original_model_output=original_row)
+                        calls = max(0, int(getattr(guard_verifier, "calls", 0)) - int(before_calls))
+                        if calls:
+                            store.bump_stage3_guard_verifier_calls(calls)
+                        if hasattr(guard_verifier, "settings"):
+                            store.set_guard_verifier_model(guard_verifier.settings.model_id)
+                        if row.get("_guard_verifier_overrode_guard"):
+                            store.bump_guard_verifier_overrode_guard(int(row.get("_guard_verifier_overrode_guard") or 0))
                         before_final = row.get("validation_decision")
                         row, final_flags = reconcile_validation_output_with_flags(variant, row, run_mode="real", final_pass=True)
                         if before_final != row.get("validation_decision"):
-                            store.bump_guard_overrode_flash(1)
+                            store.bump_guard_overrode_verifier(1)
                     row["_pipeline_version"] = "v3_three_stage"
                     row["_flags_count"] = len(flags)
                     row["_flash_used"] = flash_used
+                    row["_guard_verifier_used"] = verifier_used
                     row.setdefault("adjudication_log", [])
                 else:
                     # Legacy fallback only when force_per_variant_validation is explicitly disabled.
@@ -506,6 +523,7 @@ def run_validation(
                     "stage1_pro_calls": store.metadata.get("stage1_pro_calls", 0),
                     "stage2_guard_flags_total": store.metadata.get("stage2_guard_flags_total", 0),
                     "stage3_flash_calls": store.metadata.get("stage3_flash_calls", 0),
+                    "stage3_guard_verifier_calls": store.metadata.get("stage3_guard_verifier_calls", 0),
                 }
             )
         if github_saver is None:

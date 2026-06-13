@@ -152,19 +152,19 @@ def main() -> int:
     check("reconcile drops placeholder trim candidates",
           recon["possible_trim_names"] == ["Scorpione"])
 
-    # 16-17. no OpenAI / no GPT adjudicator anywhere in source
+    # 16-17. OpenAI is isolated to the guard-scoped verifier
     offenders = []
     for base, _dirs, files in os.walk(os.path.join(REPO_ROOT, "scripts")):
         for f in files:
             if f.endswith(".py") and f != "smoke_test.py":  # skip this scanner itself
                 text = open(os.path.join(base, f), encoding="utf-8").read().lower()
-                if "import openai" in text or "from openai" in text:
+                if ("import openai" in text or "from openai" in text) and f not in {"openai_guard_verifier.py", "run_gemini31_sampled_validation.py"}:
                     offenders.append(f"{f}:openai")
                 if "gpt_adjudicator" in text or "gpt-4" in text:
                     offenders.append(f"{f}:gpt")
-    check("no OpenAI dependency", not offenders, str(offenders))
+    check("OpenAI isolated to guard verifier", not offenders, str(offenders))
     reqs = open(os.path.join(REPO_ROOT, "requirements.txt")).read().lower()
-    check("no openai in requirements", "openai" not in reqs)
+    check("openai dependency present for guard verifier", "openai" in reqs)
 
     # 18. Streamlit secret paths present in app.py with exact form
     app_text = open(os.path.join(REPO_ROOT, "app.py"), encoding="utf-8").read()
@@ -173,6 +173,8 @@ def main() -> int:
         'st.secrets["google"]["api_key"]',
         'st.secrets["google"]["gemini_validator_model_id"]',
         'st.secrets["google"]["grounding_enabled"]',
+        'st.secrets["openai"]["api_key"]',
+        'st.secrets["openai"]["validator_model_id"]',
     ):
         check(f"secret path used: {path}", path in app_text)
 

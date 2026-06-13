@@ -204,13 +204,15 @@ def _norm_fingerprint_value(value: Any) -> str:
 def content_fingerprint(row: Dict[str, Any]) -> str:
     return "|".join(_norm_fingerprint_value(row.get(f)) for f in _DUP_FIELDS)
 
+IDENTITY_CRITICAL_UNRESOLVED_FIELDS = {"fuel_type", "engine", "transmission", "drivetrain", "body_type", "year_start", "year_end"}
+
 def _blocking_publish_issues(row: Dict[str, Any]) -> List[str]:
     issues = list(row.get("blocking_identity_issues") or [])
     if row.get("identity_status") not in {"verified", "likely_valid"}:
         issues.append("identity_status blocks clean catalog publishing")
     unresolved = set(row.get("fields_left_unresolved") or [])
-    if "transmission" in unresolved:
-        issues.append("transmission remains unresolved")
+    for field in sorted(unresolved & IDENTITY_CRITICAL_UNRESOLVED_FIELDS):
+        issues.append(f"{field} remains unresolved")
     return issues
 
 def route_validated_rows(rows: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
@@ -362,6 +364,11 @@ class OutputStore:
             "stage3_flash_calls": 0,
             "flash_overrode_guard": 0,
             "guard_overrode_flash": 0,
+            "stage3_guard_verifier_calls": 0,
+            "stage3_guard_verifier_model": "gpt-5.4",
+            "stage3_openai_guard_verifier_calls": 0,
+            "guard_verifier_overrode_guard": 0,
+            "guard_overrode_verifier": 0,
             "force_per_variant_validation": True,
         }
         # Ordered storage by id (preserves input order on flush).
@@ -433,7 +440,9 @@ class OutputStore:
                 self.metadata["decision_counts"][k] = cached_meta["decision_counts"].get(k, 0)
         for k in ("gemini_call_count", "github_checkpoint_count", "grounding_cluster_count",
                   "stage1_pro_calls", "stage2_guard_flags_total", "stage3_flash_calls",
-                  "flash_overrode_guard", "guard_overrode_flash", "github_checkpoint_fail_count"):
+                  "flash_overrode_guard", "guard_overrode_flash", "stage3_guard_verifier_calls",
+                  "stage3_openai_guard_verifier_calls", "guard_verifier_overrode_guard",
+                  "guard_overrode_verifier", "github_checkpoint_fail_count"):
             if cached_meta.get(k):
                 self.metadata[k] = cached_meta[k]
         if "github_checkpoint_enabled" in cached_meta:
@@ -523,6 +532,22 @@ class OutputStore:
     def bump_guard_overrode_flash(self, n: int = 1) -> None:
         self.metadata["guard_overrode_flash"] += n
 
+    def bump_stage3_guard_verifier_calls(self, n: int = 1) -> None:
+        self.metadata["stage3_guard_verifier_calls"] += n
+        self.metadata["stage3_openai_guard_verifier_calls"] += n
+        self.metadata["stage3_flash_calls"] += n  # legacy compatibility
+
+    def bump_guard_verifier_overrode_guard(self, n: int = 1) -> None:
+        self.metadata["guard_verifier_overrode_guard"] += n
+        self.metadata["flash_overrode_guard"] += n
+
+    def bump_guard_overrode_verifier(self, n: int = 1) -> None:
+        self.metadata["guard_overrode_verifier"] += n
+        self.metadata["guard_overrode_flash"] += n
+
+    def set_guard_verifier_model(self, model_id: str) -> None:
+        self.metadata["stage3_guard_verifier_model"] = model_id
+
     def set_force_per_variant_validation(self, value: bool) -> None:
         self.metadata["force_per_variant_validation"] = bool(value)
 
@@ -573,6 +598,11 @@ class OutputStore:
             "stage3_flash_calls": self.metadata["stage3_flash_calls"],
             "flash_overrode_guard": self.metadata["flash_overrode_guard"],
             "guard_overrode_flash": self.metadata["guard_overrode_flash"],
+            "stage3_guard_verifier_calls": self.metadata["stage3_guard_verifier_calls"],
+            "stage3_guard_verifier_model": self.metadata["stage3_guard_verifier_model"],
+            "stage3_openai_guard_verifier_calls": self.metadata["stage3_openai_guard_verifier_calls"],
+            "guard_verifier_overrode_guard": self.metadata["guard_verifier_overrode_guard"],
+            "guard_overrode_verifier": self.metadata["guard_overrode_verifier"],
             "force_per_variant_validation": self.metadata["force_per_variant_validation"],
             "failed_validation_ids": list(self.failed_ids),
             "last_validated_id": self.metadata["last_validated_id"],
