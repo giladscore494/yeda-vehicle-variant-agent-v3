@@ -15,12 +15,15 @@ Responsibilities (cleanup only):
 5. Normalize ``evidence_sources`` into structured, audit-friendly objects.
 6. Trim obviously unsupported (placeholder) ``possible_trim_names`` candidates.
 7. Strip any mock marker from real output.
+8. Post-processing guards from v2 prompt spec (slash trim, under-consideration,
+   year_end normalization, source_type classification, trim-only reject guard).
 
 None of these steps may convert ``clean_partial`` into ``reject``.
 """
 
 from __future__ import annotations
 
+import datetime
 import re
 from typing import Any, Dict, List, Optional
 
@@ -99,9 +102,6 @@ def _audit_field_changes(
         out_raw = row.get(out_field)
         src_cmp = _normalize_for_compare(out_field, src_raw)
         out_cmp = _normalize_for_compare(out_field, out_raw)
-        # Only a genuine value->value modification counts as a change. Pure
-        # clears (value -> empty) are unresolved fields, not changes, and pure
-        # fills (empty -> value) are enrichment handled by unresolved cleanup.
         if src_cmp in (None, "") or out_cmp in (None, ""):
             continue
         if src_cmp == out_cmp:
@@ -136,10 +136,8 @@ def _clean_unresolved(row: Dict[str, Any]) -> List[str]:
             continue
         seen.add(field)
         if field in _RESOLVE_WHEN_FILLED and row.get(field) not in (None, "", []):
-            # Field is filled -> treat as resolved, drop it.
             continue
         if field == "canonical_trim":
-            # Keep only if genuinely unresolved (null trim + unresolved status).
             if row.get("canonical_trim") in (None, "", []) and row.get(
                 "trim_status"
             ) == "unresolved":
@@ -153,15 +151,12 @@ def _reconcile_trim_status(row: Dict[str, Any]) -> str:
     """Keep ``trim_status`` consistent with ``canonical_trim`` (no rejection)."""
     trim_status = row.get("trim_status")
     canonical_trim = row.get("canonical_trim")
-    # Never touch an explicit invalid trim verdict.
     if trim_status == "invalid":
         return trim_status
     has_trim = canonical_trim not in (None, "", [])
     if not has_trim and trim_status in ("verified", "inferred"):
-        # No concrete trim but status claims one — relax to unresolved.
         return "unresolved"
     if has_trim and trim_status == "unresolved":
-        # A concrete trim is present — at least inferred.
         return "inferred"
     return trim_status
 
@@ -187,11 +182,14 @@ def _normalize_evidence_source(item: Any) -> Optional[Dict[str, Any]]:
         if not isinstance(supports, list):
             supports = []
         title = item.get("title") or item.get("name") or (url if isinstance(url, str) else "")
+        raw_type = item.get("source_type") or "unknown"
+        classified = classify_source_type(source_name or "", url or "")
+        source_type = classified if classified != "unknown" else raw_type
         return {
             "title": title,
             "url": url if isinstance(url, str) else None,
             "source_name": source_name,
-            "source_type": item.get("source_type") or "unknown",
+            "source_type": source_type,
             "supports": supports,
         }
 
@@ -207,15 +205,15 @@ def _normalize_evidence_source(item: Any) -> Optional[Dict[str, Any]]:
             source_name = re.sub(r"^https?://", "", url).split("/")[0] or None
         elif tokens and _looks_like_domain(tokens[0]):
             source_name = tokens[0]
+        source_type = classify_source_type(source_name or "", url or "")
         return {
             "title": text,
             "url": url,
             "source_name": source_name,
-            "source_type": "unknown",
+            "source_type": source_type,
             "supports": [],
         }
 
-    # Unknown shape — preserve as a title string rather than dropping evidence.
     if item is None:
         return None
     return {
@@ -239,12 +237,7 @@ def _normalize_evidence_sources(sources: Any) -> List[Dict[str, Any]]:
 
 
 def _clean_possible_trim_names(names: Any) -> List[Any]:
-    """Drop empty/placeholder (weak) candidates; keep real ones, preserve order.
-
-    This is cleanup only: dict-shaped candidates are preserved untouched, and we
-    never empty the list just because evidence is imperfect — only obvious
-    placeholder/blank strings are removed.
-    """
+    """Drop empty/placeholder (weak) candidates; keep real ones, preserve order."""
     if not isinstance(names, list):
         return []
     cleaned: List[Any] = []
@@ -275,6 +268,127 @@ def _strip_mock_marker(row: Dict[str, Any]) -> None:
         ]
 
 
+# ---------------------------------------------------------------------------
+# v2 post-processing guards
+# ---------------------------------------------------------------------------
+
+_SLASH_SEPARATORS = ["/", "|", " or ", " and "]
+
+_UNDER_CONSIDERATION_PHRASES = [
+    "under consideration",
+    "expected to arrive",
+    "may arrive",
+    "importer is evaluating",
+    "not yet launched",
+    "being evaluated",
+]
+
+SOURCE_TYPE_MAP = {
+    "abarth.co.il": "official_importer",
+    "samelet.co.il": "official_importer",
+    "abarth.com": "manufacturer",
+    "fiat.com": "manufacturer",
+    "yad2.co.il": "marketplace",
+    "autoboom.co.il": "marketplace",
+    "wisecars.co.il": "marketplace",
+    "cartube.co.il": "marketplace",
+    "icar.co.il": "editorial",
+    "auto.co.il": "editorial",
+    "gear.co.il": "editorial",
+    "wheel.co.il": "editorial",
+    "thecar.co.il": "editorial",
+    "over-drive.co.il": "editorial",
+    "data.gov.il": "government",
+}
+
+
+def classify_source_type(source_name: str, url: str) -> str:
+    """Classify an evidence source into a source_type category."""
+    name_lower = (source_name or "").lower()
+    url_lower = (url or "").lower()
+    for domain, stype in SOURCE_TYPE_MAP.items():
+        if domain in name_lower or domain in url_lower:
+            return stype
+    if any(x in name_lower for x in ["yad2", "autoboom", "wisecars"]):
+        return "marketplace"
+    if any(x in name_lower for x in [
+        "icar", "cartube", "gear", "auto.co", "wheel", "thecar",
+        "walla", "sport5", "ynet", "over-drive",
+    ]):
+        return "editorial"
+    if any(x in name_lower for x in ["data.gov", "transport ministry", "משרד התחבורה"]):
+        return "government"
+    if any(x in name_lower for x in ["forum", "community", "reddit"]):
+        return "forum_community"
+    return "unknown"
+
+
+def _guard_slash_trim(row: Dict[str, Any]) -> None:
+    """Slash/combined trim → cannot be clean_exact."""
+    if row["validation_decision"] != "clean_exact":
+        return
+    trim = row.get("canonical_trim") or ""
+    if any(sep in trim for sep in _SLASH_SEPARATORS):
+        row["validation_decision"] = "clean_partial"
+        row["acceptance_tier"] = "partial"
+        issues = row.get("non_blocking_trim_issues")
+        if not isinstance(issues, list):
+            issues = []
+            row["non_blocking_trim_issues"] = issues
+        issues.append(
+            "Slash/combined trim detected; downgraded from clean_exact to clean_partial."
+        )
+
+
+def _guard_under_consideration(row: Dict[str, Any]) -> None:
+    """Under-consideration language → cannot be clean_exact."""
+    if row["validation_decision"] != "clean_exact":
+        return
+    summary = (row.get("grounding_summary") or "").lower()
+    if any(phrase in summary for phrase in _UNDER_CONSIDERATION_PHRASES):
+        row["validation_decision"] = "clean_partial"
+        row["acceptance_tier"] = "partial"
+        row["identity_status"] = "likely_valid"
+        row["is_currently_imported_il"] = None
+        issues = row.get("non_blocking_trim_issues")
+        if not isinstance(issues, list):
+            issues = []
+            row["non_blocking_trim_issues"] = issues
+        issues.append(
+            "Israeli market sale/import not fully verified; source indicates expected or under consideration."
+        )
+
+
+def _guard_year_end(row: Dict[str, Any]) -> None:
+    """year_end normalization: still-active vehicles must not have a current/future year_end."""
+    if row.get("is_currently_produced") is True or row.get("is_currently_imported_il") is True:
+        current_year = datetime.datetime.now(datetime.timezone.utc).year
+        if row.get("year_end") and row["year_end"] >= current_year:
+            row["year_end"] = None
+
+
+def _guard_trim_only_reject(row: Dict[str, Any]) -> None:
+    """Trim-only uncertainty never becomes reject."""
+    if row["validation_decision"] != "reject":
+        return
+    has_blocking_identity = bool(row.get("blocking_identity_issues"))
+    if not has_blocking_identity:
+        row["validation_decision"] = "clean_partial"
+        row["acceptance_tier"] = "partial"
+        issues = row.get("non_blocking_trim_issues")
+        if not isinstance(issues, list):
+            issues = []
+            row["non_blocking_trim_issues"] = issues
+        issues.append(
+            "Reject downgraded to clean_partial: no blocking identity issue found."
+        )
+
+
+# ---------------------------------------------------------------------------
+# Main entry point
+# ---------------------------------------------------------------------------
+
+
 def reconcile_validation_output(
     source_variant: Dict[str, Any],
     model_output: Dict[str, Any],
@@ -288,30 +402,22 @@ def reconcile_validation_output(
     row = dict(model_output)
     source_std = get_standard(source_variant or {})
 
-    # 6. No mock marker in real output (mock rows keep their sentinel).
     if run_mode != "mock":
         _strip_mock_marker(row)
 
-    # 2. Track actual field changes.
     row["fields_changed"] = _audit_field_changes(source_std, row)
-
-    # 5. trim_status consistent with canonical_trim (before unresolved cleanup).
     row["trim_status"] = _reconcile_trim_status(row)
-
-    # 3. fields_left_unresolved must not contradict filled fields.
     row["fields_left_unresolved"] = _clean_unresolved(row)
-
-    # 4. Structured evidence sources.
     row["evidence_sources"] = _normalize_evidence_sources(row.get("evidence_sources"))
-
-    # possible_trim_names cleanup (no stricter filtering of the row itself).
     row["possible_trim_names"] = _clean_possible_trim_names(row.get("possible_trim_names"))
 
-    # 7. Never convert clean_partial -> reject. We never set 'reject' here; we
-    # only re-assert tier/decision coherence via enforce_consistency, which
-    # maps the existing decision to its tier without changing the decision.
+    # v2 post-processing guards (deterministic, applied after every Gemini response)
+    _guard_slash_trim(row)
+    _guard_under_consideration(row)
+    _guard_year_end(row)
+    _guard_trim_only_reject(row)
+
     row = enforce_consistency(row)
-    # Defensive: acceptance_tier must equal the decision's tier.
     decision = row.get("validation_decision")
     if decision in DECISION_TIER:
         row["acceptance_tier"] = DECISION_TIER[decision]

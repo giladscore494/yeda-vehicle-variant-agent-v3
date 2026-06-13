@@ -194,6 +194,8 @@ def coerce_gemini_row(
         "drivetrain",
         "year_start",
         "year_end",
+        "is_currently_produced",
+        "is_currently_imported_il",
         "validation_decision",
         "identity_status",
         "identity_confidence",
