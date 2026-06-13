@@ -16,13 +16,27 @@ import tempfile
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from scripts import clustering, data_loader, normalization  # noqa: E402
+from scripts.contamination import (  # noqa: E402
+    ContaminationError,
+    detect_contamination,
+)
 from scripts.output_writer import (  # noqa: E402
     OutputStore,
     atomic_write_json,
     build_output_row,
+    reset_mock_outputs,
+    reset_real_outputs,
     validate_output_row,
 )
-from scripts.validator_engine import decide_mock  # noqa: E402
+from scripts.run_paths import (  # noqa: E402
+    MOCK_ENGINE,
+    MOCK_GROUNDING_SENTINEL,
+    MOCK_MODEL,
+    REAL_ENGINE,
+    REAL_OUTPUT_PATH,
+    resolve_run_paths,
+)
+from scripts.validator_engine import RunConfig, decide_mock, run_validation  # noqa: E402
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -140,6 +154,163 @@ def main() -> int:
     # 20. every built row preserves validation_id
     check("row preserves validation_id",
           build_output_row("VAL-999999")["validation_id"] == "VAL-999999")
+
+    # ------------------------------------------------------------------
+    # Mode isolation (mock vs real never mix)
+    # ------------------------------------------------------------------
+
+    mock_paths = resolve_run_paths("mock")
+    real_paths = resolve_run_paths("real")
+
+    # 21. resolve_run_paths returns mode-specific output/checkpoint/summary
+    check("mock paths under data/mock",
+          "/mock/" in mock_paths.output_path.replace(os.sep, "/")
+          and mock_paths.output_path != real_paths.output_path)
+    check("real output is the full dataset path",
+          real_paths.output_path == REAL_OUTPUT_PATH
+          and "/mock/" not in real_paths.output_path.replace(os.sep, "/"))
+
+    # 22. policy flags differ by mode
+    check("mock disables gemini", mock_paths.allow_gemini_calls is False)
+    check("real enables gemini", real_paths.allow_gemini_calls is True)
+
+    # 23. github checkpoint paths are mode-specific & disjoint
+    check("github paths mode-specific & disjoint",
+          set(mock_paths.github_paths).isdisjoint(set(real_paths.github_paths)))
+    check("mock commit prefix marks mock",
+          mock_paths.commit_prefix.startswith("mock") and real_paths.commit_prefix == "checkpoint")
+
+    # 24-26. contamination detection
+    mock_doc = {
+        "metadata": {"run_mode": "mock", "is_mock_output": True, "model": MOCK_MODEL},
+        "validated_variants": [
+            {"validation_id": "VAL-1", "run_mode": "mock",
+             "grounding_summary": MOCK_GROUNDING_SENTINEL},
+        ],
+    }
+    real_doc = {
+        "metadata": {"run_mode": "real", "is_mock_output": False},
+        "validated_variants": [{"validation_id": "VAL-1", "run_mode": "real"}],
+    }
+    check("real mode rejects mock metadata", bool(detect_contamination(mock_doc, "real")))
+    check("real mode rejects mock grounding sentinel",
+          any("sentinel" in p for p in detect_contamination(mock_doc, "real")))
+    check("mock mode rejects real rows", bool(detect_contamination(real_doc, "mock")))
+    check("real mode accepts clean real doc", not detect_contamination(real_doc, "real"))
+    check("mock mode accepts clean mock doc", not detect_contamination(mock_doc, "mock"))
+
+    # 27. metadata + per-row run_mode stamping (mock)
+    with tempfile.TemporaryDirectory() as tmp:
+        s = OutputStore(
+            os.path.join(tmp, "m.json"), os.path.join(tmp, "m.cp.json"),
+            run_mode="mock", engine=MOCK_ENGINE,
+            summary_path=os.path.join(tmp, "m.sum.json"), is_mock_output=True,
+        )
+        s.record(build_output_row("VAL-1", validation_decision="clean_partial"))
+        s.flush()
+        mdoc = json.load(open(s.output_path))
+        check("mock metadata run_mode mock",
+              mdoc["metadata"]["run_mode"] == "mock"
+              and mdoc["metadata"]["is_mock_output"] is True
+              and mdoc["metadata"]["engine"] == MOCK_ENGINE)
+        check("mock rows stamped run_mode mock",
+              all(r["run_mode"] == "mock" for r in mdoc["validated_variants"]))
+        check("mock summary written", os.path.exists(s.summary_path))
+
+    # 28. metadata + per-row run_mode stamping (real)
+    with tempfile.TemporaryDirectory() as tmp:
+        s = OutputStore(
+            os.path.join(tmp, "r.json"), os.path.join(tmp, "r.cp.json"),
+            run_mode="real", engine=REAL_ENGINE,
+            summary_path=os.path.join(tmp, "r.sum.json"), is_mock_output=False,
+        )
+        s.record(build_output_row("VAL-1", validation_decision="clean_exact"))
+        s.flush()
+        rdoc = json.load(open(s.output_path))
+        check("real metadata run_mode real",
+              rdoc["metadata"]["run_mode"] == "real"
+              and rdoc["metadata"]["is_mock_output"] is False
+              and rdoc["metadata"]["engine"] == REAL_ENGINE)
+        check("real rows stamped run_mode real",
+              all(r["run_mode"] == "real" for r in rdoc["validated_variants"]))
+        check("no mock grounding sentinel in real output",
+              all(r.get("grounding_summary") != MOCK_GROUNDING_SENTINEL
+                  for r in rdoc["validated_variants"]))
+
+    # 29. real store refuses to load a mock-tagged file (fail safely)
+    with tempfile.TemporaryDirectory() as tmp:
+        bad = os.path.join(tmp, "out.json")
+        atomic_write_json(bad, mock_doc)
+        real_store = OutputStore(
+            bad, os.path.join(tmp, "out.cp.json"), run_mode="real", engine=REAL_ENGINE,
+        )
+        raised = False
+        try:
+            real_store.load_existing()
+        except ContaminationError:
+            raised = True
+        check("real load_existing raises on mock contamination", raised)
+
+    # 30. real run never reads mock checkpoint, mock run never writes real output
+    if join.ok:
+        with tempfile.TemporaryDirectory() as tmp:
+            # Pre-seed a mock checkpoint that real mode must ignore.
+            mock_cp = os.path.join(tmp, "mock.cp.json")
+            atomic_write_json(mock_cp, mock_doc)
+
+            real_pre_exists = os.path.exists(REAL_OUTPUT_PATH)
+            real_pre_mtime = os.path.getmtime(REAL_OUTPUT_PATH) if real_pre_exists else None
+
+            mstore = OutputStore(
+                os.path.join(tmp, "m.json"), os.path.join(tmp, "m.cp.json"),
+                run_mode="mock", engine=MOCK_ENGINE,
+                summary_path=os.path.join(tmp, "m.sum.json"), is_mock_output=True,
+            )
+            run_validation(join, RunConfig(mode="mock", limit=2), store=mstore)
+            check("mock run wrote only to mock temp output",
+                  os.path.exists(mstore.output_path)
+                  and all(r["run_mode"] == "mock"
+                          for r in json.load(open(mstore.output_path))["validated_variants"]))
+            real_post_exists = os.path.exists(REAL_OUTPUT_PATH)
+            real_post_mtime = os.path.getmtime(REAL_OUTPUT_PATH) if real_post_exists else None
+            check("mock run did not touch real output",
+                  real_pre_exists == real_post_exists and real_pre_mtime == real_post_mtime)
+
+            rstore = OutputStore(
+                os.path.join(tmp, "r.json"), os.path.join(tmp, "r.cp.json"),
+                run_mode="real", engine=REAL_ENGINE,
+                summary_path=os.path.join(tmp, "r.sum.json"), is_mock_output=False,
+            )
+            rstore.load_existing()
+            check("real store did not absorb mock checkpoint",
+                  len(rstore.validated_by_id) == 0)
+
+    # 31. reset isolation: mock reset never deletes real output (and vice versa)
+    real_existed_before = os.path.exists(REAL_OUTPUT_PATH)
+    src_variants_mtime = os.path.getmtime(data_loader.VARIANTS_PATH)
+    src_instr_mtime = os.path.getmtime(data_loader.INSTRUCTIONS_PATH)
+
+    os.makedirs(os.path.dirname(mock_paths.output_path), exist_ok=True)
+    atomic_write_json(mock_paths.output_path, mock_doc)
+    atomic_write_json(real_paths.output_path, real_doc)
+    reset_mock_outputs()
+    check("reset mock deletes mock output", not os.path.exists(mock_paths.output_path))
+    check("reset mock keeps real output", os.path.exists(real_paths.output_path))
+    # Re-seed mock and verify reset_real leaves mock alone.
+    atomic_write_json(mock_paths.output_path, mock_doc)
+    reset_real_outputs()
+    check("reset real deletes real output", not os.path.exists(real_paths.output_path))
+    check("reset real keeps mock output", os.path.exists(mock_paths.output_path))
+    reset_mock_outputs()  # cleanup the temp mock file we created
+    # Leave the real dataset absent if it was absent before this scan.
+    if not real_existed_before and os.path.exists(REAL_OUTPUT_PATH):
+        reset_real_outputs()
+
+    # 32. source files never modified by any of the above
+    check("source variants file untouched",
+          os.path.getmtime(data_loader.VARIANTS_PATH) == src_variants_mtime)
+    check("source instructions file untouched",
+          os.path.getmtime(data_loader.INSTRUCTIONS_PATH) == src_instr_mtime)
 
     failed = [n for n, ok, _ in _results if not ok]
     print("\n" + "=" * 60)

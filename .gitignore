@@ -11,3 +11,12 @@ __pycache__/
 
 # Atomic-write temp files
 *.tmp
+
+# Runtime validation outputs — recreated only by their own run mode.
+# Keeping these out of git prevents mock/real rows from ever being mixed at
+# the VCS level. Real-mode GitHub auto-save still pushes them via the
+# Contents API independently of local tracking.
+/data/validated_vehicle_variants_full_gemini31_v1.json
+/data/validated_vehicle_variants_full_gemini31_v1.checkpoint.json
+/data/validation_run_summary_gemini31.json
+/data/mock/

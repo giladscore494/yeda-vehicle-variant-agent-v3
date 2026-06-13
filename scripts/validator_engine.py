@@ -287,14 +287,19 @@ class RunResult:
 
 
 class GitHubSaver:
-    """Adapter that pushes the store's files after a validated variant."""
+    """Adapter that pushes the store's files after a validated variant.
 
-    def __init__(self, checkpoint, paths: List[str]) -> None:
+    ``commit_prefix`` is mode-specific so mock pushes are clearly labelled
+    ("mock checkpoint: ...") and never masquerade as real checkpoints.
+    """
+
+    def __init__(self, checkpoint, paths: List[str], commit_prefix: str = "checkpoint") -> None:
         self._checkpoint = checkpoint
         self._paths = paths
+        self._commit_prefix = commit_prefix
 
     def save(self, validation_id: str) -> List[str]:
-        message = f"checkpoint: validate {validation_id}"
+        message = f"{self._commit_prefix}: validate {validation_id}"
         return self._checkpoint.save_paths(self._paths, message)
 
 
@@ -328,12 +333,24 @@ def run_validation(
     clusters: ClusterIndex = build_clusters(join.variants, join.ordered_ids)
 
     if store is None:
-        store = OutputStore(
-            model=model_id,
+        from .run_paths import resolve_run_paths
+
+        run_paths = resolve_run_paths(config.mode, model=model_id)
+        store = OutputStore.for_paths(
+            run_paths,
             total_input_variants=join.variant_count,
             total_instruction_records=join.instruction_count,
         )
         store.load_existing()
+
+    # Hard guard: the store's run mode must match the requested run mode so a
+    # mock run can never append to real output (and vice versa).
+    if store.run_mode != config.mode:
+        _log(
+            f"Refusing to run: store run_mode={store.run_mode!r} does not match "
+            f"config.mode={config.mode!r}."
+        )
+        return RunResult(store=store, stopped_reason="mode_mismatch", logs=logs)
     store.set_cluster_count(clusters.cluster_count)
 
     by_id = {v.get("validation_id"): v for v in join.variants}

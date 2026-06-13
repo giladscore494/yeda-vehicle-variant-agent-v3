@@ -13,4 +13,6 @@ __all__ = [
     "validator_engine",
     "gemini_client",
     "github_checkpoint",
+    "run_paths",
+    "contamination",
 ]

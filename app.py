@@ -2,6 +2,10 @@
 
 Gemini-only. No OpenAI. No GPT adjudicator. No dual-model flow.
 
+Mock and real runs are completely isolated: separate output files, separate
+checkpoints, separate summaries, separate UI sections. A mock run can never
+append to the real dataset and a real run can never reuse mock data.
+
 Secrets (exact paths):
     st.secrets["github"]["token"]
     st.secrets["google"]["api_key"]
@@ -17,6 +21,7 @@ import os
 
 import streamlit as st
 
+from scripts.contamination import ContaminationError
 from scripts.data_loader import (
     INSTRUCTIONS_PATH,
     VARIANTS_PATH,
@@ -24,11 +29,12 @@ from scripts.data_loader import (
     validate_and_join,
 )
 from scripts.output_writer import (
-    CHECKPOINT_PATH,
     MODEL_DEFAULT,
-    OUTPUT_PATH,
     OutputStore,
+    reset_mock_outputs,
+    reset_real_outputs,
 )
+from scripts.run_paths import ensure_mode_dirs, resolve_run_paths
 from scripts.validator_engine import GitHubSaver, RunConfig, run_validation
 
 st.set_page_config(page_title="Gemini 3.1 Variant Validation Runner", layout="wide")
@@ -99,6 +105,9 @@ api_key = get_gemini_api_key()
 model_id = get_model_id()
 grounding = get_grounding_enabled()
 
+MOCK_PATHS = resolve_run_paths("mock")
+REAL_PATHS = resolve_run_paths("real", model=model_id)
+
 # ---------------------------------------------------------------------------
 # Status section
 # ---------------------------------------------------------------------------
@@ -107,7 +116,7 @@ st.header("1 · Status")
 fp = files_present()
 col_a, col_b, col_c = st.columns(3)
 with col_a:
-    st.subheader("Source files")
+    st.subheader("Source files (read-only)")
     st.write(f"variants: {presence(fp.get(VARIANTS_PATH))}")
     st.write(f"instructions: {presence(fp.get(INSTRUCTIONS_PATH))}")
 with col_b:
@@ -118,8 +127,12 @@ with col_b:
     st.write(f"grounding enabled: `{grounding}`")
 with col_c:
     st.subheader("Output files")
-    st.write(f"output: {'✅ exists' if os.path.exists(OUTPUT_PATH) else '— not yet'}")
-    st.write(f"checkpoint: {'✅ exists' if os.path.exists(CHECKPOINT_PATH) else '— not yet'}")
+    st.write(
+        f"mock output: {'✅ exists' if os.path.exists(MOCK_PATHS.output_path) else '— not yet'}"
+    )
+    st.write(
+        f"real output: {'✅ exists' if os.path.exists(REAL_PATHS.output_path) else '— not yet'}"
+    )
 
 if st.button("🔎 Validate source files & join"):
     join = validate_and_join()
@@ -138,44 +151,259 @@ if join_summary:
     for w in join_summary["warnings"]:
         st.warning(w)
 
+
 # ---------------------------------------------------------------------------
-# Controls section
+# Shared run helper
 # ---------------------------------------------------------------------------
 
-st.header("2 · Controls")
-c1, c2, c3 = st.columns(3)
-with c1:
-    mode = st.radio("Run mode", ["mock", "real"], horizontal=True)
-    limit_enabled = st.checkbox("Limit number of variants", value=True)
-    limit = st.number_input("Limit", min_value=1, value=20, step=1) if limit_enabled else None
-with c2:
-    force_reprocess = st.checkbox("Force reprocess (ignore checkpoint)", value=False)
-    start_after = st.text_input("Start after validation_id (optional)", value="")
-    checkpoint_every = st.number_input("Checkpoint every N variants", min_value=1, value=1)
-with c3:
-    stop_on_github_failure = st.checkbox("Stop on GitHub save failure", value=True)
-    push_to_github = st.checkbox("Auto-save to GitHub after each variant", value=bool(token))
-    stop_on_error = st.checkbox("Stop on first row error", value=False)
 
-run_col, smoke_col, reset_col = st.columns(3)
-run_clicked = run_col.button("▶️ Run validation", type="primary")
-smoke_clicked = smoke_col.button("🧪 Run smoke checks")
-reset_clicked = reset_col.button("🗑️ Reset local output/checkpoint")
-
-if reset_clicked:
-    removed = []
-    for p in (OUTPUT_PATH, CHECKPOINT_PATH):
-        if os.path.exists(p):
-            os.remove(p)
-            removed.append(os.path.basename(p))
-    st.warning(
-        "Local output/checkpoint reset. This does NOT touch the two source "
-        "JSON files. Removed: " + (", ".join(removed) or "nothing")
+def _show_paths(run_paths) -> None:
+    st.code(
+        f"output     = {os.path.relpath(run_paths.output_path)}\n"
+        f"checkpoint = {os.path.relpath(run_paths.checkpoint_path)}\n"
+        f"summary    = {os.path.relpath(run_paths.summary_path)}\n"
+        f"engine     = {run_paths.engine}\n"
+        f"model      = {run_paths.model}\n"
+        f"gemini     = {'enabled' if run_paths.allow_gemini_calls else 'disabled'}",
     )
 
-if smoke_clicked:
-    import io
+
+def execute_run(
+    run_paths,
+    *,
+    limit,
+    force_reprocess: bool,
+    start_after: str,
+    checkpoint_every: int,
+    push_to_github: bool,
+    stop_on_github_failure: bool,
+    stop_on_error: bool,
+) -> None:
+    mode = run_paths.mode
+    join = validate_and_join()
+    if not join.ok:
+        st.error("Cannot run: join validation failed.\n" + "\n".join(join.errors[:10]))
+        return
+    if mode == "real" and not api_key:
+        st.error("Real mode needs a Gemini API key in st.secrets['google']['api_key'].")
+        return
+
+    ensure_mode_dirs(run_paths)
+    st.session_state.logs = []
+
+    gemini_client = None
+    if mode == "real" and run_paths.allow_gemini_calls:
+        from scripts.gemini_client import GeminiClient, GeminiSettings
+
+        gemini_client = GeminiClient(
+            GeminiSettings(
+                api_key=api_key,
+                model_id=run_paths.model,
+                grounding_enabled=grounding,
+            )
+        )
+
+    github_saver = None
+    if push_to_github and run_paths.allow_github_push:
+        if not token:
+            st.error("GitHub auto-save requested but token is missing.")
+        else:
+            from scripts.github_checkpoint import (
+                GitHubCheckpoint,
+                resolve_config_from_streamlit,
+            )
+
+            config_gh, notes = resolve_config_from_streamlit(st.secrets)
+            if config_gh is None or not config_gh.configured:
+                st.error(
+                    "GitHub config incomplete: " + ", ".join(notes) +
+                    ". Add [github].repo and [github].branch to secrets if "
+                    "detection failed."
+                )
+            else:
+                try:
+                    checkpoint = GitHubCheckpoint(config_gh)
+                    github_saver = GitHubSaver(
+                        checkpoint,
+                        run_paths.github_paths,
+                        commit_prefix=run_paths.commit_prefix,
+                    )
+                    st.info(f"GitHub auto-save: {config_gh.repo}@{config_gh.branch}")
+                except Exception as exc:  # noqa: BLE001
+                    st.error(f"GitHub auto-save disabled: {exc}")
+    elif push_to_github and not run_paths.allow_github_push:
+        st.warning("GitHub push is disabled for mock mode; skipping push.")
+
+    store = OutputStore.for_paths(
+        run_paths,
+        total_input_variants=join.variant_count,
+        total_instruction_records=join.instruction_count,
+    )
+    try:
+        store.load_existing()
+    except ContaminationError as exc:
+        st.error(
+            "Output file contamination detected: "
+            f"{exc} Reset the {mode} output before continuing."
+        )
+        return
+
+    run_config = RunConfig(
+        mode=mode,
+        limit=int(limit) if limit else None,
+        force_reprocess=force_reprocess,
+        start_after_validation_id=start_after.strip() or None,
+        checkpoint_every=int(checkpoint_every),
+        stop_on_github_failure=stop_on_github_failure,
+        stop_on_error=stop_on_error,
+    )
+
+    def _on_progress(info):
+        st.session_state.progress = info
+
+    with st.spinner(f"Running {mode} validation..."):
+        result = run_validation(
+            join,
+            run_config,
+            store=store,
+            gemini_client=gemini_client,
+            github_saver=github_saver,
+            model_id=run_paths.model,
+            log=log_line,
+            on_progress=_on_progress,
+        )
+    st.session_state.run_result = {
+        "mode": mode,
+        "processed": result.processed,
+        "stopped_reason": result.stopped_reason,
+        "gemini_called": result.gemini_called,
+        "github_attempted": result.github_attempted,
+    }
+    st.success(
+        f"[{mode}] Done — processed {result.processed}, stopped: {result.stopped_reason}"
+    )
+
+
+# ---------------------------------------------------------------------------
+# Section 2 · Mock validation (testing stage — never calls Gemini)
+# ---------------------------------------------------------------------------
+
+st.header("2 · 🧪 Mock validation (testing stage)")
+st.caption(
+    "Writes to **mock output only**. Never calls Gemini. Use this to exercise "
+    "the pipeline, schema, and checkpoint logic."
+)
+_show_paths(MOCK_PATHS)
+
+mc1, mc2 = st.columns(2)
+with mc1:
+    mock_limit_enabled = st.checkbox("Limit variants (mock)", value=True, key="mock_limit_en")
+    mock_limit = (
+        st.number_input("Limit (mock)", min_value=1, value=20, step=1, key="mock_limit")
+        if mock_limit_enabled
+        else None
+    )
+    mock_force = st.checkbox("Force reprocess (mock)", value=False, key="mock_force")
+with mc2:
+    mock_start_after = st.text_input("Start after id (mock)", value="", key="mock_start")
+    mock_checkpoint_every = st.number_input(
+        "Checkpoint every N (mock)", min_value=1, value=1, key="mock_cp"
+    )
+    mock_push = st.checkbox(
+        "Push mock files to GitHub (mock-only path)", value=False, key="mock_push"
+    )
+
+mrun_col, mreset_col = st.columns(2)
+mock_run_clicked = mrun_col.button("▶️ Run mock validation", type="primary", key="mock_run")
+mock_reset_clicked = mreset_col.button("🗑️ Reset mock output/checkpoint", key="mock_reset")
+
+if mock_reset_clicked:
+    st.warning(
+        "⚠️ Resetting MOCK runtime files only. Source files and real output are "
+        "untouched."
+    )
+    removed = reset_mock_outputs(log=log_line)
+    st.info("Mock reset removed: " + (", ".join(removed) or "nothing"))
+
+if mock_run_clicked:
+    execute_run(
+        MOCK_PATHS,
+        limit=mock_limit,
+        force_reprocess=mock_force,
+        start_after=mock_start_after,
+        checkpoint_every=mock_checkpoint_every,
+        push_to_github=mock_push,
+        stop_on_github_failure=False,
+        stop_on_error=False,
+    )
+
+# ---------------------------------------------------------------------------
+# Section 3 · Real Gemini validation (clean real-only dataset)
+# ---------------------------------------------------------------------------
+
+st.header("3 · 🛰️ Real Gemini validation")
+st.caption(
+    "Writes to **real output only**. Calls Gemini, requires an API key (and "
+    "grounding if enabled), and can push the real checkpoint to GitHub."
+)
+_show_paths(REAL_PATHS)
+if not api_key:
+    st.warning("Gemini API key missing — real validation is disabled until it is set.")
+
+rc1, rc2 = st.columns(2)
+with rc1:
+    real_limit_enabled = st.checkbox("Limit variants (real)", value=True, key="real_limit_en")
+    real_limit = (
+        st.number_input("Limit (real)", min_value=1, value=20, step=1, key="real_limit")
+        if real_limit_enabled
+        else None
+    )
+    real_force = st.checkbox("Force reprocess (real)", value=False, key="real_force")
+    real_stop_on_error = st.checkbox("Stop on first row error", value=False, key="real_soe")
+with rc2:
+    real_start_after = st.text_input("Start after id (real)", value="", key="real_start")
+    real_checkpoint_every = st.number_input(
+        "Checkpoint every N (real)", min_value=1, value=1, key="real_cp"
+    )
+    real_push = st.checkbox(
+        "Auto-save real files to GitHub", value=bool(token), key="real_push"
+    )
+    real_stop_on_gh = st.checkbox("Stop on GitHub save failure", value=True, key="real_sogh")
+
+rrun_col, rreset_col = st.columns(2)
+real_run_clicked = rrun_col.button(
+    "▶️ Run real validation", type="primary", key="real_run", disabled=not api_key
+)
+real_reset_clicked = rreset_col.button("🗑️ Reset real output/checkpoint", key="real_reset")
+
+if real_reset_clicked:
+    st.warning(
+        "⚠️ Resetting REAL runtime files only. Source files and mock output are "
+        "untouched."
+    )
+    removed = reset_real_outputs(log=log_line)
+    st.info("Real reset removed: " + (", ".join(removed) or "nothing"))
+
+if real_run_clicked:
+    execute_run(
+        REAL_PATHS,
+        limit=real_limit,
+        force_reprocess=real_force,
+        start_after=real_start_after,
+        checkpoint_every=real_checkpoint_every,
+        push_to_github=real_push,
+        stop_on_github_failure=real_stop_on_gh,
+        stop_on_error=real_stop_on_error,
+    )
+
+# ---------------------------------------------------------------------------
+# Section 4 · Smoke checks
+# ---------------------------------------------------------------------------
+
+st.header("4 · Smoke checks")
+if st.button("🧪 Run smoke checks"):
     import contextlib
+    import io
 
     from scripts import smoke_test
 
@@ -186,164 +414,62 @@ if smoke_clicked:
     st.success("Smoke checks passed.") if code == 0 else st.error("Smoke checks failed.")
 
 # ---------------------------------------------------------------------------
-# Run
+# Section 5 · Progress (per mode)
 # ---------------------------------------------------------------------------
 
-if run_clicked:
-    join = validate_and_join()
-    if not join.ok:
-        st.error("Cannot run: join validation failed.\n" + "\n".join(join.errors[:10]))
-    elif mode == "real" and not api_key:
-        st.error("Real mode needs a Gemini API key in st.secrets['google']['api_key'].")
-    else:
-        st.session_state.logs = []
+st.header("5 · Progress")
 
-        gemini_client = None
-        if mode == "real":
-            from scripts.gemini_client import GeminiClient, GeminiSettings
 
-            gemini_client = GeminiClient(
-                GeminiSettings(
-                    api_key=api_key,
-                    model_id=model_id,
-                    grounding_enabled=grounding,
-                )
+def _mode_progress(label: str, run_paths) -> None:
+    st.subheader(label)
+    store_view = OutputStore.for_paths(run_paths)
+    try:
+        store_view.load_existing()
+    except ContaminationError as exc:
+        st.error(f"Contamination detected in {label}: {exc}")
+        return
+    meta = store_view.metadata
+    total_input = meta.get("total_input_variants") or 0
+    completed = len(store_view.validated_by_id)
+
+    p1, p2, p3, p4 = st.columns(4)
+    p1.metric("Completed", completed)
+    p2.metric("Remaining", max(0, total_input - completed) if total_input else "—")
+    p3.metric("Gemini calls", meta.get("gemini_call_count", 0))
+    p4.metric("GitHub checkpoints", meta.get("github_checkpoint_count", 0))
+
+    dc = meta.get("decision_counts", {})
+    d1, d2, d3, d4 = st.columns(4)
+    d1.metric("clean_exact", dc.get("clean_exact", 0))
+    d2.metric("clean_partial", dc.get("clean_partial", 0))
+    d3.metric("split_required", dc.get("split_required", 0))
+    d4.metric("reject", dc.get("reject", 0))
+    st.caption(
+        f"run_mode=`{meta.get('run_mode')}` · is_mock_output="
+        f"`{meta.get('is_mock_output')}` · last id: {meta.get('last_validated_id')}"
+    )
+
+    latest = store_view.latest_row()
+    if latest:
+        with st.expander(f"Latest {label} row"):
+            st.json(latest)
+    if os.path.exists(run_paths.output_path):
+        with open(run_paths.output_path, "rb") as fh:
+            st.download_button(
+                f"⬇️ Download {label} output JSON",
+                fh.read(),
+                file_name=os.path.basename(run_paths.output_path),
+                mime="application/json",
+                key=f"dl_{run_paths.mode}",
             )
 
-        github_saver = None
-        if push_to_github:
-            if not token:
-                st.error("GitHub auto-save requested but token is missing.")
-            else:
-                from scripts.github_checkpoint import (
-                    GitHubCheckpoint,
-                    resolve_config_from_streamlit,
-                )
 
-                config, notes = resolve_config_from_streamlit(st.secrets)
-                if config is None or not config.configured:
-                    st.error(
-                        "GitHub config incomplete: " + ", ".join(notes) +
-                        ". Add [github].repo and [github].branch to secrets if "
-                        "detection failed."
-                    )
-                else:
-                    try:
-                        checkpoint = GitHubCheckpoint(config)
-                        github_saver = GitHubSaver(checkpoint, [OUTPUT_PATH, CHECKPOINT_PATH])
-                        st.info(f"GitHub auto-save: {config.repo}@{config.branch}")
-                    except Exception as exc:  # noqa: BLE001
-                        st.error(f"GitHub auto-save disabled: {exc}")
-
-        store = OutputStore(
-            output_path=OUTPUT_PATH,
-            checkpoint_path=CHECKPOINT_PATH,
-            model=model_id,
-            total_input_variants=join.variant_count,
-            total_instruction_records=join.instruction_count,
-        )
-        store.load_existing()
-
-        config = RunConfig(
-            mode=mode,
-            limit=int(limit) if limit else None,
-            force_reprocess=force_reprocess,
-            start_after_validation_id=start_after.strip() or None,
-            checkpoint_every=int(checkpoint_every),
-            stop_on_github_failure=stop_on_github_failure,
-            stop_on_error=stop_on_error,
-        )
-
-        progress_box = st.empty()
-
-        def _on_progress(info):
-            st.session_state.progress = info
-
-        with st.spinner(f"Running {mode} validation..."):
-            result = run_validation(
-                join,
-                config,
-                store=store,
-                gemini_client=gemini_client,
-                github_saver=github_saver,
-                model_id=model_id,
-                log=log_line,
-                on_progress=_on_progress,
-            )
-        st.session_state.run_result = {
-            "processed": result.processed,
-            "stopped_reason": result.stopped_reason,
-            "gemini_called": result.gemini_called,
-            "github_attempted": result.github_attempted,
-        }
-        st.success(
-            f"Done — processed {result.processed}, stopped: {result.stopped_reason}"
-        )
+_mode_progress("🧪 Mock", MOCK_PATHS)
+_mode_progress("🛰️ Real", REAL_PATHS)
 
 # ---------------------------------------------------------------------------
-# Progress section
+# Section 6 · Logs
 # ---------------------------------------------------------------------------
 
-st.header("3 · Progress")
-store_view = OutputStore(output_path=OUTPUT_PATH, checkpoint_path=CHECKPOINT_PATH)
-store_view.load_existing()
-meta = store_view.metadata
-total_input = meta.get("total_input_variants") or (join_summary or {}).get("variant_count") or 0
-completed = len(store_view.validated_by_id)
-
-p1, p2, p3, p4 = st.columns(4)
-p1.metric("Completed", completed)
-p2.metric("Remaining", max(0, (total_input or 0) - completed) if total_input else "—")
-p3.metric("Gemini calls", meta.get("gemini_call_count", 0))
-p4.metric("GitHub checkpoints", meta.get("github_checkpoint_count", 0))
-
-dc = meta.get("decision_counts", {})
-d1, d2, d3, d4 = st.columns(4)
-d1.metric("clean_exact", dc.get("clean_exact", 0))
-d2.metric("clean_partial", dc.get("clean_partial", 0))
-d3.metric("split_required", dc.get("split_required", 0))
-d4.metric("reject", dc.get("reject", 0))
-
-prog = st.session_state.get("progress", {})
-st.write(
-    f"**Last validated id:** {meta.get('last_validated_id')} · "
-    f"**Current cluster:** {prog.get('cluster_id', '—')} · "
-    f"**Latest decision:** {prog.get('decision', '—')}"
-)
-if prog.get("decision_reason"):
-    st.caption("Latest reason: " + prog["decision_reason"])
-
-# ---------------------------------------------------------------------------
-# Logs section
-# ---------------------------------------------------------------------------
-
-st.header("4 · Logs")
+st.header("6 · Logs")
 st.code("\n".join(st.session_state.logs[-60:]) or "(no logs yet)")
-
-# ---------------------------------------------------------------------------
-# Output section
-# ---------------------------------------------------------------------------
-
-st.header("5 · Output")
-latest = store_view.latest_row()
-if latest:
-    st.subheader("Latest validated variant")
-    st.json(latest)
-
-oc1, oc2 = st.columns(2)
-if os.path.exists(OUTPUT_PATH):
-    with open(OUTPUT_PATH, "rb") as fh:
-        oc1.download_button(
-            "⬇️ Download output JSON",
-            fh.read(),
-            file_name=os.path.basename(OUTPUT_PATH),
-            mime="application/json",
-        )
-if os.path.exists(CHECKPOINT_PATH):
-    with open(CHECKPOINT_PATH, "rb") as fh:
-        oc2.download_button(
-            "⬇️ Download checkpoint JSON",
-            fh.read(),
-            file_name=os.path.basename(CHECKPOINT_PATH),
-            mime="application/json",
-        )
