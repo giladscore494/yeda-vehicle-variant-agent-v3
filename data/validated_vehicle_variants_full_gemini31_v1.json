@@ -8,24 +8,24 @@
     "run_timestamp_utc": "2026-06-13T19:25:01Z",
     "total_input_variants": 3712,
     "total_instruction_records": 3712,
-    "total_validated_variants": 4,
+    "total_validated_variants": 5,
     "decision_counts": {
       "clean_exact": 0,
-      "clean_partial": 2,
+      "clean_partial": 3,
       "split_required": 2,
       "reject": 0
     },
     "grounding_cluster_count": 3653,
-    "gemini_call_count": 4,
+    "gemini_call_count": 5,
     "github_checkpoint_enabled": true,
-    "github_checkpoint_count": 4,
+    "github_checkpoint_count": 5,
     "github_checkpoint_fail_count": 0,
     "last_github_checkpoint_error": null,
-    "last_validated_id": "VAL-000004",
+    "last_validated_id": "VAL-000005",
     "schema_version": "v3_three_stage",
     "pipeline_version": "v3_three_stage",
-    "stage1_pro_calls": 4,
-    "stage2_guard_flags_total": 2,
+    "stage1_pro_calls": 5,
+    "stage2_guard_flags_total": 4,
     "stage3_flash_calls": 0,
     "flash_overrode_guard": 0,
     "guard_overrode_flash": 0,
@@ -401,6 +401,91 @@
       "route_reason": "split_required rows must be split before clean catalog publishing.",
       "duplicate_group_id": "dup-6d414528",
       "duplicate_of": null
+    },
+    {
+      "validation_id": "VAL-000005",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000005",
+      "source_cluster_id": "CLU-b55fc8fd404e",
+      "grounding_cluster_id": "CLU-b55fc8fd404e",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "500",
+      "canonical_series_or_generation": "1st Gen",
+      "canonical_trim": null,
+      "official_marketed_name_il": "אבארט 500",
+      "body_type": "Cabriolet",
+      "fuel_type": "petrol",
+      "engine": "1.4L Turbo",
+      "transmission": "manual",
+      "drivetrain": "FWD",
+      "year_start": 2010,
+      "year_end": 2016,
+      "is_currently_produced": false,
+      "is_currently_imported_il": false,
+      "market_scope": "IL",
+      "validation_decision": "clean_partial",
+      "acceptance_tier": "partial",
+      "identity_status": "likely_valid",
+      "identity_confidence": 0.7,
+      "trim_status": "unresolved",
+      "trim_confidence": 0.0,
+      "grounding_summary": "The Abarth 500 Cabriolet (often referred to as 500C) was officially imported to Israel starting in late 2010. It was available with a 1.4L Turbo engine and a 5-speed manual transmission (initially by special order, alongside the standard robotic MTA). In late 2016, the model was facelifted and renamed to Abarth 595. The designation '500C' indicates the body style rather than a specific equipment level (which were Scorpione, Lusso, etc.), so the trim is marked as unresolved, leading to a clean_partial decision.",
+      "evidence_sources": [
+        {
+          "title": "אבארט קבריולט בישראל – החל מ-180,000 שקל - cartube",
+          "url": null,
+          "source_name": "cartube",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "official_import_il",
+            "year_range",
+            "transmission",
+            "body_type"
+          ]
+        },
+        {
+          "title": "אבארט 500 - מחירון, חוות דעת ומידע טכני | אוטו",
+          "url": null,
+          "source_name": "auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "year_range",
+            "engine",
+            "transmission",
+            "trim_candidates"
+          ]
+        }
+      ],
+      "possible_trim_names": [
+        "Scorpione",
+        "Lusso",
+        "Turismo",
+        "Competizione"
+      ],
+      "split_candidates": [],
+      "blocking_identity_issues": [],
+      "non_blocking_trim_issues": [
+        "Trim '500C' is a body style designation, not a specific equipment trim level.",
+        "500C/Cabriolet is a body/model designation, not a verified trim.",
+        "Abarth 500C/Cabriolet manual transmission is not verified for the Israeli market; transmission left unresolved."
+      ],
+      "fields_changed": [],
+      "fields_left_unresolved": [
+        "transmission"
+      ],
+      "decision_reason": "Vehicle identity is verified for the Israeli market, including the 1.4L Turbo engine and manual transmission (available by special order or standard on some versions). However, '500C' indicates the Cabriolet body style rather than a specific trim level (such as Scorpione or Lusso), so the trim is marked as unresolved, resulting in a clean_partial decision. Guard correction: Python guards corrected the model output: identity_status: 'verified' -> 'likely_valid'; identity_confidence: 0.95 -> 0.7; canonical_trim: '500C' -> None; trim_status: 'inferred' -> 'unresolved'.",
+      "_pipeline_version": "v3_three_stage",
+      "_flags_count": 2,
+      "_flash_used": false,
+      "adjudication_log": [],
+      "publishable_to_clean_catalog": false,
+      "final_route": "review_queue",
+      "route_reason": "transmission remains unresolved",
+      "duplicate_group_id": "dup-b685ce45",
+      "duplicate_of": null,
+      "guard_corrected_reason": "Python guards corrected the model output: identity_status: 'verified' -> 'likely_valid'; identity_confidence: 0.95 -> 0.7; canonical_trim: '500C' -> None; trim_status: 'inferred' -> 'unresolved'."
     }
   ]
 }
