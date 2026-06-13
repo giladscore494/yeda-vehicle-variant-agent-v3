@@ -23,6 +23,7 @@ from .output_writer import (
     OutputStore,
     build_output_row,
 )
+from .reconcile import reconcile_validation_output
 
 # Delimiters that suggest a single row bundles multiple distinct trims.
 _SPLIT_DELIMITERS = (" / ", "/", " or ", ",", " + ", "+", " & ", "&", ";", "|")
@@ -175,6 +176,7 @@ def coerce_gemini_row(
     identity: Dict[str, Any],
     trim_info: Dict[str, Any],
     cluster: Cluster,
+    variant: Optional[Dict[str, Any]] = None,
 ) -> Dict[str, Any]:
     """Map a raw Gemini JSON response into a schema-complete output row."""
     overrides = _identity_overrides(identity, trim_info)
@@ -209,7 +211,9 @@ def coerce_gemini_row(
             overrides[key] = raw[key]
     overrides["source_cluster_id"] = cluster.cluster_id
     overrides["grounding_cluster_id"] = cluster.cluster_id
-    return build_output_row(validation_id, **overrides)
+    row = build_output_row(validation_id, **overrides)
+    # Deterministic audit post-processing (cleanup only; never rejects).
+    return reconcile_validation_output(variant or {}, row, run_mode="real")
 
 
 def build_reused_row(
@@ -218,6 +222,7 @@ def build_reused_row(
     trim_info: Dict[str, Any],
     cluster: Cluster,
     evidence: Dict[str, Any],
+    variant: Optional[Dict[str, Any]] = None,
 ) -> Dict[str, Any]:
     """Derive a member row from cached cluster (identity-level) evidence.
 
@@ -247,7 +252,9 @@ def build_reused_row(
     )
     if decision == "clean_partial":
         overrides["non_blocking_trim_issues"] = ["trim_weak_or_missing"]
-    return build_output_row(validation_id, **overrides)
+    row = build_output_row(validation_id, **overrides)
+    # Deterministic audit post-processing (cleanup only; never rejects).
+    return reconcile_validation_output(variant or {}, row, run_mode="real")
 
 
 def evidence_from_row(row: Dict[str, Any], anchor_id: str) -> Dict[str, Any]:
@@ -390,11 +397,11 @@ def run_validation(
                     raw = gemini_client.validate(payload, instruction, None)
                     store.bump_gemini_calls()
                     result.gemini_called = True
-                    row = coerce_gemini_row(vid, raw, identity, trim_info, cluster)
+                    row = coerce_gemini_row(vid, raw, identity, trim_info, cluster, variant)
                     store.cluster_cache[cluster.cluster_id] = evidence_from_row(row, vid)
                 else:
                     # Member: reuse cluster identity grounding (no Gemini call).
-                    row = build_reused_row(vid, identity, trim_info, cluster, evidence)
+                    row = build_reused_row(vid, identity, trim_info, cluster, evidence, variant)
 
             store.record(row)
             _log(
