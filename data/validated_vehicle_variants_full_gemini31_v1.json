@@ -8,17 +8,17 @@
     "run_timestamp_utc": "2026-06-13T16:31:24Z",
     "total_input_variants": 3712,
     "total_instruction_records": 3712,
-    "total_validated_variants": 4,
+    "total_validated_variants": 5,
     "decision_counts": {
       "clean_exact": 1,
-      "clean_partial": 2,
+      "clean_partial": 3,
       "split_required": 1,
       "reject": 0
     },
     "grounding_cluster_count": 3653,
-    "gemini_call_count": 2,
-    "github_checkpoint_count": 2,
-    "last_validated_id": "VAL-000004"
+    "gemini_call_count": 3,
+    "github_checkpoint_count": 3,
+    "last_validated_id": "VAL-000005"
   },
   "validated_variants": [
     {
@@ -226,6 +226,71 @@
         "official_marketed_name_il"
       ],
       "decision_reason": "Identity grounding reused from cluster anchor VAL-000003; trim evaluated per-row."
+    },
+    {
+      "validation_id": "VAL-000005",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000005",
+      "source_cluster_id": "CLU-b55fc8fd404e",
+      "grounding_cluster_id": "CLU-b55fc8fd404e",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "500",
+      "canonical_series_or_generation": "1st Gen",
+      "canonical_trim": "500C",
+      "official_marketed_name_il": "אבארט 500C",
+      "body_type": "Cabriolet",
+      "fuel_type": "petrol",
+      "engine": "1.4L Turbo",
+      "transmission": "manual",
+      "drivetrain": "FWD",
+      "year_start": 2010,
+      "year_end": 2016,
+      "market_scope": "IL",
+      "validation_decision": "clean_partial",
+      "acceptance_tier": "partial",
+      "identity_status": "verified",
+      "identity_confidence": 0.95,
+      "trim_status": "inferred",
+      "trim_confidence": 0.0,
+      "grounding_summary": "The Abarth 500C (Cabriolet) was sold in Israel starting around 2010/2011 until late 2016 when it was replaced by the 595. It features a 1.4L Turbo engine. While the 5-speed robotic automatic was standard, a 5-speed manual was available by special order. The trim '500C' acts as a generic placeholder for the cabriolet body style; specific Israeli trims included Scorpion, Lusso, and later Turismo/Competizione.",
+      "evidence_sources": [
+        {
+          "title": "cartube.co.il",
+          "url": null,
+          "source_name": "cartube.co.il",
+          "source_type": "unknown",
+          "supports": []
+        },
+        {
+          "title": "auto.co.il",
+          "url": null,
+          "source_name": "auto.co.il",
+          "source_type": "unknown",
+          "supports": []
+        },
+        {
+          "title": "gear.co.il",
+          "url": null,
+          "source_name": "gear.co.il",
+          "source_type": "unknown",
+          "supports": []
+        }
+      ],
+      "possible_trim_names": [
+        "Scorpion",
+        "Lusso",
+        "Turismo",
+        "Competizione"
+      ],
+      "split_candidates": [],
+      "blocking_identity_issues": [],
+      "non_blocking_trim_issues": [
+        "Trim '500C' is a generic model/body indicator rather than a specific marketing trim level."
+      ],
+      "fields_changed": [],
+      "fields_left_unresolved": [],
+      "decision_reason": "The core vehicle identity (Abarth 500 Cabriolet, 1.4L Turbo, manual) is valid for the Israeli market, as the manual was available by special order. However, '500C' is a generic model/body designation rather than a specific trim level, so the trim remains unresolved."
     }
   ]
 }
