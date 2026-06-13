@@ -101,6 +101,10 @@ def empty_output_row(validation_id: str) -> Dict[str, Any]:
         "fields_changed": [],
         "fields_left_unresolved": [],
         "decision_reason": "",
+        "_pipeline_version": None,
+        "_flags_count": 0,
+        "_flash_used": False,
+        "adjudication_log": [],
     }
 
 
@@ -277,6 +281,14 @@ class OutputStore:
             "gemini_call_count": 0,
             "github_checkpoint_count": 0,
             "last_validated_id": None,
+            "schema_version": "v3_three_stage",
+            "pipeline_version": "v3_three_stage",
+            "stage1_pro_calls": 0,
+            "stage2_guard_flags_total": 0,
+            "stage3_flash_calls": 0,
+            "flash_overrode_guard": 0,
+            "guard_overrode_flash": 0,
+            "force_per_variant_validation": True,
         }
         # Ordered storage by id (preserves input order on flush).
         self.validated_by_id: Dict[str, Dict[str, Any]] = {}
@@ -345,7 +357,9 @@ class OutputStore:
         if cached_meta.get("decision_counts"):
             for k in self.metadata["decision_counts"]:
                 self.metadata["decision_counts"][k] = cached_meta["decision_counts"].get(k, 0)
-        for k in ("gemini_call_count", "github_checkpoint_count", "grounding_cluster_count"):
+        for k in ("gemini_call_count", "github_checkpoint_count", "grounding_cluster_count",
+                  "stage1_pro_calls", "stage2_guard_flags_total", "stage3_flash_calls",
+                  "flash_overrode_guard", "guard_overrode_flash"):
             if cached_meta.get(k):
                 self.metadata[k] = cached_meta[k]
         if cp.get("last_validated_id"):
@@ -408,6 +422,24 @@ class OutputStore:
     def bump_github_checkpoints(self, n: int = 1) -> None:
         self.metadata["github_checkpoint_count"] += n
 
+    def bump_stage1_pro_calls(self, n: int = 1) -> None:
+        self.metadata["stage1_pro_calls"] += n
+
+    def bump_stage2_guard_flags(self, n: int = 1) -> None:
+        self.metadata["stage2_guard_flags_total"] += n
+
+    def bump_stage3_flash_calls(self, n: int = 1) -> None:
+        self.metadata["stage3_flash_calls"] += n
+
+    def bump_flash_overrode_guard(self, n: int = 1) -> None:
+        self.metadata["flash_overrode_guard"] += n
+
+    def bump_guard_overrode_flash(self, n: int = 1) -> None:
+        self.metadata["guard_overrode_flash"] += n
+
+    def set_force_per_variant_validation(self, value: bool) -> None:
+        self.metadata["force_per_variant_validation"] = bool(value)
+
     def set_cluster_count(self, n: int) -> None:
         self.metadata["grounding_cluster_count"] = n
 
@@ -447,6 +479,12 @@ class OutputStore:
             "gemini_call_count": self.metadata["gemini_call_count"],
             "github_checkpoint_count": self.metadata["github_checkpoint_count"],
             "grounding_cluster_count": self.metadata["grounding_cluster_count"],
+            "stage1_pro_calls": self.metadata["stage1_pro_calls"],
+            "stage2_guard_flags_total": self.metadata["stage2_guard_flags_total"],
+            "stage3_flash_calls": self.metadata["stage3_flash_calls"],
+            "flash_overrode_guard": self.metadata["flash_overrode_guard"],
+            "guard_overrode_flash": self.metadata["guard_overrode_flash"],
+            "force_per_variant_validation": self.metadata["force_per_variant_validation"],
             "failed_validation_ids": list(self.failed_ids),
             "last_validated_id": self.metadata["last_validated_id"],
             "updated_at_utc": utc_now_iso(),

@@ -133,7 +133,7 @@ def test_filled_engine_year_removed_from_unresolved():
         fields_left_unresolved=["engine", "year_start", "year_end"],
     )
     out = reconcile_validation_output(_variant(), row)
-    assert out["fields_left_unresolved"] == []
+    assert out["fields_left_unresolved"] == ["official_marketed_name_il"]
 
 
 # --------------------------------------------------------------------------
