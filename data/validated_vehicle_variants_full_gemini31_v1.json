@@ -8,17 +8,17 @@
     "run_timestamp_utc": "2026-06-13T16:31:24Z",
     "total_input_variants": 3712,
     "total_instruction_records": 3712,
-    "total_validated_variants": 8,
+    "total_validated_variants": 9,
     "decision_counts": {
       "clean_exact": 1,
-      "clean_partial": 6,
+      "clean_partial": 7,
       "split_required": 1,
       "reject": 0
     },
     "grounding_cluster_count": 3653,
-    "gemini_call_count": 6,
-    "github_checkpoint_count": 6,
-    "last_validated_id": "VAL-000008"
+    "gemini_call_count": 7,
+    "github_checkpoint_count": 7,
+    "last_validated_id": "VAL-000009"
   },
   "validated_variants": [
     {
@@ -482,6 +482,64 @@
         "canonical_trim"
       ],
       "decision_reason": "Identity is verified but the model name was corrected to 595 as marketed in Israel. Trim is missing and multiple trims exist, so returning clean_partial."
+    },
+    {
+      "validation_id": "VAL-000009",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000009",
+      "source_cluster_id": "CLU-e0f4447de8c4",
+      "grounding_cluster_id": "CLU-e0f4447de8c4",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "500",
+      "canonical_series_or_generation": null,
+      "canonical_trim": null,
+      "official_marketed_name_il": "אבארט 500",
+      "body_type": "hatchback",
+      "fuel_type": "petrol",
+      "engine": "1.4 Turbo 180",
+      "transmission": "manual",
+      "drivetrain": "FWD",
+      "year_start": 2018,
+      "year_end": 2023,
+      "market_scope": "IL",
+      "validation_decision": "clean_partial",
+      "acceptance_tier": "partial",
+      "identity_status": "verified",
+      "identity_confidence": 0.95,
+      "trim_status": "unresolved",
+      "trim_confidence": 0.0,
+      "grounding_summary": "The Abarth 500 with a 1.4 Turbo 180hp engine and manual transmission is sold in Israel, primarily under the 'Competizione' and 'Racing Style' trims. The model is often marketed simply as 'אבארט 500' in Israel, though globally it may be referred to as the 595 or 695.",
+      "evidence_sources": [
+        {
+          "title": "cartube.co.il price lists for Abarth 500",
+          "url": null,
+          "source_name": "cartube.co.il",
+          "source_type": "unknown",
+          "supports": []
+        },
+        {
+          "title": "iCar.co.il listings for Abarth 500 1.4 manual 180 hp",
+          "url": null,
+          "source_name": "iCar.co.il",
+          "source_type": "unknown",
+          "supports": []
+        }
+      ],
+      "possible_trim_names": [
+        "Competizione",
+        "Racing Style"
+      ],
+      "split_candidates": [],
+      "blocking_identity_issues": [],
+      "non_blocking_trim_issues": [
+        "Trim is missing, but multiple trims exist for this technical identity."
+      ],
+      "fields_changed": [],
+      "fields_left_unresolved": [
+        "canonical_trim"
+      ],
+      "decision_reason": "The core technical identity (Abarth 500, 1.4 Turbo 180hp, manual, hatchback) is verified for the Israeli market. However, the specific trim is missing, and multiple trims (e.g., Competizione, Racing Style) share these specs, so it is marked as clean_partial."
     }
   ]
 }
