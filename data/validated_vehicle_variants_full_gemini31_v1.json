@@ -6,17 +6,17 @@
     "run_timestamp_utc": "2026-06-13T15:15:49Z",
     "total_input_variants": 3712,
     "total_instruction_records": 3712,
-    "total_validated_variants": 9,
+    "total_validated_variants": 10,
     "decision_counts": {
-      "clean_exact": 2,
+      "clean_exact": 3,
       "clean_partial": 5,
       "split_required": 2,
       "reject": 0
     },
     "grounding_cluster_count": 3653,
-    "gemini_call_count": 4,
-    "github_checkpoint_count": 8,
-    "last_validated_id": "VAL-000009"
+    "gemini_call_count": 5,
+    "github_checkpoint_count": 9,
+    "last_validated_id": "VAL-000010"
   },
   "validated_variants": [
     {
@@ -415,6 +415,49 @@
         "official_marketed_name_il"
       ],
       "decision_reason": "Technical identity is fully verified and valid for the Israeli market. Trim is missing, but the core identity is strong enough to be accepted as a partial variant."
+    },
+    {
+      "validation_id": "VAL-000010",
+      "source_validation_id": "VAL-000010",
+      "source_cluster_id": "CLU-ee56004c3c90",
+      "grounding_cluster_id": "CLU-ee56004c3c90",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "500",
+      "canonical_series_or_generation": "2nd Gen",
+      "canonical_trim": "500e Scorpionissima",
+      "official_marketed_name_il": "500e",
+      "body_type": "Hatchback",
+      "fuel_type": "electric",
+      "engine": "Electric Motor",
+      "transmission": "automatic",
+      "drivetrain": "FWD",
+      "year_start": 2024,
+      "year_end": 2026,
+      "market_scope": "IL",
+      "validation_decision": "clean_exact",
+      "acceptance_tier": "exact",
+      "identity_status": "verified",
+      "identity_confidence": 0.95,
+      "trim_status": "verified",
+      "trim_confidence": 0.95,
+      "grounding_summary": "The Abarth 500e is the electric version of the Abarth 500, sold in Israel starting around 2023/2024. The Scorpionissima is a limited launch edition trim available in Israel. It is an electric hatchback with FWD and an automatic transmission. The official marketed name in Israel is 500e under the Abarth brand (אבארט).",
+      "evidence_sources": [
+        "Abarth Israel official website (abarth.co.il)",
+        "Israeli automotive magazines (Auto, EV Magazine, Gear)"
+      ],
+      "possible_trim_names": [
+        "Scorpionissima",
+        "500e Scorpionissima"
+      ],
+      "split_candidates": [],
+      "blocking_identity_issues": [],
+      "non_blocking_trim_issues": [],
+      "fields_changed": [],
+      "fields_left_unresolved": [
+        "official_marketed_name_il"
+      ],
+      "decision_reason": "The vehicle identity and trim are fully verified for the Israeli market. The Scorpionissima is a known launch edition of the Abarth 500e."
     }
   ]
 }
