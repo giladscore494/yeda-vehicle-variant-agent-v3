@@ -5,27 +5,27 @@
     "is_mock_output": false,
     "model": "gemini-3.1-pro-preview",
     "market": "IL",
-    "run_timestamp_utc": "2026-06-13T22:03:47Z",
+    "run_timestamp_utc": "2026-06-14T07:27:58Z",
     "total_input_variants": 3712,
     "total_instruction_records": 3712,
-    "total_validated_variants": 5,
+    "total_validated_variants": 6,
     "decision_counts": {
       "clean_exact": 0,
       "clean_partial": 3,
-      "split_required": 2,
+      "split_required": 3,
       "reject": 0
     },
     "grounding_cluster_count": 3653,
-    "gemini_call_count": 5,
+    "gemini_call_count": 6,
     "github_checkpoint_enabled": true,
-    "github_checkpoint_count": 5,
+    "github_checkpoint_count": 6,
     "github_checkpoint_fail_count": 0,
     "last_github_checkpoint_error": null,
-    "last_validated_id": "VAL-000005",
+    "last_validated_id": "VAL-000006",
     "schema_version": "v3_three_stage",
     "pipeline_version": "v3_three_stage",
-    "stage1_pro_calls": 5,
-    "stage2_guard_flags_total": 5,
+    "stage1_pro_calls": 6,
+    "stage2_guard_flags_total": 9,
     "stage3_flash_calls": 0,
     "flash_overrode_guard": 0,
     "guard_overrode_flash": 0,
@@ -39,14 +39,44 @@
     "last_guard_verifier_error": null,
     "guard_verifier_overrode_guard": 0,
     "guard_overrode_verifier": 0,
-    "force_per_variant_validation": true
+    "force_per_variant_validation": true,
+    "stage0_preflight_risk_rows": 1,
+    "stage1_gemini_grounding_required": 1,
+    "stage1_gemini_grounding_present": 1,
+    "stage1_gemini_grounding_missing": 0,
+    "stage1_gemini_weak_grounding_rows": 0,
+    "stage2_guard_flags_low": 0,
+    "stage2_guard_flags_medium": 0,
+    "stage2_guard_flags_high": 0,
+    "stage2_guard_flags_critical": 0,
+    "stage2_guard_patches_applied": 0,
+    "stage25_repair_risk_scored_rows": 1,
+    "stage25_repair_triggered_rows": 1,
+    "stage3_repair_adjudicator_calls": 1,
+    "stage3_repair_adjudicator_successes": 0,
+    "stage3_repair_adjudicator_failures": 1,
+    "stage3_repair_adjudicator_patches": 0,
+    "stage3_repair_adjudicator_routing_changes": 0,
+    "stage3_repair_adjudicator_summary_rewrites": 0,
+    "stage3_repair_adjudicator_grounding_required": 1,
+    "stage3_repair_adjudicator_grounding_present": 0,
+    "stage3_repair_adjudicator_grounding_missing": 1,
+    "stage4_final_seal_passed": 0,
+    "stage4_final_seal_blocks": 1,
+    "stage4_final_guard_conflicts_remaining": 0,
+    "clean_catalog_blocks_by_repair": 0,
+    "clean_catalog_blocks_by_final_seal": 1,
+    "clean_catalog_blocks_by_grounding": 1,
+    "clean_catalog_blocks_by_unresolved_trim": 1,
+    "clean_catalog_blocks_by_unresolved_critical_field": 0
   },
   "completed_validation_ids": [
     "VAL-000001",
     "VAL-000002",
     "VAL-000003",
     "VAL-000004",
-    "VAL-000005"
+    "VAL-000005",
+    "VAL-000006"
   ],
   "failed_validation_ids": [],
   "validated_variants_by_id": {
@@ -156,10 +186,10 @@
       "_flags_count": 0,
       "_flash_used": false,
       "adjudication_log": [],
-      "publishable_to_clean_catalog": false,
-      "final_route": "review_queue",
-      "route_reason": "Routing not yet assigned.",
-      "duplicate_group_id": null,
+      "publishable_to_clean_catalog": true,
+      "final_route": "clean_catalog",
+      "route_reason": "Identity is publishable; unresolved non-blocking fields are retained for audit.",
+      "duplicate_group_id": "dup-321059a7",
       "duplicate_of": null,
       "_guard_verifier_used": false
     },
@@ -271,10 +301,10 @@
       "_flags_count": 0,
       "_flash_used": false,
       "adjudication_log": [],
-      "publishable_to_clean_catalog": false,
-      "final_route": "review_queue",
-      "route_reason": "Routing not yet assigned.",
-      "duplicate_group_id": null,
+      "publishable_to_clean_catalog": true,
+      "final_route": "clean_catalog",
+      "route_reason": "Identity is publishable; unresolved non-blocking fields are retained for audit.",
+      "duplicate_group_id": "dup-54bc4e87",
       "duplicate_of": null,
       "_guard_verifier_used": false
     },
@@ -379,9 +409,9 @@
         }
       ],
       "publishable_to_clean_catalog": false,
-      "final_route": "review_queue",
-      "route_reason": "Routing not yet assigned.",
-      "duplicate_group_id": null,
+      "final_route": "split_queue",
+      "route_reason": "split_required rows must be split before clean catalog publishing.",
+      "duplicate_group_id": "dup-22b6f230",
       "duplicate_of": null,
       "guard_corrected_reason": "Python guards corrected the model output: trim_status: 'inferred' -> 'invalid'; year_end: 2026 -> None.",
       "_guard_verifier_success": true,
@@ -490,9 +520,9 @@
         }
       ],
       "publishable_to_clean_catalog": false,
-      "final_route": "review_queue",
-      "route_reason": "Routing not yet assigned.",
-      "duplicate_group_id": null,
+      "final_route": "split_queue",
+      "route_reason": "split_required rows must be split before clean catalog publishing.",
+      "duplicate_group_id": "dup-cb35f73e",
       "duplicate_of": null,
       "_guard_verifier_success": true,
       "_guard_verifier_error": null,
@@ -592,13 +622,618 @@
       ],
       "publishable_to_clean_catalog": false,
       "final_route": "review_queue",
-      "route_reason": "Routing not yet assigned.",
-      "duplicate_group_id": null,
+      "route_reason": "identity_status blocks clean catalog publishing",
+      "duplicate_group_id": "dup-65a8cade",
       "duplicate_of": null,
       "guard_corrected_reason": "Python guards corrected the model output: identity_status: 'verified' -> 'likely_valid'; identity_confidence: 0.95 -> 0.7; canonical_trim: '500C' -> None; trim_status: 'inferred' -> 'unresolved'.",
       "_guard_verifier_success": true,
       "_guard_verifier_error": null,
       "_guard_verifier_used": true
+    },
+    "VAL-000006": {
+      "validation_id": "VAL-000006",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000006",
+      "source_cluster_id": "CLU-e1e2ec71e348",
+      "grounding_cluster_id": "CLU-e1e2ec71e348",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "500",
+      "canonical_series_or_generation": null,
+      "canonical_trim": null,
+      "official_marketed_name_il": "אבארט 500",
+      "body_type": "hatchback",
+      "fuel_type": "petrol",
+      "engine": "1.4 Turbo",
+      "transmission": null,
+      "drivetrain": "FWD",
+      "year_start": 2018,
+      "year_end": 2023,
+      "is_currently_produced": false,
+      "is_currently_imported_il": false,
+      "market_scope": "IL",
+      "validation_decision": "split_required",
+      "acceptance_tier": "none",
+      "identity_status": "likely_valid",
+      "identity_confidence": 0.9,
+      "trim_status": "unresolved",
+      "trim_confidence": 0.0,
+      "field_validation": {
+        "canonical_make": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "risk_tags": [],
+          "notes": "Make is verified as Abarth."
+        },
+        "canonical_model": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "risk_tags": [],
+          "notes": "Model is verified. The 1.4 Turbo variants were marketed under the 500 umbrella, specifically as the 595."
+        },
+        "canonical_series_or_generation": {
+          "status": "unresolved",
+          "confidence": 0.0,
+          "evidence_strength": "missing",
+          "source_indexes": [],
+          "risk_tags": [
+            "missing_generation"
+          ],
+          "notes": "Generation is not strictly defined in the input and left unresolved."
+        },
+        "canonical_trim": {
+          "status": "unresolved",
+          "confidence": 0.0,
+          "evidence_strength": "missing",
+          "source_indexes": [],
+          "risk_tags": [
+            "missing_trim"
+          ],
+          "notes": "Trim is missing; multiple trims (Turismo, Competizione, Scorpione, Nuvolari) were sold in Israel."
+        },
+        "official_marketed_name_il": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "risk_tags": [],
+          "notes": "The official Hebrew marketed name is verified as 'אבארט 500' (and 'אבארט 595')."
+        },
+        "body_type": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "risk_tags": [],
+          "notes": "Hatchback body type is verified."
+        },
+        "fuel_type": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "risk_tags": [],
+          "notes": "Petrol fuel type is verified."
+        },
+        "engine": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "risk_tags": [],
+          "notes": "1.4 Turbo engine is verified for the Abarth 500/595 in Israel."
+        },
+        "transmission": {
+          "status": "unresolved",
+          "confidence": 0.0,
+          "evidence_strength": "missing",
+          "source_indexes": [],
+          "risk_tags": [
+            "missing_transmission"
+          ],
+          "notes": "Transmission is missing; both manual and robotic options were available in Israel."
+        },
+        "drivetrain": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "risk_tags": [],
+          "notes": "FWD drivetrain is verified."
+        },
+        "year_start": {
+          "status": "verified",
+          "confidence": 0.9,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1,
+            3
+          ],
+          "risk_tags": [],
+          "notes": "Year 2018 is verified as a valid import year for this generation in Israel."
+        },
+        "year_end": {
+          "status": "verified",
+          "confidence": 0.9,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1,
+            3
+          ],
+          "risk_tags": [],
+          "notes": "Year 2023 is verified as a valid end year for this ICE generation before the electric 500e took over."
+        },
+        "is_currently_produced": {
+          "status": "verified",
+          "confidence": 0.9,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "risk_tags": [],
+          "notes": "The ICE Abarth 500/595 was replaced by the electric 500e, so current production is false."
+        },
+        "is_currently_imported_il": {
+          "status": "verified",
+          "confidence": 0.9,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "risk_tags": [],
+          "notes": "Official import of the ICE model has ended."
+        }
+      },
+      "source_support_matrix": [
+        {
+          "field": "canonical_make",
+          "value": "Abarth",
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "reason": "All sources list the make as Abarth."
+        },
+        {
+          "field": "canonical_model",
+          "value": "500",
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "reason": "Marketed as Abarth 500 and Abarth 595."
+        },
+        {
+          "field": "engine",
+          "value": "1.4 Turbo",
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "reason": "Sources confirm the 1.4 Turbo engine."
+        },
+        {
+          "field": "body_type",
+          "value": "hatchback",
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "reason": "Hatchback (3 doors) is confirmed."
+        }
+      ],
+      "evidence_auditability": "strong",
+      "grounding_status": {
+        "gemini_grounding_required": true,
+        "gemini_grounding_present": true,
+        "gemini_grounding_quality": "strong",
+        "gpt54_grounding_required": true,
+        "gpt54_grounding_present": false,
+        "gpt54_grounding_quality": "missing",
+        "final_grounding_gate_passed": false
+      },
+      "grounding_summary": "Searches confirm that the Abarth 500 (often marketed specifically as the 595 for the 1.4 Turbo variants) was officially imported and sold in Israel between 2018 and 2023. The 1.4 Turbo engine and hatchback body type are verified. However, the transmission and exact trim are missing from the input. Both manual and robotic transmissions were available, along with multiple trims (Turismo, Competizione, Scorpione, Nuvolari). Therefore, the variant is marked as clean_partial.",
+      "evidence_sources": [
+        {
+          "title": "מחירון אבארט 595 2023 🏎️ בפורטל הרכב גיר",
+          "url": null,
+          "source_name": "Gear (גיר)",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "engine",
+            "body_type",
+            "trim_candidates"
+          ]
+        },
+        {
+          "title": "אבארט 595 - מחירון, חוות דעת ומידע טכני | אוטו",
+          "url": null,
+          "source_name": "Auto (אוטו)",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "engine",
+            "trim_candidates"
+          ]
+        },
+        {
+          "title": "מידע מקיף ומקצועי על אבארט 500 קבריולה 2010-2025 - אתר iCar",
+          "url": null,
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "engine"
+          ]
+        },
+        {
+          "title": "מחירון של אבארט 500 - יד2",
+          "url": null,
+          "source_name": "Yad2",
+          "source_type": "marketplace",
+          "supports": [
+            "market_presence_il",
+            "year_range"
+          ]
+        }
+      ],
+      "possible_trim_names": [
+        "Turismo",
+        "Competizione",
+        "Scorpione",
+        "Nuvolari",
+        "Pista"
+      ],
+      "split_candidates": [
+        "1.4 Turbo Manual Turismo",
+        "1.4 Turbo Robotic Turismo",
+        "1.4 Turbo Manual Competizione",
+        "1.4 Turbo Robotic Competizione"
+      ],
+      "blocking_identity_issues": [],
+      "non_blocking_trim_issues": [
+        "Transmission is missing.",
+        "Trim is missing."
+      ],
+      "fields_changed": [],
+      "fields_left_unresolved": [
+        "canonical_trim"
+      ],
+      "decision_reason": "Final seal route=split_queue; validation_decision=split_required; identity_status=likely_valid; trim_status=unresolved. Unresolved fields: canonical_trim.",
+      "_pipeline_version": "v3_three_stage",
+      "_flags_count": 9,
+      "_flash_used": false,
+      "adjudication_log": [],
+      "publishable_to_clean_catalog": false,
+      "final_route": "split_queue",
+      "route_reason": "split_required rows or combined trims must be split before publishing.",
+      "duplicate_group_id": null,
+      "duplicate_of": null,
+      "preflight_risk_tags": [
+        "missing_trim",
+        "placeholder_trim",
+        "weak_official_marketed_name",
+        "missing_transmission",
+        "low_auditability_risk"
+      ],
+      "final_seal_result": {
+        "passed": true,
+        "guard_flags": [
+          {
+            "guard_name": "decision_reason_conflict",
+            "severity": "high",
+            "field_affected": "identity_status",
+            "original_value": "likely_valid",
+            "guard_value": "likely_valid",
+            "reason": "Audit text claims verified identity while final identity_status is not verified.",
+            "risk_tags": [
+              "audit_consistency",
+              "publishability"
+            ],
+            "needs_repair_adjudication": true,
+            "allowed_patch_fields": [
+              "validation_decision",
+              "identity_status",
+              "identity_confidence",
+              "fields_left_unresolved"
+            ]
+          },
+          {
+            "guard_name": "decision_reason_conflict",
+            "severity": "high",
+            "field_affected": "identity_status",
+            "original_value": "likely_valid",
+            "guard_value": "likely_valid",
+            "reason": "Audit text claims verified identity while final identity_status is not verified.",
+            "risk_tags": [
+              "audit_consistency",
+              "publishability"
+            ],
+            "needs_repair_adjudication": true,
+            "allowed_patch_fields": [
+              "validation_decision",
+              "identity_status",
+              "identity_confidence",
+              "fields_left_unresolved"
+            ]
+          },
+          {
+            "guard_name": "split_required_combined_trim_cleared",
+            "severity": "high",
+            "field_affected": "canonical_trim",
+            "original_value": null,
+            "guard_value": null,
+            "reason": "Combined trim cleared to null; row routed to split_queue.",
+            "risk_tags": [
+              "split",
+              "trim_quality"
+            ],
+            "needs_repair_adjudication": true,
+            "allowed_patch_fields": []
+          },
+          {
+            "guard_name": "final_seal_route_override",
+            "severity": "medium",
+            "field_affected": "final_route",
+            "original_value": "review_queue",
+            "guard_value": "split_queue",
+            "reason": "split_required rows or combined trims must be split before publishing.",
+            "risk_tags": [
+              "routing",
+              "final_seal"
+            ],
+            "needs_repair_adjudication": false,
+            "allowed_patch_fields": []
+          },
+          {
+            "guard_name": "split_required_combined_trim_cleared",
+            "severity": "high",
+            "field_affected": "canonical_trim",
+            "original_value": null,
+            "guard_value": null,
+            "reason": "Combined trim cleared to null; row routed to split_queue.",
+            "risk_tags": [
+              "split",
+              "trim_quality"
+            ],
+            "needs_repair_adjudication": true,
+            "allowed_patch_fields": []
+          }
+        ],
+        "blocks_clean_catalog": true
+      },
+      "risk_score": 355,
+      "_repair_adjudicator_triggered": true,
+      "_repair_adjudicator_error": "Responses.create() got an unexpected keyword argument 'max_completion_tokens'",
+      "_guard_verifier_used": false,
+      "guard_flags": [
+        {
+          "guard_name": "decision_reason_conflict",
+          "severity": "high",
+          "field_affected": "identity_status",
+          "original_value": "likely_valid",
+          "guard_value": "likely_valid",
+          "reason": "Audit text claims verified identity while final identity_status is not verified.",
+          "needs_adjudication": true,
+          "recommended_verifier_model": "gpt-5.4",
+          "allowed_decisions": [
+            "clean_exact",
+            "clean_partial",
+            "split_required"
+          ],
+          "allowed_patch_fields": [
+            "validation_decision",
+            "identity_status",
+            "identity_confidence",
+            "fields_left_unresolved"
+          ],
+          "risk_tags": [
+            "audit_consistency",
+            "publishability"
+          ]
+        },
+        {
+          "guard_name": "decision_reason_conflict",
+          "severity": "high",
+          "field_affected": "identity_status",
+          "original_value": "likely_valid",
+          "guard_value": "likely_valid",
+          "reason": "Audit text claims verified identity while final identity_status is not verified.",
+          "needs_adjudication": true,
+          "recommended_verifier_model": "gpt-5.4",
+          "allowed_decisions": [
+            "clean_exact",
+            "clean_partial",
+            "split_required"
+          ],
+          "allowed_patch_fields": [
+            "validation_decision",
+            "identity_status",
+            "identity_confidence",
+            "fields_left_unresolved"
+          ],
+          "risk_tags": [
+            "audit_consistency",
+            "publishability"
+          ]
+        },
+        {
+          "guard_name": "split_required_combined_trim_cleared",
+          "severity": "high",
+          "field_affected": "canonical_trim",
+          "original_value": null,
+          "guard_value": null,
+          "reason": "Combined trim cleared to null; row routed to split_queue.",
+          "needs_adjudication": true,
+          "recommended_verifier_model": "gpt-5.4",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "split",
+            "trim_quality"
+          ]
+        },
+        {
+          "guard_name": "final_seal_route_override",
+          "severity": "medium",
+          "field_affected": "final_route",
+          "original_value": "review_queue",
+          "guard_value": "split_queue",
+          "reason": "split_required rows or combined trims must be split before publishing.",
+          "needs_adjudication": false,
+          "recommended_verifier_model": "none",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "routing",
+            "final_seal"
+          ]
+        },
+        {
+          "guard_name": "decision_reason_conflict",
+          "severity": "high",
+          "field_affected": "identity_status",
+          "original_value": "likely_valid",
+          "guard_value": "likely_valid",
+          "reason": "Audit text claims verified identity while final identity_status is not verified.",
+          "needs_adjudication": true,
+          "recommended_verifier_model": "gpt-5.4",
+          "allowed_decisions": [
+            "clean_exact",
+            "clean_partial",
+            "split_required"
+          ],
+          "allowed_patch_fields": [
+            "validation_decision",
+            "identity_status",
+            "identity_confidence",
+            "fields_left_unresolved"
+          ],
+          "risk_tags": [
+            "audit_consistency",
+            "publishability"
+          ]
+        },
+        {
+          "guard_name": "decision_reason_conflict",
+          "severity": "high",
+          "field_affected": "identity_status",
+          "original_value": "likely_valid",
+          "guard_value": "likely_valid",
+          "reason": "Audit text claims verified identity while final identity_status is not verified.",
+          "needs_adjudication": true,
+          "recommended_verifier_model": "gpt-5.4",
+          "allowed_decisions": [
+            "clean_exact",
+            "clean_partial",
+            "split_required"
+          ],
+          "allowed_patch_fields": [
+            "validation_decision",
+            "identity_status",
+            "identity_confidence",
+            "fields_left_unresolved"
+          ],
+          "risk_tags": [
+            "audit_consistency",
+            "publishability"
+          ]
+        },
+        {
+          "guard_name": "split_required_combined_trim_cleared",
+          "severity": "high",
+          "field_affected": "canonical_trim",
+          "original_value": null,
+          "guard_value": null,
+          "reason": "Combined trim cleared to null; row routed to split_queue.",
+          "needs_adjudication": true,
+          "recommended_verifier_model": "gpt-5.4",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "split",
+            "trim_quality"
+          ]
+        },
+        {
+          "guard_name": "final_seal_route_override",
+          "severity": "medium",
+          "field_affected": "final_route",
+          "original_value": "review_queue",
+          "guard_value": "split_queue",
+          "reason": "split_required rows or combined trims must be split before publishing.",
+          "needs_adjudication": false,
+          "recommended_verifier_model": "none",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "routing",
+            "final_seal"
+          ]
+        },
+        {
+          "guard_name": "split_required_combined_trim_cleared",
+          "severity": "high",
+          "field_affected": "canonical_trim",
+          "original_value": null,
+          "guard_value": null,
+          "reason": "Combined trim cleared to null; row routed to split_queue.",
+          "needs_adjudication": true,
+          "recommended_verifier_model": "gpt-5.4",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "split",
+            "trim_quality"
+          ]
+        }
+      ]
     }
   },
   "cluster_cache": {
@@ -726,14 +1361,65 @@
           ]
         }
       ]
+    },
+    "CLU-e1e2ec71e348": {
+      "anchor_id": "VAL-000006",
+      "identity_status": "likely_valid",
+      "identity_confidence": 0.9,
+      "grounding_summary": "Searches confirm that the Abarth 500 (often marketed specifically as the 595 for the 1.4 Turbo variants) was officially imported and sold in Israel between 2018 and 2023. The 1.4 Turbo engine and hatchback body type are verified. However, the transmission and exact trim are missing from the input. Both manual and robotic transmissions were available, along with multiple trims (Turismo, Competizione, Scorpione, Nuvolari). Therefore, the variant is marked as clean_partial.",
+      "evidence_sources": [
+        {
+          "title": "מחירון אבארט 595 2023 🏎️ בפורטל הרכב גיר",
+          "url": null,
+          "source_name": "Gear (גיר)",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "engine",
+            "body_type",
+            "trim_candidates"
+          ]
+        },
+        {
+          "title": "אבארט 595 - מחירון, חוות דעת ומידע טכני | אוטו",
+          "url": null,
+          "source_name": "Auto (אוטו)",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "engine",
+            "trim_candidates"
+          ]
+        },
+        {
+          "title": "מידע מקיף ומקצועי על אבארט 500 קבריולה 2010-2025 - אתר iCar",
+          "url": null,
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "engine"
+          ]
+        },
+        {
+          "title": "מחירון של אבארט 500 - יד2",
+          "url": null,
+          "source_name": "Yad2",
+          "source_type": "marketplace",
+          "supports": [
+            "market_presence_il",
+            "year_range"
+          ]
+        }
+      ]
     }
   },
   "decision_counts": {
     "clean_exact": 0,
     "clean_partial": 3,
-    "split_required": 2,
+    "split_required": 3,
     "reject": 0
   },
-  "last_validated_id": "VAL-000005",
-  "updated_at_utc": "2026-06-13T22:06:41Z"
+  "last_validated_id": "VAL-000006",
+  "updated_at_utc": "2026-06-14T07:27:58Z"
 }
