@@ -87,7 +87,8 @@ def _store(tmp_path):
 def test_run_validation_fails_closed_when_repair_enabled_but_missing(tmp_path):
     cfg = RunConfig(mode="real", repair_adjudicator_enabled=True, limit=1)
     result = run_validation(_join_one(), cfg, store=_store(tmp_path), gemini_client=_FakeGemini({}), repair_adjudicator=None)
-    assert result.stopped_reason == "missing_repair_adjudicator"
+    assert result.stopped_reason == "repair_adjudicator_not_wired"
+    assert result.store.metadata.get("repair_setup_failed") is True
     assert result.processed == 0
 
 

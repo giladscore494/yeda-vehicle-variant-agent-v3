@@ -373,15 +373,21 @@ def run_validation(
         _log("Real mode requested but no Gemini client provided.")
         return RunResult(store=store or OutputStore(), stopped_reason="no_gemini_client", logs=logs)
 
-    # Fail closed: if repair is enabled for a real run, a repair adjudicator
-    # object MUST be wired in. Otherwise the run would silently skip the GPT-5.4
-    # repair layer and publish unrepaired rows (the previous-run failure mode).
+    # Fail closed: if the repair adjudicator is enabled but never wired, refuse
+    # to run in real mode. Silently continuing would let partial/unsafe rows
+    # reach clean_catalog while the UI claims Stage 3 repair is active (the
+    # exact previous-run failure mode).
     if config.mode == "real" and config.repair_adjudicator_enabled and repair_adjudicator is None:
         _log(
             "Refusing to run: repair_adjudicator_enabled=True but no repair_adjudicator "
-            "object was provided. Provide an OpenAIRepairAdjudicator or disable repair."
+            "was provided. Stage 3 GPT-5.4 repair cannot run; clean_catalog would be unsafe."
         )
-        return RunResult(store=store or OutputStore(), stopped_reason="missing_repair_adjudicator", logs=logs)
+        target_store = store or OutputStore()
+        try:
+            target_store.metadata["repair_setup_failed"] = True
+        except Exception:
+            pass
+        return RunResult(store=target_store, stopped_reason="repair_adjudicator_not_wired", logs=logs)
 
     clusters: ClusterIndex = build_clusters(join.variants, join.ordered_ids)
 
@@ -521,6 +527,12 @@ def run_validation(
                             row["field_patches"] = repair_result.get("field_patches", [])
                             if row.get("field_patches"):
                                 store.metadata["stage3_repair_adjudicator_patches"] = store.metadata.get("stage3_repair_adjudicator_patches", 0) + len(row.get("field_patches", []))
+                            routing_patch = repair_result.get("routing_patch") if isinstance(repair_result.get("routing_patch"), dict) else {}
+                            if routing_patch.get("changed"):
+                                store.metadata["stage3_repair_adjudicator_routing_changes"] = store.metadata.get("stage3_repair_adjudicator_routing_changes", 0) + 1
+                            summary_patch = repair_result.get("summary_patch") if isinstance(repair_result.get("summary_patch"), dict) else {}
+                            if summary_patch.get("changed"):
+                                store.metadata["stage3_repair_adjudicator_summary_rewrites"] = store.metadata.get("stage3_repair_adjudicator_summary_rewrites", 0) + 1
                             row, final_flags = final_seal(row, original_row, repair_result, flags, require_gemini_grounding=config.require_gemini_grounding, require_gpt54_grounding_for_repair=config.repair_adjudicator_grounding_required)
                             flags = flags + final_flags
                         except Exception as exc:  # fail closed
@@ -530,6 +542,17 @@ def run_validation(
                             row["validation_decision"] = "clean_partial" if row.get("identity_status") in {"verified", "likely_valid"} else row.get("validation_decision")
                             row, final_flags = final_seal(row, original_row, {"error": str(exc)}, flags, require_gemini_grounding=config.require_gemini_grounding, require_gpt54_grounding_for_repair=config.repair_adjudicator_grounding_required)
                             flags = flags + final_flags
+                    elif repair_triggered:
+                        # Repair was required but the adjudicator was not available
+                        # to run (e.g. enabled in config but legacy-only run). Such a
+                        # row must never reach clean_catalog; force it to review_queue.
+                        # (The trigger itself was already counted above.)
+                        store.metadata["repair_triggered_but_not_called"] = store.metadata.get("repair_triggered_but_not_called", 0) + 1
+                        row["_repair_required_but_not_called"] = True
+                        if row.get("final_route") == "clean_catalog" or row.get("publishable_to_clean_catalog"):
+                            row["publishable_to_clean_catalog"] = False
+                            row["final_route"] = "review_queue"
+                            row["route_reason"] = "Repair adjudication was required but not executed; held for review."
                     if verifier_used:
                         before_calls = getattr(guard_verifier, "calls", 0)
                         row = guard_verifier.adjudicate(row, flags, original_model_output=original_row)

@@ -152,17 +152,22 @@ def main() -> int:
     check("reconcile drops placeholder trim candidates",
           recon["possible_trim_names"] == ["Scorpione"])
 
-    # 16-17. OpenAI is isolated to the guard-scoped verifier
+    # 16-17. OpenAI is isolated to the repair adjudicator + legacy guard verifier
+    _OPENAI_ALLOWED = {
+        "openai_repair_adjudicator.py",
+        "openai_guard_verifier.py",
+        "run_gemini31_sampled_validation.py",
+    }
     offenders = []
     for base, _dirs, files in os.walk(os.path.join(REPO_ROOT, "scripts")):
         for f in files:
             if f.endswith(".py") and f != "smoke_test.py":  # skip this scanner itself
                 text = open(os.path.join(base, f), encoding="utf-8").read().lower()
-                if ("import openai" in text or "from openai" in text) and f not in {"openai_guard_verifier.py", "openai_repair_adjudicator.py", "run_gemini31_sampled_validation.py"}:
+                if ("import openai" in text or "from openai" in text) and f not in _OPENAI_ALLOWED:
                     offenders.append(f"{f}:openai")
                 if "gpt_adjudicator" in text or "gpt-4" in text:
                     offenders.append(f"{f}:gpt")
-    check("OpenAI isolated to guard verifier", not offenders, str(offenders))
+    check("OpenAI isolated to repair adjudicator/guard verifier", not offenders, str(offenders))
     reqs = open(os.path.join(REPO_ROOT, "requirements.txt")).read().lower()
     check("openai dependency present for guard verifier", "openai" in reqs)
 

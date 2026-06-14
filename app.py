@@ -1,6 +1,9 @@
 """Streamlit validation runner for the Gemini 3.1 sampled vehicle variant engine.
 
-Gemini 3.1 is the main validator; OpenAI is used only for optional guard-scoped verification.
+Gemini 3.1 is the main grounded field-level validator. GPT-5.4 is the Stage 3
+grounded Repair Adjudicator that returns a full repaired JSON row; the legacy
+OpenAIGuardVerifier remains only as an opt-in backward-compatibility path and is
+never presented as the repair adjudicator.
 
 Mock and real runs are completely isolated: separate output files, separate
 checkpoints, separate summaries, separate UI sections. A mock run can never
@@ -11,7 +14,7 @@ Secrets (exact paths):
     st.secrets["google"]["api_key"]
     st.secrets["google"]["gemini_validator_model_id"]   (default gemini-3.1-pro-preview)
     st.secrets["google"]["grounding_enabled"]            (default true)
-    st.secrets["openai"]["api_key"]                       (guard verifier only)
+    st.secrets["openai"]["api_key"]                       (repair adjudicator + legacy guard verifier)
     st.secrets["openai"]["validator_model_id"]            (default gpt-5.4)
     st.secrets["google"]["force_per_variant_validation"]  (default true)
 
@@ -69,7 +72,17 @@ def get_openai_api_key() -> str:
 def get_guard_verifier_model_id() -> str:
     return _SHARED_CONFIG.openai_validator_model_id or "gpt-5.4"
 
+def get_repair_adjudicator_model_id() -> str:
+    return _SHARED_CONFIG.openai_validator_model_id or "gpt-5.4"
+
+def get_repair_adjudicator_enabled_default() -> bool:
+    # The grounded repair adjudicator is the real Stage 3. It is enabled by
+    # default whenever an OpenAI key is present so the pipeline is honest.
+    return bool(_SHARED_CONFIG.openai_api_key)
+
 def get_guard_verifier_enabled_default() -> bool:
+    # Legacy guard verifier is OFF by default; it must never masquerade as
+    # the repair adjudicator.
     return False
 
 def get_force_per_variant_default() -> bool:
@@ -112,6 +125,8 @@ grounding = get_grounding_enabled()
 openai_api_key = get_openai_api_key()
 guard_verifier_model_default = get_guard_verifier_model_id()
 guard_verifier_enabled_default = get_guard_verifier_enabled_default()
+repair_adjudicator_model_default = get_repair_adjudicator_model_id()
+repair_adjudicator_enabled_default = get_repair_adjudicator_enabled_default()
 force_per_variant_default = get_force_per_variant_default()
 
 MOCK_PATHS = resolve_run_paths("mock")
@@ -134,8 +149,9 @@ with col_b:
     st.write(f"GitHub token: {presence(token)}")
     st.write(f"model id: `{model_id}`")
     st.write(f"grounding enabled: `{grounding}`")
-    st.write(f"OpenAI guard verifier key: {presence(openai_api_key)}")
-    st.write(f"guard verifier model id: `{guard_verifier_model_default}`")
+    st.write(f"OpenAI API key: {presence(openai_api_key)}")
+    st.write(f"GPT-5.4 repair adjudicator model: `{repair_adjudicator_model_default}`")
+    st.write(f"legacy guard verifier model: `{guard_verifier_model_default}`")
     st.write(f"force per-variant default: `{force_per_variant_default}`")
 with col_c:
     st.subheader("Output files")
@@ -247,6 +263,8 @@ def execute_run(
     if build_error:
         st.error(build_error)
         return
+    if repair_adjudicator is not None:
+        st.info(f"GPT-5.4 repair adjudicator enabled: `{repair_adjudicator_model_id}` (mode={repair_adjudicator_mode}).")
     if force_reprocess is False and mode == "real":
         st.warning(
             "Existing completed rows will be skipped unless Force reprocess is enabled. "
@@ -403,11 +421,30 @@ with rc1:
     )
     real_force = st.checkbox("Force reprocess (real)", value=False, key="real_force")
     real_stop_on_error = st.checkbox("Stop on first row error", value=False, key="real_soe")
-    real_repair_enabled = st.checkbox("GPT-5.4 Repair Adjudicator enabled", value=True, key="real_repair_adjudicator")
-    real_legacy_guard_enabled = st.checkbox("Legacy GPT guard verifier enabled", value=guard_verifier_enabled_default, key="real_legacy_guard_verifier")
+    real_repair_adjudicator_enabled = st.checkbox(
+        "GPT-5.4 grounded repair adjudicator (Stage 3)",
+        value=repair_adjudicator_enabled_default,
+        key="real_repair_adjudicator",
+        help="Real Stage 3. Instantiates OpenAIRepairAdjudicator and returns a full repaired row. Requires OpenAI API key.",
+    )
+    real_require_gpt54_grounding = st.checkbox(
+        "Require GPT-5.4 grounding for repair",
+        value=True,
+        key="real_require_gpt54_grounding",
+        help="If grounded support is missing, the row fails closed to review_queue and cannot reach clean_catalog.",
+    )
+    real_strict_clean_catalog = st.checkbox(
+        "Strict clean_catalog gate",
+        value=True,
+        key="real_strict_clean_catalog",
+    )
+    real_guard_verifier_enabled = st.checkbox(
+        "Legacy GPT guard verifier (backward-compat only)",
+        value=guard_verifier_enabled_default,
+        key="real_guard_verifier",
+        help="Legacy guard-scoped verifier. NOT the repair adjudicator. Off by default.",
+    )
     real_force_per_variant = st.checkbox("Force per-variant Gemini validation", value=force_per_variant_default, key="real_force_per_variant")
-    real_strict_clean = st.checkbox("Strict clean catalog", value=True, key="real_strict_clean")
-    real_final_seal = st.checkbox("Final seal (Python publication authority)", value=True, key="real_final_seal")
 with rc2:
     real_start_after = st.text_input("Start after id (real)", value="", key="real_start")
     real_checkpoint_every = st.number_input(
@@ -417,9 +454,22 @@ with rc2:
         "Auto-save real files to GitHub", value=bool(token), key="real_push"
     )
     real_stop_on_gh = st.checkbox("Stop on GitHub save failure", value=True, key="real_sogh")
-    real_repair_model_id = st.text_input("Repair adjudicator model id", value=guard_verifier_model_default, key="real_repair_model")
-    real_repair_mode = st.selectbox("Repair trigger mode", ["all_clean_candidates", "risk_only", "all_rows"], index=0, key="real_repair_mode")
-    real_require_gpt54_grounding = st.checkbox("Require GPT-5.4 grounding for repair", value=True, key="real_require_gpt54_grounding")
+    real_final_seal_enabled = st.checkbox("Python final seal (publication authority)", value=True, key="real_final_seal")
+    real_repair_adjudicator_mode = st.selectbox(
+        "Repair adjudicator trigger mode",
+        options=["all_clean_candidates", "all_rows", "risk_only"],
+        index=0,
+        key="real_repair_adjudicator_mode",
+    )
+    real_repair_adjudicator_model_id = st.text_input("Repair adjudicator model id", value=repair_adjudicator_model_default, key="real_repair_adjudicator_model")
+    real_guard_verifier_model_id = st.text_input("Legacy guard verifier model id", value=guard_verifier_model_default, key="real_guard_verifier_model")
+
+if real_repair_adjudicator_enabled and not openai_api_key:
+    st.error(
+        "GPT-5.4 repair adjudicator is enabled but the OpenAI API key is missing. "
+        "The run will refuse to start until the key is set (it will not silently "
+        "fall back to the legacy guard verifier)."
+    )
 
 rrun_col, rreset_col = st.columns(2)
 real_run_clicked = rrun_col.button(
@@ -445,14 +495,14 @@ if real_run_clicked:
         push_to_github=real_push,
         stop_on_github_failure=real_stop_on_gh,
         stop_on_error=real_stop_on_error,
-        repair_adjudicator_enabled=real_repair_enabled,
-        repair_adjudicator_model_id=real_repair_model_id,
-        repair_adjudicator_mode=real_repair_mode,
+        repair_adjudicator_enabled=real_repair_adjudicator_enabled,
+        repair_adjudicator_model_id=real_repair_adjudicator_model_id,
+        repair_adjudicator_mode=real_repair_adjudicator_mode,
         require_gpt54_grounding_for_repair=real_require_gpt54_grounding,
-        final_seal_enabled=real_final_seal,
-        strict_clean_catalog=real_strict_clean,
-        legacy_guard_verifier_enabled=real_legacy_guard_enabled,
-        legacy_guard_verifier_model_id=real_repair_model_id,
+        final_seal_enabled=real_final_seal_enabled,
+        strict_clean_catalog=real_strict_clean_catalog,
+        legacy_guard_verifier_enabled=real_guard_verifier_enabled,
+        legacy_guard_verifier_model_id=real_guard_verifier_model_id,
         force_per_variant_validation=real_force_per_variant,
     )
 
@@ -501,17 +551,37 @@ def _mode_progress(label: str, run_paths) -> None:
     v1, v2, v3, v4, v5 = st.columns(5)
     v1.metric("Stage 1 Pro", meta.get("stage1_pro_calls", 0))
     v2.metric("Guard flags", meta.get("stage2_guard_flags_total", 0))
-    v3.metric("GPT-5.4 repair calls", meta.get("stage3_repair_adjudicator_calls", 0))
-    v4.metric("Repair patches", meta.get("stage3_repair_adjudicator_patches", 0))
+    v3.metric("Stage 2.5 repair triggered", meta.get("stage25_repair_triggered_rows", 0))
+    v4.metric("GPT-5.4 repair calls", meta.get("stage3_repair_adjudicator_calls", 0))
     v5.metric("Final seal blocks", meta.get("stage4_final_seal_blocks", 0))
+
+    r1, r2, r3, r4, r5 = st.columns(5)
+    r1.metric("Repair successes", meta.get("stage3_repair_adjudicator_successes", 0))
+    r2.metric("Repair failures", meta.get("stage3_repair_adjudicator_failures", 0))
+    r3.metric("Repair patches", meta.get("stage3_repair_adjudicator_patches", 0))
+    r4.metric("Routing changes", meta.get("stage3_repair_adjudicator_routing_changes", 0))
+    r5.metric("Summary rewrites", meta.get("stage3_repair_adjudicator_summary_rewrites", 0))
+
+    if meta.get("repair_setup_failed"):
+        st.error(
+            "Repair adjudicator was enabled but not wired (repair_setup_failed). "
+            "Rows were forced to review_queue and blocked from clean_catalog."
+        )
+    if meta.get("stage25_repair_triggered_rows", 0) and not meta.get("stage3_repair_adjudicator_calls", 0):
+        st.warning(
+            "Repair was triggered for some rows but the GPT-5.4 repair adjudicator "
+            "was never actually called. Those rows cannot enter clean_catalog."
+        )
+
     st.caption(
         "Gemini grounding missing="
         f"{meta.get('stage1_gemini_grounding_missing', 0)} · "
         "GPT-5.4 grounding missing="
         f"{meta.get('stage3_repair_adjudicator_grounding_missing', 0)} · "
-        "clean blocks: grounding="
+        "clean_catalog blocks → final_seal="
+        f"{meta.get('clean_catalog_blocks_by_final_seal', 0)}, grounding="
         f"{meta.get('clean_catalog_blocks_by_grounding', 0)}, trim="
-        f"{meta.get('clean_catalog_blocks_by_unresolved_trim', 0)}, critical="
+        f"{meta.get('clean_catalog_blocks_by_unresolved_trim', 0)}, critical_field="
         f"{meta.get('clean_catalog_blocks_by_unresolved_critical_field', 0)}"
     )
 
@@ -529,15 +599,23 @@ def _mode_progress(label: str, run_paths) -> None:
     latest = store_view.latest_row()
     if latest:
         with st.expander(f"Latest {label} row"):
-            st.write(f"_repair_adjudicator_triggered: `{latest.get('_repair_adjudicator_triggered')}` · _flags_count: `{latest.get('_flags_count')}`")
+            st.write(
+                f"repair_triggered: `{latest.get('_repair_adjudicator_triggered')}` · "
+                f"final_route: `{latest.get('final_route')}` · "
+                f"publishable: `{latest.get('publishable_to_clean_catalog')}` · "
+                f"_flags_count: `{latest.get('_flags_count')}`"
+            )
             st.json({
                 "preflight_risk_tags": latest.get("preflight_risk_tags"),
                 "guard_flags": latest.get("guard_flags"),
                 "risk_score": latest.get("risk_score"),
+                "repair_triggered": latest.get("_repair_adjudicator_triggered"),
                 "repair_decision": latest.get("_repair_decision"),
                 "field_patches": latest.get("field_patches"),
                 "grounding_status": latest.get("grounding_status"),
                 "final_seal_result": latest.get("final_seal_result"),
+                "final_route": latest.get("final_route"),
+                "route_reason": latest.get("route_reason"),
             })
             if latest.get("adjudication_log"):
                 st.json(latest.get("adjudication_log"))
