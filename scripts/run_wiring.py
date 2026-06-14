@@ -22,9 +22,94 @@ repair run is requested without an OpenAI key.
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Any, Optional
+from typing import Any, Dict, Optional
 
 from .validator_engine import RunConfig
+
+
+RUN_CONFIG_WIRING_FIELDS = (
+    "mode",
+    "limit",
+    "force_reprocess",
+    "start_after_validation_id",
+    "checkpoint_every",
+    "stop_on_github_failure",
+    "stop_on_error",
+    "flash_adjudication_enabled",
+    "flash_model_id",
+    "guard_verifier_enabled",
+    "repair_adjudicator_enabled",
+    "repair_adjudicator_model_id",
+    "repair_adjudicator_mode",
+    "repair_adjudicator_grounding_required",
+    "require_gemini_grounding",
+    "final_seal_enabled",
+    "strict_clean_catalog",
+    "force_per_variant_validation",
+)
+
+
+def build_run_config_kwargs(
+    *,
+    mode: str,
+    limit: Optional[int],
+    force_reprocess: bool,
+    start_after: Optional[str],
+    checkpoint_every: int,
+    stop_on_github_failure: bool,
+    stop_on_error: bool,
+    force_per_variant_validation: bool = True,
+    repair_adjudicator_enabled: bool = True,
+    repair_adjudicator_model_id: str = "gpt-5.4",
+    repair_adjudicator_mode: str = "all_clean_candidates",
+    require_gpt54_grounding_for_repair: bool = True,
+    require_gemini_grounding: bool = True,
+    final_seal_enabled: bool = True,
+    strict_clean_catalog: bool = True,
+    legacy_guard_verifier_enabled: bool = False,
+) -> Dict[str, Any]:
+    """Return the exact keyword dict used to construct ``RunConfig``.
+
+    Keeping this in one pure helper lets tests compare the Streamlit/CLI wiring
+    contract with the authoritative dataclass before a real run starts.
+    """
+
+    return {
+        "mode": mode,
+        "limit": int(limit) if limit else None,
+        "force_reprocess": force_reprocess,
+        "start_after_validation_id": (start_after or "").strip() or None,
+        "checkpoint_every": int(checkpoint_every),
+        "stop_on_github_failure": stop_on_github_failure,
+        "stop_on_error": stop_on_error,
+        "flash_adjudication_enabled": False,
+        "flash_model_id": repair_adjudicator_model_id,
+        "guard_verifier_enabled": legacy_guard_verifier_enabled,
+        "repair_adjudicator_enabled": repair_adjudicator_enabled,
+        "repair_adjudicator_model_id": repair_adjudicator_model_id,
+        "repair_adjudicator_mode": repair_adjudicator_mode,
+        "repair_adjudicator_grounding_required": require_gpt54_grounding_for_repair,
+        "require_gemini_grounding": require_gemini_grounding,
+        "final_seal_enabled": final_seal_enabled,
+        "strict_clean_catalog": strict_clean_catalog,
+        "force_per_variant_validation": force_per_variant_validation,
+    }
+
+
+def run_config_type_error_message(kwargs: Dict[str, Any]) -> str:
+    """Build a non-secret diagnostic for RunConfig construction failures."""
+
+    provided = sorted(kwargs.keys())
+    fields = sorted(getattr(RunConfig, "__dataclass_fields__", {}).keys())
+    extra = sorted(set(provided) - set(fields))
+    missing = sorted(set(fields) - set(provided))
+    return (
+        "RunConfig construction failed. "
+        f"Extra kwargs: {extra}. "
+        f"Missing kwargs: {missing}. "
+        f"RunConfig fields: {fields}. "
+        f"Provided kwargs: {provided}."
+    )
 
 
 @dataclass
@@ -120,26 +205,33 @@ def build_run_config_and_adjudicators(
             )
         )
 
-    run_config = RunConfig(
+    run_config_kwargs = build_run_config_kwargs(
         mode=mode,
-        limit=int(limit) if limit else None,
+        limit=limit,
         force_reprocess=force_reprocess,
-        start_after_validation_id=(start_after or "").strip() or None,
-        checkpoint_every=int(checkpoint_every),
+        start_after=start_after,
+        checkpoint_every=checkpoint_every,
         stop_on_github_failure=stop_on_github_failure,
         stop_on_error=stop_on_error,
-        flash_adjudication_enabled=False,
-        flash_model_id=repair_adjudicator_model_id,
-        guard_verifier_enabled=legacy_guard_verifier_enabled,
+        force_per_variant_validation=force_per_variant_validation,
         repair_adjudicator_enabled=repair_adjudicator_enabled,
         repair_adjudicator_model_id=repair_adjudicator_model_id,
         repair_adjudicator_mode=repair_adjudicator_mode,
-        repair_adjudicator_grounding_required=require_gpt54_grounding_for_repair,
+        require_gpt54_grounding_for_repair=require_gpt54_grounding_for_repair,
         require_gemini_grounding=require_gemini_grounding,
         final_seal_enabled=final_seal_enabled,
         strict_clean_catalog=strict_clean_catalog,
-        force_per_variant_validation=force_per_variant_validation,
+        legacy_guard_verifier_enabled=legacy_guard_verifier_enabled,
     )
+    try:
+        run_config = RunConfig(**run_config_kwargs)
+    except TypeError as exc:
+        return AdjudicatorSetup(
+            run_config=None,
+            repair_adjudicator=None,
+            guard_verifier=None,
+            error=f"{run_config_type_error_message(run_config_kwargs)} Original error: {exc}",
+        )
     return AdjudicatorSetup(
         run_config=run_config,
         repair_adjudicator=repair_adjudicator,

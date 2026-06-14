@@ -1,6 +1,6 @@
 """Streamlit validation runner for the Gemini 3.1 sampled vehicle variant engine.
 
-Gemini 3.1 is the main validator; OpenAI is used only for optional guard-scoped verification.
+Gemini 3.1 is the main validator; OpenAI is used for the GPT-5.4 Repair Adjudicator and optional legacy guard-scoped verification.
 
 Mock and real runs are completely isolated: separate output files, separate
 checkpoints, separate summaries, separate UI sections. A mock run can never
@@ -11,7 +11,7 @@ Secrets (exact paths):
     st.secrets["google"]["api_key"]
     st.secrets["google"]["gemini_validator_model_id"]   (default gemini-3.1-pro-preview)
     st.secrets["google"]["grounding_enabled"]            (default true)
-    st.secrets["openai"]["api_key"]                       (guard verifier only)
+    st.secrets["openai"]["api_key"]                       (GPT-5.4 repair + optional legacy guard verifier)
     st.secrets["openai"]["validator_model_id"]            (default gpt-5.4)
     st.secrets["google"]["force_per_variant_validation"]  (default true)
 
@@ -142,8 +142,10 @@ with col_b:
     st.write(f"GitHub token: {presence(token)}")
     st.write(f"model id: `{model_id}`")
     st.write(f"grounding enabled: `{grounding}`")
-    st.write(f"OpenAI guard verifier key: {presence(openai_api_key)}")
-    st.write(f"guard verifier model id: `{guard_verifier_model_default}`")
+    st.write(f"OpenAI / GPT-5.4 repair key: {presence(openai_api_key)}")
+    st.write(f"repair adjudicator model id: `{repair_adjudicator_model_default}`")
+    st.write(f"Legacy GPT guard verifier: `{guard_verifier_enabled_default}`")
+    st.write(f"legacy guard verifier model id: `{guard_verifier_model_default}`")
     st.write(f"force per-variant default: `{force_per_variant_default}`")
 with col_c:
     st.subheader("Output files")
@@ -258,6 +260,22 @@ def execute_run(
         return
     repair_adjudicator = setup.repair_adjudicator
     guard_verifier = setup.guard_verifier
+
+    sanity = {
+        "repair_adjudicator_enabled": repair_adjudicator_enabled,
+        "repair_adjudicator_model_id": repair_adjudicator_model_id,
+        "repair_adjudicator_object_created": "yes" if repair_adjudicator is not None else "no",
+        "legacy_guard_verifier_enabled": legacy_guard_verifier_enabled,
+        "guard_verifier_object_created": "yes" if guard_verifier is not None else "no",
+        "final_seal_enabled": final_seal_enabled,
+        "strict_clean_catalog": strict_clean_catalog,
+        "force_reprocess": force_reprocess,
+        "repair_adjudicator_mode": repair_adjudicator_mode,
+        "require_gemini_grounding": require_gemini_grounding,
+        "repair_adjudicator_grounding_required": require_gpt54_grounding_for_repair,
+    }
+    st.info("Pre-run wiring sanity check (non-secret):")
+    st.json(sanity)
 
     github_saver = None
     if push_to_github and run_paths.allow_github_push:
