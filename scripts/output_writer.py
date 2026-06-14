@@ -227,11 +227,37 @@ def _blocking_publish_issues(row: Dict[str, Any]) -> List[str]:
         issues.append(f"{field} remains unresolved")
     return issues
 
+def _strict_unsealed_publish_ok(row: Dict[str, Any]) -> bool:
+    """Strict clean_catalog gate for legacy rows that lack a final seal.
+
+    ``clean_partial``, null/unresolved trims, splits and duplicates can never
+    enter the canonical catalog. Only a complete ``clean_exact`` row qualifies.
+    """
+    unresolved = set(row.get("fields_left_unresolved") or [])
+    return (
+        row.get("validation_decision") == "clean_exact"
+        and row.get("identity_status") in {"verified", "likely_valid"}
+        and row.get("trim_status") == "verified"
+        and row.get("canonical_trim") not in (None, "", [])
+        and "canonical_trim" not in unresolved
+        and not (unresolved & IDENTITY_CRITICAL_UNRESOLVED_FIELDS)
+        and not row.get("split_candidates")
+        and not row.get("blocking_identity_issues")
+        and not _blocking_publish_issues(row)
+    )
+
+
 def route_validated_rows(rows: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-    # Final-sealed rows already carry Python-authoritative routing. Preserve it
-    # so models/legacy routing cannot publish rows directly to clean_catalog.
-    if any(isinstance(r, dict) and r.get("final_seal_result") for r in rows):
-        return [dict(r) for r in rows]
+    """Assign final routing for the catalog.
+
+    Rows are handled individually so a mix of final-sealed (new) and unsealed
+    (legacy/checkpoint) rows is always safe:
+
+    * Final-sealed rows keep their Python-authoritative routing. Routing is only
+      ever made *stricter* here (cross-row duplicate detection), never relaxed.
+    * Unsealed rows fall back to strict routing that can never publish a
+      ``clean_partial`` row or a row with a null/unresolved trim.
+    """
     first_by_fp: Dict[str, str] = {}
     group_by_fp: Dict[str, str] = {}
     routed: List[Dict[str, Any]] = []
@@ -239,15 +265,32 @@ def route_validated_rows(rows: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         row = dict(row)
         fp = content_fingerprint(row)
         row["duplicate_group_id"] = group_by_fp.setdefault(fp, f"dup-{abs(hash(fp)) & 0xffffffff:08x}")
-        row["duplicate_of"] = None
         decision = row.get("validation_decision")
+        is_dup = fp in first_by_fp
+
+        if row.get("final_seal_result"):
+            # Final seal is authoritative. Apply only stricter duplicate routing.
+            if is_dup and row.get("final_route") not in {"rejected", "split_queue"}:
+                row["duplicate_of"] = first_by_fp[fp]
+                row["publishable_to_clean_catalog"] = False
+                row["final_route"] = "duplicate_queue"
+                row["route_reason"] = f"Content duplicate of {row['duplicate_of']}; kept in full staging output only."
+            else:
+                row.setdefault("duplicate_of", None)
+                if row.get("publishable_to_clean_catalog") and row.get("final_route") == "clean_catalog":
+                    first_by_fp.setdefault(fp, row.get("validation_id"))
+            routed.append(row)
+            continue
+
+        # Unsealed legacy row: strict fallback, never publish clean_partial.
+        row["duplicate_of"] = None
         blocking = _blocking_publish_issues(row)
-        if fp in first_by_fp and decision in {"clean_exact", "clean_partial"}:
+        if is_dup and decision in {"clean_exact", "clean_partial"}:
             row["duplicate_of"] = first_by_fp[fp]
             row["publishable_to_clean_catalog"] = False
             row["final_route"] = "duplicate_queue"
             row["route_reason"] = f"Content duplicate of {row['duplicate_of']}; kept in full staging output only."
-        elif decision == "split_required":
+        elif decision == "split_required" or row.get("split_candidates"):
             row["publishable_to_clean_catalog"] = False
             row["final_route"] = "split_queue"
             row["route_reason"] = "split_required rows must be split before clean catalog publishing."
@@ -255,11 +298,21 @@ def route_validated_rows(rows: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
             row["publishable_to_clean_catalog"] = False
             row["final_route"] = "rejected"
             row["route_reason"] = "Rejected by validation decision."
-        elif decision in {"clean_exact", "clean_partial"} and not blocking:
+        elif _strict_unsealed_publish_ok(row):
             row["publishable_to_clean_catalog"] = True
             row["final_route"] = "clean_catalog"
-            row["route_reason"] = "Identity is publishable; unresolved non-blocking fields are retained for audit."
+            row["route_reason"] = "Identity and trim verified; row meets strict clean_catalog policy."
             first_by_fp.setdefault(fp, row.get("validation_id"))
+        elif not blocking and (
+            decision == "clean_partial"
+            or (
+                row.get("identity_status") in {"verified", "likely_valid"}
+                and row.get("trim_status") == "unresolved"
+            )
+        ):
+            row["publishable_to_clean_catalog"] = False
+            row["final_route"] = "partial_queue"
+            row["route_reason"] = "clean_partial/unresolved trim is retained for partial review; strict routing blocks clean catalog."
         else:
             row["publishable_to_clean_catalog"] = False
             row["final_route"] = "review_queue"
@@ -494,7 +547,28 @@ class OutputStore:
                   "stage3_openai_guard_verifier_calls", "stage3_guard_verifier_attempts",
                   "stage3_guard_verifier_successes", "stage3_guard_verifier_failures",
                   "stage3_adjudicator_calls_total", "guard_verifier_overrode_guard",
-                  "guard_overrode_verifier", "github_checkpoint_fail_count"):
+                  "guard_overrode_verifier", "github_checkpoint_fail_count",
+                  # Stage 0/1 grounding + repair/final-seal counters (v4).
+                  "stage0_preflight_risk_rows",
+                  "stage1_gemini_grounding_required", "stage1_gemini_grounding_present",
+                  "stage1_gemini_grounding_missing", "stage1_gemini_weak_grounding_rows",
+                  "stage25_repair_risk_scored_rows", "stage25_repair_triggered_rows",
+                  "stage25_repair_required_but_missing_adjudicator",
+                  "stage3_repair_adjudicator_calls", "stage3_repair_adjudicator_successes",
+                  "stage3_repair_adjudicator_failures", "stage3_repair_adjudicator_patches",
+                  "stage3_repair_adjudicator_routing_changes",
+                  "stage3_repair_adjudicator_summary_rewrites",
+                  "stage3_repair_adjudicator_grounding_required",
+                  "stage3_repair_adjudicator_grounding_present",
+                  "stage3_repair_adjudicator_grounding_missing",
+                  "stage4_final_seal_passed", "stage4_final_seal_blocks",
+                  "stage4_final_guard_conflicts_remaining",
+                  "clean_catalog_blocks_by_repair", "clean_catalog_blocks_by_final_seal",
+                  "clean_catalog_blocks_by_grounding", "clean_catalog_blocks_by_unresolved_trim",
+                  "clean_catalog_blocks_by_unresolved_critical_field",
+                  "clean_catalog_blocks_by_clean_partial",
+                  "clean_catalog_blocks_by_split_required",
+                  "legacy_guard_verifier_calls", "legacy_guard_verifier_used"):
             if cached_meta.get(k):
                 self.metadata[k] = cached_meta[k]
         if "github_checkpoint_enabled" in cached_meta:
