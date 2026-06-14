@@ -8,24 +8,24 @@
     "run_timestamp_utc": "2026-06-14T21:54:50Z",
     "total_input_variants": 3712,
     "total_instruction_records": 3712,
-    "total_validated_variants": 1,
+    "total_validated_variants": 2,
     "decision_counts": {
       "clean_exact": 0,
-      "clean_partial": 1,
+      "clean_partial": 2,
       "split_required": 0,
       "reject": 0
     },
     "grounding_cluster_count": 3653,
-    "gemini_call_count": 1,
+    "gemini_call_count": 2,
     "github_checkpoint_enabled": true,
-    "github_checkpoint_count": 1,
+    "github_checkpoint_count": 2,
     "github_checkpoint_fail_count": 0,
     "last_github_checkpoint_error": null,
-    "last_validated_id": "VAL-000001",
+    "last_validated_id": "VAL-000002",
     "schema_version": "v3_three_stage",
     "pipeline_version": "v3_three_stage",
-    "stage1_pro_calls": 1,
-    "stage2_guard_flags_total": 1,
+    "stage1_pro_calls": 2,
+    "stage2_guard_flags_total": 2,
     "stage3_flash_calls": 0,
     "flash_overrode_guard": 0,
     "guard_overrode_flash": 0,
@@ -40,9 +40,9 @@
     "guard_verifier_overrode_guard": 0,
     "guard_overrode_verifier": 0,
     "force_per_variant_validation": true,
-    "stage0_preflight_risk_rows": 1,
-    "stage1_gemini_grounding_required": 1,
-    "stage1_gemini_grounding_present": 1,
+    "stage0_preflight_risk_rows": 2,
+    "stage1_gemini_grounding_required": 2,
+    "stage1_gemini_grounding_present": 2,
     "stage1_gemini_grounding_missing": 0,
     "stage1_gemini_weak_grounding_rows": 0,
     "stage2_guard_flags_low": 0,
@@ -50,25 +50,25 @@
     "stage2_guard_flags_high": 0,
     "stage2_guard_flags_critical": 0,
     "stage2_guard_patches_applied": 0,
-    "stage25_repair_risk_scored_rows": 1,
-    "stage25_repair_triggered_rows": 1,
-    "stage3_repair_adjudicator_calls": 1,
-    "stage3_repair_adjudicator_successes": 1,
+    "stage25_repair_risk_scored_rows": 2,
+    "stage25_repair_triggered_rows": 2,
+    "stage3_repair_adjudicator_calls": 2,
+    "stage3_repair_adjudicator_successes": 2,
     "stage3_repair_adjudicator_failures": 0,
-    "stage3_repair_adjudicator_patches": 7,
+    "stage3_repair_adjudicator_patches": 15,
     "stage3_repair_adjudicator_routing_changes": 0,
     "stage3_repair_adjudicator_summary_rewrites": 0,
-    "stage3_repair_adjudicator_grounding_required": 1,
-    "stage3_repair_adjudicator_grounding_present": 1,
+    "stage3_repair_adjudicator_grounding_required": 2,
+    "stage3_repair_adjudicator_grounding_present": 2,
     "stage3_repair_adjudicator_grounding_missing": 0,
     "stage4_final_seal_passed": 0,
-    "stage4_final_seal_blocks": 1,
+    "stage4_final_seal_blocks": 2,
     "stage4_final_guard_conflicts_remaining": 0,
     "clean_catalog_blocks_by_repair": 0,
-    "clean_catalog_blocks_by_final_seal": 1,
-    "clean_catalog_blocks_by_grounding": 1,
-    "clean_catalog_blocks_by_unresolved_trim": 1,
-    "clean_catalog_blocks_by_unresolved_critical_field": 1
+    "clean_catalog_blocks_by_final_seal": 2,
+    "clean_catalog_blocks_by_grounding": 2,
+    "clean_catalog_blocks_by_unresolved_trim": 2,
+    "clean_catalog_blocks_by_unresolved_critical_field": 2
   },
   "validated_variants": [
     {
@@ -570,6 +570,600 @@
           "risk_tags": [
             "field_confidence",
             "evidence"
+          ]
+        },
+        {
+          "guard_name": "final_seal_route_override",
+          "severity": "medium",
+          "field_affected": "final_route",
+          "original_value": "partial_queue",
+          "guard_value": "review_queue",
+          "reason": "Final seal blocked clean_catalog because unresolved, weak-grounded, contradictory, or non-exact fields remain.",
+          "needs_adjudication": false,
+          "recommended_verifier_model": "none",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "routing",
+            "final_seal"
+          ]
+        }
+      ]
+    },
+    {
+      "validation_id": "VAL-000002",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000002",
+      "source_cluster_id": "CLU-7ea11c499a5f",
+      "grounding_cluster_id": "CLU-7ea11c499a5f",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "500",
+      "canonical_series_or_generation": "1st Gen",
+      "canonical_trim": null,
+      "official_marketed_name_il": "אבארט 500",
+      "body_type": "Hatchback",
+      "fuel_type": "petrol",
+      "engine": "1.4L Turbo",
+      "transmission": "manual",
+      "drivetrain": "FWD",
+      "year_start": 2010,
+      "year_end": 2016,
+      "is_currently_produced": false,
+      "is_currently_imported_il": false,
+      "market_scope": "IL",
+      "validation_decision": "clean_partial",
+      "acceptance_tier": "partial",
+      "identity_status": "verified",
+      "identity_confidence": 0.9,
+      "trim_status": "unresolved",
+      "trim_confidence": 0.0,
+      "field_validation": {
+        "canonical_make": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "risk_tags": [],
+          "notes": "Verified as Abarth in Israeli listing sources."
+        },
+        "canonical_model": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "risk_tags": [],
+          "notes": "Verified as 500 in Israeli listing sources."
+        },
+        "canonical_series_or_generation": {
+          "status": "partial",
+          "confidence": 0.75,
+          "evidence_strength": "indirect",
+          "source_indexes": [
+            0
+          ],
+          "risk_tags": [
+            "derived_generation"
+          ],
+          "notes": "Generation label '1st Gen' is a normalization/derived catalog designation for the 2010-2016 Israeli-market Abarth 500 era, not directly stated in source titles."
+        },
+        "canonical_trim": {
+          "status": "unresolved",
+          "confidence": 0.0,
+          "evidence_strength": "missing",
+          "source_indexes": [],
+          "risk_tags": [
+            "generic_trim",
+            "placeholder_trim"
+          ],
+          "notes": "Provided trim 'Base' is not supported as an official marketed trim in grounded Israeli sources."
+        },
+        "official_marketed_name_il": {
+          "status": "verified",
+          "confidence": 0.9,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "risk_tags": [],
+          "notes": "Hebrew market naming as אבארט 500 is supported by Israeli source titles."
+        },
+        "body_type": {
+          "status": "verified",
+          "confidence": 0.9,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            1
+          ],
+          "risk_tags": [],
+          "notes": "Variant page indicates hatchback body style."
+        },
+        "fuel_type": {
+          "status": "verified",
+          "confidence": 0.9,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            1
+          ],
+          "risk_tags": [],
+          "notes": "Israeli listings support petrol/benzin powertrain for this variant family."
+        },
+        "engine": {
+          "status": "verified",
+          "confidence": 0.95,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "risk_tags": [],
+          "notes": "iCar grounded result states 1.4-liter turbo engine."
+        },
+        "transmission": {
+          "status": "partial",
+          "confidence": 0.6,
+          "evidence_strength": "partial",
+          "source_indexes": [
+            1
+          ],
+          "risk_tags": [
+            "transmission_detail_weak"
+          ],
+          "notes": "Manual transmission is retained from variant identity, but available snippet did not clearly expose gearbox type beyond the page title/version context; not strong enough for full verification."
+        },
+        "drivetrain": {
+          "status": "partial",
+          "confidence": 0.6,
+          "evidence_strength": "indirect",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "risk_tags": [
+            "derived_drivetrain"
+          ],
+          "notes": "FWD is consistent with model architecture but not directly shown in grounded snippets."
+        },
+        "year_start": {
+          "status": "verified",
+          "confidence": 0.98,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0
+          ],
+          "risk_tags": [],
+          "notes": "Grounded Israeli source family starts this model at 2010."
+        },
+        "year_end": {
+          "status": "partial",
+          "confidence": 0.7,
+          "evidence_strength": "partial",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "risk_tags": [
+            "year_end_inferred"
+          ],
+          "notes": "2016 is plausible for this Abarth 500 Israeli-market entry before later sub-trim evolution, but direct end-year confirmation was not explicit in grounded snippets."
+        },
+        "is_currently_produced": {
+          "status": "partial",
+          "confidence": 0.7,
+          "evidence_strength": "indirect",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "risk_tags": [
+            "historical_variant_inference"
+          ],
+          "notes": "This specific 2010-2016 petrol Abarth 500 variant is treated as historical rather than currently produced; inference from dated market coverage."
+        },
+        "is_currently_imported_il": {
+          "status": "partial",
+          "confidence": 0.7,
+          "evidence_strength": "indirect",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "risk_tags": [
+            "historical_variant_inference"
+          ],
+          "notes": "This specific 2010-2016 petrol Abarth 500 variant is treated as not currently imported in Israel; inference from historical year range and newer model naming."
+        }
+      },
+      "source_support_matrix": [
+        {
+          "field": "market_presence_il",
+          "value": true,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "reason": "Israeli iCar and Yad2 source titles/listings show Abarth 500 in the Israeli market."
+        },
+        {
+          "field": "year_start",
+          "value": 2010,
+          "support_level": "direct",
+          "source_indexes": [
+            0
+          ],
+          "reason": "Grounded iCar page labels the Abarth 500 used-car series as 2010-2025, supporting 2010 as Israeli market start for this record."
+        },
+        {
+          "field": "year_end",
+          "value": 2016,
+          "support_level": "indirect",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "reason": "2016 remains a catalog boundary for this row but was not directly stated in the grounded snippets; treated as partial/inferred."
+        },
+        {
+          "field": "engine",
+          "value": "1.4L Turbo",
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "reason": "Grounded iCar snippets mention a 1.4-liter turbo engine."
+        },
+        {
+          "field": "transmission",
+          "value": "manual",
+          "support_level": "partial",
+          "source_indexes": [
+            1
+          ],
+          "reason": "Manual transmission appears consistent with the specific version context but was not fully exposed in snippet text."
+        },
+        {
+          "field": "canonical_trim",
+          "value": null,
+          "support_level": "missing",
+          "source_indexes": [],
+          "reason": "No grounded Israeli source supported 'Base' as an official trim."
+        }
+      ],
+      "evidence_auditability": "partial",
+      "grounding_status": {
+        "gemini_grounding_required": true,
+        "gemini_grounding_present": true,
+        "gemini_grounding_quality": "acceptable",
+        "gpt54_grounding_required": true,
+        "gpt54_grounding_present": true,
+        "gpt54_grounding_quality": "partial",
+        "final_grounding_gate_passed": false
+      },
+      "grounding_summary": "Grounded Israeli web results support Abarth 500 market presence in Israel and support a 2010 Israeli start with a 1.4-liter turbo petrol identity. The submitted trim 'Base' is not supported as an official Israeli marketed trim, so canonical_trim remains null/unresolved. Some fields previously marked fully verified, especially transmission, drivetrain, year_end, and current production/import status, are better treated as partial or inferred based on available grounding.",
+      "evidence_sources": [
+        {
+          "title": "אבארט 500 - אתר iCar",
+          "url": "https://www.icar.co.il/%D7%90%D7%91%D7%90%D7%A8%D7%98/%D7%90%D7%91%D7%90%D7%A8%D7%98_500/%D7%90%D7%91%D7%90%D7%A8%D7%98_500_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%94_%D7%9310/",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "year_start",
+            "engine",
+            "official_marketed_name_il"
+          ]
+        },
+        {
+          "title": "אבארט 500 2010 Abarth 1.4 - יד שניה",
+          "url": "https://www.icar.co.il/%D7%90%D7%91%D7%90%D7%A8%D7%98/%D7%90%D7%91%D7%90%D7%A8%D7%98_500/%D7%90%D7%91%D7%90%D7%A8%D7%98_500_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%94_%D7%9310/version8265/",
+          "source_name": "iCar",
+          "source_type": "variant_listing",
+          "supports": [
+            "body_type",
+            "engine",
+            "fuel_type",
+            "transmission_partial",
+            "market_presence_il"
+          ]
+        },
+        {
+          "title": "מחירון של אבארט 500 | מחירון יד2",
+          "url": "https://www.yad2.co.il/price-list/feed?manufacturer=53&model=11862",
+          "source_name": "Yad2",
+          "source_type": "marketplace",
+          "supports": [
+            "market_presence_il",
+            "trim_candidates",
+            "later_trim_names"
+          ]
+        }
+      ],
+      "possible_trim_names": [
+        "Scorpione",
+        "Turismo",
+        "Competizione",
+        "Nuvolari"
+      ],
+      "split_candidates": [],
+      "blocking_identity_issues": [],
+      "non_blocking_trim_issues": [
+        "The provided trim 'Base' is a generic placeholder and is not grounded as an official Israeli marketed trim.",
+        "Exact trim cannot be assigned from the available grounded evidence for this row."
+      ],
+      "fields_changed": [
+        {
+          "field": "year_start",
+          "from": 2008,
+          "to": 2010,
+          "reason": "Grounded Israeli source support starts Abarth 500 market coverage at 2010."
+        },
+        {
+          "field": "canonical_trim",
+          "from": "Base",
+          "to": null,
+          "reason": "Grounded evidence does not support 'Base' as an official trim."
+        },
+        {
+          "field": "transmission.status",
+          "from": "verified",
+          "to": "partial",
+          "reason": "Grounded evidence for manual transmission was weaker than originally claimed."
+        },
+        {
+          "field": "drivetrain.status",
+          "from": "verified",
+          "to": "partial",
+          "reason": "FWD was inferred from model architecture rather than directly grounded in snippets."
+        },
+        {
+          "field": "year_end.status",
+          "from": "verified",
+          "to": "partial",
+          "reason": "2016 boundary was not directly grounded in retrieved snippets."
+        },
+        {
+          "field": "is_currently_produced.status",
+          "from": "verified",
+          "to": "partial",
+          "reason": "Historical-status inference is plausible but not directly grounded by a current official source."
+        },
+        {
+          "field": "is_currently_imported_il.status",
+          "from": "verified",
+          "to": "partial",
+          "reason": "Historical-status inference is plausible but not directly grounded by a current official source."
+        },
+        {
+          "field": "grounding_status.gemini_grounding_quality",
+          "from": "strong",
+          "to": "partial",
+          "reason": "Actual evidence payload was thin and some claims exceeded direct support."
+        }
+      ],
+      "fields_left_unresolved": [
+        "canonical_trim",
+        "transmission",
+        "drivetrain"
+      ],
+      "decision_reason": "Final seal route=review_queue; validation_decision=clean_partial; identity_status=verified; trim_status=unresolved. Unresolved fields: canonical_trim, transmission, drivetrain.",
+      "_pipeline_version": "v3_three_stage",
+      "_flags_count": 6,
+      "_flash_used": false,
+      "adjudication_log": [],
+      "publishable_to_clean_catalog": false,
+      "final_route": "review_queue",
+      "route_reason": "Final seal blocked clean_catalog because unresolved, weak-grounded, contradictory, or non-exact fields remain.",
+      "duplicate_group_id": "dup-41c8cbe8",
+      "duplicate_of": null,
+      "preflight_risk_tags": [
+        "base_trim",
+        "placeholder_trim",
+        "weak_official_marketed_name",
+        "low_auditability_risk"
+      ],
+      "final_seal_result": {
+        "passed": true,
+        "guard_flags": [
+          {
+            "guard_name": "final_seal_route_override",
+            "severity": "medium",
+            "field_affected": "final_route",
+            "original_value": "review_queue",
+            "guard_value": "partial_queue",
+            "reason": "Verified/likely identity with unresolved trim is retained for partial review.",
+            "risk_tags": [
+              "routing",
+              "final_seal"
+            ],
+            "needs_repair_adjudication": false,
+            "allowed_patch_fields": []
+          },
+          {
+            "guard_name": "field_confidence_or_evidence_low",
+            "severity": "high",
+            "field_affected": "transmission",
+            "original_value": "manual",
+            "guard_value": null,
+            "reason": "transmission lacks confidence/support required for clean_catalog.",
+            "risk_tags": [
+              "field_confidence",
+              "evidence"
+            ],
+            "needs_repair_adjudication": true,
+            "allowed_patch_fields": []
+          },
+          {
+            "guard_name": "field_confidence_or_evidence_low",
+            "severity": "high",
+            "field_affected": "drivetrain",
+            "original_value": "FWD",
+            "guard_value": null,
+            "reason": "drivetrain lacks confidence/support required for clean_catalog.",
+            "risk_tags": [
+              "field_confidence",
+              "evidence"
+            ],
+            "needs_repair_adjudication": true,
+            "allowed_patch_fields": []
+          },
+          {
+            "guard_name": "current_status_contradiction",
+            "severity": "high",
+            "field_affected": "grounding_summary",
+            "original_value": "Grounded Israeli web results support Abarth 500 market presence in Israel and support a 2010 Israeli start with a 1.4-liter turbo petrol identity. The submitted trim 'Base' is not supported as an official Israeli marketed trim, so canonical_trim remains null/unresolved. Some fields previously marked fully verified, especially transmission, drivetrain, year_end, and current production/import status, are better treated as partial or inferred based on available grounding.",
+            "guard_value": "Grounded Israeli web results support Abarth 500 market presence in Israel and support a 2010 Israeli start with a 1.4-liter turbo petrol identity. The submitted trim 'Base' is not supported as an official Israeli marketed trim, so canonical_trim remains null/unresolved. Some fields previously marked fully verified, especially transmission, drivetrain, year_end, and current production/import status, are better treated as partial or inferred based on available grounding.",
+            "reason": "Summary claimed current status while current flags are null/false; summary rewritten.",
+            "risk_tags": [
+              "current_status",
+              "summary_rewrite"
+            ],
+            "needs_repair_adjudication": true,
+            "allowed_patch_fields": []
+          },
+          {
+            "guard_name": "final_seal_route_override",
+            "severity": "medium",
+            "field_affected": "final_route",
+            "original_value": "partial_queue",
+            "guard_value": "review_queue",
+            "reason": "Final seal blocked clean_catalog because unresolved, weak-grounded, contradictory, or non-exact fields remain.",
+            "risk_tags": [
+              "routing",
+              "final_seal"
+            ],
+            "needs_repair_adjudication": false,
+            "allowed_patch_fields": []
+          }
+        ],
+        "blocks_clean_catalog": true
+      },
+      "risk_score": 65,
+      "_repair_adjudicator_triggered": true,
+      "gpt54_grounding_present": true,
+      "_repair_decision": "patched",
+      "field_patches": [
+        {
+          "field": "canonical_trim",
+          "patch": "kept null; trim unresolved confirmed"
+        },
+        {
+          "field": "year_start",
+          "patch": "confirmed as 2010 from grounded Israeli source"
+        },
+        {
+          "field": "transmission",
+          "patch": "status downgraded from verified to partial due to weak direct grounding"
+        },
+        {
+          "field": "drivetrain",
+          "patch": "status downgraded from verified to partial due to inferred support"
+        },
+        {
+          "field": "year_end",
+          "patch": "status downgraded from verified to partial due to indirect support only"
+        },
+        {
+          "field": "is_currently_produced",
+          "patch": "status downgraded from verified to partial due to inference"
+        },
+        {
+          "field": "is_currently_imported_il",
+          "patch": "status downgraded from verified to partial due to inference"
+        },
+        {
+          "field": "grounding_status",
+          "patch": "normalized to partial quality while still passing gate for partial record"
+        }
+      ],
+      "_guard_verifier_used": false,
+      "guard_flags": [
+        {
+          "guard_name": "final_seal_route_override",
+          "severity": "medium",
+          "field_affected": "final_route",
+          "original_value": "review_queue",
+          "guard_value": "partial_queue",
+          "reason": "Verified/likely identity with unresolved trim is retained for partial review.",
+          "needs_adjudication": false,
+          "recommended_verifier_model": "none",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "routing",
+            "final_seal"
+          ]
+        },
+        {
+          "guard_name": "final_seal_route_override",
+          "severity": "medium",
+          "field_affected": "final_route",
+          "original_value": "review_queue",
+          "guard_value": "partial_queue",
+          "reason": "Verified/likely identity with unresolved trim is retained for partial review.",
+          "needs_adjudication": false,
+          "recommended_verifier_model": "none",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "routing",
+            "final_seal"
+          ]
+        },
+        {
+          "guard_name": "field_confidence_or_evidence_low",
+          "severity": "high",
+          "field_affected": "transmission",
+          "original_value": "manual",
+          "guard_value": null,
+          "reason": "transmission lacks confidence/support required for clean_catalog.",
+          "needs_adjudication": true,
+          "recommended_verifier_model": "gpt-5.4",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "field_confidence",
+            "evidence"
+          ]
+        },
+        {
+          "guard_name": "field_confidence_or_evidence_low",
+          "severity": "high",
+          "field_affected": "drivetrain",
+          "original_value": "FWD",
+          "guard_value": null,
+          "reason": "drivetrain lacks confidence/support required for clean_catalog.",
+          "needs_adjudication": true,
+          "recommended_verifier_model": "gpt-5.4",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "field_confidence",
+            "evidence"
+          ]
+        },
+        {
+          "guard_name": "current_status_contradiction",
+          "severity": "high",
+          "field_affected": "grounding_summary",
+          "original_value": "Grounded Israeli web results support Abarth 500 market presence in Israel and support a 2010 Israeli start with a 1.4-liter turbo petrol identity. The submitted trim 'Base' is not supported as an official Israeli marketed trim, so canonical_trim remains null/unresolved. Some fields previously marked fully verified, especially transmission, drivetrain, year_end, and current production/import status, are better treated as partial or inferred based on available grounding.",
+          "guard_value": "Grounded Israeli web results support Abarth 500 market presence in Israel and support a 2010 Israeli start with a 1.4-liter turbo petrol identity. The submitted trim 'Base' is not supported as an official Israeli marketed trim, so canonical_trim remains null/unresolved. Some fields previously marked fully verified, especially transmission, drivetrain, year_end, and current production/import status, are better treated as partial or inferred based on available grounding.",
+          "reason": "Summary claimed current status while current flags are null/false; summary rewritten.",
+          "needs_adjudication": true,
+          "recommended_verifier_model": "gpt-5.4",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "current_status",
+            "summary_rewrite"
           ]
         },
         {
