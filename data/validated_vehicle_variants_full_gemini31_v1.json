@@ -8,24 +8,24 @@
     "run_timestamp_utc": "2026-06-14T07:27:58Z",
     "total_input_variants": 3712,
     "total_instruction_records": 3712,
-    "total_validated_variants": 9,
+    "total_validated_variants": 10,
     "decision_counts": {
       "clean_exact": 0,
-      "clean_partial": 4,
+      "clean_partial": 5,
       "split_required": 5,
       "reject": 0
     },
     "grounding_cluster_count": 3653,
-    "gemini_call_count": 9,
+    "gemini_call_count": 10,
     "github_checkpoint_enabled": true,
-    "github_checkpoint_count": 9,
+    "github_checkpoint_count": 10,
     "github_checkpoint_fail_count": 0,
     "last_github_checkpoint_error": null,
-    "last_validated_id": "VAL-000009",
+    "last_validated_id": "VAL-000010",
     "schema_version": "v3_three_stage",
     "pipeline_version": "v3_three_stage",
-    "stage1_pro_calls": 9,
-    "stage2_guard_flags_total": 15,
+    "stage1_pro_calls": 10,
+    "stage2_guard_flags_total": 18,
     "stage3_flash_calls": 0,
     "flash_overrode_guard": 0,
     "guard_overrode_flash": 0,
@@ -40,9 +40,9 @@
     "guard_verifier_overrode_guard": 0,
     "guard_overrode_verifier": 0,
     "force_per_variant_validation": true,
-    "stage0_preflight_risk_rows": 4,
-    "stage1_gemini_grounding_required": 4,
-    "stage1_gemini_grounding_present": 4,
+    "stage0_preflight_risk_rows": 5,
+    "stage1_gemini_grounding_required": 5,
+    "stage1_gemini_grounding_present": 5,
     "stage1_gemini_grounding_missing": 0,
     "stage1_gemini_weak_grounding_rows": 0,
     "stage2_guard_flags_low": 0,
@@ -50,23 +50,23 @@
     "stage2_guard_flags_high": 0,
     "stage2_guard_flags_critical": 0,
     "stage2_guard_patches_applied": 0,
-    "stage25_repair_risk_scored_rows": 4,
-    "stage25_repair_triggered_rows": 3,
-    "stage3_repair_adjudicator_calls": 3,
+    "stage25_repair_risk_scored_rows": 5,
+    "stage25_repair_triggered_rows": 4,
+    "stage3_repair_adjudicator_calls": 4,
     "stage3_repair_adjudicator_successes": 0,
-    "stage3_repair_adjudicator_failures": 3,
+    "stage3_repair_adjudicator_failures": 4,
     "stage3_repair_adjudicator_patches": 0,
     "stage3_repair_adjudicator_routing_changes": 0,
     "stage3_repair_adjudicator_summary_rewrites": 0,
-    "stage3_repair_adjudicator_grounding_required": 3,
+    "stage3_repair_adjudicator_grounding_required": 4,
     "stage3_repair_adjudicator_grounding_present": 0,
-    "stage3_repair_adjudicator_grounding_missing": 3,
+    "stage3_repair_adjudicator_grounding_missing": 4,
     "stage4_final_seal_passed": 0,
-    "stage4_final_seal_blocks": 4,
+    "stage4_final_seal_blocks": 5,
     "stage4_final_guard_conflicts_remaining": 0,
     "clean_catalog_blocks_by_repair": 0,
-    "clean_catalog_blocks_by_final_seal": 4,
-    "clean_catalog_blocks_by_grounding": 3,
+    "clean_catalog_blocks_by_final_seal": 5,
+    "clean_catalog_blocks_by_grounding": 4,
     "clean_catalog_blocks_by_unresolved_trim": 3,
     "clean_catalog_blocks_by_unresolved_critical_field": 0
   },
@@ -2578,6 +2578,496 @@
           "risk_tags": [
             "split",
             "trim_quality"
+          ]
+        }
+      ]
+    },
+    {
+      "validation_id": "VAL-000010",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000010",
+      "source_cluster_id": "CLU-ee56004c3c90",
+      "grounding_cluster_id": "CLU-ee56004c3c90",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "500",
+      "canonical_series_or_generation": "2nd Gen",
+      "canonical_trim": "500e Scorpionissima",
+      "official_marketed_name_il": "אבארט 500e",
+      "body_type": "Hatchback",
+      "fuel_type": "electric",
+      "engine": "Electric Motor",
+      "transmission": "automatic",
+      "drivetrain": "FWD",
+      "year_start": 2024,
+      "year_end": null,
+      "is_currently_produced": true,
+      "is_currently_imported_il": true,
+      "market_scope": "IL",
+      "validation_decision": "clean_partial",
+      "acceptance_tier": "partial",
+      "identity_status": "verified",
+      "identity_confidence": 1.0,
+      "trim_status": "verified",
+      "trim_confidence": 1.0,
+      "field_validation": {
+        "canonical_make": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Make is universally recognized."
+        },
+        "canonical_model": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Model is the 500."
+        },
+        "canonical_series_or_generation": {
+          "status": "verified",
+          "confidence": 0.9,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0
+          ],
+          "risk_tags": [],
+          "notes": "Autoboom classifies the electric 500e as the 2nd generation of the modern Abarth 500."
+        },
+        "canonical_trim": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Scorpionissima was the launch edition trim, explicitly confirmed as sold in Israel."
+        },
+        "official_marketed_name_il": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Marketed as אבארט 500e in Israel."
+        },
+        "body_type": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Available as Hatchback (and Cabriolet)."
+        },
+        "fuel_type": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Fully electric vehicle."
+        },
+        "engine": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Electric motor with 155 hp."
+        },
+        "transmission": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0
+          ],
+          "risk_tags": [],
+          "notes": "Single-speed automatic transmission standard for EVs."
+        },
+        "drivetrain": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0
+          ],
+          "risk_tags": [],
+          "notes": "Front-wheel drive."
+        },
+        "year_start": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "risk_tags": [],
+          "notes": "Launched in Israel in January 2024."
+        },
+        "year_end": {
+          "status": "inferred",
+          "confidence": 0.9,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Model is currently active; year_end set to null."
+        },
+        "is_currently_produced": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Currently in production globally."
+        },
+        "is_currently_imported_il": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Currently imported and sold in Israel."
+        }
+      },
+      "source_support_matrix": [
+        {
+          "field": "canonical_make",
+          "value": "Abarth",
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "reason": "All sources refer to the make as Abarth (אבארט)."
+        },
+        {
+          "field": "canonical_model",
+          "value": "500",
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "reason": "The model is the 500 (marketed as 500e)."
+        },
+        {
+          "field": "canonical_trim",
+          "value": "500e Scorpionissima",
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "reason": "Autoboom and Sport5 explicitly mention the Scorpionissima trim being sold in Israel."
+        },
+        {
+          "field": "year_start",
+          "value": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "reason": "Autoboom and Auto confirm the Israeli launch took place in January 2024."
+        },
+        {
+          "field": "engine",
+          "value": "Electric Motor",
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "reason": "All sources confirm the vehicle is fully electric."
+        }
+      ],
+      "evidence_auditability": "strong",
+      "grounding_status": {
+        "gemini_grounding_required": true,
+        "gemini_grounding_present": true,
+        "gemini_grounding_quality": "strong",
+        "gpt54_grounding_required": true,
+        "gpt54_grounding_present": false,
+        "gpt54_grounding_quality": "missing",
+        "final_grounding_gate_passed": false
+      },
+      "grounding_summary": "Searches confirmed that the Abarth 500e was launched in Israel in January 2024. The 'Scorpionissima' trim was the launch edition, limited to 1,949 units globally, and was officially sold in Israel alongside the regular 'Turismo' trim. The vehicle is a fully electric hatchback with FWD and an automatic transmission. The official marketed name in Israel is 'אבארט 500e'. The model is currently in production and imported, so year_end was updated to null.",
+      "evidence_sources": [
+        {
+          "title": "אבארט 500 בישראל – חוות דעת, מחירים, השוואות ודירוג באוטובום",
+          "url": null,
+          "source_name": "Autoboom",
+          "source_type": "marketplace",
+          "supports": [
+            "market_presence_il",
+            "year_range",
+            "exact_trim",
+            "engine",
+            "fuel_type",
+            "transmission"
+          ]
+        },
+        {
+          "title": "אבארט 500e החדשה בארץ – מחיר החל מ-220,000 שקלים - אוטו",
+          "url": null,
+          "source_name": "Auto",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "official_import_il",
+            "body_type"
+          ]
+        },
+        {
+          "title": "זרם עוקצני: אבארט 500e בישראל מ-219,900 שקל - ערוץ הספורט",
+          "url": null,
+          "source_name": "Sport5",
+          "source_type": "editorial",
+          "supports": [
+            "exact_trim",
+            "market_presence_il",
+            "official_import_il"
+          ]
+        }
+      ],
+      "possible_trim_names": [
+        "500e Scorpionissima",
+        "500e Turismo"
+      ],
+      "split_candidates": [],
+      "blocking_identity_issues": [],
+      "non_blocking_trim_issues": [
+        "year_end was current/future and not kept as a placeholder."
+      ],
+      "fields_changed": [
+        {
+          "field": "year_end",
+          "from": 2026,
+          "to": null,
+          "reason": "Current/future year_end was not kept as a placeholder; reset to null unless strongly supported as an end year."
+        }
+      ],
+      "fields_left_unresolved": [],
+      "decision_reason": "Final seal route=review_queue; validation_decision=clean_partial; identity_status=verified; trim_status=verified.",
+      "_pipeline_version": "v3_three_stage",
+      "_flags_count": 7,
+      "_flash_used": false,
+      "adjudication_log": [],
+      "publishable_to_clean_catalog": false,
+      "final_route": "review_queue",
+      "route_reason": "Final seal blocked clean_catalog because unresolved, weak-grounded, contradictory, or non-exact fields remain.",
+      "duplicate_group_id": "dup-9cfaa316",
+      "duplicate_of": null,
+      "guard_corrected_reason": "Python guards corrected the model output: year_end: 2026 -> None.",
+      "preflight_risk_tags": [
+        "weak_official_marketed_name",
+        "current_or_future_year_end_placeholder",
+        "low_auditability_risk"
+      ],
+      "final_seal_result": {
+        "passed": true,
+        "guard_flags": [
+          {
+            "guard_name": "year_end_current",
+            "severity": "medium",
+            "field_affected": "year_end",
+            "original_value": 2026,
+            "guard_value": null,
+            "reason": "Current/future year_end reset to null because placeholder end years are not allowed.",
+            "risk_tags": [],
+            "needs_repair_adjudication": false,
+            "allowed_patch_fields": []
+          },
+          {
+            "guard_name": "year_end_current",
+            "severity": "medium",
+            "field_affected": "year_end",
+            "original_value": 2026,
+            "guard_value": null,
+            "reason": "Current/future year_end reset to null because placeholder end years are not allowed.",
+            "risk_tags": [],
+            "needs_repair_adjudication": false,
+            "allowed_patch_fields": []
+          },
+          {
+            "guard_name": "final_seal_route_override",
+            "severity": "medium",
+            "field_affected": "final_route",
+            "original_value": "review_queue",
+            "guard_value": "clean_catalog",
+            "reason": "Final seal passed strict clean_catalog policy.",
+            "risk_tags": [
+              "routing",
+              "final_seal"
+            ],
+            "needs_repair_adjudication": false,
+            "allowed_patch_fields": []
+          },
+          {
+            "guard_name": "final_seal_route_override",
+            "severity": "high",
+            "field_affected": "final_route",
+            "original_value": "clean_catalog",
+            "guard_value": "review_queue",
+            "reason": "Final seal blocked clean_catalog because unresolved, weak-grounded, contradictory, or non-exact fields remain.",
+            "risk_tags": [
+              "routing",
+              "final_seal"
+            ],
+            "needs_repair_adjudication": true,
+            "allowed_patch_fields": []
+          }
+        ],
+        "blocks_clean_catalog": true
+      },
+      "risk_score": 85,
+      "_repair_adjudicator_triggered": true,
+      "_repair_adjudicator_error": "Responses.create() got an unexpected keyword argument 'max_completion_tokens'",
+      "_guard_verifier_used": false,
+      "guard_flags": [
+        {
+          "guard_name": "year_end_current",
+          "severity": "medium",
+          "field_affected": "year_end",
+          "original_value": 2026,
+          "guard_value": null,
+          "reason": "Current/future year_end reset to null because placeholder end years are not allowed.",
+          "needs_adjudication": false,
+          "recommended_verifier_model": "none",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": []
+        },
+        {
+          "guard_name": "year_end_current",
+          "severity": "medium",
+          "field_affected": "year_end",
+          "original_value": 2026,
+          "guard_value": null,
+          "reason": "Current/future year_end reset to null because placeholder end years are not allowed.",
+          "needs_adjudication": false,
+          "recommended_verifier_model": "none",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": []
+        },
+        {
+          "guard_name": "final_seal_route_override",
+          "severity": "medium",
+          "field_affected": "final_route",
+          "original_value": "review_queue",
+          "guard_value": "clean_catalog",
+          "reason": "Final seal passed strict clean_catalog policy.",
+          "needs_adjudication": false,
+          "recommended_verifier_model": "none",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "routing",
+            "final_seal"
+          ]
+        },
+        {
+          "guard_name": "year_end_current",
+          "severity": "medium",
+          "field_affected": "year_end",
+          "original_value": 2026,
+          "guard_value": null,
+          "reason": "Current/future year_end reset to null because placeholder end years are not allowed.",
+          "needs_adjudication": false,
+          "recommended_verifier_model": "none",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": []
+        },
+        {
+          "guard_name": "year_end_current",
+          "severity": "medium",
+          "field_affected": "year_end",
+          "original_value": 2026,
+          "guard_value": null,
+          "reason": "Current/future year_end reset to null because placeholder end years are not allowed.",
+          "needs_adjudication": false,
+          "recommended_verifier_model": "none",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": []
+        },
+        {
+          "guard_name": "final_seal_route_override",
+          "severity": "medium",
+          "field_affected": "final_route",
+          "original_value": "review_queue",
+          "guard_value": "clean_catalog",
+          "reason": "Final seal passed strict clean_catalog policy.",
+          "needs_adjudication": false,
+          "recommended_verifier_model": "none",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "routing",
+            "final_seal"
+          ]
+        },
+        {
+          "guard_name": "final_seal_route_override",
+          "severity": "high",
+          "field_affected": "final_route",
+          "original_value": "clean_catalog",
+          "guard_value": "review_queue",
+          "reason": "Final seal blocked clean_catalog because unresolved, weak-grounded, contradictory, or non-exact fields remain.",
+          "needs_adjudication": true,
+          "recommended_verifier_model": "gpt-5.4",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "routing",
+            "final_seal"
           ]
         }
       ]
