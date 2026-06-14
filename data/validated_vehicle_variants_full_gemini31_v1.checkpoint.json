@@ -8,24 +8,24 @@
     "run_timestamp_utc": "2026-06-14T08:32:06Z",
     "total_input_variants": 3712,
     "total_instruction_records": 3712,
-    "total_validated_variants": 1,
+    "total_validated_variants": 2,
     "decision_counts": {
       "clean_exact": 0,
-      "clean_partial": 1,
+      "clean_partial": 2,
       "split_required": 0,
       "reject": 0
     },
     "grounding_cluster_count": 3653,
-    "gemini_call_count": 1,
+    "gemini_call_count": 2,
     "github_checkpoint_enabled": true,
-    "github_checkpoint_count": 1,
+    "github_checkpoint_count": 2,
     "github_checkpoint_fail_count": 0,
     "last_github_checkpoint_error": null,
-    "last_validated_id": "VAL-000001",
+    "last_validated_id": "VAL-000002",
     "schema_version": "v3_three_stage",
     "pipeline_version": "v3_three_stage",
-    "stage1_pro_calls": 1,
-    "stage2_guard_flags_total": 1,
+    "stage1_pro_calls": 2,
+    "stage2_guard_flags_total": 2,
     "stage3_flash_calls": 0,
     "flash_overrode_guard": 0,
     "guard_overrode_flash": 0,
@@ -40,9 +40,9 @@
     "guard_verifier_overrode_guard": 0,
     "guard_overrode_verifier": 0,
     "force_per_variant_validation": true,
-    "stage0_preflight_risk_rows": 1,
-    "stage1_gemini_grounding_required": 1,
-    "stage1_gemini_grounding_present": 1,
+    "stage0_preflight_risk_rows": 2,
+    "stage1_gemini_grounding_required": 2,
+    "stage1_gemini_grounding_present": 2,
     "stage1_gemini_grounding_missing": 0,
     "stage1_gemini_weak_grounding_rows": 0,
     "stage2_guard_flags_low": 0,
@@ -50,28 +50,29 @@
     "stage2_guard_flags_high": 0,
     "stage2_guard_flags_critical": 0,
     "stage2_guard_patches_applied": 0,
-    "stage25_repair_risk_scored_rows": 1,
-    "stage25_repair_triggered_rows": 1,
-    "stage3_repair_adjudicator_calls": 1,
+    "stage25_repair_risk_scored_rows": 2,
+    "stage25_repair_triggered_rows": 2,
+    "stage3_repair_adjudicator_calls": 2,
     "stage3_repair_adjudicator_successes": 0,
-    "stage3_repair_adjudicator_failures": 1,
+    "stage3_repair_adjudicator_failures": 2,
     "stage3_repair_adjudicator_patches": 0,
     "stage3_repair_adjudicator_routing_changes": 0,
     "stage3_repair_adjudicator_summary_rewrites": 0,
-    "stage3_repair_adjudicator_grounding_required": 1,
+    "stage3_repair_adjudicator_grounding_required": 2,
     "stage3_repair_adjudicator_grounding_present": 0,
-    "stage3_repair_adjudicator_grounding_missing": 1,
+    "stage3_repair_adjudicator_grounding_missing": 2,
     "stage4_final_seal_passed": 0,
-    "stage4_final_seal_blocks": 1,
+    "stage4_final_seal_blocks": 2,
     "stage4_final_guard_conflicts_remaining": 0,
     "clean_catalog_blocks_by_repair": 0,
-    "clean_catalog_blocks_by_final_seal": 1,
-    "clean_catalog_blocks_by_grounding": 1,
-    "clean_catalog_blocks_by_unresolved_trim": 1,
+    "clean_catalog_blocks_by_final_seal": 2,
+    "clean_catalog_blocks_by_grounding": 2,
+    "clean_catalog_blocks_by_unresolved_trim": 2,
     "clean_catalog_blocks_by_unresolved_critical_field": 0
   },
   "completed_validation_ids": [
-    "VAL-000001"
+    "VAL-000001",
+    "VAL-000002"
   ],
   "failed_validation_ids": [],
   "validated_variants_by_id": {
@@ -427,6 +428,360 @@
           ]
         }
       ]
+    },
+    "VAL-000002": {
+      "validation_id": "VAL-000002",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000002",
+      "source_cluster_id": "CLU-7ea11c499a5f",
+      "grounding_cluster_id": "CLU-7ea11c499a5f",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "500",
+      "canonical_series_or_generation": "1st Gen",
+      "canonical_trim": null,
+      "official_marketed_name_il": "אבארט 500",
+      "body_type": "Hatchback",
+      "fuel_type": "petrol",
+      "engine": "1.4L Turbo",
+      "transmission": "manual",
+      "drivetrain": "FWD",
+      "year_start": 2010,
+      "year_end": 2016,
+      "is_currently_produced": false,
+      "is_currently_imported_il": false,
+      "market_scope": "IL",
+      "validation_decision": "clean_partial",
+      "acceptance_tier": "partial",
+      "identity_status": "verified",
+      "identity_confidence": 0.95,
+      "trim_status": "unresolved",
+      "trim_confidence": 0.0,
+      "field_validation": {
+        "canonical_make": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Make verified as Abarth."
+        },
+        "canonical_model": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Model verified as 500."
+        },
+        "canonical_series_or_generation": {
+          "status": "verified",
+          "confidence": 0.9,
+          "evidence_strength": "partial",
+          "source_indexes": [
+            0
+          ],
+          "risk_tags": [],
+          "notes": "1st generation of the modern Abarth 500."
+        },
+        "canonical_trim": {
+          "status": "unresolved",
+          "confidence": 0.0,
+          "evidence_strength": "missing",
+          "source_indexes": [],
+          "risk_tags": [
+            "generic_trim"
+          ],
+          "notes": "'Base' is a generic placeholder. The actual base trim in Israel was 'Scorpione'."
+        },
+        "official_marketed_name_il": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Marketed in Israel as אבארט 500."
+        },
+        "body_type": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0
+          ],
+          "risk_tags": [],
+          "notes": "Hatchback (3 doors) verified."
+        },
+        "fuel_type": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "risk_tags": [],
+          "notes": "Petrol (בנזין) verified."
+        },
+        "engine": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "risk_tags": [],
+          "notes": "1.4L Turbo (1.4T-Jet) verified."
+        },
+        "transmission": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "risk_tags": [],
+          "notes": "Manual transmission verified for the Israeli market."
+        },
+        "drivetrain": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0
+          ],
+          "risk_tags": [],
+          "notes": "FWD verified."
+        },
+        "year_start": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0
+          ],
+          "risk_tags": [
+            "corrected_value"
+          ],
+          "notes": "Official import to Israel began in June 2010, not 2008."
+        },
+        "year_end": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0
+          ],
+          "risk_tags": [],
+          "notes": "Sold until late 2016 when it was replaced by the facelifted 595."
+        },
+        "is_currently_produced": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0
+          ],
+          "risk_tags": [],
+          "notes": "Production of the pre-facelift 500 ended in 2016."
+        },
+        "is_currently_imported_il": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0
+          ],
+          "risk_tags": [],
+          "notes": "Import of this specific pre-facelift variant ended in 2016."
+        }
+      },
+      "source_support_matrix": [
+        {
+          "field": "year_start",
+          "value": 2010,
+          "support_level": "direct",
+          "source_indexes": [
+            0
+          ],
+          "reason": "Auto.co.il explicitly states the Abarth 500 arrived in Israel in June 2010."
+        },
+        {
+          "field": "year_end",
+          "value": 2016,
+          "support_level": "direct",
+          "source_indexes": [
+            0
+          ],
+          "reason": "Auto.co.il explicitly states the facelifted 595 replaced the 500 in October 2016."
+        },
+        {
+          "field": "canonical_trim",
+          "value": null,
+          "support_level": "missing",
+          "source_indexes": [
+            0
+          ],
+          "reason": "The input trim 'Base' is a generic placeholder. The actual base trim in Israel was 'Scorpione'."
+        }
+      ],
+      "evidence_auditability": "strong",
+      "grounding_status": {
+        "gemini_grounding_required": true,
+        "gemini_grounding_present": true,
+        "gemini_grounding_quality": "strong",
+        "gpt54_grounding_required": true,
+        "gpt54_grounding_present": false,
+        "gpt54_grounding_quality": "missing",
+        "final_grounding_gate_passed": false
+      },
+      "grounding_summary": "The Abarth 500 was officially imported to Israel starting in June 2010, not 2008. It was sold until late 2016 when the facelifted version arrived and was renamed Abarth 595. The vehicle was available with a 1.4L Turbo engine and a manual transmission. The base trim in Israel was called 'Scorpione', making the generic 'Base' trim unresolved.",
+      "evidence_sources": [
+        {
+          "title": "אבארט 500 - מחירון, חוות דעת ומידע טכני | אוטו",
+          "url": null,
+          "source_name": "Auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "year_range",
+            "engine",
+            "transmission",
+            "trim_candidates"
+          ]
+        },
+        {
+          "title": "אבארט 500 2010 יד שניה Abarth 1.4 - iCar",
+          "url": null,
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "year_range"
+          ]
+        },
+        {
+          "title": "אבארט 500 2012 Scorpione אוט׳ קבריולט 1.4 (141 כ״ס) [2010-2016] | מחירון יד2",
+          "url": null,
+          "source_name": "yad2.co.il",
+          "source_type": "marketplace",
+          "supports": [
+            "market_presence_il",
+            "year_range",
+            "trim_candidates"
+          ]
+        }
+      ],
+      "possible_trim_names": [
+        "Scorpione",
+        "Lusso",
+        "Competizione",
+        "San Marino 595"
+      ],
+      "split_candidates": [],
+      "blocking_identity_issues": [],
+      "non_blocking_trim_issues": [
+        "The input trim 'Base' is a generic placeholder and not a specific marketed trim in Israel."
+      ],
+      "fields_changed": [
+        {
+          "field": "year_start",
+          "from": 2008,
+          "to": 2010,
+          "reason": "Model changed value during validation; see decision_reason/grounding_summary"
+        }
+      ],
+      "fields_left_unresolved": [
+        "canonical_trim"
+      ],
+      "decision_reason": "Final seal route=partial_queue; validation_decision=clean_partial; identity_status=verified; trim_status=unresolved. Unresolved fields: canonical_trim.",
+      "_pipeline_version": "v3_three_stage",
+      "_flags_count": 2,
+      "_flash_used": false,
+      "adjudication_log": [],
+      "publishable_to_clean_catalog": false,
+      "final_route": "partial_queue",
+      "route_reason": "Verified/likely identity with unresolved trim is retained for partial review.",
+      "duplicate_group_id": null,
+      "duplicate_of": null,
+      "preflight_risk_tags": [
+        "base_trim",
+        "placeholder_trim",
+        "weak_official_marketed_name",
+        "low_auditability_risk"
+      ],
+      "final_seal_result": {
+        "passed": true,
+        "guard_flags": [
+          {
+            "guard_name": "final_seal_route_override",
+            "severity": "medium",
+            "field_affected": "final_route",
+            "original_value": "review_queue",
+            "guard_value": "partial_queue",
+            "reason": "Verified/likely identity with unresolved trim is retained for partial review.",
+            "risk_tags": [
+              "routing",
+              "final_seal"
+            ],
+            "needs_repair_adjudication": false,
+            "allowed_patch_fields": []
+          }
+        ],
+        "blocks_clean_catalog": true
+      },
+      "risk_score": 65,
+      "_repair_adjudicator_triggered": true,
+      "_repair_adjudicator_error": "Responses.create() got an unexpected keyword argument 'max_completion_tokens'",
+      "_guard_verifier_used": false,
+      "guard_flags": [
+        {
+          "guard_name": "final_seal_route_override",
+          "severity": "medium",
+          "field_affected": "final_route",
+          "original_value": "review_queue",
+          "guard_value": "partial_queue",
+          "reason": "Verified/likely identity with unresolved trim is retained for partial review.",
+          "needs_adjudication": false,
+          "recommended_verifier_model": "none",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "routing",
+            "final_seal"
+          ]
+        },
+        {
+          "guard_name": "final_seal_route_override",
+          "severity": "medium",
+          "field_affected": "final_route",
+          "original_value": "review_queue",
+          "guard_value": "partial_queue",
+          "reason": "Verified/likely identity with unresolved trim is retained for partial review.",
+          "needs_adjudication": false,
+          "recommended_verifier_model": "none",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "routing",
+            "final_seal"
+          ]
+        }
+      ]
     }
   },
   "cluster_cache": {
@@ -465,10 +820,10 @@
   },
   "decision_counts": {
     "clean_exact": 0,
-    "clean_partial": 1,
+    "clean_partial": 2,
     "split_required": 0,
     "reject": 0
   },
-  "last_validated_id": "VAL-000001",
-  "updated_at_utc": "2026-06-14T08:32:06Z"
+  "last_validated_id": "VAL-000002",
+  "updated_at_utc": "2026-06-14T08:33:06Z"
 }
