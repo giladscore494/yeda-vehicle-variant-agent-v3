@@ -30,6 +30,14 @@ from .reconcile import compute_preflight_risk_tags, compute_repair_risk_score, f
 _SPLIT_DELIMITERS = (" / ", "/", " or ", ",", " + ", "+", " & ", "&", ";", "|")
 
 
+def _flag_to_dict_safe(flag: Any) -> Any:
+    """Serialize a GuardFlag (or already-dict flag) for output storage."""
+    if isinstance(flag, dict):
+        return flag
+    data = getattr(flag, "__dict__", None)
+    return dict(data) if isinstance(data, dict) else str(flag)
+
+
 # ---------------------------------------------------------------------------
 # Pure decision helpers (covered by unit tests)
 # ---------------------------------------------------------------------------
@@ -365,6 +373,16 @@ def run_validation(
         _log("Real mode requested but no Gemini client provided.")
         return RunResult(store=store or OutputStore(), stopped_reason="no_gemini_client", logs=logs)
 
+    # Fail closed: if repair is enabled for a real run, a repair adjudicator
+    # object MUST be wired in. Otherwise the run would silently skip the GPT-5.4
+    # repair layer and publish unrepaired rows (the previous-run failure mode).
+    if config.mode == "real" and config.repair_adjudicator_enabled and repair_adjudicator is None:
+        _log(
+            "Refusing to run: repair_adjudicator_enabled=True but no repair_adjudicator "
+            "object was provided. Provide an OpenAIRepairAdjudicator or disable repair."
+        )
+        return RunResult(store=store or OutputStore(), stopped_reason="missing_repair_adjudicator", logs=logs)
+
     clusters: ClusterIndex = build_clusters(join.variants, join.ordered_ids)
 
     if store is None:
@@ -454,8 +472,16 @@ def run_validation(
                     if cluster.cluster_id not in store.cluster_cache:
                         store.cluster_cache[cluster.cluster_id] = evidence_from_row(row, vid)
 
-                    # Stage 3: GPT-5.4 grounded repair adjudicator (preferred),
-                    # or legacy guard-scoped verifier only when explicitly used.
+                    # Stage 2.5: count the repair-risk decision BEFORE checking
+                    # whether the adjudicator is available, so a missing repair
+                    # layer can never hide the fact that repair was required.
+                    store.metadata["stage25_repair_risk_scored_rows"] = store.metadata.get("stage25_repair_risk_scored_rows", 0) + 1
+                    if repair_triggered:
+                        store.metadata["stage25_repair_triggered_rows"] = store.metadata.get("stage25_repair_triggered_rows", 0) + 1
+
+                    # Stage 3: GPT-5.4 grounded repair adjudicator (the only
+                    # repair authority). The legacy guard verifier is separate,
+                    # optional, and never counted as repair.
                     adjudication_flags = [
                         f for f in flags
                         if f.needs_adjudication and f.recommended_verifier_model == "gpt-5.4"
@@ -466,9 +492,18 @@ def run_validation(
                         and guard_verifier is not None
                     )
                     flash_used = False
-                    if repair_triggered and config.repair_adjudicator_enabled and repair_adjudicator is not None:
-                        store.metadata["stage25_repair_risk_scored_rows"] = store.metadata.get("stage25_repair_risk_scored_rows", 0) + 1
-                        store.metadata["stage25_repair_triggered_rows"] = store.metadata.get("stage25_repair_triggered_rows", 0) + 1
+                    repair_missing = repair_triggered and config.repair_adjudicator_enabled and repair_adjudicator is None
+                    if repair_missing:
+                        # Fail closed at row level: repair was required but no
+                        # adjudicator is available. Block clean catalog and seal.
+                        store.metadata["stage25_repair_required_but_missing_adjudicator"] = store.metadata.get("stage25_repair_required_but_missing_adjudicator", 0) + 1
+                        row["_repair_adjudicator_missing"] = True
+                        row["publishable_to_clean_catalog"] = False
+                        row["final_route"] = "review_queue"
+                        row["route_reason"] = "Repair was required but the GPT-5.4 Repair Adjudicator was not available."
+                        row, final_flags = final_seal(row, original_row, {"error": "repair_adjudicator_missing"}, flags, require_gemini_grounding=config.require_gemini_grounding, require_gpt54_grounding_for_repair=config.repair_adjudicator_grounding_required)
+                        flags = flags + final_flags
+                    elif repair_triggered and config.repair_adjudicator_enabled and repair_adjudicator is not None:
                         try:
                             payload = repair_adjudicator.build_payload(
                                 raw_input_variant=variant,
@@ -501,24 +536,40 @@ def run_validation(
                         calls = max(0, int(getattr(guard_verifier, "calls", 0)) - int(before_calls))
                         if calls:
                             store.bump_stage3_guard_verifier_attempts(calls)
+                            store.metadata["legacy_guard_verifier_calls"] = store.metadata.get("legacy_guard_verifier_calls", 0) + calls
                             # Row-level adjudication is one scoped call in this pipeline.
                             if row.get("_guard_verifier_success"):
                                 store.bump_stage3_guard_verifier_successes(1)
                             elif row.get("_guard_verifier_error"):
                                 store.bump_stage3_guard_verifier_failures(1, row.get("_guard_verifier_error"))
+                        store.metadata["legacy_guard_verifier_used"] = store.metadata.get("legacy_guard_verifier_used", 0) + 1
                         if hasattr(guard_verifier, "settings"):
                             store.set_guard_verifier_model(guard_verifier.settings.model_id)
                         if row.get("_guard_verifier_overrode_guard"):
                             store.bump_guard_verifier_overrode_guard(int(row.get("_guard_verifier_overrode_guard") or 0))
                         before_final = row.get("validation_decision")
                         row, final_flags = reconcile_validation_output_with_flags(variant, row, run_mode="real", final_pass=True)
+                        flags = flags + final_flags
                         if before_final != row.get("validation_decision"):
                             store.bump_guard_overrode_verifier(1)
+                        # Legacy verifier is NOT a publisher: re-run the Python
+                        # final seal so it remains the only publication authority.
+                        row, seal_after_verifier = final_seal(row, original_row, None, flags, require_gemini_grounding=config.require_gemini_grounding, require_gpt54_grounding_for_repair=config.repair_adjudicator_grounding_required)
+                        flags = flags + seal_after_verifier
+
+                    # Stage 4 invariant: every newly processed real row must carry
+                    # a Python final_seal_result. Seal once if nothing above did.
+                    if config.final_seal_enabled and not row.get("final_seal_result"):
+                        row, seal_flags2 = final_seal(row, original_row, None, flags, require_gemini_grounding=config.require_gemini_grounding, require_gpt54_grounding_for_repair=config.repair_adjudicator_grounding_required)
+                        flags = flags + seal_flags2
+                    if config.mode == "real" and config.final_seal_enabled and not row.get("final_seal_result"):
+                        raise RuntimeError(f"final_seal_result missing after real row processing for {vid}")
+
                     row["_pipeline_version"] = "v3_three_stage"
                     row["_flags_count"] = len(flags)
                     row["_flash_used"] = flash_used
                     row["_guard_verifier_used"] = verifier_used
-                    row.setdefault("guard_flags", [getattr(f, "__dict__", f) for f in flags])
+                    row["guard_flags"] = [_flag_to_dict_safe(f) for f in flags]
                     row.setdefault("adjudication_log", [])
                 else:
                     # Legacy fallback only when force_per_variant_validation is explicitly disabled.

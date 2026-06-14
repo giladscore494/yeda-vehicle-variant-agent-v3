@@ -56,8 +56,16 @@ def test_weak_trim_partial_shape():
 def test_final_routing_and_duplicates():
     from scripts.output_writer import route_validated_rows
 
+    # The clean_exact anchor must satisfy the strict catalog gate (verified
+    # identity + trim, grounded, gate passed) to legitimately publish.
+    clean_anchor = build_output_row(
+        "VAL-1", canonical_make="Abarth", canonical_model="500", canonical_trim="Turismo",
+        validation_decision="clean_exact", identity_status="verified", trim_status="verified",
+        evidence_auditability="acceptable",
+    )
+    clean_anchor["grounding_status"] = {"gemini_grounding_required": True, "gemini_grounding_present": True, "gemini_grounding_quality": "acceptable", "gpt54_grounding_required": False, "gpt54_grounding_present": False, "gpt54_grounding_quality": "missing", "final_grounding_gate_passed": True}
     rows = [
-        build_output_row("VAL-1", canonical_make="Abarth", canonical_model="500", canonical_trim="Turismo", validation_decision="clean_exact"),
+        clean_anchor,
         build_output_row("VAL-2", canonical_make="Abarth", canonical_model="500", canonical_trim="Turismo", validation_decision="clean_partial", identity_status="likely_valid"),
         build_output_row("VAL-3", validation_decision="split_required"),
         build_output_row("VAL-4", validation_decision="reject"),

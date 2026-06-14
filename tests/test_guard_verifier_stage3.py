@@ -120,7 +120,9 @@ def test_final_python_routing_overrides_verifier_and_is_python_only():
     by_id = {r["validation_id"]: r for r in rows}
     assert by_id["S"]["final_route"] == "split_queue" and by_id["S"]["publishable_to_clean_catalog"] is False
     assert by_id["R"]["final_route"] == "rejected" and by_id["R"]["publishable_to_clean_catalog"] is False
-    assert by_id["P"]["final_route"] == "clean_catalog" and by_id["P"]["publishable_to_clean_catalog"] is True
+    # Strict routing: clean_partial with an unresolved trim can never publish to
+    # clean_catalog. Identity is publishable so it is held in the partial queue.
+    assert by_id["P"]["final_route"] == "partial_queue" and by_id["P"]["publishable_to_clean_catalog"] is False
     assert by_id["T"]["final_route"] == "review_queue" and by_id["T"]["publishable_to_clean_catalog"] is False
 
 

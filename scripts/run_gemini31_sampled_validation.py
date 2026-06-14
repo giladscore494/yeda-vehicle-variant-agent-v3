@@ -147,9 +147,12 @@ def main(argv=None) -> int:
         guard_verifier = OpenAIGuardVerifier(OpenAIGuardVerifierSettings(api_key=openai_api_key, model_id=openai_model_id, enabled=True))
     repair_adjudicator = None
     if mode == "real" and args.repair_adjudicator:
+        if not shared_config.openai_api_key:
+            print("ERROR: OPENAI_API_KEY not set but --repair-adjudicator was requested. "
+                  "Set the key or pass --no-repair-adjudicator.")
+            return 2
         from scripts.openai_repair_adjudicator import OpenAIRepairAdjudicator, OpenAIRepairAdjudicatorSettings
-        if shared_config.openai_api_key:
-            repair_adjudicator = OpenAIRepairAdjudicator(OpenAIRepairAdjudicatorSettings(api_key=shared_config.openai_api_key, model_id=args.repair_adjudicator_model, enabled=True, grounding_required=args.require_gpt54_grounding_for_repair))
+        repair_adjudicator = OpenAIRepairAdjudicator(OpenAIRepairAdjudicatorSettings(api_key=shared_config.openai_api_key, model_id=args.repair_adjudicator_model, enabled=True, grounding_required=args.require_gpt54_grounding_for_repair))
 
     result = run_validation(
         join,
@@ -173,6 +176,15 @@ def main(argv=None) -> int:
     print(f"stage2_guard_flags_total={store.metadata.get('stage2_guard_flags_total', 0)}")
     print(f"stage3_flash_calls={store.metadata.get('stage3_flash_calls', 0)}")
     print(f"stage3_guard_verifier_calls={store.metadata.get('stage3_guard_verifier_calls', 0)}")
+    print(f"stage25_repair_risk_scored_rows={store.metadata.get('stage25_repair_risk_scored_rows', 0)}")
+    print(f"stage25_repair_triggered_rows={store.metadata.get('stage25_repair_triggered_rows', 0)}")
+    print(f"stage25_repair_required_but_missing_adjudicator={store.metadata.get('stage25_repair_required_but_missing_adjudicator', 0)}")
+    print(f"stage3_repair_adjudicator_calls={store.metadata.get('stage3_repair_adjudicator_calls', 0)}")
+    print(f"stage3_repair_adjudicator_successes={store.metadata.get('stage3_repair_adjudicator_successes', 0)}")
+    print(f"stage3_repair_adjudicator_failures={store.metadata.get('stage3_repair_adjudicator_failures', 0)}")
+    print(f"stage3_repair_adjudicator_patches={store.metadata.get('stage3_repair_adjudicator_patches', 0)}")
+    print(f"stage4_final_seal_passed={store.metadata.get('stage4_final_seal_passed', 0)}")
+    print(f"stage4_final_seal_blocks={store.metadata.get('stage4_final_seal_blocks', 0)}")
     print(f"output -> {run_paths.output_path}")
     print(f"summary -> {run_paths.summary_path}")
     return 0
