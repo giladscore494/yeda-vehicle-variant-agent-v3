@@ -185,3 +185,57 @@ def test_legacy_guard_verifier_not_counted_as_repair(tmp_path):
     assert guard.calls >= 1
     assert store.metadata.get("stage3_guard_verifier_calls", 0) >= 1
     assert store.metadata.get("stage3_repair_adjudicator_calls", 0) == 0
+
+
+def test_repair_adjudicator_success_increments_success_counter(tmp_path):
+    # A valid structured repair response must count as a success and count its
+    # field patches. The final seal still owns publication routing.
+    join = _join(_variant("VAL-1", "Turismo / Competizione"))
+    config = RunConfig(
+        mode="real", repair_adjudicator_enabled=True, force_reprocess=True,
+        repair_adjudicator_mode="all_clean_candidates",
+    )
+    store = _store(str(tmp_path))
+    raw = {
+        "canonical_make": "Abarth", "canonical_model": "500",
+        "canonical_trim": "Turismo / Competizione",
+        "validation_decision": "clean_exact", "identity_status": "verified",
+        "trim_status": "verified",
+        "split_candidates": ["Turismo", "Competizione"],
+    }
+    fake = _FakeRepairAdjudicator()
+    run_validation(join, config, store=store, gemini_client=_DummyGemini(raw), repair_adjudicator=fake)
+
+    assert store.metadata.get("stage3_repair_adjudicator_calls", 0) > 0
+    assert store.metadata.get("stage3_repair_adjudicator_successes", 0) > 0
+    assert store.metadata.get("stage3_repair_adjudicator_failures", 0) == 0
+    assert store.metadata.get("stage3_repair_adjudicator_patches", 0) > 0
+
+
+class _FailingRepairAdjudicator(_FakeRepairAdjudicator):
+    def adjudicate(self, payload):
+        self.calls += 1
+        raise RuntimeError("simulated repair failure")
+
+
+def test_repair_failure_does_not_leave_clean_catalog_unprotected(tmp_path):
+    join = _join(_variant("VAL-1", "Turismo / Competizione"))
+    config = RunConfig(
+        mode="real", repair_adjudicator_enabled=True, force_reprocess=True,
+        repair_adjudicator_mode="all_clean_candidates",
+    )
+    store = _store(str(tmp_path))
+    raw = {
+        "canonical_make": "Abarth", "canonical_model": "500",
+        "canonical_trim": "Turismo / Competizione",
+        "validation_decision": "clean_exact", "identity_status": "verified",
+        "trim_status": "verified",
+        "split_candidates": ["Turismo", "Competizione"],
+    }
+    run_validation(join, config, store=store, gemini_client=_DummyGemini(raw), repair_adjudicator=_FailingRepairAdjudicator())
+    row = store.validated_by_id["VAL-1"]
+
+    assert row.get("final_route") != "clean_catalog"
+    assert row.get("publishable_to_clean_catalog") is False
+    assert row.get("final_seal_result") is not None
+    assert "simulated repair failure" in row.get("_repair_adjudicator_error", "")

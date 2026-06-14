@@ -135,7 +135,7 @@ class OpenAIRepairAdjudicator:
                 {"role": "system", "content": REPAIR_ADJUDICATOR_SYSTEM_PROMPT},
                 {"role": "user", "content": json.dumps(payload, ensure_ascii=False)},
             ],
-            "max_completion_tokens": self.settings.max_completion_tokens,
+            "max_output_tokens": self.settings.max_completion_tokens,
             "text": {"format": {"type": "json_schema", "name": "repair_adjudicator_output", "schema": schema, "strict": False}},
         }
         web_search_used = False
