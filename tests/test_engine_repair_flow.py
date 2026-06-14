@@ -150,3 +150,38 @@ def test_repair_triggered_counter_increments_independent_of_adjudicator(tmp_path
     run_validation(join, config, store=store, gemini_client=_DummyGemini(raw))
     assert store.metadata.get("stage25_repair_risk_scored_rows", 0) >= 1
     assert store.metadata.get("stage25_repair_triggered_rows", 0) >= 1
+
+
+class _FakeLegacyGuardVerifier:
+    def __init__(self):
+        self.calls = 0
+        self.settings = type("Settings", (), {"model_id": "gpt-5.4"})()
+
+    def adjudicate(self, row, flags, original_model_output=None):
+        self.calls += 1
+        updated = dict(row)
+        updated["_guard_verifier_success"] = True
+        return updated
+
+
+def test_legacy_guard_verifier_not_counted_as_repair(tmp_path):
+    join = _join(_variant("VAL-1", "Turismo / Competizione"))
+    config = RunConfig(
+        mode="real",
+        repair_adjudicator_enabled=False,
+        guard_verifier_enabled=True,
+        force_reprocess=True,
+    )
+    store = _store(str(tmp_path))
+    raw = {
+        "canonical_make": "Abarth", "canonical_model": "500",
+        "canonical_trim": "Turismo / Competizione",
+        "validation_decision": "clean_exact", "identity_status": "verified",
+        "trim_status": "verified",
+        "split_candidates": ["Turismo", "Competizione"],
+    }
+    guard = _FakeLegacyGuardVerifier()
+    run_validation(join, config, store=store, gemini_client=_DummyGemini(raw), guard_verifier=guard)
+    assert guard.calls >= 1
+    assert store.metadata.get("stage3_guard_verifier_calls", 0) >= 1
+    assert store.metadata.get("stage3_repair_adjudicator_calls", 0) == 0
