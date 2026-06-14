@@ -8,23 +8,23 @@
     "run_timestamp_utc": "2026-06-14T07:27:58Z",
     "total_input_variants": 3712,
     "total_instruction_records": 3712,
-    "total_validated_variants": 6,
+    "total_validated_variants": 7,
     "decision_counts": {
       "clean_exact": 0,
-      "clean_partial": 3,
+      "clean_partial": 4,
       "split_required": 3,
       "reject": 0
     },
     "grounding_cluster_count": 3653,
-    "gemini_call_count": 6,
+    "gemini_call_count": 7,
     "github_checkpoint_enabled": true,
-    "github_checkpoint_count": 6,
+    "github_checkpoint_count": 7,
     "github_checkpoint_fail_count": 0,
     "last_github_checkpoint_error": null,
-    "last_validated_id": "VAL-000006",
+    "last_validated_id": "VAL-000007",
     "schema_version": "v3_three_stage",
     "pipeline_version": "v3_three_stage",
-    "stage1_pro_calls": 6,
+    "stage1_pro_calls": 7,
     "stage2_guard_flags_total": 9,
     "stage3_flash_calls": 0,
     "flash_overrode_guard": 0,
@@ -40,9 +40,9 @@
     "guard_verifier_overrode_guard": 0,
     "guard_overrode_verifier": 0,
     "force_per_variant_validation": true,
-    "stage0_preflight_risk_rows": 1,
-    "stage1_gemini_grounding_required": 1,
-    "stage1_gemini_grounding_present": 1,
+    "stage0_preflight_risk_rows": 2,
+    "stage1_gemini_grounding_required": 2,
+    "stage1_gemini_grounding_present": 2,
     "stage1_gemini_grounding_missing": 0,
     "stage1_gemini_weak_grounding_rows": 0,
     "stage2_guard_flags_low": 0,
@@ -50,7 +50,7 @@
     "stage2_guard_flags_high": 0,
     "stage2_guard_flags_critical": 0,
     "stage2_guard_patches_applied": 0,
-    "stage25_repair_risk_scored_rows": 1,
+    "stage25_repair_risk_scored_rows": 2,
     "stage25_repair_triggered_rows": 1,
     "stage3_repair_adjudicator_calls": 1,
     "stage3_repair_adjudicator_successes": 0,
@@ -62,10 +62,10 @@
     "stage3_repair_adjudicator_grounding_present": 0,
     "stage3_repair_adjudicator_grounding_missing": 1,
     "stage4_final_seal_passed": 0,
-    "stage4_final_seal_blocks": 1,
+    "stage4_final_seal_blocks": 2,
     "stage4_final_guard_conflicts_remaining": 0,
     "clean_catalog_blocks_by_repair": 0,
-    "clean_catalog_blocks_by_final_seal": 1,
+    "clean_catalog_blocks_by_final_seal": 2,
     "clean_catalog_blocks_by_grounding": 1,
     "clean_catalog_blocks_by_unresolved_trim": 1,
     "clean_catalog_blocks_by_unresolved_critical_field": 0
@@ -1225,6 +1225,338 @@
           ]
         }
       ]
+    },
+    {
+      "validation_id": "VAL-000007",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000007",
+      "source_cluster_id": "CLU-a0de00c87874",
+      "grounding_cluster_id": "CLU-a0de00c87874",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "500",
+      "canonical_series_or_generation": null,
+      "canonical_trim": "Scorpione",
+      "official_marketed_name_il": "אבארט 500",
+      "body_type": "hatchback",
+      "fuel_type": "petrol",
+      "engine": "1.4 Turbo 145",
+      "transmission": "manual",
+      "drivetrain": "FWD",
+      "year_start": 2018,
+      "year_end": 2022,
+      "is_currently_produced": false,
+      "is_currently_imported_il": false,
+      "market_scope": "IL",
+      "validation_decision": "clean_partial",
+      "acceptance_tier": "partial",
+      "identity_status": "verified",
+      "identity_confidence": 0.95,
+      "trim_status": "inferred",
+      "trim_confidence": 0.85,
+      "field_validation": {
+        "canonical_make": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Make is verified."
+        },
+        "canonical_model": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Model is verified. Note that facelifted versions are often marketed as 595, but 500 remains the canonical base model name in many local catalogs."
+        },
+        "canonical_series_or_generation": {
+          "status": "unresolved",
+          "confidence": 0.0,
+          "evidence_strength": "missing",
+          "source_indexes": [],
+          "risk_tags": [
+            "missing_generation"
+          ],
+          "notes": "Generation not explicitly defined in input or consistently named in local sources."
+        },
+        "canonical_trim": {
+          "status": "inferred",
+          "confidence": 0.85,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "risk_tags": [
+            "inferred_trim"
+          ],
+          "notes": "Trim was null in input. Inferred as 'Scorpione' because the 145hp engine output was exclusive to the Scorpione trim in the Israeli market."
+        },
+        "official_marketed_name_il": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Official Hebrew marketed name verified."
+        },
+        "body_type": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Hatchback body type verified."
+        },
+        "fuel_type": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Petrol fuel type verified."
+        },
+        "engine": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "risk_tags": [],
+          "notes": "1.4L Turbo 145hp engine verified."
+        },
+        "transmission": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Manual transmission verified."
+        },
+        "drivetrain": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [],
+          "risk_tags": [],
+          "notes": "Standard FWD for Abarth 500."
+        },
+        "year_start": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Start year 2018 verified."
+        },
+        "year_end": {
+          "status": "verified",
+          "confidence": 0.9,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            1
+          ],
+          "risk_tags": [
+            "adjusted_year"
+          ],
+          "notes": "End year adjusted to 2022, as the 145hp Scorpione trim was replaced by the 165hp Nuvolari trim in late 2022."
+        },
+        "is_currently_produced": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            1
+          ],
+          "risk_tags": [],
+          "notes": "Production of this specific variant ended."
+        },
+        "is_currently_imported_il": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            1
+          ],
+          "risk_tags": [],
+          "notes": "Import of this specific variant ended."
+        }
+      },
+      "source_support_matrix": [
+        {
+          "field": "market_presence_il",
+          "value": true,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "reason": "Multiple Israeli sources list the 145hp manual Abarth 500/595."
+        },
+        {
+          "field": "engine",
+          "value": "1.4 Turbo 145",
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "reason": "Sources explicitly mention the 1.4 Turbo engine with 145hp."
+        },
+        {
+          "field": "transmission",
+          "value": "manual",
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "reason": "Sources confirm the manual transmission for this configuration."
+        },
+        {
+          "field": "canonical_trim",
+          "value": "Scorpione",
+          "support_level": "indirect",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "reason": "The 145hp output is exclusively tied to the Scorpione trim in the Israeli market."
+        },
+        {
+          "field": "year_end",
+          "value": 2022,
+          "support_level": "direct",
+          "source_indexes": [
+            1
+          ],
+          "reason": "Cartube article confirms the Scorpione trim was replaced by the Nuvolari trim in late 2022."
+        }
+      ],
+      "evidence_auditability": "strong",
+      "grounding_status": {
+        "gemini_grounding_required": true,
+        "gemini_grounding_present": true,
+        "gemini_grounding_quality": "acceptable",
+        "gpt54_grounding_required": false,
+        "gpt54_grounding_present": false,
+        "gpt54_grounding_quality": "missing",
+        "final_grounding_gate_passed": true
+      },
+      "grounding_summary": "Searches confirm the Abarth 500 (often marketed as 595) was sold in Israel with a 1.4L Turbo 145hp engine and manual transmission. This specific 145hp configuration corresponds exclusively to the 'Scorpione' trim. The Scorpione trim was replaced by the 165hp Nuvolari trim in late 2022 for the 2023 model year, so the year_end is adjusted to 2022. The vehicle is no longer produced or imported in this configuration.",
+      "evidence_sources": [
+        {
+          "title": "מחירון אבארט 595 2022 🏎️ בפורטל הרכב גיר",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGj6YpJcbFQ2Ca825laIKS1Bbpn5I_M06xN-4ZX3JZmEqmuDeNpX21L7vViXqoiiKc5yrg7BTkj9IUdNUlzyx58kaaliv77IQ80UxwlVZnoYax7XV3mx43ZeFrJL68_4-zRtfH5SCyWPtSZ2cTNpUwTatiVUUHsxEJNYJ0VN2VSiZsAH6UKck9x_4DwzzXv9T3d6yLpr5nGDp13vEMsoYxApVmd8o7u_Avza9RxcyyyYdZUUu5vNaY9iGfLhLvAkMEzI-GuyyuMKJKvGahX4yxF479wx6HNzV7uDOx-Ht7y6y8j7W7GbEgEbRvOqO3zpedtdfBvlU6i26NlAbNOe36IJ4tzXKDpTxprrXYtOcezSEbxC_eaxS64lFYVxi34tsg3DrAn-dO9AEh_qkUlaJLxnF1uyRuM",
+          "source_name": "gear.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "engine",
+            "transmission",
+            "trim_candidates"
+          ]
+        },
+        {
+          "title": "אבארט 595 נובולארי 2023 בישראל - מחיר 135,900 שקל - cartube",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEKFZaUdxlzM4DKotIgvvPWx8bHdIJ77nX4X_wwVu1dJcgITHaIhDuHcJOrN3xriGLNoAI9LF8z167s6NNx-iSKu6mkLFWsVIylAbRzJ7pRmXXTGj2KwFGuujJgsSzA5A3BQAjIG5x8KLdQXjPc8Qam3k0l8KUGcRMhbHT22Vg5NpExHVuk9FcaZcsUoRlHAIrPc2ZQuF4iZuKOqxwFl4HdhDbOA1LpxBojCMe-fcO6htNZ74ad_HFI8uvRAlFZnawjTHRwu3nUve4ns4aUuepIOpOvzEJHUso5m2V48LvGhkyw7KwzgBI2LpAxEq7c6jVd43aZCYz3d5Ojjw3bzu8XPmb0DXtEpwJbC76k0gUs-5zqca2A1IutMKBlDRHHYUvFQffs0Jd26EXEWLksxqhn5wU=",
+          "source_name": "cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "year_range",
+            "trim_candidates",
+            "engine"
+          ]
+        },
+        {
+          "title": "מחירון של אבארט - יד2",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFakaJx9t9SefqeX5Ijc2QSZEeoSYPHwyJvhicOJm8fxzkpYdjGyCpO_NYZA1Yxh2RepIOMMHehgsTN74dJSC_WIHI542V8bmYoV4XfKFrlF6L7VIqIg-bfX0f_AapzaSfkQsY1OyI4mlTuxkj9hNWt05Y=",
+          "source_name": "yad2.co.il",
+          "source_type": "marketplace",
+          "supports": [
+            "market_presence_il",
+            "body_type",
+            "engine",
+            "transmission",
+            "exact_trim"
+          ]
+        }
+      ],
+      "possible_trim_names": [
+        "Scorpione"
+      ],
+      "split_candidates": [],
+      "blocking_identity_issues": [],
+      "non_blocking_trim_issues": [
+        "Trim was missing in input and had to be inferred from engine specifications."
+      ],
+      "fields_changed": [
+        {
+          "field": "year_end",
+          "from": 2023,
+          "to": 2022,
+          "reason": "Model changed value during validation; see decision_reason/grounding_summary"
+        }
+      ],
+      "fields_left_unresolved": [],
+      "decision_reason": "Final seal route=review_queue; validation_decision=clean_partial; identity_status=verified; trim_status=inferred.",
+      "_pipeline_version": "v3_three_stage",
+      "_flags_count": 0,
+      "_flash_used": false,
+      "adjudication_log": [],
+      "publishable_to_clean_catalog": false,
+      "final_route": "review_queue",
+      "route_reason": "Final seal blocked clean_catalog because unresolved, weak-grounded, contradictory, or non-exact fields remain.",
+      "duplicate_group_id": "dup-6bee8559",
+      "duplicate_of": null,
+      "preflight_risk_tags": [
+        "missing_trim",
+        "placeholder_trim",
+        "weak_official_marketed_name",
+        "unknown_drivetrain",
+        "low_auditability_risk"
+      ],
+      "final_seal_result": {
+        "passed": true,
+        "guard_flags": [],
+        "blocks_clean_catalog": true
+      },
+      "risk_score": 0,
+      "_repair_adjudicator_triggered": false,
+      "_guard_verifier_used": false,
+      "guard_flags": []
     }
   ]
 }
