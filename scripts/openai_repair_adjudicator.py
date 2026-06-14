@@ -50,12 +50,25 @@ KNOWN_FAILURE_EXAMPLES = [
 ]
 
 
+REQUIRED_RESPONSE_KEYS = (
+    "repair_decision",
+    "patched_variant",
+    "field_patches",
+    "summary_patch",
+    "routing_patch",
+    "grounding_patch",
+    "remaining_uncertainties",
+    "confidence",
+)
+
+
 @dataclass
 class OpenAIRepairAdjudicatorSettings:
     api_key: str
     model_id: str = "gpt-5.4"
     enabled: bool = True
     grounding_required: bool = True
+    use_web_search: bool = True
     max_completion_tokens: int = 6000
 
 
@@ -125,11 +138,22 @@ class OpenAIRepairAdjudicator:
             "max_completion_tokens": self.settings.max_completion_tokens,
             "text": {"format": {"type": "json_schema", "name": "repair_adjudicator_output", "schema": schema, "strict": False}},
         }
-        try:
+        web_search_used = False
+        if self.settings.use_web_search:
             kwargs["tools"] = [{"type": "web_search_preview"}]
-        except Exception:
-            pass
-        resp = client.responses.create(**kwargs)
+            web_search_used = True
+        try:
+            resp = client.responses.create(**kwargs)
+        except Exception as exc:  # web search may be unsupported for this model/env
+            if web_search_used:
+                # Retry without the tool. Without grounding the repair cannot
+                # unlock clean_catalog; the final seal enforces that.
+                kwargs.pop("tools", None)
+                web_search_used = False
+                resp = client.responses.create(**kwargs)
+            else:
+                raise RuntimeError(f"repair adjudicator API call failed: {exc}") from exc
+
         text = getattr(resp, "output_text", None)
         if not text:
             parts: List[str] = []
@@ -138,4 +162,32 @@ class OpenAIRepairAdjudicator:
                     if getattr(c, "text", None):
                         parts.append(c.text)
             text = "\n".join(parts)
-        return parse_strict_json(text)
+        result = parse_strict_json(text)
+        if not isinstance(result, dict):
+            raise RuntimeError("Repair adjudicator returned non-object JSON")
+        missing = [k for k in REQUIRED_RESPONSE_KEYS if k not in result]
+        if missing:
+            raise RuntimeError(f"Repair adjudicator returned invalid schema; missing: {missing}")
+        if not isinstance(result.get("patched_variant"), dict) or not result["patched_variant"]:
+            raise RuntimeError("Repair adjudicator returned empty/invalid patched_variant")
+        # Record whether GPT-5.4 grounding is present so the final seal can keep
+        # ungrounded repairs out of the clean catalog.
+        grounding_patch = result.get("grounding_patch") if isinstance(result.get("grounding_patch"), dict) else {}
+        gpt_present = bool(
+            web_search_used
+            or grounding_patch.get("gpt54_grounding_present")
+            or grounding_patch.get("gpt54_grounding_assessment")
+            or result.get("gpt54_citations")
+            or result.get("gpt54_grounding_metadata")
+        )
+        result["_gpt54_grounding_present"] = gpt_present
+        result["_web_search_used"] = web_search_used
+        patched = result["patched_variant"]
+        if isinstance(patched, dict):
+            patched["gpt54_grounding_present"] = gpt_present
+            existing_status = patched.get("grounding_status") if isinstance(patched.get("grounding_status"), dict) else {}
+            existing_status["gpt54_grounding_present"] = gpt_present
+            if not gpt_present:
+                existing_status["gpt54_grounding_quality"] = "missing"
+            patched["grounding_status"] = existing_status
+        return result

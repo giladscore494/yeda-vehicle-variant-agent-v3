@@ -913,6 +913,11 @@ def _flag_to_dict(flag: GuardFlag) -> Dict[str, Any]:
     }
 
 
+def is_temporary_grounding_redirect(url: str) -> bool:
+    """A Vertex grounding redirect is evidence presence but not stable auditability."""
+    return "vertexaisearch.cloud.google.com/grounding-api-redirect" in str(url or "")
+
+
 def assess_grounding(row: Dict[str, Any], *, repair_used: bool = False, require_gemini: bool = True, require_gpt54_for_repair: bool = True) -> Dict[str, Any]:
     matrix = row.get("source_support_matrix") if isinstance(row.get("source_support_matrix"), list) else []
     sources = row.get("evidence_sources") if isinstance(row.get("evidence_sources"), list) else []
@@ -920,6 +925,11 @@ def assess_grounding(row: Dict[str, Any], *, repair_used: bool = False, require_
     audit = row.get("evidence_auditability") or ("acceptable" if sources or matrix else "missing")
     gem_present = bool(meta or matrix or any(isinstance(s, dict) and s.get("url") for s in sources))
     gem_quality = audit if audit in {"strong", "acceptable", "weak", "missing"} else ("acceptable" if gem_present else "missing")
+    # Temporary grounding redirects prove a search happened but are not stable,
+    # auditable sources. A row whose URLs are all redirects can never be "strong".
+    src_urls = [s.get("url") for s in sources if isinstance(s, dict) and s.get("url")]
+    if src_urls and all(is_temporary_grounding_redirect(u) for u in src_urls) and gem_quality == "strong":
+        gem_quality = "acceptable"
     gpt_required = bool(repair_used and require_gpt54_for_repair)
     existing = row.get("grounding_status") if isinstance(row.get("grounding_status"), dict) else {}
     gpt_present = bool(existing.get("gpt54_grounding_present") or row.get("gpt54_grounding_metadata") or row.get("gpt54_citations"))
@@ -992,9 +1002,28 @@ def apply_deterministic_quality_guards(row: Dict[str, Any], flags: List[GuardFla
             if row.get("validation_decision") == "clean_exact":
                 row["validation_decision"] = "clean_partial"
     if _has_combined_trim(trim) or row.get("split_candidates"):
+        old_trim = row.get("canonical_trim")
         row["validation_decision"] = "split_required"
         row["publishable_to_clean_catalog"] = False
-        _add_flag(flags, "split_required_routing", trim, "split_required", "validation_decision", "Combined trim/split candidates require split_queue.", severity="high", risk_tags=["split"])
+        # Derive split candidates from the combined trim string when missing so
+        # the split queue has the individual trims to work from.
+        if not row.get("split_candidates") and _has_combined_trim(old_trim):
+            parts = [p.strip() for p in re.split(r"\s*[/,]\s*|\s+(?:or|and|או|ו)\s+", str(old_trim)) if p.strip()]
+            seen: set = set(); cand: List[str] = []
+            for p in parts:
+                if p.lower() not in seen:
+                    seen.add(p.lower()); cand.append(p)
+            if len(cand) >= 2:
+                row["split_candidates"] = cand
+        # A combined trim must never survive as a single canonical value.
+        if old_trim not in (None, "", []):
+            row["canonical_trim"] = None
+            row["trim_status"] = "invalid"
+            row["trim_confidence"] = 0.0
+            if "canonical_trim" not in unresolved:
+                unresolved.append("canonical_trim")
+            row["fields_left_unresolved"] = unresolved
+        _add_flag(flags, "split_required_combined_trim_cleared", old_trim, None, "canonical_trim", "Combined trim cleared to null; row routed to split_queue.", severity="high", risk_tags=["split", "trim_quality"])
 
     # Summary current contradiction: rewrite stale claims.
     summary = str(row.get("grounding_summary") or "")

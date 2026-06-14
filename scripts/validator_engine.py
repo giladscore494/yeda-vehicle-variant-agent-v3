@@ -365,6 +365,22 @@ def run_validation(
         _log("Real mode requested but no Gemini client provided.")
         return RunResult(store=store or OutputStore(), stopped_reason="no_gemini_client", logs=logs)
 
+    # Fail closed: if repair is enabled for a real run, a repair adjudicator
+    # object MUST be present. The previous Streamlit path enabled repair in the
+    # config but never passed an adjudicator, so repair silently never ran and
+    # rows were published without repair/final-seal artifacts.
+    if config.mode == "real" and config.repair_adjudicator_enabled and repair_adjudicator is None:
+        _log(
+            "Refusing to run: repair_adjudicator_enabled=True but no "
+            "repair_adjudicator object was provided. Either pass a GPT-5.4 "
+            "Repair Adjudicator or set repair_adjudicator_enabled=False."
+        )
+        return RunResult(
+            store=store or OutputStore(),
+            stopped_reason="missing_repair_adjudicator",
+            logs=logs,
+        )
+
     clusters: ClusterIndex = build_clusters(join.variants, join.ordered_ids)
 
     if store is None:
@@ -451,6 +467,12 @@ def run_validation(
                     repair_triggered = should_trigger_repair(row, flags, risk_score, mode=config.repair_adjudicator_mode)
                     row["_repair_adjudicator_triggered"] = repair_triggered
                     store.bump_stage2_guard_flags(len(flags))
+                    # Count the trigger decision BEFORE checking adjudicator
+                    # availability so the metadata can never hide a repair that
+                    # was required but skipped.
+                    store.metadata["stage25_repair_risk_scored_rows"] = store.metadata.get("stage25_repair_risk_scored_rows", 0) + 1
+                    if repair_triggered:
+                        store.metadata["stage25_repair_triggered_rows"] = store.metadata.get("stage25_repair_triggered_rows", 0) + 1
                     if cluster.cluster_id not in store.cluster_cache:
                         store.cluster_cache[cluster.cluster_id] = evidence_from_row(row, vid)
 
@@ -466,9 +488,17 @@ def run_validation(
                         and guard_verifier is not None
                     )
                     flash_used = False
-                    if repair_triggered and config.repair_adjudicator_enabled and repair_adjudicator is not None:
-                        store.metadata["stage25_repair_risk_scored_rows"] = store.metadata.get("stage25_repair_risk_scored_rows", 0) + 1
-                        store.metadata["stage25_repair_triggered_rows"] = store.metadata.get("stage25_repair_triggered_rows", 0) + 1
+                    if repair_triggered and config.repair_adjudicator_enabled and repair_adjudicator is None:
+                        # Repair was required but no adjudicator is available.
+                        # Block the row from clean catalog and route to review.
+                        store.metadata["stage25_repair_required_but_missing_adjudicator"] = store.metadata.get("stage25_repair_required_but_missing_adjudicator", 0) + 1
+                        row["_repair_adjudicator_missing"] = True
+                        row["publishable_to_clean_catalog"] = False
+                        row["final_route"] = "review_queue"
+                        row["route_reason"] = "Repair was required but the GPT-5.4 Repair Adjudicator was not available."
+                        row, final_flags = final_seal(row, original_row, {"error": "repair_adjudicator_missing"}, flags, require_gemini_grounding=config.require_gemini_grounding, require_gpt54_grounding_for_repair=config.repair_adjudicator_grounding_required)
+                        flags = flags + final_flags
+                    elif repair_triggered and config.repair_adjudicator_enabled and repair_adjudicator is not None:
                         try:
                             payload = repair_adjudicator.build_payload(
                                 raw_input_variant=variant,
@@ -514,6 +544,19 @@ def run_validation(
                         row, final_flags = reconcile_validation_output_with_flags(variant, row, run_mode="real", final_pass=True)
                         if before_final != row.get("validation_decision"):
                             store.bump_guard_overrode_verifier(1)
+                        # The legacy verifier never seals. Re-run final seal so
+                        # Python remains the sole publication authority and the
+                        # row's routing reflects any verifier edits.
+                        row, seal_after = final_seal(row, original_row, None, flags, require_gemini_grounding=config.require_gemini_grounding, require_gpt54_grounding_for_repair=config.repair_adjudicator_grounding_required)
+                        flags = flags + seal_after
+
+                    # Guarantee every newly processed real row carries Python's
+                    # final-seal verdict. Models may repair; Python publishes.
+                    if config.final_seal_enabled and not row.get("final_seal_result"):
+                        row, seal_flags2 = final_seal(row, original_row, None, flags, require_gemini_grounding=config.require_gemini_grounding, require_gpt54_grounding_for_repair=config.repair_adjudicator_grounding_required)
+                        flags = flags + seal_flags2
+                    if config.final_seal_enabled and not row.get("final_seal_result"):
+                        raise RuntimeError(f"final_seal_result missing after real row processing for {vid}")
                     row["_pipeline_version"] = "v3_three_stage"
                     row["_flags_count"] = len(flags)
                     row["_flash_used"] = flash_used

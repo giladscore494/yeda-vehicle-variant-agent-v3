@@ -39,7 +39,8 @@ from scripts.output_writer import (
     reset_real_outputs,
 )
 from scripts.run_paths import ensure_mode_dirs, resolve_run_paths
-from scripts.validator_engine import GitHubSaver, RunConfig, run_validation
+from scripts.run_wiring import build_run_config_and_adjudicators
+from scripts.validator_engine import GitHubSaver, run_validation
 
 st.set_page_config(page_title="Gemini 3.1 Variant Validation Runner", layout="wide")
 
@@ -67,6 +68,12 @@ def get_openai_api_key() -> str:
 
 def get_guard_verifier_model_id() -> str:
     return _SHARED_CONFIG.openai_validator_model_id or "gpt-5.4"
+
+def get_repair_adjudicator_model_id() -> str:
+    return _SHARED_CONFIG.openai_validator_model_id or "gpt-5.4"
+
+def get_repair_adjudicator_enabled_default() -> bool:
+    return True
 
 def get_guard_verifier_enabled_default() -> bool:
     return False
@@ -111,6 +118,8 @@ grounding = get_grounding_enabled()
 openai_api_key = get_openai_api_key()
 guard_verifier_model_default = get_guard_verifier_model_id()
 guard_verifier_enabled_default = get_guard_verifier_enabled_default()
+repair_adjudicator_model_default = get_repair_adjudicator_model_id()
+repair_adjudicator_enabled_default = get_repair_adjudicator_enabled_default()
 force_per_variant_default = get_force_per_variant_default()
 
 MOCK_PATHS = resolve_run_paths("mock")
@@ -189,7 +198,14 @@ def execute_run(
     push_to_github: bool,
     stop_on_github_failure: bool,
     stop_on_error: bool,
-    guard_verifier_enabled: bool = False,
+    repair_adjudicator_enabled: bool = True,
+    repair_adjudicator_model_id: str = "gpt-5.4",
+    repair_adjudicator_mode: str = "all_clean_candidates",
+    require_gpt54_grounding_for_repair: bool = True,
+    require_gemini_grounding: bool = True,
+    final_seal_enabled: bool = True,
+    strict_clean_catalog: bool = True,
+    legacy_guard_verifier_enabled: bool = False,
     guard_verifier_model_id: str = "gpt-5.4",
     force_per_variant_validation: bool = True,
 ) -> None:
@@ -217,13 +233,31 @@ def execute_run(
             )
         )
 
-    guard_verifier = None
-    if mode == "real" and guard_verifier_enabled:
-        if not openai_api_key:
-            st.error("Guard verifier requested but st.secrets['openai']['api_key'] is missing.")
-            return
-        from scripts.openai_guard_verifier import OpenAIGuardVerifier, OpenAIGuardVerifierSettings
-        guard_verifier = OpenAIGuardVerifier(OpenAIGuardVerifierSettings(api_key=openai_api_key, model_id=guard_verifier_model_id, enabled=True))
+    setup = build_run_config_and_adjudicators(
+        mode=mode,
+        limit=int(limit) if limit else None,
+        force_reprocess=force_reprocess,
+        start_after=start_after,
+        checkpoint_every=int(checkpoint_every),
+        stop_on_github_failure=stop_on_github_failure,
+        stop_on_error=stop_on_error,
+        force_per_variant_validation=force_per_variant_validation,
+        openai_api_key=openai_api_key,
+        repair_adjudicator_enabled=repair_adjudicator_enabled,
+        repair_adjudicator_model_id=repair_adjudicator_model_id,
+        repair_adjudicator_mode=repair_adjudicator_mode,
+        require_gpt54_grounding_for_repair=require_gpt54_grounding_for_repair,
+        require_gemini_grounding=require_gemini_grounding,
+        final_seal_enabled=final_seal_enabled,
+        strict_clean_catalog=strict_clean_catalog,
+        legacy_guard_verifier_enabled=legacy_guard_verifier_enabled,
+        guard_verifier_model_id=guard_verifier_model_id,
+    )
+    if setup.error:
+        st.error(setup.error)
+        return
+    repair_adjudicator = setup.repair_adjudicator
+    guard_verifier = setup.guard_verifier
 
     github_saver = None
     if push_to_github and run_paths.allow_github_push:
@@ -270,19 +304,7 @@ def execute_run(
         )
         return
 
-    run_config = RunConfig(
-        mode=mode,
-        limit=int(limit) if limit else None,
-        force_reprocess=force_reprocess,
-        start_after_validation_id=start_after.strip() or None,
-        checkpoint_every=int(checkpoint_every),
-        stop_on_github_failure=stop_on_github_failure,
-        stop_on_error=stop_on_error,
-        flash_adjudication_enabled=False,
-        flash_model_id=guard_verifier_model_id,
-        guard_verifier_enabled=guard_verifier_enabled,
-        force_per_variant_validation=force_per_variant_validation,
-    )
+    run_config = setup.run_config
 
     def _on_progress(info):
         st.session_state.progress = info
@@ -299,6 +321,7 @@ def execute_run(
             on_progress=_on_progress,
             flash_adjudicator=None,
             guard_verifier=guard_verifier,
+            repair_adjudicator=repair_adjudicator,
         )
     st.session_state.run_result = {
         "mode": mode,
@@ -388,7 +411,26 @@ with rc1:
     )
     real_force = st.checkbox("Force reprocess (real)", value=False, key="real_force")
     real_stop_on_error = st.checkbox("Stop on first row error", value=False, key="real_soe")
-    real_guard_verifier_enabled = st.checkbox("GPT-5.4 grounded repair adjudicator enabled", value=guard_verifier_enabled_default, key="real_guard_verifier")
+    real_repair_enabled = st.checkbox(
+        "GPT-5.4 grounded Repair Adjudicator enabled",
+        value=repair_adjudicator_enabled_default,
+        key="real_repair_adjudicator",
+        help="Sends every row the Python quality filter flags as risky to GPT-5.4 "
+        "for a grounded repair. Python Final Seal still decides publishability.",
+    )
+    real_legacy_guard_verifier_enabled = st.checkbox(
+        "Legacy GPT guard verifier enabled (not a repair layer)",
+        value=guard_verifier_enabled_default,
+        key="real_guard_verifier",
+        help="Legacy guard-scoped verdict only. Off by default. Never publishes "
+        "and is never counted as a repair adjudicator call.",
+    )
+    real_require_gemini_grounding = st.checkbox(
+        "Require Gemini grounding for clean catalog", value=True, key="real_req_gem_ground"
+    )
+    real_require_gpt54_grounding = st.checkbox(
+        "Require GPT-5.4 grounding for repair", value=True, key="real_req_gpt_ground"
+    )
     real_force_per_variant = st.checkbox("Force per-variant Gemini validation", value=force_per_variant_default, key="real_force_per_variant")
 with rc2:
     real_start_after = st.text_input("Start after id (real)", value="", key="real_start")
@@ -399,7 +441,14 @@ with rc2:
         "Auto-save real files to GitHub", value=bool(token), key="real_push"
     )
     real_stop_on_gh = st.checkbox("Stop on GitHub save failure", value=True, key="real_sogh")
-    real_guard_verifier_model_id = st.text_input("Repair adjudicator model id", value=guard_verifier_model_default, key="real_guard_verifier_model")
+    real_repair_model_id = st.text_input("Repair adjudicator model id", value=repair_adjudicator_model_default, key="real_repair_model")
+    real_guard_verifier_model_id = st.text_input("Legacy guard verifier model id", value=guard_verifier_model_default, key="real_guard_verifier_model")
+
+st.info(
+    "ℹ️ Existing completed rows are skipped unless **Force reprocess** is enabled. "
+    "Repair and final-seal changes only apply to rows processed in this run, so "
+    "force-reprocess when changing repair/seal behaviour."
+)
 
 rrun_col, rreset_col = st.columns(2)
 real_run_clicked = rrun_col.button(
@@ -425,7 +474,11 @@ if real_run_clicked:
         push_to_github=real_push,
         stop_on_github_failure=real_stop_on_gh,
         stop_on_error=real_stop_on_error,
-        guard_verifier_enabled=real_guard_verifier_enabled,
+        repair_adjudicator_enabled=real_repair_enabled,
+        repair_adjudicator_model_id=real_repair_model_id,
+        require_gpt54_grounding_for_repair=real_require_gpt54_grounding,
+        require_gemini_grounding=real_require_gemini_grounding,
+        legacy_guard_verifier_enabled=real_legacy_guard_verifier_enabled,
         guard_verifier_model_id=real_guard_verifier_model_id,
         force_per_variant_validation=real_force_per_variant,
     )
