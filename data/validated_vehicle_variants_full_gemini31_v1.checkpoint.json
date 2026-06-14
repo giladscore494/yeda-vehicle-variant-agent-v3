@@ -5,27 +5,27 @@
     "is_mock_output": false,
     "model": "gemini-3.1-pro-preview",
     "market": "IL",
-    "run_timestamp_utc": "2026-06-14T08:32:06Z",
+    "run_timestamp_utc": "2026-06-14T21:54:50Z",
     "total_input_variants": 3712,
     "total_instruction_records": 3712,
-    "total_validated_variants": 4,
+    "total_validated_variants": 1,
     "decision_counts": {
       "clean_exact": 0,
-      "clean_partial": 2,
-      "split_required": 2,
+      "clean_partial": 1,
+      "split_required": 0,
       "reject": 0
     },
     "grounding_cluster_count": 3653,
-    "gemini_call_count": 4,
+    "gemini_call_count": 1,
     "github_checkpoint_enabled": true,
-    "github_checkpoint_count": 4,
+    "github_checkpoint_count": 1,
     "github_checkpoint_fail_count": 0,
     "last_github_checkpoint_error": null,
-    "last_validated_id": "VAL-000004",
+    "last_validated_id": "VAL-000001",
     "schema_version": "v3_three_stage",
     "pipeline_version": "v3_three_stage",
-    "stage1_pro_calls": 4,
-    "stage2_guard_flags_total": 19,
+    "stage1_pro_calls": 1,
+    "stage2_guard_flags_total": 1,
     "stage3_flash_calls": 0,
     "flash_overrode_guard": 0,
     "guard_overrode_flash": 0,
@@ -40,9 +40,9 @@
     "guard_verifier_overrode_guard": 0,
     "guard_overrode_verifier": 0,
     "force_per_variant_validation": true,
-    "stage0_preflight_risk_rows": 4,
-    "stage1_gemini_grounding_required": 4,
-    "stage1_gemini_grounding_present": 4,
+    "stage0_preflight_risk_rows": 1,
+    "stage1_gemini_grounding_required": 1,
+    "stage1_gemini_grounding_present": 1,
     "stage1_gemini_grounding_missing": 0,
     "stage1_gemini_weak_grounding_rows": 0,
     "stage2_guard_flags_low": 0,
@@ -50,31 +50,28 @@
     "stage2_guard_flags_high": 0,
     "stage2_guard_flags_critical": 0,
     "stage2_guard_patches_applied": 0,
-    "stage25_repair_risk_scored_rows": 4,
-    "stage25_repair_triggered_rows": 4,
-    "stage3_repair_adjudicator_calls": 4,
-    "stage3_repair_adjudicator_successes": 0,
-    "stage3_repair_adjudicator_failures": 4,
-    "stage3_repair_adjudicator_patches": 0,
+    "stage25_repair_risk_scored_rows": 1,
+    "stage25_repair_triggered_rows": 1,
+    "stage3_repair_adjudicator_calls": 1,
+    "stage3_repair_adjudicator_successes": 1,
+    "stage3_repair_adjudicator_failures": 0,
+    "stage3_repair_adjudicator_patches": 7,
     "stage3_repair_adjudicator_routing_changes": 0,
     "stage3_repair_adjudicator_summary_rewrites": 0,
-    "stage3_repair_adjudicator_grounding_required": 4,
-    "stage3_repair_adjudicator_grounding_present": 0,
-    "stage3_repair_adjudicator_grounding_missing": 4,
+    "stage3_repair_adjudicator_grounding_required": 1,
+    "stage3_repair_adjudicator_grounding_present": 1,
+    "stage3_repair_adjudicator_grounding_missing": 0,
     "stage4_final_seal_passed": 0,
-    "stage4_final_seal_blocks": 4,
+    "stage4_final_seal_blocks": 1,
     "stage4_final_guard_conflicts_remaining": 0,
     "clean_catalog_blocks_by_repair": 0,
-    "clean_catalog_blocks_by_final_seal": 4,
-    "clean_catalog_blocks_by_grounding": 4,
-    "clean_catalog_blocks_by_unresolved_trim": 4,
+    "clean_catalog_blocks_by_final_seal": 1,
+    "clean_catalog_blocks_by_grounding": 1,
+    "clean_catalog_blocks_by_unresolved_trim": 1,
     "clean_catalog_blocks_by_unresolved_critical_field": 1
   },
   "completed_validation_ids": [
-    "VAL-000001",
-    "VAL-000002",
-    "VAL-000003",
-    "VAL-000004"
+    "VAL-000001"
   ],
   "failed_validation_ids": [],
   "validated_variants_by_id": {
@@ -103,1537 +100,59 @@
       "validation_decision": "clean_partial",
       "acceptance_tier": "partial",
       "identity_status": "verified",
-      "identity_confidence": 0.95,
-      "trim_status": "unresolved",
-      "trim_confidence": 0.0,
-      "field_validation": {
-        "canonical_make": {
-          "status": "verified",
-          "confidence": 1.0,
-          "evidence_strength": "strong",
-          "source_indexes": [
-            0,
-            1
-          ],
-          "risk_tags": [],
-          "notes": "Make is verified."
-        },
-        "canonical_model": {
-          "status": "verified",
-          "confidence": 1.0,
-          "evidence_strength": "strong",
-          "source_indexes": [
-            0,
-            1
-          ],
-          "risk_tags": [],
-          "notes": "Model is verified."
-        },
-        "canonical_series_or_generation": {
-          "status": "verified",
-          "confidence": 0.9,
-          "evidence_strength": "strong",
-          "source_indexes": [
-            0
-          ],
-          "risk_tags": [],
-          "notes": "1st generation of the modern Abarth 500."
-        },
-        "canonical_trim": {
-          "status": "unresolved",
-          "confidence": 0.0,
-          "evidence_strength": "missing",
-          "source_indexes": [],
-          "risk_tags": [
-            "generic_trim"
-          ],
-          "notes": "'Base' is a generic placeholder. The actual base trim in Israel was 'Scorpione'."
-        },
-        "official_marketed_name_il": {
-          "status": "verified",
-          "confidence": 1.0,
-          "evidence_strength": "strong",
-          "source_indexes": [
-            0,
-            1
-          ],
-          "risk_tags": [],
-          "notes": "Marketed as 'אבארט 500' in Israel."
-        },
-        "body_type": {
-          "status": "verified",
-          "confidence": 1.0,
-          "evidence_strength": "strong",
-          "source_indexes": [
-            0,
-            1
-          ],
-          "risk_tags": [],
-          "notes": "Hatchback (3-door) verified."
-        },
-        "fuel_type": {
-          "status": "verified",
-          "confidence": 1.0,
-          "evidence_strength": "strong",
-          "source_indexes": [
-            0,
-            1
-          ],
-          "risk_tags": [],
-          "notes": "Petrol engine verified."
-        },
-        "engine": {
-          "status": "verified",
-          "confidence": 1.0,
-          "evidence_strength": "strong",
-          "source_indexes": [
-            0,
-            1
-          ],
-          "risk_tags": [],
-          "notes": "1.4L Turbo (T-Jet) verified."
-        },
-        "transmission": {
-          "status": "verified",
-          "confidence": 1.0,
-          "evidence_strength": "strong",
-          "source_indexes": [
-            0,
-            1
-          ],
-          "risk_tags": [],
-          "notes": "Manual transmission verified."
-        },
-        "drivetrain": {
-          "status": "verified",
-          "confidence": 1.0,
-          "evidence_strength": "strong",
-          "source_indexes": [
-            0
-          ],
-          "risk_tags": [],
-          "notes": "FWD verified."
-        },
-        "year_start": {
-          "status": "verified",
-          "confidence": 0.95,
-          "evidence_strength": "strong",
-          "source_indexes": [
-            0
-          ],
-          "risk_tags": [
-            "corrected_value"
-          ],
-          "notes": "Corrected from 2008 to 2010 based on Israeli market launch."
-        },
-        "year_end": {
-          "status": "verified",
-          "confidence": 0.95,
-          "evidence_strength": "strong",
-          "source_indexes": [
-            0
-          ],
-          "risk_tags": [],
-          "notes": "Ended in 2016 when it was replaced by the facelifted 595."
-        },
-        "is_currently_produced": {
-          "status": "verified",
-          "confidence": 1.0,
-          "evidence_strength": "strong",
-          "source_indexes": [
-            0
-          ],
-          "risk_tags": [],
-          "notes": "Pre-facelift 500 is no longer produced."
-        },
-        "is_currently_imported_il": {
-          "status": "verified",
-          "confidence": 1.0,
-          "evidence_strength": "strong",
-          "source_indexes": [
-            0
-          ],
-          "risk_tags": [],
-          "notes": "No longer imported."
-        }
-      },
-      "source_support_matrix": [
-        {
-          "field": "year_start",
-          "value": 2010,
-          "support_level": "direct",
-          "source_indexes": [
-            0
-          ],
-          "reason": "Auto.co.il explicitly states the Abarth 500 arrived in Israel in June 2010."
-        },
-        {
-          "field": "year_end",
-          "value": 2016,
-          "support_level": "direct",
-          "source_indexes": [
-            0
-          ],
-          "reason": "Auto.co.il states the facelifted model arrived in October 2016 under the new name 595."
-        },
-        {
-          "field": "engine",
-          "value": "1.4L Turbo",
-          "support_level": "direct",
-          "source_indexes": [
-            0,
-            1
-          ],
-          "reason": "Multiple sources confirm the 1.4L Turbo engine."
-        },
-        {
-          "field": "transmission",
-          "value": "manual",
-          "support_level": "direct",
-          "source_indexes": [
-            0,
-            1
-          ],
-          "reason": "Sources confirm both manual and robotic transmissions were available."
-        }
-      ],
-      "evidence_auditability": "strong",
-      "grounding_status": {
-        "gemini_grounding_required": true,
-        "gemini_grounding_present": true,
-        "gemini_grounding_quality": "strong",
-        "gpt54_grounding_required": true,
-        "gpt54_grounding_present": false,
-        "gpt54_grounding_quality": "missing",
-        "final_grounding_gate_passed": false
-      },
-      "grounding_summary": "The Abarth 500 was officially imported to Israel starting in June 2010, not 2008. It was sold until late 2016 when the facelifted version arrived and was renamed Abarth 595. The vehicle was available with a 1.4L Turbo engine and a manual transmission. The base trim in Israel was called 'Scorpione', making the generic 'Base' trim unresolved.",
-      "evidence_sources": [
-        {
-          "title": "אבארט 500 - מחירון, חוות דעת ומידע טכני | אוטו",
-          "url": null,
-          "source_name": "Auto.co.il",
-          "source_type": "editorial",
-          "supports": [
-            "market_presence_il",
-            "year_range",
-            "engine",
-            "transmission",
-            "trim_candidates"
-          ]
-        },
-        {
-          "title": "אבארט 500 2010 יד שניה Scorpione 1.4 - iCar",
-          "url": null,
-          "source_name": "iCar",
-          "source_type": "editorial",
-          "supports": [
-            "market_presence_il",
-            "year_range",
-            "exact_trim"
-          ]
-        }
-      ],
-      "possible_trim_names": [
-        "Scorpione",
-        "Lusso",
-        "Competizione",
-        "San Marino 595"
-      ],
-      "split_candidates": [],
-      "blocking_identity_issues": [],
-      "non_blocking_trim_issues": [
-        "The provided trim 'Base' is a generic placeholder. The actual base trim marketed in Israel was 'Scorpione'."
-      ],
-      "fields_changed": [
-        {
-          "field": "year_start",
-          "from": 2008,
-          "to": 2010,
-          "reason": "Model changed value during validation; see decision_reason/grounding_summary"
-        }
-      ],
-      "fields_left_unresolved": [
-        "canonical_trim"
-      ],
-      "decision_reason": "Final seal route=partial_queue; validation_decision=clean_partial; identity_status=verified; trim_status=unresolved. Unresolved fields: canonical_trim.",
-      "_pipeline_version": "v3_three_stage",
-      "_flags_count": 2,
-      "_flash_used": false,
-      "adjudication_log": [],
-      "publishable_to_clean_catalog": false,
-      "final_route": "partial_queue",
-      "route_reason": "Verified/likely identity with unresolved trim is retained for partial review.",
-      "duplicate_group_id": null,
-      "duplicate_of": null,
-      "preflight_risk_tags": [
-        "base_trim",
-        "placeholder_trim",
-        "weak_official_marketed_name",
-        "low_auditability_risk"
-      ],
-      "final_seal_result": {
-        "passed": true,
-        "guard_flags": [
-          {
-            "guard_name": "final_seal_route_override",
-            "severity": "medium",
-            "field_affected": "final_route",
-            "original_value": "review_queue",
-            "guard_value": "partial_queue",
-            "reason": "Verified/likely identity with unresolved trim is retained for partial review.",
-            "risk_tags": [
-              "routing",
-              "final_seal"
-            ],
-            "needs_repair_adjudication": false,
-            "allowed_patch_fields": []
-          }
-        ],
-        "blocks_clean_catalog": true
-      },
-      "risk_score": 65,
-      "_repair_adjudicator_triggered": true,
-      "_repair_adjudicator_error": "Responses.create() got an unexpected keyword argument 'max_completion_tokens'",
-      "_guard_verifier_used": false,
-      "guard_flags": [
-        {
-          "guard_name": "final_seal_route_override",
-          "severity": "medium",
-          "field_affected": "final_route",
-          "original_value": "review_queue",
-          "guard_value": "partial_queue",
-          "reason": "Verified/likely identity with unresolved trim is retained for partial review.",
-          "needs_adjudication": false,
-          "recommended_verifier_model": "none",
-          "allowed_decisions": [],
-          "allowed_patch_fields": [],
-          "risk_tags": [
-            "routing",
-            "final_seal"
-          ]
-        },
-        {
-          "guard_name": "final_seal_route_override",
-          "severity": "medium",
-          "field_affected": "final_route",
-          "original_value": "review_queue",
-          "guard_value": "partial_queue",
-          "reason": "Verified/likely identity with unresolved trim is retained for partial review.",
-          "needs_adjudication": false,
-          "recommended_verifier_model": "none",
-          "allowed_decisions": [],
-          "allowed_patch_fields": [],
-          "risk_tags": [
-            "routing",
-            "final_seal"
-          ]
-        }
-      ]
-    },
-    "VAL-000002": {
-      "validation_id": "VAL-000002",
-      "run_mode": "real",
-      "source_validation_id": "VAL-000002",
-      "source_cluster_id": "CLU-7ea11c499a5f",
-      "grounding_cluster_id": "CLU-7ea11c499a5f",
-      "evidence_reused_from": null,
-      "canonical_make": "Abarth",
-      "canonical_model": "500",
-      "canonical_series_or_generation": "1st Gen",
-      "canonical_trim": null,
-      "official_marketed_name_il": "אבארט 500",
-      "body_type": "Hatchback",
-      "fuel_type": "petrol",
-      "engine": "1.4L Turbo",
-      "transmission": "manual",
-      "drivetrain": "FWD",
-      "year_start": 2010,
-      "year_end": 2016,
-      "is_currently_produced": false,
-      "is_currently_imported_il": false,
-      "market_scope": "IL",
-      "validation_decision": "clean_partial",
-      "acceptance_tier": "partial",
-      "identity_status": "verified",
-      "identity_confidence": 0.95,
-      "trim_status": "unresolved",
-      "trim_confidence": 0.0,
-      "field_validation": {
-        "canonical_make": {
-          "status": "verified",
-          "confidence": 1.0,
-          "evidence_strength": "strong",
-          "source_indexes": [
-            0,
-            1,
-            2
-          ],
-          "risk_tags": [],
-          "notes": "Make verified as Abarth."
-        },
-        "canonical_model": {
-          "status": "verified",
-          "confidence": 1.0,
-          "evidence_strength": "strong",
-          "source_indexes": [
-            0,
-            1,
-            2
-          ],
-          "risk_tags": [],
-          "notes": "Model verified as 500."
-        },
-        "canonical_series_or_generation": {
-          "status": "verified",
-          "confidence": 0.9,
-          "evidence_strength": "partial",
-          "source_indexes": [
-            0
-          ],
-          "risk_tags": [],
-          "notes": "1st generation of the modern Abarth 500."
-        },
-        "canonical_trim": {
-          "status": "unresolved",
-          "confidence": 0.0,
-          "evidence_strength": "missing",
-          "source_indexes": [],
-          "risk_tags": [
-            "generic_trim"
-          ],
-          "notes": "'Base' is a generic placeholder. The actual base trim in Israel was 'Scorpione'."
-        },
-        "official_marketed_name_il": {
-          "status": "verified",
-          "confidence": 1.0,
-          "evidence_strength": "strong",
-          "source_indexes": [
-            0,
-            1,
-            2
-          ],
-          "risk_tags": [],
-          "notes": "Marketed in Israel as אבארט 500."
-        },
-        "body_type": {
-          "status": "verified",
-          "confidence": 1.0,
-          "evidence_strength": "strong",
-          "source_indexes": [
-            0
-          ],
-          "risk_tags": [],
-          "notes": "Hatchback (3 doors) verified."
-        },
-        "fuel_type": {
-          "status": "verified",
-          "confidence": 1.0,
-          "evidence_strength": "strong",
-          "source_indexes": [
-            0,
-            1
-          ],
-          "risk_tags": [],
-          "notes": "Petrol (בנזין) verified."
-        },
-        "engine": {
-          "status": "verified",
-          "confidence": 1.0,
-          "evidence_strength": "strong",
-          "source_indexes": [
-            0,
-            1
-          ],
-          "risk_tags": [],
-          "notes": "1.4L Turbo (1.4T-Jet) verified."
-        },
-        "transmission": {
-          "status": "verified",
-          "confidence": 1.0,
-          "evidence_strength": "strong",
-          "source_indexes": [
-            0,
-            1
-          ],
-          "risk_tags": [],
-          "notes": "Manual transmission verified for the Israeli market."
-        },
-        "drivetrain": {
-          "status": "verified",
-          "confidence": 1.0,
-          "evidence_strength": "strong",
-          "source_indexes": [
-            0
-          ],
-          "risk_tags": [],
-          "notes": "FWD verified."
-        },
-        "year_start": {
-          "status": "verified",
-          "confidence": 1.0,
-          "evidence_strength": "strong",
-          "source_indexes": [
-            0
-          ],
-          "risk_tags": [
-            "corrected_value"
-          ],
-          "notes": "Official import to Israel began in June 2010, not 2008."
-        },
-        "year_end": {
-          "status": "verified",
-          "confidence": 1.0,
-          "evidence_strength": "strong",
-          "source_indexes": [
-            0
-          ],
-          "risk_tags": [],
-          "notes": "Sold until late 2016 when it was replaced by the facelifted 595."
-        },
-        "is_currently_produced": {
-          "status": "verified",
-          "confidence": 1.0,
-          "evidence_strength": "strong",
-          "source_indexes": [
-            0
-          ],
-          "risk_tags": [],
-          "notes": "Production of the pre-facelift 500 ended in 2016."
-        },
-        "is_currently_imported_il": {
-          "status": "verified",
-          "confidence": 1.0,
-          "evidence_strength": "strong",
-          "source_indexes": [
-            0
-          ],
-          "risk_tags": [],
-          "notes": "Import of this specific pre-facelift variant ended in 2016."
-        }
-      },
-      "source_support_matrix": [
-        {
-          "field": "year_start",
-          "value": 2010,
-          "support_level": "direct",
-          "source_indexes": [
-            0
-          ],
-          "reason": "Auto.co.il explicitly states the Abarth 500 arrived in Israel in June 2010."
-        },
-        {
-          "field": "year_end",
-          "value": 2016,
-          "support_level": "direct",
-          "source_indexes": [
-            0
-          ],
-          "reason": "Auto.co.il explicitly states the facelifted 595 replaced the 500 in October 2016."
-        },
-        {
-          "field": "canonical_trim",
-          "value": null,
-          "support_level": "missing",
-          "source_indexes": [
-            0
-          ],
-          "reason": "The input trim 'Base' is a generic placeholder. The actual base trim in Israel was 'Scorpione'."
-        }
-      ],
-      "evidence_auditability": "strong",
-      "grounding_status": {
-        "gemini_grounding_required": true,
-        "gemini_grounding_present": true,
-        "gemini_grounding_quality": "strong",
-        "gpt54_grounding_required": true,
-        "gpt54_grounding_present": false,
-        "gpt54_grounding_quality": "missing",
-        "final_grounding_gate_passed": false
-      },
-      "grounding_summary": "The Abarth 500 was officially imported to Israel starting in June 2010, not 2008. It was sold until late 2016 when the facelifted version arrived and was renamed Abarth 595. The vehicle was available with a 1.4L Turbo engine and a manual transmission. The base trim in Israel was called 'Scorpione', making the generic 'Base' trim unresolved.",
-      "evidence_sources": [
-        {
-          "title": "אבארט 500 - מחירון, חוות דעת ומידע טכני | אוטו",
-          "url": null,
-          "source_name": "Auto.co.il",
-          "source_type": "editorial",
-          "supports": [
-            "market_presence_il",
-            "year_range",
-            "engine",
-            "transmission",
-            "trim_candidates"
-          ]
-        },
-        {
-          "title": "אבארט 500 2010 יד שניה Abarth 1.4 - iCar",
-          "url": null,
-          "source_name": "iCar",
-          "source_type": "editorial",
-          "supports": [
-            "market_presence_il",
-            "year_range"
-          ]
-        },
-        {
-          "title": "אבארט 500 2012 Scorpione אוט׳ קבריולט 1.4 (141 כ״ס) [2010-2016] | מחירון יד2",
-          "url": null,
-          "source_name": "yad2.co.il",
-          "source_type": "marketplace",
-          "supports": [
-            "market_presence_il",
-            "year_range",
-            "trim_candidates"
-          ]
-        }
-      ],
-      "possible_trim_names": [
-        "Scorpione",
-        "Lusso",
-        "Competizione",
-        "San Marino 595"
-      ],
-      "split_candidates": [],
-      "blocking_identity_issues": [],
-      "non_blocking_trim_issues": [
-        "The input trim 'Base' is a generic placeholder and not a specific marketed trim in Israel."
-      ],
-      "fields_changed": [
-        {
-          "field": "year_start",
-          "from": 2008,
-          "to": 2010,
-          "reason": "Model changed value during validation; see decision_reason/grounding_summary"
-        }
-      ],
-      "fields_left_unresolved": [
-        "canonical_trim"
-      ],
-      "decision_reason": "Final seal route=partial_queue; validation_decision=clean_partial; identity_status=verified; trim_status=unresolved. Unresolved fields: canonical_trim.",
-      "_pipeline_version": "v3_three_stage",
-      "_flags_count": 2,
-      "_flash_used": false,
-      "adjudication_log": [],
-      "publishable_to_clean_catalog": false,
-      "final_route": "partial_queue",
-      "route_reason": "Verified/likely identity with unresolved trim is retained for partial review.",
-      "duplicate_group_id": null,
-      "duplicate_of": null,
-      "preflight_risk_tags": [
-        "base_trim",
-        "placeholder_trim",
-        "weak_official_marketed_name",
-        "low_auditability_risk"
-      ],
-      "final_seal_result": {
-        "passed": true,
-        "guard_flags": [
-          {
-            "guard_name": "final_seal_route_override",
-            "severity": "medium",
-            "field_affected": "final_route",
-            "original_value": "review_queue",
-            "guard_value": "partial_queue",
-            "reason": "Verified/likely identity with unresolved trim is retained for partial review.",
-            "risk_tags": [
-              "routing",
-              "final_seal"
-            ],
-            "needs_repair_adjudication": false,
-            "allowed_patch_fields": []
-          }
-        ],
-        "blocks_clean_catalog": true
-      },
-      "risk_score": 65,
-      "_repair_adjudicator_triggered": true,
-      "_repair_adjudicator_error": "Responses.create() got an unexpected keyword argument 'max_completion_tokens'",
-      "_guard_verifier_used": false,
-      "guard_flags": [
-        {
-          "guard_name": "final_seal_route_override",
-          "severity": "medium",
-          "field_affected": "final_route",
-          "original_value": "review_queue",
-          "guard_value": "partial_queue",
-          "reason": "Verified/likely identity with unresolved trim is retained for partial review.",
-          "needs_adjudication": false,
-          "recommended_verifier_model": "none",
-          "allowed_decisions": [],
-          "allowed_patch_fields": [],
-          "risk_tags": [
-            "routing",
-            "final_seal"
-          ]
-        },
-        {
-          "guard_name": "final_seal_route_override",
-          "severity": "medium",
-          "field_affected": "final_route",
-          "original_value": "review_queue",
-          "guard_value": "partial_queue",
-          "reason": "Verified/likely identity with unresolved trim is retained for partial review.",
-          "needs_adjudication": false,
-          "recommended_verifier_model": "none",
-          "allowed_decisions": [],
-          "allowed_patch_fields": [],
-          "risk_tags": [
-            "routing",
-            "final_seal"
-          ]
-        }
-      ]
-    },
-    "VAL-000003": {
-      "validation_id": "VAL-000003",
-      "run_mode": "real",
-      "source_validation_id": "VAL-000003",
-      "source_cluster_id": "CLU-d039ea7ad836",
-      "grounding_cluster_id": "CLU-d039ea7ad836",
-      "evidence_reused_from": null,
-      "canonical_make": "Abarth",
-      "canonical_model": "500",
-      "canonical_series_or_generation": "First Generation",
-      "canonical_trim": null,
-      "official_marketed_name_il": "אבארט 500",
-      "body_type": "Hatchback",
-      "fuel_type": "petrol",
-      "engine": "1.4L Turbo",
-      "transmission": "manual",
-      "drivetrain": "FWD",
-      "year_start": 2008,
-      "year_end": null,
-      "is_currently_produced": false,
-      "is_currently_imported_il": false,
-      "market_scope": "IL",
-      "validation_decision": "split_required",
-      "acceptance_tier": "none",
-      "identity_status": "likely_valid",
-      "identity_confidence": 0.95,
-      "trim_status": "unresolved",
-      "trim_confidence": 0.0,
-      "field_validation": {
-        "canonical_make": {
-          "status": "verified",
-          "confidence": 1.0,
-          "evidence_strength": "strong",
-          "source_indexes": [
-            0,
-            1,
-            2,
-            3
-          ],
-          "risk_tags": [],
-          "notes": "Make is verified."
-        },
-        "canonical_model": {
-          "status": "verified",
-          "confidence": 1.0,
-          "evidence_strength": "strong",
-          "source_indexes": [
-            0,
-            1,
-            2,
-            3
-          ],
-          "risk_tags": [],
-          "notes": "Model is verified. Note that higher performance versions were later badged as 595/695, but 500 is the base canonical model."
-        },
-        "canonical_series_or_generation": {
-          "status": "verified",
-          "confidence": 0.9,
-          "evidence_strength": "strong",
-          "source_indexes": [
-            4
-          ],
-          "risk_tags": [],
-          "notes": "First generation of the modern Abarth 500."
-        },
-        "canonical_trim": {
-          "status": "contradictory",
-          "confidence": 0.0,
-          "evidence_strength": "contradictory",
-          "source_indexes": [
-            0,
-            1,
-            2,
-            3
-          ],
-          "risk_tags": [
-            "split_required",
-            "multiple_trims_combined"
-          ],
-          "notes": "The trim string combines three distinct marketed trims (Competizione, Scorpione, Nuvolari S) which have different engine outputs and specifications."
-        },
-        "official_marketed_name_il": {
-          "status": "verified",
-          "confidence": 1.0,
-          "evidence_strength": "strong",
-          "source_indexes": [
-            0,
-            1
-          ],
-          "risk_tags": [],
-          "notes": "Marketed as אבארט 500 in Israel."
-        },
-        "body_type": {
-          "status": "verified",
-          "confidence": 1.0,
-          "evidence_strength": "strong",
-          "source_indexes": [
-            1
-          ],
-          "risk_tags": [],
-          "notes": "Hatchback body type verified."
-        },
-        "fuel_type": {
-          "status": "verified",
-          "confidence": 1.0,
-          "evidence_strength": "strong",
-          "source_indexes": [
-            0,
-            3
-          ],
-          "risk_tags": [],
-          "notes": "Petrol fuel type verified."
-        },
-        "engine": {
-          "status": "verified",
-          "confidence": 1.0,
-          "evidence_strength": "strong",
-          "source_indexes": [
-            0,
-            2,
-            3
-          ],
-          "risk_tags": [],
-          "notes": "1.4L Turbo engine verified."
-        },
-        "transmission": {
-          "status": "verified",
-          "confidence": 1.0,
-          "evidence_strength": "strong",
-          "source_indexes": [
-            0,
-            1,
-            3
-          ],
-          "risk_tags": [],
-          "notes": "Manual transmission verified."
-        },
-        "drivetrain": {
-          "status": "verified",
-          "confidence": 0.9,
-          "evidence_strength": "strong",
-          "source_indexes": [
-            3
-          ],
-          "risk_tags": [],
-          "notes": "FWD drivetrain verified."
-        },
-        "year_start": {
-          "status": "verified",
-          "confidence": 1.0,
-          "evidence_strength": "strong",
-          "source_indexes": [
-            3
-          ],
-          "risk_tags": [],
-          "notes": "Start year 2008 verified."
-        },
-        "year_end": {
-          "status": "verified",
-          "confidence": 0.9,
-          "evidence_strength": "strong",
-          "source_indexes": [
-            0
-          ],
-          "risk_tags": [
-            "production_ended"
-          ],
-          "notes": "Listed in Israeli price lists up to 2026, though global production of the ICE model ended in 2024."
-        },
-        "is_currently_produced": {
-          "status": "verified",
-          "confidence": 1.0,
-          "evidence_strength": "strong",
-          "source_indexes": [
-            4
-          ],
-          "risk_tags": [],
-          "notes": "Global production of the ICE Abarth 500/595 ended in 2024."
-        },
-        "is_currently_imported_il": {
-          "status": "inferred",
-          "confidence": 0.8,
-          "evidence_strength": "weak",
-          "source_indexes": [],
-          "risk_tags": [],
-          "notes": "Likely false for new imports as production has ended, though remaining stock may still be sold."
-        }
-      },
-      "source_support_matrix": [
-        {
-          "field": "canonical_make",
-          "value": "Abarth",
-          "support_level": "direct",
-          "source_indexes": [
-            0,
-            1,
-            2,
-            3
-          ],
-          "reason": "All sources refer to the make as Abarth."
-        },
-        {
-          "field": "canonical_model",
-          "value": "500",
-          "support_level": "direct",
-          "source_indexes": [
-            0,
-            1,
-            2,
-            3
-          ],
-          "reason": "All sources refer to the model as 500."
-        },
-        {
-          "field": "canonical_trim",
-          "value": "Competizione / Scorpione / Nuvolari S",
-          "support_level": "contradictory",
-          "source_indexes": [
-            0,
-            1,
-            2,
-            3
-          ],
-          "reason": "Sources show these as three separate trims with different specifications."
-        },
-        {
-          "field": "engine",
-          "value": "1.4L Turbo",
-          "support_level": "direct",
-          "source_indexes": [
-            0,
-            2,
-            3
-          ],
-          "reason": "Sources confirm the 1.4L Turbo engine."
-        },
-        {
-          "field": "transmission",
-          "value": "manual",
-          "support_level": "direct",
-          "source_indexes": [
-            0,
-            1,
-            3
-          ],
-          "reason": "Sources confirm manual transmission availability."
-        }
-      ],
-      "evidence_auditability": "strong",
-      "grounding_status": {
-        "gemini_grounding_required": true,
-        "gemini_grounding_present": true,
-        "gemini_grounding_quality": "acceptable",
-        "gpt54_grounding_required": true,
-        "gpt54_grounding_present": false,
-        "gpt54_grounding_quality": "missing",
-        "final_grounding_gate_passed": false
-      },
-      "grounding_summary": "The Abarth 500 is well-documented in the Israeli market. The input trim string combines three distinct trims: Competizione, Scorpione, and Nuvolari S. These trims have different engine outputs (e.g., 180 hp for Competizione, 165 hp for Nuvolari S, 140/145 hp for Scorpione) and equipment levels, requiring a split. Global production of the ICE model ended in 2024, though it still appears in 2026 Israeli price lists.",
-      "evidence_sources": [
-        {
-          "title": "אבארט 500 2026 1.4 ידני 165 כ\"ס Nuvolari S - רכב חדש - iCar",
-          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG5_MryXaShW7C2GS_9iZA8nF5DVfmom-d8VWD5mkJxR0rpBGLoSi2_-zQEVpmVgjmk1Sl4alOvrmdXi0OZTm6DAgpZDLo1H63YkiOlCxMq5iy85WC7B5rRjgVffhnfAdPUTkN9qRNxAICY9sqKPWf5gYCZXhzdGd4MAC4FZ3IdrMvB4Krco9JYSdmJm71vWR3XGRb7yu1UfHymOcSP2vdriRLMJMh5tlnqalJGcHH8ki_H9rwLcVHXnzucvScTWx9xTdITpm_uc5yVchKLQihw5xE=",
-          "source_name": "iCar",
-          "source_type": "editorial",
-          "supports": [
-            "market_presence_il",
-            "exact_trim",
-            "engine",
-            "transmission",
-            "year_range"
-          ]
-        },
-        {
-          "title": "אבארט 500 למכירה | יד2 רכב",
-          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE9KZEtQoN2omJETZ_ETx3YPPDmutVD_TKMkgo7v-j_Y6QG3N-5PC61mTz1n_0vf-m22JVtNqTx0oeRJgYgztdnd32gT8wxuH55d_oCzbXbvDecDad-IkIBAq_X7EZTk6GuS_a8y6W1dC_GOXvA2Uy07Jz5yKU=",
-          "source_name": "Yad2",
-          "source_type": "marketplace",
-          "supports": [
-            "market_presence_il",
-            "trim_candidates",
-            "body_type"
-          ]
-        },
-        {
-          "title": "גודשת לכל פועל: אבארט 500 סקורפיונה במבחן - Wheel",
-          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFzObs3BTUUWlyWN2Kl7buLQ99C5SzoITz7mzn-Cs_IvoCUXxGUITI6QTJm0bE7hZLRbWl8Pl-xM1FbVQZDAGTtgDNB7ZjEqnJ018lExuH6I8UrbLrg79197LKoRsKrEG65XnyFhpz38wzW09DFqyFCD3PqO1AhIVw8gNUN3E7kS7RcNad2uONDyZB2BGHf030DMn1hH6miODmecXJSnfmXzMFf0DWgawZJgnhH1gr1PRKzKdpDZSppacb2XFIiQ85JKVKWKfXCoMhWn3eOH22dyoontz_ecZtVurwx48rJTt3e7TGLu4d3tLIlGm3gOhoZCookMQvLldXFHC0HcsmNF9v0lQeehyh-fAcEPno=",
-          "source_name": "Wheel",
-          "source_type": "editorial",
-          "supports": [
-            "exact_trim",
-            "engine"
-          ]
-        },
-        {
-          "title": "אבארט 500 1.4 ידני 180 כ\"ס Competizione 2024 | מפרט טכני - cartube",
-          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHl1FyDccUxCpQYvs1ji0rQIcUTG4o3Gy_9Oix0G6JlZGErxr8DQmxUFxXvsdx6FiYl_le478BwXJpJmIDhQBPniwl1jclgMC6NPN7EFQ-9jPixL3cD60TClQxE0bBcIw8CDA5BdCV1pHtSSylJRUxJ4fD57FS5Ypg7qEfuJCrvyKFFbyOHzx8-KSGGtYBsfOoJo9iMLOLm5mE6f6Thy-51tz2qUYXPQppAEF8Ew6Xx-4WgAfqhXvGvu1fdHrs9wsf2UXyhw34XdRBgh4x9rT3SN5N6m5Z_Pkz3Ae5nh5abZBdrSiKqK8Pc2kAzzPhWGaBEwuV1XL-VVS4mLc9nu3zVXFct-CeEBkGv9HXfR-U1XkF8-MwVTvCuFVIyInmWkFWXnWOFwH5V1aBJ6lQZb73YBKa_vWfw9mrtJjsAuSsz4Q==",
-          "source_name": "Cartube",
-          "source_type": "editorial",
-          "supports": [
-            "exact_trim",
-            "engine",
-            "transmission",
-            "drivetrain"
-          ]
-        },
-        {
-          "title": "Fiat 500 and Abarth 595 retired after 17 years on sale - Autocar",
-          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFf8UuTUoMW3Ukvj3W6LljQRrgHiY4nLIXjJGAIjkEDwsqH_zlNqMV_GY6ioCc3-mpTQ2RdwcyAEpnYK3uQdidUPeZORIm-s6ksueDDx34aD8UHoSy_iT7tLcJMmFLOfq7XK7YqlBqPsecZRJGSsfcJq0OANUrJsNY7y6JQvnlE5KIBeXeW7EfP0ghMuMUz_-A51qcH",
-          "source_name": "Autocar",
-          "source_type": "editorial",
-          "supports": [
-            "global_model_exists"
-          ]
-        }
-      ],
-      "possible_trim_names": [
-        "Competizione",
-        "Scorpione",
-        "Nuvolari S",
-        "Turismo",
-        "Racing Style"
-      ],
-      "split_candidates": [
-        "Competizione",
-        "Scorpione",
-        "Nuvolari S"
-      ],
-      "blocking_identity_issues": [],
-      "non_blocking_trim_issues": [
-        "Trim string combines multiple distinct trims with different engine outputs and specifications.",
-        "Combined trim contains multiple distinct marketed trims and must be split into separate variants.",
-        "year_end was current/future and not kept as a placeholder."
-      ],
-      "fields_changed": [
-        {
-          "field": "year_end",
-          "from": 2026,
-          "to": null,
-          "reason": "Current/future year_end was not kept as a placeholder; reset to null unless strongly supported as an end year."
-        }
-      ],
-      "fields_left_unresolved": [
-        "canonical_trim"
-      ],
-      "decision_reason": "Final seal route=split_queue; validation_decision=split_required; identity_status=likely_valid; trim_status=unresolved. Unresolved fields: canonical_trim.",
-      "_pipeline_version": "v3_three_stage",
-      "_flags_count": 15,
-      "_flash_used": false,
-      "adjudication_log": [],
-      "publishable_to_clean_catalog": false,
-      "final_route": "split_queue",
-      "route_reason": "split_required rows or combined trims must be split before publishing.",
-      "duplicate_group_id": null,
-      "duplicate_of": null,
-      "guard_corrected_reason": "Python guards corrected the model output: year_end: 2026 -> None.",
-      "preflight_risk_tags": [
-        "multi_trim_string",
-        "slash_trim",
-        "weak_official_marketed_name",
-        "current_or_future_year_end_placeholder",
-        "low_auditability_risk"
-      ],
-      "final_seal_result": {
-        "passed": true,
-        "guard_flags": [
-          {
-            "guard_name": "slash_trim",
-            "severity": "medium",
-            "field_affected": "validation_decision",
-            "original_value": "split_required",
-            "guard_value": "split_required",
-            "reason": "Combined trim has split candidates and explicit split evidence.",
-            "risk_tags": [],
-            "needs_repair_adjudication": true,
-            "allowed_patch_fields": [
-              "validation_decision",
-              "trim_status",
-              "trim_confidence",
-              "canonical_trim"
-            ]
-          },
-          {
-            "guard_name": "year_end_current",
-            "severity": "medium",
-            "field_affected": "year_end",
-            "original_value": 2026,
-            "guard_value": null,
-            "reason": "Current/future year_end reset to null because placeholder end years are not allowed.",
-            "risk_tags": [],
-            "needs_repair_adjudication": false,
-            "allowed_patch_fields": []
-          },
-          {
-            "guard_name": "slash_trim",
-            "severity": "medium",
-            "field_affected": "validation_decision",
-            "original_value": "split_required",
-            "guard_value": "split_required",
-            "reason": "Combined trim has split candidates and explicit split evidence.",
-            "risk_tags": [],
-            "needs_repair_adjudication": true,
-            "allowed_patch_fields": [
-              "validation_decision",
-              "trim_status",
-              "trim_confidence",
-              "canonical_trim"
-            ]
-          },
-          {
-            "guard_name": "year_end_current",
-            "severity": "medium",
-            "field_affected": "year_end",
-            "original_value": 2026,
-            "guard_value": null,
-            "reason": "Current/future year_end reset to null because placeholder end years are not allowed.",
-            "risk_tags": [],
-            "needs_repair_adjudication": false,
-            "allowed_patch_fields": []
-          },
-          {
-            "guard_name": "field_confidence_or_evidence_low",
-            "severity": "high",
-            "field_affected": "canonical_trim",
-            "original_value": "Competizione / Scorpione / Nuvolari S",
-            "guard_value": null,
-            "reason": "canonical_trim lacks confidence/support required for clean_catalog.",
-            "risk_tags": [
-              "field_confidence",
-              "evidence"
-            ],
-            "needs_repair_adjudication": true,
-            "allowed_patch_fields": []
-          },
-          {
-            "guard_name": "split_required_combined_trim_cleared",
-            "severity": "high",
-            "field_affected": "canonical_trim",
-            "original_value": "Competizione / Scorpione / Nuvolari S",
-            "guard_value": null,
-            "reason": "Combined trim cleared to null; row routed to split_queue.",
-            "risk_tags": [
-              "split",
-              "trim_quality"
-            ],
-            "needs_repair_adjudication": true,
-            "allowed_patch_fields": []
-          },
-          {
-            "guard_name": "final_seal_route_override",
-            "severity": "medium",
-            "field_affected": "final_route",
-            "original_value": "review_queue",
-            "guard_value": "split_queue",
-            "reason": "split_required rows or combined trims must be split before publishing.",
-            "risk_tags": [
-              "routing",
-              "final_seal"
-            ],
-            "needs_repair_adjudication": false,
-            "allowed_patch_fields": []
-          },
-          {
-            "guard_name": "split_required_combined_trim_cleared",
-            "severity": "high",
-            "field_affected": "canonical_trim",
-            "original_value": null,
-            "guard_value": null,
-            "reason": "Combined trim cleared to null; row routed to split_queue.",
-            "risk_tags": [
-              "split",
-              "trim_quality"
-            ],
-            "needs_repair_adjudication": true,
-            "allowed_patch_fields": []
-          }
-        ],
-        "blocks_clean_catalog": true
-      },
-      "risk_score": 315,
-      "_repair_adjudicator_triggered": true,
-      "_repair_adjudicator_error": "Responses.create() got an unexpected keyword argument 'max_completion_tokens'",
-      "_guard_verifier_used": false,
-      "guard_flags": [
-        {
-          "guard_name": "slash_trim",
-          "severity": "medium",
-          "field_affected": "validation_decision",
-          "original_value": "split_required",
-          "guard_value": "split_required",
-          "reason": "Combined trim has split candidates and explicit split evidence.",
-          "needs_adjudication": true,
-          "recommended_verifier_model": "gpt-5.4",
-          "allowed_decisions": [
-            "split_required",
-            "clean_partial"
-          ],
-          "allowed_patch_fields": [
-            "validation_decision",
-            "trim_status",
-            "trim_confidence",
-            "canonical_trim"
-          ],
-          "risk_tags": []
-        },
-        {
-          "guard_name": "year_end_current",
-          "severity": "medium",
-          "field_affected": "year_end",
-          "original_value": 2026,
-          "guard_value": null,
-          "reason": "Current/future year_end reset to null because placeholder end years are not allowed.",
-          "needs_adjudication": false,
-          "recommended_verifier_model": "none",
-          "allowed_decisions": [],
-          "allowed_patch_fields": [],
-          "risk_tags": []
-        },
-        {
-          "guard_name": "slash_trim",
-          "severity": "medium",
-          "field_affected": "validation_decision",
-          "original_value": "split_required",
-          "guard_value": "split_required",
-          "reason": "Combined trim has split candidates and explicit split evidence.",
-          "needs_adjudication": true,
-          "recommended_verifier_model": "gpt-5.4",
-          "allowed_decisions": [
-            "split_required",
-            "clean_partial"
-          ],
-          "allowed_patch_fields": [
-            "validation_decision",
-            "trim_status",
-            "trim_confidence",
-            "canonical_trim"
-          ],
-          "risk_tags": []
-        },
-        {
-          "guard_name": "year_end_current",
-          "severity": "medium",
-          "field_affected": "year_end",
-          "original_value": 2026,
-          "guard_value": null,
-          "reason": "Current/future year_end reset to null because placeholder end years are not allowed.",
-          "needs_adjudication": false,
-          "recommended_verifier_model": "none",
-          "allowed_decisions": [],
-          "allowed_patch_fields": [],
-          "risk_tags": []
-        },
-        {
-          "guard_name": "field_confidence_or_evidence_low",
-          "severity": "high",
-          "field_affected": "canonical_trim",
-          "original_value": "Competizione / Scorpione / Nuvolari S",
-          "guard_value": null,
-          "reason": "canonical_trim lacks confidence/support required for clean_catalog.",
-          "needs_adjudication": true,
-          "recommended_verifier_model": "gpt-5.4",
-          "allowed_decisions": [],
-          "allowed_patch_fields": [],
-          "risk_tags": [
-            "field_confidence",
-            "evidence"
-          ]
-        },
-        {
-          "guard_name": "split_required_combined_trim_cleared",
-          "severity": "high",
-          "field_affected": "canonical_trim",
-          "original_value": "Competizione / Scorpione / Nuvolari S",
-          "guard_value": null,
-          "reason": "Combined trim cleared to null; row routed to split_queue.",
-          "needs_adjudication": true,
-          "recommended_verifier_model": "gpt-5.4",
-          "allowed_decisions": [],
-          "allowed_patch_fields": [],
-          "risk_tags": [
-            "split",
-            "trim_quality"
-          ]
-        },
-        {
-          "guard_name": "final_seal_route_override",
-          "severity": "medium",
-          "field_affected": "final_route",
-          "original_value": "review_queue",
-          "guard_value": "split_queue",
-          "reason": "split_required rows or combined trims must be split before publishing.",
-          "needs_adjudication": false,
-          "recommended_verifier_model": "none",
-          "allowed_decisions": [],
-          "allowed_patch_fields": [],
-          "risk_tags": [
-            "routing",
-            "final_seal"
-          ]
-        },
-        {
-          "guard_name": "slash_trim",
-          "severity": "medium",
-          "field_affected": "validation_decision",
-          "original_value": "split_required",
-          "guard_value": "split_required",
-          "reason": "Combined trim has split candidates and explicit split evidence.",
-          "needs_adjudication": true,
-          "recommended_verifier_model": "gpt-5.4",
-          "allowed_decisions": [
-            "split_required",
-            "clean_partial"
-          ],
-          "allowed_patch_fields": [
-            "validation_decision",
-            "trim_status",
-            "trim_confidence",
-            "canonical_trim"
-          ],
-          "risk_tags": []
-        },
-        {
-          "guard_name": "year_end_current",
-          "severity": "medium",
-          "field_affected": "year_end",
-          "original_value": 2026,
-          "guard_value": null,
-          "reason": "Current/future year_end reset to null because placeholder end years are not allowed.",
-          "needs_adjudication": false,
-          "recommended_verifier_model": "none",
-          "allowed_decisions": [],
-          "allowed_patch_fields": [],
-          "risk_tags": []
-        },
-        {
-          "guard_name": "slash_trim",
-          "severity": "medium",
-          "field_affected": "validation_decision",
-          "original_value": "split_required",
-          "guard_value": "split_required",
-          "reason": "Combined trim has split candidates and explicit split evidence.",
-          "needs_adjudication": true,
-          "recommended_verifier_model": "gpt-5.4",
-          "allowed_decisions": [
-            "split_required",
-            "clean_partial"
-          ],
-          "allowed_patch_fields": [
-            "validation_decision",
-            "trim_status",
-            "trim_confidence",
-            "canonical_trim"
-          ],
-          "risk_tags": []
-        },
-        {
-          "guard_name": "year_end_current",
-          "severity": "medium",
-          "field_affected": "year_end",
-          "original_value": 2026,
-          "guard_value": null,
-          "reason": "Current/future year_end reset to null because placeholder end years are not allowed.",
-          "needs_adjudication": false,
-          "recommended_verifier_model": "none",
-          "allowed_decisions": [],
-          "allowed_patch_fields": [],
-          "risk_tags": []
-        },
-        {
-          "guard_name": "field_confidence_or_evidence_low",
-          "severity": "high",
-          "field_affected": "canonical_trim",
-          "original_value": "Competizione / Scorpione / Nuvolari S",
-          "guard_value": null,
-          "reason": "canonical_trim lacks confidence/support required for clean_catalog.",
-          "needs_adjudication": true,
-          "recommended_verifier_model": "gpt-5.4",
-          "allowed_decisions": [],
-          "allowed_patch_fields": [],
-          "risk_tags": [
-            "field_confidence",
-            "evidence"
-          ]
-        },
-        {
-          "guard_name": "split_required_combined_trim_cleared",
-          "severity": "high",
-          "field_affected": "canonical_trim",
-          "original_value": "Competizione / Scorpione / Nuvolari S",
-          "guard_value": null,
-          "reason": "Combined trim cleared to null; row routed to split_queue.",
-          "needs_adjudication": true,
-          "recommended_verifier_model": "gpt-5.4",
-          "allowed_decisions": [],
-          "allowed_patch_fields": [],
-          "risk_tags": [
-            "split",
-            "trim_quality"
-          ]
-        },
-        {
-          "guard_name": "final_seal_route_override",
-          "severity": "medium",
-          "field_affected": "final_route",
-          "original_value": "review_queue",
-          "guard_value": "split_queue",
-          "reason": "split_required rows or combined trims must be split before publishing.",
-          "needs_adjudication": false,
-          "recommended_verifier_model": "none",
-          "allowed_decisions": [],
-          "allowed_patch_fields": [],
-          "risk_tags": [
-            "routing",
-            "final_seal"
-          ]
-        },
-        {
-          "guard_name": "split_required_combined_trim_cleared",
-          "severity": "high",
-          "field_affected": "canonical_trim",
-          "original_value": null,
-          "guard_value": null,
-          "reason": "Combined trim cleared to null; row routed to split_queue.",
-          "needs_adjudication": true,
-          "recommended_verifier_model": "gpt-5.4",
-          "allowed_decisions": [],
-          "allowed_patch_fields": [],
-          "risk_tags": [
-            "split",
-            "trim_quality"
-          ]
-        }
-      ]
-    },
-    "VAL-000004": {
-      "validation_id": "VAL-000004",
-      "run_mode": "real",
-      "source_validation_id": "VAL-000004",
-      "source_cluster_id": "CLU-d039ea7ad836",
-      "grounding_cluster_id": "CLU-d039ea7ad836",
-      "evidence_reused_from": null,
-      "canonical_make": "Abarth",
-      "canonical_model": "500",
-      "canonical_series_or_generation": "First Generation",
-      "canonical_trim": null,
-      "official_marketed_name_il": "אבארט 500",
-      "body_type": "Hatchback",
-      "fuel_type": "petrol",
-      "engine": "1.4L Turbo",
-      "transmission": null,
-      "drivetrain": "FWD",
-      "year_start": 2010,
-      "year_end": null,
-      "is_currently_produced": false,
-      "is_currently_imported_il": true,
-      "market_scope": "IL",
-      "validation_decision": "split_required",
-      "acceptance_tier": "none",
-      "identity_status": "likely_valid",
       "identity_confidence": 0.9,
       "trim_status": "unresolved",
       "trim_confidence": 0.0,
       "field_validation": {
         "canonical_make": {
           "status": "verified",
-          "confidence": 1.0,
+          "confidence": 0.98,
           "evidence_strength": "strong",
-          "source_indexes": [
-            0,
-            1,
-            2,
-            3
-          ],
-          "risk_tags": [],
-          "notes": "Make is universally recognized as Abarth."
-        },
-        "canonical_model": {
-          "status": "verified",
-          "confidence": 1.0,
-          "evidence_strength": "strong",
-          "source_indexes": [
-            0,
-            1,
-            2,
-            3
-          ],
-          "risk_tags": [],
-          "notes": "Model is universally recognized as 500."
-        },
-        "canonical_series_or_generation": {
-          "status": "verified",
-          "confidence": 0.9,
-          "evidence_strength": "strong",
-          "source_indexes": [
-            0
-          ],
-          "risk_tags": [],
-          "notes": "First generation applies to the 2010-present ICE model."
-        },
-        "canonical_trim": {
-          "status": "contradictory",
-          "confidence": 0.0,
-          "evidence_strength": "contradictory",
           "source_indexes": [
             0,
             1,
             2
           ],
-          "risk_tags": [
-            "multiple_trims_combined"
-          ],
-          "notes": "Combines two distinct trims with different specifications."
+          "risk_tags": [],
+          "notes": "Abarth make is directly supported by Israeli-market listings/sources."
         },
-        "official_marketed_name_il": {
+        "canonical_model": {
           "status": "verified",
-          "confidence": 1.0,
+          "confidence": 0.98,
           "evidence_strength": "strong",
           "source_indexes": [
             0,
             1,
-            2,
-            3
+            2
           ],
           "risk_tags": [],
-          "notes": "Officially marketed as אבארט 500 in Israel."
+          "notes": "500 model is directly supported by Israeli-market listings/sources."
         },
-        "body_type": {
-          "status": "verified",
-          "confidence": 1.0,
-          "evidence_strength": "strong",
+        "canonical_series_or_generation": {
+          "status": "partial",
+          "confidence": 0.7,
+          "evidence_strength": "partial",
           "source_indexes": [
             0,
             1
           ],
-          "risk_tags": [],
-          "notes": "Hatchback (and Cabriolet) are the standard body types."
-        },
-        "fuel_type": {
-          "status": "verified",
-          "confidence": 1.0,
-          "evidence_strength": "strong",
-          "source_indexes": [
-            1,
-            2
+          "risk_tags": [
+            "generation_inferred"
           ],
-          "risk_tags": [],
-          "notes": "Petrol engine."
+          "notes": "Pre-facelift/early Israeli-market run through 2016 is supported, but explicit '1st Gen' naming is inferred rather than directly labeled in the sources."
         },
-        "engine": {
+        "canonical_trim": {
+          "status": "unresolved",
+          "confidence": 0.0,
+          "evidence_strength": "missing",
+          "source_indexes": [],
+          "risk_tags": [
+            "generic_trim",
+            "placeholder_trim"
+          ],
+          "notes": "Input trim 'Base' is not supported as an official Israeli marketed trim. Source evidence shows named trims such as Abarth/Lusso/Scorpione, so exact trim remains unresolved."
+        },
+        "official_marketed_name_il": {
           "status": "verified",
           "confidence": 0.9,
           "evidence_strength": "strong",
@@ -1643,22 +162,9 @@
             2
           ],
           "risk_tags": [],
-          "notes": "1.4L Turbo is the standard engine for all ICE variants."
+          "notes": "Hebrew-market naming as 'אבארט 500' is consistent across Israeli sources."
         },
-        "transmission": {
-          "status": "contradictory",
-          "confidence": 0.0,
-          "evidence_strength": "contradictory",
-          "source_indexes": [
-            1,
-            2
-          ],
-          "risk_tags": [
-            "trim_dependent"
-          ],
-          "notes": "Turismo is typically robotic/automatic in Israel, while Competizione is manual."
-        },
-        "drivetrain": {
+        "body_type": {
           "status": "verified",
           "confidence": 0.9,
           "evidence_strength": "strong",
@@ -1666,374 +172,288 @@
             2
           ],
           "risk_tags": [],
-          "notes": "Front-wheel drive."
+          "notes": "Hatchback body style is directly visible in Israeli marketplace taxonomy for relevant Abarth 500 variants."
+        },
+        "fuel_type": {
+          "status": "verified",
+          "confidence": 0.95,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Israeli listings show petrol/benzin fuel for supported Abarth 500 variants."
+        },
+        "engine": {
+          "status": "verified",
+          "confidence": 0.95,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "risk_tags": [],
+          "notes": "1.4 turbo engine is directly supported by Israeli pricing/listing pages."
+        },
+        "transmission": {
+          "status": "verified",
+          "confidence": 0.92,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "risk_tags": [
+            "transmission_normalized"
+          ],
+          "notes": "Israeli sources support a manual transmission variant; normalized here as 'manual'."
+        },
+        "drivetrain": {
+          "status": "partial",
+          "confidence": 0.6,
+          "evidence_strength": "indirect",
+          "source_indexes": [],
+          "risk_tags": [
+            "drivetrain_not_directly_shown"
+          ],
+          "notes": "FWD is plausible for Abarth 500 but was not directly evidenced in the grounded sources supplied here."
         },
         "year_start": {
           "status": "verified",
           "confidence": 0.95,
           "evidence_strength": "strong",
           "source_indexes": [
-            0
+            0,
+            1
           ],
           "risk_tags": [
-            "market_discrepancy"
+            "market_launch_discrepancy"
           ],
-          "notes": "Global launch was 2008, but official Israeli import started in June 2010."
+          "notes": "Israeli market evidence supports presence from 2010 rather than 2008 for this validated IL-market row."
         },
         "year_end": {
-          "status": "verified",
-          "confidence": 0.9,
-          "evidence_strength": "strong",
+          "status": "partial",
+          "confidence": 0.75,
+          "evidence_strength": "partial",
           "source_indexes": [
-            1,
-            3
+            2
           ],
           "risk_tags": [
-            "production_ended_but_still_sold"
+            "year_end_inferred"
           ],
-          "notes": "Global ICE production ended in 2024, but the vehicle is still listed in 2026 Israeli price lists."
+          "notes": "2016 is consistent with Israeli-market trim/year ranges surfaced in source data, but exact market end for this specific manual variant is not fully direct."
         },
         "is_currently_produced": {
           "status": "verified",
-          "confidence": 0.9,
+          "confidence": 0.95,
           "evidence_strength": "strong",
-          "source_indexes": [
-            0
-          ],
-          "risk_tags": [],
-          "notes": "Global ICE production ended in 2024."
-        },
-        "is_currently_imported_il": {
-          "status": "verified",
-          "confidence": 0.9,
-          "evidence_strength": "strong",
-          "source_indexes": [
-            1,
-            3
-          ],
-          "risk_tags": [],
-          "notes": "Still listed in 2026 Israeli price lists."
-        }
-      },
-      "source_support_matrix": [
-        {
-          "field": "canonical_make",
-          "value": "Abarth",
-          "support_level": "direct",
-          "source_indexes": [
-            0,
-            1,
-            2,
-            3
-          ],
-          "reason": "All sources refer to the make as Abarth (אבארט)."
-        },
-        {
-          "field": "canonical_model",
-          "value": "500",
-          "support_level": "direct",
-          "source_indexes": [
-            0,
-            1,
-            2,
-            3
-          ],
-          "reason": "All sources refer to the model as 500."
-        },
-        {
-          "field": "canonical_trim",
-          "value": "Turismo / Competizione",
-          "support_level": "contradictory",
           "source_indexes": [
             0,
             1,
             2
           ],
-          "reason": "Sources list Turismo and Competizione as separate trims with different specs."
+          "risk_tags": [],
+          "notes": "This 2010-2016 variant is historical and therefore not currently produced."
         },
+        "is_currently_imported_il": {
+          "status": "partial",
+          "confidence": 0.7,
+          "evidence_strength": "indirect",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "risk_tags": [
+            "current_import_not_direct"
+          ],
+          "notes": "This specific historical variant is not evidenced as currently imported; treated as not currently imported, but direct importer confirmation was not grounded in the supplied sources."
+        }
+      },
+      "source_support_matrix": [
         {
           "field": "year_start",
           "value": 2010,
           "support_level": "direct",
           "source_indexes": [
-            0
+            0,
+            1
           ],
-          "reason": "Auto magazine explicitly states the 500 arrived in Israel in June 2010."
+          "reason": "Israeli Gear pages exist for 2010 Abarth 500 1.4 turbo manual."
         },
         {
-          "field": "year_end",
-          "value": null,
+          "field": "engine",
+          "value": "1.4L Turbo",
           "support_level": "direct",
           "source_indexes": [
+            0,
             1,
-            3
+            2
           ],
-          "reason": "Cartube and Yad2 show the Abarth 500 in 2025 and 2026 price lists."
+          "reason": "Israeli sources repeatedly show 1.4 turbo Abarth 500 variants."
         },
         {
           "field": "transmission",
           "value": "manual",
-          "support_level": "contradictory",
+          "support_level": "direct",
           "source_indexes": [
+            0,
             1,
             2
           ],
-          "reason": "Competizione is manual, but Turismo is often robotic/automatic."
+          "reason": "Israeli sources show 'ידני' manual variants."
+        },
+        {
+          "field": "canonical_trim",
+          "value": null,
+          "support_level": "conflicting_or_insufficient",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "reason": "Grounded sources show named trims/variant labels such as Abarth, Lusso, Scorpione rather than 'Base'."
+        },
+        {
+          "field": "year_end",
+          "value": 2016,
+          "support_level": "indirect",
+          "source_indexes": [
+            2
+          ],
+          "reason": "Israeli marketplace year ranges include variants spanning through 2016, but exact end for this specific manual base row is not fully direct."
         }
       ],
-      "evidence_auditability": "strong",
+      "evidence_auditability": "partial",
       "grounding_status": {
         "gemini_grounding_required": true,
         "gemini_grounding_present": true,
-        "gemini_grounding_quality": "strong",
+        "gemini_grounding_quality": "acceptable",
         "gpt54_grounding_required": true,
-        "gpt54_grounding_present": false,
-        "gpt54_grounding_quality": "missing",
+        "gpt54_grounding_present": true,
+        "gpt54_grounding_quality": "partial",
         "final_grounding_gate_passed": false
       },
-      "grounding_summary": "The Abarth 500 is well-documented in the Israeli market. Official import began in 2010. The input trim 'Turismo / Competizione' combines two distinct trims: Turismo (typically 165 hp, robotic transmission) and Competizione (typically 180 hp, manual transmission). A split is required. While global ICE production ended in 2024, the vehicle remains in 2026 Israeli price lists, indicating ongoing local sales.",
+      "grounding_summary": "Grounded Israeli sources support an Abarth 500 in Israel by 2010 with 1.4 turbo manual variants. They do not support the placeholder trim 'Base'; instead they surface named variant labels such as Abarth, Lusso and Scorpione. Some fields in the prior row were overstated as verified despite only partial or indirect support, so confidence/status were reduced where appropriate.",
       "evidence_sources": [
         {
-          "title": "אבארט 500 - מחירון, חוות דעת ומידע טכני | אוטו",
-          "url": null,
-          "source_name": "Auto",
+          "title": "מחירון אבארט 500 1.4 טורבו אבארט ידני 2010",
+          "url": "https://www.gear.co.il/%D7%9E%D7%97%D7%99%D7%A8%D7%95%D7%9F-%D7%A8%D7%9B%D7%91-%D7%93%D7%92%D7%9D/%D7%90%D7%91%D7%90%D7%A8%D7%98/500/2010/500/1.4-%D7%98%D7%95%D7%A8%D7%91%D7%95-%D7%90%D7%91%D7%90%D7%A8%D7%98-%D7%99%D7%93%D7%A0%D7%99-",
+          "source_name": "Gear",
           "source_type": "editorial",
           "supports": [
             "market_presence_il",
-            "year_range",
-            "trim_candidates",
-            "split_required"
+            "year_start",
+            "engine",
+            "transmission",
+            "official_name_candidate"
           ]
         },
         {
-          "title": "אבארט 500 | מחירון ומפרט טכני - cartube",
-          "url": null,
-          "source_name": "Cartube",
+          "title": "אבארט 500 2010 1.4 טורבו אבארט ידני",
+          "url": "https://www.gear.co.il/%D7%92%D7%A8%D7%A1%D7%94/%D7%90%D7%91%D7%90%D7%A8%D7%98/500/2010/500/1.4-%D7%98%D7%95%D7%A8%D7%91%D7%95-%D7%90%D7%91%D7%90%D7%A8%D7%98-%D7%99%D7%93%D7%A0%D7%99",
+          "source_name": "Gear",
           "source_type": "editorial",
           "supports": [
             "market_presence_il",
-            "trim_candidates",
-            "split_required"
-          ]
-        },
-        {
-          "title": "אבארט 500 1.4 ידני 180 כ\"ס Competizione 2024 | מפרט טכני - cartube",
-          "url": null,
-          "source_name": "Cartube",
-          "source_type": "editorial",
-          "supports": [
-            "exact_trim",
+            "year_start",
             "engine",
             "transmission"
           ]
         },
         {
-          "title": "מחירון של אבארט 500 - יד2",
-          "url": null,
+          "title": "מחירון של אבארט 500 | מחירון יד2",
+          "url": "https://www.yad2.co.il/price-list/feed?manufacturer=53&model=11862",
           "source_name": "Yad2",
           "source_type": "marketplace",
           "supports": [
-            "market_presence_il",
-            "trim_candidates"
+            "trim_candidates",
+            "body_type",
+            "fuel_type",
+            "year_ranges"
           ]
         }
       ],
       "possible_trim_names": [
-        "Turismo",
-        "Competizione"
+        "Abarth",
+        "Lusso",
+        "Scorpione"
       ],
-      "split_candidates": [
-        "Turismo",
-        "Competizione"
-      ],
+      "split_candidates": [],
       "blocking_identity_issues": [],
       "non_blocking_trim_issues": [
-        "Combined trim contains multiple distinct marketed trims and must be split into separate variants.",
-        "year_end was current/future and not kept as a placeholder.",
-        "The trim string 'Turismo / Competizione' combines two distinct marketed variants that have different power outputs (165 hp vs 180 hp) and different transmissions (robotic vs manual). A split is required."
+        "Trim 'Base' is a generic placeholder and is not grounded as an official Israeli marketed trim for this row."
       ],
       "fields_changed": [
         {
           "field": "year_start",
           "from": 2008,
           "to": 2010,
-          "reason": "Model changed value during validation; see decision_reason/grounding_summary"
+          "reason": "Grounded Israeli 2010 pages support IL-market presence from 2010 for this row."
         },
         {
-          "field": "year_end",
-          "from": 2026,
+          "field": "canonical_trim",
+          "from": "Base",
           "to": null,
-          "reason": "Current/future year_end was not kept as a placeholder; reset to null unless strongly supported as an end year."
+          "reason": "Placeholder trim unsupported by grounded evidence."
+        },
+        {
+          "field": "drivetrain.status",
+          "from": "verified",
+          "to": "partial",
+          "reason": "No direct grounded support for FWD in the retrieved evidence."
+        },
+        {
+          "field": "year_end.status",
+          "from": "verified",
+          "to": "partial",
+          "reason": "2016 appears consistent but not fully direct for this exact manual variant."
+        },
+        {
+          "field": "is_currently_imported_il.status",
+          "from": "verified",
+          "to": "partial",
+          "reason": "Current import state for this historical specific variant was not directly grounded."
         }
       ],
       "fields_left_unresolved": [
         "canonical_trim",
-        "transmission"
+        "drivetrain"
       ],
-      "decision_reason": "Final seal route=split_queue; validation_decision=split_required; identity_status=likely_valid; trim_status=unresolved. Unresolved fields: canonical_trim, transmission.",
+      "decision_reason": "Final seal route=review_queue; validation_decision=clean_partial; identity_status=verified; trim_status=unresolved. Unresolved fields: canonical_trim, drivetrain.",
       "_pipeline_version": "v3_three_stage",
-      "_flags_count": 23,
+      "_flags_count": 4,
       "_flash_used": false,
-      "adjudication_log": [],
+      "adjudication_log": [
+        {
+          "step": "web_grounding_repair",
+          "result": "applied",
+          "notes": "Repaired overstated field verification and filled evidence URLs from grounded search results."
+        }
+      ],
       "publishable_to_clean_catalog": false,
-      "final_route": "split_queue",
-      "route_reason": "split_required rows or combined trims must be split before publishing.",
-      "duplicate_group_id": null,
+      "final_route": "review_queue",
+      "route_reason": "Final seal blocked clean_catalog because unresolved, weak-grounded, contradictory, or non-exact fields remain.",
+      "duplicate_group_id": "DUP-000001",
       "duplicate_of": null,
-      "guard_corrected_reason": "Python guards corrected the model output: trim_status: 'inferred' -> 'invalid'; year_end: 2026 -> None.",
       "preflight_risk_tags": [
-        "multi_trim_string",
-        "slash_trim",
+        "base_trim",
+        "placeholder_trim",
         "weak_official_marketed_name",
-        "current_or_future_year_end_placeholder",
-        "low_auditability_risk"
+        "low_auditability_risk",
+        "generation_inferred"
       ],
       "final_seal_result": {
         "passed": true,
         "guard_flags": [
           {
-            "guard_name": "slash_trim",
-            "severity": "medium",
-            "field_affected": "validation_decision",
-            "original_value": "split_required",
-            "guard_value": "split_required",
-            "reason": "Combined trim has split candidates and explicit split evidence.",
-            "risk_tags": [],
-            "needs_repair_adjudication": true,
-            "allowed_patch_fields": [
-              "validation_decision",
-              "trim_status",
-              "trim_confidence",
-              "canonical_trim"
-            ]
-          },
-          {
-            "guard_name": "year_end_current",
-            "severity": "medium",
-            "field_affected": "year_end",
-            "original_value": 2026,
-            "guard_value": null,
-            "reason": "Current/future year_end reset to null because placeholder end years are not allowed.",
-            "risk_tags": [],
-            "needs_repair_adjudication": false,
-            "allowed_patch_fields": []
-          },
-          {
-            "guard_name": "split_issue_blocking_identity",
-            "severity": "medium",
-            "field_affected": "blocking_identity_issues",
-            "original_value": [
-              "The trim string 'Turismo / Competizione' combines two distinct marketed variants that have different power outputs (165 hp vs 180 hp) and different transmissions (robotic vs manual). A split is required."
-            ],
-            "guard_value": [],
-            "reason": "Split-only trim issue moved out of blocking identity issues.",
-            "risk_tags": [
-              "split",
-              "audit_consistency"
-            ],
-            "needs_repair_adjudication": false,
-            "allowed_patch_fields": [
-              "blocking_identity_issues",
-              "non_blocking_trim_issues",
-              "validation_decision"
-            ]
-          },
-          {
-            "guard_name": "slash_trim",
-            "severity": "medium",
-            "field_affected": "validation_decision",
-            "original_value": "split_required",
-            "guard_value": "split_required",
-            "reason": "Combined trim has split candidates and explicit split evidence.",
-            "risk_tags": [],
-            "needs_repair_adjudication": true,
-            "allowed_patch_fields": [
-              "validation_decision",
-              "trim_status",
-              "trim_confidence",
-              "canonical_trim"
-            ]
-          },
-          {
-            "guard_name": "year_end_current",
-            "severity": "medium",
-            "field_affected": "year_end",
-            "original_value": 2026,
-            "guard_value": null,
-            "reason": "Current/future year_end reset to null because placeholder end years are not allowed.",
-            "risk_tags": [],
-            "needs_repair_adjudication": false,
-            "allowed_patch_fields": []
-          },
-          {
-            "guard_name": "split_issue_blocking_identity",
-            "severity": "medium",
-            "field_affected": "blocking_identity_issues",
-            "original_value": [
-              "The trim string 'Turismo / Competizione' combines two distinct marketed variants that have different power outputs (165 hp vs 180 hp) and different transmissions (robotic vs manual). A split is required."
-            ],
-            "guard_value": [],
-            "reason": "Split-only trim issue moved out of blocking identity issues.",
-            "risk_tags": [
-              "split",
-              "audit_consistency"
-            ],
-            "needs_repair_adjudication": false,
-            "allowed_patch_fields": [
-              "blocking_identity_issues",
-              "non_blocking_trim_issues",
-              "validation_decision"
-            ]
-          },
-          {
-            "guard_name": "field_confidence_or_evidence_low",
-            "severity": "high",
-            "field_affected": "canonical_trim",
-            "original_value": "Turismo / Competizione",
-            "guard_value": null,
-            "reason": "canonical_trim lacks confidence/support required for clean_catalog.",
-            "risk_tags": [
-              "field_confidence",
-              "evidence"
-            ],
-            "needs_repair_adjudication": true,
-            "allowed_patch_fields": []
-          },
-          {
-            "guard_name": "field_confidence_or_evidence_low",
-            "severity": "high",
-            "field_affected": "transmission",
-            "original_value": "manual",
-            "guard_value": null,
-            "reason": "transmission lacks confidence/support required for clean_catalog.",
-            "risk_tags": [
-              "field_confidence",
-              "evidence"
-            ],
-            "needs_repair_adjudication": true,
-            "allowed_patch_fields": []
-          },
-          {
-            "guard_name": "split_required_combined_trim_cleared",
-            "severity": "high",
-            "field_affected": "canonical_trim",
-            "original_value": "Turismo / Competizione",
-            "guard_value": null,
-            "reason": "Combined trim cleared to null; row routed to split_queue.",
-            "risk_tags": [
-              "split",
-              "trim_quality"
-            ],
-            "needs_repair_adjudication": true,
-            "allowed_patch_fields": []
-          },
-          {
             "guard_name": "final_seal_route_override",
             "severity": "medium",
             "field_affected": "final_route",
             "original_value": "review_queue",
-            "guard_value": "split_queue",
-            "reason": "split_required rows or combined trims must be split before publishing.",
+            "guard_value": "partial_queue",
+            "reason": "Verified/likely identity with unresolved trim is retained for partial review.",
             "risk_tags": [
               "routing",
               "final_seal"
@@ -2044,10 +464,10 @@
           {
             "guard_name": "field_confidence_or_evidence_low",
             "severity": "high",
-            "field_affected": "transmission",
-            "original_value": "manual",
+            "field_affected": "drivetrain",
+            "original_value": "FWD",
             "guard_value": null,
-            "reason": "transmission lacks confidence/support required for clean_catalog.",
+            "reason": "drivetrain lacks confidence/support required for clean_catalog.",
             "risk_tags": [
               "field_confidence",
               "evidence"
@@ -2056,214 +476,65 @@
             "allowed_patch_fields": []
           },
           {
-            "guard_name": "populated_field_marked_unresolved",
-            "severity": "critical",
-            "field_affected": "transmission",
-            "original_value": "manual",
-            "guard_value": null,
-            "reason": "Audit/issues mark transmission unresolved; canonical value nullified.",
+            "guard_name": "final_seal_route_override",
+            "severity": "medium",
+            "field_affected": "final_route",
+            "original_value": "partial_queue",
+            "guard_value": "review_queue",
+            "reason": "Final seal blocked clean_catalog because unresolved, weak-grounded, contradictory, or non-exact fields remain.",
             "risk_tags": [
-              "audit_consistency",
-              "populated_unresolved"
+              "routing",
+              "final_seal"
             ],
-            "needs_repair_adjudication": true,
-            "allowed_patch_fields": []
-          },
-          {
-            "guard_name": "split_required_combined_trim_cleared",
-            "severity": "high",
-            "field_affected": "canonical_trim",
-            "original_value": null,
-            "guard_value": null,
-            "reason": "Combined trim cleared to null; row routed to split_queue.",
-            "risk_tags": [
-              "split",
-              "trim_quality"
-            ],
-            "needs_repair_adjudication": true,
+            "needs_repair_adjudication": false,
             "allowed_patch_fields": []
           }
         ],
         "blocks_clean_catalog": true
       },
-      "risk_score": 545,
+      "risk_score": 65,
       "_repair_adjudicator_triggered": true,
-      "_repair_adjudicator_error": "Responses.create() got an unexpected keyword argument 'max_completion_tokens'",
+      "gpt54_grounding_present": true,
+      "_repair_decision": "patched",
+      "field_patches": [
+        {
+          "field": "canonical_trim",
+          "patch": "set to null and keep unresolved"
+        },
+        {
+          "field": "year_start",
+          "patch": "retain 2010 with grounded support"
+        },
+        {
+          "field": "field_validation.drvetrain",
+          "patch": "downgrade from verified to partial due to lack of direct grounding"
+        },
+        {
+          "field": "field_validation.year_end",
+          "patch": "downgrade from verified to partial due to indirect support only"
+        },
+        {
+          "field": "field_validation.is_currently_imported_il",
+          "patch": "downgrade from verified to partial due to lack of direct current-import grounding"
+        },
+        {
+          "field": "evidence_sources",
+          "patch": "populate with grounded source URLs and support mappings"
+        },
+        {
+          "field": "duplicate_group_id",
+          "patch": "set to DUP-000001 from raw input duplicate context"
+        }
+      ],
       "_guard_verifier_used": false,
       "guard_flags": [
         {
-          "guard_name": "slash_trim",
-          "severity": "medium",
-          "field_affected": "validation_decision",
-          "original_value": "split_required",
-          "guard_value": "split_required",
-          "reason": "Combined trim has split candidates and explicit split evidence.",
-          "needs_adjudication": true,
-          "recommended_verifier_model": "gpt-5.4",
-          "allowed_decisions": [
-            "split_required",
-            "clean_partial"
-          ],
-          "allowed_patch_fields": [
-            "validation_decision",
-            "trim_status",
-            "trim_confidence",
-            "canonical_trim"
-          ],
-          "risk_tags": []
-        },
-        {
-          "guard_name": "year_end_current",
-          "severity": "medium",
-          "field_affected": "year_end",
-          "original_value": 2026,
-          "guard_value": null,
-          "reason": "Current/future year_end reset to null because placeholder end years are not allowed.",
-          "needs_adjudication": false,
-          "recommended_verifier_model": "none",
-          "allowed_decisions": [],
-          "allowed_patch_fields": [],
-          "risk_tags": []
-        },
-        {
-          "guard_name": "split_issue_blocking_identity",
-          "severity": "medium",
-          "field_affected": "blocking_identity_issues",
-          "original_value": [
-            "The trim string 'Turismo / Competizione' combines two distinct marketed variants that have different power outputs (165 hp vs 180 hp) and different transmissions (robotic vs manual). A split is required."
-          ],
-          "guard_value": [],
-          "reason": "Split-only trim issue moved out of blocking identity issues.",
-          "needs_adjudication": false,
-          "recommended_verifier_model": "none",
-          "allowed_decisions": [
-            "split_required",
-            "clean_partial"
-          ],
-          "allowed_patch_fields": [
-            "blocking_identity_issues",
-            "non_blocking_trim_issues",
-            "validation_decision"
-          ],
-          "risk_tags": [
-            "split",
-            "audit_consistency"
-          ]
-        },
-        {
-          "guard_name": "slash_trim",
-          "severity": "medium",
-          "field_affected": "validation_decision",
-          "original_value": "split_required",
-          "guard_value": "split_required",
-          "reason": "Combined trim has split candidates and explicit split evidence.",
-          "needs_adjudication": true,
-          "recommended_verifier_model": "gpt-5.4",
-          "allowed_decisions": [
-            "split_required",
-            "clean_partial"
-          ],
-          "allowed_patch_fields": [
-            "validation_decision",
-            "trim_status",
-            "trim_confidence",
-            "canonical_trim"
-          ],
-          "risk_tags": []
-        },
-        {
-          "guard_name": "year_end_current",
-          "severity": "medium",
-          "field_affected": "year_end",
-          "original_value": 2026,
-          "guard_value": null,
-          "reason": "Current/future year_end reset to null because placeholder end years are not allowed.",
-          "needs_adjudication": false,
-          "recommended_verifier_model": "none",
-          "allowed_decisions": [],
-          "allowed_patch_fields": [],
-          "risk_tags": []
-        },
-        {
-          "guard_name": "split_issue_blocking_identity",
-          "severity": "medium",
-          "field_affected": "blocking_identity_issues",
-          "original_value": [
-            "The trim string 'Turismo / Competizione' combines two distinct marketed variants that have different power outputs (165 hp vs 180 hp) and different transmissions (robotic vs manual). A split is required."
-          ],
-          "guard_value": [],
-          "reason": "Split-only trim issue moved out of blocking identity issues.",
-          "needs_adjudication": false,
-          "recommended_verifier_model": "none",
-          "allowed_decisions": [
-            "split_required",
-            "clean_partial"
-          ],
-          "allowed_patch_fields": [
-            "blocking_identity_issues",
-            "non_blocking_trim_issues",
-            "validation_decision"
-          ],
-          "risk_tags": [
-            "split",
-            "audit_consistency"
-          ]
-        },
-        {
-          "guard_name": "field_confidence_or_evidence_low",
-          "severity": "high",
-          "field_affected": "canonical_trim",
-          "original_value": "Turismo / Competizione",
-          "guard_value": null,
-          "reason": "canonical_trim lacks confidence/support required for clean_catalog.",
-          "needs_adjudication": true,
-          "recommended_verifier_model": "gpt-5.4",
-          "allowed_decisions": [],
-          "allowed_patch_fields": [],
-          "risk_tags": [
-            "field_confidence",
-            "evidence"
-          ]
-        },
-        {
-          "guard_name": "field_confidence_or_evidence_low",
-          "severity": "high",
-          "field_affected": "transmission",
-          "original_value": "manual",
-          "guard_value": null,
-          "reason": "transmission lacks confidence/support required for clean_catalog.",
-          "needs_adjudication": true,
-          "recommended_verifier_model": "gpt-5.4",
-          "allowed_decisions": [],
-          "allowed_patch_fields": [],
-          "risk_tags": [
-            "field_confidence",
-            "evidence"
-          ]
-        },
-        {
-          "guard_name": "split_required_combined_trim_cleared",
-          "severity": "high",
-          "field_affected": "canonical_trim",
-          "original_value": "Turismo / Competizione",
-          "guard_value": null,
-          "reason": "Combined trim cleared to null; row routed to split_queue.",
-          "needs_adjudication": true,
-          "recommended_verifier_model": "gpt-5.4",
-          "allowed_decisions": [],
-          "allowed_patch_fields": [],
-          "risk_tags": [
-            "split",
-            "trim_quality"
-          ]
-        },
-        {
           "guard_name": "final_seal_route_override",
           "severity": "medium",
           "field_affected": "final_route",
           "original_value": "review_queue",
-          "guard_value": "split_queue",
-          "reason": "split_required rows or combined trims must be split before publishing.",
+          "guard_value": "partial_queue",
+          "reason": "Verified/likely identity with unresolved trim is retained for partial review.",
           "needs_adjudication": false,
           "recommended_verifier_model": "none",
           "allowed_decisions": [],
@@ -2274,178 +545,12 @@
           ]
         },
         {
-          "guard_name": "slash_trim",
-          "severity": "medium",
-          "field_affected": "validation_decision",
-          "original_value": "split_required",
-          "guard_value": "split_required",
-          "reason": "Combined trim has split candidates and explicit split evidence.",
-          "needs_adjudication": true,
-          "recommended_verifier_model": "gpt-5.4",
-          "allowed_decisions": [
-            "split_required",
-            "clean_partial"
-          ],
-          "allowed_patch_fields": [
-            "validation_decision",
-            "trim_status",
-            "trim_confidence",
-            "canonical_trim"
-          ],
-          "risk_tags": []
-        },
-        {
-          "guard_name": "year_end_current",
-          "severity": "medium",
-          "field_affected": "year_end",
-          "original_value": 2026,
-          "guard_value": null,
-          "reason": "Current/future year_end reset to null because placeholder end years are not allowed.",
-          "needs_adjudication": false,
-          "recommended_verifier_model": "none",
-          "allowed_decisions": [],
-          "allowed_patch_fields": [],
-          "risk_tags": []
-        },
-        {
-          "guard_name": "split_issue_blocking_identity",
-          "severity": "medium",
-          "field_affected": "blocking_identity_issues",
-          "original_value": [
-            "The trim string 'Turismo / Competizione' combines two distinct marketed variants that have different power outputs (165 hp vs 180 hp) and different transmissions (robotic vs manual). A split is required."
-          ],
-          "guard_value": [],
-          "reason": "Split-only trim issue moved out of blocking identity issues.",
-          "needs_adjudication": false,
-          "recommended_verifier_model": "none",
-          "allowed_decisions": [
-            "split_required",
-            "clean_partial"
-          ],
-          "allowed_patch_fields": [
-            "blocking_identity_issues",
-            "non_blocking_trim_issues",
-            "validation_decision"
-          ],
-          "risk_tags": [
-            "split",
-            "audit_consistency"
-          ]
-        },
-        {
-          "guard_name": "slash_trim",
-          "severity": "medium",
-          "field_affected": "validation_decision",
-          "original_value": "split_required",
-          "guard_value": "split_required",
-          "reason": "Combined trim has split candidates and explicit split evidence.",
-          "needs_adjudication": true,
-          "recommended_verifier_model": "gpt-5.4",
-          "allowed_decisions": [
-            "split_required",
-            "clean_partial"
-          ],
-          "allowed_patch_fields": [
-            "validation_decision",
-            "trim_status",
-            "trim_confidence",
-            "canonical_trim"
-          ],
-          "risk_tags": []
-        },
-        {
-          "guard_name": "year_end_current",
-          "severity": "medium",
-          "field_affected": "year_end",
-          "original_value": 2026,
-          "guard_value": null,
-          "reason": "Current/future year_end reset to null because placeholder end years are not allowed.",
-          "needs_adjudication": false,
-          "recommended_verifier_model": "none",
-          "allowed_decisions": [],
-          "allowed_patch_fields": [],
-          "risk_tags": []
-        },
-        {
-          "guard_name": "split_issue_blocking_identity",
-          "severity": "medium",
-          "field_affected": "blocking_identity_issues",
-          "original_value": [
-            "The trim string 'Turismo / Competizione' combines two distinct marketed variants that have different power outputs (165 hp vs 180 hp) and different transmissions (robotic vs manual). A split is required."
-          ],
-          "guard_value": [],
-          "reason": "Split-only trim issue moved out of blocking identity issues.",
-          "needs_adjudication": false,
-          "recommended_verifier_model": "none",
-          "allowed_decisions": [
-            "split_required",
-            "clean_partial"
-          ],
-          "allowed_patch_fields": [
-            "blocking_identity_issues",
-            "non_blocking_trim_issues",
-            "validation_decision"
-          ],
-          "risk_tags": [
-            "split",
-            "audit_consistency"
-          ]
-        },
-        {
-          "guard_name": "field_confidence_or_evidence_low",
-          "severity": "high",
-          "field_affected": "canonical_trim",
-          "original_value": "Turismo / Competizione",
-          "guard_value": null,
-          "reason": "canonical_trim lacks confidence/support required for clean_catalog.",
-          "needs_adjudication": true,
-          "recommended_verifier_model": "gpt-5.4",
-          "allowed_decisions": [],
-          "allowed_patch_fields": [],
-          "risk_tags": [
-            "field_confidence",
-            "evidence"
-          ]
-        },
-        {
-          "guard_name": "field_confidence_or_evidence_low",
-          "severity": "high",
-          "field_affected": "transmission",
-          "original_value": "manual",
-          "guard_value": null,
-          "reason": "transmission lacks confidence/support required for clean_catalog.",
-          "needs_adjudication": true,
-          "recommended_verifier_model": "gpt-5.4",
-          "allowed_decisions": [],
-          "allowed_patch_fields": [],
-          "risk_tags": [
-            "field_confidence",
-            "evidence"
-          ]
-        },
-        {
-          "guard_name": "split_required_combined_trim_cleared",
-          "severity": "high",
-          "field_affected": "canonical_trim",
-          "original_value": "Turismo / Competizione",
-          "guard_value": null,
-          "reason": "Combined trim cleared to null; row routed to split_queue.",
-          "needs_adjudication": true,
-          "recommended_verifier_model": "gpt-5.4",
-          "allowed_decisions": [],
-          "allowed_patch_fields": [],
-          "risk_tags": [
-            "split",
-            "trim_quality"
-          ]
-        },
-        {
           "guard_name": "final_seal_route_override",
           "severity": "medium",
           "field_affected": "final_route",
           "original_value": "review_queue",
-          "guard_value": "split_queue",
-          "reason": "split_required rows or combined trims must be split before publishing.",
+          "guard_value": "partial_queue",
+          "reason": "Verified/likely identity with unresolved trim is retained for partial review.",
           "needs_adjudication": false,
           "recommended_verifier_model": "none",
           "allowed_decisions": [],
@@ -2458,10 +563,10 @@
         {
           "guard_name": "field_confidence_or_evidence_low",
           "severity": "high",
-          "field_affected": "transmission",
-          "original_value": "manual",
+          "field_affected": "drivetrain",
+          "original_value": "FWD",
           "guard_value": null,
-          "reason": "transmission lacks confidence/support required for clean_catalog.",
+          "reason": "drivetrain lacks confidence/support required for clean_catalog.",
           "needs_adjudication": true,
           "recommended_verifier_model": "gpt-5.4",
           "allowed_decisions": [],
@@ -2472,35 +577,19 @@
           ]
         },
         {
-          "guard_name": "populated_field_marked_unresolved",
-          "severity": "critical",
-          "field_affected": "transmission",
-          "original_value": "manual",
-          "guard_value": null,
-          "reason": "Audit/issues mark transmission unresolved; canonical value nullified.",
-          "needs_adjudication": true,
-          "recommended_verifier_model": "gpt-5.4",
+          "guard_name": "final_seal_route_override",
+          "severity": "medium",
+          "field_affected": "final_route",
+          "original_value": "partial_queue",
+          "guard_value": "review_queue",
+          "reason": "Final seal blocked clean_catalog because unresolved, weak-grounded, contradictory, or non-exact fields remain.",
+          "needs_adjudication": false,
+          "recommended_verifier_model": "none",
           "allowed_decisions": [],
           "allowed_patch_fields": [],
           "risk_tags": [
-            "audit_consistency",
-            "populated_unresolved"
-          ]
-        },
-        {
-          "guard_name": "split_required_combined_trim_cleared",
-          "severity": "high",
-          "field_affected": "canonical_trim",
-          "original_value": null,
-          "guard_value": null,
-          "reason": "Combined trim cleared to null; row routed to split_queue.",
-          "needs_adjudication": true,
-          "recommended_verifier_model": "gpt-5.4",
-          "allowed_decisions": [],
-          "allowed_patch_fields": [],
-          "risk_tags": [
-            "split",
-            "trim_quality"
+            "routing",
+            "final_seal"
           ]
         }
       ]
@@ -2511,93 +600,41 @@
       "anchor_id": "VAL-000001",
       "identity_status": "verified",
       "identity_confidence": 0.95,
-      "grounding_summary": "The Abarth 500 was officially imported to Israel starting in June 2010, not 2008. It was sold until late 2016 when the facelifted version arrived and was renamed Abarth 595. The vehicle was available with a 1.4L Turbo engine and a manual transmission. The base trim in Israel was called 'Scorpione', making the generic 'Base' trim unresolved.",
+      "grounding_summary": "Searches confirm the Abarth 500 was officially imported to Israel starting in 2010, not 2008. The 1.4L Turbo engine with manual transmission is verified. The trim 'Base' is generic and not an official marketed trim name in Israel.",
       "evidence_sources": [
         {
-          "title": "אבארט 500 - מחירון, חוות דעת ומידע טכני | אוטו",
-          "url": null,
-          "source_name": "Auto.co.il",
-          "source_type": "editorial",
-          "supports": [
-            "market_presence_il",
-            "year_range",
-            "engine",
-            "transmission",
-            "trim_candidates"
-          ]
-        },
-        {
-          "title": "אבארט 500 2010 יד שניה Scorpione 1.4 - iCar",
+          "title": "אבארט 500 - iCar",
           "url": null,
           "source_name": "iCar",
           "source_type": "editorial",
           "supports": [
             "market_presence_il",
             "year_range",
-            "exact_trim"
-          ]
-        }
-      ]
-    },
-    "CLU-d039ea7ad836": {
-      "anchor_id": "VAL-000003",
-      "identity_status": "likely_valid",
-      "identity_confidence": 0.95,
-      "grounding_summary": "The Abarth 500 is well-documented in the Israeli market. The input trim string combines three distinct trims: Competizione, Scorpione, and Nuvolari S. These trims have different engine outputs (e.g., 180 hp for Competizione, 165 hp for Nuvolari S, 140/145 hp for Scorpione) and equipment levels, requiring a split. Global production of the ICE model ended in 2024, though it still appears in 2026 Israeli price lists.",
-      "evidence_sources": [
-        {
-          "title": "אבארט 500 2026 1.4 ידני 165 כ\"ס Nuvolari S - רכב חדש - iCar",
-          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG5_MryXaShW7C2GS_9iZA8nF5DVfmom-d8VWD5mkJxR0rpBGLoSi2_-zQEVpmVgjmk1Sl4alOvrmdXi0OZTm6DAgpZDLo1H63YkiOlCxMq5iy85WC7B5rRjgVffhnfAdPUTkN9qRNxAICY9sqKPWf5gYCZXhzdGd4MAC4FZ3IdrMvB4Krco9JYSdmJm71vWR3XGRb7yu1UfHymOcSP2vdriRLMJMh5tlnqalJGcHH8ki_H9rwLcVHXnzucvScTWx9xTdITpm_uc5yVchKLQihw5xE=",
-          "source_name": "iCar",
-          "source_type": "editorial",
-          "supports": [
-            "market_presence_il",
-            "exact_trim",
             "engine",
             "transmission",
-            "year_range"
-          ]
-        },
-        {
-          "title": "אבארט 500 למכירה | יד2 רכב",
-          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE9KZEtQoN2omJETZ_ETx3YPPDmutVD_TKMkgo7v-j_Y6QG3N-5PC61mTz1n_0vf-m22JVtNqTx0oeRJgYgztdnd32gT8wxuH55d_oCzbXbvDecDad-IkIBAq_X7EZTk6GuS_a8y6W1dC_GOXvA2Uy07Jz5yKU=",
-          "source_name": "Yad2",
-          "source_type": "marketplace",
-          "supports": [
-            "market_presence_il",
-            "trim_candidates",
             "body_type"
           ]
         },
         {
-          "title": "גודשת לכל פועל: אבארט 500 סקורפיונה במבחן - Wheel",
-          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFzObs3BTUUWlyWN2Kl7buLQ99C5SzoITz7mzn-Cs_IvoCUXxGUITI6QTJm0bE7hZLRbWl8Pl-xM1FbVQZDAGTtgDNB7ZjEqnJ018lExuH6I8UrbLrg79197LKoRsKrEG65XnyFhpz38wzW09DFqyFCD3PqO1AhIVw8gNUN3E7kS7RcNad2uONDyZB2BGHf030DMn1hH6miODmecXJSnfmXzMFf0DWgawZJgnhH1gr1PRKzKdpDZSppacb2XFIiQ85JKVKWKfXCoMhWn3eOH22dyoontz_ecZtVurwx48rJTt3e7TGLu4d3tLIlGm3gOhoZCookMQvLldXFHC0HcsmNF9v0lQeehyh-fAcEPno=",
-          "source_name": "Wheel",
+          "title": "מחירון אבארט 500 2010",
+          "url": null,
+          "source_name": "Gear",
           "source_type": "editorial",
           "supports": [
-            "exact_trim",
-            "engine"
-          ]
-        },
-        {
-          "title": "אבארט 500 1.4 ידני 180 כ\"ס Competizione 2024 | מפרט טכני - cartube",
-          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHl1FyDccUxCpQYvs1ji0rQIcUTG4o3Gy_9Oix0G6JlZGErxr8DQmxUFxXvsdx6FiYl_le478BwXJpJmIDhQBPniwl1jclgMC6NPN7EFQ-9jPixL3cD60TClQxE0bBcIw8CDA5BdCV1pHtSSylJRUxJ4fD57FS5Ypg7qEfuJCrvyKFFbyOHzx8-KSGGtYBsfOoJo9iMLOLm5mE6f6Thy-51tz2qUYXPQppAEF8Ew6Xx-4WgAfqhXvGvu1fdHrs9wsf2UXyhw34XdRBgh4x9rT3SN5N6m5Z_Pkz3Ae5nh5abZBdrSiKqK8Pc2kAzzPhWGaBEwuV1XL-VVS4mLc9nu3zVXFct-CeEBkGv9HXfR-U1XkF8-MwVTvCuFVIyInmWkFWXnWOFwH5V1aBJ6lQZb73YBKa_vWfw9mrtJjsAuSsz4Q==",
-          "source_name": "Cartube",
-          "source_type": "editorial",
-          "supports": [
-            "exact_trim",
+            "market_presence_il",
+            "year_range",
             "engine",
-            "transmission",
-            "drivetrain"
+            "transmission"
           ]
         },
         {
-          "title": "Fiat 500 and Abarth 595 retired after 17 years on sale - Autocar",
-          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFf8UuTUoMW3Ukvj3W6LljQRrgHiY4nLIXjJGAIjkEDwsqH_zlNqMV_GY6ioCc3-mpTQ2RdwcyAEpnYK3uQdidUPeZORIm-s6ksueDDx34aD8UHoSy_iT7tLcJMmFLOfq7XK7YqlBqPsecZRJGSsfcJq0OANUrJsNY7y6JQvnlE5KIBeXeW7EfP0ghMuMUz_-A51qcH",
-          "source_name": "Autocar",
-          "source_type": "editorial",
+          "title": "אבארט 500 למכירה | יד2 רכב",
+          "url": null,
+          "source_name": "Yad2",
+          "source_type": "marketplace",
           "supports": [
-            "global_model_exists"
+            "market_presence_il",
+            "trim_candidates"
           ]
         }
       ]
@@ -2605,10 +642,10 @@
   },
   "decision_counts": {
     "clean_exact": 0,
-    "clean_partial": 2,
-    "split_required": 2,
+    "clean_partial": 1,
+    "split_required": 0,
     "reject": 0
   },
-  "last_validated_id": "VAL-000004",
-  "updated_at_utc": "2026-06-14T08:35:55Z"
+  "last_validated_id": "VAL-000001",
+  "updated_at_utc": "2026-06-14T21:54:50Z"
 }
