@@ -8,24 +8,24 @@
     "run_timestamp_utc": "2026-06-14T07:27:58Z",
     "total_input_variants": 3712,
     "total_instruction_records": 3712,
-    "total_validated_variants": 8,
+    "total_validated_variants": 9,
     "decision_counts": {
       "clean_exact": 0,
       "clean_partial": 4,
-      "split_required": 4,
+      "split_required": 5,
       "reject": 0
     },
     "grounding_cluster_count": 3653,
-    "gemini_call_count": 8,
+    "gemini_call_count": 9,
     "github_checkpoint_enabled": true,
-    "github_checkpoint_count": 8,
+    "github_checkpoint_count": 9,
     "github_checkpoint_fail_count": 0,
     "last_github_checkpoint_error": null,
-    "last_validated_id": "VAL-000008",
+    "last_validated_id": "VAL-000009",
     "schema_version": "v3_three_stage",
     "pipeline_version": "v3_three_stage",
-    "stage1_pro_calls": 8,
-    "stage2_guard_flags_total": 11,
+    "stage1_pro_calls": 9,
+    "stage2_guard_flags_total": 15,
     "stage3_flash_calls": 0,
     "flash_overrode_guard": 0,
     "guard_overrode_flash": 0,
@@ -40,9 +40,9 @@
     "guard_verifier_overrode_guard": 0,
     "guard_overrode_verifier": 0,
     "force_per_variant_validation": true,
-    "stage0_preflight_risk_rows": 3,
-    "stage1_gemini_grounding_required": 3,
-    "stage1_gemini_grounding_present": 3,
+    "stage0_preflight_risk_rows": 4,
+    "stage1_gemini_grounding_required": 4,
+    "stage1_gemini_grounding_present": 4,
     "stage1_gemini_grounding_missing": 0,
     "stage1_gemini_weak_grounding_rows": 0,
     "stage2_guard_flags_low": 0,
@@ -50,24 +50,24 @@
     "stage2_guard_flags_high": 0,
     "stage2_guard_flags_critical": 0,
     "stage2_guard_patches_applied": 0,
-    "stage25_repair_risk_scored_rows": 3,
-    "stage25_repair_triggered_rows": 2,
-    "stage3_repair_adjudicator_calls": 2,
+    "stage25_repair_risk_scored_rows": 4,
+    "stage25_repair_triggered_rows": 3,
+    "stage3_repair_adjudicator_calls": 3,
     "stage3_repair_adjudicator_successes": 0,
-    "stage3_repair_adjudicator_failures": 2,
+    "stage3_repair_adjudicator_failures": 3,
     "stage3_repair_adjudicator_patches": 0,
     "stage3_repair_adjudicator_routing_changes": 0,
     "stage3_repair_adjudicator_summary_rewrites": 0,
-    "stage3_repair_adjudicator_grounding_required": 2,
+    "stage3_repair_adjudicator_grounding_required": 3,
     "stage3_repair_adjudicator_grounding_present": 0,
-    "stage3_repair_adjudicator_grounding_missing": 2,
+    "stage3_repair_adjudicator_grounding_missing": 3,
     "stage4_final_seal_passed": 0,
-    "stage4_final_seal_blocks": 3,
+    "stage4_final_seal_blocks": 4,
     "stage4_final_guard_conflicts_remaining": 0,
     "clean_catalog_blocks_by_repair": 0,
-    "clean_catalog_blocks_by_final_seal": 3,
-    "clean_catalog_blocks_by_grounding": 2,
-    "clean_catalog_blocks_by_unresolved_trim": 2,
+    "clean_catalog_blocks_by_final_seal": 4,
+    "clean_catalog_blocks_by_grounding": 3,
+    "clean_catalog_blocks_by_unresolved_trim": 3,
     "clean_catalog_blocks_by_unresolved_critical_field": 0
   },
   "completed_validation_ids": [
@@ -78,7 +78,8 @@
     "VAL-000005",
     "VAL-000006",
     "VAL-000007",
-    "VAL-000008"
+    "VAL-000008",
+    "VAL-000009"
   ],
   "failed_validation_ids": [],
   "validated_variants_by_id": {
@@ -2041,6 +2042,557 @@
           ]
         }
       ]
+    },
+    "VAL-000009": {
+      "validation_id": "VAL-000009",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000009",
+      "source_cluster_id": "CLU-e0f4447de8c4",
+      "grounding_cluster_id": "CLU-e0f4447de8c4",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "500",
+      "canonical_series_or_generation": null,
+      "canonical_trim": null,
+      "official_marketed_name_il": "אבארט 500",
+      "body_type": "hatchback",
+      "fuel_type": "petrol",
+      "engine": "1.4 Turbo 180",
+      "transmission": "manual",
+      "drivetrain": "FWD",
+      "year_start": 2015,
+      "year_end": 2023,
+      "is_currently_produced": false,
+      "is_currently_imported_il": false,
+      "market_scope": "IL",
+      "validation_decision": "split_required",
+      "acceptance_tier": "none",
+      "identity_status": "verified",
+      "identity_confidence": 0.95,
+      "trim_status": "unresolved",
+      "trim_confidence": 0.0,
+      "field_validation": {
+        "canonical_make": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Verified via multiple Israeli catalogs."
+        },
+        "canonical_model": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Listed as 500 in major Israeli catalogs (Yad2, iCar), though also known as 595."
+        },
+        "canonical_series_or_generation": {
+          "status": "unresolved",
+          "confidence": 0.0,
+          "evidence_strength": "missing",
+          "source_indexes": [],
+          "risk_tags": [
+            "missing_generation"
+          ],
+          "notes": "Not consistently defined in local sources."
+        },
+        "canonical_trim": {
+          "status": "unresolved",
+          "confidence": 0.0,
+          "evidence_strength": "missing",
+          "source_indexes": [],
+          "risk_tags": [
+            "missing_trim",
+            "multiple_candidates"
+          ],
+          "notes": "Input trim is null. Multiple 180hp manual trims exist (Competizione, Racing Style)."
+        },
+        "official_marketed_name_il": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Marketed as אבארט 500 or אבארט 595."
+        },
+        "body_type": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Hatchback (3 doors) verified."
+        },
+        "fuel_type": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Petrol (Turbo) verified."
+        },
+        "engine": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "risk_tags": [],
+          "notes": "1.4 Turbo 180 hp verified."
+        },
+        "transmission": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Manual transmission verified for the 180 hp version."
+        },
+        "drivetrain": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Front-wheel drive (FWD) verified."
+        },
+        "year_start": {
+          "status": "verified",
+          "confidence": 0.9,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0
+          ],
+          "risk_tags": [],
+          "notes": "Yad2 lists the 180hp Competizione manual starting from 2015."
+        },
+        "year_end": {
+          "status": "verified",
+          "confidence": 0.9,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Still listed as available in 2024/2026 catalogs, so year_end is null."
+        },
+        "is_currently_produced": {
+          "status": "verified",
+          "confidence": 0.9,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Still present in current year catalogs."
+        },
+        "is_currently_imported_il": {
+          "status": "verified",
+          "confidence": 0.9,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Still officially imported/sold in Israel."
+        }
+      },
+      "source_support_matrix": [
+        {
+          "field": "canonical_make",
+          "value": "Abarth",
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "reason": "All sources list the make as Abarth."
+        },
+        {
+          "field": "canonical_model",
+          "value": "500",
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "reason": "Listed under model 500 in Yad2, iCar, and Cartube."
+        },
+        {
+          "field": "engine",
+          "value": "1.4 Turbo 180",
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "reason": "1.4L Turbo with 180 hp is explicitly listed."
+        },
+        {
+          "field": "transmission",
+          "value": "manual",
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "reason": "Manual transmission ('ידני') is explicitly listed for the 180 hp version."
+        },
+        {
+          "field": "year_start",
+          "value": 2015,
+          "support_level": "direct",
+          "source_indexes": [
+            0
+          ],
+          "reason": "Yad2 lists the 180 hp Competizione manual starting from 2015."
+        },
+        {
+          "field": "year_end",
+          "value": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "reason": "Yad2 and Cartube list the model as available in 2024-2026."
+        }
+      ],
+      "evidence_auditability": "strong",
+      "grounding_status": {
+        "gemini_grounding_required": true,
+        "gemini_grounding_present": true,
+        "gemini_grounding_quality": "acceptable",
+        "gpt54_grounding_required": true,
+        "gpt54_grounding_present": false,
+        "gpt54_grounding_quality": "missing",
+        "final_grounding_gate_passed": false
+      },
+      "grounding_summary": "Successfully verified the Abarth 500 1.4 Turbo 180 hp manual hatchback for the Israeli market. The model is officially imported and sold, primarily under the 'Competizione' and 'Racing Style' trims. Year range was updated to 2015-present based on local catalog data.",
+      "evidence_sources": [
+        {
+          "title": "אבארט 500 למכירה | יד2 רכב",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEXvMmFlXWJxYiv4XV9iV9uBYrm4R27i7M2ggqlt7Xg45cBIVwLOFQoLm7Qxo6Z7AcHAi3QM16Mp6mtSkyFKjwKdAqXJOtJa0UNTIFURFMJQBRKwDDMlXeUq-4W9ogzY587hyYi4uiLGW1yTZ8fwFTwSyyFI42t",
+          "source_name": "yad2.co.il",
+          "source_type": "marketplace",
+          "supports": [
+            "market_presence_il",
+            "year_range",
+            "engine",
+            "transmission",
+            "trim_candidates"
+          ]
+        },
+        {
+          "title": "אבארט 500 2023 יד שניה 1.4 ידני 180 כ\"ס Competizione - iCar",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEEeZgPyNBhBwm2r73q8tJKoZafYp3hcN3EEGlK0eguKgCXKUyMAavPHRl8HF3wbPGEDbWjFC8tyhtQv8zpJfZZcH5Z4MMuf2j5u77oO70OUm_JUJ-00LA_cO8g9AkvOscXhEnbqA23rGjxNUghRtwzgpceqat_W1RX3t5M_W6ns1N3UW_izsgxyAz5fz6RewT_NJuVwMKq6gx9T2dxVCDvf_ZUp7fuLaGeXAukljE71ryr5_j_UQ6C2-a9Kxd0RM4UjWlwPwAcMB-6DENGa61qFxruW_V0bMOx8HpXqFSMo3RewvSGXYuGiDWYVMRK5w==",
+          "source_name": "icar.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "engine",
+            "transmission",
+            "exact_trim"
+          ]
+        },
+        {
+          "title": "אבארט 500 1.4 ידני 180 כ\"ס Competizione 2024 | מפרט טכני - cartube",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGz0n0CBoDQ9JstS_jNxVWB3luQxpl0rPzJFGR9aA5ftA_Mt-zlQpe7SlagaQHxj5w-eSfhQ5HhqDZCQvFvSm68KEk8uYyJ-MMrHcArPraAXH8D1zoMdi9US8HQGRrbd1wRI0R-tL38bmcSjNaeOB0BNvD2ubWB0MxD4aKLuqyx43o1-tNgMGflvFBJ_u7G2jbbRVOsUq_ZlwecUO-twB54bsQnv_qTHFEYsqvQelP8q75OqwCP2qyBZrToCiCuHEZHK9_hfbp0WJfhg654raEL_KvxZiYC3ptlVaqfZypnVdogXGiLdoTn-KYIvbKPqwjRcW7kWyF3U_7vQXkX58Oj2uNNZpMB4XmJ2igJhCglpgvYQc2K3VE4Utfh4wnne6rw13v0WJaYsGbFbUocFTx5AwoBSyYjH3bOlzimY4ehleA=",
+          "source_name": "cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "engine",
+            "transmission",
+            "body_type",
+            "fuel_type",
+            "trim_candidates"
+          ]
+        }
+      ],
+      "possible_trim_names": [
+        "Competizione",
+        "Racing Style"
+      ],
+      "split_candidates": [
+        "Competizione",
+        "Racing Style"
+      ],
+      "blocking_identity_issues": [],
+      "non_blocking_trim_issues": [
+        "Trim is missing in input and multiple 180 hp manual trims exist (Competizione, Racing Style).",
+        "Current-production/import flags corrected to false because year_end is a past year for this variant."
+      ],
+      "fields_changed": [
+        {
+          "field": "year_start",
+          "from": 2018,
+          "to": 2015,
+          "reason": "Model changed value during validation; see decision_reason/grounding_summary"
+        }
+      ],
+      "fields_left_unresolved": [
+        "canonical_trim"
+      ],
+      "decision_reason": "Final seal route=split_queue; validation_decision=split_required; identity_status=verified; trim_status=unresolved. Unresolved fields: canonical_trim.",
+      "_pipeline_version": "v3_three_stage",
+      "_flags_count": 9,
+      "_flash_used": false,
+      "adjudication_log": [],
+      "publishable_to_clean_catalog": false,
+      "final_route": "split_queue",
+      "route_reason": "split_required rows or combined trims must be split before publishing.",
+      "duplicate_group_id": null,
+      "duplicate_of": null,
+      "guard_corrected_reason": "Python guards corrected the model output: is_currently_produced: True -> False; is_currently_imported_il: True -> False.",
+      "preflight_risk_tags": [
+        "missing_trim",
+        "placeholder_trim",
+        "weak_official_marketed_name",
+        "unknown_drivetrain",
+        "low_auditability_risk"
+      ],
+      "final_seal_result": {
+        "passed": true,
+        "guard_flags": [
+          {
+            "guard_name": "year_end_current",
+            "severity": "medium",
+            "field_affected": "is_currently_produced",
+            "original_value": null,
+            "guard_value": null,
+            "reason": "Past year_end corrected active flags to false.",
+            "risk_tags": [],
+            "needs_repair_adjudication": false,
+            "allowed_patch_fields": []
+          },
+          {
+            "guard_name": "year_end_current",
+            "severity": "medium",
+            "field_affected": "is_currently_produced",
+            "original_value": null,
+            "guard_value": null,
+            "reason": "Past year_end corrected active flags to false.",
+            "risk_tags": [],
+            "needs_repair_adjudication": false,
+            "allowed_patch_fields": []
+          },
+          {
+            "guard_name": "split_required_combined_trim_cleared",
+            "severity": "high",
+            "field_affected": "canonical_trim",
+            "original_value": null,
+            "guard_value": null,
+            "reason": "Combined trim cleared to null; row routed to split_queue.",
+            "risk_tags": [
+              "split",
+              "trim_quality"
+            ],
+            "needs_repair_adjudication": true,
+            "allowed_patch_fields": []
+          },
+          {
+            "guard_name": "final_seal_route_override",
+            "severity": "medium",
+            "field_affected": "final_route",
+            "original_value": "review_queue",
+            "guard_value": "split_queue",
+            "reason": "split_required rows or combined trims must be split before publishing.",
+            "risk_tags": [
+              "routing",
+              "final_seal"
+            ],
+            "needs_repair_adjudication": false,
+            "allowed_patch_fields": []
+          },
+          {
+            "guard_name": "split_required_combined_trim_cleared",
+            "severity": "high",
+            "field_affected": "canonical_trim",
+            "original_value": null,
+            "guard_value": null,
+            "reason": "Combined trim cleared to null; row routed to split_queue.",
+            "risk_tags": [
+              "split",
+              "trim_quality"
+            ],
+            "needs_repair_adjudication": true,
+            "allowed_patch_fields": []
+          }
+        ],
+        "blocks_clean_catalog": true
+      },
+      "risk_score": 185,
+      "_repair_adjudicator_triggered": true,
+      "_repair_adjudicator_error": "Responses.create() got an unexpected keyword argument 'max_completion_tokens'",
+      "_guard_verifier_used": false,
+      "guard_flags": [
+        {
+          "guard_name": "year_end_current",
+          "severity": "medium",
+          "field_affected": "is_currently_produced",
+          "original_value": null,
+          "guard_value": null,
+          "reason": "Past year_end corrected active flags to false.",
+          "needs_adjudication": false,
+          "recommended_verifier_model": "none",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": []
+        },
+        {
+          "guard_name": "year_end_current",
+          "severity": "medium",
+          "field_affected": "is_currently_produced",
+          "original_value": null,
+          "guard_value": null,
+          "reason": "Past year_end corrected active flags to false.",
+          "needs_adjudication": false,
+          "recommended_verifier_model": "none",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": []
+        },
+        {
+          "guard_name": "split_required_combined_trim_cleared",
+          "severity": "high",
+          "field_affected": "canonical_trim",
+          "original_value": null,
+          "guard_value": null,
+          "reason": "Combined trim cleared to null; row routed to split_queue.",
+          "needs_adjudication": true,
+          "recommended_verifier_model": "gpt-5.4",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "split",
+            "trim_quality"
+          ]
+        },
+        {
+          "guard_name": "final_seal_route_override",
+          "severity": "medium",
+          "field_affected": "final_route",
+          "original_value": "review_queue",
+          "guard_value": "split_queue",
+          "reason": "split_required rows or combined trims must be split before publishing.",
+          "needs_adjudication": false,
+          "recommended_verifier_model": "none",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "routing",
+            "final_seal"
+          ]
+        },
+        {
+          "guard_name": "year_end_current",
+          "severity": "medium",
+          "field_affected": "is_currently_produced",
+          "original_value": null,
+          "guard_value": null,
+          "reason": "Past year_end corrected active flags to false.",
+          "needs_adjudication": false,
+          "recommended_verifier_model": "none",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": []
+        },
+        {
+          "guard_name": "year_end_current",
+          "severity": "medium",
+          "field_affected": "is_currently_produced",
+          "original_value": null,
+          "guard_value": null,
+          "reason": "Past year_end corrected active flags to false.",
+          "needs_adjudication": false,
+          "recommended_verifier_model": "none",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": []
+        },
+        {
+          "guard_name": "split_required_combined_trim_cleared",
+          "severity": "high",
+          "field_affected": "canonical_trim",
+          "original_value": null,
+          "guard_value": null,
+          "reason": "Combined trim cleared to null; row routed to split_queue.",
+          "needs_adjudication": true,
+          "recommended_verifier_model": "gpt-5.4",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "split",
+            "trim_quality"
+          ]
+        },
+        {
+          "guard_name": "final_seal_route_override",
+          "severity": "medium",
+          "field_affected": "final_route",
+          "original_value": "review_queue",
+          "guard_value": "split_queue",
+          "reason": "split_required rows or combined trims must be split before publishing.",
+          "needs_adjudication": false,
+          "recommended_verifier_model": "none",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "routing",
+            "final_seal"
+          ]
+        },
+        {
+          "guard_name": "split_required_combined_trim_cleared",
+          "severity": "high",
+          "field_affected": "canonical_trim",
+          "original_value": null,
+          "guard_value": null,
+          "reason": "Combined trim cleared to null; row routed to split_queue.",
+          "needs_adjudication": true,
+          "recommended_verifier_model": "gpt-5.4",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "split",
+            "trim_quality"
+          ]
+        }
+      ]
     }
   },
   "cluster_cache": {
@@ -2330,14 +2882,61 @@
           ]
         }
       ]
+    },
+    "CLU-e0f4447de8c4": {
+      "anchor_id": "VAL-000009",
+      "identity_status": "verified",
+      "identity_confidence": 0.95,
+      "grounding_summary": "Successfully verified the Abarth 500 1.4 Turbo 180 hp manual hatchback for the Israeli market. The model is officially imported and sold, primarily under the 'Competizione' and 'Racing Style' trims. Year range was updated to 2015-present based on local catalog data.",
+      "evidence_sources": [
+        {
+          "title": "אבארט 500 למכירה | יד2 רכב",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEXvMmFlXWJxYiv4XV9iV9uBYrm4R27i7M2ggqlt7Xg45cBIVwLOFQoLm7Qxo6Z7AcHAi3QM16Mp6mtSkyFKjwKdAqXJOtJa0UNTIFURFMJQBRKwDDMlXeUq-4W9ogzY587hyYi4uiLGW1yTZ8fwFTwSyyFI42t",
+          "source_name": "yad2.co.il",
+          "source_type": "marketplace",
+          "supports": [
+            "market_presence_il",
+            "year_range",
+            "engine",
+            "transmission",
+            "trim_candidates"
+          ]
+        },
+        {
+          "title": "אבארט 500 2023 יד שניה 1.4 ידני 180 כ\"ס Competizione - iCar",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEEeZgPyNBhBwm2r73q8tJKoZafYp3hcN3EEGlK0eguKgCXKUyMAavPHRl8HF3wbPGEDbWjFC8tyhtQv8zpJfZZcH5Z4MMuf2j5u77oO70OUm_JUJ-00LA_cO8g9AkvOscXhEnbqA23rGjxNUghRtwzgpceqat_W1RX3t5M_W6ns1N3UW_izsgxyAz5fz6RewT_NJuVwMKq6gx9T2dxVCDvf_ZUp7fuLaGeXAukljE71ryr5_j_UQ6C2-a9Kxd0RM4UjWlwPwAcMB-6DENGa61qFxruW_V0bMOx8HpXqFSMo3RewvSGXYuGiDWYVMRK5w==",
+          "source_name": "icar.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "engine",
+            "transmission",
+            "exact_trim"
+          ]
+        },
+        {
+          "title": "אבארט 500 1.4 ידני 180 כ\"ס Competizione 2024 | מפרט טכני - cartube",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGz0n0CBoDQ9JstS_jNxVWB3luQxpl0rPzJFGR9aA5ftA_Mt-zlQpe7SlagaQHxj5w-eSfhQ5HhqDZCQvFvSm68KEk8uYyJ-MMrHcArPraAXH8D1zoMdi9US8HQGRrbd1wRI0R-tL38bmcSjNaeOB0BNvD2ubWB0MxD4aKLuqyx43o1-tNgMGflvFBJ_u7G2jbbRVOsUq_ZlwecUO-twB54bsQnv_qTHFEYsqvQelP8q75OqwCP2qyBZrToCiCuHEZHK9_hfbp0WJfhg654raEL_KvxZiYC3ptlVaqfZypnVdogXGiLdoTn-KYIvbKPqwjRcW7kWyF3U_7vQXkX58Oj2uNNZpMB4XmJ2igJhCglpgvYQc2K3VE4Utfh4wnne6rw13v0WJaYsGbFbUocFTx5AwoBSyYjH3bOlzimY4ehleA=",
+          "source_name": "cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "engine",
+            "transmission",
+            "body_type",
+            "fuel_type",
+            "trim_candidates"
+          ]
+        }
+      ]
     }
   },
   "decision_counts": {
     "clean_exact": 0,
     "clean_partial": 4,
-    "split_required": 4,
+    "split_required": 5,
     "reject": 0
   },
-  "last_validated_id": "VAL-000008",
-  "updated_at_utc": "2026-06-14T07:30:46Z"
+  "last_validated_id": "VAL-000009",
+  "updated_at_utc": "2026-06-14T07:32:10Z"
 }
