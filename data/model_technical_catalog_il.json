@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T23:37:15Z",
+  "generated_at": "2026-06-15T23:37:50Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -18345,6 +18345,238 @@
         "Excluded Q8 55 TFSIe plug-in hybrid because raw database hints were for diesel/petrol Q8 and the request targets model Q8; available Israeli sources show later PHEV variants but they represent a separate technical addition not present in the raw hints.",
         "55 TFSI year_end is grounded only to the latest located Israeli-market listing/model-year source found during search (2023), so this row is marked indirect rather than direct."
       ]
+    },
+    {
+      "market": "IL",
+      "make": "Audi",
+      "model": "Q8 e-tron",
+      "canonical_model": "Q8 e-tron",
+      "year_start": 2023,
+      "year_end": 2024,
+      "technical_variants_il": [
+        {
+          "version_or_trim": "55 quattro",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 408,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2023,
+          "year_end": 2024,
+          "support_level": "indirect",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              2
+            ],
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1,
+              2
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": [
+              1,
+              2
+            ]
+          },
+          "missing_grounded_fields": [
+            "engine_displacement_l"
+          ]
+        },
+        {
+          "version_or_trim": "Sportback 55 quattro",
+          "body_type": "Crossover",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 408,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2023,
+          "year_end": 2024,
+          "support_level": "indirect",
+          "source_indexes": [
+            0,
+            1,
+            3
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1,
+              3
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              1,
+              3
+            ],
+            "year_end": [
+              1,
+              3
+            ]
+          },
+          "missing_grounded_fields": [
+            "engine_displacement_l"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "55 quattro",
+          "Sportback 55 quattro"
+        ],
+        "body_type": [
+          "SUV",
+          "Crossover"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          408
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "AWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "55",
+          "classification": "horsepower_or_powertrain_grade_not_trim_when_used_alone"
+        },
+        {
+          "label": "Sportback",
+          "classification": "body_or_model_designation_not_trim"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "Q8 e-tron 55 quattro",
+          "url": "https://www.cartube.co.il/images/mifrat/audi/audi-q8-etron-mifrat-2023-07.pdf",
+          "source_name": "cartube",
+          "source_type": "spec_pdf",
+          "supports": [
+            "version_or_trim",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "drivetrain",
+            "transmission"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "מידע מקיף ומקצועי על אודי Q8 e-tron ספורטבק - אתר iCar",
+          "url": "https://www.icar.co.il/%D7%90%D7%95%D7%93%D7%99/%D7%90%D7%95%D7%93%D7%99_Q8_e-tron_%D7%A1%D7%A4%D7%95%D7%A8%D7%98%D7%91%D7%A7/%D7%90%D7%95%D7%93%D7%99_Q8_e-tron_%D7%A1%D7%A4%D7%95%D7%A8%D7%98%D7%91%D7%A7_%D7%97%D7%93%D7%A9/",
+          "source_name": "iCar",
+          "source_type": "model_page",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "horsepower_hp",
+            "year_start",
+            "year_end",
+            "transmission"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "אודי Q8 e-tron 55 2025 | מפרט טכני - cartube",
+          "url": "https://www.cartube.co.il/%D7%9E%D7%97%D7%99%D7%A8%D7%95%D7%9F-%D7%A8%D7%9B%D7%91-%D7%97%D7%93%D7%A9/%D7%90%D7%95%D7%93%D7%99/%D7%90%D7%95%D7%93%D7%99-q8-e-tron/4982-%D7%90%D7%95%D7%93%D7%99-q8-e-tron-55",
+          "source_name": "cartube",
+          "source_type": "spec_page",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "horsepower_hp",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "אודי Q8 e-tron ספורטבק יד שניה - iCar",
+          "url": "https://www.icar.co.il/%D7%90%D7%95%D7%93%D7%99/%D7%90%D7%95%D7%93%D7%99_Q8_e-tron_%D7%A1%D7%A4%D7%95%D7%A8%D7%98%D7%91%D7%A7/%D7%90%D7%95%D7%93%D7%99_Q8_e-tron_%D7%A1%D7%A4%D7%95%D7%A8%D7%98%D7%91%D7%A7_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%94_%D7%9310/",
+          "source_name": "iCar",
+          "source_type": "used_model_page",
+          "supports": [
+            "horsepower_hp",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "profile_confidence": "medium",
+      "notes": [
+        "Catalog built only for Audi Q8 e-tron and Q8 e-tron Sportback 55 quattro configurations grounded in Israeli-market sources.",
+        "Did not include SQ8 e-tron because it is a separate model identity under the provided model name Q8 e-tron.",
+        "engine_displacement_l is null because electric model sources do not provide a displacement value.",
+        "transmission is null because sourced pages describe direct drive / electric drive but do not cleanly ground a normalized transmission value from the allowed schema without inference.",
+        "Sportback body type normalized to Crossover based on Israeli source describing it as a coupe-style SUV/crossover; support_level set to indirect because body-type normalization required mapping from source wording."
+      ],
+      "validation_issues": [
+        "variant[0] required website field 'transmission' is null/empty",
+        "variant[0] required field 'transmission' listed in missing_grounded_fields",
+        "variant[1] required website field 'transmission' is null/empty",
+        "variant[1] required field 'transmission' listed in missing_grounded_fields"
+      ],
+      "repair_attempts": 0
     },
     {
       "market": "IL",
