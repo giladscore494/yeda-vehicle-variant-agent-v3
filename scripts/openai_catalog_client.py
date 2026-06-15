@@ -304,6 +304,68 @@ class CatalogClient:
             },
         }
 
+    def build_repair_profile(
+        self,
+        make: str,
+        model: str,
+        existing_profile: Dict[str, Any],
+        targets: Dict[int, List[str]],
+    ) -> Dict[str, Any]:
+        """Re-query only targeted cells for a blocked profile."""
+        import json as _json
+
+        if not self.settings.api_key:
+            raise RuntimeError("OpenAI API key missing for catalog client")
+        if not self.settings.use_web_search:
+            raise RuntimeError("web_search is required for grounded repair runs")
+
+        prompt = (
+            f"You previously returned this profile for {make} {model}. Using "
+            "Israeli-market web sources only, return grounded values for EXACTLY "
+            f"these fields on these variants: {_json.dumps(targets, ensure_ascii=False)}. "
+            "For each, either a sourced value with a field_sources entry, or null "
+            "if no Israeli source supports it (then keep it in missing_grounded_fields). "
+            "Do NOT add, remove, reorder, or alter any other variant or field. "
+            "Return the same JSON shape. Reuse the existing grounding, source-array, "
+            "and support_level rules — same discipline, narrower scope. Existing "
+            f"profile: {_json.dumps(existing_profile, ensure_ascii=False)}"
+        )
+        client = self._ensure_client()
+        self.calls += 1
+        kwargs = {
+            "model": self.settings.model_id,
+            "input": [
+                {"role": "system", "content": CATALOG_SYSTEM_PROMPT},
+                {"role": "user", "content": prompt},
+            ],
+            "max_output_tokens": self.settings.max_output_tokens,
+            "tools": [{"type": "web_search"}],
+            "text": {
+                "format": {
+                    "type": "json_schema",
+                    "name": "israeli_model_technical_catalog_repair",
+                    "schema": _output_schema(),
+                    "strict": False,
+                }
+            },
+        }
+        try:
+            resp = client.responses.create(**kwargs)
+        except Exception as exc:  # noqa: BLE001
+            raise RuntimeError(f"catalog repair API call failed: {exc}") from exc
+        text = getattr(resp, "output_text", None)
+        if not text:
+            parts: List[str] = []
+            for item in getattr(resp, "output", []) or []:
+                for c in getattr(item, "content", []) or []:
+                    if getattr(c, "text", None):
+                        parts.append(c.text)
+            text = "\n".join(parts)
+        profile = parse_strict_json(text)
+        if not isinstance(profile, dict):
+            raise RuntimeError("catalog repair client returned non-object JSON")
+        return profile
+
     def build_profile(self, request_payload: Dict[str, Any]) -> Dict[str, Any]:
         """Send one cluster request to GPT-5.4 and return the parsed profile."""
         if not self.settings.api_key:
