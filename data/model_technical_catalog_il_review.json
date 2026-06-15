@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T18:36:09Z",
+  "generated_at": "2026-06-15T18:36:29Z",
   "market": "IL",
   "models": [
     {
@@ -4500,6 +4500,288 @@
         "variant[5] required field 'fuel_type' listed in missing_grounded_fields",
         "variant[5] required field 'engine' listed in missing_grounded_fields",
         "variant[5] required field 'transmission' listed in missing_grounded_fields"
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Alfa Romeo",
+      "model": "Junior",
+      "canonical_model": "Junior",
+      "year_start": 2024,
+      "year_end": null,
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Crossover",
+          "fuel_type": "mild_hybrid",
+          "engine": "1.2L turbo",
+          "engine_displacement_l": 1.2,
+          "horsepower_hp": 136,
+          "transmission": "6-speed dual_clutch",
+          "drivetrain": null,
+          "year_start": 2024,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [],
+            "year_start": [
+              0,
+              2
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "version_or_trim",
+            "drivetrain",
+            "year_end"
+          ]
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Crossover",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 156,
+          "transmission": null,
+          "drivetrain": "FWD",
+          "year_start": 2024,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [],
+            "drivetrain": [
+              2
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "version_or_trim",
+            "engine_displacement_l",
+            "transmission",
+            "year_end"
+          ]
+        },
+        {
+          "version_or_trim": "Veloce",
+          "body_type": "Crossover",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 280,
+          "transmission": null,
+          "drivetrain": null,
+          "year_start": 2025,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1
+            ],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [],
+            "drivetrain": [],
+            "year_start": [
+              1
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "engine_displacement_l",
+            "transmission",
+            "drivetrain",
+            "year_end"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Veloce"
+        ],
+        "body_type": [
+          "Crossover"
+        ],
+        "fuel_type": [
+          "mild_hybrid",
+          "electric"
+        ],
+        "engine": [
+          "1.2L turbo",
+          "electric"
+        ],
+        "horsepower_hp": [
+          136,
+          156,
+          280
+        ],
+        "transmission": [
+          "6-speed dual_clutch"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Speciale",
+          "classification": "equipment_trim_not_a_distinct_technical_variant"
+        },
+        {
+          "label": "Core",
+          "classification": "equipment_trim_not_a_distinct_technical_variant"
+        },
+        {
+          "label": "1.2L Turbo",
+          "classification": "engine_label_not_trim"
+        },
+        {
+          "label": "Electric 156 hp",
+          "classification": "powertrain_label_not_trim"
+        },
+        {
+          "label": "Electric 280 hp",
+          "classification": "powertrain_label_not_trim"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "אלפא רומיאו: חוות דעת מומחים על אלפא רומיאו ג'וניור - אתר iCar",
+          "url": "https://www.icar.co.il/%D7%90%D7%9C%D7%A4%D7%90_%D7%A8%D7%95%D7%9E%D7%99%D7%90%D7%95/%D7%90%D7%9C%D7%A4%D7%90_%D7%A8%D7%95%D7%9E%D7%99%D7%90%D7%95_%D7%92%27%D7%95%D7%A0%D7%99%D7%95%D7%A8/%D7%90%D7%9C%D7%A4%D7%90_%D7%A8%D7%95%D7%9E%D7%99%D7%90%D7%95_%D7%92%27%D7%95%D7%A0%D7%99%D7%95%D7%A8_%D7%A8%D7%9B%D7%91_%D7%97%D7%93%D7%A9/",
+          "source_name": "iCar",
+          "source_type": "catalog/editorial",
+          "supports": [
+            "year_start",
+            "sales_presence"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "אלפא רומיאו ג'וניור נחת בישראל - מחיר החל מ-169,900 שקל - cartube",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%90%D7%9C%D7%A4%D7%90-%D7%A8%D7%95%D7%9E%D7%99%D7%90%D7%95-%D7%92-%D7%95%D7%A0%D7%99%D7%95%D7%A8-%D7%A0%D7%97%D7%AA-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-169900-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "version_or_trim",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "חדשות רכב - על בסיס פיג'ו: אלפא השיקה ג'וניור",
+          "url": "https://www.icar.co.il/news/s1cdz002nkx/",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        }
+      ],
+      "profile_confidence": "medium",
+      "notes": [
+        "Israeli-market grounding found for launch in December 2024 with mild-hybrid 1.2T 136hp and electric 156hp versions.",
+        "A Veloce electric 280hp version is explicitly mentioned as arriving in Israel in Q1 2025.",
+        "No Israeli official importer specification page was found in the retrieved results; grounding relies on Israeli editorial/catalog sources.",
+        "Speciale/Core appear as equipment trims on Israeli catalog pages, but no distinct technical differences were grounded beyond the same powertrains, so they were not split into separate technical rows.",
+        "Drivetrain for the mild-hybrid and Veloce versions was not directly grounded in retrieved Israeli sources, so left null.",
+        "Transmission for electric versions was not explicitly grounded in retrieved Israeli sources, so left null.",
+        "year_end was not grounded for any variant and remains null."
+      ],
+      "validation_issues": [
+        "variant[0] required website field 'drivetrain' is null/empty",
+        "variant[0] required field 'drivetrain' listed in missing_grounded_fields",
+        "variant[1] required website field 'transmission' is null/empty",
+        "variant[1] required field 'transmission' listed in missing_grounded_fields",
+        "variant[1] is electric inside a petrol model profile",
+        "variant[2] required website field 'transmission' is null/empty",
+        "variant[2] required website field 'drivetrain' is null/empty",
+        "variant[2] required field 'transmission' listed in missing_grounded_fields",
+        "variant[2] required field 'drivetrain' listed in missing_grounded_fields",
+        "variant[2] is electric inside a petrol model profile"
       ]
     }
   ]
