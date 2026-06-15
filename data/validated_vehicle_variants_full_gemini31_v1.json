@@ -8,24 +8,24 @@
     "run_timestamp_utc": "2026-06-15T13:04:50Z",
     "total_input_variants": 3712,
     "total_instruction_records": 3712,
-    "total_validated_variants": 5,
+    "total_validated_variants": 6,
     "decision_counts": {
       "clean_exact": 0,
       "clean_partial": 3,
-      "split_required": 2,
+      "split_required": 3,
       "reject": 0
     },
     "grounding_cluster_count": 3653,
-    "gemini_call_count": 5,
+    "gemini_call_count": 6,
     "github_checkpoint_enabled": true,
-    "github_checkpoint_count": 5,
+    "github_checkpoint_count": 6,
     "github_checkpoint_fail_count": 0,
     "last_github_checkpoint_error": null,
-    "last_validated_id": "VAL-000005",
+    "last_validated_id": "VAL-000006",
     "schema_version": "v3_three_stage",
     "pipeline_version": "v3_three_stage",
-    "stage1_pro_calls": 5,
-    "stage2_guard_flags_total": 23,
+    "stage1_pro_calls": 6,
+    "stage2_guard_flags_total": 25,
     "stage3_flash_calls": 0,
     "flash_overrode_guard": 0,
     "guard_overrode_flash": 0,
@@ -40,9 +40,9 @@
     "guard_verifier_overrode_guard": 0,
     "guard_overrode_verifier": 0,
     "force_per_variant_validation": true,
-    "stage0_preflight_risk_rows": 5,
-    "stage1_gemini_grounding_required": 5,
-    "stage1_gemini_grounding_present": 5,
+    "stage0_preflight_risk_rows": 6,
+    "stage1_gemini_grounding_required": 6,
+    "stage1_gemini_grounding_present": 6,
     "stage1_gemini_grounding_missing": 0,
     "stage1_gemini_weak_grounding_rows": 0,
     "stage2_guard_flags_low": 0,
@@ -50,39 +50,39 @@
     "stage2_guard_flags_high": 0,
     "stage2_guard_flags_critical": 0,
     "stage2_guard_patches_applied": 0,
-    "stage25_repair_risk_scored_rows": 5,
-    "stage25_repair_triggered_rows": 5,
-    "stage3_repair_adjudicator_calls": 5,
-    "stage3_repair_adjudicator_successes": 5,
+    "stage25_repair_risk_scored_rows": 6,
+    "stage25_repair_triggered_rows": 6,
+    "stage3_repair_adjudicator_calls": 6,
+    "stage3_repair_adjudicator_successes": 6,
     "stage3_repair_adjudicator_failures": 0,
-    "stage3_repair_adjudicator_patches": 42,
+    "stage3_repair_adjudicator_patches": 50,
     "stage3_repair_adjudicator_routing_changes": 0,
     "stage3_repair_adjudicator_summary_rewrites": 0,
-    "stage3_repair_adjudicator_grounding_required": 5,
-    "stage3_repair_adjudicator_grounding_present": 5,
+    "stage3_repair_adjudicator_grounding_required": 6,
+    "stage3_repair_adjudicator_grounding_present": 6,
     "stage3_repair_adjudicator_grounding_missing": 0,
     "stage4_final_seal_passed": 0,
-    "stage4_final_seal_blocks": 5,
+    "stage4_final_seal_blocks": 6,
     "stage4_final_guard_conflicts_remaining": 0,
     "clean_catalog_blocks_by_repair": 0,
-    "clean_catalog_blocks_by_final_seal": 5,
+    "clean_catalog_blocks_by_final_seal": 6,
     "clean_catalog_blocks_by_grounding": 2,
-    "clean_catalog_blocks_by_unresolved_trim": 5,
-    "clean_catalog_blocks_by_unresolved_critical_field": 1,
+    "clean_catalog_blocks_by_unresolved_trim": 6,
+    "clean_catalog_blocks_by_unresolved_critical_field": 2,
     "upload_readiness": {
       "ready_for_exact_clean_upload": false,
       "ready_for_configurable_group_upload": false,
-      "total_rows": 5,
+      "total_rows": 6,
       "exact_variant_rows": 0,
-      "configurable_group_rows": 4,
+      "configurable_group_rows": 5,
       "review_only_rows": 1,
       "clean_catalog_rows": 0,
-      "critical_consistency_errors": 0,
+      "critical_consistency_errors": 2,
       "high_consistency_errors": 4,
       "unknown_enum_errors": 4,
       "duplicate_group_errors": 1,
       "repair_success_rate": 1.0,
-      "grounding_pass_rate": 0.6
+      "grounding_pass_rate": 0.6667
     }
   },
   "validated_variants": [
@@ -3404,6 +3404,649 @@
           "field_affected": "grounding_summary",
           "original_value": "Israeli sources directly support that the Abarth 500C was launched in Israel in late 2010 as a cabriolet/convertible with a 1.4-liter turbo petrol engine. '500C' is supported as the marketed/model designation, not as a distinct trim. Manual transmission has only limited support via special-order mention, so transmission remains unresolved. Current Israeli catalog evidence supports that this older combustion 500C is not currently imported, while current Abarth offerings are 500e-based.",
           "guard_value": "Israeli sources directly support that the Abarth 500C was launched in Israel in late 2010 as a cabriolet/convertible with a 1.4-liter turbo petrol engine. '500C' is supported as the marketed/model designation, not as a distinct trim. Manual transmission has only limited support via special-order mention, so transmission remains unresolved.",
+          "reason": "Summary claimed current status while current flags are null/false; summary rewritten.",
+          "needs_adjudication": true,
+          "recommended_verifier_model": "gpt-5.4",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "current_status",
+            "summary_rewrite"
+          ]
+        }
+      ]
+    },
+    {
+      "validation_id": "VAL-000006",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000006",
+      "source_cluster_id": "CLU-e1e2ec71e348",
+      "grounding_cluster_id": "CLU-e1e2ec71e348",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "500",
+      "canonical_series_or_generation": null,
+      "canonical_trim": null,
+      "official_marketed_name_il": "אבארט 500",
+      "body_type": "hatchback",
+      "fuel_type": "petrol",
+      "engine": "1.4 Turbo",
+      "transmission": null,
+      "drivetrain": "FWD",
+      "year_start": 2018,
+      "year_end": 2023,
+      "is_currently_produced": false,
+      "is_currently_imported_il": false,
+      "market_scope": "IL",
+      "validation_decision": "split_required",
+      "acceptance_tier": "none",
+      "identity_status": "likely_valid",
+      "identity_confidence": 0.93,
+      "trim_status": "unresolved",
+      "trim_confidence": 0.0,
+      "field_validation": {
+        "canonical_make": {
+          "status": "verified",
+          "confidence": 0.98,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Israeli market sources identify the marque as Abarth."
+        },
+        "canonical_model": {
+          "status": "verified",
+          "confidence": 0.86,
+          "evidence_strength": "acceptable",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "risk_tags": [
+            "nameplate_overlap_500_595"
+          ],
+          "notes": "Israeli sources heavily market this vehicle family as Abarth 595, while legacy input uses Abarth 500. Family identity is supported, but model/nameplate normalization remains slightly ambiguous at exact badge level."
+        },
+        "canonical_series_or_generation": {
+          "status": "unresolved",
+          "confidence": 0.0,
+          "evidence_strength": "missing",
+          "source_indexes": [],
+          "risk_tags": [
+            "missing_generation"
+          ],
+          "notes": "No grounded generation value established for this row."
+        },
+        "canonical_trim": {
+          "status": "unresolved",
+          "confidence": 0.0,
+          "evidence_strength": "missing",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "risk_tags": [
+            "missing_trim",
+            "multi_trim_market"
+          ],
+          "notes": "Multiple trims/versions are evidenced in Israel, including Nuvolari and additional variant structure on Auto; exact trim for this row is not specified."
+        },
+        "official_marketed_name_il": {
+          "status": "candidate",
+          "confidence": 0.62,
+          "evidence_strength": "acceptable",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "risk_tags": [
+            "weak_official_marketed_name",
+            "nameplate_overlap_500_595"
+          ],
+          "notes": "Hebrew market naming is evidenced for the Abarth 500/595 family, but sources prominently use 595 for many listed Israeli variants. 'אבארט 500' should not be treated as fully verified exact marketed name for this unresolved row."
+        },
+        "body_type": {
+          "status": "verified",
+          "confidence": 0.95,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "risk_tags": [],
+          "notes": "The validated family includes a hatchback body style for the closed-roof variant."
+        },
+        "fuel_type": {
+          "status": "verified",
+          "confidence": 0.97,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Grounded sources support a petrol-powered 1.4 turbo variant family."
+        },
+        "engine": {
+          "status": "verified",
+          "confidence": 0.97,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Israeli sources support a 1.4 turbo petrol engine in this variant family."
+        },
+        "transmission": {
+          "status": "unresolved",
+          "confidence": 0.0,
+          "evidence_strength": "missing",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "risk_tags": [
+            "missing_transmission",
+            "multi_transmission_market"
+          ],
+          "notes": "Israeli sources show manual and robotized/manualized offerings across the family; the input row does not specify one exact transmission."
+        },
+        "drivetrain": {
+          "status": "verified",
+          "confidence": 0.9,
+          "evidence_strength": "acceptable",
+          "source_indexes": [
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Front-wheel drive is supported for this Abarth 500/595 family."
+        },
+        "year_start": {
+          "status": "verified",
+          "confidence": 0.84,
+          "evidence_strength": "acceptable",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "risk_tags": [],
+          "notes": "2018 is within the evidenced Israeli-market period for the facelift-era petrol hatch family."
+        },
+        "year_end": {
+          "status": "verified",
+          "confidence": 0.78,
+          "evidence_strength": "acceptable",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "risk_tags": [
+            "year_range_inferred"
+          ],
+          "notes": "2023 is supported by Israeli-market evidence including the 2023 Nuvolari launch and the legacy row range, but exact family-wide end boundary remains partly inferential rather than exhaustively catalog-proven for every trim."
+        },
+        "is_currently_produced": {
+          "status": "unresolved",
+          "confidence": 0.0,
+          "evidence_strength": "weak",
+          "source_indexes": [],
+          "risk_tags": [
+            "insufficient_current_status_grounding"
+          ],
+          "notes": "Current production status was not sufficiently grounded in the evidence payload/web sample for this repair pass and should not remain verified."
+        },
+        "is_currently_imported_il": {
+          "status": "unresolved",
+          "confidence": 0.0,
+          "evidence_strength": "weak",
+          "source_indexes": [],
+          "risk_tags": [
+            "insufficient_current_status_grounding"
+          ],
+          "notes": "Current Israeli import status was not sufficiently grounded in the evidence payload/web sample for this repair pass and should not remain verified."
+        }
+      },
+      "source_support_matrix": [
+        {
+          "field": "canonical_make",
+          "value": "Abarth",
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "reason": "Israeli automotive sources identify the marque as Abarth."
+        },
+        {
+          "field": "canonical_model",
+          "value": "500",
+          "support_level": "indirect",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "reason": "The family is clearly evidenced, but Israeli listings prominently use 595, so exact 500-vs-595 normalization is not fully direct."
+        },
+        {
+          "field": "official_marketed_name_il",
+          "value": "אבארט 500",
+          "support_level": "partial",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "reason": "Hebrew market presence is clear, but exact marketed-name string at row level is not uniformly direct because many sources use אבארט 595."
+        },
+        {
+          "field": "body_type",
+          "value": "hatchback",
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "reason": "Closed-roof hatchback variant is evidenced; cabrio is a separate body style."
+        },
+        {
+          "field": "engine",
+          "value": "1.4 Turbo",
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "reason": "Sources support a 1.4 turbo petrol engine across the Israeli family."
+        },
+        {
+          "field": "transmission",
+          "value": null,
+          "support_level": "missing",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "reason": "More than one transmission appears in market sources, so exact transmission cannot be assigned for this row."
+        },
+        {
+          "field": "drivetrain",
+          "value": "FWD",
+          "support_level": "direct",
+          "source_indexes": [
+            2
+          ],
+          "reason": "Source material supports front-wheel drive for the model family."
+        },
+        {
+          "field": "year_range",
+          "value": "2018-2023",
+          "support_level": "partial",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "reason": "2018 and 2023 are compatible with available Israeli evidence, but the exact full-range boundary is not exhaustively proven for every unresolved trim."
+        }
+      ],
+      "evidence_auditability": "acceptable",
+      "grounding_status": {
+        "gemini_grounding_required": true,
+        "gemini_grounding_present": true,
+        "gemini_grounding_quality": "acceptable",
+        "gpt54_grounding_required": true,
+        "gpt54_grounding_present": true,
+        "gpt54_grounding_quality": "acceptable",
+        "final_grounding_gate_passed": true
+      },
+      "grounding_summary": "Web-grounded Israeli sources support the Abarth 500/595 petrol hatch family in Israel with a 1.4 Turbo engine, hatchback body, and FWD layout. Market sources also show multiple trims and more than one transmission configuration, so trim and transmission remain unresolved. Exact marketed-name normalization between 'Abarth 500' and 'Abarth 595' is not strong enough to keep the Hebrew marketed name fully verified. Current production and current Israeli import status were not sufficiently grounded in this repair pass and were downgraded to unresolved.",
+      "evidence_sources": [
+        {
+          "title": "אבארט 500 - אתר iCar",
+          "url": "https://www.icar.co.il/%D7%90%D7%91%D7%90%D7%A8%D7%98/%D7%90%D7%91%D7%90%D7%A8%D7%98_500/%D7%90%D7%91%D7%90%D7%A8%D7%98_500_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%94_%D7%9310/",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "model_family",
+            "engine_family",
+            "body_type"
+          ]
+        },
+        {
+          "title": "אבארט 595 נובולארי 2023 בישראל - מחיר 135,900 שקל - cartube",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%90%D7%91%D7%90%D7%A8%D7%98-595-%D7%A0%D7%95%D7%91%D7%95%D7%9C%D7%90%D7%A8%D7%99-2023-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-135900-%D7%A9%D7%A7%D7%9C",
+          "source_name": "cartube",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "year_2023",
+            "trim_candidate",
+            "engine"
+          ]
+        },
+        {
+          "title": "אבארט 595- אוטו",
+          "url": "https://www.auto.co.il/model/abarth-595",
+          "source_name": "Auto",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "model_family",
+            "trim_candidates",
+            "engine"
+          ]
+        },
+        {
+          "title": "אבארט 595 2023 יד שניה - אוטו",
+          "url": "https://www.auto.co.il/model/abarth-595_2023",
+          "source_name": "Auto",
+          "source_type": "editorial",
+          "supports": [
+            "year_2023",
+            "trim_candidates",
+            "transmission_candidates"
+          ]
+        },
+        {
+          "title": "מנוע595 NUVOLARI S",
+          "url": "https://images.auto.co.il/attachment/catalog/pdf/3726%2C.pdf",
+          "source_name": "Auto PDF",
+          "source_type": "catalog",
+          "supports": [
+            "engine",
+            "transmission_manual",
+            "drivetrain_fwd"
+          ]
+        }
+      ],
+      "possible_trim_names": [
+        "Turismo",
+        "Competizione",
+        "Scorpione",
+        "Nuvolari"
+      ],
+      "split_candidates": [
+        "Turismo",
+        "Competizione",
+        "Scorpione",
+        "Nuvolari"
+      ],
+      "blocking_identity_issues": [
+        "Exact badge/model normalization between Abarth 500 and Abarth 595 is not fully settled at exact variant level."
+      ],
+      "non_blocking_trim_issues": [
+        "Trim is null but multiple distinct Israeli trims/versions are evidenced.",
+        "Transmission is null but more than one transmission configuration exists in market sources."
+      ],
+      "fields_changed": [
+        "official_marketed_name_il",
+        "field_validation.official_marketed_name_il.status",
+        "field_validation.canonical_model.confidence",
+        "field_validation.is_currently_produced",
+        "field_validation.is_currently_imported_il",
+        "is_currently_produced",
+        "is_currently_imported_il",
+        "grounding_status",
+        "grounding_summary",
+        "evidence_sources",
+        "possible_trim_names",
+        "split_candidates",
+        "decision_reason",
+        "route_reason"
+      ],
+      "fields_left_unresolved": [
+        "canonical_series_or_generation",
+        "canonical_trim",
+        "transmission",
+        "is_currently_produced",
+        "is_currently_imported_il"
+      ],
+      "decision_reason": "Final seal route=split_queue; publication_type=configurable_group; validation_decision=split_required; identity_status=likely_valid; trim_status=unresolved. Unresolved fields: canonical_series_or_generation, canonical_trim, transmission, is_currently_produced, is_currently_imported_il.",
+      "_pipeline_version": "v3_three_stage",
+      "_flags_count": 3,
+      "_flash_used": false,
+      "adjudication_log": [
+        {
+          "step": "web_grounding",
+          "result": "completed"
+        },
+        {
+          "step": "repair",
+          "result": "downgraded unsupported current-status claims and weakened marketed-name verification"
+        }
+      ],
+      "publishable_to_clean_catalog": false,
+      "final_route": "split_queue",
+      "route_reason": "split_required rows or combined trims must be split before publishing.",
+      "duplicate_group_id": "dup-edc3c8a3",
+      "duplicate_of": null,
+      "publication_type": "configurable_group",
+      "user_selectable_fields": {
+        "trim": [
+          "Turismo",
+          "Competizione",
+          "Scorpione",
+          "Nuvolari"
+        ],
+        "body_type": [
+          "hatchback"
+        ],
+        "engine": [
+          "1.4 Turbo"
+        ],
+        "year": [
+          2018
+        ]
+      },
+      "option_matrix": [
+        {
+          "trim": "Turismo",
+          "engine": "1.4 Turbo",
+          "transmission": null,
+          "body_type": "hatchback",
+          "year_start": 2018,
+          "year_end": 2023,
+          "evidence_strength": "acceptable",
+          "source_indexes": []
+        },
+        {
+          "trim": "Competizione",
+          "engine": "1.4 Turbo",
+          "transmission": null,
+          "body_type": "hatchback",
+          "year_start": 2018,
+          "year_end": 2023,
+          "evidence_strength": "acceptable",
+          "source_indexes": []
+        },
+        {
+          "trim": "Scorpione",
+          "engine": "1.4 Turbo",
+          "transmission": null,
+          "body_type": "hatchback",
+          "year_start": 2018,
+          "year_end": 2023,
+          "evidence_strength": "acceptable",
+          "source_indexes": []
+        },
+        {
+          "trim": "Nuvolari",
+          "engine": "1.4 Turbo",
+          "transmission": null,
+          "body_type": "hatchback",
+          "year_start": 2018,
+          "year_end": 2023,
+          "evidence_strength": "acceptable",
+          "source_indexes": []
+        }
+      ],
+      "candidate_values": {},
+      "preflight_risk_tags": [
+        "missing_trim",
+        "placeholder_trim",
+        "weak_official_marketed_name",
+        "missing_transmission",
+        "nameplate_overlap_500_595"
+      ],
+      "_unknown_enums": [],
+      "final_seal_result": {
+        "seal_completed": true,
+        "clean_catalog_passed": false,
+        "blocks_clean_catalog": true,
+        "publication_type": "configurable_group",
+        "unknown_enums": [],
+        "passed": true,
+        "guard_flags": [
+          {
+            "guard_name": "split_required_combined_trim_cleared",
+            "severity": "high",
+            "field_affected": "canonical_trim",
+            "original_value": null,
+            "guard_value": null,
+            "reason": "Combined trim cleared to null; row routed to split_queue.",
+            "risk_tags": [
+              "split",
+              "trim_quality"
+            ],
+            "needs_repair_adjudication": true,
+            "allowed_patch_fields": []
+          },
+          {
+            "guard_name": "final_seal_route_override",
+            "severity": "medium",
+            "field_affected": "final_route",
+            "original_value": "review_queue",
+            "guard_value": "split_queue",
+            "reason": "split_required rows or combined trims must be split before publishing.",
+            "risk_tags": [
+              "routing",
+              "final_seal"
+            ],
+            "needs_repair_adjudication": false,
+            "allowed_patch_fields": []
+          },
+          {
+            "guard_name": "current_status_contradiction",
+            "severity": "high",
+            "field_affected": "grounding_summary",
+            "original_value": "Web-grounded Israeli sources support the Abarth 500/595 petrol hatch family in Israel with a 1.4 Turbo engine, hatchback body, and FWD layout. Market sources also show multiple trims and more than one transmission configuration, so trim and transmission remain unresolved. Exact marketed-name normalization between 'Abarth 500' and 'Abarth 595' is not strong enough to keep the Hebrew marketed name fully verified. Current production and current Israeli import status were not sufficiently grounded in this repair pass and were downgraded to unresolved.",
+            "guard_value": "Web-grounded Israeli sources support the Abarth 500/595 petrol hatch family in Israel with a 1.4 Turbo engine, hatchback body, and FWD layout. Market sources also show multiple trims and more than one transmission configuration, so trim and transmission remain unresolved. Exact marketed-name normalization between 'Abarth 500' and 'Abarth 595' is not strong enough to keep the Hebrew marketed name fully verified. Current production and current Israeli import status were not sufficiently grounded in this repair pass and were downgraded to unresolved.",
+            "reason": "Summary claimed current status while current flags are null/false; summary rewritten.",
+            "risk_tags": [
+              "current_status",
+              "summary_rewrite"
+            ],
+            "needs_repair_adjudication": true,
+            "allowed_patch_fields": []
+          }
+        ]
+      },
+      "gpt54_grounding_present": true,
+      "_repair_decision": "patched",
+      "field_patches": [
+        {
+          "field": "official_marketed_name_il",
+          "from": "אבארט 500",
+          "to": "אבארט 500",
+          "change_type": "status_only_repaired",
+          "reason": "Kept string but downgraded verification because exact marketed-name normalization is weak between 500 and 595 in grounded Israeli sources."
+        },
+        {
+          "field": "field_validation.official_marketed_name_il.status",
+          "from": "verified",
+          "to": "partial",
+          "reason": "Exact row-level Hebrew marketed name not fully direct in sources."
+        },
+        {
+          "field": "is_currently_produced",
+          "from": false,
+          "to": false,
+          "change_type": "status_only_repaired",
+          "reason": "Boolean retained for row continuity but field downgraded to unresolved due to insufficient current-status grounding; cannot be claimed as verified."
+        },
+        {
+          "field": "field_validation.is_currently_produced.status",
+          "from": "verified",
+          "to": "unresolved",
+          "reason": "Unsupported current-status verification removed."
+        },
+        {
+          "field": "is_currently_imported_il",
+          "from": false,
+          "to": false,
+          "change_type": "status_only_repaired",
+          "reason": "Boolean retained for row continuity but field downgraded to unresolved due to insufficient current-status grounding; cannot be claimed as verified."
+        },
+        {
+          "field": "field_validation.is_currently_imported_il.status",
+          "from": "verified",
+          "to": "unresolved",
+          "reason": "Unsupported current import verification removed."
+        },
+        {
+          "field": "grounding_status.gpt54_grounding_present",
+          "from": false,
+          "to": true,
+          "reason": "This adjudication used web grounding."
+        },
+        {
+          "field": "grounding_status.gpt54_grounding_quality",
+          "from": "missing",
+          "to": "acceptable",
+          "reason": "Web evidence obtained during repair."
+        }
+      ],
+      "_guard_verifier_used": false,
+      "guard_flags": [
+        {
+          "guard_name": "split_required_combined_trim_cleared",
+          "severity": "high",
+          "field_affected": "canonical_trim",
+          "original_value": null,
+          "guard_value": null,
+          "reason": "Combined trim cleared to null; row routed to split_queue.",
+          "needs_adjudication": true,
+          "recommended_verifier_model": "gpt-5.4",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "split",
+            "trim_quality"
+          ]
+        },
+        {
+          "guard_name": "final_seal_route_override",
+          "severity": "medium",
+          "field_affected": "final_route",
+          "original_value": "review_queue",
+          "guard_value": "split_queue",
+          "reason": "split_required rows or combined trims must be split before publishing.",
+          "needs_adjudication": false,
+          "recommended_verifier_model": "none",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "routing",
+            "final_seal"
+          ]
+        },
+        {
+          "guard_name": "current_status_contradiction",
+          "severity": "high",
+          "field_affected": "grounding_summary",
+          "original_value": "Web-grounded Israeli sources support the Abarth 500/595 petrol hatch family in Israel with a 1.4 Turbo engine, hatchback body, and FWD layout. Market sources also show multiple trims and more than one transmission configuration, so trim and transmission remain unresolved. Exact marketed-name normalization between 'Abarth 500' and 'Abarth 595' is not strong enough to keep the Hebrew marketed name fully verified. Current production and current Israeli import status were not sufficiently grounded in this repair pass and were downgraded to unresolved.",
+          "guard_value": "Web-grounded Israeli sources support the Abarth 500/595 petrol hatch family in Israel with a 1.4 Turbo engine, hatchback body, and FWD layout. Market sources also show multiple trims and more than one transmission configuration, so trim and transmission remain unresolved. Exact marketed-name normalization between 'Abarth 500' and 'Abarth 595' is not strong enough to keep the Hebrew marketed name fully verified. Current production and current Israeli import status were not sufficiently grounded in this repair pass and were downgraded to unresolved.",
           "reason": "Summary claimed current status while current flags are null/false; summary rewritten.",
           "needs_adjudication": true,
           "recommended_verifier_model": "gpt-5.4",
