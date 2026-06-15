@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T18:40:31Z",
+  "generated_at": "2026-06-15T18:40:47Z",
   "market": "IL",
   "mode": "online_gpt54",
   "model_id": "gpt-5.4",
@@ -6054,6 +6054,221 @@
         "Year range for the V8 Volante is grounded conservatively from 2018 start (global first deliveries in Q1 2018 referenced in manufacturer archive and Israeli lineup pages) through 2023 appearance in Israeli listings; no grounded Israeli source was found for a 2017 Volante sale.",
         "Transmission was normalized from Israeli sources stating automatic with 8 gears to '8-speed automatic'.",
         "Drivetrain was normalized from Israeli sources stating rear-wheel drive/הנעה אחורית to 'RWD'."
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Aston Martin",
+      "model": "DB12",
+      "canonical_model": "DB12",
+      "year_start": 2023,
+      "year_end": null,
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "4.0L turbo v8",
+          "engine_displacement_l": 4.0,
+          "horsepower_hp": 680,
+          "transmission": "8-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 2023,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "version_or_trim",
+            "year_end"
+          ]
+        },
+        {
+          "version_or_trim": "Volante",
+          "body_type": "Convertible",
+          "fuel_type": "petrol",
+          "engine": "4.0L turbo v8",
+          "engine_displacement_l": 4.0,
+          "horsepower_hp": 680,
+          "transmission": "8-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 2023,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            3
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              3
+            ],
+            "body_type": [
+              3
+            ],
+            "fuel_type": [
+              3
+            ],
+            "engine": [
+              3
+            ],
+            "engine_displacement_l": [
+              3
+            ],
+            "horsepower_hp": [
+              3
+            ],
+            "transmission": [
+              3
+            ],
+            "drivetrain": [
+              3
+            ],
+            "year_start": [
+              3
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "year_end"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Volante"
+        ],
+        "body_type": [
+          "Coupe",
+          "Convertible"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "4.0L turbo v8"
+        ],
+        "horsepower_hp": [
+          680
+        ],
+        "transmission": [
+          "8-speed automatic"
+        ],
+        "drivetrain": [
+          "RWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        "Base: non-trim generic label",
+        "4.0: engine-size label, not a trim",
+        "680 hp: horsepower label, not a trim"
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "Aston Martin DB12 in Israel – Review, Prices, Comparisons and Rating on Autoboom",
+          "url": "https://autoboom.co.il/en/catalog/cars/aston-martin/db12/1-generation/coupe",
+          "source_name": "Autoboom",
+          "source_type": "Israeli catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "Aston Martin DB12 coupe 4.0 AT gasoline | 680 hp rwd type of drive | 1 generation (2023 – now) in Israel - vehicle specifications id 68992",
+          "url": "https://autoboom.co.il/en/catalog/cars/aston-martin/db12/1-generation/coupe/68992",
+          "source_name": "Autoboom",
+          "source_type": "Israeli catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "DB12 | Super GT | Aston Martin",
+          "url": "https://www.astonmartin.com/en/models/db12",
+          "source_name": "Aston Martin",
+          "source_type": "official manufacturer page",
+          "supports": [
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "אסטון מרטין DB12 קבריולט 4.0 AT בנזין | 680 כ\"ס הנעה אחורית | 1 דור (2023 – כעת) בישראל - מפרטי רכב id 69002 - אוטובום",
+          "url": "https://autoboom.co.il/catalog/cars/aston-martin/db12/1-generation/cabrio/69002",
+          "source_name": "Autoboom",
+          "source_type": "Israeli catalog",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        }
+      ],
+      "profile_confidence": "medium",
+      "notes": [
+        "Israeli-market grounding found for DB12 Coupe and DB12 Volante (convertible).",
+        "No Israeli official importer page specific to Israel was found in accessible search results; Israeli catalog sources were used, with manufacturer global page used only to support technical fields for the coupe.",
+        "year_end was left null because no sourced Israeli end-of-sale date was found."
       ]
     }
   ],
