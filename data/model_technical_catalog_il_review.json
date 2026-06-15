@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T17:57:27Z",
+  "generated_at": "2026-06-15T17:57:42Z",
   "market": "IL",
   "models": [
     {
@@ -2610,6 +2610,109 @@
         "variant[1] required field 'horsepower_hp' listed in missing_grounded_fields",
         "variant[1] required field 'transmission' listed in missing_grounded_fields",
         "variant[1] required field 'drivetrain' listed in missing_grounded_fields"
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Alfa Romeo",
+      "model": "159",
+      "canonical_model": "159",
+      "year_start": 2007,
+      "year_end": 2011,
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Elegante",
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "2.2 JTS",
+          "engine_displacement_l": 2.2,
+          "horsepower_hp": 185,
+          "transmission": "automatic",
+          "drivetrain": "FWD",
+          "year_start": 2009,
+          "year_end": 2011,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1
+            ],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              2
+            ]
+          }
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Elegante"
+        ],
+        "body_type": [
+          "Sedan"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "2.2 JTS"
+        ],
+        "horsepower_hp": [
+          185
+        ],
+        "transmission": [
+          "automatic"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "validation_issues": [
+        "variant[0] field_sources/source_indexes reference 15 unknown source(s)",
+        "variant[1] is not an object",
+        "variant[2] is not an object",
+        "variant[3] is not an object",
+        "variant[4] is not an object",
+        "variant[5] is not an object",
+        "variant[6] is not an object",
+        "variant[7] is not an object",
+        "variant[8] is not an object",
+        "variant[9] is not an object",
+        "variant[10] is not an object",
+        "variant[11] is not an object",
+        "variant[12] is not an object",
+        "variant[13] is not an object",
+        "variant[14] is not an object",
+        "variant[15] is not an object"
       ]
     }
   ]
