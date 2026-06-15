@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T18:41:28Z",
+  "generated_at": "2026-06-15T18:41:53Z",
   "market": "IL",
   "models": [
     {
@@ -4927,6 +4927,287 @@
         "variant[0] required field 'horsepower_hp' listed in missing_grounded_fields",
         "variant[0] required field 'transmission' listed in missing_grounded_fields",
         "variant[0] required field 'drivetrain' listed in missing_grounded_fields"
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Aston Martin",
+      "model": "DBX",
+      "canonical_model": "DBX",
+      "year_start": 2020,
+      "year_end": 2026,
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "4.0L turbo v8",
+          "engine_displacement_l": 4,
+          "horsepower_hp": 550,
+          "transmission": "9-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2020,
+          "year_end": 2022,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              1,
+              3
+            ],
+            "engine": [
+              1,
+              3,
+              4
+            ],
+            "engine_displacement_l": [
+              1,
+              3
+            ],
+            "horsepower_hp": [
+              1,
+              2,
+              5
+            ],
+            "transmission": [
+              1,
+              4
+            ],
+            "drivetrain": [
+              1,
+              2,
+              4
+            ],
+            "year_start": [
+              1,
+              5
+            ],
+            "year_end": [
+              2,
+              5
+            ]
+          },
+          "missing_grounded_fields": [
+            "version_or_trim"
+          ]
+        },
+        {
+          "version_or_trim": "707",
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "4.0L turbo v8",
+          "engine_displacement_l": 4,
+          "horsepower_hp": 707,
+          "transmission": "9-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2026,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            6,
+            7
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              6,
+              7
+            ],
+            "body_type": [
+              6
+            ],
+            "fuel_type": [
+              6
+            ],
+            "engine": [
+              6
+            ],
+            "engine_displacement_l": [
+              6
+            ],
+            "horsepower_hp": [
+              0,
+              6
+            ],
+            "transmission": [
+              6
+            ],
+            "drivetrain": [
+              6,
+              7
+            ],
+            "year_start": [
+              0,
+              6
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "year_end"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "707"
+        ],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "4.0L turbo v8"
+        ],
+        "horsepower_hp": [
+          550,
+          707
+        ],
+        "transmission": [
+          "9-speed automatic"
+        ],
+        "drivetrain": [
+          "AWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "V8",
+          "classification": "engine designation, not a trim"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "אסטון מרטין DBX - מחירון, חוות דעת ומידע טכני | אוטו",
+          "url": "https://www.auto.co.il/cars/aston-martin/dbx/",
+          "source_name": "Auto",
+          "source_type": "Israeli catalog/editorial",
+          "supports": [
+            "version_or_trim",
+            "horsepower_hp",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "2025 אסטון מרטין DBX V8 4.0 | מפרט טכני - cartube",
+          "url": "https://www.cartube.co.il/%D7%9E%D7%97%D7%99%D7%A8%D7%95%D7%9F-%D7%A8%D7%9B%D7%91-%D7%97%D7%93%D7%A9/%D7%90%D7%A1%D7%98%D7%95%D7%9F-%D7%9E%D7%A8%D7%98%D7%99%D7%9F/%D7%90%D7%A1%D7%98%D7%95%D7%9F-%D7%9E%D7%A8%D7%98%D7%99%D7%9F-dbx/5183-%D7%90%D7%A1%D7%98%D7%95%D7%9F-%D7%9E%D7%A8%D7%98%D7%99%D7%9F-dbx-v8-4-0",
+          "source_name": "CarTube",
+          "source_type": "Israeli catalog/editorial",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "אסטון מרטין DBX 2022 יד שניה - אוטו",
+          "url": "https://www.auto.co.il/cars/aston-martin/dbx/2022/",
+          "source_name": "Auto",
+          "source_type": "Israeli catalog/editorial",
+          "supports": [
+            "horsepower_hp",
+            "drivetrain",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "אסטון מרטין DBX בישראל - מחיר החל מ-1,690,000 שקל - cartube",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%90%D7%A1%D7%98%D7%95%D7%9F-%D7%9E%D7%A8%D7%98%D7%99%D7%9F-dbx-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-1690000-%D7%A9%D7%A7%D7%9C",
+          "source_name": "CarTube",
+          "source_type": "Israeli editorial",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "horsepower_hp"
+          ]
+        },
+        {
+          "source_index": 4,
+          "title": "ASTON MARTIN UNVEILS DBX: AN SUV WITH THE SOUL OF A SPORTS CAR | Aston Martin",
+          "url": "https://www.astonmartin.com/en/our-world/news/2020/7/23/aston-martin-unveils-dbx-an-suv-with-the-soul-of-a-sports-car",
+          "source_name": "Aston Martin",
+          "source_type": "manufacturer/global",
+          "supports": [
+            "engine",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 5,
+          "title": "מידע מקיף ומקצועי על אסטון מרטין DBX - אתר iCar",
+          "url": "https://www.icar.co.il/%D7%90%D7%A1%D7%98%D7%95%D7%9F_%D7%9E%D7%A8%D7%98%D7%99%D7%9F/%D7%90%D7%A1%D7%98%D7%95%D7%9F_%D7%9E%D7%A8%D7%98%D7%99%D7%9F_DBX/%D7%90%D7%A1%D7%98%D7%95%D7%9F_%D7%9E%D7%A8%D7%98%D7%99%D7%9F_DBX_%D7%97%D7%93%D7%A9/",
+          "source_name": "iCar",
+          "source_type": "Israeli catalog/editorial",
+          "supports": [
+            "year_start",
+            "year_end",
+            "horsepower_hp"
+          ]
+        },
+        {
+          "source_index": 6,
+          "title": "אסטון מרטין DBX 2026 707, אוט', 4.0 ל' טורבו, 4x4",
+          "url": "https://www.auto.co.il/cars/aston-martin/dbx/2026/580290/",
+          "source_name": "Auto",
+          "source_type": "Israeli catalog/editorial",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 7,
+          "title": "אסטון מרטין DBX 2026 4.0 707 - רכב חדש",
+          "url": "https://www.icar.co.il/%D7%90%D7%A1%D7%98%D7%95%D7%9F_%D7%9E%D7%A8%D7%98%D7%99%D7%9F/%D7%90%D7%A1%D7%98%D7%95%D7%9F_%D7%9E%D7%A8%D7%98%D7%99%D7%9F_DBX/%D7%90%D7%A1%D7%98%D7%95%D7%9F_%D7%9E%D7%A8%D7%98%D7%99%D7%9F_DBX_%D7%97%D7%93%D7%A9/version29518/",
+          "source_name": "iCar",
+          "source_type": "Israeli catalog/editorial",
+          "supports": [
+            "version_or_trim",
+            "drivetrain",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission"
+          ]
+        }
+      ],
+      "profile_confidence": "medium",
+      "notes": [
+        "Israeli sources directly evidence a regular DBX 550hp launch in Israel in November 2020 and list the non-707 version as discontinued on 2021-2022 pages.",
+        "Israeli sources directly evidence DBX 707 in current Israeli listings for model year 2026.",
+        "No Israeli-market source was found confirming DBX S was actually sold in Israel; it was excluded.",
+        "No Israeli-market source was found confirming an Israeli-market year range for DBX 707 before 2026, so year_start for that variant is grounded to 2026 only."
+      ],
+      "validation_issues": [
+        "variant[1] version_or_trim '707' is a engine_size, not a trim"
       ]
     }
   ]
