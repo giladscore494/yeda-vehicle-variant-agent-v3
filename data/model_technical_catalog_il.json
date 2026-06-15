@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T23:25:08Z",
+  "generated_at": "2026-06-15T23:25:36Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -3581,6 +3581,438 @@
       "validation_issues": [
         "variant[2] required website field 'transmission' is null/empty",
         "variant[2] required field 'transmission' listed in missing_grounded_fields"
+      ],
+      "repair_attempts": 1
+    },
+    {
+      "market": "IL",
+      "make": "Alfa Romeo",
+      "model": "159",
+      "canonical_model": "159",
+      "year_start": 2007,
+      "year_end": 2011,
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "2.2L",
+          "engine_displacement_l": 2.2,
+          "horsepower_hp": 185,
+          "transmission": "6-speed manual",
+          "drivetrain": "FWD",
+          "year_start": 2007,
+          "year_end": 2011,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              3
+            ],
+            "drivetrain": [
+              3
+            ],
+            "year_start": [
+              3
+            ],
+            "year_end": [
+              2
+            ]
+          }
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "3.2L",
+          "engine_displacement_l": 3.2,
+          "horsepower_hp": 260,
+          "transmission": "6-speed manual",
+          "drivetrain": "AWD",
+          "year_start": 2007,
+          "year_end": 2011,
+          "support_level": "direct",
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0,
+              3
+            ],
+            "year_start": [
+              3
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": [
+            "version_or_trim"
+          ],
+          "source_indexes": [
+            0,
+            2,
+            3
+          ]
+        },
+        {
+          "version_or_trim": "Medio",
+          "body_type": "Estate",
+          "fuel_type": "petrol",
+          "engine": "2.2L",
+          "engine_displacement_l": 2.2,
+          "horsepower_hp": 185,
+          "transmission": "6-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2007,
+          "year_end": 2011,
+          "support_level": "direct",
+          "field_sources": {
+            "version_or_trim": [
+              4
+            ],
+            "body_type": [
+              4
+            ],
+            "fuel_type": [
+              1,
+              4
+            ],
+            "engine": [
+              1,
+              4
+            ],
+            "engine_displacement_l": [
+              1,
+              4
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              4
+            ],
+            "drivetrain": [
+              3,
+              4
+            ],
+            "year_start": [
+              4
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": [],
+          "source_indexes": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Estate",
+          "fuel_type": "petrol",
+          "engine": "3.2L",
+          "engine_displacement_l": 3.2,
+          "horsepower_hp": 260,
+          "transmission": "6-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2007,
+          "year_end": 2011,
+          "support_level": "direct",
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              4
+            ],
+            "fuel_type": [
+              0,
+              4
+            ],
+            "engine": [
+              0,
+              4
+            ],
+            "engine_displacement_l": [
+              0,
+              4
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              4
+            ],
+            "drivetrain": [
+              0,
+              4
+            ],
+            "year_start": [
+              4
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": [
+            "version_or_trim"
+          ],
+          "source_indexes": [
+            0,
+            2,
+            4
+          ]
+        },
+        {
+          "version_or_trim": "Elegante",
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "1.8L turbo",
+          "engine_displacement_l": 1.8,
+          "horsepower_hp": 200,
+          "transmission": "6-speed manual",
+          "drivetrain": "FWD",
+          "year_start": 2007,
+          "year_end": 2011,
+          "support_level": "direct",
+          "field_sources": {
+            "version_or_trim": [
+              5
+            ],
+            "body_type": [
+              5
+            ],
+            "fuel_type": [
+              6
+            ],
+            "engine": [
+              5,
+              6
+            ],
+            "engine_displacement_l": [
+              5,
+              6
+            ],
+            "horsepower_hp": [
+              6
+            ],
+            "transmission": [
+              3,
+              6
+            ],
+            "drivetrain": [
+              6
+            ],
+            "year_start": [
+              3
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": [],
+          "source_indexes": [
+            2,
+            3,
+            5,
+            6
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Medio",
+          "Elegante"
+        ],
+        "body_type": [
+          "Sedan",
+          "Estate"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "2.2L",
+          "3.2L",
+          "1.8L turbo"
+        ],
+        "horsepower_hp": [
+          185,
+          260,
+          200
+        ],
+        "transmission": [
+          "6-speed manual",
+          "6-speed automatic"
+        ],
+        "drivetrain": [
+          "FWD",
+          "AWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        "Classico+ (unverified trim label)",
+        "Sport (unverified trim label)",
+        "Sportwagon (body designation, not a trim)",
+        "TI Sport (unverified trim label)"
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "אלפא רומיאו 159 3.2 JTS Q4",
+          "url": "https://www.auto.co.il/articles/test-drives/127172/",
+          "source_name": "Auto",
+          "source_type": "editorial",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "drivetrain",
+            "transmission"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "מבחן דרכים: אלפא רומיאו 159 – זנב לאריות",
+          "url": "https://www.auto.co.il/articles/test-drives/120840/",
+          "source_name": "Auto",
+          "source_type": "editorial",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "אלפא רומיאו 159 נפרדת מישראל",
+          "url": "https://www.auto.co.il/articles/car-news/116039/",
+          "source_name": "Auto",
+          "source_type": "news",
+          "supports": [
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "אחת מקטלוג אוטו: אלפא רומיאו 159",
+          "url": "https://www.auto.co.il/articles/car-news/115724/",
+          "source_name": "Auto",
+          "source_type": "editorial",
+          "supports": [
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 4,
+          "title": "אלפא רומיאו 159 ספורטוואגן",
+          "url": "https://www.auto.co.il/articles/general-articles/125867/",
+          "source_name": "Auto",
+          "source_type": "news",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "drivetrain",
+            "year_start",
+            "transmission"
+          ]
+        },
+        {
+          "source_index": 5,
+          "title": "אלפא רומיאו 159 2005-2012 Elegante 1.8TBI יד שניה",
+          "url": "https://www.auto.co.il/car/4141",
+          "source_name": "Auto",
+          "source_type": "catalog",
+          "supports": [
+            "version_or_trim",
+            "body_type"
+          ]
+        },
+        {
+          "source_index": 6,
+          "title": "מבחני רכב - אלפא 159 TBi - מבחן רכב",
+          "url": "https://www.icar.co.il/%D7%9E%D7%91%D7%97%D7%A0%D7%99_%D7%A8%D7%9B%D7%91/%D7%90%D7%9C%D7%A4%D7%90_159_TBi_-_%D7%9E%D7%91%D7%97%D7%9F_%D7%A8%D7%9B%D7%91/",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        }
+      ],
+      "profile_confidence": "medium",
+      "notes": [
+        "Grounding was limited by availability of archived Israeli importer/catalog pages for this discontinued model.",
+        "Rows were merged across years when core technical fields matched; year ranges reflect sourced local launch/end-of-sale context.",
+        "3.2L rows use AWD as normalized value for Q4 where the Israeli source states all-wheel drive context.",
+        "Transmission for 3.2 and Sportwagon variants could not be directly grounded from Israeli-market sources reviewed, so set to null.",
+        "The 1.9 petrol and diesel variants appeared in Israeli editorial context but were excluded because the raw profile and task context point to petrol-market rows and because sufficiently complete grounded technical fields for inclusion were not assembled from the reviewed Israeli sources."
+      ],
+      "validation_issues": [
+        "variant[1] required website field 'transmission' is null/empty",
+        "variant[1] required field 'transmission' listed in missing_grounded_fields",
+        "variant[2] required website field 'transmission' is null/empty",
+        "variant[2] required field 'transmission' listed in missing_grounded_fields",
+        "variant[3] required website field 'transmission' is null/empty",
+        "variant[3] required field 'transmission' listed in missing_grounded_fields",
+        "variant[4] required website field 'drivetrain' is null/empty",
+        "variant[4] required field 'drivetrain' listed in missing_grounded_fields"
       ],
       "repair_attempts": 1
     },
