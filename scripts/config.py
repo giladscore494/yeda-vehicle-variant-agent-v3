@@ -28,6 +28,10 @@ class SharedConfig:
     openai_validator_model_id: str = DEFAULT_OPENAI_VALIDATOR_MODEL_ID
     grounding_enabled: bool = True
     force_per_variant_validation: bool = True
+    # New single-GPT-5.4 model technical-catalog mode. When true the new
+    # catalog pipeline is active and Gemini / legacy guard / repair adjudicator
+    # / per-row validation are all disabled.
+    single_gpt54_model_catalog_mode: bool = True
 
 
 def _read_secrets(path: str = ".streamlit/secrets.toml") -> Dict[str, Any]:
@@ -59,4 +63,8 @@ def load_shared_config(secrets_path: str = ".streamlit/secrets.toml") -> SharedC
         openai_validator_model_id=os.environ.get("OPENAI_VALIDATOR_MODEL_ID") or openai.get("validator_model_id", DEFAULT_OPENAI_VALIDATOR_MODEL_ID) or DEFAULT_OPENAI_VALIDATOR_MODEL_ID,
         grounding_enabled=_bool(os.environ.get("GROUNDING_ENABLED"), _bool(google.get("grounding_enabled"), True)),
         force_per_variant_validation=_bool(google.get("force_per_variant_validation"), True),
+        single_gpt54_model_catalog_mode=_bool(
+            os.environ.get("SINGLE_GPT54_MODEL_CATALOG_MODE"),
+            _bool((secrets.get("catalog") or {}).get("single_gpt54_model_catalog_mode"), True),
+        ),
     )

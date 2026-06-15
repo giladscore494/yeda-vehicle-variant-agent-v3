@@ -354,6 +354,86 @@ def execute_run(
 
 
 # ---------------------------------------------------------------------------
+# Section 1.5 · GPT-5.4 Israeli model technical catalog (new primary pipeline)
+# ---------------------------------------------------------------------------
+
+st.header("🆕 GPT-5.4 Israeli model technical catalog")
+st.caption(
+    "Single-model pipeline. Reads ONLY the two source files, groups variants by "
+    "make/model, and sends **one GPT-5.4 request per make/model cluster** to "
+    "collect technical data. No Gemini, no guard verifier, no repair adjudicator, "
+    "no per-row validation. Website choices come from `technical_variants_il`."
+)
+
+_catalog_mode = _SHARED_CONFIG.single_gpt54_model_catalog_mode
+st.write(
+    f"`SINGLE_GPT54_MODEL_CATALOG_MODE` = `{_catalog_mode}` · "
+    f"OpenAI / GPT-5.4 key: {presence(openai_api_key)} · model: "
+    f"`{_SHARED_CONFIG.openai_validator_model_id}`"
+)
+
+cc1, cc2 = st.columns(2)
+with cc1:
+    cat_make = st.text_input("Make filter (optional)", value="Abarth", key="cat_make")
+    cat_model = st.text_input("Model filter (optional)", value="500", key="cat_model")
+with cc2:
+    cat_limit = st.number_input(
+        "Limit models (0 = all)", min_value=0, value=1, step=1, key="cat_limit"
+    )
+    cat_offline = st.checkbox(
+        "Offline (no GPT-5.4 call — plumbing test only)",
+        value=not bool(openai_api_key),
+        key="cat_offline",
+    )
+
+if st.button("▶️ Build model technical catalog", type="primary", key="cat_run"):
+    if not _catalog_mode:
+        st.error("SINGLE_GPT54_MODEL_CATALOG_MODE is disabled.")
+    else:
+        from scripts.catalog_builder import build_catalog
+        from scripts.openai_catalog_client import CatalogClientSettings
+
+        st.session_state.logs = []
+        use_openai = (not cat_offline) and bool(openai_api_key)
+        settings = CatalogClientSettings(
+            api_key=openai_api_key,
+            model_id=_SHARED_CONFIG.openai_validator_model_id,
+        )
+        with st.spinner("Building catalog (one GPT-5.4 call per make/model)..."):
+            result = build_catalog(
+                make=cat_make or None,
+                model=cat_model or None,
+                limit_models=int(cat_limit) if cat_limit else None,
+                use_openai=use_openai,
+                settings=settings,
+                log=log_line,
+            )
+        st.success(
+            f"Built — {result.readiness['total_models']} model(s), "
+            f"{result.readiness['total_technical_variants']} technical variants, "
+            f"{result.readiness['models_ready_for_website']} website-ready."
+        )
+        st.subheader("Readiness report")
+        st.json(result.readiness)
+        if result.catalog["models"]:
+            with st.expander("Website-ready models"):
+                st.json(result.catalog["models"])
+        if result.review["models"]:
+            with st.expander("Review / blocked models"):
+                st.json(result.review["models"])
+        st.code(
+            f"catalog   = {os.path.relpath(result.catalog_path)}\n"
+            f"readiness = {os.path.relpath(result.readiness_path)}\n"
+            f"review    = {os.path.relpath(result.review_path)}"
+        )
+
+st.divider()
+st.caption(
+    "Sections below are the retired Gemini/guard/repair validation pipeline, "
+    "kept for reference. They are not part of the new catalog flow."
+)
+
+# ---------------------------------------------------------------------------
 # Section 2 · Mock validation (testing stage — never calls Gemini)
 # ---------------------------------------------------------------------------
 
