@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T17:44:12Z",
+  "generated_at": "2026-06-15T17:44:29Z",
   "market": "IL",
   "models": [
     {
@@ -690,6 +690,218 @@
         "variant[9] required website field 'fuel_type' is null/empty",
         "variant[9] required field 'body_type' listed in missing_grounded_fields",
         "variant[9] required field 'fuel_type' listed in missing_grounded_fields"
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Abarth",
+      "model": "600e",
+      "canonical_model": "Abarth 600e",
+      "year_start": 2024,
+      "year_end": null,
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Turismo",
+          "body_type": "Crossover",
+          "fuel_type": "electric",
+          "engine": "Electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 240,
+          "transmission": null,
+          "drivetrain": "FWD",
+          "year_start": 2024,
+          "year_end": null,
+          "support_level": "indirect",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "engine_displacement_l",
+            "transmission",
+            "year_end"
+          ]
+        },
+        {
+          "version_or_trim": "Scorpionissima",
+          "body_type": "Crossover",
+          "fuel_type": "electric",
+          "engine": "Electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 280,
+          "transmission": null,
+          "drivetrain": "FWD",
+          "year_start": 2024,
+          "year_end": null,
+          "support_level": "indirect",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "engine_displacement_l",
+            "transmission",
+            "year_end"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Turismo",
+          "Scorpionissima"
+        ],
+        "body_type": [
+          "Crossover"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "Electric"
+        ],
+        "horsepower_hp": [
+          240,
+          280
+        ],
+        "transmission": [],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Electric (240 hp)",
+          "classification": "powertrain description, not trim"
+        },
+        {
+          "label": "Electric (280 hp)",
+          "classification": "powertrain description, not trim"
+        },
+        {
+          "label": "electric 115kW",
+          "classification": "powertrain/power label, not trim"
+        },
+        {
+          "label": "electric 176kW",
+          "classification": "powertrain/power label, not trim"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "אבארט 600e נחשף - קרוסאובר ביצועים חשמלי",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%90%D7%91%D7%90%D7%A8%D7%98-600e-%D7%A0%D7%97%D7%A9%D7%A3-%D7%A7%D7%A8%D7%95%D7%A1%D7%90%D7%95%D7%91%D7%A8-%D7%91%D7%99%D7%A6%D7%95%D7%A2%D7%99%D7%9D-%D7%97%D7%A9%D7%9E%D7%9C%D7%99",
+          "source_name": "Cartube",
+          "source_type": "Israeli editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "drivetrain",
+            "version_or_trim",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "האבארט החזקה בהסטוריה",
+          "url": "https://www.auto.co.il/articles/general-articles/137604/",
+          "source_name": "אוטו",
+          "source_type": "Israeli editorial",
+          "supports": [
+            "version_or_trim",
+            "engine",
+            "horsepower_hp",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "אבארט - Abarth כל המידע באתר אוטו",
+          "url": "https://www.auto.co.il/cars/abarth/",
+          "source_name": "אוטו",
+          "source_type": "Israeli catalog index",
+          "supports": [
+            "model_presence_il"
+          ]
+        }
+      ],
+      "profile_confidence": "medium",
+      "notes": [
+        "No Israeli official importer 600e model/spec page or brochure was found in accessible search results; grounding therefore relies on Israeli editorial/catalog sources.",
+        "Drivetrain is supported indirectly from Israeli editorial wording referring to a front Torsen limited-slip differential, implying front-wheel drive.",
+        "No Israeli-market source found for transmission wording; left null.",
+        "No Israeli-market source found establishing an Israel-specific end year; left null.",
+        "No Israeli-market source found for engine displacement because the model is electric; left null by schema."
+      ],
+      "validation_issues": [
+        "variant[0] required website field 'transmission' is null/empty",
+        "variant[0] required field 'transmission' listed in missing_grounded_fields",
+        "variant[1] required website field 'transmission' is null/empty",
+        "variant[1] required field 'transmission' listed in missing_grounded_fields"
       ]
     }
   ]
