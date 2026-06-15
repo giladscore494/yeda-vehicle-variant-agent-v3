@@ -8,24 +8,24 @@
     "run_timestamp_utc": "2026-06-15T13:04:50Z",
     "total_input_variants": 3712,
     "total_instruction_records": 3712,
-    "total_validated_variants": 6,
+    "total_validated_variants": 7,
     "decision_counts": {
       "clean_exact": 0,
-      "clean_partial": 3,
+      "clean_partial": 4,
       "split_required": 3,
       "reject": 0
     },
     "grounding_cluster_count": 3653,
-    "gemini_call_count": 6,
+    "gemini_call_count": 7,
     "github_checkpoint_enabled": true,
-    "github_checkpoint_count": 6,
+    "github_checkpoint_count": 7,
     "github_checkpoint_fail_count": 0,
     "last_github_checkpoint_error": null,
-    "last_validated_id": "VAL-000006",
+    "last_validated_id": "VAL-000007",
     "schema_version": "v3_three_stage",
     "pipeline_version": "v3_three_stage",
-    "stage1_pro_calls": 6,
-    "stage2_guard_flags_total": 25,
+    "stage1_pro_calls": 7,
+    "stage2_guard_flags_total": 26,
     "stage3_flash_calls": 0,
     "flash_overrode_guard": 0,
     "guard_overrode_flash": 0,
@@ -40,9 +40,9 @@
     "guard_verifier_overrode_guard": 0,
     "guard_overrode_verifier": 0,
     "force_per_variant_validation": true,
-    "stage0_preflight_risk_rows": 6,
-    "stage1_gemini_grounding_required": 6,
-    "stage1_gemini_grounding_present": 6,
+    "stage0_preflight_risk_rows": 7,
+    "stage1_gemini_grounding_required": 7,
+    "stage1_gemini_grounding_present": 7,
     "stage1_gemini_grounding_missing": 0,
     "stage1_gemini_weak_grounding_rows": 0,
     "stage2_guard_flags_low": 0,
@@ -50,7 +50,7 @@
     "stage2_guard_flags_high": 0,
     "stage2_guard_flags_critical": 0,
     "stage2_guard_patches_applied": 0,
-    "stage25_repair_risk_scored_rows": 6,
+    "stage25_repair_risk_scored_rows": 7,
     "stage25_repair_triggered_rows": 6,
     "stage3_repair_adjudicator_calls": 6,
     "stage3_repair_adjudicator_successes": 6,
@@ -62,19 +62,19 @@
     "stage3_repair_adjudicator_grounding_present": 6,
     "stage3_repair_adjudicator_grounding_missing": 0,
     "stage4_final_seal_passed": 0,
-    "stage4_final_seal_blocks": 6,
+    "stage4_final_seal_blocks": 7,
     "stage4_final_guard_conflicts_remaining": 0,
     "clean_catalog_blocks_by_repair": 0,
-    "clean_catalog_blocks_by_final_seal": 6,
+    "clean_catalog_blocks_by_final_seal": 7,
     "clean_catalog_blocks_by_grounding": 2,
     "clean_catalog_blocks_by_unresolved_trim": 6,
     "clean_catalog_blocks_by_unresolved_critical_field": 2,
     "upload_readiness": {
       "ready_for_exact_clean_upload": false,
       "ready_for_configurable_group_upload": false,
-      "total_rows": 6,
+      "total_rows": 7,
       "exact_variant_rows": 0,
-      "configurable_group_rows": 5,
+      "configurable_group_rows": 6,
       "review_only_rows": 1,
       "clean_catalog_rows": 0,
       "critical_consistency_errors": 2,
@@ -82,7 +82,7 @@
       "unknown_enum_errors": 4,
       "duplicate_group_errors": 1,
       "repair_success_rate": 1.0,
-      "grounding_pass_rate": 0.6667
+      "grounding_pass_rate": 0.7143
     }
   },
   "validated_variants": [
@@ -4055,6 +4055,422 @@
           "risk_tags": [
             "current_status",
             "summary_rewrite"
+          ]
+        }
+      ]
+    },
+    {
+      "validation_id": "VAL-000007",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000007",
+      "source_cluster_id": "CLU-a0de00c87874",
+      "grounding_cluster_id": "CLU-a0de00c87874",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "500",
+      "canonical_series_or_generation": "1st Gen Facelift",
+      "canonical_trim": "Scorpione",
+      "official_marketed_name_il": "אבארט 500",
+      "body_type": "hatchback",
+      "fuel_type": "petrol",
+      "engine": "1.4 Turbo 145",
+      "transmission": "manual",
+      "drivetrain": "FWD",
+      "year_start": 2017,
+      "year_end": 2022,
+      "is_currently_produced": false,
+      "is_currently_imported_il": false,
+      "market_scope": "IL",
+      "validation_decision": "clean_partial",
+      "acceptance_tier": "partial",
+      "identity_status": "verified",
+      "identity_confidence": 0.95,
+      "trim_status": "inferred",
+      "trim_confidence": 0.9,
+      "field_validation": {
+        "canonical_make": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            1,
+            2,
+            3
+          ],
+          "risk_tags": [],
+          "notes": "Make is universally verified."
+        },
+        "canonical_model": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            1,
+            2,
+            3
+          ],
+          "risk_tags": [],
+          "notes": "Model is verified. Often badged as 595 after the 2016 facelift, but widely cataloged as 500 in Israel."
+        },
+        "canonical_series_or_generation": {
+          "status": "inferred",
+          "confidence": 0.9,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Inferred as 1st Gen Facelift based on Israeli catalog data for the 2016+ models."
+        },
+        "canonical_trim": {
+          "status": "inferred",
+          "confidence": 0.9,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            1,
+            3
+          ],
+          "risk_tags": [
+            "inferred_from_engine"
+          ],
+          "notes": "Trim was null in input. Inferred as 'Scorpione' because the 145 hp manual version was exclusively sold under this trim in Israel."
+        },
+        "official_marketed_name_il": {
+          "status": "verified",
+          "confidence": 0.95,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Marketed as 'אבארט 500' in major Israeli catalogs, though the physical badge is often 595."
+        },
+        "body_type": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            2,
+            3
+          ],
+          "risk_tags": [],
+          "notes": "Verified as hatchback (3 doors)."
+        },
+        "fuel_type": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            2,
+            3
+          ],
+          "risk_tags": [],
+          "notes": "Verified as petrol."
+        },
+        "engine": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            1,
+            3
+          ],
+          "risk_tags": [],
+          "notes": "1.4 Turbo with 145 hp is verified for the Scorpione trim."
+        },
+        "transmission": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            1,
+            3
+          ],
+          "risk_tags": [],
+          "notes": "Manual transmission verified for this variant."
+        },
+        "drivetrain": {
+          "status": "inferred",
+          "confidence": 0.95,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            3
+          ],
+          "risk_tags": [],
+          "notes": "Inferred as FWD (Front-Wheel Drive) based on standard specifications."
+        },
+        "year_start": {
+          "status": "verified",
+          "confidence": 0.95,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            1
+          ],
+          "risk_tags": [],
+          "notes": "The 145 hp Scorpione was introduced in Israel around 2017 following the facelift."
+        },
+        "year_end": {
+          "status": "verified",
+          "confidence": 0.95,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            4
+          ],
+          "risk_tags": [],
+          "notes": "The 145 hp Scorpione was replaced by the 165 hp Nuvolari trim in late 2022."
+        },
+        "is_currently_produced": {
+          "status": "verified",
+          "confidence": 0.95,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            4
+          ],
+          "risk_tags": [],
+          "notes": "Production of the 145 hp variant ended."
+        },
+        "is_currently_imported_il": {
+          "status": "verified",
+          "confidence": 0.95,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            4
+          ],
+          "risk_tags": [],
+          "notes": "Import of the 145 hp Scorpione ended in 2022."
+        }
+      },
+      "source_support_matrix": [
+        {
+          "field": "canonical_make",
+          "value": "Abarth",
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2,
+            3
+          ],
+          "reason": "Multiple Israeli sources list the make as Abarth."
+        },
+        {
+          "field": "canonical_model",
+          "value": "500",
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2,
+            3
+          ],
+          "reason": "Listed as 500 in Israeli catalogs, though badged as 595."
+        },
+        {
+          "field": "canonical_trim",
+          "value": "Scorpione",
+          "support_level": "indirect",
+          "source_indexes": [
+            1,
+            3
+          ],
+          "reason": "The 145 hp manual variant is exclusively the Scorpione trim in Israel."
+        },
+        {
+          "field": "engine",
+          "value": "1.4 Turbo 145",
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            3
+          ],
+          "reason": "Engine specs match the Scorpione trim."
+        },
+        {
+          "field": "year_start",
+          "value": 2017,
+          "support_level": "direct",
+          "source_indexes": [
+            1
+          ],
+          "reason": "Auto magazine confirms the 145 hp Scorpione was available starting in 2017."
+        },
+        {
+          "field": "year_end",
+          "value": 2022,
+          "support_level": "direct",
+          "source_indexes": [
+            4
+          ],
+          "reason": "Wheel magazine confirms the Scorpione was replaced by the Nuvolari in late 2022."
+        }
+      ],
+      "evidence_auditability": "strong",
+      "grounding_status": {
+        "gemini_grounding_required": true,
+        "gemini_grounding_present": true,
+        "gemini_grounding_quality": "strong",
+        "gpt54_grounding_required": false,
+        "gpt54_grounding_present": false,
+        "gpt54_grounding_quality": "missing",
+        "final_grounding_gate_passed": true
+      },
+      "grounding_summary": "Searches confirmed that the Abarth 500/595 with a 1.4 Turbo 145 hp engine and manual transmission was sold in Israel under the 'Scorpione' trim. It was introduced around 2017 and replaced by the 165 hp 'Nuvolari' trim in late 2022.",
+      "evidence_sources": [
+        {
+          "title": "אבארט 595 - מבחן דרכים (1.4 ל' טורבו, טוריסמו/ קומפטציונה) - אוטו",
+          "url": null,
+          "source_name": "אוטו",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "year_range",
+            "engine",
+            "trim_candidates"
+          ]
+        },
+        {
+          "title": "אברט 500 2018 - מחירון ומפרט - Carzone",
+          "url": null,
+          "source_name": "Carzone",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "body_type",
+            "fuel_type"
+          ]
+        },
+        {
+          "title": "אבארט 595 2018 1.4 טורבו נובולרי ידני 🏎️ בפורטל הרכב גיר",
+          "url": null,
+          "source_name": "גיר",
+          "source_type": "editorial",
+          "supports": [
+            "exact_trim",
+            "engine",
+            "transmission"
+          ]
+        },
+        {
+          "title": "עדיין לא חשמלית: אבארט 595 בגרסת כניסה חדשה ומשודרגת - Wheel חדשות ומבצעי רכב",
+          "url": null,
+          "source_name": "Wheel",
+          "source_type": "editorial",
+          "supports": [
+            "year_range",
+            "trim_candidates"
+          ]
+        }
+      ],
+      "possible_trim_names": [
+        "Scorpione"
+      ],
+      "split_candidates": [],
+      "blocking_identity_issues": [],
+      "non_blocking_trim_issues": [
+        "Trim was missing in the input but was confidently inferred from the engine output."
+      ],
+      "fields_changed": [
+        {
+          "field": "year_start",
+          "from": 2018,
+          "to": 2017,
+          "reason": "Model changed value during validation; see decision_reason/grounding_summary"
+        },
+        {
+          "field": "year_end",
+          "from": 2023,
+          "to": 2022,
+          "reason": "Model changed value during validation; see decision_reason/grounding_summary"
+        }
+      ],
+      "fields_left_unresolved": [],
+      "decision_reason": "Final seal route=configurable_group_queue; publication_type=configurable_group; validation_decision=clean_partial; identity_status=verified; trim_status=inferred.",
+      "_pipeline_version": "v3_three_stage",
+      "_flags_count": 1,
+      "_flash_used": false,
+      "adjudication_log": [],
+      "publishable_to_clean_catalog": false,
+      "final_route": "configurable_group_queue",
+      "route_reason": "Valid Israeli-market identity with multiple options; routed to configurable group (user-selectable trim/transmission/body/engine/year).",
+      "duplicate_group_id": "dup-9bfda713",
+      "duplicate_of": null,
+      "publication_type": "configurable_group",
+      "user_selectable_fields": {
+        "trim": [
+          "Scorpione"
+        ],
+        "body_type": [
+          "hatchback"
+        ],
+        "engine": [
+          "1.4 Turbo 145"
+        ],
+        "year": [
+          2017
+        ]
+      },
+      "option_matrix": [
+        {
+          "trim": "Scorpione",
+          "engine": "1.4 Turbo 145",
+          "transmission": null,
+          "body_type": "hatchback",
+          "year_start": 2017,
+          "year_end": 2022,
+          "evidence_strength": "acceptable",
+          "source_indexes": []
+        }
+      ],
+      "candidate_values": {},
+      "preflight_risk_tags": [
+        "missing_trim",
+        "placeholder_trim",
+        "weak_official_marketed_name",
+        "unknown_drivetrain",
+        "low_auditability_risk"
+      ],
+      "_unknown_enums": [],
+      "final_seal_result": {
+        "seal_completed": true,
+        "clean_catalog_passed": false,
+        "blocks_clean_catalog": true,
+        "publication_type": "configurable_group",
+        "unknown_enums": [],
+        "passed": true,
+        "guard_flags": [
+          {
+            "guard_name": "final_seal_route_override",
+            "severity": "medium",
+            "field_affected": "final_route",
+            "original_value": "review_queue",
+            "guard_value": "configurable_group_queue",
+            "reason": "Valid Israeli-market identity with multiple options; routed to configurable group (user-selectable trim/transmission/body/engine/year).",
+            "risk_tags": [
+              "routing",
+              "final_seal"
+            ],
+            "needs_repair_adjudication": false,
+            "allowed_patch_fields": []
+          }
+        ]
+      },
+      "risk_score": 15,
+      "_repair_adjudicator_triggered": false,
+      "_guard_verifier_used": false,
+      "guard_flags": [
+        {
+          "guard_name": "final_seal_route_override",
+          "severity": "medium",
+          "field_affected": "final_route",
+          "original_value": "review_queue",
+          "guard_value": "configurable_group_queue",
+          "reason": "Valid Israeli-market identity with multiple options; routed to configurable group (user-selectable trim/transmission/body/engine/year).",
+          "needs_adjudication": false,
+          "recommended_verifier_model": "none",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "routing",
+            "final_seal"
           ]
         }
       ]
