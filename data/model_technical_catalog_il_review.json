@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T17:55:20Z",
+  "generated_at": "2026-06-15T17:55:43Z",
   "market": "IL",
   "models": [
     {
@@ -1327,6 +1327,136 @@
       "validation_issues": [
         "variant[0] required website field 'transmission' is null/empty",
         "variant[0] required field 'transmission' listed in missing_grounded_fields"
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Alfa Romeo",
+      "model": "75",
+      "canonical_model": "75",
+      "year_start": 1990,
+      "year_end": 1991,
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": null,
+          "fuel_type": "petrol",
+          "engine": null,
+          "engine_displacement_l": 1.8,
+          "horsepower_hp": 153,
+          "transmission": "manual",
+          "drivetrain": null,
+          "year_start": 1990,
+          "year_end": 1991,
+          "support_level": "direct",
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [],
+            "fuel_type": [
+              0
+            ],
+            "engine": [],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": [
+            "version_or_trim",
+            "body_type",
+            "engine",
+            "drivetrain"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [],
+        "horsepower_hp": [
+          153
+        ],
+        "transmission": [
+          "manual"
+        ],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Twin Spark",
+          "classification": "unsupported_for_IL_75_from_found_sources"
+        },
+        {
+          "label": "1.6",
+          "classification": "bare_engine_size_not_a_trim"
+        },
+        {
+          "label": "1.8",
+          "classification": "bare_engine_size_not_a_trim"
+        },
+        {
+          "label": "2.0",
+          "classification": "bare_engine_size_not_a_trim"
+        },
+        {
+          "label": "3.0 V6",
+          "classification": "engine_description_not_a_trim"
+        },
+        {
+          "label": "Sedan",
+          "classification": "body_designation_not_a_trim"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "מחירון של אלפא רומיאו | מחירון יד2",
+          "url": "https://www.yad2.co.il/price-list/feed?manufacturer=5&page=4",
+          "source_name": "יד2",
+          "source_type": "price-list",
+          "supports": [
+            "model",
+            "year_start",
+            "year_end",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "fuel_type",
+            "transmission"
+          ]
+        }
+      ],
+      "profile_confidence": "low",
+      "notes": [
+        "Only one Israeli-market source with explicit Alfa Romeo 75 entries was found in accessible search results: Yad2 price-list page showing model years 1990 and 1991 with a single sub-model 'manual 1.8 (153 hp) petrol'.",
+        "No Israeli official importer archive/spec sheet for Alfa Romeo 75 was found in accessible search results.",
+        "Body type, engine family/name, drivetrain, and trim were not explicitly stated in the found Israeli-market source, so they are left null.",
+        "Raw database hints mentioned 1992, Twin Spark, 1.6, 2.0, and 3.0 V6 variants, but no accessible Israeli-market source found in this search grounded those for Alfa Romeo 75, so they were not included as sold technical variants."
+      ],
+      "validation_issues": [
+        "variant[0] required website field 'body_type' is null/empty",
+        "variant[0] required website field 'engine' is null/empty",
+        "variant[0] required website field 'drivetrain' is null/empty",
+        "variant[0] required field 'body_type' listed in missing_grounded_fields",
+        "variant[0] required field 'engine' listed in missing_grounded_fields",
+        "variant[0] required field 'drivetrain' listed in missing_grounded_fields"
       ]
     }
   ]
