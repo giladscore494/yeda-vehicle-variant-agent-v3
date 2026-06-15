@@ -64,6 +64,115 @@ def _atomic_write_json(path: str, payload: Any) -> None:
     os.replace(tmp, path)
 
 
+def _load_json_file(path: str, default: Any) -> Any:
+    if not os.path.exists(path):
+        return default
+    try:
+        with open(path, "r", encoding="utf-8") as fh:
+            return json.load(fh)
+    except Exception:
+        return default
+
+
+def _model_key(model: Dict[str, Any]) -> str:
+    market = model.get("market") or "IL"
+    return f"{market}|{model.get('make', '')}|{model.get('model', '')}"
+
+
+def _profile_id_to_group_key(profile_id: Optional[str]) -> Optional[str]:
+    if not profile_id:
+        return None
+    parts = str(profile_id).split("::")
+    if len(parts) == 3:
+        return "|".join(parts)
+    return str(profile_id).replace("::", "|")
+
+
+def _sort_models(models: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    return sorted(models, key=lambda m: (str(m.get("make", "")).lower(), str(m.get("model", "")).lower()))
+
+
+def load_existing_outputs(
+    catalog_path: str = CATALOG_OUTPUT_PATH,
+    readiness_path: str = READINESS_OUTPUT_PATH,
+    review_path: str = REVIEW_OUTPUT_PATH,
+) -> tuple[Dict[str, Any], Dict[str, Any], Dict[str, Any]]:
+    return (
+        _load_json_file(catalog_path, {"models": []}),
+        _load_json_file(readiness_path, {}),
+        _load_json_file(review_path, {"models": []}),
+    )
+
+
+def merge_and_write_outputs(
+    new_ready: List[Dict[str, Any]],
+    new_review: List[Dict[str, Any]],
+    *,
+    settings: CatalogClientSettings,
+    checkpoint_state: Optional[Dict[str, Any]] = None,
+    catalog_path: str = CATALOG_OUTPUT_PATH,
+    readiness_path: str = READINESS_OUTPUT_PATH,
+    review_path: str = REVIEW_OUTPUT_PATH,
+) -> tuple[Dict[str, Any], Dict[str, Any], Dict[str, Any]]:
+    old_catalog, old_readiness, old_review = load_existing_outputs(catalog_path, readiness_path, review_path)
+    ready_by_key = {_model_key(m): m for m in old_catalog.get("models", []) if isinstance(m, dict)}
+    review_by_key = {_model_key(m): m for m in old_review.get("models", []) if isinstance(m, dict)}
+    for entry in new_ready:
+        key = _model_key(entry)
+        ready_by_key[key] = entry
+        review_by_key.pop(key, None)
+    for entry in new_review:
+        key = _model_key(entry)
+        review_by_key[key] = entry
+        ready_by_key.pop(key, None)
+    ready_models = _sort_models(list(ready_by_key.values()))
+    review_models = _sort_models(list(review_by_key.values()))
+    validations = [validate_profile(m) for m in ready_models]
+    for m in review_models:
+        validations.append(validate_profile(m))
+    readiness = build_readiness_report(validations, web_search_enabled=True, checkpoint_state=checkpoint_state or {})
+    if old_readiness.get("last_checkpointed_profile_id") and not readiness.get("last_checkpointed_profile_id"):
+        readiness["last_checkpointed_profile_id"] = old_readiness.get("last_checkpointed_profile_id")
+    catalog = {
+        "generated_at": _now_iso(), "market": "IL", "mode": "online_gpt54",
+        "model_id": settings.model_id, "source_files": SOURCE_FILES, "models": ready_models,
+    }
+    catalog["ready_for_website_upload"] = readiness["ready_for_website_upload"]
+    review = {"generated_at": _now_iso(), "market": "IL", "models": review_models}
+    _atomic_write_json(catalog_path, catalog)
+    _atomic_write_json(readiness_path, readiness)
+    _atomic_write_json(review_path, review)
+    return catalog, readiness, review
+
+
+def compute_resume_state(
+    *,
+    variants_path: str = VARIANTS_PATH,
+    instructions_path: str = INSTRUCTIONS_PATH,
+    catalog_path: str = CATALOG_OUTPUT_PATH,
+    readiness_path: str = READINESS_OUTPUT_PATH,
+    review_path: str = REVIEW_OUTPUT_PATH,
+) -> Dict[str, Any]:
+    variants = load_variants(variants_path)
+    try:
+        instructions = load_instructions(instructions_path)
+    except Exception:
+        instructions = {}
+    groups = group_variants(variants, instructions)
+    catalog, readiness, review = load_existing_outputs(catalog_path, readiness_path, review_path)
+    keys = {_model_key(m) for m in catalog.get("models", []) if isinstance(m, dict)} | {_model_key(m) for m in review.get("models", []) if isinstance(m, dict)}
+    next_key = _profile_id_to_group_key(readiness.get("last_checkpointed_profile_id"))
+    if not next_key and keys:
+        ordered = [g.key for g in groups if g.key in keys]
+        next_key = ordered[-1] if ordered else sorted(keys)[-1]
+    done = len(keys)
+    ready = int(readiness.get("models_ready_for_website") or len(catalog.get("models", [])))
+    blocked = int(readiness.get("models_blocked") or len(review.get("models", [])))
+    total = len(groups)
+    upcoming = select_groups(groups, start_after_key=next_key, limit_models=1)
+    return {"next_key": next_key, "total_universe": total, "done": done, "ready": ready, "blocked": blocked, "remaining": max(total - done, 0), "next_make": upcoming[0].make if upcoming else None, "next_model": upcoming[0].model if upcoming else None}
+
+
 @dataclass
 class BuildResult:
     catalog: Dict[str, Any]
@@ -144,29 +253,15 @@ def build_catalog(
     review_count = 0
 
     def _snapshot() -> tuple:
-        catalog = {
-            "generated_at": _now_iso(),
-            "market": "IL",
-            "mode": "online_gpt54",
-            "model_id": settings.model_id,
-            "source_files": SOURCE_FILES,
-            "models": ready_models,
-        }
-        readiness = build_readiness_report(
-            validations,
-            web_search_enabled=True,
+        return merge_and_write_outputs(
+            ready_models,
+            review_models,
+            settings=settings,
             checkpoint_state=checkpointer.state,
+            catalog_path=catalog_path,
+            readiness_path=readiness_path,
+            review_path=review_path,
         )
-        catalog["ready_for_website_upload"] = readiness["ready_for_website_upload"]
-        review = {
-            "generated_at": _now_iso(),
-            "market": "IL",
-            "models": review_models,
-        }
-        _atomic_write_json(catalog_path, catalog)
-        _atomic_write_json(readiness_path, readiness)
-        _atomic_write_json(review_path, review)
-        return catalog, readiness, review
 
     def _emit_progress(group, idx: int, phase: str, result=None) -> None:
         info = {
@@ -241,8 +336,9 @@ def build_catalog(
         )
 
         # Write the three files, then checkpoint AFTER this completed profile.
-        catalog, readiness, review = _snapshot()
         profile_id = f"{market}::{group.make}::{group.model}"
+        checkpointer.state["last_checkpointed_profile_id"] = profile_id
+        catalog, readiness, review = _snapshot()
         checkpointer.maybe_checkpoint(
             profile_id=profile_id,
             paths=[catalog_path, readiness_path, review_path],
@@ -256,13 +352,7 @@ def build_catalog(
     if not catalog:
         catalog, readiness, review = _snapshot()
 
-    # Re-write readiness one last time so the final checkpoint counters land.
-    readiness = build_readiness_report(
-        validations,
-        web_search_enabled=True,
-        checkpoint_state=checkpointer.state,
-    )
-    _atomic_write_json(readiness_path, readiness)
+    catalog, readiness, review = _snapshot()
 
     emit(
         f"Wrote catalog ({len(ready_models)} ready) + readiness + review "
