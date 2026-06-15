@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T18:37:44Z",
+  "generated_at": "2026-06-15T18:38:13Z",
   "market": "IL",
   "mode": "online_gpt54",
   "model_id": "gpt-5.4",
@@ -4797,6 +4797,409 @@
         "Quadrifoglio was found as an Israeli-market configuration in iCar for model year 2024, but a stronger official-importer Israeli source was not found in the retrieved set.",
         "No grounded Israeli source in the retrieved set established exact discontinuation years for early First Edition/Milano beyond the later current-range PDF; 2019 end-year is kept only where supported by the importer PDF superseding those early trims with Sprint/Veloce-era range and should be treated cautiously.",
         "Current official page shows Super and Ti headings, while the retrieved PDF shows Sprint and Veloce/Estrema; because distinct technical separation for all such labels was not consistently grounded, only technically distinct sold configurations were returned."
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Alfa Romeo",
+      "model": "Tonale",
+      "canonical_model": "Tonale",
+      "year_start": 2022,
+      "year_end": 2026,
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Sprint",
+          "body_type": "SUV",
+          "fuel_type": "mild_hybrid",
+          "engine": "1.5L turbo",
+          "engine_displacement_l": 1.5,
+          "horsepower_hp": 130,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "FWD",
+          "year_start": 2022,
+          "year_end": 2026,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              2,
+              4
+            ],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              0,
+              2
+            ],
+            "engine": [
+              0,
+              2
+            ],
+            "engine_displacement_l": [
+              2
+            ],
+            "horsepower_hp": [
+              0,
+              2
+            ],
+            "transmission": [
+              0,
+              2
+            ],
+            "drivetrain": [
+              0,
+              2
+            ],
+            "year_start": [
+              1,
+              4
+            ],
+            "year_end": [
+              4
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Speciale",
+          "body_type": "SUV",
+          "fuel_type": "mild_hybrid",
+          "engine": "1.5L turbo",
+          "engine_displacement_l": 1.5,
+          "horsepower_hp": 130,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "FWD",
+          "year_start": 2023,
+          "year_end": 2023,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            5
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              5
+            ],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              5
+            ],
+            "engine": [
+              5
+            ],
+            "engine_displacement_l": [
+              5
+            ],
+            "horsepower_hp": [
+              5
+            ],
+            "transmission": [
+              5
+            ],
+            "drivetrain": [
+              5
+            ],
+            "year_start": [
+              5
+            ],
+            "year_end": [
+              5
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Ti",
+          "body_type": "SUV",
+          "fuel_type": "mild_hybrid",
+          "engine": "1.5L turbo",
+          "engine_displacement_l": 1.5,
+          "horsepower_hp": 160,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "FWD",
+          "year_start": 2023,
+          "year_end": 2025,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            4,
+            6
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              4
+            ],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              0,
+              6
+            ],
+            "engine": [
+              0,
+              6
+            ],
+            "engine_displacement_l": [
+              6
+            ],
+            "horsepower_hp": [
+              0,
+              6
+            ],
+            "transmission": [
+              0,
+              6
+            ],
+            "drivetrain": [
+              0,
+              6
+            ],
+            "year_start": [
+              4
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Veloce",
+          "body_type": "SUV",
+          "fuel_type": "mild_hybrid",
+          "engine": "1.5L turbo",
+          "engine_displacement_l": 1.5,
+          "horsepower_hp": 160,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "FWD",
+          "year_start": 2023,
+          "year_end": 2026,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            4,
+            7
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              4,
+              7
+            ],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              7
+            ],
+            "engine": [
+              7
+            ],
+            "engine_displacement_l": [
+              7
+            ],
+            "horsepower_hp": [
+              7
+            ],
+            "transmission": [
+              7
+            ],
+            "drivetrain": [
+              7
+            ],
+            "year_start": [
+              4
+            ],
+            "year_end": [
+              4
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Sprint",
+          "Speciale",
+          "Ti",
+          "Veloce"
+        ],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "mild_hybrid"
+        ],
+        "engine": [
+          "1.5L turbo"
+        ],
+        "horsepower_hp": [
+          130,
+          160
+        ],
+        "transmission": [
+          "7-speed dual_clutch"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "TI",
+          "classification": "normalized_to_Ti"
+        },
+        {
+          "label": "1.5L Turbo",
+          "classification": "engine_not_trim"
+        },
+        {
+          "label": "145hp",
+          "classification": "horsepower_not_trim"
+        },
+        {
+          "label": "165hp",
+          "classification": "horsepower_not_trim"
+        },
+        {
+          "label": "180hp",
+          "classification": "horsepower_not_trim"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "אלפא רומיאו טונאלה - מחירון, חוות דעת ומידע טכני | אוטו",
+          "url": "https://www.auto.co.il/cars/alfa-romeo/tonale/",
+          "source_name": "Auto",
+          "source_type": "catalog",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "version_or_trim",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "אלפא רומיאו טונאלה - iCar",
+          "url": "https://www.icar.co.il/%D7%90%D7%9C%D7%A4%D7%90_%D7%A8%D7%95%D7%9E%D7%99%D7%90%D7%95/%D7%90%D7%9C%D7%A4%D7%90_%D7%A8%D7%95%D7%9E%D7%99%D7%90%D7%95_%D7%98%D7%95%D7%A0%D7%90%D7%9C%D7%94/%D7%90%D7%9C%D7%A4%D7%90_%D7%A8%D7%95%D7%9E%D7%99%D7%90%D7%95_%D7%98%D7%95%D7%A0%D7%90%D7%9C%D7%94_%D7%97%D7%93%D7%A9/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "אלפא רומיאו טונאלה 1.5 130 כ\"ס Sprint 2026 | מפרט טכני - cartube",
+          "url": "https://www.cartube.co.il/%D7%9E%D7%97%D7%99%D7%A8%D7%95%D7%9F-%D7%A8%D7%9B%D7%91-%D7%97%D7%93%D7%A9/%D7%90%D7%9C%D7%A4%D7%90-%D7%A8%D7%95%D7%9E%D7%99%D7%90%D7%95/%D7%90%D7%9C%D7%A4%D7%90-%D7%A8%D7%95%D7%9E%D7%99%D7%90%D7%95-%D7%98%D7%95%D7%A0%D7%9C%D7%94/5865-%D7%90%D7%9C%D7%A4%D7%90-%D7%A8%D7%95%D7%9E%D7%99%D7%90%D7%95-%D7%98%D7%95%D7%A0%D7%90%D7%9C%D7%94-1-5-130-%D7%9B-%D7%A1-sprint",
+          "source_name": "CarTube",
+          "source_type": "catalog",
+          "supports": [
+            "version_or_trim",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "אלפא רומיאו טונאלה 2026 1.5 ל' טורבו, היברידי מתון, Sprint",
+          "url": "https://www.auto.co.il/cars/alfa-romeo/tonale/2026/580163/",
+          "source_name": "Auto",
+          "source_type": "catalog",
+          "supports": [
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 4,
+          "title": "אלפא רומיאו טונלה | מחירון ומפרט טכני - cartube",
+          "url": "https://www.cartube.co.il/%D7%9E%D7%97%D7%99%D7%A8%D7%95%D7%9F-%D7%A8%D7%9B%D7%91-%D7%97%D7%93%D7%A9/%D7%90%D7%9C%D7%A4%D7%90-%D7%A8%D7%95%D7%9E%D7%99%D7%90%D7%95/%D7%90%D7%9C%D7%A4%D7%90-%D7%A8%D7%95%D7%9E%D7%99%D7%90%D7%95-%D7%98%D7%95%D7%A0%D7%9C%D7%94",
+          "source_name": "CarTube",
+          "source_type": "catalog",
+          "supports": [
+            "version_or_trim",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 5,
+          "title": "אלפא רומיאו טונאלה 1.5 130 כ\"ס Speciale 2023 | מפרט טכני - cartube",
+          "url": "https://www.cartube.co.il/%D7%9E%D7%97%D7%99%D7%A8%D7%95%D7%9F-%D7%A8%D7%9B%D7%91-%D7%97%D7%93%D7%A9/%D7%90%D7%9C%D7%A4%D7%90-%D7%A8%D7%95%D7%9E%D7%99%D7%90%D7%95/%D7%90%D7%9C%D7%A4%D7%90-%D7%A8%D7%95%D7%9E%D7%99%D7%90%D7%95_%D7%98%D7%95%D7%A0%D7%9C%D7%94/948-%D7%90%D7%9C%D7%A4%D7%90-%D7%A8%D7%95%D7%9E%D7%99%D7%90%D7%95-%D7%98%D7%95%D7%A0%D7%90%D7%9C%D7%94-1-5-%D7%9B-%D7%A1-speciale",
+          "source_name": "CarTube",
+          "source_type": "catalog",
+          "supports": [
+            "version_or_trim",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 6,
+          "title": "אלפא רומיאו טונאלה 1.5 160 כ\"ס Ti 2023 | מפרט טכני - cartube",
+          "url": "https://www.cartube.co.il/%D7%9E%D7%97%D7%99%D7%A8%D7%95%D7%9F-%D7%A8%D7%9B%D7%91-%D7%97%D7%93%D7%A9/%D7%90%D7%9C%D7%A4%D7%90-%D7%A8%D7%95%D7%9E%D7%99%D7%90%D7%95/%D7%90%D7%9C%D7%A4%D7%90-%D7%A8%D7%95%D7%9E%D7%99%D7%90%D7%95-%D7%98%D7%95%D7%A0%D7%9C%D7%94/947-%D7%90%D7%9C%D7%A4%D7%90-%D7%A8%D7%95%D7%9E%D7%99%D7%90%D7%95-%D7%98%D7%95%D7%A0%D7%90%D7%9C%D7%94-1-5-160-%D7%9B-%D7%A1-ti",
+          "source_name": "CarTube",
+          "source_type": "catalog",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 7,
+          "title": "אלפא רומיאו טונאלה 1.5 160 כ\"ס Veloce 2026 | מפרט טכני - cartube",
+          "url": "https://www.cartube.co.il/%D7%9E%D7%97%D7%99%D7%A8%D7%95%D7%9F-%D7%A8%D7%9B%D7%91-%D7%97%D7%93%D7%A9/%D7%90%D7%9C%D7%A4%D7%90-%D7%A8%D7%95%D7%9E%D7%99%D7%90%D7%95/%D7%90%D7%9C%D7%A4%D7%90_%D7%A8%D7%95%D7%9E%D7%99%D7%90%D7%95_%D7%98%D7%95%D7%A0%D7%9C%D7%94/5866-%D7%90%D7%9C%D7%A4%D7%90-%D7%A8%D7%95%D7%9E%D7%99%D7%90%D7%95-%D7%98%D7%95%D7%A0%D7%90%D7%9C%D7%94-1-5-160-%D7%9B-%D7%A1-veloce",
+          "source_name": "CarTube",
+          "source_type": "catalog",
+          "supports": [
+            "version_or_trim",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        }
+      ],
+      "profile_confidence": "medium",
+      "notes": [
+        "Israeli-market grounding found for four sold trims/versions: Sprint, Speciale, Ti, Veloce.",
+        "All grounded technical variants found are 1.5L turbo mild-hybrid FWD with 7-speed dual-clutch transmission, split by 130hp and 160hp outputs.",
+        "Year ranges are based on Israeli catalog/model-year pages available in sources; no importer PDF could be fetched successfully, so year_end values reflect latest/earliest grounded Israeli listings only.",
+        "Body type normalized to SUV from Israeli catalog classification ('רכב שטח' / compact luxury crossover context)."
       ]
     }
   ],
