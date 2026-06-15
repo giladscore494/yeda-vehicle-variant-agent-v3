@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T18:29:19Z",
+  "generated_at": "2026-06-15T18:29:36Z",
   "market": "IL",
   "mode": "online_gpt54",
   "model_id": "gpt-5.4",
@@ -1065,6 +1065,273 @@
         "Autoboom model overview pages state the Alfa Romeo 75 was 'not available in Israel', which conflicts with technical modification pages hosted under the Israel market path; therefore rows rely on the technical modification pages and overall confidence is low.",
         "No Israeli-market source was found here for 1.6L 110 hp or 3.0L V6 192 hp versions of Alfa Romeo 75 in Israel, so they were not included.",
         "The 1.8L 155 hp restyling row uses 'Twin Spark' as version_or_trim based on raw_database hint plus the known restyling 1.8/155 configuration context; because the trim label itself was not directly visible in the retrieved source snippet, support_level is marked indirect."
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Alfa Romeo",
+      "model": "145",
+      "canonical_model": "145",
+      "year_start": 1995,
+      "year_end": 1997,
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "1.6L",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 103,
+          "transmission": "manual",
+          "drivetrain": "FWD",
+          "year_start": 1995,
+          "year_end": 1997,
+          "support_level": "indirect",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0,
+              1,
+              2
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": [
+            "version_or_trim"
+          ]
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "1.7L",
+          "engine_displacement_l": 1.7,
+          "horsepower_hp": 129,
+          "transmission": "manual",
+          "drivetrain": "FWD",
+          "year_start": 1995,
+          "year_end": 1997,
+          "support_level": "indirect",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0,
+              1,
+              2
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": [
+            "version_or_trim"
+          ]
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "2.0L",
+          "engine_displacement_l": 2,
+          "horsepower_hp": 150,
+          "transmission": "manual",
+          "drivetrain": "FWD",
+          "year_start": 1996,
+          "year_end": 1997,
+          "support_level": "indirect",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0,
+              1,
+              2
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": [
+            "version_or_trim"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Hatchback"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "1.6L",
+          "1.7L",
+          "2.0L"
+        ],
+        "horsepower_hp": [
+          103,
+          129,
+          150
+        ],
+        "transmission": [
+          "manual"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Quadrifoglio Verde",
+          "classification": "unconfirmed_trim_for_israeli_market_145"
+        },
+        {
+          "label": "1.6L",
+          "classification": "engine_size_not_trim"
+        },
+        {
+          "label": "1.7L",
+          "classification": "engine_size_not_trim"
+        },
+        {
+          "label": "2.0L",
+          "classification": "engine_size_not_trim"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "האצ'בק ספורטיבית מיד שניה",
+          "url": "https://www.auto.co.il/articles/general-articles/122906/",
+          "source_name": "auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "Alfa Romeo 145 generations, types of execution and years of manufacture",
+          "url": "https://autoboom.co.il/en/catalog/cars/alfa-romeo/145",
+          "source_name": "autoboom.co.il",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "אלפא רומיאו 145 יד שנייה 1995 - 1998",
+          "url": "https://www.carz.co.il/model/1",
+          "source_name": "carz.co.il",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "transmission",
+            "drivetrain"
+          ]
+        }
+      ],
+      "profile_confidence": "medium",
+      "notes": [
+        "Israeli editorial source states Israel-market history: in 1995 the 145 arrived with 1.6L 103 hp; the stronger 1.7L 129 hp also arrived that year and was paired with the 3-door 145 only; in 1996 a 2.0L Twin Spark 150 hp joined; import stopped at the end of 1997.",
+        "No Israeli source found that directly lists transmission/drivetrain per variant; manual and FWD are supported indirectly by Israeli catalog pages describing the model in Israel as a front-wheel-drive car with 5-speed manual gearbox/body context.",
+        "No grounded Israeli-market source was found confirming 'Quadrifoglio Verde' as a sold trim for Alfa Romeo 145 in Israel, so version_or_trim is left null for all rows.",
+        "Year_end is grounded to end-of-import in Israel (late 1997), not global production end."
       ]
     }
   ],
