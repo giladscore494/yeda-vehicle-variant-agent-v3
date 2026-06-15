@@ -8,24 +8,24 @@
     "run_timestamp_utc": "2026-06-15T13:04:50Z",
     "total_input_variants": 3712,
     "total_instruction_records": 3712,
-    "total_validated_variants": 10,
+    "total_validated_variants": 11,
     "decision_counts": {
       "clean_exact": 0,
       "clean_partial": 5,
-      "split_required": 5,
+      "split_required": 6,
       "reject": 0
     },
     "grounding_cluster_count": 3653,
-    "gemini_call_count": 10,
+    "gemini_call_count": 11,
     "github_checkpoint_enabled": true,
-    "github_checkpoint_count": 10,
+    "github_checkpoint_count": 11,
     "github_checkpoint_fail_count": 0,
     "last_github_checkpoint_error": null,
-    "last_validated_id": "VAL-000010",
+    "last_validated_id": "VAL-000011",
     "schema_version": "v3_three_stage",
     "pipeline_version": "v3_three_stage",
-    "stage1_pro_calls": 10,
-    "stage2_guard_flags_total": 33,
+    "stage1_pro_calls": 11,
+    "stage2_guard_flags_total": 40,
     "stage3_flash_calls": 0,
     "flash_overrode_guard": 0,
     "guard_overrode_flash": 0,
@@ -40,9 +40,9 @@
     "guard_verifier_overrode_guard": 0,
     "guard_overrode_verifier": 0,
     "force_per_variant_validation": true,
-    "stage0_preflight_risk_rows": 10,
-    "stage1_gemini_grounding_required": 10,
-    "stage1_gemini_grounding_present": 10,
+    "stage0_preflight_risk_rows": 11,
+    "stage1_gemini_grounding_required": 11,
+    "stage1_gemini_grounding_present": 11,
     "stage1_gemini_grounding_missing": 0,
     "stage1_gemini_weak_grounding_rows": 0,
     "stage2_guard_flags_low": 0,
@@ -50,39 +50,39 @@
     "stage2_guard_flags_high": 0,
     "stage2_guard_flags_critical": 0,
     "stage2_guard_patches_applied": 0,
-    "stage25_repair_risk_scored_rows": 10,
-    "stage25_repair_triggered_rows": 9,
-    "stage3_repair_adjudicator_calls": 9,
-    "stage3_repair_adjudicator_successes": 9,
+    "stage25_repair_risk_scored_rows": 11,
+    "stage25_repair_triggered_rows": 10,
+    "stage3_repair_adjudicator_calls": 10,
+    "stage3_repair_adjudicator_successes": 10,
     "stage3_repair_adjudicator_failures": 0,
-    "stage3_repair_adjudicator_patches": 75,
+    "stage3_repair_adjudicator_patches": 81,
     "stage3_repair_adjudicator_routing_changes": 0,
     "stage3_repair_adjudicator_summary_rewrites": 0,
-    "stage3_repair_adjudicator_grounding_required": 9,
-    "stage3_repair_adjudicator_grounding_present": 9,
+    "stage3_repair_adjudicator_grounding_required": 10,
+    "stage3_repair_adjudicator_grounding_present": 10,
     "stage3_repair_adjudicator_grounding_missing": 0,
     "stage4_final_seal_passed": 0,
-    "stage4_final_seal_blocks": 10,
+    "stage4_final_seal_blocks": 11,
     "stage4_final_guard_conflicts_remaining": 0,
     "clean_catalog_blocks_by_repair": 0,
-    "clean_catalog_blocks_by_final_seal": 10,
+    "clean_catalog_blocks_by_final_seal": 11,
     "clean_catalog_blocks_by_grounding": 3,
-    "clean_catalog_blocks_by_unresolved_trim": 9,
-    "clean_catalog_blocks_by_unresolved_critical_field": 5,
+    "clean_catalog_blocks_by_unresolved_trim": 10,
+    "clean_catalog_blocks_by_unresolved_critical_field": 6,
     "upload_readiness": {
       "ready_for_exact_clean_upload": false,
       "ready_for_configurable_group_upload": false,
-      "total_rows": 10,
+      "total_rows": 11,
       "exact_variant_rows": 0,
-      "configurable_group_rows": 9,
+      "configurable_group_rows": 10,
       "review_only_rows": 1,
       "clean_catalog_rows": 0,
       "critical_consistency_errors": 2,
-      "high_consistency_errors": 7,
-      "unknown_enum_errors": 7,
+      "high_consistency_errors": 8,
+      "unknown_enum_errors": 8,
       "duplicate_group_errors": 1,
       "repair_success_rate": 1.0,
-      "grounding_pass_rate": 0.7
+      "grounding_pass_rate": 0.7273
     }
   },
   "completed_validation_ids": [
@@ -95,7 +95,8 @@
     "VAL-000007",
     "VAL-000008",
     "VAL-000009",
-    "VAL-000010"
+    "VAL-000010",
+    "VAL-000011"
   ],
   "failed_validation_ids": [],
   "validated_variants_by_id": {
@@ -6559,6 +6560,677 @@
           ]
         }
       ]
+    },
+    "VAL-000011": {
+      "validation_id": "VAL-000011",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000011",
+      "source_cluster_id": "CLU-faa6df352bcf",
+      "grounding_cluster_id": "CLU-faa6df352bcf",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "500",
+      "canonical_series_or_generation": "Second Generation",
+      "canonical_trim": null,
+      "official_marketed_name_il": "אבארט 500e",
+      "body_type": "Hatchback",
+      "fuel_type": "electric",
+      "engine": "Electric Motor",
+      "transmission": "single_speed_ev",
+      "drivetrain": "FWD",
+      "year_start": 2024,
+      "year_end": null,
+      "is_currently_produced": null,
+      "is_currently_imported_il": null,
+      "market_scope": "IL",
+      "validation_decision": "split_required",
+      "acceptance_tier": "none",
+      "identity_status": "verified",
+      "identity_confidence": 0.93,
+      "trim_status": "unresolved",
+      "trim_confidence": 0.0,
+      "field_validation": {
+        "canonical_make": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "risk_tags": [],
+          "notes": "Verified as Abarth."
+        },
+        "canonical_model": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "risk_tags": [],
+          "notes": "Verified as the Abarth 500e / 500 family in the Israeli market."
+        },
+        "canonical_series_or_generation": {
+          "status": "verified",
+          "confidence": 0.85,
+          "evidence_strength": "acceptable",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Israeli sources support the electric Abarth 500e as the current-generation model family; 'Second Generation' is acceptable but not directly emphasized as a formal local trim label."
+        },
+        "canonical_trim": {
+          "status": "unresolved",
+          "confidence": 0.0,
+          "evidence_strength": "contradictory",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "risk_tags": [
+            "split_required",
+            "multiple_trims_combined"
+          ],
+          "notes": "The input trim combines distinct marketed variants, including Turismo and Scorpionissima, so no single canonical trim can remain populated on this row."
+        },
+        "official_marketed_name_il": {
+          "status": "verified",
+          "confidence": 0.96,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "risk_tags": [],
+          "notes": "Israeli sources use the marketed name אבארט 500e."
+        },
+        "body_type": {
+          "status": "verified",
+          "confidence": 0.95,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0
+          ],
+          "risk_tags": [],
+          "notes": "Israeli sources describe hatchback and cabrio variants; this row aligns to Hatchback."
+        },
+        "fuel_type": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Fully electric vehicle."
+        },
+        "engine": {
+          "status": "verified",
+          "confidence": 0.95,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Electric motor powertrain is directly supported."
+        },
+        "transmission": {
+          "status": "verified",
+          "confidence": 0.82,
+          "evidence_strength": "acceptable",
+          "source_indexes": [
+            2
+          ],
+          "risk_tags": [],
+          "notes": "EV single-speed transmission is supported indirectly/market-typically and consistent with listed Israeli-market entries."
+        },
+        "drivetrain": {
+          "status": "verified",
+          "confidence": 0.9,
+          "evidence_strength": "acceptable",
+          "source_indexes": [
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Front-wheel drive is supported by Israeli-market listing data."
+        },
+        "year_start": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "risk_tags": [],
+          "notes": "Israeli launch/public sale is supported from January 2024."
+        },
+        "year_end": {
+          "status": "unresolved",
+          "confidence": 0.0,
+          "evidence_strength": "missing",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Open-ended/current market presence means placeholder future end year was cleared to null."
+        },
+        "is_currently_produced": {
+          "status": "unresolved",
+          "confidence": 0.0,
+          "evidence_strength": "missing",
+          "source_indexes": [],
+          "risk_tags": [
+            "current_status_not_grounded"
+          ],
+          "notes": "Current production status was not directly re-verified from primary manufacturer/importer evidence in this adjudication pass."
+        },
+        "is_currently_imported_il": {
+          "status": "unresolved",
+          "confidence": 0.0,
+          "evidence_strength": "missing",
+          "source_indexes": [],
+          "risk_tags": [
+            "current_status_not_grounded"
+          ],
+          "notes": "Current Israeli import status was not directly re-verified from importer evidence in this adjudication pass."
+        }
+      },
+      "source_support_matrix": [
+        {
+          "field": "market_presence_il",
+          "value": true,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "reason": "Israeli automotive sources report launch/sale of the Abarth 500e in Israel from January 2024."
+        },
+        {
+          "field": "official_marketed_name_il",
+          "value": "אבארט 500e",
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "reason": "Israeli editorial sources use the marketed name אבארט 500e."
+        },
+        {
+          "field": "canonical_trim",
+          "value": "Scorpionissima / Turismo",
+          "support_level": "contradictory",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "reason": "Available Israeli sources reference Turismo and Scorpionissima as separate marketed variants, not a single combined trim."
+        },
+        {
+          "field": "year_start",
+          "value": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "reason": "Launch and local marketing in Israel are tied to January 2024 / model year 2024."
+        },
+        {
+          "field": "year_end",
+          "value": null,
+          "support_level": "inferred",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "reason": "No grounded evidence supports a closed end year; placeholder future year_end should remain null on an open/current row."
+        },
+        {
+          "field": "engine",
+          "value": "Electric Motor",
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "reason": "Sources consistently describe the model as fully electric."
+        }
+      ],
+      "evidence_auditability": "acceptable",
+      "grounding_status": {
+        "gemini_grounding_required": true,
+        "gemini_grounding_present": true,
+        "gemini_grounding_quality": "acceptable",
+        "gpt54_grounding_required": true,
+        "gpt54_grounding_present": true,
+        "gpt54_grounding_quality": "acceptable",
+        "final_grounding_gate_passed": true
+      },
+      "grounding_summary": "Grounded Israeli-market sources support the Abarth 500e launch in Israel in January 2024, the marketed Hebrew name 'אבארט 500e', hatchback body style availability, and an electric powertrain. They also show that 'Turismo' and 'Scorpionissima' are separate trim designations, so the combined input trim cannot remain as one canonical trim. Current production/import status was not directly re-verified here and is therefore left unresolved rather than claimed.",
+      "evidence_sources": [
+        {
+          "title": "אבארט 500e- אוטו",
+          "url": "https://www.auto.co.il/model/abarth-500e",
+          "source_name": "auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "official_marketed_name_il",
+            "year_range",
+            "body_type",
+            "engine",
+            "fuel_type"
+          ]
+        },
+        {
+          "title": "אבארט 500e טוריסמו החשמלית 2024 בישראל - מחיר החל מ-219,900 שקל - cartube",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%90%D7%91%D7%90%D7%A8%D7%98-500e-%D7%98%D7%95%D7%A8%D7%99%D7%A1%D7%9E%D7%95-%D7%94%D7%97%D7%A9%D7%9E%D7%9C%D7%99%D7%AA-2024-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-219900-%D7%A9%D7%A7%D7%9C",
+          "source_name": "cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "official_marketed_name_il",
+            "exact_trim",
+            "year_range",
+            "split_required"
+          ]
+        },
+        {
+          "title": "אבארט 500 מיני 3 דלתות 500e Scorpionissima AT חשמלי | 155 כ\"ס הנעה קדמית | 2 דור (2023 – כעת) בישראל - מפרטי רכב id 67553 - אוטובום",
+          "url": "https://autoboom.co.il/catalog/cars/abarth/500/2-generation/mini/67553",
+          "source_name": "autoboom.co.il",
+          "source_type": "marketplace",
+          "supports": [
+            "trim_candidates",
+            "drivetrain",
+            "generation",
+            "market_presence_il"
+          ]
+        }
+      ],
+      "possible_trim_names": [
+        "Turismo",
+        "Scorpionissima"
+      ],
+      "split_candidates": [
+        "Scorpionissima",
+        "Turismo"
+      ],
+      "blocking_identity_issues": [],
+      "non_blocking_trim_issues": [
+        "The provided trim string 'Scorpionissima / Turismo' combines two distinct marketed variants, requiring a split.",
+        "Combined trim contains multiple distinct marketed trims and must be split into separate variants.",
+        "Current production/import claims were downgraded to unresolved because they were not directly re-grounded in this adjudication pass."
+      ],
+      "fields_changed": [
+        {
+          "field": "year_end",
+          "from": 2026,
+          "to": null,
+          "reason": "Current/future placeholder end year is not retained without direct support for a true end year."
+        },
+        {
+          "field": "canonical_trim",
+          "from": "Scorpionissima / Turismo",
+          "to": null,
+          "reason": "Combined contradictory trim value cleared because a single canonical trim is unresolved and split is required."
+        },
+        {
+          "field": "is_currently_produced",
+          "from": true,
+          "to": null,
+          "reason": "Current production status not directly re-grounded; cannot remain verified."
+        },
+        {
+          "field": "is_currently_imported_il",
+          "from": true,
+          "to": null,
+          "reason": "Current Israeli import status not directly re-grounded; cannot remain verified."
+        }
+      ],
+      "fields_left_unresolved": [
+        "canonical_trim",
+        "is_currently_produced",
+        "is_currently_imported_il",
+        "year_end"
+      ],
+      "decision_reason": "Final seal route=split_queue; publication_type=configurable_group; validation_decision=split_required; identity_status=verified; trim_status=unresolved. Unresolved fields: canonical_trim, is_currently_produced, is_currently_imported_il, year_end.",
+      "_pipeline_version": "v3_three_stage",
+      "_flags_count": 7,
+      "_flash_used": false,
+      "adjudication_log": [],
+      "publishable_to_clean_catalog": false,
+      "final_route": "split_queue",
+      "route_reason": "split_required rows or combined trims must be split before publishing.",
+      "duplicate_group_id": null,
+      "duplicate_of": null,
+      "publication_type": "configurable_group",
+      "user_selectable_fields": {
+        "trim": [
+          "Scorpionissima",
+          "Turismo"
+        ],
+        "body_type": [
+          "Hatchback"
+        ],
+        "engine": [
+          "Electric Motor"
+        ],
+        "year": [
+          2024
+        ]
+      },
+      "option_matrix": [
+        {
+          "trim": "Scorpionissima",
+          "engine": "Electric Motor",
+          "transmission": null,
+          "body_type": "Hatchback",
+          "year_start": 2024,
+          "year_end": null,
+          "evidence_strength": "acceptable",
+          "source_indexes": []
+        },
+        {
+          "trim": "Turismo",
+          "engine": "Electric Motor",
+          "transmission": null,
+          "body_type": "Hatchback",
+          "year_start": 2024,
+          "year_end": null,
+          "evidence_strength": "acceptable",
+          "source_indexes": []
+        }
+      ],
+      "candidate_values": {},
+      "guard_corrected_reason": "Adjudication preserved split-required handling, kept canonical_trim null, retained year_end null, and downgraded unsupported current-status claims to unresolved for internal consistency.",
+      "preflight_risk_tags": [
+        "multi_trim_string",
+        "slash_trim",
+        "current_or_future_year_end_placeholder"
+      ],
+      "_unknown_enums": [
+        "source_support_matrix[year_end].support_level=inferred"
+      ],
+      "final_seal_result": {
+        "seal_completed": true,
+        "clean_catalog_passed": false,
+        "blocks_clean_catalog": true,
+        "publication_type": "configurable_group",
+        "unknown_enums": [
+          "source_support_matrix[year_end].support_level=inferred"
+        ],
+        "passed": true,
+        "guard_flags": [
+          {
+            "guard_name": "slash_trim",
+            "severity": "medium",
+            "field_affected": "validation_decision",
+            "original_value": "split_required",
+            "guard_value": "split_required",
+            "reason": "Combined trim has split candidates and explicit split evidence.",
+            "risk_tags": [],
+            "needs_repair_adjudication": true,
+            "allowed_patch_fields": [
+              "validation_decision",
+              "trim_status",
+              "trim_confidence",
+              "canonical_trim"
+            ]
+          },
+          {
+            "guard_name": "year_end_current",
+            "severity": "medium",
+            "field_affected": "year_end",
+            "original_value": 2026,
+            "guard_value": null,
+            "reason": "Current/future year_end reset to null because placeholder end years are not allowed.",
+            "risk_tags": [],
+            "needs_repair_adjudication": false,
+            "allowed_patch_fields": []
+          },
+          {
+            "guard_name": "field_confidence_or_evidence_low",
+            "severity": "high",
+            "field_affected": "canonical_trim",
+            "original_value": "Scorpionissima / Turismo",
+            "guard_value": null,
+            "reason": "canonical_trim lacks confidence/support required for clean_catalog.",
+            "risk_tags": [
+              "field_confidence",
+              "evidence"
+            ],
+            "needs_repair_adjudication": true,
+            "allowed_patch_fields": []
+          },
+          {
+            "guard_name": "split_required_combined_trim_cleared",
+            "severity": "high",
+            "field_affected": "canonical_trim",
+            "original_value": "Scorpionissima / Turismo",
+            "guard_value": null,
+            "reason": "Combined trim cleared to null; row routed to split_queue.",
+            "risk_tags": [
+              "split",
+              "trim_quality"
+            ],
+            "needs_repair_adjudication": true,
+            "allowed_patch_fields": []
+          },
+          {
+            "guard_name": "final_seal_route_override",
+            "severity": "medium",
+            "field_affected": "final_route",
+            "original_value": "review_queue",
+            "guard_value": "split_queue",
+            "reason": "split_required rows or combined trims must be split before publishing.",
+            "risk_tags": [
+              "routing",
+              "final_seal"
+            ],
+            "needs_repair_adjudication": false,
+            "allowed_patch_fields": []
+          },
+          {
+            "guard_name": "split_required_combined_trim_cleared",
+            "severity": "high",
+            "field_affected": "canonical_trim",
+            "original_value": null,
+            "guard_value": null,
+            "reason": "Combined trim cleared to null; row routed to split_queue.",
+            "risk_tags": [
+              "split",
+              "trim_quality"
+            ],
+            "needs_repair_adjudication": true,
+            "allowed_patch_fields": []
+          },
+          {
+            "guard_name": "current_status_contradiction",
+            "severity": "high",
+            "field_affected": "grounding_summary",
+            "original_value": "Grounded Israeli-market sources support the Abarth 500e launch in Israel in January 2024, the marketed Hebrew name 'אבארט 500e', hatchback body style availability, and an electric powertrain. They also show that 'Turismo' and 'Scorpionissima' are separate trim designations, so the combined input trim cannot remain as one canonical trim. Current production/import status was not directly re-verified here and is therefore left unresolved rather than claimed.",
+            "guard_value": "Grounded Israeli-market sources support the Abarth 500e launch in Israel in January 2024, the marketed Hebrew name 'אבארט 500e', hatchback body style availability, and an electric powertrain. They also show that 'Turismo' and 'Scorpionissima' are separate trim designations, so the combined input trim cannot remain as one canonical trim. Current production/import status was not directly re-verified here and is therefore left unresolved rather than claimed.",
+            "reason": "Summary claimed current status while current flags are null/false; summary rewritten.",
+            "risk_tags": [
+              "current_status",
+              "summary_rewrite"
+            ],
+            "needs_repair_adjudication": true,
+            "allowed_patch_fields": []
+          }
+        ]
+      },
+      "gpt54_grounding_present": true,
+      "_repair_decision": "patched",
+      "field_patches": [
+        {
+          "field": "canonical_trim",
+          "action": "set_null",
+          "reason": "Combined trim unresolved; split required."
+        },
+        {
+          "field": "trim_status",
+          "action": "set",
+          "new_value": "unresolved",
+          "reason": "Field validation marks canonical_trim unresolved rather than exact/valid."
+        },
+        {
+          "field": "year_end",
+          "action": "set_null",
+          "reason": "Placeholder future end year removed."
+        },
+        {
+          "field": "is_currently_produced",
+          "action": "set_null",
+          "reason": "Not directly re-grounded; cannot remain verified."
+        },
+        {
+          "field": "is_currently_imported_il",
+          "action": "set_null",
+          "reason": "Not directly re-grounded; cannot remain verified."
+        },
+        {
+          "field": "fields_left_unresolved",
+          "action": "set",
+          "new_value": [
+            "canonical_trim",
+            "is_currently_produced",
+            "is_currently_imported_il"
+          ],
+          "reason": "All unresolved top-level fields must be listed."
+        }
+      ],
+      "_guard_verifier_used": false,
+      "guard_flags": [
+        {
+          "guard_name": "slash_trim",
+          "severity": "medium",
+          "field_affected": "validation_decision",
+          "original_value": "split_required",
+          "guard_value": "split_required",
+          "reason": "Combined trim has split candidates and explicit split evidence.",
+          "needs_adjudication": true,
+          "recommended_verifier_model": "gpt-5.4",
+          "allowed_decisions": [
+            "split_required",
+            "clean_partial"
+          ],
+          "allowed_patch_fields": [
+            "validation_decision",
+            "trim_status",
+            "trim_confidence",
+            "canonical_trim"
+          ],
+          "risk_tags": []
+        },
+        {
+          "guard_name": "year_end_current",
+          "severity": "medium",
+          "field_affected": "year_end",
+          "original_value": 2026,
+          "guard_value": null,
+          "reason": "Current/future year_end reset to null because placeholder end years are not allowed.",
+          "needs_adjudication": false,
+          "recommended_verifier_model": "none",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": []
+        },
+        {
+          "guard_name": "field_confidence_or_evidence_low",
+          "severity": "high",
+          "field_affected": "canonical_trim",
+          "original_value": "Scorpionissima / Turismo",
+          "guard_value": null,
+          "reason": "canonical_trim lacks confidence/support required for clean_catalog.",
+          "needs_adjudication": true,
+          "recommended_verifier_model": "gpt-5.4",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "field_confidence",
+            "evidence"
+          ]
+        },
+        {
+          "guard_name": "split_required_combined_trim_cleared",
+          "severity": "high",
+          "field_affected": "canonical_trim",
+          "original_value": "Scorpionissima / Turismo",
+          "guard_value": null,
+          "reason": "Combined trim cleared to null; row routed to split_queue.",
+          "needs_adjudication": true,
+          "recommended_verifier_model": "gpt-5.4",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "split",
+            "trim_quality"
+          ]
+        },
+        {
+          "guard_name": "final_seal_route_override",
+          "severity": "medium",
+          "field_affected": "final_route",
+          "original_value": "review_queue",
+          "guard_value": "split_queue",
+          "reason": "split_required rows or combined trims must be split before publishing.",
+          "needs_adjudication": false,
+          "recommended_verifier_model": "none",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "routing",
+            "final_seal"
+          ]
+        },
+        {
+          "guard_name": "split_required_combined_trim_cleared",
+          "severity": "high",
+          "field_affected": "canonical_trim",
+          "original_value": null,
+          "guard_value": null,
+          "reason": "Combined trim cleared to null; row routed to split_queue.",
+          "needs_adjudication": true,
+          "recommended_verifier_model": "gpt-5.4",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "split",
+            "trim_quality"
+          ]
+        },
+        {
+          "guard_name": "current_status_contradiction",
+          "severity": "high",
+          "field_affected": "grounding_summary",
+          "original_value": "Grounded Israeli-market sources support the Abarth 500e launch in Israel in January 2024, the marketed Hebrew name 'אבארט 500e', hatchback body style availability, and an electric powertrain. They also show that 'Turismo' and 'Scorpionissima' are separate trim designations, so the combined input trim cannot remain as one canonical trim. Current production/import status was not directly re-verified here and is therefore left unresolved rather than claimed.",
+          "guard_value": "Grounded Israeli-market sources support the Abarth 500e launch in Israel in January 2024, the marketed Hebrew name 'אבארט 500e', hatchback body style availability, and an electric powertrain. They also show that 'Turismo' and 'Scorpionissima' are separate trim designations, so the combined input trim cannot remain as one canonical trim. Current production/import status was not directly re-verified here and is therefore left unresolved rather than claimed.",
+          "reason": "Summary claimed current status while current flags are null/false; summary rewritten.",
+          "needs_adjudication": true,
+          "recommended_verifier_model": "gpt-5.4",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "current_status",
+            "summary_rewrite"
+          ]
+        }
+      ]
     }
   },
   "cluster_cache": {
@@ -6956,14 +7628,58 @@
           ]
         }
       ]
+    },
+    "CLU-faa6df352bcf": {
+      "anchor_id": "VAL-000011",
+      "identity_status": "verified",
+      "identity_confidence": 0.95,
+      "grounding_summary": "Searches confirm the Abarth 500e was officially launched in Israel in January 2024 by the importer Samelet. The vehicle is fully electric, featuring a 155 hp motor and FWD. The official marketed name is 'אבארט 500e'. The trims 'Turismo' and 'Scorpionissima' are marketed as distinct variants (Turismo being the standard trim and Scorpionissima a limited launch edition), meaning the combined trim string must be split.",
+      "evidence_sources": [
+        {
+          "title": "אבארט 500e החדשה בארץ – מחיר החל מ-220,000 שקלים - אוטו",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGdeDIZwVWk6oIEHj21b1gj_VrOd_zYKrPkxY9IPV2RTYBqVaD6Ynfk_1LP8UgskwAxbQcKm2qJF9MAN7eAMWnddn3wBoHh_VBWSPhwAKxWpN3PXg8hGVZBXIdk-TeZ-wvDZdP9Px6zmqDtoxIIAbzfbQ==",
+          "source_name": "auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "official_import_il",
+            "year_range",
+            "body_type",
+            "engine",
+            "fuel_type"
+          ]
+        },
+        {
+          "title": "אבארט 500e טוריסמו החשמלית 2024 בישראל - מחיר החל מ-219,900 שקל - cartube",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHG07e_rJUrDYTVexLF6XlimaYSGI76lmB-d5Cj01LO2QMxsUzkdyjB2oaoFQHHNLtk01OFR5iQ3IaoZQnDuf8ARnKrrNZ97qt4FwnMV3jXKAZK20TuQ7H0_Sueo6b6Q66wooZDP9wFmKBVuIM9kT08TLSfNCf9eYysEXd6JoiGlks4XKQuCg_PTIIYyQILVzNu5IAucZvJuemnsVcDGl8tgnilrc5jc_ZsqRHyAmbN4Rz28j2-5vB0XsvOAtRfyZDpaLaeVRsC6Fh2p7BNKURnJ3B3qHPAywyKbL4vIbZ0nLtPTmvT975a1q8AH80S0AIKl2a4zbIuprqsAWzLkLOfYbSYXcOoiNnbiFxl2zfELLexQP153TKxuI3UyFR3lh8-yQD3nNicvSPDFv5Xom9c4GaetWXd7RzkYgu04EJFLW-bL1aTVvRtuVV-w3wLO4zhs1MQE1cePSM=",
+          "source_name": "cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "exact_trim",
+            "year_range",
+            "split_required"
+          ]
+        },
+        {
+          "title": "מכונית הספורט החשמלית הקטנה אבארט 500e כבר בישראל במחיר של 219,900 שקלים - אוטובום",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFBeIWyuRSg9y7pLZV0Arw04qek8unKmKM1O48m57t5XaO759IsUUXSvCYoH0whuFrhTMeuACz5bkP63mmZt7pdkKSicwFtMbI-Y7oKRhCj1z2QvRnwAnPxxFDJJ6OHlCnBgt0ORt_042xrA49-q0H8iqkRmELOLYtJzC8aaKOE5go1naeonNgRmnrkvJGHBFpuzFo7XTpiREpIOySNs61nZUAkVpHd",
+          "source_name": "autoboom.co.il",
+          "source_type": "marketplace",
+          "supports": [
+            "transmission",
+            "trim_candidates"
+          ]
+        }
+      ]
     }
   },
   "decision_counts": {
     "clean_exact": 0,
     "clean_partial": 5,
-    "split_required": 5,
+    "split_required": 6,
     "reject": 0
   },
-  "last_validated_id": "VAL-000010",
-  "updated_at_utc": "2026-06-15T13:20:46Z"
+  "last_validated_id": "VAL-000011",
+  "updated_at_utc": "2026-06-15T13:22:40Z"
 }
