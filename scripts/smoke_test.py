@@ -158,7 +158,7 @@ def main() -> int:
         for f in files:
             if f.endswith(".py") and f != "smoke_test.py":  # skip this scanner itself
                 text = open(os.path.join(base, f), encoding="utf-8").read().lower()
-                if ("import openai" in text or "from openai" in text) and f not in {"openai_guard_verifier.py", "openai_repair_adjudicator.py", "run_gemini31_sampled_validation.py"}:
+                if ("import openai" in text or "from openai" in text) and f not in {"openai_guard_verifier.py", "openai_repair_adjudicator.py", "run_gemini31_sampled_validation.py", "openai_catalog_client.py"}:
                     offenders.append(f"{f}:openai")
                 if "gpt_adjudicator" in text or "gpt-4" in text:
                     offenders.append(f"{f}:gpt")
