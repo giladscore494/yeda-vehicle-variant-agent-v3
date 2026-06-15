@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T18:01:13Z",
+  "generated_at": "2026-06-15T18:01:39Z",
   "market": "IL",
   "models": [
     {
@@ -4405,6 +4405,397 @@
         "variant[2] required website field 'drivetrain' is null/empty",
         "variant[2] required field 'fuel_type' listed in missing_grounded_fields",
         "variant[2] required field 'drivetrain' listed in missing_grounded_fields"
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Alfa Romeo",
+      "model": "Junior",
+      "canonical_model": "Junior",
+      "year_start": 2024,
+      "year_end": null,
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Core",
+          "body_type": "SUV",
+          "fuel_type": "mild_hybrid",
+          "engine": "1.2L turbo",
+          "engine_displacement_l": 1.2,
+          "horsepower_hp": 136,
+          "transmission": "robotic dual-clutch",
+          "drivetrain": "FWD",
+          "year_start": 2024,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              2
+            ],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              3
+            ],
+            "engine": [
+              1,
+              3
+            ],
+            "engine_displacement_l": [
+              1,
+              3
+            ],
+            "horsepower_hp": [
+              1,
+              3
+            ],
+            "transmission": [
+              1,
+              3
+            ],
+            "drivetrain": [
+              1,
+              3
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "year_end"
+          ]
+        },
+        {
+          "version_or_trim": "Speciale",
+          "body_type": "SUV",
+          "fuel_type": "mild_hybrid",
+          "engine": "1.2L turbo",
+          "engine_displacement_l": 1.2,
+          "horsepower_hp": 136,
+          "transmission": "robotic dual-clutch",
+          "drivetrain": "FWD",
+          "year_start": 2024,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              2
+            ],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              3
+            ],
+            "engine": [
+              1,
+              3
+            ],
+            "engine_displacement_l": [
+              1,
+              3
+            ],
+            "horsepower_hp": [
+              1,
+              3
+            ],
+            "transmission": [
+              1,
+              3
+            ],
+            "drivetrain": [
+              1,
+              3
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "year_end"
+          ]
+        },
+        {
+          "version_or_trim": "Speciale",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 156,
+          "transmission": "automatic",
+          "drivetrain": "FWD",
+          "year_start": 2024,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            4,
+            5
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              5
+            ],
+            "body_type": [
+              4
+            ],
+            "fuel_type": [
+              4
+            ],
+            "engine": [
+              4
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              4
+            ],
+            "transmission": [
+              4
+            ],
+            "drivetrain": [
+              4
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "engine_displacement_l",
+            "year_end"
+          ]
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 280,
+          "transmission": "automatic",
+          "drivetrain": "FWD",
+          "year_start": 2024,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            6
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              6
+            ],
+            "fuel_type": [
+              1,
+              6
+            ],
+            "engine": [
+              6
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              1,
+              6
+            ],
+            "transmission": [
+              1,
+              6
+            ],
+            "drivetrain": [
+              1,
+              6
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "version_or_trim",
+            "engine_displacement_l",
+            "year_end"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Core",
+          "Speciale"
+        ],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "mild_hybrid",
+          "electric"
+        ],
+        "engine": [
+          "1.2L turbo",
+          "electric"
+        ],
+        "horsepower_hp": [
+          136,
+          156,
+          280
+        ],
+        "transmission": [
+          "robotic dual-clutch",
+          "automatic"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Veloce",
+          "classification": "not-grounded-in-Israeli-market-sources-for-Junior-model-profile"
+        },
+        {
+          "label": "1.2L Turbo",
+          "classification": "engine_label_not_trim"
+        },
+        {
+          "label": "Electric 156 hp",
+          "classification": "powertrain_label_not_trim"
+        },
+        {
+          "label": "Electric 280 hp",
+          "classification": "powertrain_label_not_trim"
+        },
+        {
+          "label": "automatic",
+          "classification": "transmission_label_not_trim"
+        },
+        {
+          "label": "SUV",
+          "classification": "body_type_label_not_trim"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "אלפא רומיאו ג'וניור בישראל – חוות דעת, מחירים, השוואות ודירוג באוטובום",
+          "url": "https://autoboom.co.il/catalog/cars/alfa-romeo/junior",
+          "source_name": "Autoboom Israel",
+          "source_type": "catalog",
+          "supports": [
+            "model",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "אלפא רומיאו ג'וניור 2024 מחירון - חשמלי, בנזין. מאפיינים טכניים, צריכת דלק, נתונים אחרים בעבור רכב אלפא רומיאו ג'וניור 2024. מחירון בישראל",
+          "url": "https://autoboom.co.il/catalog/cars/alfa-romeo/junior/2024",
+          "source_name": "Autoboom Israel",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "אלפא רומיאו ג'וניור רכב שטח 5 דלתות 1.2 i AT בנזין | 136 כ\"ס הנעה קדמית | 1 דור (2024 – כעת) - מפרטי רכב id 71319",
+          "url": "https://autoboom.co.il/catalog/cars/alfa-romeo/junior/1-generation/suv-5-doors/71319",
+          "source_name": "Autoboom Israel",
+          "source_type": "catalog",
+          "supports": [
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "ג'יפון אלפא מ-169,900 שקל: אלפא רומיאו ג'וניור החדש בישראל",
+          "url": "https://wheel.co.il/%D7%92%D7%99%D7%A4%D7%95%D7%9F-%D7%90%D7%9C%D7%A4%D7%90-%D7%9E-169900-%D7%A9%D7%A7%D7%9C-%D7%90%D7%9C%D7%A4%D7%90-%D7%A8%D7%95%D7%9E%D7%99%D7%90%D7%95-%D7%92%D7%95%D7%A0%D7%99%D7%95%D7%A8-%D7%97/",
+          "source_name": "Wheel",
+          "source_type": "editorial",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 4,
+          "title": "אלפא רומיאו ג'וניור רכב פנאי AT חשמלי | 156 כ\"ס הנעה קדמית | 1 דור (2024 – כעת) בישראל - מפרטי רכב id 71316",
+          "url": "https://autoboom.co.il/catalog/cars/alfa-romeo/junior/1-generation/suv-5-doors/71316",
+          "source_name": "Autoboom Israel",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 5,
+          "title": "אלפא רומיאו Junior AT Speciale 2024 שנת ייצור בישראל - חבילה מלאה, מחיר ומפרטים טכניים באוטובום. id 71316-14336",
+          "url": "https://autoboom.co.il/catalog/cars/alfa-romeo/junior/1-generation/suv-5-doors/71316-14336",
+          "source_name": "Autoboom Israel",
+          "source_type": "catalog",
+          "supports": [
+            "version_or_trim",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "fuel_type",
+            "engine"
+          ]
+        },
+        {
+          "source_index": 6,
+          "title": "Alfa Romeo Junior SUV 5-doors AT electro | 280 hp fwd type of drive | 1 generation (2024 – now) in Israel - vehicle specifications id 71318",
+          "url": "https://autoboom.co.il/en/catalog/cars/alfa-romeo/junior/1-generation/suv-5-doors/71318",
+          "source_name": "Autoboom Israel",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        }
+      ],
+      "profile_confidence": "medium",
+      "notes": [
+        "Israeli-market grounding found for Junior from 2024 onward.",
+        "Grounded sold technical configurations found in Israeli sources: mild-hybrid 1.2 136hp FWD, electric 156hp FWD, electric 280hp FWD.",
+        "For the 156hp EV, Israeli-market source grounded trim Speciale; no separate grounded Core/other EV trim row was added beyond sourced data.",
+        "For the 280hp EV, a sold Israeli technical configuration is grounded, but no Israeli-market trim name was found in the collected sources, so version_or_trim is null.",
+        "A 145/146hp Q4 hybrid appears in Autoboom listings, but it was excluded because collected Israeli sources did not sufficiently ground that it was actually sold as part of the requested raw-database profile and trim set."
+      ],
+      "validation_issues": [
+        "variant[2] is electric inside a petrol model profile",
+        "variant[3] is electric inside a petrol model profile"
       ]
     }
   ]
