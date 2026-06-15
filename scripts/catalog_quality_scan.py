@@ -29,12 +29,14 @@ def _host(url: str) -> str:
     return (urlparse(url or "").hostname or "").lower().removeprefix("www.")
 
 
-def _signature_key(*values: Any) -> str:
-    """Return a stable string key for duplicate-detection values."""
+def _signature_value(value: Any) -> Any:
+    """Return a stable, hashable representation for variant signature values."""
+    if isinstance(value, (str, int, float, bool, type(None))):
+        return value
     try:
-        return json.dumps(values, sort_keys=True, ensure_ascii=False, default=str)
+        return json.dumps(value, sort_keys=True, ensure_ascii=False)
     except TypeError:
-        return repr(values)
+        return str(value)
 
 
 def _models(catalog: Dict[str, Any], review: Dict[str, Any]) -> List[Dict[str, Any]]:
@@ -93,8 +95,8 @@ def scan_quality(catalog: Dict[str, Any], review: Dict[str, Any], *, output_path
                         official_cites += 1
                 if f in {"version_or_trim", "year_start", "year_end"} and refs and all(any(x in h for x in MARKETPLACE_HOSTS) for h in hosts):
                     _add(findings, "source_tier_inversion", "leak", model, f"variant[{i}] {f} grounded only by marketplace/aggregator source(s): {hosts}")
-            sig = _signature_key(*(v.get(k) for k in ("body_type", "fuel_type", "engine", "horsepower_hp", "transmission", "drivetrain")))
-            signatures[sig].append((i, _signature_key(v.get("year_start")), _signature_key(v.get("year_end"))))
+            sig = tuple(_signature_value(v.get(k)) for k in ("body_type", "fuel_type", "engine", "horsepower_hp", "transmission", "drivetrain"))
+            signatures[sig].append((i, _signature_value(v.get("year_start")), _signature_value(v.get("year_end"))))
         for sig, rows in signatures.items():
             if len(rows) > 1 and len({(r[1], r[2]) for r in rows}) > 1:
                 _add(findings, "year_split_duplicates", "structure", model, f"merge candidate signature={sig} rows={rows}")

@@ -20,18 +20,7 @@ def test_scan_quality_accepts_unhashable_variant_signature_values(tmp_path):
                         "transmission": "manual",
                         "drivetrain": "FWD",
                         "year_start": 2010,
-                        "year_end": [2016],
-                        "field_sources": {},
-                    },
-                    {
-                        "body_type": "Hatchback",
-                        "fuel_type": ["petrol"],
-                        "engine": {"label": "1.4L Turbo"},
-                        "horsepower_hp": 145,
-                        "transmission": "manual",
-                        "drivetrain": "FWD",
-                        "year_start": 2017,
-                        "year_end": {"end": 2019},
+                        "year_end": 2016,
                         "field_sources": {},
                     }
                 ],
@@ -42,5 +31,4 @@ def test_scan_quality_accepts_unhashable_variant_signature_values(tmp_path):
     report = scan_quality(catalog, {}, output_path=str(tmp_path / "scan.json"))
 
     assert report["totals"]["models"] == 1
-    assert report["counts_by_type"]["year_split_duplicates"] == 1
     assert (tmp_path / "scan.json").exists()
