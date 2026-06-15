@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T18:30:22Z",
+  "generated_at": "2026-06-15T18:30:43Z",
   "market": "IL",
   "models": [
     {
@@ -2041,6 +2041,176 @@
       ],
       "validation_issues": [
         "variant[3] non-null field 'version_or_trim' has no field_sources entry"
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Alfa Romeo",
+      "model": "155",
+      "canonical_model": "155",
+      "year_start": 1992,
+      "year_end": 1998,
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "1.8L",
+          "engine_displacement_l": 1.8,
+          "horsepower_hp": 127,
+          "transmission": "manual",
+          "drivetrain": "FWD",
+          "year_start": 1992,
+          "year_end": 1998,
+          "support_level": "unknown",
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [],
+            "drivetrain": [],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": [
+            "fuel_type",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "2.0L",
+          "engine_displacement_l": 2,
+          "horsepower_hp": 141,
+          "transmission": "manual",
+          "drivetrain": "FWD",
+          "year_start": 1992,
+          "year_end": 1998,
+          "support_level": "unknown",
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [],
+            "drivetrain": [],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": [
+            "fuel_type",
+            "transmission",
+            "drivetrain"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Sedan"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "1.8L",
+          "2.0L"
+        ],
+        "horsepower_hp": [
+          127,
+          141
+        ],
+        "transmission": [
+          "manual"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "1.8 MT",
+          "classification": "engine_and_transmission_label_not_trim"
+        },
+        {
+          "label": "2.0 MT",
+          "classification": "engine_and_transmission_label_not_trim"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "נוסטלגיה לשבת: לנצ'יה דדרה - “סלון איטלקי על גלגלים” - Wheel חדשות ומבצעי רכב",
+          "url": "https://wheel.co.il/%D7%A0%D7%95%D7%A1%D7%98%D7%9C%D7%92%D7%99%D7%94-%D7%9C%D7%A9%D7%91%D7%AA-%D7%9C%D7%A0%D7%A6%D7%99%D7%94-%D7%93%D7%93%D7%A8%D7%94-%D7%A1%D7%9C%D7%95%D7%9F-%D7%90%D7%99%D7%98%D7%9C%D7%A7/",
+          "source_name": "Wheel",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "profile_confidence": "low",
+      "notes": [
+        "Could not find sufficiently detailed Israeli-market Alfa Romeo 155 model pages/spec sheets in the searched Israeli sources.",
+        "Technical rows are retained from the provided raw database hints, but only the fields backed by the located Israeli source are grounded; unsupported fields are marked in missing_grounded_fields and support_level remains unknown.",
+        "Year range 1992-1998 reflects the supplied raw years_seen and a secondary Israeli-market contextual source that 156 replaced 155 from 1998, but detailed per-variant Israeli sales dates were not found."
+      ],
+      "validation_issues": [
+        "variant[0] non-null field 'fuel_type' has no field_sources entry",
+        "variant[0] non-null field 'transmission' has no field_sources entry",
+        "variant[0] non-null field 'drivetrain' has no field_sources entry",
+        "variant[0] required field 'fuel_type' listed in missing_grounded_fields",
+        "variant[0] required field 'transmission' listed in missing_grounded_fields",
+        "variant[0] required field 'drivetrain' listed in missing_grounded_fields",
+        "variant[1] non-null field 'fuel_type' has no field_sources entry",
+        "variant[1] non-null field 'transmission' has no field_sources entry",
+        "variant[1] non-null field 'drivetrain' has no field_sources entry",
+        "variant[1] required field 'fuel_type' listed in missing_grounded_fields",
+        "variant[1] required field 'transmission' listed in missing_grounded_fields",
+        "variant[1] required field 'drivetrain' listed in missing_grounded_fields"
       ]
     }
   ]
