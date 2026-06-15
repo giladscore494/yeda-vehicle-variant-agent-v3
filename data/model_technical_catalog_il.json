@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T18:00:51Z",
+  "generated_at": "2026-06-15T18:01:13Z",
   "market": "IL",
   "mode": "online_gpt54",
   "model_id": "gpt-5.4",
@@ -1370,6 +1370,208 @@
         "No Israeli official importer source for this legacy model was found in accessible search results; catalog grounding relied on Israeli secondary source Autoboom.",
         "Other Autoboom 155 pages appeared in search results (including 1.8 with 105/129/140 hp and 2.0 with 144/186/190 hp), but they were not included because the provided raw database hints pointed specifically to 1.8 127 hp and 2.0 141 hp manual FWD variants, and no stronger Israeli corroboration was found within accessible sources.",
         "Model-level production globally extends to 1998, but the grounded Israeli sources accessed here support local year ranges only through 1997, so top-level year_end is set to 1997."
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Alfa Romeo",
+      "model": "GTV",
+      "canonical_model": "GTV",
+      "year_start": 1995,
+      "year_end": 2005,
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "2.0 V6 Turbo",
+          "engine_displacement_l": 2,
+          "horsepower_hp": 202,
+          "transmission": "manual",
+          "drivetrain": "FWD",
+          "year_start": 1995,
+          "year_end": 2005,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": [
+            "version_or_trim"
+          ]
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "3.0 V6 24V",
+          "engine_displacement_l": 3,
+          "horsepower_hp": 218,
+          "transmission": "manual",
+          "drivetrain": "FWD",
+          "year_start": 1995,
+          "year_end": 2005,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              2
+            ],
+            "engine": [
+              2
+            ],
+            "engine_displacement_l": [
+              2
+            ],
+            "horsepower_hp": [
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              2
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": [
+            "version_or_trim"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Coupe"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "2.0 V6 Turbo",
+          "3.0 V6 24V"
+        ],
+        "horsepower_hp": [
+          202,
+          218
+        ],
+        "transmission": [
+          "manual"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        "1.8 TS - non_trim_engine_label",
+        "2.0 TS - non_trim_engine_label",
+        "2.0 V6 TB - non_trim_engine_label",
+        "3.0 V6 24V - non_trim_engine_label",
+        "3.2 V6 24V - non_trim_engine_label",
+        "Base - invalid_generic_trim",
+        "V6 - non_trim_engine_label",
+        "V6 24V - non_trim_engine_label",
+        "V6 TB - non_trim_engine_label"
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "Alfa Romeo GTV in Israel – Review, Prices, Comparisons and Rating on Autoboom",
+          "url": "https://autoboom.co.il/en/catalog/cars/alfa-romeo/gtv",
+          "source_name": "Autoboom",
+          "source_type": "ישראלי קטלוג/מאגר רכב",
+          "supports": [
+            "year_start",
+            "year_end",
+            "body_type",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "fuel_type",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "Alfa Romeo GTV coupe 2.0 MT gasoline | 202 hp fwd type of drive | 1 generation (1995 – 2005) in Israel - vehicle specifications id 701",
+          "url": "https://autoboom.co.il/en/catalog/cars/alfa-romeo/gtv/1-generation/coupe/701",
+          "source_name": "Autoboom",
+          "source_type": "ישראלי קטלוג/מאגר רכב",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "Alfa Romeo GTV coupe 3.0 MT gasoline | 218 hp fwd type of drive | 1 generation (1995 – 2005) in Israel - vehicle specifications id 702",
+          "url": "https://autoboom.co.il/en/catalog/cars/alfa-romeo/gtv/1-generation/coupe/702",
+          "source_name": "Autoboom",
+          "source_type": "ישראלי קטלוג/מאגר רכב",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        }
+      ],
+      "profile_confidence": "medium",
+      "notes": [
+        "Israeli-market web grounding found only two clearly listed GTV technical configurations in Israel in accessible Israeli sources: 2.0/202 hp/manual/FWD and 3.0/218 hp/manual/FWD.",
+        "The 2.0 Israeli listing corresponds to a V6 turbo configuration based on source technical fields (V-shaped, 6 cylinders, turbo, 1996 cc); no Israeli source found for a Twin Spark GTV sold in Israel, so it was not included.",
+        "No grounded Israeli source was found for 1.8 TS, 2.0 TS, 3.2 V6 24V, or separate trim names for GTV in Israel.",
+        "Year range is grounded at model level (1995-2005) from the Israeli catalog page; per-variant year splits were not grounded, so variant rows use the model-level range."
       ]
     }
   ],
