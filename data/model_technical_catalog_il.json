@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T18:40:01Z",
+  "generated_at": "2026-06-15T18:40:31Z",
   "market": "IL",
   "mode": "online_gpt54",
   "model_id": "gpt-5.4",
@@ -5766,6 +5766,294 @@
         "No Israeli-market source found that states a numeric engine displacement for this electric model; engine_displacement_l set to null for all rows.",
         "Year_start 2025 is grounded by Israeli catalog source showing 'שנת השקת הדגם בישראל 2025'.",
         "Year_end 2026 is grounded only by 2026 Israeli listings and does not imply discontinuation after 2026."
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Aston Martin",
+      "model": "DB11",
+      "canonical_model": "DB11",
+      "year_start": 2017,
+      "year_end": 2023,
+      "technical_variants_il": [
+        {
+          "version_or_trim": "V8",
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "4.0L turbo v8",
+          "engine_displacement_l": 4.0,
+          "horsepower_hp": 510,
+          "transmission": "8-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 2017,
+          "year_end": 2023,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              2
+            ],
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              2
+            ],
+            "engine_displacement_l": [
+              2
+            ],
+            "horsepower_hp": [
+              2
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "V8",
+          "body_type": "Convertible",
+          "fuel_type": "petrol",
+          "engine": "4.0L turbo v8",
+          "engine_displacement_l": 4.0,
+          "horsepower_hp": 510,
+          "transmission": "8-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 2018,
+          "year_end": 2023,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            3,
+            4
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              4
+            ],
+            "body_type": [
+              4
+            ],
+            "fuel_type": [
+              3
+            ],
+            "engine": [
+              4
+            ],
+            "engine_displacement_l": [
+              4
+            ],
+            "horsepower_hp": [
+              4
+            ],
+            "transmission": [
+              3
+            ],
+            "drivetrain": [
+              3
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "V12",
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "5.2L turbo v12",
+          "engine_displacement_l": 5.2,
+          "horsepower_hp": 608,
+          "transmission": "8-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 2017,
+          "year_end": 2023,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            5
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              5
+            ],
+            "body_type": [
+              5
+            ],
+            "fuel_type": [
+              5
+            ],
+            "engine": [
+              5
+            ],
+            "engine_displacement_l": [
+              5
+            ],
+            "horsepower_hp": [
+              5
+            ],
+            "transmission": [
+              5
+            ],
+            "drivetrain": [
+              5
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "V8",
+          "V12"
+        ],
+        "body_type": [
+          "Coupe",
+          "Convertible"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "4.0L turbo v8",
+          "5.2L turbo v12"
+        ],
+        "horsepower_hp": [
+          510,
+          608
+        ],
+        "transmission": [
+          "8-speed automatic"
+        ],
+        "drivetrain": [
+          "RWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "V8 Volante",
+          "classification": "body/model designation, not a trim"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "מידע מקיף ומקצועי על אסטון מרטין DB11 2017-2023 - אתר iCar",
+          "url": "https://www.icar.co.il/%D7%90%D7%A1%D7%98%D7%95%D7%9F_%D7%9E%D7%A8%D7%98%D7%99%D7%9F/%D7%90%D7%A1%D7%98%D7%95%D7%9F_%D7%9E%D7%A8%D7%98%D7%99%D7%9F_DB11/%D7%90%D7%A1%D7%98%D7%95%D7%9F_%D7%9E%D7%A8%D7%98%D7%99%D7%9F_DB11_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%94_%D7%9310/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "year_start",
+            "year_end",
+            "variant lineup"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "אסטון מרטין DB11 - מחירון, חוות דעת ומידע טכני | אוטו",
+          "url": "https://www.auto.co.il/cars/aston-martin/martin-db11/",
+          "source_name": "auto.co.il",
+          "source_type": "catalog",
+          "supports": [
+            "variant lineup",
+            "fuel_type",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "אסטון מרטין DB11 2023 4.0 קופה - יד שניה",
+          "url": "https://www.icar.co.il/%D7%90%D7%A1%D7%98%D7%95%D7%9F_%D7%9E%D7%A8%D7%98%D7%99%D7%9F/%D7%90%D7%A1%D7%98%D7%95%D7%9F_%D7%9E%D7%A8%D7%98%D7%99%D7%9F_DB11/%D7%90%D7%A1%D7%98%D7%95%D7%9F_%D7%9E%D7%A8%D7%98%D7%99%D7%9F_DB11_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%94_%D7%9310/version26450/",
+          "source_name": "iCar",
+          "source_type": "variant page",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "אסטון מרטין DB11 2025 4.0 וולנטה - רכב חדש",
+          "url": "https://www.icar.co.il/%D7%90%D7%A1%D7%98%D7%95%D7%9F_%D7%9E%D7%A8%D7%98%D7%99%D7%9F/%D7%90%D7%A1%D7%98%D7%95%D7%9F_%D7%9E%D7%A8%D7%98%D7%99%D7%9F_DB11/%D7%90%D7%A1%D7%98%D7%95%D7%9F_%D7%9E%D7%A8%D7%98%D7%99%D7%9F_DB11_%D7%97%D7%93%D7%A9/version19757/",
+          "source_name": "iCar",
+          "source_type": "variant page",
+          "supports": [
+            "fuel_type",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 4,
+          "title": "אסטון מרטין DB11 2023 4.0 וולנטה - יד שניה",
+          "url": "https://www.icar.co.il/%D7%90%D7%A1%D7%98%D7%95%D7%9F_%D7%9E%D7%A8%D7%98%D7%99%D7%9F/%D7%90%D7%A1%D7%98%D7%95%D7%9F_%D7%9E%D7%A8%D7%98%D7%99%D7%9F_DB11/%D7%90%D7%A1%D7%98%D7%95%D7%9F_%D7%9E%D7%A8%D7%98%D7%99%D7%9F_DB11_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%94_%D7%9310/version26451/",
+          "source_name": "iCar",
+          "source_type": "variant page",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp"
+          ]
+        },
+        {
+          "source_index": 5,
+          "title": "אסטון מרטין DB11 2023 5.2 קופה - יד שניה",
+          "url": "https://www.icar.co.il/%D7%90%D7%A1%D7%98%D7%95%D7%9F_%D7%9E%D7%A8%D7%98%D7%99%D7%9F/%D7%90%D7%A1%D7%98%D7%95%D7%9F_%D7%9E%D7%A8%D7%98%D7%99%D7%9F_DB11/%D7%90%D7%A1%D7%98%D7%95%D7%9F_%D7%9E%D7%A8%D7%98%D7%99%D7%9F_DB11_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%94_%D7%9310/version26452/",
+          "source_name": "iCar",
+          "source_type": "variant page",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        }
+      ],
+      "profile_confidence": "medium",
+      "notes": [
+        "Israeli-market sources found a repeating local lineup of DB11 4.0 Coupe, DB11 4.0 Volante, and DB11 5.2 Coupe across the 2017-2023 model profile.",
+        "The convertible row is normalized to body_type 'Convertible'; source pages use 'וולנטה/Volante' as body/model designation, not trim.",
+        "Year range for the V8 Volante is grounded conservatively from 2018 start (global first deliveries in Q1 2018 referenced in manufacturer archive and Israeli lineup pages) through 2023 appearance in Israeli listings; no grounded Israeli source was found for a 2017 Volante sale.",
+        "Transmission was normalized from Israeli sources stating automatic with 8 gears to '8-speed automatic'.",
+        "Drivetrain was normalized from Israeli sources stating rear-wheel drive/הנעה אחורית to 'RWD'."
       ]
     }
   ],
