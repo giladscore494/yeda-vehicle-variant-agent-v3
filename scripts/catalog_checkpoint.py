@@ -6,7 +6,7 @@ raw variant row. Instead it checkpoints after each completed make/model profile
 
 After a completed profile it writes the generated catalog files and pushes them
 to GitHub via the existing Contents-API saver. Tokens are read from the
-``GITHUB_TOKEN`` secret only, and are never printed, logged, written to output,
+``[github].token`` secret, and are never printed, logged, written to output,
 or included in errors.
 """
 
@@ -24,9 +24,9 @@ from .github_checkpoint import (
     detect_repo,
 )
 
-GITHUB_TOKEN_REQUIRED_MESSAGE = (
-    "GITHUB_TOKEN is required for GitHub checkpoint pushes. Set it in "
-    "environment variables or secrets, or disable GitHub checkpointing."
+GITHUB_SECRET_REQUIRED_MESSAGE = (
+    "[github].token is required for GitHub checkpoint pushes, or disable "
+    "GitHub autosave for this session."
 )
 
 
@@ -69,13 +69,13 @@ class CatalogCheckpointer:
         self._pending = 0
 
         if config.enabled:
-            # GITHUB_TOKEN is required ONLY when checkpointing is enabled.
+            # [github].token is required ONLY when checkpointing is enabled.
             if not config.token:
-                raise ValueError(GITHUB_TOKEN_REQUIRED_MESSAGE)
+                raise ValueError(GITHUB_SECRET_REQUIRED_MESSAGE)
             gh_config = GitHubConfig(
                 token=config.token,
-                repo=detect_repo(config.repo) or "",
-                branch=detect_branch(config.branch) or "",
+                repo=config.repo or "",
+                branch=config.branch or "",
             )
             self._client = GitHubCheckpoint(gh_config, repo_root=repo_root)
 

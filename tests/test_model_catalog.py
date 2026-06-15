@@ -453,8 +453,8 @@ def test_missing_openai_key_fails_closed():
             make="Abarth", model="500", limit_models=1,
             settings=CatalogClientSettings(api_key=""),
         )
-    assert "OPENAI_API_KEY is required" in str(exc.value)
-    assert str(exc.value) == cb.OPENAI_KEY_REQUIRED_MESSAGE
+    assert "Selected provider API key is missing" in str(exc.value)
+    assert str(exc.value) == cb.MODEL_KEY_REQUIRED_MESSAGE
 
 
 def test_cli_does_not_accept_offline_flag():
@@ -508,7 +508,7 @@ def test_build_calls_build_profile_never_synthesize(monkeypatch, tmp_path):
     assert os.path.exists(result.readiness_path)
     assert os.path.exists(result.review_path)
     catalog = json.loads((tmp_path / "c.json").read_text())
-    assert catalog["mode"] == "online_gpt54"
+    assert catalog["mode"] == "online_selectable_provider"
     assert catalog["source_files"] == [
         "data/validation_variants_data_v1.json",
         "data/validation_instructions_by_id_v1.json",
@@ -589,61 +589,80 @@ def test_catalog_prompt_states_canonical_normalization():
 
 
 # ---------------------------------------------------------------------------
-# Config: only OpenAI/GitHub secrets remain (no Gemini/Google)
+# Config: current Streamlit secrets format
 # ---------------------------------------------------------------------------
 
 
-def test_openai_key_env_name(monkeypatch, tmp_path):
+def test_config_reads_current_secrets_format(tmp_path):
     from scripts.config import load_shared_config
 
-    monkeypatch.delenv("OPENAI_API_KEY", raising=False)
-    missing = tmp_path / "no_secrets.toml"
-    assert load_shared_config(str(missing)).openai_api_key == ""
-    monkeypatch.setenv("OPENAI_API_KEY", "sk-test-123")
-    assert load_shared_config(str(missing)).openai_api_key == "sk-test-123"
+    path = tmp_path / "secrets.toml"
+    path.write_text(
+        """[github]
+token = "ghp_test"
+repo_full_name = "owner/repo"
+target_branch = "validation-v2-budgeted-dual-il-trims"
+
+[openai]
+api_key = "sk-test"
+validator_model_id = "gpt-5.4"
+web_search_enabled = true
+
+[google]
+api_key = "google-test"
+gemini_validator_model_id = "gemini-3.1-pro-preview"
+grounding_enabled = false
+""",
+        encoding="utf-8",
+    )
+    cfg = load_shared_config(str(path))
+    assert cfg.github_token == "ghp_test"
+    assert cfg.github_repo_full_name == "owner/repo"
+    assert cfg.github_target_branch == "validation-v2-budgeted-dual-il-trims"
+    assert cfg.openai_api_key == "sk-test"
+    assert cfg.openai_validator_model_id == "gpt-5.4"
+    assert cfg.openai_web_search_enabled is True
+    assert cfg.google_api_key == "google-test"
+    assert cfg.gemini_validator_model_id == "gemini-3.1-pro-preview"
+    assert cfg.gemini_grounding_enabled is False
 
 
-def test_default_model_is_gpt54(monkeypatch, tmp_path):
+def test_default_model_is_gpt54(tmp_path):
     from scripts.config import load_shared_config
 
-    monkeypatch.delenv("OPENAI_VALIDATOR_MODEL_ID", raising=False)
     cfg = load_shared_config(str(tmp_path / "missing.toml"))
     assert cfg.openai_validator_model_id == "gpt-5.4"
+    assert cfg.gemini_validator_model_id == "gemini-3.1-pro-preview"
 
 
-def test_config_has_no_gemini_or_google_fields():
-    from scripts.config import SharedConfig
-
-    fields = set(SharedConfig.__dataclass_fields__)
-    forbidden = {
-        "google_api_key",
-        "gemini_validator_model_id",
-        "grounding_enabled",
-        "force_per_variant_validation",
-        "single_gpt54_model_catalog_mode",
-    }
-    assert not (fields & forbidden)
-
-
-def test_config_module_has_no_gemini_references():
-    import scripts.config as mod
-
-    src = open(mod.__file__).read().lower()
-    for token in ("gemini", "google", "grounding_enabled", "gemini_client"):
-        assert token not in src
-
-
-def test_github_token_env_name(monkeypatch, tmp_path):
+def test_config_does_not_require_base_branch(tmp_path):
     from scripts.config import load_shared_config
+
+    path = tmp_path / "secrets.toml"
+    path.write_text(
+        """[github]
+token = "t"
+repo_full_name = "owner/repo"
+target_branch = "target"
+[openai]
+api_key = "sk"
+[google]
+api_key = "g"
+""",
+        encoding="utf-8",
+    )
+    cfg = load_shared_config(str(path))
+    assert cfg.github_target_branch == "target"
+    assert not hasattr(cfg, "base_branch")
+
+
+def test_github_env_resolver_is_disabled_for_current_secrets(monkeypatch):
     from scripts.github_checkpoint import resolve_config_from_env
 
-    missing = tmp_path / "no_secrets.toml"
-    monkeypatch.delenv("GITHUB_TOKEN", raising=False)
-    assert load_shared_config(str(missing)).github_token == ""
-    monkeypatch.setenv("GITHUB_TOKEN", "ghp_token_value")
-    assert load_shared_config(str(missing)).github_token == "ghp_token_value"
-    config, _notes = resolve_config_from_env()
-    assert config is not None and config.token == "ghp_token_value"
+    monkeypatch.setenv("UNUSED_TOKEN_NAME", "ghp_token_value")
+    config, notes = resolve_config_from_env()
+    assert config is None
+    assert notes
 
 
 # ---------------------------------------------------------------------------
@@ -653,7 +672,7 @@ def test_github_token_env_name(monkeypatch, tmp_path):
 
 def test_missing_github_token_fails_only_when_checkpoint_enabled():
     from scripts.catalog_checkpoint import (
-        GITHUB_TOKEN_REQUIRED_MESSAGE,
+        GITHUB_SECRET_REQUIRED_MESSAGE,
         CatalogCheckpointConfig,
         CatalogCheckpointer,
     )
@@ -663,7 +682,7 @@ def test_missing_github_token_fails_only_when_checkpoint_enabled():
     # Enabled without token: clear, sanitized error.
     with pytest.raises(ValueError) as exc:
         CatalogCheckpointer(CatalogCheckpointConfig(enabled=True, token=""))
-    assert str(exc.value) == GITHUB_TOKEN_REQUIRED_MESSAGE
+    assert str(exc.value) == GITHUB_SECRET_REQUIRED_MESSAGE
 
 
 def test_checkpoint_disabled_by_default_does_not_trigger(monkeypatch, tmp_path):
