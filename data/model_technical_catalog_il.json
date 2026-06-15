@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T18:46:58Z",
+  "generated_at": "2026-06-15T18:47:24Z",
   "market": "IL",
   "mode": "online_gpt54",
   "model_id": "gpt-5.4",
@@ -9005,6 +9005,399 @@
         "Long-wheelbase PHEV row uses transmission from shared Israeli catalog PDF for A8/A8 L 60 TFSIe; because the L row itself is not separately repeated with transmission text on the page excerpt, support_level is indirect.",
         "Could not securely ground pre-2022 Israeli A8 diesel variants from the collected Israeli sources, so they were omitted.",
         "Could not securely ground exact Israeli-market year range for 55 TFSI before 2023 from the collected sources, so row is limited to sourced years only."
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Audi",
+      "model": "e-tron GT",
+      "canonical_model": "e-tron GT",
+      "year_start": 2021,
+      "year_end": 2026,
+      "technical_variants_il": [
+        {
+          "version_or_trim": "RS",
+          "body_type": "Sedan",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 598,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2021,
+          "year_end": 2024,
+          "support_level": "indirect",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": [
+            "engine_displacement_l"
+          ]
+        },
+        {
+          "version_or_trim": "S",
+          "body_type": "Sedan",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 680,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2024,
+          "year_end": 2026,
+          "support_level": "indirect",
+          "source_indexes": [
+            3,
+            4,
+            5
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              3,
+              5
+            ],
+            "body_type": [
+              4
+            ],
+            "fuel_type": [
+              4
+            ],
+            "engine": [
+              4
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              5
+            ],
+            "transmission": [
+              4
+            ],
+            "drivetrain": [
+              4
+            ],
+            "year_start": [
+              3
+            ],
+            "year_end": [
+              3
+            ]
+          },
+          "missing_grounded_fields": [
+            "engine_displacement_l"
+          ]
+        },
+        {
+          "version_or_trim": "RS Performance",
+          "body_type": "Sedan",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 925,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2024,
+          "year_end": 2026,
+          "support_level": "indirect",
+          "source_indexes": [
+            3,
+            6
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              3
+            ],
+            "body_type": [
+              6
+            ],
+            "fuel_type": [
+              6
+            ],
+            "engine": [
+              6
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              6
+            ],
+            "transmission": [
+              6
+            ],
+            "drivetrain": [
+              6
+            ],
+            "year_start": [
+              3
+            ],
+            "year_end": [
+              3
+            ]
+          },
+          "missing_grounded_fields": [
+            "engine_displacement_l"
+          ]
+        },
+        {
+          "version_or_trim": "quattro",
+          "body_type": "Sedan",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 503,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2025,
+          "year_end": 2026,
+          "support_level": "indirect",
+          "source_indexes": [
+            7,
+            8
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              7
+            ],
+            "body_type": [
+              8
+            ],
+            "fuel_type": [
+              8
+            ],
+            "engine": [
+              8
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              7
+            ],
+            "transmission": [
+              8
+            ],
+            "drivetrain": [
+              8
+            ],
+            "year_start": [
+              7
+            ],
+            "year_end": [
+              7
+            ]
+          },
+          "missing_grounded_fields": [
+            "engine_displacement_l"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "RS",
+          "S",
+          "RS Performance",
+          "quattro"
+        ],
+        "body_type": [
+          "Sedan"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          598,
+          680,
+          925,
+          503
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "AWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Electric",
+          "classification": "fuel/engine type, not a trim"
+        },
+        {
+          "label": "automatic",
+          "classification": "transmission label, not a trim"
+        },
+        {
+          "label": "Sedan",
+          "classification": "body type, not a trim"
+        },
+        {
+          "label": "AWD",
+          "classification": "drivetrain label, not a trim"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "אודי e-tron GT - כל המידע והדגמים",
+          "url": "https://www.icar.co.il/%D7%90%D7%95%D7%93%D7%99/%D7%90%D7%95%D7%93%D7%99_e-tron_GT/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "version_or_trim",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "e-tron GT (*2834) Audi לפרטים נוספים",
+          "url": "https://www.auto.co.il/attachment/catalog/pdf/2373%2C.pdf",
+          "source_name": "Auto",
+          "source_type": "catalog_pdf",
+          "supports": [
+            "version_or_trim",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "אודי e-tron GT 2024 RS חשמלי, 4x4 יד שניה",
+          "url": "https://www.auto.co.il/cars/audi/e-tron-gt/2024/537201/",
+          "source_name": "Auto",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "אודי e-tron GT 2024 יד שניה",
+          "url": "https://www.auto.co.il/model/audi-e-tron-gt_2024",
+          "source_name": "Auto",
+          "source_type": "model_catalog",
+          "supports": [
+            "version_or_trim",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 4,
+          "title": "אודי e-tron GT 2024 S חשמלי, 4x4 יד שניה",
+          "url": "https://www.auto.co.il/cars/audi/e-tron-gt/2024/537202/",
+          "source_name": "Auto",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 5,
+          "title": "אודי e-tron GT- אוטו",
+          "url": "https://www.auto.co.il/cars/audi/e-tron-gt/",
+          "source_name": "Auto",
+          "source_type": "model_catalog",
+          "supports": [
+            "version_or_trim",
+            "horsepower_hp"
+          ]
+        },
+        {
+          "source_index": 6,
+          "title": "S e-tron GT",
+          "url": "https://www.auto.co.il/attachment/catalog/pdf/3978%2C.pdf",
+          "source_name": "Auto",
+          "source_type": "catalog_pdf",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 7,
+          "title": "אודי GT e-טרון קוואטרו - מפגש ראשון",
+          "url": "https://www.auto.co.il/articles/test-drives/first-drives/audi-e-tron-gt-first-drive/",
+          "source_name": "Auto",
+          "source_type": "editorial",
+          "supports": [
+            "version_or_trim",
+            "horsepower_hp",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 8,
+          "title": "אודי e-tron GT 2024 יד שניה",
+          "url": "https://www.auto.co.il/model/audi-e-tron-gt_2024",
+          "source_name": "Auto",
+          "source_type": "model_catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "transmission",
+            "drivetrain"
+          ]
+        }
+      ],
+      "profile_confidence": "medium",
+      "notes": [
+        "Israeli-market grounding found for RS (pre-facelift), S (facelift), RS Performance (facelift), and later entry e-tron GT quattro.",
+        "Body type was normalized to Sedan from Israeli sources calling the car 'קופה 4 דלתות'/'ספורט-סדאן'.",
+        "Transmission was normalized to single_speed where Israeli source described 'הילוך יחיד'.",
+        "No grounded Israeli source was found for engine_displacement_l, so it is null for all electric variants.",
+        "For RS pre-facelift, sources showed 590 hp and 598 hp in different Israeli pages/catalogs; catalog PDF was preferred for horsepower and row marked indirect due to cross-source normalization.",
+        "RS Performance detail page could not be fetched directly due site restriction; row is grounded by Israeli model catalog and Israeli PDF/model-page evidence for technical fields available there."
       ]
     }
   ],
