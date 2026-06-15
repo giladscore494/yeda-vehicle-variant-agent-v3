@@ -16,7 +16,7 @@ from .catalog_builder import (
 )
 from .catalog_validation import REQUIRED_WEBSITE_FIELDS, derive_available_values, validate_profile
 from .openai_catalog_client import CatalogClientSettings, GROUNDED_TECHNICAL_FIELDS
-from .catalog_provider import CatalogProviderSettings, build_catalog_client
+from .catalog_provider import CatalogProviderSettings, ProviderUnavailableError, build_catalog_client, check_provider_available
 from .security import sanitize_error
 
 MAX_REPAIR_ATTEMPTS = 2
@@ -75,6 +75,26 @@ def merge_repair(existing: Dict[str, Any], repaired: Dict[str, Any], targets: Di
     return patched
 
 
+def clear_provider_unavailable_repair_errors(review: Dict[str, Any]) -> Dict[str, Any]:
+    """Return a copy with old Gemini dependency repair pollution cleared.
+
+    This helper is intentionally not run automatically. It only removes repair
+    metadata whose last error was the provider-level missing Gemini SDK failure.
+    """
+    cleaned = copy.deepcopy(review)
+    for entry in cleaned.get("models", []) or []:
+        if not isinstance(entry, dict):
+            continue
+        err = str(entry.get("last_repair_error") or "")
+        if "Gemini client library is unavailable" not in err:
+            continue
+        entry.pop("last_repair_error", None)
+        entry.pop("repair_exhausted", None)
+        if int(entry.get("repair_attempts", 0) or 0) > 0:
+            entry["repair_attempts"] = 0
+    return cleaned
+
+
 def repair_review_models(
     batch: Optional[int] = None,
     *,
@@ -94,9 +114,11 @@ def repair_review_models(
             api_key=settings.api_key, web_search_enabled=settings.use_web_search
         )
     settings = settings or CatalogClientSettings(api_key=provider_settings.api_key, model_id=provider_settings.model_id, use_web_search=provider_settings.web_search_enabled)
-    if not provider_settings.api_key:
-        raise ValueError("Selected provider API key is missing; repair was not started.")
-    client = build_catalog_client(provider_settings)
+    try:
+        check_provider_available(provider_settings)
+        client = build_catalog_client(provider_settings)
+    except ProviderUnavailableError:
+        raise
     catalog, readiness, review = load_existing_outputs(catalog_path, readiness_path, review_path)
     review_models = [m for m in review.get("models", []) if isinstance(m, dict)]
     processed = promoted = kept = skipped = 0
@@ -139,6 +161,8 @@ def repair_review_models(
                 new_review.append(kept_entry)
                 kept += 1
                 emit(f"KEEP {key}: {len(result.issues)} issue(s)")
+        except ProviderUnavailableError:
+            raise
         except Exception as exc:  # noqa: BLE001
             failed = dict(model_entry)
             failed["repair_attempts"] = attempts + 1

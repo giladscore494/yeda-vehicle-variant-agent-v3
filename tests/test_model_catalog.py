@@ -448,13 +448,15 @@ def test_readiness_report_is_grounded_by_default():
 
 def test_missing_openai_key_fails_closed():
     """A run without an OpenAI key fails closed (spec 2 & 11)."""
-    with pytest.raises(ValueError) as exc:
+    from scripts.catalog_provider import ProviderUnavailableError
+
+    with pytest.raises(ProviderUnavailableError) as exc:
         cb.build_catalog(
             make="Abarth", model="500", limit_models=1,
             settings=CatalogClientSettings(api_key=""),
         )
-    assert "Selected provider API key is missing" in str(exc.value)
-    assert str(exc.value) == cb.MODEL_KEY_REQUIRED_MESSAGE
+    assert "OpenAI API key is missing" in str(exc.value)
+    assert "No fallback" in str(exc.value)
 
 
 def test_cli_does_not_accept_offline_flag():

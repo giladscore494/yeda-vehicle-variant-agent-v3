@@ -9,7 +9,7 @@ import streamlit as st
 
 from scripts.catalog_builder import CATALOG_OUTPUT_PATH, READINESS_OUTPUT_PATH, REVIEW_OUTPUT_PATH, build_catalog, compute_resume_state, load_existing_outputs
 from scripts.catalog_checkpoint import CatalogCheckpointConfig
-from scripts.catalog_provider import CatalogProviderSettings
+from scripts.catalog_provider import CatalogProviderSettings, ProviderUnavailableError, check_provider_available
 from scripts.catalog_quality_scan import QUALITY_SCAN_OUTPUT_PATH, scan_quality
 from scripts.catalog_repair import repair_review_models
 from scripts.config import DEFAULT_GEMINI_VALIDATOR_MODEL_ID, DEFAULT_OPENAI_VALIDATOR_MODEL_ID, SharedConfig, load_shared_config
@@ -40,11 +40,12 @@ def provider_settings_for_label(label: str, config: SharedConfig) -> CatalogProv
 
 
 def can_start_provider(settings: CatalogProviderSettings) -> tuple[bool, str]:
-    if settings.api_key:
-        return True, ""
-    if settings.provider == "openai":
-        return False, "OpenAI API key is missing for the selected GPT-5.4 validation model. No fallback was used."
-    return False, "Google API key is missing for the selected Gemini 3.1 validation model. No fallback was used."
+    try:
+        check_provider_available(settings)
+    except ProviderUnavailableError as exc:
+        prefix = f"{settings.display_name} cannot start"
+        return False, f"{prefix}: {sanitize_error(exc)}"
+    return True, ""
 
 
 def existing_output_paths(paths: Optional[List[str]] = None) -> List[str]:
