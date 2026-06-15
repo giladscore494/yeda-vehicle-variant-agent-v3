@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T18:36:56Z",
+  "generated_at": "2026-06-15T18:37:14Z",
   "market": "IL",
   "models": [
     {
@@ -4782,6 +4782,151 @@
         "variant[2] required field 'transmission' listed in missing_grounded_fields",
         "variant[2] required field 'drivetrain' listed in missing_grounded_fields",
         "variant[2] is electric inside a petrol model profile"
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Alfa Romeo",
+      "model": "Spider",
+      "canonical_model": "Spider",
+      "year_start": 2007,
+      "year_end": 2011,
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Convertible",
+          "fuel_type": "petrol",
+          "engine": "2.2L",
+          "engine_displacement_l": 2.2,
+          "horsepower_hp": null,
+          "transmission": null,
+          "drivetrain": null,
+          "year_start": 2007,
+          "year_end": 2011,
+          "support_level": "unknown",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [],
+            "transmission": [],
+            "drivetrain": [],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": [
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Convertible"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "2.2L"
+        ],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "2.0 MT",
+          "classification": "raw_database_value_not_grounded_in_israeli_sources_for_this_model_profile"
+        },
+        {
+          "label": "3.0 MT",
+          "classification": "raw_database_value_not_grounded_in_israeli_sources_for_this_model_profile"
+        },
+        {
+          "label": "2.2 רובוטי",
+          "classification": "version_label_from_secondary_listing_not_used_as_trim"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "אלפא רומיאו ספיידר - כל המידע והדגמים",
+          "url": "https://www.icar.co.il/%D7%90%D7%9C%D7%A4%D7%90_%D7%A8%D7%95%D7%9E%D7%99%D7%90%D7%95/%D7%90%D7%9C%D7%A4%D7%90_%D7%A8%D7%95%D7%9E%D7%99%D7%90%D7%95_%D7%A1%D7%A4%D7%99%D7%99%D7%93%D7%A8/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "year_start",
+            "year_end",
+            "body_type"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "אלפא רומיאו ספיידר יד שניה - iCar",
+          "url": "https://www.icar.co.il/%D7%90%D7%9C%D7%A4%D7%90_%D7%A8%D7%95%D7%9E%D7%99%D7%90%D7%95/%D7%90%D7%9C%D7%A4%D7%90_%D7%A8%D7%95%D7%9E%D7%99%D7%90%D7%95_%D7%A1%D7%A4%D7%99%D7%99%D7%93%D7%A8/%D7%90%D7%9C%D7%A4%D7%90_%D7%A8%D7%95%D7%9E%D7%99%D7%90%D7%95_%D7%A1%D7%A4%D7%99%D7%99%D7%93%D7%A8_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%94_%D7%9310/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "year_start",
+            "year_end",
+            "engine",
+            "engine_displacement_l",
+            "body_type"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "אחת מקטלוג אוטו: אלפא רומיאו בררה",
+          "url": "https://www.auto.co.il/articles/car-news/117720/",
+          "source_name": "Auto",
+          "source_type": "editorial",
+          "supports": [
+            "engine",
+            "engine_displacement_l",
+            "fuel_type"
+          ]
+        }
+      ],
+      "profile_confidence": "medium",
+      "notes": [
+        "Israeli-market grounding found for Alfa Romeo Spider only for the 2007-2011 generation in iCar sources.",
+        "The iCar Spider pages exposed only a single repeated version label '2.2 רובוטי'; however transmission could not be robustly normalized from the accessible page text alone, so transmission was left null.",
+        "No Israeli-market source was found in this search session to ground the raw-database 1995-2005 2.0/3.0 manual variants for this model request.",
+        "Horsepower and drivetrain were not returned because they were not grounded by accessible Israeli-market sources for Spider itself."
+      ],
+      "validation_issues": [
+        "variant[0] non-null field 'fuel_type' has no field_sources entry",
+        "variant[0] required website field 'horsepower_hp' is null/empty",
+        "variant[0] required website field 'transmission' is null/empty",
+        "variant[0] required website field 'drivetrain' is null/empty",
+        "variant[0] required field 'horsepower_hp' listed in missing_grounded_fields",
+        "variant[0] required field 'transmission' listed in missing_grounded_fields",
+        "variant[0] required field 'drivetrain' listed in missing_grounded_fields"
       ]
     }
   ]
