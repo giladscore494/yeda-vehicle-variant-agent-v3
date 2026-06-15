@@ -1,15 +1,13 @@
-"""Shared configuration loading for CLI and Streamlit.
+"""Shared configuration loading for the GPT-5.4 catalog CLI and Streamlit app.
 
 Environment variables win. When absent, code may read the same key name from
-Streamlit secrets (``OPENAI_API_KEY`` / ``GITHUB_TOKEN``). The documented and
-required secret names are exactly:
+Streamlit secrets. The only model API key is ``OPENAI_API_KEY`` and the only
+model setting is ``OPENAI_VALIDATOR_MODEL_ID`` (default ``gpt-5.4``). The GitHub
+checkpoint token (``GITHUB_TOKEN``) is optional.
 
-- ``OPENAI_API_KEY`` — real GPT-5.4 grounded catalog calls.
-- ``GITHUB_TOKEN``  — pushing catalog output/checkpoints back to GitHub.
-
-The historical nested shapes (``[openai].api_key`` / ``[github].token``) are
-kept ONLY as backward-compatible aliases; never introduce new alternative
-secret names.
+The historical nested shapes (``[openai].api_key`` / ``[openai].validator_model_id``
+/ ``[github].token``) are kept ONLY as backward-compatible aliases; never
+introduce new alternative secret names.
 """
 from __future__ import annotations
 
@@ -23,25 +21,16 @@ try:
 except ModuleNotFoundError:  # pragma: no cover
     import tomli as tomllib  # type: ignore
 
-from .gemini_client import DEFAULT_MODEL_ID
-
 DEFAULT_OPENAI_VALIDATOR_MODEL_ID = "gpt-5.4"
+
 
 @dataclass(frozen=True)
 class SharedConfig:
-    github_token: str = ""
-    google_api_key: str = ""
-    gemini_validator_model_id: str = DEFAULT_MODEL_ID
     openai_api_key: str = ""
     openai_validator_model_id: str = DEFAULT_OPENAI_VALIDATOR_MODEL_ID
-    grounding_enabled: bool = True
-    force_per_variant_validation: bool = True
-    # New single-GPT-5.4 model technical-catalog mode. When true the new
-    # catalog pipeline is active and Gemini / legacy guard / repair adjudicator
-    # / per-row validation are all disabled.
-    single_gpt54_model_catalog_mode: bool = True
-    # GitHub checkpointing for the new model-level catalog flow. Pushes happen
-    # after each completed model profile (never after each raw variant).
+    github_token: str = ""
+    # GitHub checkpointing for the model-level catalog flow. Pushes happen after
+    # each completed model profile (never after each raw variant).
     github_checkpoint_enabled: bool = False
     push_every_profiles: int = 1
     strict_github_checkpoint: bool = False
@@ -74,7 +63,6 @@ def _int(value: Any, default: int) -> int:
 
 def load_shared_config(secrets_path: str = ".streamlit/secrets.toml") -> SharedConfig:
     secrets = _read_secrets(secrets_path)
-    google = secrets.get("google") or {}
     openai = secrets.get("openai") or {}
     github = secrets.get("github") or {}
     catalog = secrets.get("catalog") or {}
@@ -87,6 +75,11 @@ def load_shared_config(secrets_path: str = ".streamlit/secrets.toml") -> SharedC
         or openai.get("api_key", "")
         or ""
     )
+    openai_validator_model_id = (
+        os.environ.get("OPENAI_VALIDATOR_MODEL_ID")
+        or openai.get("validator_model_id", DEFAULT_OPENAI_VALIDATOR_MODEL_ID)
+        or DEFAULT_OPENAI_VALIDATOR_MODEL_ID
+    )
     github_token = (
         os.environ.get("GITHUB_TOKEN")
         or secrets.get("GITHUB_TOKEN")
@@ -94,17 +87,9 @@ def load_shared_config(secrets_path: str = ".streamlit/secrets.toml") -> SharedC
         or ""
     )
     return SharedConfig(
-        github_token=github_token,
-        google_api_key=os.environ.get("GEMINI_API_KEY") or google.get("api_key", "") or "",
-        gemini_validator_model_id=os.environ.get("GEMINI_MODEL_ID") or google.get("gemini_validator_model_id", DEFAULT_MODEL_ID) or DEFAULT_MODEL_ID,
         openai_api_key=openai_api_key,
-        openai_validator_model_id=os.environ.get("OPENAI_VALIDATOR_MODEL_ID") or openai.get("validator_model_id", DEFAULT_OPENAI_VALIDATOR_MODEL_ID) or DEFAULT_OPENAI_VALIDATOR_MODEL_ID,
-        grounding_enabled=_bool(os.environ.get("GROUNDING_ENABLED"), _bool(google.get("grounding_enabled"), True)),
-        force_per_variant_validation=_bool(google.get("force_per_variant_validation"), True),
-        single_gpt54_model_catalog_mode=_bool(
-            os.environ.get("SINGLE_GPT54_MODEL_CATALOG_MODE"),
-            _bool(catalog.get("single_gpt54_model_catalog_mode"), True),
-        ),
+        openai_validator_model_id=openai_validator_model_id,
+        github_token=github_token,
         github_checkpoint_enabled=_bool(
             os.environ.get("GITHUB_CHECKPOINT_ENABLED"),
             _bool(catalog.get("github_checkpoint_enabled"), False),
