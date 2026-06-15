@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T18:33:30Z",
+  "generated_at": "2026-06-15T18:34:02Z",
   "market": "IL",
   "mode": "online_gpt54",
   "model_id": "gpt-5.4",
@@ -2681,6 +2681,551 @@
         "Engine normalization uses displacement plus visible configuration only where sourced in Israeli-market pages/title text; turbo/JTD descriptors were not added because they were not consistently grounded in the retrieved Israeli sources.",
         "One trim label ('Distinctive') was grounded only for a 2000 3.0 manual listing on Gear; other rows use null trim because no trim name was directly grounded for those technical configurations.",
         "Rows were merged only where identical across body_type, fuel_type, engine, horsepower_hp, transmission and drivetrain and where sourced pre-facelift/facelift periods showed continuity (e.g. 3.0 AT 220 hp across 1998–2007 via two Israeli-market sources)."
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Alfa Romeo",
+      "model": "Giulia",
+      "canonical_model": "Giulia",
+      "year_start": 2016,
+      "year_end": 2025,
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Milano",
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 200,
+          "transmission": "automatic",
+          "drivetrain": "RWD",
+          "year_start": 2016,
+          "year_end": 2018,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              2
+            ],
+            "engine": [
+              0,
+              3
+            ],
+            "engine_displacement_l": [
+              0,
+              3
+            ],
+            "horsepower_hp": [
+              0,
+              3
+            ],
+            "transmission": [
+              3
+            ],
+            "drivetrain": [
+              4
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Speciale",
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 200,
+          "transmission": "automatic",
+          "drivetrain": "RWD",
+          "year_start": 2016,
+          "year_end": 2018,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              2
+            ],
+            "engine": [
+              0,
+              3
+            ],
+            "engine_displacement_l": [
+              0,
+              3
+            ],
+            "horsepower_hp": [
+              0,
+              3
+            ],
+            "transmission": [
+              3
+            ],
+            "drivetrain": [
+              4
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Veloce",
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 280,
+          "transmission": "automatic",
+          "drivetrain": "AWD",
+          "year_start": 2018,
+          "year_end": 2025,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2,
+            5,
+            6
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              2,
+              5
+            ],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              2
+            ],
+            "engine": [
+              0,
+              2
+            ],
+            "engine_displacement_l": [
+              0,
+              2
+            ],
+            "horsepower_hp": [
+              0,
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              2,
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              5
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Tributo Italiano",
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 280,
+          "transmission": "automatic",
+          "drivetrain": "AWD",
+          "year_start": 2024,
+          "year_end": 2025,
+          "support_level": "direct",
+          "source_indexes": [
+            2,
+            5,
+            6
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              2
+            ],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              2
+            ],
+            "engine": [
+              2
+            ],
+            "engine_displacement_l": [
+              2
+            ],
+            "horsepower_hp": [
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              2
+            ],
+            "year_start": [
+              6
+            ],
+            "year_end": [
+              5
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Quadrifoglio",
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "2.9L v6 turbo",
+          "engine_displacement_l": 2.9,
+          "horsepower_hp": 510,
+          "transmission": "automatic",
+          "drivetrain": "RWD",
+          "year_start": 2016,
+          "year_end": 2023,
+          "support_level": "direct",
+          "source_indexes": [
+            2,
+            3,
+            4,
+            6
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              4
+            ],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              2
+            ],
+            "engine": [
+              2
+            ],
+            "engine_displacement_l": [
+              2
+            ],
+            "horsepower_hp": [
+              6
+            ],
+            "transmission": [
+              3
+            ],
+            "drivetrain": [
+              2,
+              4
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              6
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Quadrifoglio",
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "2.9L v6 turbo",
+          "engine_displacement_l": 2.9,
+          "horsepower_hp": 520,
+          "transmission": "automatic",
+          "drivetrain": "RWD",
+          "year_start": 2024,
+          "year_end": 2025,
+          "support_level": "direct",
+          "source_indexes": [
+            2,
+            5
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              2
+            ],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              2
+            ],
+            "engine": [
+              2
+            ],
+            "engine_displacement_l": [
+              2
+            ],
+            "horsepower_hp": [
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              2
+            ],
+            "year_start": [
+              6
+            ],
+            "year_end": [
+              5
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Sprint",
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 200,
+          "transmission": "automatic",
+          "drivetrain": "RWD",
+          "year_start": 2024,
+          "year_end": 2025,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            5,
+            6
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              6
+            ],
+            "year_end": [
+              5
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Milano",
+          "Speciale",
+          "Veloce",
+          "Tributo Italiano",
+          "Quadrifoglio",
+          "Sprint"
+        ],
+        "body_type": [
+          "Sedan"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "2.0L turbo",
+          "2.9L v6 turbo"
+        ],
+        "horsepower_hp": [
+          200,
+          280,
+          510,
+          520
+        ],
+        "transmission": [
+          "automatic"
+        ],
+        "drivetrain": [
+          "RWD",
+          "AWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Base",
+          "classification": "non_trim_label"
+        },
+        {
+          "label": "Standard",
+          "classification": "non_trim_label"
+        },
+        {
+          "label": "2.0",
+          "classification": "engine_size_not_trim"
+        },
+        {
+          "label": "200hp",
+          "classification": "horsepower_label_not_trim"
+        },
+        {
+          "label": "280hp",
+          "classification": "horsepower_label_not_trim"
+        },
+        {
+          "label": "510hp",
+          "classification": "horsepower_label_not_trim"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "Giulia - אלפא רומיאו ג'וליה | Alfa Romeo Israel",
+          "url": "https://www.alfaromeo.co.il/models/giulia",
+          "source_name": "Alfa Romeo Israel",
+          "source_type": "official_importer_page",
+          "supports": [
+            "version_or_trim",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "מידע מקיף ומקצועי על אלפא רומיאו ג'וליה - אתר iCar",
+          "url": "https://www.icar.co.il/%D7%90%D7%9C%D7%A4%D7%90_%D7%A8%D7%95%D7%9E%D7%99%D7%90%D7%95/%D7%90%D7%9C%D7%A4%D7%90_%D7%A8%D7%95%D7%9E%D7%99%D7%90%D7%95_%D7%92%27%D7%95%D7%9C%D7%99%D7%94/%D7%90%D7%9C%D7%A4%D7%90_%D7%A8%D7%95%D7%9E%D7%99%D7%90%D7%95_%D7%92%27%D7%95%D7%9C%D7%99%D7%94_%D7%A8%D7%9B%D7%91_%D7%97%D7%93%D7%A9/",
+          "source_name": "iCar",
+          "source_type": "israeli_catalog_editorial",
+          "supports": [
+            "body_type",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "אלפא רומיאו ג'ולייה - מחירון, חוות דעת ומידע טכני | אוטו",
+          "url": "https://www.auto.co.il/cars/alfa-romeo/giulia/",
+          "source_name": "Auto",
+          "source_type": "israeli_catalog_editorial",
+          "supports": [
+            "version_or_trim",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "אלפא רומיאו ג'וליה - מבחן דרכים (השקה)",
+          "url": "https://www.auto.co.il/articles/test-drives/127817/",
+          "source_name": "Auto",
+          "source_type": "israeli_editorial",
+          "supports": [
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission"
+          ]
+        },
+        {
+          "source_index": 4,
+          "title": "חדשות רכב - אלפא רומיאו ג'וליה הגיעה: החל מ-250 אלף שקל",
+          "url": "https://www.icar.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA_%D7%A8%D7%9B%D7%91/%D7%90%D7%9C%D7%A4%D7%90_%D7%A8%D7%95%D7%9E%D7%99%D7%90%D7%95_%D7%92%27%D7%95%D7%9C%D7%99%D7%94_%D7%94%D7%92%D7%99%D7%A2%D7%94%3A_%D7%94%D7%97%D7%9C_%D7%9E-250_%D7%90%D7%9C%D7%A3_%D7%A9%D7%A7%D7%9C/",
+          "source_name": "iCar",
+          "source_type": "israeli_editorial",
+          "supports": [
+            "drivetrain",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 5,
+          "title": "אלפא רומיאו ג'וליה",
+          "url": "https://www.icar.co.il/%D7%90%D7%9C%D7%A4%D7%90_%D7%A8%D7%95%D7%9E%D7%99%D7%90%D7%95/%D7%90%D7%9C%D7%A4%D7%90_%D7%A8%D7%95%D7%9E%D7%99%D7%90%D7%95_%D7%92%27%D7%95%D7%9C%D7%99%D7%94/",
+          "source_name": "iCar",
+          "source_type": "israeli_catalog_editorial",
+          "supports": [
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 6,
+          "title": "Alfa Romeo Israel current Giulia listings/spec summary via Auto.co.il",
+          "url": "https://www.auto.co.il/cars/alfa-romeo/giulia/",
+          "source_name": "Auto",
+          "source_type": "israeli_catalog_editorial",
+          "supports": [
+            "version_or_trim",
+            "horsepower_hp",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "profile_confidence": "medium",
+      "notes": [
+        "Official Israeli importer current Giulia page directly confirms current trims Sprint and Veloce and two petrol outputs 200 hp and 280 hp, but does not expose a full technical PDF on-page for Giulia.",
+        "A historic Israeli PDF catalog found via static.auto.co.il supports earlier Israeli trims Milano, Speciale and Veloce with 200 hp/200 hp/280 hp respectively.",
+        "Quadrifoglio is supported by Israeli editorial/catalog sources as an Israeli-sold variant; horsepower split 510 hp vs 520 hp is separated by pre-facelift vs current-facelift Israeli catalog/editorial evidence.",
+        "Sprint 2024-2025 drivetrain is grounded indirectly from official importer context: current Giulia page states two petrol outputs (200/280) and references Q2 or Q4 systems while Veloce is the AWD-oriented current 280 hp trim; no standalone Sprint technical PDF was found, so this row is marked indirect only because field granularity for Sprint is less explicit than Veloce in available sources."
       ]
     }
   ],
