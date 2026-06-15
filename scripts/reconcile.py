@@ -155,6 +155,136 @@ _ALLOWED_PATCH_FIELDS_BY_GUARD = {
 }
 
 
+# ---------------------------------------------------------------------------
+# Enum normalization (run after Gemini and after GPT-5.4 repair)
+# ---------------------------------------------------------------------------
+
+ALLOWED_FV_STATUS = {"verified", "inferred", "candidate", "unresolved", "contradictory"}
+_FV_STATUS_MAP = {
+    "partial": "candidate",
+    "candidate_unverified": "candidate",
+    "moderate": "inferred",
+    "limited": "candidate",
+    "insufficient": "unresolved",
+    "missing": "unresolved",
+    "conflicting_or_insufficient": "contradictory",
+    "conflict": "contradictory",
+    "conflicting": "contradictory",
+    "unknown": "unresolved",
+    "not_verified": "unresolved",
+    "unverified": "unresolved",
+    "likely": "inferred",
+    "weak": "candidate",
+    "none": "unresolved",
+}
+
+ALLOWED_EVIDENCE_STRENGTH = {"strong", "acceptable", "partial", "weak", "missing", "contradictory"}
+_EVIDENCE_STRENGTH_MAP = {
+    "moderate": "acceptable",
+    "limited": "weak",
+    "insufficient": "missing",
+    "none": "missing",
+    "conflicting": "contradictory",
+    "conflict": "contradictory",
+    "strong_direct": "strong",
+    "good": "acceptable",
+    "medium": "partial",
+    "unknown": "missing",
+}
+
+ALLOWED_SUPPORT_LEVEL = {"direct", "indirect", "partial", "missing", "contradictory"}
+_SUPPORT_LEVEL_MAP = {
+    "strong": "direct",
+    "weak": "partial",
+    "moderate": "indirect",
+    "none": "missing",
+    "insufficient": "missing",
+    "conflicting": "contradictory",
+    "conflict": "contradictory",
+    "supported": "direct",
+    "unsupported": "missing",
+    "unknown": "missing",
+}
+
+
+def _normalize_enum(value: Any, allowed: set, mapping: Dict[str, str]) -> Any:
+    """Map a model-invented enum onto the allowed set; unknowns survive unchanged."""
+    if value is None:
+        return value
+    key = str(value).strip().lower()
+    if key in allowed:
+        return key
+    if key in mapping:
+        return mapping[key]
+    return value
+
+
+def normalize_field_enums(row: Dict[str, Any]) -> Dict[str, Any]:
+    """Normalize field_validation/support enums on a row in place."""
+    fv = row.get("field_validation")
+    if isinstance(fv, dict):
+        for field, info in fv.items():
+            if not isinstance(info, dict):
+                continue
+            if "status" in info:
+                info["status"] = _normalize_enum(info.get("status"), ALLOWED_FV_STATUS, _FV_STATUS_MAP)
+            if "evidence_strength" in info:
+                info["evidence_strength"] = _normalize_enum(info.get("evidence_strength"), ALLOWED_EVIDENCE_STRENGTH, _EVIDENCE_STRENGTH_MAP)
+    matrix = row.get("source_support_matrix")
+    if isinstance(matrix, list):
+        for item in matrix:
+            if isinstance(item, dict) and "support_level" in item:
+                item["support_level"] = _normalize_enum(item.get("support_level"), ALLOWED_SUPPORT_LEVEL, _SUPPORT_LEVEL_MAP)
+    return row
+
+
+def detect_unknown_enums(row: Dict[str, Any]) -> List[str]:
+    """Return human-readable descriptors of any enum still outside the allowed sets."""
+    unknown: List[str] = []
+    fv = row.get("field_validation")
+    if isinstance(fv, dict):
+        for field, info in fv.items():
+            if not isinstance(info, dict):
+                continue
+            st = info.get("status")
+            if st is not None and str(st).strip().lower() not in ALLOWED_FV_STATUS:
+                unknown.append(f"field_validation.{field}.status={st}")
+            es = info.get("evidence_strength")
+            if es is not None and str(es).strip().lower() not in ALLOWED_EVIDENCE_STRENGTH:
+                unknown.append(f"field_validation.{field}.evidence_strength={es}")
+    matrix = row.get("source_support_matrix")
+    if isinstance(matrix, list):
+        for item in matrix:
+            if isinstance(item, dict):
+                sl = item.get("support_level")
+                if sl is not None and str(sl).strip().lower() not in ALLOWED_SUPPORT_LEVEL:
+                    unknown.append(f"source_support_matrix[{item.get('field')}].support_level={sl}")
+    return unknown
+
+
+def dedupe_guard_flags(flags: List[Any]) -> List[Any]:
+    """De-duplicate guard flags by (name, field, original, guard_value, reason)."""
+    seen: set = set()
+    out: List[Any] = []
+    for f in flags or []:
+        if isinstance(f, dict):
+            key = (
+                f.get("guard_name"), f.get("field_affected"),
+                repr(f.get("original_value")), repr(f.get("guard_value")), f.get("reason"),
+            )
+        else:
+            key = (
+                getattr(f, "guard_name", None), getattr(f, "field_affected", None),
+                repr(getattr(f, "original_value", None)), repr(getattr(f, "guard_value", None)),
+                getattr(f, "reason", None),
+            )
+        if key in seen:
+            continue
+        seen.add(key)
+        out.append(f)
+    return out
+
+
 def _add_flag(flags, name, old, new, field, reason, severity="medium", risk_tags=None):
     needs = name in NEEDS_ADJUDICATION or severity in {"high", "critical"}
     flags.append(GuardFlag(
@@ -750,7 +880,7 @@ def _apply_v3_guards(row: Dict[str, Any], flags: List[GuardFlag]) -> None:
     ):
         old = row.get("validation_decision")
         row["validation_decision"] = "split_required" if (row.get("split_candidates") or _prefer_split(row)) else "clean_partial"
-        _add_issue(row, "clean_exact downgraded because trim/identity/market evidence remains unresolved or corrected.")
+        _add_issue(row, "clean_exact downgraded; row is not exact-publishable because identity/market evidence is not fully verified or was corrected.")
         _add_flag(flags, "no_clean_exact_unresolved", old, row.get("validation_decision"), "validation_decision", "clean_exact is not allowed with unresolved/corrected identity or trim issues.")
 
     _sync_unresolved_language(row)
@@ -790,6 +920,7 @@ def reconcile_validation_output_with_flags(
     if run_mode != "mock":
         _strip_mock_marker(row)
 
+    normalize_field_enums(row)
     row["fields_changed"] = _audit_field_changes(source_std, row)
     row["trim_status"] = _reconcile_trim_status(row)
     row["fields_left_unresolved"] = _clean_unresolved(row)
@@ -1056,6 +1187,7 @@ def determine_final_route(row: Dict[str, Any], flags: List[GuardFlag]) -> Tuple[
         and row.get("evidence_auditability") in {"strong", "acceptable"}
         and grounding.get("final_grounding_gate_passed") is True
         and not high_flags
+        and not row.get("_unknown_enums")
     )
     if clean_ok:
         return "clean_catalog", True, "Final seal passed strict clean_catalog policy."
@@ -1064,7 +1196,202 @@ def determine_final_route(row: Dict[str, Any], flags: List[GuardFlag]) -> Tuple[
     return "review_queue", False, "Final seal blocked clean_catalog because unresolved, weak-grounded, contradictory, or non-exact fields remain."
 
 
+# ---------------------------------------------------------------------------
+# Israeli option-matrix model: candidate values, option matrix, publication type
+# ---------------------------------------------------------------------------
+
+# Canonical fields that may be reset to null when unresolved/contradicted.
+# Make/model are identity anchors and are never auto-nulled here.
+CANONICAL_NULLABLE_FIELDS = {
+    "canonical_trim", "official_marketed_name_il", "body_type", "fuel_type",
+    "engine", "transmission", "drivetrain", "year_start", "year_end",
+}
+
+# Output field -> the key used inside candidate_values / user_selectable_fields.
+_CANDIDATE_KEY = {"canonical_trim": "trim"}
+
+
+def _candidate_key(field: str) -> str:
+    return _CANDIDATE_KEY.get(field, field)
+
+
+def _stash_candidate(row: Dict[str, Any], field: str, value: Any, status: str, reason: str) -> None:
+    """Preserve an unresolved canonical value as a candidate, never as publishable."""
+    if value in (None, "", []):
+        return
+    cv = row.get("candidate_values")
+    if not isinstance(cv, dict):
+        cv = {}
+        row["candidate_values"] = cv
+    key = _candidate_key(field)
+    entry = cv.get(key) if isinstance(cv.get(key), dict) else {"values": [], "status": "candidate", "reason": reason}
+    values = entry.get("values") if isinstance(entry.get("values"), list) else []
+    if value not in values:
+        values.append(value)
+    entry["values"] = values
+    entry["status"] = "candidate"
+    entry.setdefault("reason", reason)
+    cv[key] = entry
+
+
+def _row_evidence_strength(row: Dict[str, Any]) -> str:
+    audit = row.get("evidence_auditability")
+    if audit in {"strong", "acceptable", "partial", "weak"}:
+        return "acceptable" if audit == "strong" else audit
+    return "weak"
+
+
+def build_option_matrix(row: Dict[str, Any]) -> Tuple[List[Dict[str, Any]], Dict[str, List[Any]]]:
+    """Build a conservative Israeli option matrix + user-selectable fields.
+
+    Trim candidates come from ``split_candidates`` and ``possible_trim_names``.
+    Each option-matrix row carries the shared engine/body/year facts and a
+    per-trim transmission *only* when the source provided that exact mapping —
+    otherwise transmission stays null so impossible combinations are never
+    invented.
+    """
+    seen: set = set()
+    trims: List[Dict[str, Any]] = []
+
+    def _add(d: Dict[str, Any]) -> None:
+        t = norm_str(d.get("trim"))
+        if not t or is_weak_trim(t):
+            return
+        key = t.lower()
+        if key in seen:
+            return
+        seen.add(key)
+        trims.append({**d, "trim": t})
+
+    for item in row.get("split_candidates") or []:
+        if isinstance(item, dict):
+            _add(item)
+        elif isinstance(item, str):
+            _add({"trim": item})
+    for item in row.get("possible_trim_names") or []:
+        if isinstance(item, dict):
+            _add(item)
+        elif isinstance(item, str):
+            _add({"trim": item})
+
+    strength = _row_evidence_strength(row)
+    matrix: List[Dict[str, Any]] = []
+    for d in trims:
+        matrix.append({
+            "trim": d["trim"],
+            "engine": d.get("engine", row.get("engine")),
+            "transmission": d.get("transmission"),
+            "body_type": d.get("body_type", row.get("body_type")),
+            "year_start": d.get("year_start", row.get("year_start")),
+            "year_end": d.get("year_end", row.get("year_end")),
+            "evidence_strength": d.get("evidence_strength", strength),
+            "source_indexes": d.get("source_indexes", []),
+        })
+
+    usf: Dict[str, List[Any]] = {}
+    if trims:
+        usf["trim"] = [d["trim"] for d in trims]
+    cv = row.get("candidate_values") if isinstance(row.get("candidate_values"), dict) else {}
+    for out_key, col in (("transmission", "transmission"), ("body_type", "body_type"), ("engine", "engine")):
+        vals: List[Any] = []
+        for e in matrix:
+            v = e.get(col)
+            if v not in (None, "", []) and v not in vals:
+                vals.append(v)
+        entry = cv.get(out_key)
+        if isinstance(entry, dict):
+            for v in entry.get("values") or []:
+                if v not in vals:
+                    vals.append(v)
+        if vals:
+            usf[out_key] = vals
+    years: List[Any] = []
+    for e in matrix:
+        ys = e.get("year_start")
+        if ys not in (None, "", []) and ys not in years:
+            years.append(ys)
+    if years:
+        usf["year"] = years
+    return matrix, usf
+
+
+def _usf_has_options(usf: Any) -> bool:
+    if not isinstance(usf, dict):
+        return False
+    return any(isinstance(v, list) and len(v) >= 1 for v in usf.values())
+
+
+def classify_publication_type(row: Dict[str, Any], *, clean_ok: bool, option_matrix: List[Dict[str, Any]], user_selectable_fields: Dict[str, Any]) -> str:
+    """exact_variant / configurable_group / review_only."""
+    if clean_ok:
+        return "exact_variant"
+    identity_ok = row.get("identity_status") in {"verified", "likely_valid"}
+    has_options = (
+        bool(option_matrix)
+        or _usf_has_options(user_selectable_fields)
+        or bool(row.get("split_candidates"))
+        or bool(row.get("candidate_values"))
+    )
+    if identity_ok and has_options:
+        return "configurable_group"
+    return "review_only"
+
+
+def apply_final_consistency_rules(row: Dict[str, Any], flags: List[GuardFlag]) -> Dict[str, Any]:
+    """Deterministic post-repair consistency pass (Stage 4, before routing).
+
+    Enforces the hard rule that an unresolved/contradicted field can never be a
+    publishable canonical value, normalizes enums, and records unknown enums so
+    the export gate can block them. It never relaxes acceptance.
+    """
+    normalize_field_enums(row)
+    fv = row.get("field_validation") if isinstance(row.get("field_validation"), dict) else {}
+    unresolved = row.get("fields_left_unresolved") if isinstance(row.get("fields_left_unresolved"), list) else []
+
+    # Rule 1: a critical guard with guard_value=null must be applied — the
+    # canonical value is nulled, preserved as a candidate, and synced as unresolved.
+    for f in flags:
+        if getattr(f, "severity", None) != "critical" or getattr(f, "guard_value", "x") is not None:
+            continue
+        field = getattr(f, "field_affected", None)
+        if field in CANONICAL_NULLABLE_FIELDS and row.get(field) not in (None, "", []):
+            _stash_candidate(row, field, row.get(field), "candidate", getattr(f, "reason", "Unresolved by guard."))
+            row[field] = None
+            if field not in unresolved:
+                unresolved.append(field)
+
+    # Rule 6: any field marked unresolved/contradictory in field_validation must
+    # not remain a populated canonical value.
+    for field, info in list(fv.items()):
+        if not isinstance(info, dict):
+            continue
+        if info.get("status") in {"unresolved", "contradictory"} and field in CANONICAL_NULLABLE_FIELDS and row.get(field) not in (None, "", []):
+            _stash_candidate(row, field, row.get(field), "candidate", "field_validation marks this field unresolved/contradictory.")
+            row[field] = None
+            info["confidence"] = 0.0
+            if field not in unresolved:
+                unresolved.append(field)
+
+    # Hard rule: a field listed unresolved cannot also be field_validation=verified
+    # or carry a populated canonical value.
+    for field in list(unresolved):
+        info = fv.get(field)
+        if isinstance(info, dict) and info.get("status") == "verified":
+            info["status"] = "unresolved"
+            info["confidence"] = 0.0
+            info["evidence_strength"] = info.get("evidence_strength") if info.get("evidence_strength") in {"missing", "contradictory", "weak", "partial"} else "missing"
+        if field in CANONICAL_NULLABLE_FIELDS and row.get(field) not in (None, "", []):
+            _stash_candidate(row, field, row.get(field), "candidate", "Listed in fields_left_unresolved.")
+            row[field] = None
+
+    row["field_validation"] = fv
+    row["fields_left_unresolved"] = unresolved
+    row["_unknown_enums"] = detect_unknown_enums(row)
+    return row
+
+
 def compute_repair_risk_score(row: Dict[str, Any], flags: List[GuardFlag], *, route_changed: bool = False) -> int:
+    flags = dedupe_guard_flags(flags)
     score = 0
     for f in flags:
         score += {"critical": 100, "high": 50, "medium": 15, "low": 0}.get(f.severity, 0)
@@ -1120,9 +1447,32 @@ def final_seal(row: Dict[str, Any], original_gemini_output: Optional[Dict[str, A
     repair_used = bool(repair_result)
     sealed["grounding_status"] = assess_grounding(sealed, repair_used=repair_used, require_gemini=require_gemini_grounding, require_gpt54_for_repair=require_gpt54_grounding_for_repair)
     apply_deterministic_quality_guards(sealed, flags)
+    # Stage 4 deterministic consistency: enum normalization + unresolved/populated
+    # invariants. Runs after repair/guards and before routing.
+    apply_final_consistency_rules(sealed, flags)
     sealed = enforce_consistency(sealed)
     sealed["grounding_status"] = assess_grounding(sealed, repair_used=repair_used, require_gemini=require_gemini_grounding, require_gpt54_for_repair=require_gpt54_grounding_for_repair)
+
+    # Build the Israeli option matrix before classifying so configurable groups
+    # are detected from real option candidates only.
+    option_matrix, user_selectable_fields = build_option_matrix(sealed)
     route, pub, reason = determine_final_route(sealed, flags)
+    clean_ok = bool(pub and route == "clean_catalog")
+    pub_type = classify_publication_type(sealed, clean_ok=clean_ok, option_matrix=option_matrix, user_selectable_fields=user_selectable_fields)
+    sealed["publication_type"] = pub_type
+    if pub_type == "configurable_group":
+        sealed["option_matrix"] = option_matrix
+        sealed["user_selectable_fields"] = user_selectable_fields
+        # Non-split configurable rows route to a dedicated queue; split rows keep
+        # split_queue so they can be split later.
+        if route in {"partial_queue", "review_queue"}:
+            route = "configurable_group_queue"
+            pub = False
+            reason = "Valid Israeli-market identity with multiple options; routed to configurable group (user-selectable trim/transmission/body/engine/year)."
+    else:
+        sealed["option_matrix"] = []
+        sealed["user_selectable_fields"] = {}
+
     old_route = sealed.get("final_route")
     if old_route != route:
         _add_flag(flags, "final_seal_route_override", old_route, route, "final_route", reason, severity="high" if old_route == "clean_catalog" else "medium", risk_tags=["routing", "final_seal"])
@@ -1130,6 +1480,18 @@ def final_seal(row: Dict[str, Any], original_gemini_output: Optional[Dict[str, A
     sealed["publishable_to_clean_catalog"] = pub
     sealed["route_reason"] = reason
     unresolved = sealed.get("fields_left_unresolved") or []
-    sealed["decision_reason"] = f"Final seal route={route}; validation_decision={sealed.get('validation_decision')}; identity_status={sealed.get('identity_status')}; trim_status={sealed.get('trim_status')}." + (f" Unresolved fields: {', '.join(map(str, unresolved))}." if unresolved else "")
-    sealed["final_seal_result"] = {"passed": bool(pub or route in {"partial_queue", "split_queue", "duplicate_queue", "review_queue", "rejected"}), "guard_flags": [_flag_to_dict(f) for f in flags], "blocks_clean_catalog": not pub}
+    sealed["decision_reason"] = f"Final seal route={route}; publication_type={pub_type}; validation_decision={sealed.get('validation_decision')}; identity_status={sealed.get('identity_status')}; trim_status={sealed.get('trim_status')}." + (f" Unresolved fields: {', '.join(map(str, unresolved))}." if unresolved else "")
+    deduped = dedupe_guard_flags(flags)
+    passed = bool(pub or route in {"partial_queue", "split_queue", "duplicate_queue", "review_queue", "configurable_group_queue", "rejected"})
+    sealed["final_seal_result"] = {
+        "seal_completed": True,
+        "clean_catalog_passed": bool(pub),
+        "blocks_clean_catalog": not pub,
+        "publication_type": pub_type,
+        "unknown_enums": list(sealed.get("_unknown_enums") or []),
+        # Back-compat: ``passed`` historically meant "the seal produced a valid
+        # routing decision", NOT "clean". Routing must use clean_catalog_passed.
+        "passed": passed,
+        "guard_flags": [_flag_to_dict(f) for f in deduped],
+    }
     return sealed, flags
