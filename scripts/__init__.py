@@ -1,18 +1,19 @@
-"""Gemini 3.1 sampled Israeli-market vehicle variant validation engine.
+"""GPT-5.4 Israeli-market vehicle model technical-catalog runner.
 
-Core principle: vehicle identity is strict, trim enrichment is flexible.
-A real Israeli-market variant must not be rejected only because the trim is
-weak, generic, missing, or hard to verify.
+One production path only: for each make/model cluster, GPT-5.4 answers a single
+grounded question — what technical versions were actually sold in Israel? —
+and Python validates the returned profile. GPT-5.4 is the only model and there
+is no fallback model.
 """
 
 __all__ = [
+    "config",
     "data_loader",
-    "normalization",
-    "clustering",
-    "output_writer",
-    "validator_engine",
-    "gemini_client",
+    "json_utils",
+    "catalog_grouping",
+    "catalog_validation",
+    "openai_catalog_client",
+    "catalog_builder",
+    "catalog_checkpoint",
     "github_checkpoint",
-    "run_paths",
-    "contamination",
 ]

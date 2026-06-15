@@ -61,6 +61,7 @@ class ModelGroup:
     source_indexes: List[int] = field(default_factory=list)
     raw_database_values: Dict[str, Any] = field(default_factory=dict)
     instruction_metadata: Dict[str, Any] = field(default_factory=dict)
+    raw_variant_count: int = 0
 
     @property
     def key(self) -> str:
@@ -140,6 +141,7 @@ def group_variants(
                 "model": model,
                 "validation_ids": [],
                 "source_indexes": [],
+                "row_count": 0,
                 "years": [],
                 "trims": [],
                 "engines": [],
@@ -151,6 +153,7 @@ def group_variants(
             }
             order.append(key)
         b = buckets[key]
+        b["row_count"] += 1
         vid = get_validation_id(variant)
         if vid:
             b["validation_ids"].append(vid)
@@ -192,6 +195,7 @@ def group_variants(
                 instruction_metadata=_collect_metadata(
                     b["validation_ids"], instructions
                 ),
+                raw_variant_count=b["row_count"],
             )
         )
     return groups
@@ -203,13 +207,23 @@ def select_groups(
     make: Optional[str] = None,
     model: Optional[str] = None,
     limit_models: Optional[int] = None,
+    start_after_key: Optional[str] = None,
 ) -> List[ModelGroup]:
-    """Filter/limit clusters — used by the one-model test sample."""
+    """Filter/limit clusters for one run.
+
+    ``start_after_key`` resumes processing AFTER the cluster whose ``key``
+    (``market|make|model``) matches, so a long run can be continued in batches.
+    """
     selected = groups
     if make:
         selected = [g for g in selected if g.make.lower() == make.lower()]
     if model:
         selected = [g for g in selected if g.model.lower() == model.lower()]
+    if start_after_key:
+        target = start_after_key.strip()
+        keys = [g.key for g in selected]
+        if target in keys:
+            selected = selected[keys.index(target) + 1:]
     if limit_models is not None and limit_models >= 0:
         selected = selected[:limit_models]
     return selected

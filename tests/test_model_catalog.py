@@ -1,4 +1,10 @@
-"""Tests for the single-GPT-5.4 Israeli model technical-catalog pipeline."""
+"""Tests for the single-GPT-5.4 Israeli model technical-catalog pipeline.
+
+The pipeline has one production path: GPT-5.4 with web_search grounding.
+``OPENAI_API_KEY`` is required and the run fails closed without it. The
+tests below also assert the retired pipelines stay gone (see the negative
+contract tests).
+"""
 
 from __future__ import annotations
 
@@ -7,13 +13,23 @@ import os
 
 import pytest
 
+import scripts.catalog_builder as cb
 from scripts.catalog_grouping import group_variants, select_groups
 from scripts.catalog_validation import (
     build_readiness_report,
     derive_available_values,
     validate_profile,
 )
-from scripts.openai_catalog_client import CatalogClient, classify_non_trim
+from scripts.openai_catalog_client import (
+    CatalogClient,
+    CatalogClientSettings,
+    classify_non_trim,
+)
+
+
+# ---------------------------------------------------------------------------
+# Test helpers
+# ---------------------------------------------------------------------------
 
 
 def _variant(make, model, **std):
@@ -32,48 +48,8 @@ def _variant(make, model, **std):
     }
 
 
-def test_group_by_market_make_model():
-    variants = [
-        _variant("Abarth", "500", trim="Base", engine="1.4L Turbo", transmission="manual",
-                 body_type="Hatchback", fuel_type="petrol", drivetrain="FWD",
-                 validation_id="VAL-1", source_index=3),
-        _variant("Abarth", "500", trim="Scorpione", engine="1.4L Turbo", transmission="automatic",
-                 body_type="Hatchback", fuel_type="petrol", drivetrain="FWD",
-                 validation_id="VAL-2", source_index=5),
-        _variant("BMW", "X5", trim="xDrive40i", validation_id="VAL-3"),
-    ]
-    groups = group_variants(variants)
-    assert len(groups) == 2
-    abarth = next(g for g in groups if g.make == "Abarth")
-    assert abarth.raw_database_values["trims_seen"] == ["Base", "Scorpione"]
-    assert abarth.raw_database_values["transmissions_seen"] == ["automatic", "manual"]
-    assert abarth.source_indexes == [3, 5]
-    assert abarth.validation_ids == ["VAL-1", "VAL-2"]
-
-
-def test_select_groups_one_model_sample():
-    variants = [
-        _variant("Abarth", "500", validation_id="VAL-1"),
-        _variant("BMW", "X5", validation_id="VAL-2"),
-    ]
-    groups = group_variants(variants)
-    sel = select_groups(groups, make="Abarth", model="500", limit_models=1)
-    assert len(sel) == 1 and sel[0].make == "Abarth"
-
-
-def test_classify_non_trim():
-    assert classify_non_trim("Base", "500")["classification"] == "placeholder"
-    assert classify_non_trim("Standard", "500")["classification"] == "placeholder"
-    assert classify_non_trim(None, "500")["classification"] == "null"
-    assert classify_non_trim("1.4", "500")["classification"] == "engine_size"
-    assert classify_non_trim("145hp", "500")["classification"] == "horsepower"
-    assert classify_non_trim("500C", "500")["classification"] == "body_or_model_designation"
-    # A real trim is not flagged.
-    assert classify_non_trim("Scorpione", "500") is None
-
-
 def _grounded_field_sources(year_end=True):
-    fs = {
+    return {
         "version_or_trim": [0],
         "body_type": [0],
         "fuel_type": [0],
@@ -85,19 +61,18 @@ def _grounded_field_sources(year_end=True):
         "year_start": [0],
         "year_end": [0] if year_end else [],
     }
-    return fs
 
 
-def _grounded_profile():
+def _grounded_profile(make="Abarth", model="500", market="IL"):
     return {
-        "market": "IL",
-        "make": "Abarth",
-        "model": "500",
+        "market": market,
+        "make": make,
+        "model": model,
         "sources": [
             {
                 "source_index": 0,
-                "title": "Abarth 500 Competizione spec",
-                "url": "https://example.co.il/abarth-500",
+                "title": f"{make} {model} spec",
+                "url": "https://example.co.il/spec",
                 "source_name": "Cartube",
                 "source_type": "catalog",
                 "supports": ["engine", "horsepower_hp", "transmission"],
@@ -124,18 +99,93 @@ def _grounded_profile():
     }
 
 
+def _patch_client(monkeypatch, profile_factory=None):
+    """Make CatalogClient.build_profile return a grounded profile (no network)."""
+    factory = profile_factory or (lambda payload: _grounded_profile(
+        make=payload.get("make", "Abarth"), model=payload.get("model", "500"),
+        market=payload.get("market", "IL"),
+    ))
+
+    def fake_build_profile(self, request_payload):
+        self.calls += 1
+        return factory(request_payload)
+
+    monkeypatch.setattr(CatalogClient, "build_profile", fake_build_profile)
+
+
+# ---------------------------------------------------------------------------
+# Grouping / selection (run-count limiting)
+# ---------------------------------------------------------------------------
+
+
+def test_group_by_market_make_model():
+    variants = [
+        _variant("Abarth", "500", trim="Base", engine="1.4L Turbo", transmission="manual",
+                 body_type="Hatchback", fuel_type="petrol", drivetrain="FWD",
+                 validation_id="VAL-1", source_index=3),
+        _variant("Abarth", "500", trim="Scorpione", engine="1.4L Turbo", transmission="automatic",
+                 body_type="Hatchback", fuel_type="petrol", drivetrain="FWD",
+                 validation_id="VAL-2", source_index=5),
+        _variant("BMW", "X5", trim="xDrive40i", validation_id="VAL-3"),
+    ]
+    groups = group_variants(variants)
+    assert len(groups) == 2
+    abarth = next(g for g in groups if g.make == "Abarth")
+    assert abarth.raw_database_values["trims_seen"] == ["Base", "Scorpione"]
+    assert abarth.source_indexes == [3, 5]
+    assert abarth.validation_ids == ["VAL-1", "VAL-2"]
+    assert abarth.raw_variant_count == 2
+
+
+def test_select_groups_limits_clusters():
+    """Run count limits how many make/model clusters are processed (spec 11)."""
+    variants = [
+        _variant("Abarth", "500", validation_id="VAL-1"),
+        _variant("BMW", "X5", validation_id="VAL-2"),
+        _variant("Audi", "A3", validation_id="VAL-3"),
+    ]
+    groups = group_variants(variants)
+    assert len(select_groups(groups, limit_models=1)) == 1
+    assert len(select_groups(groups, limit_models=2)) == 2
+    sel = select_groups(groups, make="Abarth", model="500", limit_models=1)
+    assert len(sel) == 1 and sel[0].make == "Abarth"
+
+
+def test_select_groups_start_after_key():
+    variants = [
+        _variant("Abarth", "500", validation_id="VAL-1"),
+        _variant("BMW", "X5", validation_id="VAL-2"),
+        _variant("Audi", "A3", validation_id="VAL-3"),
+    ]
+    groups = group_variants(variants)
+    after_first = select_groups(groups, start_after_key=groups[0].key)
+    assert [g.key for g in after_first] == [groups[1].key, groups[2].key]
+
+
+def test_classify_non_trim():
+    assert classify_non_trim("Base", "500")["classification"] == "placeholder"
+    assert classify_non_trim(None, "500")["classification"] == "null"
+    assert classify_non_trim("1.4", "500")["classification"] == "engine_size"
+    assert classify_non_trim("145hp", "500")["classification"] == "horsepower"
+    assert classify_non_trim("500C", "500")["classification"] == "body_or_model_designation"
+    assert classify_non_trim("Scorpione", "500") is None
+
+
+# ---------------------------------------------------------------------------
+# Profile validation
+# ---------------------------------------------------------------------------
+
+
 def test_validate_profile_ready():
     result = validate_profile(_grounded_profile())
     assert result.ready is True
     assert not result.issues
-    # Website values derived from the variants.
     avw = result.profile["available_values_for_website"]
     assert avw["version_or_trim"] == ["Scorpione"]
     assert avw["horsepower_hp"] == [145]
 
 
 def test_technical_variant_requires_field_sources():
-    """Every technical variant must include field_sources (spec test 8)."""
     profile = _grounded_profile()
     del profile["technical_variants_il"][0]["field_sources"]
     result = validate_profile(profile)
@@ -144,7 +194,6 @@ def test_technical_variant_requires_field_sources():
 
 
 def test_non_null_fields_require_sources():
-    """A non-null field with no field_sources entry is blocked (spec test 9)."""
     profile = _grounded_profile()
     profile["technical_variants_il"][0]["field_sources"]["horsepower_hp"] = []
     result = validate_profile(profile)
@@ -153,7 +202,6 @@ def test_non_null_fields_require_sources():
 
 
 def test_invalid_field_source_index_blocks_ready():
-    """field_sources cannot reference missing source indexes (spec test 10)."""
     profile = _grounded_profile()
     profile["technical_variants_il"][0]["field_sources"]["engine"] = [7]
     result = validate_profile(profile)
@@ -162,73 +210,17 @@ def test_invalid_field_source_index_blocks_ready():
 
 
 def test_missing_grounded_fields_blocks_website_ready():
-    """Missing a REQUIRED field via missing_grounded_fields blocks (spec test 11)."""
     profile = _grounded_profile()
     profile["technical_variants_il"][0]["horsepower_hp"] = None
     profile["technical_variants_il"][0]["field_sources"]["horsepower_hp"] = []
     profile["technical_variants_il"][0]["missing_grounded_fields"] = ["horsepower_hp"]
-    result = validate_profile(profile)
-    assert result.ready is False
+    assert validate_profile(profile).ready is False
     # year_end being optional/missing must NOT block on its own.
     ok = _grounded_profile()
     ok["technical_variants_il"][0]["year_end"] = None
     ok["technical_variants_il"][0]["field_sources"]["year_end"] = []
     ok["technical_variants_il"][0]["missing_grounded_fields"] = ["year_end"]
     assert validate_profile(ok).ready is True
-
-
-def test_raw_database_values_are_not_evidence():
-    """Raw input values alone cannot make a variant website-ready (spec test 12).
-
-    The offline synthesizer fills fields from raw DB hints but provides no
-    sources/field_sources, so the variant must never become website-ready.
-    """
-    payload = {
-        "market": "IL",
-        "make": "Abarth",
-        "model": "500",
-        "raw_database_values": {
-            "years_seen": [2010, 2016],
-            "trims_seen": ["Scorpione"],
-            "engines_seen": ["1.4L Turbo"],
-            "horsepower_seen": [180],
-            "transmissions_seen": ["manual"],
-            "body_types_seen": ["Hatchback"],
-            "fuel_types_seen": ["petrol"],
-            "drivetrains_seen": ["FWD"],
-        },
-        "source_indexes": [0],
-    }
-    profile = CatalogClient.synthesize_offline(payload)
-    result = validate_profile(profile)
-    assert result.ready is False
-
-
-def test_validate_profile_blocks_missing_source_and_hp():
-    profile = {
-        "make": "Abarth",
-        "model": "500",
-        "technical_variants_il": [
-            {
-                "version_or_trim": None,
-                "body_type": "Hatchback",
-                "fuel_type": "petrol",
-                "engine": "1.4L Turbo",
-                "engine_displacement_l": 1.4,
-                "horsepower_hp": None,
-                "transmission": "manual",
-                "drivetrain": "FWD",
-                "year_start": 2010,
-                "year_end": 2016,
-                "support_level": "unknown",
-                "source_indexes": [],
-            }
-        ],
-    }
-    result = validate_profile(profile)
-    assert result.ready is False
-    assert any("horsepower_hp" in i for i in result.issues)
-    assert any("source_indexes" in i for i in result.issues)
 
 
 def test_validate_profile_dedupes_and_blocks_bad_support():
@@ -260,76 +252,164 @@ def test_derive_available_values_only_from_variants():
         {"version_or_trim": "A", "body_type": "Cabriolet", "fuel_type": "petrol"},
     ]
     avw = derive_available_values(variants)
-    assert avw["version_or_trim"] == ["A"]  # de-duped
+    assert avw["version_or_trim"] == ["A"]
     assert avw["body_type"] == ["Hatchback", "Cabriolet"]
 
 
-def test_offline_synthesize_and_readiness():
-    payload = {
-        "market": "IL",
-        "make": "Abarth",
-        "model": "500",
-        "raw_database_values": {
-            "years_seen": [2010, 2016],
-            "trims_seen": ["Base", "Scorpione", "500C"],
-            "engines_seen": ["1.4L Turbo"],
-            "horsepower_seen": [],
-            "transmissions_seen": ["manual"],
-            "body_types_seen": ["Hatchback"],
-            "fuel_types_seen": ["petrol"],
-            "drivetrains_seen": ["FWD"],
-        },
-        "source_indexes": [0],
-    }
-    profile = CatalogClient.synthesize_offline(payload)
-    # Base and 500C must be classified as non-trims.
-    labels = {x["label"] for x in profile["invalid_or_non_trim_labels"]}
-    assert {"Base", "500C"} <= labels
-    result = validate_profile(profile)
+def test_readiness_report_is_grounded_by_default():
+    result = validate_profile(_grounded_profile())
     report = build_readiness_report([result])
     assert report["total_models"] == 1
-    assert report["ready_for_website_upload"] is False  # hp/sources unknown offline
+    assert report["real_grounded_run"] is True
+    assert report["openai_api_key_env_name"] == "OPENAI_API_KEY"
+    assert report["ready_for_website_upload"] is True
+    # The retired stub concept does not survive in the readiness report.
+    assert "offline_stub" not in report
 
 
-def test_end_to_end_offline_writes_three_files(tmp_path):
-    from scripts.catalog_builder import build_catalog
+# ---------------------------------------------------------------------------
+# Fail-closed without OPENAI_API_KEY
+# ---------------------------------------------------------------------------
 
-    catalog_p = tmp_path / "catalog.json"
-    readiness_p = tmp_path / "readiness.json"
-    review_p = tmp_path / "review.json"
-    result = build_catalog(
-        make="Abarth",
-        model="500",
-        limit_models=1,
-        offline=True,
-        catalog_path=str(catalog_p),
-        readiness_path=str(readiness_p),
-        review_path=str(review_p),
+
+def test_missing_openai_key_fails_closed():
+    """A run without an OpenAI key fails closed (spec 2 & 11)."""
+    with pytest.raises(ValueError) as exc:
+        cb.build_catalog(
+            make="Abarth", model="500", limit_models=1,
+            settings=CatalogClientSettings(api_key=""),
+        )
+    assert "OPENAI_API_KEY is required" in str(exc.value)
+    assert str(exc.value) == cb.OPENAI_KEY_REQUIRED_MESSAGE
+
+
+def test_cli_does_not_accept_offline_flag():
+    """The CLI no longer accepts --offline (spec 11)."""
+    from scripts.run_model_catalog import main
+
+    with pytest.raises(SystemExit):
+        main(["--offline"])
+
+
+def test_no_synthesize_offline_on_client():
+    """The OpenAI client has no offline synthesizer (spec 11)."""
+    assert not hasattr(CatalogClient, "synthesize_offline")
+    import scripts.openai_catalog_client as mod
+
+    src = open(mod.__file__).read()
+    assert "synthesize_offline" not in src
+    assert "offline" not in src.lower()
+
+
+def test_openai_client_imports_json_utils_not_gemini():
+    """parse_strict_json comes from json_utils, never gemini_client (spec 4)."""
+    import scripts.openai_catalog_client as mod
+
+    src = open(mod.__file__).read()
+    assert "from .json_utils import parse_strict_json" in src
+    assert "gemini_client" not in src
+
+
+# ---------------------------------------------------------------------------
+# End-to-end build (client patched — no network)
+# ---------------------------------------------------------------------------
+
+
+def test_build_calls_build_profile_never_synthesize(monkeypatch, tmp_path):
+    """build_catalog drives CatalogClient.build_profile (spec 11)."""
+    seen = {}
+    _patch_client(monkeypatch)
+    # synthesize_offline must not exist to be called.
+    assert not hasattr(CatalogClient, "synthesize_offline")
+
+    result = cb.build_catalog(
+        make="Abarth", model="500", limit_models=1,
+        settings=CatalogClientSettings(api_key="sk-test"),
+        catalog_path=str(tmp_path / "c.json"),
+        readiness_path=str(tmp_path / "r.json"),
+        review_path=str(tmp_path / "v.json"),
+        log=lambda m: seen.setdefault("logged", True),
     )
     assert os.path.exists(result.catalog_path)
     assert os.path.exists(result.readiness_path)
     assert os.path.exists(result.review_path)
-    catalog = json.loads(catalog_p.read_text())
+    catalog = json.loads((tmp_path / "c.json").read_text())
+    assert catalog["mode"] == "online_gpt54"
     assert catalog["source_files"] == [
         "data/validation_variants_data_v1.json",
         "data/validation_instructions_by_id_v1.json",
     ]
     assert result.readiness["total_models"] == 1
-    # Offline output is always a stub and never website-ready (spec test 13).
-    assert result.readiness["offline_stub"] is True
-    assert result.readiness["real_grounded_run"] is False
-    assert result.readiness["ready_for_website_upload"] is False
-    assert catalog["offline_stub"] is True
-    assert catalog["ready_for_website_upload"] is False
+    assert result.readiness["ready_for_website_upload"] is True
+
+
+def test_atomic_write_leaves_no_tmp_file(monkeypatch, tmp_path):
+    """Output files are written atomically (no leftover .tmp) (spec 11)."""
+    _patch_client(monkeypatch)
+    cb.build_catalog(
+        make="Abarth", model="500", limit_models=1,
+        settings=CatalogClientSettings(api_key="sk-test"),
+        catalog_path=str(tmp_path / "c.json"),
+        readiness_path=str(tmp_path / "r.json"),
+        review_path=str(tmp_path / "v.json"),
+    )
+    leftovers = [p for p in os.listdir(tmp_path) if p.endswith(".tmp")]
+    assert leftovers == []
+
+
+def test_progress_callback_receives_make_model_index_total(monkeypatch, tmp_path):
+    """on_progress reports make/model/index/total/sample ids (spec 6 & 11)."""
+    _patch_client(monkeypatch)
+    events = []
+    cb.build_catalog(
+        limit_models=2,
+        settings=CatalogClientSettings(api_key="sk-test"),
+        catalog_path=str(tmp_path / "c.json"),
+        readiness_path=str(tmp_path / "r.json"),
+        review_path=str(tmp_path / "v.json"),
+        on_progress=lambda info: events.append(info),
+    )
+    running = [e for e in events if e["phase"] == "running"]
+    done = [e for e in events if e["phase"] == "done"]
+    assert running and done
+    first = running[0]
+    assert first["index"] == 1
+    assert first["total"] == 2
+    assert "make" in first and "model" in first
+    assert "validation_ids" in first
+    assert isinstance(first["validation_ids"], list)
+    assert done[0]["technical_variants"] >= 0
 
 
 # ---------------------------------------------------------------------------
-# Secrets / env-var standardization
+# Web search grounding
+# ---------------------------------------------------------------------------
+
+
+def test_real_run_requires_web_search_tool():
+    client = CatalogClient(CatalogClientSettings(api_key="sk-x", use_web_search=True))
+    kwargs = client.build_request_kwargs({"make": "Abarth", "model": "500"})
+    assert {"type": "web_search"} in kwargs["tools"]
+
+    off = CatalogClient(CatalogClientSettings(api_key="sk-x", use_web_search=False))
+    with pytest.raises(RuntimeError):
+        off.build_request_kwargs({"make": "Abarth", "model": "500"})
+
+
+def test_catalog_prompt_requires_web_grounding():
+    from scripts.openai_catalog_client import CATALOG_SYSTEM_PROMPT
+
+    assert "You must use web_search grounding for this task." in CATALOG_SYSTEM_PROMPT
+    assert "Do not answer from memory." in CATALOG_SYSTEM_PROMPT
+    assert "Raw database values are only hints" in CATALOG_SYSTEM_PROMPT
+
+
+# ---------------------------------------------------------------------------
+# Config: only OpenAI/GitHub secrets remain (no Gemini/Google)
 # ---------------------------------------------------------------------------
 
 
 def test_openai_key_env_name(monkeypatch, tmp_path):
-    """The shared config reads the OpenAI key from OPENAI_API_KEY (spec test 1)."""
     from scripts.config import load_shared_config
 
     monkeypatch.delenv("OPENAI_API_KEY", raising=False)
@@ -339,8 +419,37 @@ def test_openai_key_env_name(monkeypatch, tmp_path):
     assert load_shared_config(str(missing)).openai_api_key == "sk-test-123"
 
 
+def test_default_model_is_gpt54(monkeypatch, tmp_path):
+    from scripts.config import load_shared_config
+
+    monkeypatch.delenv("OPENAI_VALIDATOR_MODEL_ID", raising=False)
+    cfg = load_shared_config(str(tmp_path / "missing.toml"))
+    assert cfg.openai_validator_model_id == "gpt-5.4"
+
+
+def test_config_has_no_gemini_or_google_fields():
+    from scripts.config import SharedConfig
+
+    fields = set(SharedConfig.__dataclass_fields__)
+    forbidden = {
+        "google_api_key",
+        "gemini_validator_model_id",
+        "grounding_enabled",
+        "force_per_variant_validation",
+        "single_gpt54_model_catalog_mode",
+    }
+    assert not (fields & forbidden)
+
+
+def test_config_module_has_no_gemini_references():
+    import scripts.config as mod
+
+    src = open(mod.__file__).read().lower()
+    for token in ("gemini", "google", "grounding_enabled", "gemini_client"):
+        assert token not in src
+
+
 def test_github_token_env_name(monkeypatch, tmp_path):
-    """GitHub checkpoint config reads the token from GITHUB_TOKEN (spec test 2)."""
     from scripts.config import load_shared_config
     from scripts.github_checkpoint import resolve_config_from_env
 
@@ -353,76 +462,12 @@ def test_github_token_env_name(monkeypatch, tmp_path):
     assert config is not None and config.token == "ghp_token_value"
 
 
-def test_no_legacy_gh_token_alias(monkeypatch):
-    """GH_TOKEN must NOT be honored — only GITHUB_TOKEN (spec forbids GH_TOKEN)."""
-    from scripts.github_checkpoint import resolve_config_from_env
-
-    monkeypatch.delenv("GITHUB_TOKEN", raising=False)
-    monkeypatch.setenv("GH_TOKEN", "ghp_should_be_ignored")
-    config, notes = resolve_config_from_env()
-    assert config is None
-    assert any("GITHUB_TOKEN missing" in n for n in notes)
-
-
 # ---------------------------------------------------------------------------
-# Fail-fast / offline gating
+# GitHub checkpoint: optional and only when enabled
 # ---------------------------------------------------------------------------
-
-
-def test_missing_openai_key_fails_real_run():
-    """Real run (offline=False) without an OpenAI key fails fast (spec test 3)."""
-    from scripts.catalog_builder import OPENAI_KEY_REQUIRED_MESSAGE, build_catalog
-    from scripts.openai_catalog_client import CatalogClientSettings
-
-    with pytest.raises(ValueError) as exc:
-        build_catalog(
-            make="Abarth",
-            model="500",
-            limit_models=1,
-            offline=False,
-            settings=CatalogClientSettings(api_key=""),
-        )
-    assert "OPENAI_API_KEY is required" in str(exc.value)
-    assert str(exc.value) == OPENAI_KEY_REQUIRED_MESSAGE
-
-
-def test_offline_does_not_require_openai_key(tmp_path):
-    """Offline mode runs plumbing without an OpenAI key (spec test 5)."""
-    from scripts.catalog_builder import build_catalog
-
-    result = build_catalog(
-        make="Abarth",
-        model="500",
-        limit_models=1,
-        offline=True,
-        catalog_path=str(tmp_path / "c.json"),
-        readiness_path=str(tmp_path / "r.json"),
-        review_path=str(tmp_path / "v.json"),
-    )
-    assert result.readiness["offline_stub"] is True
-
-
-def test_offline_does_not_require_github_token_when_checkpoint_disabled(tmp_path, monkeypatch):
-    """Offline + checkpoint disabled runs without a GitHub token (spec test 6)."""
-    from scripts.catalog_builder import build_catalog
-    from scripts.catalog_checkpoint import CatalogCheckpointConfig
-
-    monkeypatch.delenv("GITHUB_TOKEN", raising=False)
-    result = build_catalog(
-        make="Abarth",
-        model="500",
-        limit_models=1,
-        offline=True,
-        checkpoint=CatalogCheckpointConfig(enabled=False, token=""),
-        catalog_path=str(tmp_path / "c.json"),
-        readiness_path=str(tmp_path / "r.json"),
-        review_path=str(tmp_path / "v.json"),
-    )
-    assert result.readiness["github_checkpoint_enabled"] is False
 
 
 def test_missing_github_token_fails_only_when_checkpoint_enabled():
-    """Enabled checkpointing without a token fails gracefully (spec test 4)."""
     from scripts.catalog_checkpoint import (
         GITHUB_TOKEN_REQUIRED_MESSAGE,
         CatalogCheckpointConfig,
@@ -437,42 +482,22 @@ def test_missing_github_token_fails_only_when_checkpoint_enabled():
     assert str(exc.value) == GITHUB_TOKEN_REQUIRED_MESSAGE
 
 
-# ---------------------------------------------------------------------------
-# Web search grounding
-# ---------------------------------------------------------------------------
-
-
-def test_real_run_requires_web_search_tool():
-    """A real Responses request includes {"type": "web_search"} (spec test 7)."""
-    from scripts.openai_catalog_client import CatalogClient, CatalogClientSettings
-
-    client = CatalogClient(CatalogClientSettings(api_key="sk-x", use_web_search=True))
-    kwargs = client.build_request_kwargs({"make": "Abarth", "model": "500"})
-    assert {"type": "web_search"} in kwargs["tools"]
-
-    # With web_search disabled a real call is rejected (cannot ground).
-    off = CatalogClient(CatalogClientSettings(api_key="sk-x", use_web_search=False))
-    with pytest.raises(RuntimeError):
-        off.build_request_kwargs({"make": "Abarth", "model": "500"})
-
-
-def test_catalog_prompt_requires_web_grounding():
-    """The GPT-5.4 prompt forbids answering from memory (spec acceptance 6)."""
-    from scripts.openai_catalog_client import CATALOG_SYSTEM_PROMPT
-
-    assert "You must use web_search grounding for this task." in CATALOG_SYSTEM_PROMPT
-    assert "Do not answer from memory." in CATALOG_SYSTEM_PROMPT
-    assert "Raw database values are only hints" in CATALOG_SYSTEM_PROMPT
-
-
-# ---------------------------------------------------------------------------
-# Checkpoint cadence — per model profile, never per raw variant
-# ---------------------------------------------------------------------------
+def test_checkpoint_disabled_by_default_does_not_trigger(monkeypatch, tmp_path):
+    """With checkpointing disabled, no push is attempted (spec 11)."""
+    _patch_client(monkeypatch)
+    result = cb.build_catalog(
+        make="Abarth", model="500", limit_models=1,
+        settings=CatalogClientSettings(api_key="sk-test"),
+        checkpoint=None,
+        catalog_path=str(tmp_path / "c.json"),
+        readiness_path=str(tmp_path / "r.json"),
+        review_path=str(tmp_path / "v.json"),
+    )
+    assert result.readiness["github_checkpoint_enabled"] is False
+    assert result.readiness["github_checkpoint_count"] == 0
 
 
 class _RecordingCheckpointer:
-    """Stand-in that records each push attempt with its profile id."""
-
     def __init__(self):
         self.state = {
             "github_checkpoint_enabled": True,
@@ -491,36 +516,30 @@ class _RecordingCheckpointer:
         return True
 
 
-def test_checkpoint_after_each_model_profile(tmp_path, monkeypatch):
-    """push_every_profiles=1 → one checkpoint per completed profile (spec test 14)."""
-    import scripts.catalog_builder as cb
-
+def test_checkpoint_after_each_model_profile(monkeypatch, tmp_path):
+    """One checkpoint per completed profile, never per raw variant (spec 11)."""
+    _patch_client(monkeypatch)
     rec = _RecordingCheckpointer()
     monkeypatch.setattr(cb, "CatalogCheckpointer", lambda *a, **k: rec)
     cb.build_catalog(
         limit_models=2,
-        offline=True,
+        settings=CatalogClientSettings(api_key="sk-test"),
         catalog_path=str(tmp_path / "c.json"),
         readiness_path=str(tmp_path / "r.json"),
         review_path=str(tmp_path / "v.json"),
     )
-    # Exactly one checkpoint attempt per processed model profile.
     assert len(rec.calls) == 2
     assert all("::" in c for c in rec.calls)
 
 
-def test_no_checkpoint_after_each_raw_variant(tmp_path, monkeypatch):
-    """A multi-variant profile checkpoints once, not once per raw variant (spec test 15)."""
-    import scripts.catalog_builder as cb
-
+def test_no_checkpoint_after_each_raw_variant(monkeypatch, tmp_path):
+    """A multi-variant profile checkpoints once, not once per raw variant (spec 11)."""
+    _patch_client(monkeypatch)
     rec = _RecordingCheckpointer()
     monkeypatch.setattr(cb, "CatalogCheckpointer", lambda *a, **k: rec)
-    # Abarth/500 spans multiple raw variant rows but is ONE model profile.
     cb.build_catalog(
-        make="Abarth",
-        model="500",
-        limit_models=1,
-        offline=True,
+        make="Abarth", model="500", limit_models=1,
+        settings=CatalogClientSettings(api_key="sk-test"),
         catalog_path=str(tmp_path / "c.json"),
         readiness_path=str(tmp_path / "r.json"),
         review_path=str(tmp_path / "v.json"),

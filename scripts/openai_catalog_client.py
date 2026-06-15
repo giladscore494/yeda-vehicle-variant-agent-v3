@@ -5,13 +5,8 @@ data (engines, horsepower, transmissions, drivetrain, body type, fuel type,
 years, trims/versions, sources). It makes no publication / routing / risk /
 guard / readiness decisions — Python validates the returned profile.
 
-This module is Gemini-free and never reads any legacy generated output.
-
-A deterministic offline synthesizer (:meth:`CatalogClient.synthesize_offline`)
-is provided so the pipeline plumbing and the one-model test sample can run
-without network or an API key. Offline profiles are intentionally conservative
-(``support_level="unknown"``, ``profile_confidence="low"``) so they route to
-the review output rather than the website-ready output.
+This module never reads any legacy generated output. A run always calls GPT-5.4
+with web_search grounding and requires ``OPENAI_API_KEY``.
 """
 
 from __future__ import annotations
@@ -20,7 +15,7 @@ import re
 from dataclasses import dataclass
 from typing import Any, Dict, List, Optional
 
-from .gemini_client import parse_strict_json
+from .json_utils import parse_strict_json
 
 CATALOG_SYSTEM_PROMPT = """You build a ready Israeli-market (IL) TECHNICAL catalog for ONE make/model.
 
@@ -308,88 +303,3 @@ class CatalogClient:
         if not isinstance(profile, dict):
             raise RuntimeError("catalog client returned non-object JSON")
         return profile
-
-    # ------------------------------------------------------------------
-    # Offline synthesizer (no network / no API key) — for tests & plumbing
-    # ------------------------------------------------------------------
-
-    @staticmethod
-    def synthesize_offline(request_payload: Dict[str, Any]) -> Dict[str, Any]:
-        """Build a conservative profile from raw values without a model call.
-
-        Horsepower is unknown offline, so rows are intentionally incomplete and
-        will be routed to the review output by the Python validator. This keeps
-        the offline sample honest: it exercises grouping/validation/output, but
-        never fabricates website-ready data.
-        """
-        make = request_payload.get("make", "")
-        model = request_payload.get("model", "")
-        market = request_payload.get("market", "IL")
-        raw = request_payload.get("raw_database_values", {}) or {}
-        years = [y for y in raw.get("years_seen", []) if isinstance(y, int)]
-        year_start = min(years) if years else None
-        year_end = max(years) if years else None
-
-        trims_seen = raw.get("trims_seen", []) or []
-        invalid_labels: List[Dict[str, str]] = []
-        real_trims: List[Optional[str]] = []
-        for trim in trims_seen:
-            classification = classify_non_trim(trim, model)
-            if classification is not None:
-                invalid_labels.append(classification)
-            else:
-                real_trims.append(trim)
-        if not real_trims:
-            real_trims = [None]
-
-        body = (raw.get("body_types_seen") or [None])[0]
-        fuel = (raw.get("fuel_types_seen") or [None])[0]
-        engine = (raw.get("engines_seen") or [None])[0]
-        transmission = (raw.get("transmissions_seen") or [None])[0]
-        drivetrain = (raw.get("drivetrains_seen") or [None])[0]
-        source_indexes = request_payload.get("source_indexes", []) or []
-
-        variants = []
-        for trim in real_trims:
-            row = {
-                "version_or_trim": trim,
-                "body_type": body,
-                "fuel_type": fuel,
-                "engine": engine,
-                "engine_displacement_l": None,
-                "horsepower_hp": None,  # unknown offline
-                "transmission": transmission,
-                "drivetrain": drivetrain,
-                "year_start": year_start,
-                "year_end": year_end,
-                "support_level": "unknown",
-                "source_indexes": [],
-                # No web grounding offline: empty field_sources, and every
-                # non-null field is recorded as missing grounding so the
-                # validator routes the row to review (never website-ready).
-                "field_sources": {f: [] for f in GROUNDED_TECHNICAL_FIELDS},
-            }
-            row["missing_grounded_fields"] = [
-                f for f in GROUNDED_TECHNICAL_FIELDS if row.get(f) not in (None, "")
-            ]
-            variants.append(row)
-
-        return {
-            "market": market,
-            "make": make,
-            "model": model,
-            "canonical_model": model,
-            "year_start": year_start,
-            "year_end": year_end,
-            "technical_variants_il": variants,
-            "available_values_for_website": {},
-            "invalid_or_non_trim_labels": invalid_labels,
-            "sources": [],
-            "profile_confidence": "low",
-            "offline_stub": True,
-            "ready_for_website_upload": False,
-            "notes": [
-                "Generated offline without GPT-5.4; horsepower/sources unknown. "
-                "Run with an OpenAI API key for a grounded catalog."
-            ],
-        }

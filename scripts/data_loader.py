@@ -139,8 +139,8 @@ def validate_and_join(
 ) -> JoinResult:
     """Run all deterministic pre-checks and build the join.
 
-    Critical failures land in ``errors`` (validation must stop before any
-    Gemini call). Non-critical observations land in ``warnings``.
+    Critical failures land in ``errors`` (the run must stop before any model
+    call). Non-critical observations land in ``warnings``.
     """
     errors: List[str] = []
     warnings: List[str] = []

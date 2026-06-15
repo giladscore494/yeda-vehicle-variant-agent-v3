@@ -231,7 +231,6 @@ def validate_profile(profile: Dict[str, Any]) -> ProfileValidation:
     issues: List[str] = []
     profile = dict(profile)  # shallow copy; we mutate top-level keys only
     model = profile.get("model", "")
-    offline_stub = bool(profile.get("offline_stub"))
 
     variants = profile.get("technical_variants_il")
     if not isinstance(variants, list):
@@ -318,23 +317,14 @@ def validate_profile(profile: Dict[str, Any]) -> ProfileValidation:
         "has_web_grounding": 1 if has_grounding else 0,
     }
 
-    ready = (
-        not offline_stub
-        and not issues
-        and bool(cleaned_variants)
-        and all_variants_ready
-    )
-    if offline_stub:
-        # Offline stubs are never website-ready, regardless of content.
-        profile["ready_for_website_upload"] = False
+    ready = not issues and bool(cleaned_variants) and all_variants_ready
     return ProfileValidation(profile=profile, ready=ready, issues=issues, stats=stats)
 
 
 def build_readiness_report(
     validations: List[ProfileValidation],
     *,
-    online: bool = False,
-    web_search_enabled: bool = False,
+    web_search_enabled: bool = True,
     checkpoint_state: Optional[Dict[str, Any]] = None,
 ) -> Dict[str, Any]:
     """Aggregate QA readiness across profiles + expose run/grounding/checkpoint."""
@@ -347,7 +337,7 @@ def build_readiness_report(
     def _sum(key: str) -> int:
         return sum(v.stats.get(key, 0) for v in validations)
 
-    real_grounded_run = bool(online and web_search_enabled)
+    real_grounded_run = bool(web_search_enabled)
     ready_for_website_upload = (
         real_grounded_run and blocked == 0 and ready_models > 0
     )
@@ -355,10 +345,9 @@ def build_readiness_report(
     return {
         # --- run identity / grounding ---------------------------------------
         "real_grounded_run": real_grounded_run,
-        "offline_stub": not online,
         "openai_api_key_env_name": "OPENAI_API_KEY",
         "github_token_env_name": "GITHUB_TOKEN",
-        "web_search_enabled": bool(web_search_enabled and online),
+        "web_search_enabled": bool(web_search_enabled),
         # --- github checkpoint status ---------------------------------------
         "github_checkpoint_enabled": bool(checkpoint_state.get("github_checkpoint_enabled", False)),
         "github_checkpoint_unit": checkpoint_state.get("github_checkpoint_unit", "model_profile"),

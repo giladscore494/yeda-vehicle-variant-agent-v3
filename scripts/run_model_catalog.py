@@ -1,22 +1,23 @@
-"""CLI runner for the single-GPT-5.4 Israeli model technical catalog.
+"""CLI runner for the GPT-5.4 Israeli model technical catalog.
+
+This is the single production entrypoint. It reads ONLY the two source files
+and uses GPT-5.4 (with web_search grounding) as the only model. There is no
+per-row validation. ``OPENAI_API_KEY`` is required; the run fails closed
+without it.
 
 Examples
 --------
-One-model test sample (offline, no API key needed)::
+Process at most 10 clusters::
 
-    python scripts/run_model_catalog.py --make Abarth --model 500 --limit-models 1 --offline
+    python -m scripts.run_model_catalog --limit-models 10
 
-One real cluster with GPT-5.4 (needs OPENAI_API_KEY)::
+One real cluster with GPT-5.4::
 
-    python scripts/run_model_catalog.py --make Abarth --model 500 --limit-models 1
+    python -m scripts.run_model_catalog --make "Alfa Romeo" --model Tonale --limit-models 1
 
-Full run (only after the one-model sample passes)::
+Resume after a given cluster key (``market|make|model``)::
 
-    python scripts/run_model_catalog.py
-
-The pipeline reads ONLY the two source files and uses GPT-5.4 only. Gemini,
-the legacy guard verifier, the repair adjudicator and per-row validation are
-all disabled in this mode.
+    python -m scripts.run_model_catalog --start-after-key "IL|Abarth|500" --limit-models 5
 """
 
 from __future__ import annotations
@@ -25,26 +26,49 @@ import argparse
 import json
 import sys
 
-from .catalog_builder import build_catalog, OPENAI_KEY_REQUIRED_MESSAGE
+from .catalog_builder import OPENAI_KEY_REQUIRED_MESSAGE, build_catalog
 from .catalog_checkpoint import CatalogCheckpointConfig
 from .config import load_shared_config
 from .openai_catalog_client import CatalogClientSettings
 
 
+def _format_progress(info: dict) -> str:
+    phase = info.get("phase")
+    idx = info.get("index")
+    total = info.get("total")
+    if phase == "running":
+        ids = ", ".join(info.get("validation_ids") or []) or "(none)"
+        return (
+            f"[{idx}/{total}] RUNNING GPT-5.4: {info.get('market_scope')} :: "
+            f"{info.get('make')} :: {info.get('model')} | "
+            f"raw_variants={info.get('raw_variants')} | sample_ids={ids}"
+        )
+    if phase == "done":
+        return (
+            f"[{idx}/{total}] DONE: {info.get('make')} {info.get('model')} | "
+            f"technical_variants={info.get('technical_variants')} | "
+            f"ready={str(info.get('ready_profile')).lower()} | "
+            f"issues={info.get('issues')}"
+        )
+    if phase == "error":
+        return f"[{idx}/{total}] ERROR: {info.get('make')} {info.get('model')} routed to review"
+    return ""
+
+
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--make", default=None, help="Only this make (e.g. Abarth)")
-    parser.add_argument("--model", default=None, help="Only this model (e.g. 500)")
+    parser.add_argument("--make", default=None, help="Only this make (e.g. 'Alfa Romeo')")
+    parser.add_argument("--model", default=None, help="Only this model (e.g. Tonale)")
     parser.add_argument(
         "--limit-models",
         type=int,
         default=None,
-        help="Process at most N model clusters (e.g. 1 for the sample).",
+        help="Process at most N make/model clusters this run.",
     )
     parser.add_argument(
-        "--offline",
-        action="store_true",
-        help="Synthesize profiles deterministically without calling GPT-5.4.",
+        "--start-after-key",
+        default=None,
+        help="Resume after this cluster key (format: 'market|make|model').",
     )
     parser.add_argument(
         "--github-checkpoint",
@@ -54,23 +78,16 @@ def main(argv=None) -> int:
     args = parser.parse_args(argv)
 
     cfg = load_shared_config()
-    if not cfg.single_gpt54_model_catalog_mode:
-        print(
-            "SINGLE_GPT54_MODEL_CATALOG_MODE is disabled; refusing to run the "
-            "new catalog pipeline. Set it to true to enable.",
-            file=sys.stderr,
-        )
-        return 2
 
-    # Fail fast for real grounded runs without an OpenAI key.
-    if not args.offline and not cfg.openai_api_key:
+    # Fail closed for grounded runs without an OpenAI key.
+    if not cfg.openai_api_key:
         print(OPENAI_KEY_REQUIRED_MESSAGE, file=sys.stderr)
         return 2
 
     settings = CatalogClientSettings(
         api_key=cfg.openai_api_key,
         model_id=cfg.openai_validator_model_id,
-        use_web_search=True,  # real runs always use web_search grounding
+        use_web_search=True,  # runs always use web_search grounding
     )
 
     checkpoint_enabled = args.github_checkpoint or cfg.github_checkpoint_enabled
@@ -81,15 +98,24 @@ def main(argv=None) -> int:
         token=cfg.github_token,
     )
 
+    def _emit(msg: str) -> None:
+        print(msg, file=sys.stderr)
+
+    def _progress(info: dict) -> None:
+        line = _format_progress(info)
+        if line:
+            print(line, file=sys.stderr)
+
     try:
         result = build_catalog(
             make=args.make,
             model=args.model,
             limit_models=args.limit_models,
-            offline=args.offline,
+            start_after_key=args.start_after_key,
             settings=settings,
             checkpoint=checkpoint,
-            log=lambda msg: print(msg, file=sys.stderr),
+            log=_emit,
+            on_progress=_progress,
         )
     except ValueError as exc:
         print(str(exc), file=sys.stderr)
