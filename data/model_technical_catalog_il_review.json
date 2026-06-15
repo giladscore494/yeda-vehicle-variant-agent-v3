@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T22:25:41Z",
+  "generated_at": "2026-06-15T22:26:27Z",
   "market": "IL",
   "models": [
     {
@@ -952,7 +952,7 @@
           "engine_displacement_l": 1.2,
           "horsepower_hp": 136,
           "transmission": "6-speed dual_clutch",
-          "drivetrain": null,
+          "drivetrain": "FWD",
           "year_start": 2024,
           "year_end": null,
           "support_level": "direct",
@@ -987,7 +987,10 @@
               1,
               2
             ],
-            "drivetrain": [],
+            "drivetrain": [
+              1,
+              2
+            ],
             "year_start": [
               0,
               2
@@ -996,7 +999,6 @@
           },
           "missing_grounded_fields": [
             "version_or_trim",
-            "drivetrain",
             "year_end"
           ]
         },
@@ -1007,7 +1009,7 @@
           "engine": "electric",
           "engine_displacement_l": null,
           "horsepower_hp": 156,
-          "transmission": null,
+          "transmission": "single_speed",
           "drivetrain": "FWD",
           "year_start": 2024,
           "year_end": null,
@@ -1035,7 +1037,10 @@
               1,
               2
             ],
-            "transmission": [],
+            "transmission": [
+              1,
+              2
+            ],
             "drivetrain": [
               2
             ],
@@ -1048,7 +1053,6 @@
           "missing_grounded_fields": [
             "version_or_trim",
             "engine_displacement_l",
-            "transmission",
             "year_end"
           ]
         },
@@ -1059,8 +1063,8 @@
           "engine": "electric",
           "engine_displacement_l": null,
           "horsepower_hp": 280,
-          "transmission": null,
-          "drivetrain": null,
+          "transmission": "single_speed",
+          "drivetrain": "FWD",
           "year_start": 2025,
           "year_end": null,
           "support_level": "direct",
@@ -1084,8 +1088,12 @@
             "horsepower_hp": [
               1
             ],
-            "transmission": [],
-            "drivetrain": [],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
             "year_start": [
               1
             ],
@@ -1093,8 +1101,6 @@
           },
           "missing_grounded_fields": [
             "engine_displacement_l",
-            "transmission",
-            "drivetrain",
             "year_end"
           ]
         }
@@ -1120,7 +1126,8 @@
           280
         ],
         "transmission": [
-          "6-speed dual_clutch"
+          "6-speed dual_clutch",
+          "single_speed"
         ],
         "drivetrain": [
           "FWD"
@@ -1174,7 +1181,8 @@
             "horsepower_hp",
             "transmission",
             "version_or_trim",
-            "year_start"
+            "year_start",
+            "drivetrain"
           ]
         },
         {
@@ -1206,20 +1214,10 @@
         "year_end was not grounded for any variant and remains null."
       ],
       "validation_issues": [
-        "variant[0] required website field 'drivetrain' is null/empty",
-        "variant[0] required field 'drivetrain' listed in missing_grounded_fields",
-        "variant[1] required website field 'transmission' is null/empty",
-        "variant[1] required field 'transmission' listed in missing_grounded_fields",
         "variant[1] is electric inside a petrol model profile",
-        "variant[2] required website field 'transmission' is null/empty",
-        "variant[2] required website field 'drivetrain' is null/empty",
-        "variant[2] required field 'transmission' listed in missing_grounded_fields",
-        "variant[2] required field 'drivetrain' listed in missing_grounded_fields",
         "variant[2] is electric inside a petrol model profile"
       ],
-      "repair_attempts": 2,
-      "last_repair_error": "Gemini client library is unavailable",
-      "repair_exhausted": true
+      "repair_attempts": 1
     },
     {
       "market": "IL",
