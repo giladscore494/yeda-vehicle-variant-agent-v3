@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T18:52:11Z",
+  "generated_at": "2026-06-15T18:52:41Z",
   "market": "IL",
   "mode": "online_gpt54",
   "model_id": "gpt-5.4",
@@ -10587,6 +10587,370 @@
         "Excluded Q8 e-tron because electric model is a separate model.",
         "Excluded Q8 55 TFSIe plug-in hybrid because raw database hints were for diesel/petrol Q8 and the request targets model Q8; available Israeli sources show later PHEV variants but they represent a separate technical addition not present in the raw hints.",
         "55 TFSI year_end is grounded only to the latest located Israeli-market listing/model-year source found during search (2023), so this row is marked indirect rather than direct."
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Audi",
+      "model": "RS3",
+      "canonical_model": "RS3",
+      "year_start": 2015,
+      "year_end": 2026,
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "2.5L turbo inline-5",
+          "engine_displacement_l": 2.5,
+          "horsepower_hp": 367,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "AWD",
+          "year_start": 2015,
+          "year_end": 2016,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              2
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "2.5L turbo inline-5",
+          "engine_displacement_l": 2.5,
+          "horsepower_hp": 400,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "AWD",
+          "year_start": 2017,
+          "year_end": 2023,
+          "support_level": "direct",
+          "source_indexes": [
+            3,
+            4,
+            5
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              4
+            ],
+            "fuel_type": [
+              3
+            ],
+            "engine": [
+              3
+            ],
+            "engine_displacement_l": [
+              3
+            ],
+            "horsepower_hp": [
+              3,
+              5
+            ],
+            "transmission": [
+              4
+            ],
+            "drivetrain": [
+              4
+            ],
+            "year_start": [
+              5
+            ],
+            "year_end": [
+              3
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "2.5L turbo inline-5",
+          "engine_displacement_l": 2.5,
+          "horsepower_hp": 400,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "AWD",
+          "year_start": 2021,
+          "year_end": 2026,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            4,
+            6
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              1,
+              6
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1,
+              6
+            ],
+            "drivetrain": [
+              1,
+              6
+            ],
+            "year_start": [
+              6
+            ],
+            "year_end": [
+              6
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "2.5L turbo inline-5",
+          "engine_displacement_l": 2.5,
+          "horsepower_hp": 400,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "AWD",
+          "year_start": 2021,
+          "year_end": 2026,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            4,
+            7
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              1,
+              7
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1,
+              7
+            ],
+            "drivetrain": [
+              1,
+              7
+            ],
+            "year_start": [
+              7
+            ],
+            "year_end": [
+              7
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Hatchback",
+          "Sedan"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "2.5L turbo inline-5"
+        ],
+        "horsepower_hp": [
+          367,
+          400
+        ],
+        "transmission": [
+          "7-speed dual_clutch"
+        ],
+        "drivetrain": [
+          "AWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Sedan",
+          "classification": "body_type_not_trim"
+        },
+        {
+          "label": "Sportback",
+          "classification": "body_type_not_trim"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "חדשות רכב - אודי RS3 המחודשת בישראל - עם 400 כ''ס",
+          "url": "https://www.icar.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA_%D7%A8%D7%9B%D7%91/%D7%90%D7%95%D7%93%D7%99_RS3_%D7%94%D7%9E%D7%97%D7%95%D7%93%D7%A9%D7%AA_%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C_-_%D7%A2%D7%9D_400_%D7%9B%27%27%D7%A1/",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "audi-s3-rs3-mifrat-2024-06.pdf",
+          "url": "https://www.cartube.co.il/images/mifrat/audi/audi-s3-rs3-mifrat-2024-06.pdf",
+          "source_name": "Cartube / Israeli spec PDF mirror",
+          "source_type": "spec_pdf",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "אודי RS3 - מבחן דרכים",
+          "url": "https://www.auto.co.il/articles/test-drives/road-tests/135232/",
+          "source_name": "Auto",
+          "source_type": "editorial",
+          "supports": [
+            "horsepower_hp",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "2017 אודי RS3 סדאן החדשה – 400 סוסים צוהלים",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/2017-%D7%90%D7%95%D7%93%D7%99-rs3-%D7%A1%D7%93%D7%90%D7%9F-%D7%94%D7%97%D7%93%D7%A9%D7%94-%E2%80%93-400-%D7%A1%D7%95%D7%A1%D7%99%D7%9D-%D7%A6%D7%95%D7%94%D7%9C%D7%99%D7%9D",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 4,
+          "title": "Audi_S3-rs3-mifrat-2023.pdf",
+          "url": "https://www.cartube.co.il/images/mifrat/audi/Audi_S3-rs3-mifrat-2023.pdf",
+          "source_name": "Cartube / Israeli spec PDF mirror",
+          "source_type": "spec_pdf",
+          "supports": [
+            "body_type",
+            "transmission",
+            "drivetrain",
+            "horsepower_hp"
+          ]
+        },
+        {
+          "source_index": 5,
+          "title": "מתקרבת לפס הייצור: אודי RS3 סדאן",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%9E%D7%AA%D7%A7%D7%A8%D7%91%D7%AA-%D7%9C%D7%A4%D7%A1-%D7%94%D7%99%D7%99%D7%A6%D7%95%D7%A8-%D7%90%D7%95%D7%93%D7%99-rs3-%D7%A1%D7%93%D7%90%D7%9F",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "year_start",
+            "horsepower_hp"
+          ]
+        },
+        {
+          "source_index": 6,
+          "title": "אודי S3+RS3 2026 RS3 TFSI ספורטבק, 2.5 ל' טורבו, אוט', 4x4",
+          "url": "https://www.auto.co.il/cars/audi/s3/2026/580896/",
+          "source_name": "Auto",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 7,
+          "title": "אודי S3+RS3 2026 RS3 TFSI סדאן, 2.5 ל' טורבו, אוט', 4x4",
+          "url": "https://www.auto.co.il/cars/audi/s3/2026/580897/",
+          "source_name": "Auto",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "profile_confidence": "medium",
+      "notes": [
+        "Israeli-market evidence was found for RS3 Sportback and RS3 Sedan petrol AWD dual-clutch configurations.",
+        "Body style labels 'Sportback' and 'Sedan' from input were normalized to 'Hatchback' and 'Sedan'.",
+        "Some rows are marked indirect because normalized fields (for example inline-5, AWD from quattro, dual_clutch from S tronic/DSG, and year spans assembled from multiple Israeli sources) require contextual mapping rather than every field being stated verbatim in a single Israeli source.",
+        "No Israeli-market source was found proving a separate pre-2015 first-generation RS3 sale in Israel, so it is omitted.",
+        "No distinct Israeli-sourced technical split beyond 367 hp Sportback and 400 hp Sedan/Sportback was established."
       ]
     }
   ],
