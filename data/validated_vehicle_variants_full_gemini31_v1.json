@@ -8,24 +8,24 @@
     "run_timestamp_utc": "2026-06-15T13:04:50Z",
     "total_input_variants": 3712,
     "total_instruction_records": 3712,
-    "total_validated_variants": 11,
+    "total_validated_variants": 12,
     "decision_counts": {
       "clean_exact": 0,
-      "clean_partial": 5,
+      "clean_partial": 6,
       "split_required": 6,
       "reject": 0
     },
     "grounding_cluster_count": 3653,
-    "gemini_call_count": 11,
+    "gemini_call_count": 12,
     "github_checkpoint_enabled": true,
-    "github_checkpoint_count": 11,
+    "github_checkpoint_count": 12,
     "github_checkpoint_fail_count": 0,
     "last_github_checkpoint_error": null,
-    "last_validated_id": "VAL-000011",
+    "last_validated_id": "VAL-000012",
     "schema_version": "v3_three_stage",
     "pipeline_version": "v3_three_stage",
-    "stage1_pro_calls": 11,
-    "stage2_guard_flags_total": 40,
+    "stage1_pro_calls": 12,
+    "stage2_guard_flags_total": 44,
     "stage3_flash_calls": 0,
     "flash_overrode_guard": 0,
     "guard_overrode_flash": 0,
@@ -40,9 +40,9 @@
     "guard_verifier_overrode_guard": 0,
     "guard_overrode_verifier": 0,
     "force_per_variant_validation": true,
-    "stage0_preflight_risk_rows": 11,
-    "stage1_gemini_grounding_required": 11,
-    "stage1_gemini_grounding_present": 11,
+    "stage0_preflight_risk_rows": 12,
+    "stage1_gemini_grounding_required": 12,
+    "stage1_gemini_grounding_present": 12,
     "stage1_gemini_grounding_missing": 0,
     "stage1_gemini_weak_grounding_rows": 0,
     "stage2_guard_flags_low": 0,
@@ -50,31 +50,31 @@
     "stage2_guard_flags_high": 0,
     "stage2_guard_flags_critical": 0,
     "stage2_guard_patches_applied": 0,
-    "stage25_repair_risk_scored_rows": 11,
-    "stage25_repair_triggered_rows": 10,
-    "stage3_repair_adjudicator_calls": 10,
-    "stage3_repair_adjudicator_successes": 10,
+    "stage25_repair_risk_scored_rows": 12,
+    "stage25_repair_triggered_rows": 11,
+    "stage3_repair_adjudicator_calls": 11,
+    "stage3_repair_adjudicator_successes": 11,
     "stage3_repair_adjudicator_failures": 0,
-    "stage3_repair_adjudicator_patches": 81,
+    "stage3_repair_adjudicator_patches": 91,
     "stage3_repair_adjudicator_routing_changes": 0,
     "stage3_repair_adjudicator_summary_rewrites": 0,
-    "stage3_repair_adjudicator_grounding_required": 10,
-    "stage3_repair_adjudicator_grounding_present": 10,
+    "stage3_repair_adjudicator_grounding_required": 11,
+    "stage3_repair_adjudicator_grounding_present": 11,
     "stage3_repair_adjudicator_grounding_missing": 0,
     "stage4_final_seal_passed": 0,
-    "stage4_final_seal_blocks": 11,
+    "stage4_final_seal_blocks": 12,
     "stage4_final_guard_conflicts_remaining": 0,
     "clean_catalog_blocks_by_repair": 0,
-    "clean_catalog_blocks_by_final_seal": 11,
-    "clean_catalog_blocks_by_grounding": 3,
-    "clean_catalog_blocks_by_unresolved_trim": 10,
+    "clean_catalog_blocks_by_final_seal": 12,
+    "clean_catalog_blocks_by_grounding": 4,
+    "clean_catalog_blocks_by_unresolved_trim": 11,
     "clean_catalog_blocks_by_unresolved_critical_field": 6,
     "upload_readiness": {
       "ready_for_exact_clean_upload": false,
       "ready_for_configurable_group_upload": false,
-      "total_rows": 11,
+      "total_rows": 12,
       "exact_variant_rows": 0,
-      "configurable_group_rows": 10,
+      "configurable_group_rows": 11,
       "review_only_rows": 1,
       "clean_catalog_rows": 0,
       "critical_consistency_errors": 2,
@@ -82,7 +82,7 @@
       "unknown_enum_errors": 8,
       "duplicate_group_errors": 1,
       "repair_success_rate": 1.0,
-      "grounding_pass_rate": 0.7273
+      "grounding_pass_rate": 0.6667
     }
   },
   "validated_variants": [
@@ -7214,6 +7214,638 @@
           "risk_tags": [
             "current_status",
             "summary_rewrite"
+          ]
+        }
+      ]
+    },
+    {
+      "validation_id": "VAL-000012",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000012",
+      "source_cluster_id": "CLU-f7016c5e96be",
+      "grounding_cluster_id": "CLU-f7016c5e96be",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "124 Spider",
+      "canonical_series_or_generation": "1",
+      "canonical_trim": null,
+      "official_marketed_name_il": "אבארט 124 ספיידר",
+      "body_type": "Roadster",
+      "fuel_type": "petrol",
+      "engine": "1.4L Turbo",
+      "transmission": "automatic",
+      "drivetrain": "RWD",
+      "year_start": 2016,
+      "year_end": 2020,
+      "is_currently_produced": false,
+      "is_currently_imported_il": false,
+      "market_scope": "IL",
+      "validation_decision": "clean_partial",
+      "acceptance_tier": "partial",
+      "identity_status": "verified",
+      "identity_confidence": 0.94,
+      "trim_status": "unresolved",
+      "trim_confidence": 0.0,
+      "field_validation": {
+        "canonical_make": {
+          "status": "verified",
+          "confidence": 0.98,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "risk_tags": [],
+          "notes": "Verified across multiple Israeli-market sources as Abarth 124 Spider."
+        },
+        "canonical_model": {
+          "status": "verified",
+          "confidence": 0.98,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "risk_tags": [],
+          "notes": "Verified as 124 Spider in Israeli-market sources."
+        },
+        "canonical_series_or_generation": {
+          "status": "inferred",
+          "confidence": 0.72,
+          "evidence_strength": "acceptable",
+          "source_indexes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "risk_tags": [
+            "generation_not_explicit"
+          ],
+          "notes": "Single modern production generation is consistent with the sourced 2016-2020 Israeli-market car, but generation label '1' is inferred rather than explicitly stated."
+        },
+        "canonical_trim": {
+          "status": "unresolved",
+          "confidence": 0.0,
+          "evidence_strength": "missing",
+          "source_indexes": [],
+          "risk_tags": [
+            "generic_trim"
+          ],
+          "notes": "Provided value '1.4' matches engine displacement/engine description, not a distinct marketed trim name."
+        },
+        "official_marketed_name_il": {
+          "status": "verified",
+          "confidence": 0.95,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            2,
+            3
+          ],
+          "risk_tags": [],
+          "notes": "Hebrew marketed naming appears in Israeli sources as אבארט 124 ספיידר."
+        },
+        "body_type": {
+          "status": "verified",
+          "confidence": 0.94,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            2,
+            3
+          ],
+          "risk_tags": [],
+          "notes": "Sources describe the car as a spider/convertible roadster."
+        },
+        "fuel_type": {
+          "status": "verified",
+          "confidence": 0.92,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            2,
+            3
+          ],
+          "risk_tags": [],
+          "notes": "Israeli sources describe a 1.4 turbo petrol engine."
+        },
+        "engine": {
+          "status": "verified",
+          "confidence": 0.97,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            2,
+            3,
+            4
+          ],
+          "risk_tags": [],
+          "notes": "Sources support 1.4 turbo petrol engine, commonly listed with 170 hp."
+        },
+        "transmission": {
+          "status": "verified",
+          "confidence": 0.95,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            1,
+            2,
+            4
+          ],
+          "risk_tags": [],
+          "notes": "Israeli sources support automatic availability/listing for the local-market variant record under review."
+        },
+        "drivetrain": {
+          "status": "verified",
+          "confidence": 0.9,
+          "evidence_strength": "acceptable",
+          "source_indexes": [
+            2
+          ],
+          "risk_tags": [],
+          "notes": "RWD supported by source describing power sent to rear wheels."
+        },
+        "year_start": {
+          "status": "verified",
+          "confidence": 0.96,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Israeli launch/article evidence supports market start in 2016."
+        },
+        "year_end": {
+          "status": "verified",
+          "confidence": 0.83,
+          "evidence_strength": "acceptable",
+          "source_indexes": [
+            5
+          ],
+          "risk_tags": [
+            "year_end_from_market_listing"
+          ],
+          "notes": "Israeli market listing pages group the model through 2020; adequate for end-year but less explicit than launch evidence."
+        },
+        "is_currently_produced": {
+          "status": "verified",
+          "confidence": 0.88,
+          "evidence_strength": "acceptable",
+          "source_indexes": [
+            5
+          ],
+          "risk_tags": [],
+          "notes": "Current Israeli cataloging indicates the model is no longer a current production offering."
+        },
+        "is_currently_imported_il": {
+          "status": "verified",
+          "confidence": 0.84,
+          "evidence_strength": "acceptable",
+          "source_indexes": [
+            5
+          ],
+          "risk_tags": [
+            "derived_from_non_current_listing"
+          ],
+          "notes": "No evidence of current new-car Israeli import offering; treated as no longer currently imported."
+        }
+      },
+      "source_support_matrix": [
+        {
+          "field": "canonical_make",
+          "value": "Abarth",
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "reason": "All cited Israeli sources identify the vehicle as Abarth."
+        },
+        {
+          "field": "canonical_model",
+          "value": "124 Spider",
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "reason": "All cited Israeli sources identify the model as 124 Spider."
+        },
+        {
+          "field": "official_marketed_name_il",
+          "value": "אבארט 124 ספיידר",
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            2,
+            3
+          ],
+          "reason": "Hebrew page titles and model labels use אבארט 124 ספיידר."
+        },
+        {
+          "field": "engine",
+          "value": "1.4L Turbo",
+          "support_level": "direct",
+          "source_indexes": [
+            2,
+            3,
+            4
+          ],
+          "reason": "Sources explicitly list 1.4 turbo engine / 1.4 ל' טורבו."
+        },
+        {
+          "field": "transmission",
+          "value": "automatic",
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2,
+            4
+          ],
+          "reason": "Sources explicitly list automatic transmission / אוטומטית / תיבה אוטומטית."
+        },
+        {
+          "field": "body_type",
+          "value": "Roadster",
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            2,
+            3
+          ],
+          "reason": "Sources describe the vehicle as spider/convertible sports car consistent with roadster body type."
+        },
+        {
+          "field": "fuel_type",
+          "value": "petrol",
+          "support_level": "direct",
+          "source_indexes": [
+            2,
+            3
+          ],
+          "reason": "Sources identify turbo petrol engine."
+        },
+        {
+          "field": "drivetrain",
+          "value": "RWD",
+          "support_level": "direct",
+          "source_indexes": [
+            2
+          ],
+          "reason": "Launch article describes power sent to rear wheels."
+        },
+        {
+          "field": "year_start",
+          "value": 2016,
+          "support_level": "direct",
+          "source_indexes": [
+            2
+          ],
+          "reason": "Israeli launch article published in 2016 supports local market start."
+        },
+        {
+          "field": "year_end",
+          "value": 2020,
+          "support_level": "indirect",
+          "source_indexes": [
+            5
+          ],
+          "reason": "Current Israeli catalog grouping indicates model run ended by 2020."
+        },
+        {
+          "field": "canonical_trim",
+          "value": null,
+          "support_level": "direct",
+          "source_indexes": [
+            4
+          ],
+          "reason": "Israeli price/spec listing uses 1.4 turbo automatic as engine/spec wording, not as a distinct trim family."
+        }
+      ],
+      "evidence_auditability": "moderate",
+      "grounding_status": {
+        "gemini_grounding_required": true,
+        "gemini_grounding_present": true,
+        "gemini_grounding_quality": "acceptable",
+        "gpt54_grounding_required": true,
+        "gpt54_grounding_present": true,
+        "gpt54_grounding_quality": "moderate",
+        "final_grounding_gate_passed": false
+      },
+      "grounding_summary": "Web-grounded Israeli sources support Abarth 124 Spider market presence in Israel from 2016, with a 1.4 turbo petrol engine, automatic transmission listing, and roadster/spider body style. The supplied trim value '1.4' is not supported as a marketed trim name and is therefore unresolved/null. The row remains partial and non-publishable to clean catalog.",
+      "evidence_sources": [
+        {
+          "title": "אבארט 124 ספיידר - iCar",
+          "url": "https://www.icar.co.il/%D7%90%D7%91%D7%90%D7%A8%D7%98/%D7%90%D7%91%D7%90%D7%A8%D7%98_124_%D7%A1%D7%A4%D7%99%D7%99%D7%93%D7%A8/%D7%90%D7%91%D7%90%D7%A8%D7%98_124_%D7%A1%D7%A4%D7%99%D7%99%D7%93%D7%A8_%D7%97%D7%93%D7%A9/",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "official_marketed_name_il",
+            "body_type"
+          ]
+        },
+        {
+          "title": "אבארט 124 - מחירון, חוות דעת ומידע טכני | אוטו",
+          "url": "https://www.auto.co.il/model/Abarth-124",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "transmission"
+          ]
+        },
+        {
+          "title": "אבארט 124 ספיידר נחתה בישראל – מחיר החל מ-299,900 שקל - cartube",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%90%D7%91%D7%90%D7%A8%D7%98-124-%D7%A1%D7%A4%D7%99%D7%99%D7%93%D7%A8-%D7%A0%D7%97%D7%AA%D7%94-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-299%2C900-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "year_start",
+            "engine",
+            "transmission",
+            "drivetrain",
+            "official_marketed_name_il"
+          ]
+        },
+        {
+          "title": "אבארט 124 ספיידר בישראל – חוות דעת, מחירים, השוואות ודירוג באוטובום",
+          "url": "https://autoboom.co.il/catalog/cars/abarth/124-spider/2021",
+          "source_name": "Autoboom",
+          "source_type": "marketplace",
+          "supports": [
+            "market_presence_il",
+            "official_marketed_name_il",
+            "body_type",
+            "engine",
+            "fuel_type"
+          ]
+        },
+        {
+          "title": "אבארט 124 מחירון רכב - אוטו",
+          "url": "https://www.auto.co.il/price/1280",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "engine",
+            "transmission",
+            "trim_not_distinct"
+          ]
+        },
+        {
+          "title": "אבארט בישראל, דגמים וביקורות באוטובום",
+          "url": "https://autoboom.co.il/catalog/cars/abarth",
+          "source_name": "Autoboom",
+          "source_type": "marketplace",
+          "supports": [
+            "year_end",
+            "is_currently_produced",
+            "is_currently_imported_il"
+          ]
+        }
+      ],
+      "possible_trim_names": [],
+      "split_candidates": [],
+      "blocking_identity_issues": [],
+      "non_blocking_trim_issues": [
+        "The provided trim '1.4' is an engine displacement / spec description, not a verified marketed trim name, so canonical_trim remains null."
+      ],
+      "fields_changed": [
+        "canonical_trim",
+        "trim_status",
+        "identity_confidence",
+        "field_validation",
+        "source_support_matrix",
+        "evidence_auditability",
+        "grounding_status",
+        "grounding_summary",
+        "evidence_sources",
+        "decision_reason",
+        "route_reason"
+      ],
+      "fields_left_unresolved": [
+        "canonical_trim"
+      ],
+      "decision_reason": "Final seal route=configurable_group_queue; publication_type=configurable_group; validation_decision=clean_partial; identity_status=verified; trim_status=unresolved. Unresolved fields: canonical_trim.",
+      "_pipeline_version": "v3_three_stage",
+      "_flags_count": 3,
+      "_flash_used": false,
+      "adjudication_log": [
+        "Repaired internal inconsistency: canonical_trim is null/unresolved, so trim_status set to unresolved rather than inferred.",
+        "Downgraded unsupported overclaims in grounding quality/auditability from strong to moderate because evidence is web-grounded but not accompanied by embedded source indexing artifacts from the prior run.",
+        "Retained non-clean-catalog routing because unresolved trim blocks exact variant publication."
+      ],
+      "publishable_to_clean_catalog": false,
+      "final_route": "configurable_group_queue",
+      "route_reason": "Valid Israeli-market identity with multiple options; routed to configurable group (user-selectable trim/transmission/body/engine/year).",
+      "duplicate_group_id": "dup-5eee41a6",
+      "duplicate_of": null,
+      "publication_type": "configurable_group",
+      "user_selectable_fields": {},
+      "option_matrix": [],
+      "candidate_values": {
+        "trim": {
+          "values": [
+            "1.4"
+          ],
+          "status": "candidate",
+          "reason": "Observed in listings as engine/spec wording, not verified as a marketed trim."
+        }
+      },
+      "preflight_risk_tags": [
+        "weak_official_marketed_name",
+        "low_auditability_risk",
+        "generic_trim"
+      ],
+      "_unknown_enums": [],
+      "final_seal_result": {
+        "seal_completed": true,
+        "clean_catalog_passed": false,
+        "blocks_clean_catalog": true,
+        "publication_type": "configurable_group",
+        "unknown_enums": [],
+        "passed": true,
+        "guard_flags": [
+          {
+            "guard_name": "unresolved_field_sync",
+            "severity": "medium",
+            "field_affected": "canonical_trim",
+            "original_value": null,
+            "guard_value": "canonical_trim",
+            "reason": "Audit text marks canonical_trim unresolved but fields_left_unresolved omitted it.",
+            "risk_tags": [
+              "audit_consistency"
+            ],
+            "needs_repair_adjudication": false,
+            "allowed_patch_fields": [
+              "fields_left_unresolved",
+              "identity_status",
+              "identity_confidence",
+              "validation_decision"
+            ]
+          },
+          {
+            "guard_name": "field_confidence_or_evidence_low",
+            "severity": "high",
+            "field_affected": "canonical_trim",
+            "original_value": "1.4",
+            "guard_value": null,
+            "reason": "canonical_trim lacks confidence/support required for clean_catalog.",
+            "risk_tags": [
+              "field_confidence",
+              "evidence"
+            ],
+            "needs_repair_adjudication": true,
+            "allowed_patch_fields": []
+          },
+          {
+            "guard_name": "final_seal_route_override",
+            "severity": "medium",
+            "field_affected": "final_route",
+            "original_value": "review_queue",
+            "guard_value": "configurable_group_queue",
+            "reason": "Valid Israeli-market identity with multiple options; routed to configurable group (user-selectable trim/transmission/body/engine/year).",
+            "risk_tags": [
+              "routing",
+              "final_seal"
+            ],
+            "needs_repair_adjudication": false,
+            "allowed_patch_fields": []
+          }
+        ]
+      },
+      "risk_score": 230,
+      "_repair_adjudicator_triggered": true,
+      "gpt54_grounding_present": true,
+      "_repair_decision": "patched",
+      "field_patches": [
+        {
+          "field": "canonical_trim",
+          "from": "1.4",
+          "to": null,
+          "reason": "Not verified as marketed trim; generic engine displacement only."
+        },
+        {
+          "field": "trim_status",
+          "from": "inferred",
+          "to": "unresolved",
+          "reason": "Null/unresolved trim cannot remain inferred."
+        },
+        {
+          "field": "identity_confidence",
+          "from": 1.0,
+          "to": 0.94,
+          "reason": "Slight downgrade for moderation and to reflect some inferred aspects such as generation labeling and end-year/current-import status strength."
+        },
+        {
+          "field": "grounding_status.gemini_grounding_quality",
+          "from": "strong",
+          "to": "moderate",
+          "reason": "Prior output claimed strong grounded support despite missing embedded grounding artifacts; web evidence supports moderate confidence."
+        },
+        {
+          "field": "grounding_status.gpt54_grounding_required",
+          "from": false,
+          "to": true,
+          "reason": "Repair adjudication used web grounding."
+        },
+        {
+          "field": "grounding_status.gpt54_grounding_present",
+          "from": false,
+          "to": true,
+          "reason": "Web grounding performed during repair."
+        },
+        {
+          "field": "grounding_status.gpt54_grounding_quality",
+          "from": "missing",
+          "to": "moderate",
+          "reason": "Repair includes live web-grounded evidence."
+        },
+        {
+          "field": "evidence_auditability",
+          "from": "strong",
+          "to": "moderate",
+          "reason": "Evidence is adequate but not fully audit-strong for every temporal claim."
+        },
+        {
+          "field": "fields_left_unresolved",
+          "from": [
+            "canonical_trim"
+          ],
+          "to": [
+            "canonical_trim"
+          ],
+          "reason": "Retained and confirmed as correct."
+        },
+        {
+          "field": "decision_reason",
+          "from": "Final seal route=configurable_group_queue; publication_type=configurable_group; validation_decision=clean_partial; identity_status=verified; trim_status=inferred. Unresolved fields: canonical_trim.",
+          "to": "Identity is sufficiently verified for Israeli-market Abarth 124 Spider automatic 1.4 turbo roadster, but trim is unresolved and null. Because unresolved trim cannot enter clean_catalog, the row remains clean_partial and should not be published as an exact variant.",
+          "reason": "Repaired inconsistency with unresolved trim."
+        }
+      ],
+      "_guard_verifier_used": false,
+      "guard_flags": [
+        {
+          "guard_name": "unresolved_field_sync",
+          "severity": "medium",
+          "field_affected": "canonical_trim",
+          "original_value": null,
+          "guard_value": "canonical_trim",
+          "reason": "Audit text marks canonical_trim unresolved but fields_left_unresolved omitted it.",
+          "needs_adjudication": false,
+          "recommended_verifier_model": "none",
+          "allowed_decisions": [
+            "clean_exact",
+            "clean_partial"
+          ],
+          "allowed_patch_fields": [
+            "fields_left_unresolved",
+            "identity_status",
+            "identity_confidence",
+            "validation_decision"
+          ],
+          "risk_tags": [
+            "audit_consistency"
+          ]
+        },
+        {
+          "guard_name": "field_confidence_or_evidence_low",
+          "severity": "high",
+          "field_affected": "canonical_trim",
+          "original_value": "1.4",
+          "guard_value": null,
+          "reason": "canonical_trim lacks confidence/support required for clean_catalog.",
+          "needs_adjudication": true,
+          "recommended_verifier_model": "gpt-5.4",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "field_confidence",
+            "evidence"
+          ]
+        },
+        {
+          "guard_name": "final_seal_route_override",
+          "severity": "medium",
+          "field_affected": "final_route",
+          "original_value": "review_queue",
+          "guard_value": "configurable_group_queue",
+          "reason": "Valid Israeli-market identity with multiple options; routed to configurable group (user-selectable trim/transmission/body/engine/year).",
+          "needs_adjudication": false,
+          "recommended_verifier_model": "none",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "routing",
+            "final_seal"
           ]
         }
       ]
