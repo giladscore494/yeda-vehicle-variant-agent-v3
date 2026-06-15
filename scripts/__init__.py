@@ -11,6 +11,7 @@ __all__ = [
     "data_loader",
     "json_utils",
     "catalog_grouping",
+    "catalog_normalization",
     "catalog_validation",
     "openai_catalog_client",
     "catalog_builder",
