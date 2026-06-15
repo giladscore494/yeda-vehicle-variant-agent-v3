@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T23:31:31Z",
+  "generated_at": "2026-06-15T23:32:52Z",
   "market": "IL",
   "models": [
     {
@@ -581,7 +581,7 @@
         {
           "version_or_trim": null,
           "body_type": "Coupe",
-          "fuel_type": "petrol",
+          "fuel_type": null,
           "engine": "3.2L v6",
           "engine_displacement_l": 3.2,
           "horsepower_hp": 265,
@@ -677,7 +677,7 @@
         {
           "version_or_trim": null,
           "body_type": "Convertible",
-          "fuel_type": "petrol",
+          "fuel_type": null,
           "engine": "2.0L turbo",
           "engine_displacement_l": 2,
           "horsepower_hp": 211,
@@ -828,13 +828,13 @@
         {
           "version_or_trim": null,
           "body_type": "Liftback",
-          "fuel_type": "petrol",
+          "fuel_type": null,
           "engine": "2.0L turbo",
           "engine_displacement_l": 2,
           "horsepower_hp": 190,
           "transmission": null,
           "drivetrain": null,
-          "year_start": 2020,
+          "year_start": null,
           "year_end": 2024,
           "support_level": "direct",
           "source_indexes": [
@@ -880,7 +880,7 @@
           "transmission": "7-speed dual_clutch",
           "drivetrain": "FWD",
           "year_start": 2024,
-          "year_end": 2026,
+          "year_end": null,
           "support_level": "direct",
           "source_indexes": [
             7,
@@ -1233,24 +1233,22 @@
         "'S-Line' was treated as a trim only where an Israeli source explicitly tied it to the 55e version. 'Advanced Luxury' was not returned as a technical variant because available sources exposed 'advanced' and 'Luxury Package' as equipment/package wording rather than a distinct technical configuration name."
       ],
       "validation_issues": [
-        "variant[0] non-null field 'fuel_type' has no field_sources entry",
+        "variant[0] required website field 'fuel_type' is null/empty",
         "variant[0] required field 'fuel_type' listed in missing_grounded_fields",
         "variant[1] required website field 'transmission' is null/empty",
         "variant[1] required field 'transmission' listed in missing_grounded_fields",
-        "variant[2] non-null field 'fuel_type' has no field_sources entry",
+        "variant[2] required website field 'fuel_type' is null/empty",
         "variant[2] required website field 'transmission' is null/empty",
         "variant[2] required website field 'drivetrain' is null/empty",
         "variant[2] required field 'fuel_type' listed in missing_grounded_fields",
         "variant[2] required field 'transmission' listed in missing_grounded_fields",
         "variant[2] required field 'drivetrain' listed in missing_grounded_fields",
-        "variant[5] non-null field 'fuel_type' has no field_sources entry",
-        "variant[5] non-null field 'year_start' has no field_sources entry",
+        "variant[5] required website field 'fuel_type' is null/empty",
         "variant[5] required website field 'transmission' is null/empty",
         "variant[5] required website field 'drivetrain' is null/empty",
         "variant[5] required field 'fuel_type' listed in missing_grounded_fields",
         "variant[5] required field 'transmission' listed in missing_grounded_fields",
         "variant[5] required field 'drivetrain' listed in missing_grounded_fields",
-        "variant[6] non-null field 'year_end' has no field_sources entry",
         "variant[7] required website field 'transmission' is null/empty",
         "variant[7] required website field 'drivetrain' is null/empty",
         "variant[7] required field 'transmission' listed in missing_grounded_fields",
@@ -1260,9 +1258,7 @@
         "variant[8] required field 'transmission' listed in missing_grounded_fields",
         "variant[8] required field 'drivetrain' listed in missing_grounded_fields"
       ],
-      "repair_attempts": 2,
-      "last_repair_error": "Gemini client library is unavailable",
-      "repair_exhausted": true
+      "repair_attempts": 1
     },
     {
       "market": "IL",
