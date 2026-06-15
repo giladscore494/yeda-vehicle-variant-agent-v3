@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T22:20:06Z",
+  "generated_at": "2026-06-15T22:20:37Z",
   "market": "IL",
   "models": [
     {
@@ -13,12 +13,12 @@
         {
           "version_or_trim": null,
           "body_type": "Sedan",
-          "fuel_type": "petrol",
+          "fuel_type": null,
           "engine": "1.8L",
           "engine_displacement_l": 1.8,
           "horsepower_hp": 127,
-          "transmission": "manual",
-          "drivetrain": "FWD",
+          "transmission": null,
+          "drivetrain": null,
           "year_start": 1992,
           "year_end": 1998,
           "support_level": "unknown",
@@ -58,12 +58,12 @@
         {
           "version_or_trim": null,
           "body_type": "Sedan",
-          "fuel_type": "petrol",
+          "fuel_type": null,
           "engine": "2.0L",
           "engine_displacement_l": 2,
           "horsepower_hp": 141,
-          "transmission": "manual",
-          "drivetrain": "FWD",
+          "transmission": null,
+          "drivetrain": null,
           "year_start": 1992,
           "year_end": 1998,
           "support_level": "unknown",
@@ -106,9 +106,7 @@
         "body_type": [
           "Sedan"
         ],
-        "fuel_type": [
-          "petrol"
-        ],
+        "fuel_type": [],
         "engine": [
           "1.8L",
           "2.0L"
@@ -117,12 +115,8 @@
           127,
           141
         ],
-        "transmission": [
-          "manual"
-        ],
-        "drivetrain": [
-          "FWD"
-        ]
+        "transmission": [],
+        "drivetrain": []
       },
       "invalid_or_non_trim_labels": [
         {
@@ -158,22 +152,20 @@
         "Year range 1992-1998 reflects the supplied raw years_seen and a secondary Israeli-market contextual source that 156 replaced 155 from 1998, but detailed per-variant Israeli sales dates were not found."
       ],
       "validation_issues": [
-        "variant[0] non-null field 'fuel_type' has no field_sources entry",
-        "variant[0] non-null field 'transmission' has no field_sources entry",
-        "variant[0] non-null field 'drivetrain' has no field_sources entry",
+        "variant[0] required website field 'fuel_type' is null/empty",
+        "variant[0] required website field 'transmission' is null/empty",
+        "variant[0] required website field 'drivetrain' is null/empty",
         "variant[0] required field 'fuel_type' listed in missing_grounded_fields",
         "variant[0] required field 'transmission' listed in missing_grounded_fields",
         "variant[0] required field 'drivetrain' listed in missing_grounded_fields",
-        "variant[1] non-null field 'fuel_type' has no field_sources entry",
-        "variant[1] non-null field 'transmission' has no field_sources entry",
-        "variant[1] non-null field 'drivetrain' has no field_sources entry",
+        "variant[1] required website field 'fuel_type' is null/empty",
+        "variant[1] required website field 'transmission' is null/empty",
+        "variant[1] required website field 'drivetrain' is null/empty",
         "variant[1] required field 'fuel_type' listed in missing_grounded_fields",
         "variant[1] required field 'transmission' listed in missing_grounded_fields",
         "variant[1] required field 'drivetrain' listed in missing_grounded_fields"
       ],
-      "repair_attempts": 2,
-      "last_repair_error": "Gemini client library is unavailable",
-      "repair_exhausted": true
+      "repair_attempts": 1
     },
     {
       "market": "IL",
