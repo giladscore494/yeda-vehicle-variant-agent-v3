@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T18:53:10Z",
+  "generated_at": "2026-06-15T18:53:38Z",
   "market": "IL",
   "mode": "online_gpt54",
   "model_id": "gpt-5.4",
@@ -11210,6 +11210,307 @@
         "Israeli-market sources located support only the RS4 Avant/Estate petrol AWD configuration with 2.9L twin-turbo V6 and 450 hp.",
         "No Israeli-market grounding was found for RS4 Sedan or RS4 Cabriolet being sold in Israel within the sourced period.",
         "Rows were merged into a single 2018-2024 variant because no sourced technical-field change was found across body_type, fuel_type, engine, horsepower_hp, transmission, and drivetrain."
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Audi",
+      "model": "RS5",
+      "canonical_model": "RS5",
+      "year_start": 2021,
+      "year_end": 2026,
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "2.9L turbo v6",
+          "engine_displacement_l": 2.9,
+          "horsepower_hp": 450,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2021,
+          "year_end": 2021,
+          "support_level": "direct",
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "2.9L turbo v6",
+          "engine_displacement_l": 2.9,
+          "horsepower_hp": 450,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2022,
+          "year_end": 2022,
+          "support_level": "direct",
+          "source_indexes": [
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Sportback",
+          "body_type": "Liftback",
+          "fuel_type": "petrol",
+          "engine": "2.9L turbo v6",
+          "engine_displacement_l": 2.9,
+          "horsepower_hp": 450,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2022,
+          "year_end": 2022,
+          "support_level": "direct",
+          "source_indexes": [
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1
+            ],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "e-hybrid",
+          "body_type": "Sedan",
+          "fuel_type": "plug_in_hybrid",
+          "engine": "2.9L v6 turbo",
+          "engine_displacement_l": 2.9,
+          "horsepower_hp": 639,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2026,
+          "year_end": 2026,
+          "support_level": "direct",
+          "source_indexes": [
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              2
+            ],
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              2
+            ],
+            "engine": [
+              2
+            ],
+            "engine_displacement_l": [
+              2
+            ],
+            "horsepower_hp": [
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              2
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Sportback",
+          "e-hybrid"
+        ],
+        "body_type": [
+          "Coupe",
+          "Liftback",
+          "Sedan"
+        ],
+        "fuel_type": [
+          "petrol",
+          "plug_in_hybrid"
+        ],
+        "engine": [
+          "2.9L turbo v6",
+          "2.9L v6 turbo"
+        ],
+        "horsepower_hp": [
+          450,
+          639
+        ],
+        "transmission": [
+          "8-speed automatic"
+        ],
+        "drivetrain": [
+          "AWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        "Base: non-trim placeholder"
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "Audi RS5 Coupe PDF specification",
+          "url": "https://images.auto.co.il/attachment/catalog/pdf/2450%2C.pdf",
+          "source_name": "Audi ישראל / auto.co.il hosted PDF",
+          "source_type": "importer_spec_pdf",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "Audi RS5 accessible PDF specification",
+          "url": "https://static.auto.co.il/media/ri4grihg/3973.pdf",
+          "source_name": "Audi ישראל / auto.co.il hosted PDF",
+          "source_type": "importer_spec_pdf",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "Audi RS5 e-hybrid Sedan quattro PDF specification",
+          "url": "https://www.cartube.co.il/images/mifrat/audi/audi_RS5_e-hybrid_mifrat-2026-4.pdf",
+          "source_name": "Cartube hosted Audi Israel spec PDF",
+          "source_type": "importer_spec_pdf",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "profile_confidence": "medium",
+      "notes": [
+        "Grounded Israeli-market evidence found for RS5 Coupe petrol in a June 2021 importer PDF.",
+        "A later Israeli-market importer PDF lists both RS5 Coupe and RS5 Sportback with identical 2.9T/450PS/quattro/8-tiptronic specs; the PDF itself does not expose a clear print date in extracted text, so 2022 is assigned based on the source publication timing on auto.co.il and should be treated as grounded but lower-confidence for precise year.",
+        "Sportback body style was normalized to Liftback.",
+        "No grounded Israeli-market source was found here for a separate Cabriolet RS5 row.",
+        "Raw database hint '4.2L V8' was not included because no Israeli-market source supporting an RS5 Israel technical row with that powertrain was found in this research pass.",
+        "The 2026 RS5 e-hybrid is treated as a separate sold technical version within RS5 because an Israeli-market spec sheet explicitly labels it RS5 Sedan e-hybrid quattro."
       ]
     }
   ],
