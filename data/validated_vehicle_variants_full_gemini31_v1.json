@@ -1,0 +1,742 @@
+{
+  "metadata": {
+    "engine": "gemini31_streamlit_sampled_validation",
+    "run_mode": "real",
+    "is_mock_output": false,
+    "model": "gemini-3.1-pro-preview",
+    "market": "IL",
+    "run_timestamp_utc": "2026-06-15T15:08:06Z",
+    "total_input_variants": 3712,
+    "total_instruction_records": 3712,
+    "total_validated_variants": 1,
+    "decision_counts": {
+      "clean_exact": 0,
+      "clean_partial": 1,
+      "split_required": 0,
+      "reject": 0
+    },
+    "grounding_cluster_count": 3653,
+    "gemini_call_count": 1,
+    "github_checkpoint_enabled": true,
+    "github_checkpoint_count": 1,
+    "github_checkpoint_fail_count": 0,
+    "last_github_checkpoint_error": null,
+    "last_validated_id": "VAL-000001",
+    "schema_version": "v3_three_stage",
+    "pipeline_version": "v3_three_stage",
+    "stage1_pro_calls": 1,
+    "stage2_guard_flags_total": 1,
+    "stage3_flash_calls": 0,
+    "flash_overrode_guard": 0,
+    "guard_overrode_flash": 0,
+    "stage3_guard_verifier_calls": 0,
+    "stage3_guard_verifier_attempts": 0,
+    "stage3_guard_verifier_successes": 0,
+    "stage3_guard_verifier_failures": 0,
+    "stage3_guard_verifier_model": "gpt-5.4",
+    "stage3_openai_guard_verifier_calls": 0,
+    "stage3_adjudicator_calls_total": 0,
+    "last_guard_verifier_error": null,
+    "guard_verifier_overrode_guard": 0,
+    "guard_overrode_verifier": 0,
+    "force_per_variant_validation": true,
+    "stage0_preflight_risk_rows": 1,
+    "stage1_gemini_grounding_required": 1,
+    "stage1_gemini_grounding_present": 1,
+    "stage1_gemini_grounding_missing": 0,
+    "stage1_gemini_weak_grounding_rows": 0,
+    "stage2_guard_flags_low": 0,
+    "stage2_guard_flags_medium": 0,
+    "stage2_guard_flags_high": 0,
+    "stage2_guard_flags_critical": 0,
+    "stage2_guard_patches_applied": 0,
+    "stage25_repair_risk_scored_rows": 1,
+    "stage25_repair_triggered_rows": 1,
+    "stage3_repair_adjudicator_calls": 1,
+    "stage3_repair_adjudicator_successes": 1,
+    "stage3_repair_adjudicator_failures": 0,
+    "stage3_repair_adjudicator_patches": 12,
+    "stage3_repair_adjudicator_routing_changes": 0,
+    "stage3_repair_adjudicator_summary_rewrites": 0,
+    "stage3_repair_adjudicator_grounding_required": 1,
+    "stage3_repair_adjudicator_grounding_present": 1,
+    "stage3_repair_adjudicator_grounding_missing": 0,
+    "stage4_final_seal_passed": 0,
+    "stage4_final_seal_blocks": 1,
+    "stage4_final_guard_conflicts_remaining": 0,
+    "clean_catalog_blocks_by_repair": 0,
+    "clean_catalog_blocks_by_final_seal": 1,
+    "clean_catalog_blocks_by_grounding": 1,
+    "clean_catalog_blocks_by_unresolved_trim": 1,
+    "clean_catalog_blocks_by_unresolved_critical_field": 1,
+    "upload_readiness": {
+      "ready_for_exact_clean_upload": true,
+      "ready_for_configurable_group_upload": true,
+      "total_rows": 1,
+      "exact_variant_rows": 0,
+      "configurable_group_rows": 1,
+      "review_only_rows": 0,
+      "clean_catalog_rows": 0,
+      "critical_consistency_errors": 0,
+      "high_consistency_errors": 0,
+      "unknown_enum_errors": 0,
+      "duplicate_group_errors": 0,
+      "repair_success_rate": 1.0,
+      "grounding_pass_rate": 0.0
+    }
+  },
+  "validated_variants": [
+    {
+      "validation_id": "VAL-000001",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000001",
+      "source_cluster_id": "CLU-7ea11c499a5f",
+      "grounding_cluster_id": "CLU-7ea11c499a5f",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "500",
+      "canonical_series_or_generation": "1st Gen",
+      "canonical_trim": null,
+      "official_marketed_name_il": "אבארט 500",
+      "body_type": "Hatchback",
+      "fuel_type": "petrol",
+      "engine": "1.4L Turbo",
+      "transmission": "manual",
+      "drivetrain": null,
+      "year_start": 2010,
+      "year_end": 2016,
+      "is_currently_produced": false,
+      "is_currently_imported_il": false,
+      "market_scope": "IL",
+      "validation_decision": "clean_partial",
+      "acceptance_tier": "partial",
+      "identity_status": "verified",
+      "identity_confidence": 0.9,
+      "trim_status": "unresolved",
+      "trim_confidence": 0.0,
+      "field_validation": {
+        "canonical_make": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "risk_tags": [],
+          "notes": "Make is directly supported by Israeli listing pages."
+        },
+        "canonical_model": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "risk_tags": [],
+          "notes": "Model 500 is directly supported by Israeli listing pages."
+        },
+        "canonical_series_or_generation": {
+          "status": "candidate",
+          "confidence": 0.7,
+          "evidence_strength": "acceptable",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "risk_tags": [
+            "generation_inferred"
+          ],
+          "notes": "Pre-facelift/first-generation framing is plausible from the 2010-2016 market span, but the exact generation label is inferred rather than explicitly stated by the cited sources."
+        },
+        "canonical_trim": {
+          "status": "unresolved",
+          "confidence": 0.0,
+          "evidence_strength": "missing",
+          "source_indexes": [],
+          "risk_tags": [
+            "generic_trim"
+          ],
+          "notes": "Input trim 'Base' is not directly supported. Israeli listings show named trims such as Competizione, Scorpione, San Marino 595 and Lusso, so no exact trim can be assigned."
+        },
+        "official_marketed_name_il": {
+          "status": "verified",
+          "confidence": 0.95,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            1
+          ],
+          "risk_tags": [],
+          "notes": "Hebrew market name appears as אבארט 500 on Israeli automotive listing pages."
+        },
+        "body_type": {
+          "status": "verified",
+          "confidence": 0.9,
+          "evidence_strength": "acceptable",
+          "source_indexes": [
+            1
+          ],
+          "risk_tags": [
+            "body_style_inferred_from_model_form"
+          ],
+          "notes": "Standard Abarth 500 in these Israeli listings is the hatchback model; separate cabrio pages exist, reducing ambiguity."
+        },
+        "fuel_type": {
+          "status": "verified",
+          "confidence": 0.95,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            1,
+            3
+          ],
+          "risk_tags": [],
+          "notes": "Turbocharged 1.4-liter petrol configuration is supported by the cited pages."
+        },
+        "engine": {
+          "status": "verified",
+          "confidence": 0.95,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            1,
+            3
+          ],
+          "risk_tags": [],
+          "notes": "Israeli pages support a 1.4-liter turbo engine for the model."
+        },
+        "transmission": {
+          "status": "verified",
+          "confidence": 0.9,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            2,
+            3
+          ],
+          "risk_tags": [],
+          "notes": "Manual transmission is directly shown on Israeli listing pages for this model family."
+        },
+        "drivetrain": {
+          "status": "candidate",
+          "confidence": 0.7,
+          "evidence_strength": "weak",
+          "source_indexes": [],
+          "risk_tags": [
+            "spec_inferred"
+          ],
+          "notes": "FWD is consistent with the platform but was not directly confirmed in the grounded Israeli sources used here."
+        },
+        "year_start": {
+          "status": "verified",
+          "confidence": 0.95,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "risk_tags": [
+            "market_launch_discrepancy"
+          ],
+          "notes": "Israeli market listing pages show the Abarth 500 range beginning at 2010, so local-market start is repaired from 2008 to 2010."
+        },
+        "year_end": {
+          "status": "candidate",
+          "confidence": 0.75,
+          "evidence_strength": "acceptable",
+          "source_indexes": [
+            1,
+            3
+          ],
+          "risk_tags": [
+            "series_boundary_inferred"
+          ],
+          "notes": "2016 is supported by Israeli listing pages, but the exact end of this specific pre-facelift identity versus broader 500 naming is not fully explicit."
+        },
+        "is_currently_produced": {
+          "status": "candidate",
+          "confidence": 0.7,
+          "evidence_strength": "acceptable",
+          "source_indexes": [
+            4
+          ],
+          "risk_tags": [
+            "current_status_inferred_from_market_pages"
+          ],
+          "notes": "Current Israeli new-car coverage points to Abarth e500 rather than the legacy petrol Abarth 500, so this legacy variant is treated as no longer produced, but this is an inference from current market coverage rather than a direct OEM production statement."
+        },
+        "is_currently_imported_il": {
+          "status": "candidate",
+          "confidence": 0.8,
+          "evidence_strength": "acceptable",
+          "source_indexes": [
+            4
+          ],
+          "risk_tags": [
+            "current_status_inferred_from_market_pages"
+          ],
+          "notes": "Current Israeli new-car coverage highlights the e500 rather than the legacy petrol Abarth 500, so this legacy variant is treated as not currently imported in Israel."
+        }
+      },
+      "source_support_matrix": [
+        {
+          "field": "canonical_make",
+          "value": "Abarth",
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "reason": "Israeli pages explicitly identify the make as Abarth."
+        },
+        {
+          "field": "canonical_model",
+          "value": "500",
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "reason": "Israeli pages explicitly identify the model as 500."
+        },
+        {
+          "field": "official_marketed_name_il",
+          "value": "אבארט 500",
+          "support_level": "direct",
+          "source_indexes": [
+            1
+          ],
+          "reason": "Hebrew page title and model page use אבארט 500."
+        },
+        {
+          "field": "year_start",
+          "value": 2010,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "reason": "iCar pages show the Israeli model range beginning in 2010."
+        },
+        {
+          "field": "year_end",
+          "value": 2016,
+          "support_level": "direct",
+          "source_indexes": [
+            3
+          ],
+          "reason": "Auto model/year page confirms a 2016 Abarth 500 Israeli market entry."
+        },
+        {
+          "field": "engine",
+          "value": "1.4L Turbo",
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            3
+          ],
+          "reason": "Israeli pages describe a 1.4-liter turbo engine."
+        },
+        {
+          "field": "transmission",
+          "value": "manual",
+          "support_level": "direct",
+          "source_indexes": [
+            2,
+            3
+          ],
+          "reason": "Manual transmission is explicitly listed on Israeli version pages."
+        },
+        {
+          "field": "canonical_trim",
+          "value": null,
+          "support_level": "indirect",
+          "source_indexes": [
+            0,
+            3
+          ],
+          "reason": "Observed Israeli trim names differ from input placeholder 'Base', so top-level trim must remain unresolved/null."
+        }
+      ],
+      "evidence_auditability": "moderate",
+      "grounding_status": {
+        "gemini_grounding_required": true,
+        "gemini_grounding_present": true,
+        "gemini_grounding_quality": "acceptable",
+        "gpt54_grounding_required": true,
+        "gpt54_grounding_present": true,
+        "gpt54_grounding_quality": "missing",
+        "final_grounding_gate_passed": false
+      },
+      "grounding_summary": "Grounded Israeli sources support Abarth 500 market presence from 2010, with a 1.4-liter turbo petrol engine and manual examples. Multiple named trims appear in Israeli listings, so the input trim 'Base' is not supported and remains unresolved.",
+      "evidence_sources": [
+        {
+          "title": "אבארט 500 2016 ידנית, Competezione ,1.4T-Jet יד שניה",
+          "url": "https://www.auto.co.il/cars/abarth/500/2016/506176/",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "engine",
+            "transmission",
+            "trim_candidates"
+          ]
+        },
+        {
+          "title": "אבארט 500 - אתר iCar",
+          "url": "https://www.icar.co.il/%D7%90%D7%91%D7%90%D7%A8%D7%98/%D7%90%D7%91%D7%90%D7%A8%D7%98_500/%D7%90%D7%91%D7%90%D7%A8%D7%98_500_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%94_%D7%9310/",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "year_range",
+            "engine",
+            "body_type",
+            "official_name_il"
+          ]
+        },
+        {
+          "title": "אבארט 500 2010 Abarth 1.4 - יד שניה",
+          "url": "https://www.icar.co.il/%D7%90%D7%91%D7%90%D7%A8%D7%98/%D7%90%D7%91%D7%90%D7%A8%D7%98_500/%D7%90%D7%91%D7%90%D7%A8%D7%98_500_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%94_%D7%9310/version8265/",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "year_start",
+            "engine",
+            "transmission"
+          ]
+        },
+        {
+          "title": "אבארט 500 - מחירון, חוות דעת ומידע טכני | אוטו",
+          "url": "https://www.auto.co.il/cars/abarth/500/2016/",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "year_end",
+            "engine",
+            "trim_candidates",
+            "transmission"
+          ]
+        },
+        {
+          "title": "אבארט 500 - אתר iCar",
+          "url": "https://www.icar.co.il/%D7%90%D7%91%D7%90%D7%A8%D7%98/%D7%90%D7%91%D7%90%D7%A8%D7%98_500/%D7%90%D7%91%D7%90%D7%A8%D7%98_500_%D7%97%D7%93%D7%A9/",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "current_market_context_il"
+          ]
+        }
+      ],
+      "possible_trim_names": [
+        "Competizione",
+        "Scorpione",
+        "San Marino 595",
+        "Lusso"
+      ],
+      "split_candidates": [],
+      "blocking_identity_issues": [],
+      "non_blocking_trim_issues": [
+        "The provided trim 'Base' is a generic placeholder and is not directly supported by grounded Israeli sources.",
+        "Israeli listings show multiple named trims, so no exact canonical trim can be assigned from the available evidence."
+      ],
+      "fields_changed": [
+        {
+          "field": "year_start",
+          "from": 2008,
+          "to": 2010,
+          "reason": "Grounded Israeli market pages show the local Abarth 500 range starting in 2010."
+        },
+        {
+          "field": "canonical_trim",
+          "from": "Base",
+          "to": null,
+          "reason": "Input trim is unsupported placeholder; grounded Israeli listings show other named trims instead."
+        }
+      ],
+      "fields_left_unresolved": [
+        "canonical_trim",
+        "drivetrain"
+      ],
+      "decision_reason": "Final seal route=configurable_group_queue; publication_type=configurable_group; validation_decision=clean_partial; identity_status=verified; trim_status=unresolved. Unresolved fields: canonical_trim, drivetrain.",
+      "_pipeline_version": "v3_three_stage",
+      "_flags_count": 3,
+      "_flash_used": false,
+      "adjudication_log": [],
+      "publishable_to_clean_catalog": false,
+      "final_route": "configurable_group_queue",
+      "route_reason": "Valid Israeli-market identity with multiple options; routed to configurable group (user-selectable trim/transmission/body/engine/year).",
+      "duplicate_group_id": "dup-92e38c38",
+      "duplicate_of": null,
+      "publication_type": "configurable_group",
+      "user_selectable_fields": {
+        "trim": [
+          "Competizione",
+          "Scorpione",
+          "San Marino 595",
+          "Lusso"
+        ],
+        "body_type": [
+          "Hatchback"
+        ],
+        "engine": [
+          "1.4L Turbo"
+        ],
+        "year": [
+          2010
+        ]
+      },
+      "option_matrix": [
+        {
+          "trim": "Competizione",
+          "engine": "1.4L Turbo",
+          "transmission": null,
+          "body_type": "Hatchback",
+          "year_start": 2010,
+          "year_end": 2016,
+          "evidence_strength": "weak",
+          "source_indexes": []
+        },
+        {
+          "trim": "Scorpione",
+          "engine": "1.4L Turbo",
+          "transmission": null,
+          "body_type": "Hatchback",
+          "year_start": 2010,
+          "year_end": 2016,
+          "evidence_strength": "weak",
+          "source_indexes": []
+        },
+        {
+          "trim": "San Marino 595",
+          "engine": "1.4L Turbo",
+          "transmission": null,
+          "body_type": "Hatchback",
+          "year_start": 2010,
+          "year_end": 2016,
+          "evidence_strength": "weak",
+          "source_indexes": []
+        },
+        {
+          "trim": "Lusso",
+          "engine": "1.4L Turbo",
+          "transmission": null,
+          "body_type": "Hatchback",
+          "year_start": 2010,
+          "year_end": 2016,
+          "evidence_strength": "weak",
+          "source_indexes": []
+        }
+      ],
+      "candidate_values": {},
+      "preflight_risk_tags": [
+        "base_trim",
+        "placeholder_trim",
+        "weak_official_marketed_name",
+        "low_auditability_risk"
+      ],
+      "_unknown_enums": [],
+      "final_seal_result": {
+        "seal_completed": true,
+        "clean_catalog_passed": false,
+        "blocks_clean_catalog": true,
+        "publication_type": "configurable_group",
+        "unknown_enums": [],
+        "passed": true,
+        "guard_flags": [
+          {
+            "guard_name": "final_seal_route_override",
+            "severity": "medium",
+            "field_affected": "final_route",
+            "original_value": "review_queue",
+            "guard_value": "configurable_group_queue",
+            "reason": "Valid Israeli-market identity with multiple options; routed to configurable group (user-selectable trim/transmission/body/engine/year).",
+            "risk_tags": [
+              "routing",
+              "final_seal"
+            ],
+            "needs_repair_adjudication": false,
+            "allowed_patch_fields": []
+          },
+          {
+            "guard_name": "populated_field_marked_unresolved",
+            "severity": "critical",
+            "field_affected": "drivetrain",
+            "original_value": "FWD",
+            "guard_value": null,
+            "reason": "Audit/issues mark drivetrain unresolved; canonical value nullified.",
+            "risk_tags": [
+              "audit_consistency",
+              "populated_unresolved"
+            ],
+            "needs_repair_adjudication": true,
+            "allowed_patch_fields": []
+          },
+          {
+            "guard_name": "current_status_contradiction",
+            "severity": "high",
+            "field_affected": "grounding_summary",
+            "original_value": "Grounded Israeli sources support Abarth 500 market presence from 2010, with a 1.4-liter turbo petrol engine and manual examples. Multiple named trims appear in Israeli listings, so the input trim 'Base' is not supported and remains unresolved. Current Israeli new-car coverage points to the e500 rather than this legacy petrol variant, so the legacy variant is not treated as currently imported.",
+            "guard_value": "Grounded Israeli sources support Abarth 500 market presence from 2010, with a 1.4-liter turbo petrol engine and manual examples. Multiple named trims appear in Israeli listings, so the input trim 'Base' is not supported and remains unresolved.",
+            "reason": "Summary claimed current status while current flags are null/false; summary rewritten.",
+            "risk_tags": [
+              "current_status",
+              "summary_rewrite"
+            ],
+            "needs_repair_adjudication": true,
+            "allowed_patch_fields": []
+          }
+        ]
+      },
+      "risk_score": 65,
+      "_repair_adjudicator_triggered": true,
+      "gpt54_grounding_present": true,
+      "_repair_decision": "patched",
+      "field_patches": [
+        {
+          "field": "canonical_trim",
+          "from": "Base/implicit unresolved populated source state",
+          "to": null,
+          "reason": "Unsupported placeholder trim cannot remain canonical."
+        },
+        {
+          "field": "year_start",
+          "from": 2008,
+          "to": 2010,
+          "reason": "Grounded Israeli sources show local range starting in 2010."
+        },
+        {
+          "field": "drivetrain.status",
+          "from": "verified",
+          "to": "partial",
+          "reason": "No direct grounded support in retrieved Israeli evidence."
+        },
+        {
+          "field": "canonical_series_or_generation.status",
+          "from": "verified",
+          "to": "partial",
+          "reason": "Generation label is inferred, not directly explicit in grounded sources."
+        },
+        {
+          "field": "year_end.status",
+          "from": "verified",
+          "to": "partial",
+          "reason": "2016 specific boundary for this exact generation is not fully explicit in grounded evidence."
+        },
+        {
+          "field": "is_currently_produced.status",
+          "from": "verified",
+          "to": "partial",
+          "reason": "Current production conclusion is inferred from current market coverage, not directly OEM-grounded."
+        },
+        {
+          "field": "is_currently_imported_il.status",
+          "from": "verified",
+          "to": "partial",
+          "reason": "Current import conclusion is inferred from current market coverage, not direct importer statement."
+        },
+        {
+          "field": "fields_left_unresolved",
+          "from": [
+            "canonical_trim"
+          ],
+          "to": [
+            "canonical_trim",
+            "drivetrain"
+          ],
+          "reason": "Drivetrain value retained but not directly verified, so unresolved/partial state must be surfaced."
+        },
+        {
+          "field": "final_route",
+          "from": "configurable_group_queue",
+          "to": "review_queue",
+          "reason": "Configurable-group publication would require stronger grounded option evidence than available."
+        },
+        {
+          "field": "publication_type",
+          "from": "configurable_group",
+          "to": "review_only",
+          "reason": "Trim option matrix was not sufficiently grounded for safe grouped publication."
+        },
+        {
+          "field": "user_selectable_fields",
+          "from": {
+            "trim": [
+              "Custom",
+              "Turismo",
+              "Competizione",
+              "Scorpione",
+              "Nuvolari"
+            ],
+            "body_type": [
+              "Hatchback"
+            ],
+            "engine": [
+              "1.4L Turbo"
+            ],
+            "year": [
+              2010
+            ]
+          },
+          "to": {},
+          "reason": "Option set included unsupported/unretrieved values and weakly grounded grouping."
+        },
+        {
+          "field": "option_matrix",
+          "from": "populated",
+          "to": [],
+          "reason": "Option combinations were not directly grounded and included invented/unsupported entries."
+        }
+      ],
+      "_guard_verifier_used": false,
+      "guard_flags": [
+        {
+          "guard_name": "final_seal_route_override",
+          "severity": "medium",
+          "field_affected": "final_route",
+          "original_value": "review_queue",
+          "guard_value": "configurable_group_queue",
+          "reason": "Valid Israeli-market identity with multiple options; routed to configurable group (user-selectable trim/transmission/body/engine/year).",
+          "needs_adjudication": false,
+          "recommended_verifier_model": "none",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "routing",
+            "final_seal"
+          ]
+        },
+        {
+          "guard_name": "populated_field_marked_unresolved",
+          "severity": "critical",
+          "field_affected": "drivetrain",
+          "original_value": "FWD",
+          "guard_value": null,
+          "reason": "Audit/issues mark drivetrain unresolved; canonical value nullified.",
+          "needs_adjudication": true,
+          "recommended_verifier_model": "gpt-5.4",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "audit_consistency",
+            "populated_unresolved"
+          ]
+        },
+        {
+          "guard_name": "current_status_contradiction",
+          "severity": "high",
+          "field_affected": "grounding_summary",
+          "original_value": "Grounded Israeli sources support Abarth 500 market presence from 2010, with a 1.4-liter turbo petrol engine and manual examples. Multiple named trims appear in Israeli listings, so the input trim 'Base' is not supported and remains unresolved. Current Israeli new-car coverage points to the e500 rather than this legacy petrol variant, so the legacy variant is not treated as currently imported.",
+          "guard_value": "Grounded Israeli sources support Abarth 500 market presence from 2010, with a 1.4-liter turbo petrol engine and manual examples. Multiple named trims appear in Israeli listings, so the input trim 'Base' is not supported and remains unresolved.",
+          "reason": "Summary claimed current status while current flags are null/false; summary rewritten.",
+          "needs_adjudication": true,
+          "recommended_verifier_model": "gpt-5.4",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "current_status",
+            "summary_rewrite"
+          ]
+        }
+      ]
+    }
+  ]
+}
