@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T17:58:33Z",
+  "generated_at": "2026-06-15T17:58:47Z",
   "market": "IL",
   "models": [
     {
@@ -3290,6 +3290,272 @@
         "variant[27] non-null field 'year_end' has no field_sources entry",
         "variant[28] is not an object",
         "variant[29] is not an object"
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Alfa Romeo",
+      "model": "Brera",
+      "canonical_model": "Brera",
+      "year_start": 2005,
+      "year_end": null,
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Sky View",
+          "body_type": "Hatchback 3-door",
+          "fuel_type": "petrol",
+          "engine": null,
+          "engine_displacement_l": 2.2,
+          "horsepower_hp": 185,
+          "transmission": "manual",
+          "drivetrain": "FWD",
+          "year_start": 2005,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "engine",
+            "year_end"
+          ]
+        },
+        {
+          "version_or_trim": "Sky View",
+          "body_type": "Hatchback 3-door",
+          "fuel_type": "petrol",
+          "engine": null,
+          "engine_displacement_l": 2.2,
+          "horsepower_hp": 185,
+          "transmission": "robotic",
+          "drivetrain": "FWD",
+          "year_start": 2005,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "engine",
+            "year_end"
+          ]
+        },
+        {
+          "version_or_trim": "Sky View",
+          "body_type": "Hatchback 3-door",
+          "fuel_type": "petrol",
+          "engine": null,
+          "engine_displacement_l": 3.2,
+          "horsepower_hp": 260,
+          "transmission": "automatic",
+          "drivetrain": "AWD",
+          "year_start": 2005,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "engine",
+            "year_end"
+          ]
+        },
+        {
+          "version_or_trim": "Sky View",
+          "body_type": "Hatchback 3-door",
+          "fuel_type": "petrol",
+          "engine": null,
+          "engine_displacement_l": 3.2,
+          "horsepower_hp": 260,
+          "transmission": "manual",
+          "drivetrain": "AWD",
+          "year_start": 2005,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "engine",
+            "year_end"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Sky View"
+        ],
+        "body_type": [
+          "Hatchback 3-door"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [],
+        "horsepower_hp": [
+          185,
+          260
+        ],
+        "transmission": [
+          "manual",
+          "robotic",
+          "automatic"
+        ],
+        "drivetrain": [
+          "FWD",
+          "AWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "Alfa Romeo Brera in Israel – Review, Prices, Comparisons and Rating on Autoboom",
+          "url": "https://autoboom.co.il/en/catalog/cars/alfa-romeo/brera",
+          "source_name": "Autoboom Israel",
+          "source_type": "catalog",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        }
+      ],
+      "profile_confidence": "medium",
+      "notes": [
+        "Grounding found from an Israeli-market catalog source (Autoboom Israel) listing four Brera configurations in Israel.",
+        "No Israeli official importer Brera page/PDF was found in accessible current sources.",
+        "Engine marketing names/codes were not grounded from the Israeli source, so engine is null for all rows.",
+        "No grounded Israeli-market source was found for year_end; left null.",
+        "Fuel normalized to 'petrol' from source label 'Gasoline'.",
+        "Transmission labels preserved from source where possible; 3.2 row uses source label 'Automatic', 2.2 automated row uses source label 'Robotic'."
+      ],
+      "validation_issues": [
+        "variant[0] required website field 'engine' is null/empty",
+        "variant[0] required field 'engine' listed in missing_grounded_fields",
+        "variant[1] required website field 'engine' is null/empty",
+        "variant[1] required field 'engine' listed in missing_grounded_fields",
+        "variant[2] required website field 'engine' is null/empty",
+        "variant[2] required field 'engine' listed in missing_grounded_fields",
+        "variant[3] required website field 'engine' is null/empty",
+        "variant[3] required field 'engine' listed in missing_grounded_fields"
       ]
     }
   ]
