@@ -8,24 +8,24 @@
     "run_timestamp_utc": "2026-06-15T13:04:50Z",
     "total_input_variants": 3712,
     "total_instruction_records": 3712,
-    "total_validated_variants": 9,
+    "total_validated_variants": 10,
     "decision_counts": {
       "clean_exact": 0,
-      "clean_partial": 4,
+      "clean_partial": 5,
       "split_required": 5,
       "reject": 0
     },
     "grounding_cluster_count": 3653,
-    "gemini_call_count": 9,
+    "gemini_call_count": 10,
     "github_checkpoint_enabled": true,
-    "github_checkpoint_count": 9,
+    "github_checkpoint_count": 10,
     "github_checkpoint_fail_count": 0,
     "last_github_checkpoint_error": null,
-    "last_validated_id": "VAL-000009",
+    "last_validated_id": "VAL-000010",
     "schema_version": "v3_three_stage",
     "pipeline_version": "v3_three_stage",
-    "stage1_pro_calls": 9,
-    "stage2_guard_flags_total": 32,
+    "stage1_pro_calls": 10,
+    "stage2_guard_flags_total": 33,
     "stage3_flash_calls": 0,
     "flash_overrode_guard": 0,
     "guard_overrode_flash": 0,
@@ -40,9 +40,9 @@
     "guard_verifier_overrode_guard": 0,
     "guard_overrode_verifier": 0,
     "force_per_variant_validation": true,
-    "stage0_preflight_risk_rows": 9,
-    "stage1_gemini_grounding_required": 9,
-    "stage1_gemini_grounding_present": 9,
+    "stage0_preflight_risk_rows": 10,
+    "stage1_gemini_grounding_required": 10,
+    "stage1_gemini_grounding_present": 10,
     "stage1_gemini_grounding_missing": 0,
     "stage1_gemini_weak_grounding_rows": 0,
     "stage2_guard_flags_low": 0,
@@ -50,39 +50,39 @@
     "stage2_guard_flags_high": 0,
     "stage2_guard_flags_critical": 0,
     "stage2_guard_patches_applied": 0,
-    "stage25_repair_risk_scored_rows": 9,
-    "stage25_repair_triggered_rows": 8,
-    "stage3_repair_adjudicator_calls": 8,
-    "stage3_repair_adjudicator_successes": 8,
+    "stage25_repair_risk_scored_rows": 10,
+    "stage25_repair_triggered_rows": 9,
+    "stage3_repair_adjudicator_calls": 9,
+    "stage3_repair_adjudicator_successes": 9,
     "stage3_repair_adjudicator_failures": 0,
-    "stage3_repair_adjudicator_patches": 63,
+    "stage3_repair_adjudicator_patches": 75,
     "stage3_repair_adjudicator_routing_changes": 0,
     "stage3_repair_adjudicator_summary_rewrites": 0,
-    "stage3_repair_adjudicator_grounding_required": 8,
-    "stage3_repair_adjudicator_grounding_present": 8,
+    "stage3_repair_adjudicator_grounding_required": 9,
+    "stage3_repair_adjudicator_grounding_present": 9,
     "stage3_repair_adjudicator_grounding_missing": 0,
     "stage4_final_seal_passed": 0,
-    "stage4_final_seal_blocks": 9,
+    "stage4_final_seal_blocks": 10,
     "stage4_final_guard_conflicts_remaining": 0,
     "clean_catalog_blocks_by_repair": 0,
-    "clean_catalog_blocks_by_final_seal": 9,
-    "clean_catalog_blocks_by_grounding": 2,
-    "clean_catalog_blocks_by_unresolved_trim": 8,
-    "clean_catalog_blocks_by_unresolved_critical_field": 4,
+    "clean_catalog_blocks_by_final_seal": 10,
+    "clean_catalog_blocks_by_grounding": 3,
+    "clean_catalog_blocks_by_unresolved_trim": 9,
+    "clean_catalog_blocks_by_unresolved_critical_field": 5,
     "upload_readiness": {
       "ready_for_exact_clean_upload": false,
       "ready_for_configurable_group_upload": false,
-      "total_rows": 9,
+      "total_rows": 10,
       "exact_variant_rows": 0,
-      "configurable_group_rows": 8,
+      "configurable_group_rows": 9,
       "review_only_rows": 1,
       "clean_catalog_rows": 0,
       "critical_consistency_errors": 2,
-      "high_consistency_errors": 6,
-      "unknown_enum_errors": 6,
+      "high_consistency_errors": 7,
+      "unknown_enum_errors": 7,
       "duplicate_group_errors": 1,
       "repair_success_rate": 1.0,
-      "grounding_pass_rate": 0.7778
+      "grounding_pass_rate": 0.7
     }
   },
   "validated_variants": [
@@ -5841,6 +5841,708 @@
           "risk_tags": [
             "current_status",
             "summary_rewrite"
+          ]
+        }
+      ]
+    },
+    {
+      "validation_id": "VAL-000010",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000010",
+      "source_cluster_id": "CLU-ee56004c3c90",
+      "grounding_cluster_id": "CLU-ee56004c3c90",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "500e",
+      "canonical_series_or_generation": "2nd Gen",
+      "canonical_trim": null,
+      "official_marketed_name_il": "אבארט 500e",
+      "body_type": "Hatchback",
+      "fuel_type": "electric",
+      "engine": "Electric Motor",
+      "transmission": "automatic",
+      "drivetrain": "FWD",
+      "year_start": 2024,
+      "year_end": null,
+      "is_currently_produced": null,
+      "is_currently_imported_il": null,
+      "market_scope": "IL",
+      "validation_decision": "clean_partial",
+      "acceptance_tier": "partial",
+      "identity_status": "verified",
+      "identity_confidence": 0.93,
+      "trim_status": "unresolved",
+      "trim_confidence": 0.74,
+      "field_validation": {
+        "canonical_make": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "risk_tags": [],
+          "notes": "Abarth make is directly supported by all grounded sources."
+        },
+        "canonical_model": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "risk_tags": [],
+          "notes": "Israeli and official sources consistently use model name 500e."
+        },
+        "canonical_series_or_generation": {
+          "status": "candidate",
+          "confidence": 0.6,
+          "evidence_strength": "partial",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "risk_tags": [
+            "generation_inferred"
+          ],
+          "notes": "2nd Gen remains an inference from the electric 500e lineage rather than an explicit Israeli-market generation label."
+        },
+        "canonical_trim": {
+          "status": "candidate",
+          "confidence": 0.74,
+          "evidence_strength": "partial",
+          "source_indexes": [
+            1,
+            3
+          ],
+          "risk_tags": [
+            "trim_market_availability_unclear",
+            "trim_current_il_listing_conflict"
+          ],
+          "notes": "Scorpionissima is evidenced as a real Abarth 500e trim/special version globally and mentioned in secondary sources, but current Israeli catalog evidence reviewed shows Turismo and does not directly confirm a stable IL catalog entry for Scorpionissima."
+        },
+        "official_marketed_name_il": {
+          "status": "verified",
+          "confidence": 0.94,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Israeli sources market the vehicle as אבארט 500e."
+        },
+        "body_type": {
+          "status": "verified",
+          "confidence": 0.95,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Israeli sources confirm hatchback body alongside cabrio; this row is specifically hatchback."
+        },
+        "fuel_type": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "risk_tags": [],
+          "notes": "Vehicle is fully electric."
+        },
+        "engine": {
+          "status": "verified",
+          "confidence": 0.97,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "risk_tags": [],
+          "notes": "Sources support a single front electric motor; normalized as Electric Motor."
+        },
+        "transmission": {
+          "status": "verified",
+          "confidence": 0.91,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            1,
+            3
+          ],
+          "risk_tags": [
+            "normalized_from_direct_drive"
+          ],
+          "notes": "Direct-drive/single-speed EV transmission normalized to automatic."
+        },
+        "drivetrain": {
+          "status": "verified",
+          "confidence": 0.97,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            1
+          ],
+          "risk_tags": [],
+          "notes": "Israeli source explicitly states front-wheel drive."
+        },
+        "year_start": {
+          "status": "verified",
+          "confidence": 0.98,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Israeli launch is explicitly stated as January 2024."
+        },
+        "year_end": {
+          "status": "unresolved",
+          "confidence": 0.23,
+          "evidence_strength": "weak",
+          "source_indexes": [
+            1,
+            2,
+            3
+          ],
+          "risk_tags": [
+            "unsupported_end_year",
+            "conflict_with_current_model_listing"
+          ],
+          "notes": "No grounded primary/authoritative source reviewed establishes that the Scorpionissima Israeli-market variant ended in 2024; current 2026 IL catalog pages for 500e exist but show Turismo, so exact trim end year remains unresolved."
+        },
+        "is_currently_produced": {
+          "status": "unresolved",
+          "confidence": 0.22,
+          "evidence_strength": "weak",
+          "source_indexes": [
+            3
+          ],
+          "risk_tags": [
+            "current_status_not_trim_specific"
+          ],
+          "notes": "Official global Abarth site shows New Abarth 500e range still exists, but reviewed evidence does not establish current production status specifically for Scorpionissima."
+        },
+        "is_currently_imported_il": {
+          "status": "unresolved",
+          "confidence": 0.21,
+          "evidence_strength": "weak",
+          "source_indexes": [
+            2
+          ],
+          "risk_tags": [
+            "current_import_not_trim_specific"
+          ],
+          "notes": "Current Israeli listing confirms Abarth 500e presence in Israel, but not current import of Scorpionissima trim specifically."
+        }
+      },
+      "source_support_matrix": [
+        {
+          "field": "canonical_model",
+          "value": "500e",
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "reason": "All grounded sources identify the EV model as Abarth 500e."
+        },
+        {
+          "field": "official_marketed_name_il",
+          "value": "אבארט 500e",
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "reason": "Israeli sources use the Hebrew marketed name אבארט 500e."
+        },
+        {
+          "field": "body_type",
+          "value": "Hatchback",
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "reason": "Israeli sources describe hatchback and cabrio versions; hatchback is explicitly listed."
+        },
+        {
+          "field": "engine",
+          "value": "Electric Motor",
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "reason": "Sources describe a 155 hp electric motor / e-motor."
+        },
+        {
+          "field": "transmission",
+          "value": "automatic",
+          "support_level": "normalized",
+          "source_indexes": [
+            1,
+            3
+          ],
+          "reason": "EV direct-drive / single-speed setup normalized to automatic."
+        },
+        {
+          "field": "drivetrain",
+          "value": "FWD",
+          "support_level": "direct",
+          "source_indexes": [
+            1
+          ],
+          "reason": "Sport5 explicitly states front-wheel drive."
+        },
+        {
+          "field": "canonical_trim",
+          "value": "Scorpionissima",
+          "support_level": "partial",
+          "source_indexes": [
+            1,
+            3
+          ],
+          "reason": "Secondary Israeli/article evidence and official Scorpionissima page indicate trim existence, but not firm current IL catalog validation."
+        },
+        {
+          "field": "year_start",
+          "value": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "reason": "Israeli sources explicitly place market launch in January 2024."
+        }
+      ],
+      "evidence_auditability": "medium",
+      "grounding_status": {
+        "gemini_grounding_required": true,
+        "gemini_grounding_present": true,
+        "gemini_grounding_quality": "acceptable",
+        "gpt54_grounding_required": true,
+        "gpt54_grounding_present": true,
+        "gpt54_grounding_quality": "medium",
+        "final_grounding_gate_passed": false
+      },
+      "grounding_summary": "Grounded review confirms Abarth 500e reached Israel in January 2024, with hatchback and cabrio body styles, electric powertrain, and FWD. Current Israeli catalog pages reviewed show Abarth 500e Turismo listings in 2025/2026, while Scorpionissima is evidenced as a real trim/special version but not firmly grounded here as a clean exact Israeli-market ongoing catalog variant. The previously claimed year_end=2024 and current production/import=false are not sufficiently supported for this exact trim.",
+      "evidence_sources": [
+        {
+          "title": "אבארט 500e החדשה בארץ – מחיר החל מ-220,000 שקלים",
+          "url": "https://www.auto.co.il/articles/car-news/local-news/136805/",
+          "source_name": "auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "official_marketed_name_il",
+            "year_start",
+            "engine",
+            "fuel_type",
+            "body_type"
+          ]
+        },
+        {
+          "title": "זרם עוקצני: אבארט 500e בישראל מ-219,900 שקל",
+          "url": "https://www.sport5.co.il/articles.aspx?FolderID=7186&docID=457777",
+          "source_name": "sport5.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "engine",
+            "transmission",
+            "drivetrain",
+            "body_type"
+          ]
+        },
+        {
+          "title": "אבארט 500e - מחירון, חוות דעת ומידע טכני | אוטו",
+          "url": "https://www.auto.co.il/cars/abarth/500e/",
+          "source_name": "auto.co.il",
+          "source_type": "catalog",
+          "supports": [
+            "market_presence_il_current_model",
+            "year_start",
+            "body_type",
+            "current_il_trim_turismo_only"
+          ]
+        },
+        {
+          "title": "New Abarth Electric 500e – The New Era of Electric | Abarth",
+          "url": "https://www.abarth.com/new-abarth-electric-500e?gad_source=1&source=SEM",
+          "source_name": "abarth.com",
+          "source_type": "official",
+          "supports": [
+            "global_model_exists",
+            "engine",
+            "fuel_type",
+            "transmission_normalization"
+          ]
+        },
+        {
+          "title": "18\" DIAMOND-CUT TITANIUM ALLOY WHEELS",
+          "url": "https://www.abarth.com/new-abarth-500e-scorpionissima/performance1/doppio-scarico-cromato1",
+          "source_name": "abarth.com",
+          "source_type": "official",
+          "supports": [
+            "scorpionissima_trim_exists_globally"
+          ]
+        }
+      ],
+      "possible_trim_names": [
+        "Scorpionissima",
+        "Turismo"
+      ],
+      "split_candidates": [],
+      "blocking_identity_issues": [],
+      "non_blocking_trim_issues": [
+        "Scorpionissima exact Israeli-market trim needs stronger IL-market grounding relative to currently listed Turismo trim.",
+        "Trim end date and current import/production status are unresolved for this exact trim."
+      ],
+      "fields_changed": [
+        {
+          "field": "canonical_model",
+          "from": "500",
+          "to": "500e",
+          "reason": "Grounded Israeli and official sources consistently use 500e for the electric model."
+        },
+        {
+          "field": "canonical_trim",
+          "from": "500e Scorpionissima",
+          "to": "Scorpionissima",
+          "reason": "Separated model token from trim token."
+        },
+        {
+          "field": "year_end",
+          "from": 2024,
+          "to": null,
+          "reason": "Claimed 2024 end year is not sufficiently grounded for the exact Israeli-market trim."
+        },
+        {
+          "field": "is_currently_produced",
+          "from": false,
+          "to": null,
+          "reason": "Current production status for Scorpionissima specifically is not grounded."
+        },
+        {
+          "field": "is_currently_imported_il",
+          "from": false,
+          "to": null,
+          "reason": "Current Israeli import status for Scorpionissima specifically is not grounded."
+        }
+      ],
+      "fields_left_unresolved": [
+        "year_end",
+        "is_currently_produced",
+        "is_currently_imported_il",
+        "canonical_trim"
+      ],
+      "decision_reason": "Final seal route=configurable_group_queue; publication_type=configurable_group; validation_decision=clean_partial; identity_status=verified; trim_status=unresolved. Unresolved fields: year_end, is_currently_produced, is_currently_imported_il, canonical_trim.",
+      "_pipeline_version": "v3_three_stage",
+      "_flags_count": 4,
+      "_flash_used": false,
+      "adjudication_log": [
+        "Removed unsupported exact claims about year_end=2024 and current production/import false.",
+        "Downgraded trim from verified to partial due to IL-market auditability gap and current Turismo listing conflict.",
+        "Rerouted from clean_catalog to review_queue because unresolved critical fields remain and grounding gate should not pass."
+      ],
+      "publishable_to_clean_catalog": false,
+      "final_route": "configurable_group_queue",
+      "route_reason": "Valid Israeli-market identity with multiple options; routed to configurable group (user-selectable trim/transmission/body/engine/year).",
+      "duplicate_group_id": "dup-b972051f",
+      "duplicate_of": null,
+      "publication_type": "configurable_group",
+      "user_selectable_fields": {
+        "trim": [
+          "Scorpionissima",
+          "Turismo"
+        ],
+        "body_type": [
+          "Hatchback"
+        ],
+        "engine": [
+          "Electric Motor"
+        ],
+        "year": [
+          2024
+        ]
+      },
+      "option_matrix": [
+        {
+          "trim": "Scorpionissima",
+          "engine": "Electric Motor",
+          "transmission": null,
+          "body_type": "Hatchback",
+          "year_start": 2024,
+          "year_end": null,
+          "evidence_strength": "weak",
+          "source_indexes": []
+        },
+        {
+          "trim": "Turismo",
+          "engine": "Electric Motor",
+          "transmission": null,
+          "body_type": "Hatchback",
+          "year_start": 2024,
+          "year_end": null,
+          "evidence_strength": "weak",
+          "source_indexes": []
+        }
+      ],
+      "candidate_values": {
+        "trim": {
+          "values": [
+            "Scorpionissima"
+          ],
+          "status": "candidate",
+          "reason": "Listed in fields_left_unresolved."
+        }
+      },
+      "preflight_risk_tags": [
+        "weak_official_marketed_name",
+        "current_or_future_year_end_placeholder",
+        "low_auditability_risk",
+        "trim_market_availability_unclear"
+      ],
+      "_unknown_enums": [
+        "source_support_matrix[transmission].support_level=normalized"
+      ],
+      "final_seal_result": {
+        "seal_completed": true,
+        "clean_catalog_passed": false,
+        "blocks_clean_catalog": true,
+        "publication_type": "configurable_group",
+        "unknown_enums": [
+          "source_support_matrix[transmission].support_level=normalized"
+        ],
+        "passed": true,
+        "guard_flags": [
+          {
+            "guard_name": "final_seal_route_override",
+            "severity": "medium",
+            "field_affected": "final_route",
+            "original_value": "review_queue",
+            "guard_value": "clean_catalog",
+            "reason": "Final seal passed strict clean_catalog policy.",
+            "risk_tags": [
+              "routing",
+              "final_seal"
+            ],
+            "needs_repair_adjudication": false,
+            "allowed_patch_fields": []
+          },
+          {
+            "guard_name": "field_confidence_or_evidence_low",
+            "severity": "high",
+            "field_affected": "canonical_trim",
+            "original_value": "Scorpionissima",
+            "guard_value": null,
+            "reason": "canonical_trim lacks confidence/support required for clean_catalog.",
+            "risk_tags": [
+              "field_confidence",
+              "evidence"
+            ],
+            "needs_repair_adjudication": true,
+            "allowed_patch_fields": []
+          },
+          {
+            "guard_name": "current_status_contradiction",
+            "severity": "high",
+            "field_affected": "grounding_summary",
+            "original_value": "Grounded review confirms Abarth 500e reached Israel in January 2024, with hatchback and cabrio body styles, electric powertrain, and FWD. Current Israeli catalog pages reviewed show Abarth 500e Turismo listings in 2025/2026, while Scorpionissima is evidenced as a real trim/special version but not firmly grounded here as a clean exact Israeli-market ongoing catalog variant. The previously claimed year_end=2024 and current production/import=false are not sufficiently supported for this exact trim.",
+            "guard_value": "Grounded review confirms Abarth 500e reached Israel in January 2024, with hatchback and cabrio body styles, electric powertrain, and FWD. Current Israeli catalog pages reviewed show Abarth 500e Turismo listings in 2025/2026, while Scorpionissima is evidenced as a real trim/special version but not firmly grounded here as a clean exact Israeli-market ongoing catalog variant. The previously claimed year_end=2024 and current production/import=false are not sufficiently supported for this exact trim.",
+            "reason": "Summary claimed current status while current flags are null/false; summary rewritten.",
+            "risk_tags": [
+              "current_status",
+              "summary_rewrite"
+            ],
+            "needs_repair_adjudication": true,
+            "allowed_patch_fields": []
+          },
+          {
+            "guard_name": "final_seal_route_override",
+            "severity": "medium",
+            "field_affected": "final_route",
+            "original_value": "review_queue",
+            "guard_value": "configurable_group_queue",
+            "reason": "Valid Israeli-market identity with multiple options; routed to configurable group (user-selectable trim/transmission/body/engine/year).",
+            "risk_tags": [
+              "routing",
+              "final_seal"
+            ],
+            "needs_repair_adjudication": false,
+            "allowed_patch_fields": []
+          }
+        ]
+      },
+      "risk_score": 74,
+      "_repair_adjudicator_triggered": true,
+      "gpt54_grounding_present": true,
+      "_repair_decision": "patched",
+      "field_patches": [
+        {
+          "field": "year_end",
+          "from": 2024,
+          "to": null,
+          "reason": "Unsupported exact end-year claim removed."
+        },
+        {
+          "field": "is_currently_produced",
+          "from": false,
+          "to": null,
+          "reason": "Not grounded for exact trim."
+        },
+        {
+          "field": "is_currently_imported_il",
+          "from": false,
+          "to": null,
+          "reason": "Not grounded for exact trim."
+        },
+        {
+          "field": "trim_status",
+          "from": "verified",
+          "to": "partial",
+          "reason": "Exact Israeli-market Scorpionissima trim evidence is not strong enough for verified."
+        },
+        {
+          "field": "trim_confidence",
+          "from": 1.0,
+          "to": 0.74,
+          "reason": "Downgraded for auditability and IL-market specificity gap."
+        },
+        {
+          "field": "validation_decision",
+          "from": "clean_exact",
+          "to": "review_required",
+          "reason": "Critical unresolved fields remain."
+        },
+        {
+          "field": "acceptance_tier",
+          "from": "exact",
+          "to": "review",
+          "reason": "Cannot be exact with unresolved critical fields."
+        },
+        {
+          "field": "publishable_to_clean_catalog",
+          "from": true,
+          "to": false,
+          "reason": "Policy disallows clean catalog with unresolved critical fields."
+        },
+        {
+          "field": "final_route",
+          "from": "clean_catalog",
+          "to": "review_queue",
+          "reason": "Routing repaired to match evidence and policy."
+        },
+        {
+          "field": "publication_type",
+          "from": "exact_variant",
+          "to": "review_only",
+          "reason": "Not publishable as exact variant."
+        },
+        {
+          "field": "grounding_status.final_grounding_gate_passed",
+          "from": true,
+          "to": false,
+          "reason": "Grounding insufficient for clean gate on exact trim row."
+        },
+        {
+          "field": "fields_left_unresolved",
+          "from": [],
+          "to": [
+            "year_end",
+            "is_currently_produced",
+            "is_currently_imported_il"
+          ],
+          "reason": "These fields remain unresolved after grounded review."
+        }
+      ],
+      "_guard_verifier_used": false,
+      "guard_flags": [
+        {
+          "guard_name": "final_seal_route_override",
+          "severity": "medium",
+          "field_affected": "final_route",
+          "original_value": "review_queue",
+          "guard_value": "clean_catalog",
+          "reason": "Final seal passed strict clean_catalog policy.",
+          "needs_adjudication": false,
+          "recommended_verifier_model": "none",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "routing",
+            "final_seal"
+          ]
+        },
+        {
+          "guard_name": "field_confidence_or_evidence_low",
+          "severity": "high",
+          "field_affected": "canonical_trim",
+          "original_value": "Scorpionissima",
+          "guard_value": null,
+          "reason": "canonical_trim lacks confidence/support required for clean_catalog.",
+          "needs_adjudication": true,
+          "recommended_verifier_model": "gpt-5.4",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "field_confidence",
+            "evidence"
+          ]
+        },
+        {
+          "guard_name": "current_status_contradiction",
+          "severity": "high",
+          "field_affected": "grounding_summary",
+          "original_value": "Grounded review confirms Abarth 500e reached Israel in January 2024, with hatchback and cabrio body styles, electric powertrain, and FWD. Current Israeli catalog pages reviewed show Abarth 500e Turismo listings in 2025/2026, while Scorpionissima is evidenced as a real trim/special version but not firmly grounded here as a clean exact Israeli-market ongoing catalog variant. The previously claimed year_end=2024 and current production/import=false are not sufficiently supported for this exact trim.",
+          "guard_value": "Grounded review confirms Abarth 500e reached Israel in January 2024, with hatchback and cabrio body styles, electric powertrain, and FWD. Current Israeli catalog pages reviewed show Abarth 500e Turismo listings in 2025/2026, while Scorpionissima is evidenced as a real trim/special version but not firmly grounded here as a clean exact Israeli-market ongoing catalog variant. The previously claimed year_end=2024 and current production/import=false are not sufficiently supported for this exact trim.",
+          "reason": "Summary claimed current status while current flags are null/false; summary rewritten.",
+          "needs_adjudication": true,
+          "recommended_verifier_model": "gpt-5.4",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "current_status",
+            "summary_rewrite"
+          ]
+        },
+        {
+          "guard_name": "final_seal_route_override",
+          "severity": "medium",
+          "field_affected": "final_route",
+          "original_value": "review_queue",
+          "guard_value": "configurable_group_queue",
+          "reason": "Valid Israeli-market identity with multiple options; routed to configurable group (user-selectable trim/transmission/body/engine/year).",
+          "needs_adjudication": false,
+          "recommended_verifier_model": "none",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "routing",
+            "final_seal"
           ]
         }
       ]
