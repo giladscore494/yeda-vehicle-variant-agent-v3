@@ -25,6 +25,7 @@ from .output_writer import (
 )
 from .reconcile import reconcile_validation_output, reconcile_validation_output_with_flags
 from .reconcile import compute_preflight_risk_tags, compute_repair_risk_score, final_seal, should_trigger_repair
+from .reconcile import dedupe_guard_flags
 
 # Delimiters that suggest a single row bundles multiple distinct trims.
 _SPLIT_DELIMITERS = (" / ", "/", " or ", ",", " + ", "+", " & ", "&", ";", "|")
@@ -557,11 +558,12 @@ def run_validation(
                         flags = flags + seal_flags2
                     if config.final_seal_enabled and not row.get("final_seal_result"):
                         raise RuntimeError(f"final_seal_result missing after real row processing for {vid}")
+                    deduped_flags = dedupe_guard_flags(flags)
                     row["_pipeline_version"] = "v3_three_stage"
-                    row["_flags_count"] = len(flags)
+                    row["_flags_count"] = len(deduped_flags)
                     row["_flash_used"] = flash_used
                     row["_guard_verifier_used"] = verifier_used
-                    row.setdefault("guard_flags", [getattr(f, "__dict__", f) for f in flags])
+                    row["guard_flags"] = [getattr(f, "__dict__", f) for f in deduped_flags]
                     row.setdefault("adjudication_log", [])
                 else:
                     # Legacy fallback only when force_per_variant_validation is explicitly disabled.

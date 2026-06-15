@@ -43,6 +43,7 @@ VALIDATION_DECISIONS = ("clean_exact", "clean_partial", "split_required", "rejec
 ACCEPTANCE_TIERS = ("exact", "partial", "none")
 IDENTITY_STATUSES = ("verified", "likely_valid", "uncertain", "invalid")
 TRIM_STATUSES = ("verified", "inferred", "unresolved", "invalid")
+PUBLICATION_TYPES = ("exact_variant", "configurable_group", "review_only")
 
 # decision -> required acceptance tier
 DECISION_TIER = {
@@ -122,6 +123,11 @@ def empty_output_row(validation_id: str) -> Dict[str, Any]:
         "route_reason": "Routing not yet assigned.",
         "duplicate_group_id": None,
         "duplicate_of": None,
+        # Israeli option-matrix publication model.
+        "publication_type": "review_only",
+        "user_selectable_fields": {},
+        "option_matrix": [],
+        "candidate_values": {},
     }
 
 
@@ -151,6 +157,13 @@ def enforce_consistency(row: Dict[str, Any]) -> Dict[str, Any]:
         row["identity_status"] = "uncertain"
     if row.get("trim_status") not in TRIM_STATUSES:
         row["trim_status"] = "unresolved"
+    if row.get("publication_type") not in PUBLICATION_TYPES:
+        row["publication_type"] = "review_only"
+    for dict_field in ("user_selectable_fields", "candidate_values"):
+        if not isinstance(row.get(dict_field), dict):
+            row[dict_field] = {}
+    if not isinstance(row.get("option_matrix"), list):
+        row["option_matrix"] = []
 
     for conf in ("identity_confidence", "trim_confidence"):
         try:
@@ -247,6 +260,43 @@ def _strict_unsealed_publish_ok(row: Dict[str, Any]) -> bool:
     )
 
 
+_PUBLICATION_RANK = {"exact_variant": 3, "configurable_group": 2, "review_only": 1}
+_DECISION_RANK = {"clean_exact": 3, "clean_partial": 2, "split_required": 1, "reject": 0}
+
+
+def _primary_score(row: Dict[str, Any]) -> tuple:
+    """Higher is a better primary for a duplicate group (spec ordering)."""
+    pub_rank = _PUBLICATION_RANK.get(row.get("publication_type"), 0)
+    dec_rank = _DECISION_RANK.get(row.get("validation_decision"), 0)
+    fv = row.get("field_validation") if isinstance(row.get("field_validation"), dict) else {}
+    verified = sum(1 for v in fv.values() if isinstance(v, dict) and v.get("status") == "verified")
+    direct_urls = sum(
+        1 for s in (row.get("evidence_sources") or [])
+        if isinstance(s, dict) and s.get("url") and s.get("source_type") not in (None, "unknown")
+    )
+    unresolved = len(row.get("fields_left_unresolved") or [])
+    flags = len(row.get("guard_flags") or [])
+    idc = float(row.get("identity_confidence") or 0.0)
+    tc = float(row.get("trim_confidence") or 0.0)
+    return (pub_rank, dec_rank, verified, direct_urls, -unresolved, -flags, idc, tc)
+
+
+def _select_duplicate_primaries(rows: List[Dict[str, Any]]) -> Dict[str, str]:
+    """Pick one primary validation_id per fingerprint group (materially same rows)."""
+    groups: Dict[str, List[Dict[str, Any]]] = {}
+    for row in rows:
+        groups.setdefault(content_fingerprint(row), []).append(row)
+    primary: Dict[str, str] = {}
+    for fp, grp in groups.items():
+        if len(grp) == 1:
+            primary[fp] = grp[0].get("validation_id")
+            continue
+        # max() keeps the first row on ties, preserving input order.
+        best = max(grp, key=_primary_score)
+        primary[fp] = best.get("validation_id")
+    return primary
+
+
 def route_validated_rows(rows: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     """Assign final routing for the catalog.
 
@@ -257,7 +307,13 @@ def route_validated_rows(rows: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
       ever made *stricter* here (cross-row duplicate detection), never relaxed.
     * Unsealed rows fall back to strict routing that can never publish a
       ``clean_partial`` row or a row with a null/unresolved trim.
+
+    A primary row is chosen per duplicate group via :func:`_primary_score`
+    (exact > configurable > review, more verified fields, stronger evidence,
+    fewer unresolved/flags). Every other materially-identical row is routed away
+    from the clean catalog with ``duplicate_of`` set to the primary.
     """
+    primary_by_fp = _select_duplicate_primaries(rows)
     first_by_fp: Dict[str, str] = {}
     group_by_fp: Dict[str, str] = {}
     routed: List[Dict[str, Any]] = []
@@ -266,12 +322,13 @@ def route_validated_rows(rows: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         fp = content_fingerprint(row)
         row["duplicate_group_id"] = group_by_fp.setdefault(fp, f"dup-{abs(hash(fp)) & 0xffffffff:08x}")
         decision = row.get("validation_decision")
-        is_dup = fp in first_by_fp
+        primary_id = primary_by_fp.get(fp)
+        is_dup = primary_id is not None and row.get("validation_id") != primary_id
 
         if row.get("final_seal_result"):
             # Final seal is authoritative. Apply only stricter duplicate routing.
             if is_dup and row.get("final_route") not in {"rejected", "split_queue"}:
-                row["duplicate_of"] = first_by_fp[fp]
+                row["duplicate_of"] = primary_id
                 row["publishable_to_clean_catalog"] = False
                 row["final_route"] = "duplicate_queue"
                 row["route_reason"] = f"Content duplicate of {row['duplicate_of']}; kept in full staging output only."
@@ -286,7 +343,7 @@ def route_validated_rows(rows: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         row["duplicate_of"] = None
         blocking = _blocking_publish_issues(row)
         if is_dup and decision in {"clean_exact", "clean_partial"}:
-            row["duplicate_of"] = first_by_fp[fp]
+            row["duplicate_of"] = primary_id
             row["publishable_to_clean_catalog"] = False
             row["final_route"] = "duplicate_queue"
             row["route_reason"] = f"Content duplicate of {row['duplicate_of']}; kept in full staging output only."
@@ -319,6 +376,145 @@ def route_validated_rows(rows: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
             row["route_reason"] = "; ".join(blocking) or "Unresolved issue blocks clean catalog publishing."
         routed.append(row)
     return routed
+
+
+# ---------------------------------------------------------------------------
+# Upload readiness report (lightweight QA)
+# ---------------------------------------------------------------------------
+
+
+def _exact_publish_gate_ok(row: Dict[str, Any]) -> bool:
+    """The strict gate a row must pass to belong in the exact clean catalog."""
+    unresolved = set(row.get("fields_left_unresolved") or [])
+    grounding = row.get("grounding_status") or {}
+    return (
+        row.get("publication_type") == "exact_variant"
+        and row.get("validation_decision") == "clean_exact"
+        and row.get("identity_status") == "verified"
+        and row.get("trim_status") == "verified"
+        and row.get("canonical_trim") not in (None, "", [])
+        and "canonical_trim" not in unresolved
+        and not (unresolved & IDENTITY_CRITICAL_UNRESOLVED_FIELDS)
+        and not row.get("split_candidates")
+        and not row.get("blocking_identity_issues")
+        and row.get("duplicate_of") in (None, "")
+        and not row.get("_unknown_enums")
+        and grounding.get("final_grounding_gate_passed") is True
+    )
+
+
+def verify_row_consistency(row: Dict[str, Any]) -> List[tuple]:
+    """Return (severity, message) consistency problems for a routed row."""
+    errs: List[tuple] = []
+    unresolved = set(row.get("fields_left_unresolved") or [])
+    fv = row.get("field_validation") if isinstance(row.get("field_validation"), dict) else {}
+    for f in sorted(unresolved):
+        if row.get(f) not in (None, "", []):
+            errs.append(("critical", f"{f} populated but listed in fields_left_unresolved"))
+        info = fv.get(f)
+        if isinstance(info, dict) and info.get("status") == "verified":
+            errs.append(("critical", f"{f} unresolved but field_validation status is verified"))
+    in_clean = row.get("final_route") == "clean_catalog" or row.get("publishable_to_clean_catalog")
+    if in_clean:
+        if not _exact_publish_gate_ok(row):
+            errs.append(("critical", "row routed to clean_catalog but fails the strict exact publish gate"))
+        if row.get("validation_decision") in {"clean_partial", "split_required", "reject"}:
+            errs.append(("critical", "non-exact validation_decision in clean_catalog"))
+        if row.get("publication_type") != "exact_variant":
+            errs.append(("high", "clean_catalog row is not publication_type=exact_variant"))
+        if row.get("duplicate_of"):
+            errs.append(("critical", "duplicate row routed to clean_catalog"))
+    if row.get("_unknown_enums"):
+        errs.append(("high", "unknown enum survived final consistency"))
+    return errs
+
+
+def _configurable_group_consistent(row: Dict[str, Any]) -> bool:
+    """A configurable group must offer real options and never publish as exact."""
+    if row.get("publication_type") != "configurable_group":
+        return True
+    if row.get("publishable_to_clean_catalog") or row.get("final_route") == "clean_catalog":
+        return False
+    if row.get("identity_status") not in {"verified", "likely_valid"}:
+        return False
+    usf = row.get("user_selectable_fields") if isinstance(row.get("user_selectable_fields"), dict) else {}
+    matrix = row.get("option_matrix") if isinstance(row.get("option_matrix"), list) else []
+    has_options = matrix or any(isinstance(v, list) and v for v in usf.values()) or row.get("split_candidates")
+    return bool(has_options)
+
+
+def build_upload_readiness_report(rows: List[Dict[str, Any]], metadata: Dict[str, Any]) -> Dict[str, Any]:
+    """Lightweight end-of-run QA summary; never raises."""
+    total = len(rows)
+    exact = sum(1 for r in rows if r.get("publication_type") == "exact_variant")
+    config = sum(1 for r in rows if r.get("publication_type") == "configurable_group")
+    review = sum(1 for r in rows if r.get("publication_type") == "review_only")
+    clean = sum(1 for r in rows if r.get("final_route") == "clean_catalog" and r.get("publishable_to_clean_catalog"))
+    unknown_enum_errors = sum(1 for r in rows if r.get("_unknown_enums"))
+
+    critical = 0
+    high = 0
+    for r in rows:
+        for severity, _msg in verify_row_consistency(r):
+            if severity == "critical":
+                critical += 1
+            elif severity == "high":
+                high += 1
+
+    # Duplicate group errors: groups with >1 row where none was marked primary.
+    groups: Dict[str, List[Dict[str, Any]]] = {}
+    for r in rows:
+        groups.setdefault(content_fingerprint(r), []).append(r)
+    duplicate_group_errors = 0
+    for grp in groups.values():
+        if len(grp) > 1 and all(not g.get("duplicate_of") for g in grp):
+            duplicate_group_errors += 1
+
+    calls = int(metadata.get("stage3_repair_adjudicator_calls", 0) or 0)
+    successes = int(metadata.get("stage3_repair_adjudicator_successes", 0) or 0)
+    repair_success_rate = (successes / calls) if calls else 1.0
+    grounded = sum(1 for r in rows if (r.get("grounding_status") or {}).get("final_grounding_gate_passed"))
+    grounding_pass_rate = (grounded / total) if total else 0.0
+
+    clean_rows = [r for r in rows if r.get("final_route") == "clean_catalog"]
+    every_clean_passes = all(_exact_publish_gate_ok(r) for r in clean_rows)
+    no_clean_partial_in_clean = not any(r.get("validation_decision") == "clean_partial" for r in clean_rows)
+    no_split_in_clean = not any(r.get("validation_decision") == "split_required" for r in clean_rows)
+    no_dup_in_clean = not any(r.get("duplicate_of") for r in clean_rows)
+
+    ready_exact = bool(
+        total > 0
+        and critical == 0
+        and unknown_enum_errors == 0
+        and duplicate_group_errors == 0
+        and every_clean_passes
+        and no_clean_partial_in_clean
+        and no_split_in_clean
+        and no_dup_in_clean
+    )
+    config_rows = [r for r in rows if r.get("publication_type") == "configurable_group"]
+    ready_config = bool(
+        config_rows
+        and unknown_enum_errors == 0
+        and all(_configurable_group_consistent(r) for r in config_rows)
+    )
+
+    return {
+        "ready_for_exact_clean_upload": ready_exact,
+        "ready_for_configurable_group_upload": ready_config,
+        "total_rows": total,
+        "exact_variant_rows": exact,
+        "configurable_group_rows": config,
+        "review_only_rows": review,
+        "clean_catalog_rows": clean,
+        "critical_consistency_errors": critical,
+        "high_consistency_errors": high,
+        "unknown_enum_errors": unknown_enum_errors,
+        "duplicate_group_errors": duplicate_group_errors,
+        "repair_success_rate": round(repair_success_rate, 4),
+        "grounding_pass_rate": round(grounding_pass_rate, 4),
+    }
+
 
 # ---------------------------------------------------------------------------
 # Atomic write
@@ -724,6 +920,7 @@ class OutputStore:
         self.metadata["run_timestamp_utc"] = self.metadata.get("run_timestamp_utc") or utc_now_iso()
         self.metadata["total_validated_variants"] = len(self.validated_by_id)
         rows = route_validated_rows([self.validated_by_id[v] for v in self.order if v in self.validated_by_id])
+        self.metadata["upload_readiness"] = build_upload_readiness_report(rows, self.metadata)
         return {"metadata": dict(self.metadata), "validated_variants": rows}
 
     def checkpoint_document(self) -> Dict[str, Any]:
@@ -779,10 +976,13 @@ class OutputStore:
         }
 
     def flush(self) -> None:
-        """Atomically persist the output, checkpoint, and summary files."""
-        atomic_write_json(self.output_path, self.output_document())
+        """Atomically persist the output, checkpoint, summary, and QA report."""
+        document = self.output_document()
+        atomic_write_json(self.output_path, document)
         atomic_write_json(self.checkpoint_path, self.checkpoint_document())
         atomic_write_json(self.summary_path, self.summary_document())
+        readiness_path = os.path.join(os.path.dirname(self.output_path), "upload_readiness_report.json")
+        atomic_write_json(readiness_path, document["metadata"].get("upload_readiness", {}))
 
     def latest_row(self) -> Optional[Dict[str, Any]]:
         vid = self.metadata.get("last_validated_id")

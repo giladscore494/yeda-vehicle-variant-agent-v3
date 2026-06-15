@@ -98,6 +98,13 @@ class OpenAIRepairAdjudicator:
             "gemini_grounding_metadata": guarded_output.get("gemini_grounding_metadata") or guarded_output.get("grounding_metadata") or {},
             "external_search_results_for_gpt54": external_search_results_for_gpt54 or [],
             "routing_policy": {"clean_partial_never_clean_catalog": True, "split_required_route": "split_queue", "duplicate_route": "duplicate_queue"},
+            "publication_policy": {
+                "publication_types": ["exact_variant", "configurable_group", "review_only"],
+                "exact_variant": "Only when every critical field is verified and non-contradictory.",
+                "configurable_group": "When the Israeli-market identity is valid but trim/transmission/body/engine options vary. Do NOT invent one exact variant: keep the varying field null at top level and expose options instead. Never create impossible trim/transmission combinations.",
+                "review_only": "When identity/market presence/evidence is too weak or contradictory.",
+                "rule": "A field listed in fields_left_unresolved must NOT remain a populated canonical value or be marked verified.",
+            },
             "clean_catalog_policy": {"requires_clean_exact": True, "requires_verified_identity_trim": True, "requires_grounding_gate": True, "requires_no_unresolved_critical": True},
             "schema": "patched_variant must be complete output row with grounding_status, field_validation, source_support_matrix, evidence_auditability, routing fields.",
             "known_failure_examples": KNOWN_FAILURE_EXAMPLES,

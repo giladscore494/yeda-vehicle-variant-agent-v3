@@ -69,6 +69,7 @@ def test_every_row_is_sealed_and_routed_safely():
         assert row["final_route"] in {
             "clean_catalog", "partial_queue", "split_queue",
             "duplicate_queue", "review_queue", "rejected",
+            "configurable_group_queue",
         }, vid
         # The headline defect: none of these five may publish.
         assert row["publishable_to_clean_catalog"] is False, vid
