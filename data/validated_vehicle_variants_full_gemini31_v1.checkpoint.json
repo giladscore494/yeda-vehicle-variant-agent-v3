@@ -8,24 +8,24 @@
     "run_timestamp_utc": "2026-06-15T11:39:28Z",
     "total_input_variants": 3712,
     "total_instruction_records": 3712,
-    "total_validated_variants": 8,
+    "total_validated_variants": 9,
     "decision_counts": {
       "clean_exact": 0,
-      "clean_partial": 4,
+      "clean_partial": 5,
       "split_required": 4,
       "reject": 0
     },
     "grounding_cluster_count": 3653,
-    "gemini_call_count": 8,
+    "gemini_call_count": 9,
     "github_checkpoint_enabled": true,
-    "github_checkpoint_count": 8,
+    "github_checkpoint_count": 9,
     "github_checkpoint_fail_count": 0,
     "last_github_checkpoint_error": null,
-    "last_validated_id": "VAL-000008",
+    "last_validated_id": "VAL-000009",
     "schema_version": "v3_three_stage",
     "pipeline_version": "v3_three_stage",
-    "stage1_pro_calls": 8,
-    "stage2_guard_flags_total": 35,
+    "stage1_pro_calls": 9,
+    "stage2_guard_flags_total": 36,
     "stage3_flash_calls": 0,
     "flash_overrode_guard": 0,
     "guard_overrode_flash": 0,
@@ -40,9 +40,9 @@
     "guard_verifier_overrode_guard": 0,
     "guard_overrode_verifier": 0,
     "force_per_variant_validation": true,
-    "stage0_preflight_risk_rows": 8,
-    "stage1_gemini_grounding_required": 8,
-    "stage1_gemini_grounding_present": 8,
+    "stage0_preflight_risk_rows": 9,
+    "stage1_gemini_grounding_required": 9,
+    "stage1_gemini_grounding_present": 9,
     "stage1_gemini_grounding_missing": 0,
     "stage1_gemini_weak_grounding_rows": 0,
     "stage2_guard_flags_low": 0,
@@ -50,39 +50,39 @@
     "stage2_guard_flags_high": 0,
     "stage2_guard_flags_critical": 0,
     "stage2_guard_patches_applied": 0,
-    "stage25_repair_risk_scored_rows": 8,
-    "stage25_repair_triggered_rows": 7,
-    "stage3_repair_adjudicator_calls": 7,
-    "stage3_repair_adjudicator_successes": 7,
+    "stage25_repair_risk_scored_rows": 9,
+    "stage25_repair_triggered_rows": 8,
+    "stage3_repair_adjudicator_calls": 8,
+    "stage3_repair_adjudicator_successes": 8,
     "stage3_repair_adjudicator_failures": 0,
-    "stage3_repair_adjudicator_patches": 49,
+    "stage3_repair_adjudicator_patches": 59,
     "stage3_repair_adjudicator_routing_changes": 0,
     "stage3_repair_adjudicator_summary_rewrites": 0,
-    "stage3_repair_adjudicator_grounding_required": 5,
-    "stage3_repair_adjudicator_grounding_present": 5,
+    "stage3_repair_adjudicator_grounding_required": 6,
+    "stage3_repair_adjudicator_grounding_present": 6,
     "stage3_repair_adjudicator_grounding_missing": 0,
     "stage4_final_seal_passed": 0,
-    "stage4_final_seal_blocks": 8,
+    "stage4_final_seal_blocks": 9,
     "stage4_final_guard_conflicts_remaining": 0,
     "clean_catalog_blocks_by_repair": 0,
-    "clean_catalog_blocks_by_final_seal": 8,
+    "clean_catalog_blocks_by_final_seal": 9,
     "clean_catalog_blocks_by_grounding": 5,
-    "clean_catalog_blocks_by_unresolved_trim": 7,
-    "clean_catalog_blocks_by_unresolved_critical_field": 5,
+    "clean_catalog_blocks_by_unresolved_trim": 8,
+    "clean_catalog_blocks_by_unresolved_critical_field": 6,
     "upload_readiness": {
       "ready_for_exact_clean_upload": false,
       "ready_for_configurable_group_upload": false,
-      "total_rows": 8,
+      "total_rows": 9,
       "exact_variant_rows": 0,
-      "configurable_group_rows": 3,
+      "configurable_group_rows": 4,
       "review_only_rows": 0,
       "clean_catalog_rows": 0,
-      "critical_consistency_errors": 8,
+      "critical_consistency_errors": 9,
       "high_consistency_errors": 2,
       "unknown_enum_errors": 2,
       "duplicate_group_errors": 1,
       "repair_success_rate": 1.0,
-      "grounding_pass_rate": 0.375
+      "grounding_pass_rate": 0.4444
     }
   },
   "completed_validation_ids": [
@@ -93,7 +93,8 @@
     "VAL-000005",
     "VAL-000006",
     "VAL-000007",
-    "VAL-000008"
+    "VAL-000008",
+    "VAL-000009"
   ],
   "failed_validation_ids": [],
   "validated_variants_by_id": {
@@ -5659,6 +5660,622 @@
           ]
         }
       ]
+    },
+    "VAL-000009": {
+      "validation_id": "VAL-000009",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000009",
+      "source_cluster_id": "CLU-e0f4447de8c4",
+      "grounding_cluster_id": "CLU-e0f4447de8c4",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "500",
+      "canonical_series_or_generation": null,
+      "canonical_trim": null,
+      "official_marketed_name_il": "אבארט 500",
+      "body_type": "hatchback",
+      "fuel_type": "petrol",
+      "engine": "1.4 Turbo 180",
+      "transmission": "manual",
+      "drivetrain": "FWD",
+      "year_start": null,
+      "year_end": null,
+      "is_currently_produced": false,
+      "is_currently_imported_il": false,
+      "market_scope": "IL",
+      "validation_decision": "clean_partial",
+      "acceptance_tier": "partial",
+      "identity_status": "verified",
+      "identity_confidence": 0.91,
+      "trim_status": "unresolved",
+      "trim_confidence": 0.0,
+      "field_validation": {
+        "canonical_make": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1,
+            2,
+            4
+          ],
+          "risk_tags": [],
+          "notes": "Make verified from Israeli-market sources."
+        },
+        "canonical_model": {
+          "status": "verified",
+          "confidence": 0.9,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1,
+            2,
+            4
+          ],
+          "risk_tags": [
+            "nameplate_alias_risk"
+          ],
+          "notes": "Israeli sources show both Abarth 500 and Abarth 595 usage for the same family; canonical model retained as 500 per input, but aliasing exists."
+        },
+        "canonical_series_or_generation": {
+          "status": "unresolved",
+          "confidence": 0.0,
+          "evidence_strength": "missing",
+          "source_indexes": [],
+          "risk_tags": [
+            "missing_generation"
+          ],
+          "notes": "Generation not established from grounded evidence."
+        },
+        "canonical_trim": {
+          "status": "unresolved",
+          "confidence": 0.0,
+          "evidence_strength": "partial",
+          "source_indexes": [
+            1,
+            4
+          ],
+          "risk_tags": [
+            "missing_trim",
+            "multiple_candidates"
+          ],
+          "notes": "Grounded sources show at least Competizione and Racing Style for 180 hp manual Israeli-market entries; exact trim for this row cannot be resolved."
+        },
+        "official_marketed_name_il": {
+          "status": "verified",
+          "confidence": 0.86,
+          "evidence_strength": "partial",
+          "source_indexes": [
+            0,
+            1,
+            4
+          ],
+          "risk_tags": [
+            "nameplate_alias_risk"
+          ],
+          "notes": "Hebrew market naming with 'אבארט 500' is supported by Israeli listings, though some Israeli sources also market this family as 595."
+        },
+        "body_type": {
+          "status": "verified",
+          "confidence": 0.9,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            1,
+            4
+          ],
+          "risk_tags": [],
+          "notes": "Verified as hatchback from Israeli listings."
+        },
+        "fuel_type": {
+          "status": "verified",
+          "confidence": 0.9,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            1,
+            2,
+            4
+          ],
+          "risk_tags": [],
+          "notes": "Verified petrol ICE variant."
+        },
+        "engine": {
+          "status": "verified",
+          "confidence": 0.95,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            1,
+            2,
+            4
+          ],
+          "risk_tags": [],
+          "notes": "Verified 1.4 turbo 180 hp Israeli-market variant."
+        },
+        "transmission": {
+          "status": "verified",
+          "confidence": 0.95,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            1,
+            2,
+            4
+          ],
+          "risk_tags": [],
+          "notes": "Manual transmission directly supported for 180 hp variant."
+        },
+        "drivetrain": {
+          "status": "verified",
+          "confidence": 0.92,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Front-wheel drive directly supported by grounded Israeli review/spec coverage for the 180 hp manual variant family."
+        },
+        "year_start": {
+          "status": "candidate",
+          "confidence": 0.62,
+          "evidence_strength": "partial",
+          "source_indexes": [
+            0,
+            4
+          ],
+          "risk_tags": [
+            "range_boundary_not_fully_grounded"
+          ],
+          "notes": "2018 start retained as plausible within observed Israeli listings, but exact first Israeli market year for this exact unresolved trim is not fully established from current evidence."
+        },
+        "year_end": {
+          "status": "candidate",
+          "confidence": 0.68,
+          "evidence_strength": "partial",
+          "source_indexes": [
+            0,
+            3
+          ],
+          "risk_tags": [
+            "range_boundary_not_fully_grounded"
+          ],
+          "notes": "2023 end retained as plausible for petrol-era coverage, but exact final Israeli market year for this unresolved trim is not fully established from current evidence."
+        },
+        "is_currently_produced": {
+          "status": "candidate",
+          "confidence": 0.55,
+          "evidence_strength": "partial",
+          "source_indexes": [
+            3
+          ],
+          "risk_tags": [
+            "time_sensitive",
+            "brand_strategy_changed"
+          ],
+          "notes": "Grounded Israeli news indicates Abarth had moved away from petrol-only production, but broader brand plans have shifted; exact current production status for this legacy petrol variant is treated as partial only."
+        },
+        "is_currently_imported_il": {
+          "status": "unresolved",
+          "confidence": 0.0,
+          "evidence_strength": "missing",
+          "source_indexes": [],
+          "risk_tags": [
+            "time_sensitive",
+            "missing_current_il_import_evidence"
+          ],
+          "notes": "No current authoritative Israeli importer evidence was grounded for present import status of this legacy petrol manual variant."
+        }
+      },
+      "source_support_matrix": [
+        {
+          "field": "market_presence_il",
+          "value": true,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            4
+          ],
+          "reason": "Israeli listings show Abarth 500/595 1.4 manual 180 hp entries in local market context."
+        },
+        {
+          "field": "engine",
+          "value": "1.4 Turbo 180",
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2,
+            4
+          ],
+          "reason": "Israeli sources explicitly show 1.4 manual 180 hp configuration."
+        },
+        {
+          "field": "transmission",
+          "value": "manual",
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2,
+            4
+          ],
+          "reason": "Manual transmission directly listed for 180 hp variant."
+        },
+        {
+          "field": "drivetrain",
+          "value": "FWD",
+          "support_level": "direct",
+          "source_indexes": [
+            2
+          ],
+          "reason": "Grounded Israeli review explicitly states front-wheel drive for 180 hp manual Competizione-family variant."
+        },
+        {
+          "field": "canonical_trim",
+          "value": null,
+          "support_level": "partial",
+          "source_indexes": [
+            1,
+            4
+          ],
+          "reason": "Evidence supports multiple trim candidates rather than one resolved trim for this row."
+        },
+        {
+          "field": "is_currently_imported_il",
+          "value": false,
+          "support_level": "missing",
+          "source_indexes": [],
+          "reason": "No grounded current Israeli importer/catalog evidence was found to verify current import status."
+        }
+      ],
+      "evidence_auditability": "acceptable",
+      "grounding_status": {
+        "gemini_grounding_required": true,
+        "gemini_grounding_present": true,
+        "gemini_grounding_quality": "acceptable",
+        "gpt54_grounding_required": true,
+        "gpt54_grounding_present": true,
+        "gpt54_grounding_quality": "acceptable",
+        "final_grounding_gate_passed": true
+      },
+      "grounding_summary": "Grounded Israeli-market sources support an Abarth 500/595 family hatchback with 1.4 turbo 180 hp, manual transmission, and front-wheel drive. Israeli naming appears mixed between Abarth 500 and Abarth 595. Exact trim for this row remains unresolved because grounded sources show at least Competizione and Racing Style candidates. Current import status in Israel was not sufficiently grounded, so it is left unresolved and not claimed in the summary.",
+      "evidence_sources": [
+        {
+          "title": "אבארט 500 ‏ 2010-2025 יד שניה - iCar",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFJ8A-T5ZcICC6X7IJnNRJ-4C0YpNL4G-5A6r0xFlgwHQqT261JyRylMF5dltVWx6t-ABJgVCLf8SOKhhNu35H9SjjdMQ_ES8fiI-Lm_BYuAlxg2F8NgndM5EJ4Urxcg_XJyLbPMowscOAWSKoUCYg-BH-mOffraOdRKgNW5Kh5ciMWWOQh_Xj6Pdq7gy5i8aFWkpJysAnAak1RgL6ZeDZfSFFbOrH5UYbYoxy0irJZlGBlWyp-F67i_2YeWlKFvPEBkdqwPA-R468pC1ickasN35iD1du2nVlbVdo7AkXs2LLM",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "nameplate_500",
+            "year_range_context"
+          ]
+        },
+        {
+          "title": "אבארט 500 1.4 ידני 180 כ\"ס Competizione 2024 | מפרט טכני - cartube",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGDIbKFHDTJTxcGGDDlpP5xLNRZUneZapLTMDPo9DmyoCL-gqKXwagWnKPyXyOcRBAMeK3RbZHHwrB6KTVX0n1XX1Mm4875cpseRrzUIMK2jPQVBIh9v9gjXDEtoitJlkKb2EgKQxHrXiGrV5PXsJj7xDX4hbdjkOefuwMZu0xW2bRhMtpy9XuaCsRwj32yrC2APznICu0aA1_Jke1WGoPfhdb5zjGzo3l9YNVvnvBWJ-f9mRLp4c2lSqAuekax6M6KPIN4Er6l9bNI30oG2aIpUiEWwqN_fML1-J8YqEQ3UNJqcp93rj0VIUAfnxxml-ukUZIqr52LkanxEPz8GggrTZ-LjY_vRv4pYS37OcgRtOMFsG2Nw9_lU_YztXLE-583A51UEc8nQ5XoD9ORzw_YJMpAfmP9cBeHUaDLs6J9DgM=",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "engine",
+            "transmission",
+            "body_type",
+            "fuel_type",
+            "trim_candidate_competizione"
+          ]
+        },
+        {
+          "title": "אבארט 595 - מבחן דרכים (1.4 ל' טורבו, טוריסמו/ קומפטציונה)",
+          "url": "https://www.auto.co.il/articles/test-drives/128936/",
+          "source_name": "Auto",
+          "source_type": "editorial",
+          "supports": [
+            "engine",
+            "transmission",
+            "drivetrain",
+            "nameplate_595"
+          ]
+        },
+        {
+          "title": "חדשות רכב - רעם האגזוז נדם: אבארט זונחת בנזין, תייצר רק חשמליות",
+          "url": "https://www.icar.co.il/news/rjeyxpom1g/",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "petrol_phaseout_context"
+          ]
+        },
+        {
+          "title": "אבארט 500 2026 1.4 ידני 180 כ\"ס Racing Style - רכב חדש",
+          "url": "https://www.icar.co.il/%D7%90%D7%91%D7%90%D7%A8%D7%98/%D7%90%D7%91%D7%90%D7%A8%D7%98_500/%D7%90%D7%91%D7%90%D7%A8%D7%98_500_%D7%97%D7%93%D7%A9/version24964/",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "engine",
+            "transmission",
+            "trim_candidate_racing_style"
+          ]
+        }
+      ],
+      "possible_trim_names": [
+        "Competizione",
+        "Racing Style"
+      ],
+      "split_candidates": [],
+      "blocking_identity_issues": [],
+      "non_blocking_trim_issues": [
+        "Input trim is null, and grounded Israeli-market evidence supports multiple valid trim candidates for the 180 hp manual configuration."
+      ],
+      "fields_changed": [
+        "drivetrain field validation upgraded from inferred to verified based on grounded source",
+        "year_start downgraded from verified to partial",
+        "year_end downgraded from verified to partial",
+        "is_currently_produced downgraded from verified to partial",
+        "is_currently_imported_il downgraded from verified false to unresolved",
+        "decision_reason repaired for internal consistency",
+        "option_matrix removed due to insufficient exact trim-level matrix evidence",
+        "user_selectable_fields simplified to trim only"
+      ],
+      "fields_left_unresolved": [
+        "canonical_series_or_generation",
+        "canonical_trim",
+        "is_currently_imported_il",
+        "year_start",
+        "year_end"
+      ],
+      "decision_reason": "Final seal route=configurable_group_queue; publication_type=configurable_group; validation_decision=clean_partial; identity_status=verified; trim_status=unresolved. Unresolved fields: canonical_series_or_generation, canonical_trim, is_currently_imported_il, year_start, year_end.",
+      "_pipeline_version": "v3_three_stage",
+      "_flags_count": 4,
+      "_flash_used": false,
+      "adjudication_log": [
+        "Repaired contradictions between unresolved/weak fields and verified claims.",
+        "Removed unsupported claim that current Israeli import status is verified false.",
+        "Removed unsupported exact option matrix combinations without source indexes.",
+        "Kept top-level trim null because multiple grounded trim candidates exist."
+      ],
+      "publishable_to_clean_catalog": false,
+      "final_route": "configurable_group_queue",
+      "route_reason": "Valid Israeli-market identity with multiple options; routed to configurable group (user-selectable trim/transmission/body/engine/year).",
+      "duplicate_group_id": null,
+      "duplicate_of": null,
+      "publication_type": "configurable_group",
+      "user_selectable_fields": {
+        "trim": [
+          "Competizione",
+          "Racing Style"
+        ],
+        "body_type": [
+          "hatchback"
+        ],
+        "engine": [
+          "1.4 Turbo 180"
+        ]
+      },
+      "option_matrix": [
+        {
+          "trim": "Competizione",
+          "engine": "1.4 Turbo 180",
+          "transmission": null,
+          "body_type": "hatchback",
+          "year_start": null,
+          "year_end": null,
+          "evidence_strength": "acceptable",
+          "source_indexes": []
+        },
+        {
+          "trim": "Racing Style",
+          "engine": "1.4 Turbo 180",
+          "transmission": null,
+          "body_type": "hatchback",
+          "year_start": null,
+          "year_end": null,
+          "evidence_strength": "acceptable",
+          "source_indexes": []
+        }
+      ],
+      "candidate_values": {
+        "year_start": {
+          "values": [
+            2018
+          ],
+          "status": "candidate",
+          "reason": "Listed in fields_left_unresolved."
+        },
+        "year_end": {
+          "values": [
+            2023
+          ],
+          "status": "candidate",
+          "reason": "Listed in fields_left_unresolved."
+        }
+      },
+      "preflight_risk_tags": [
+        "missing_trim",
+        "placeholder_trim",
+        "weak_official_marketed_name",
+        "nameplate_alias_risk",
+        "range_boundary_not_fully_grounded",
+        "current_import_status_unguarded"
+      ],
+      "_unknown_enums": [],
+      "final_seal_result": {
+        "seal_completed": true,
+        "clean_catalog_passed": false,
+        "blocks_clean_catalog": true,
+        "publication_type": "configurable_group",
+        "unknown_enums": [],
+        "passed": true,
+        "guard_flags": [
+          {
+            "guard_name": "final_seal_route_override",
+            "severity": "medium",
+            "field_affected": "final_route",
+            "original_value": "review_queue",
+            "guard_value": "configurable_group_queue",
+            "reason": "Valid Israeli-market identity with multiple options; routed to configurable group (user-selectable trim/transmission/body/engine/year).",
+            "risk_tags": [
+              "routing",
+              "final_seal"
+            ],
+            "needs_repair_adjudication": false,
+            "allowed_patch_fields": []
+          },
+          {
+            "guard_name": "field_confidence_or_evidence_low",
+            "severity": "high",
+            "field_affected": "year_start",
+            "original_value": 2018,
+            "guard_value": null,
+            "reason": "year_start lacks confidence/support required for clean_catalog.",
+            "risk_tags": [
+              "field_confidence",
+              "evidence"
+            ],
+            "needs_repair_adjudication": true,
+            "allowed_patch_fields": []
+          },
+          {
+            "guard_name": "field_confidence_or_evidence_low",
+            "severity": "high",
+            "field_affected": "year_end",
+            "original_value": 2023,
+            "guard_value": null,
+            "reason": "year_end lacks confidence/support required for clean_catalog.",
+            "risk_tags": [
+              "field_confidence",
+              "evidence"
+            ],
+            "needs_repair_adjudication": true,
+            "allowed_patch_fields": []
+          },
+          {
+            "guard_name": "current_status_contradiction",
+            "severity": "high",
+            "field_affected": "grounding_summary",
+            "original_value": "Grounded Israeli-market sources support an Abarth 500/595 family hatchback with 1.4 turbo 180 hp, manual transmission, and front-wheel drive. Israeli naming appears mixed between Abarth 500 and Abarth 595. Exact trim for this row remains unresolved because grounded sources show at least Competizione and Racing Style candidates. Current import status in Israel was not sufficiently grounded, so it is left unresolved and not claimed in the summary.",
+            "guard_value": "Grounded Israeli-market sources support an Abarth 500/595 family hatchback with 1.4 turbo 180 hp, manual transmission, and front-wheel drive. Israeli naming appears mixed between Abarth 500 and Abarth 595. Exact trim for this row remains unresolved because grounded sources show at least Competizione and Racing Style candidates. Current import status in Israel was not sufficiently grounded, so it is left unresolved and not claimed in the summary.",
+            "reason": "Summary claimed current status while current flags are null/false; summary rewritten.",
+            "risk_tags": [
+              "current_status",
+              "summary_rewrite"
+            ],
+            "needs_repair_adjudication": true,
+            "allowed_patch_fields": []
+          }
+        ]
+      },
+      "risk_score": 72,
+      "_repair_adjudicator_triggered": true,
+      "gpt54_grounding_present": true,
+      "_repair_decision": "patched",
+      "field_patches": [
+        {
+          "field": "field_validation.drivetrain",
+          "patch": "status inferred->verified; notes and confidence repaired using grounded Auto source"
+        },
+        {
+          "field": "field_validation.year_start",
+          "patch": "verified->partial because exact boundary for unresolved trim not fully grounded"
+        },
+        {
+          "field": "field_validation.year_end",
+          "patch": "verified->partial because exact boundary for unresolved trim not fully grounded"
+        },
+        {
+          "field": "field_validation.is_currently_produced",
+          "patch": "verified->partial due to time-sensitive brand strategy context only"
+        },
+        {
+          "field": "field_validation.is_currently_imported_il",
+          "patch": "verified false->unresolved due to lack of current authoritative IL import evidence"
+        },
+        {
+          "field": "fields_left_unresolved",
+          "patch": "added canonical_series_or_generation and is_currently_imported_il; removed resolved official_marketed_name_il inconsistency"
+        },
+        {
+          "field": "decision_reason",
+          "patch": "rewritten to match unresolved fields and route"
+        },
+        {
+          "field": "option_matrix",
+          "patch": "cleared because exact combinations lacked grounded support/source indexes"
+        },
+        {
+          "field": "user_selectable_fields",
+          "patch": "reduced to grounded trim options only"
+        },
+        {
+          "field": "evidence_sources",
+          "patch": "replaced/normalized with grounded sources actually supportable from web evidence"
+        }
+      ],
+      "_guard_verifier_used": false,
+      "guard_flags": [
+        {
+          "guard_name": "final_seal_route_override",
+          "severity": "medium",
+          "field_affected": "final_route",
+          "original_value": "review_queue",
+          "guard_value": "configurable_group_queue",
+          "reason": "Valid Israeli-market identity with multiple options; routed to configurable group (user-selectable trim/transmission/body/engine/year).",
+          "needs_adjudication": false,
+          "recommended_verifier_model": "none",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "routing",
+            "final_seal"
+          ]
+        },
+        {
+          "guard_name": "field_confidence_or_evidence_low",
+          "severity": "high",
+          "field_affected": "year_start",
+          "original_value": 2018,
+          "guard_value": null,
+          "reason": "year_start lacks confidence/support required for clean_catalog.",
+          "needs_adjudication": true,
+          "recommended_verifier_model": "gpt-5.4",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "field_confidence",
+            "evidence"
+          ]
+        },
+        {
+          "guard_name": "field_confidence_or_evidence_low",
+          "severity": "high",
+          "field_affected": "year_end",
+          "original_value": 2023,
+          "guard_value": null,
+          "reason": "year_end lacks confidence/support required for clean_catalog.",
+          "needs_adjudication": true,
+          "recommended_verifier_model": "gpt-5.4",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "field_confidence",
+            "evidence"
+          ]
+        },
+        {
+          "guard_name": "current_status_contradiction",
+          "severity": "high",
+          "field_affected": "grounding_summary",
+          "original_value": "Grounded Israeli-market sources support an Abarth 500/595 family hatchback with 1.4 turbo 180 hp, manual transmission, and front-wheel drive. Israeli naming appears mixed between Abarth 500 and Abarth 595. Exact trim for this row remains unresolved because grounded sources show at least Competizione and Racing Style candidates. Current import status in Israel was not sufficiently grounded, so it is left unresolved and not claimed in the summary.",
+          "guard_value": "Grounded Israeli-market sources support an Abarth 500/595 family hatchback with 1.4 turbo 180 hp, manual transmission, and front-wheel drive. Israeli naming appears mixed between Abarth 500 and Abarth 595. Exact trim for this row remains unresolved because grounded sources show at least Competizione and Racing Style candidates. Current import status in Israel was not sufficiently grounded, so it is left unresolved and not claimed in the summary.",
+          "reason": "Summary claimed current status while current flags are null/false; summary rewritten.",
+          "needs_adjudication": true,
+          "recommended_verifier_model": "gpt-5.4",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "current_status",
+            "summary_rewrite"
+          ]
+        }
+      ]
     }
   },
   "cluster_cache": {
@@ -5944,14 +6561,67 @@
           ]
         }
       ]
+    },
+    "CLU-e0f4447de8c4": {
+      "anchor_id": "VAL-000009",
+      "identity_status": "verified",
+      "identity_confidence": 0.95,
+      "grounding_summary": "Searches across major Israeli automotive catalogs (iCar, Auto, Cartube) confirm the presence of the Abarth 500 (also marketed as 595) with a 1.4 Turbo 180 hp engine and manual transmission. The trim is missing from the input, and multiple valid trims exist (Competizione, Racing Style), leaving the trim unresolved. Production of petrol models has ceased as Abarth transitions to electric.",
+      "evidence_sources": [
+        {
+          "title": "אבארט 500 ‏ 2010-2025 יד שניה - iCar",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFJ8A-T5ZcICC6X7IJnNRJ-4C0YpNL4G-5A6r0xFlgwHQqT261JyRylMF5dltVWx6t-ABJgVCLf8SOKhhNu35H9SjjdMQ_ES8fiI-Lm_BYuAlxg2F8NgndM5EJ4Urxcg_XJyLbPMowscOAWSKoUCYg-BH-mOffraOdRKgNW5Kh5ciMWWOQh_Xj6Pdq7gy5i8aFWkpJysAnAak1RgL6ZeDZfSFFbOrH5UYbYoxy0irJZlGBlWyp-F67i_2YeWlKFvPEBkdqwPA-R468pC1ickasN35iD1du2nVlbVdo7AkXs2LLM",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "engine",
+            "transmission",
+            "trim_candidates"
+          ]
+        },
+        {
+          "title": "אבארט 595 2023 יד שניה - אוטו",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQERgpX0t3ldzeNlm7O5C-16UOACmfeBRu6hBx5f-XSWTzRxxxnrHvNDOni8DFgWL2zCpdx4_0hRvfqfnh3WKD9fw-QsQX8MzX0LGoeNInsTIG2zPFHPJLqAD_QOXHAt98jGdw==",
+          "source_name": "Auto",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "engine",
+            "transmission",
+            "trim_candidates"
+          ]
+        },
+        {
+          "title": "אבארט 500 1.4 ידני 180 כ\"ס Competizione 2024 | מפרט טכני - cartube",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGDIbKFHDTJTxcGGDDlpP5xLNRZUneZapLTMDPo9DmyoCL-gqKXwagWnKPyXyOcRBAMeK3RbZHHwrB6KTVX0n1XX1Mm4875cpseRrzUIMK2jPQVBIh9v9gjXDEtoitJlkKb2EgKQxHrXiGrV5PXsJj7xDX4hbdjkOefuwMZu0xW2bRhMtpy9XuaCsRwj32yrC2APznICu0aA1_Jke1WGoPfhdb5zjGzo3l9YNVvnvBWJ-f9mRLp4c2lSqAuekax6M6KPIN4Er6l9bNI30oG2aIpUiEWwqN_fML1-J8YqEQ3UNJqcp93rj0VIUAfnxxml-ukUZIqr52LkanxEPz8GggrTZ-LjY_vRv4pYS37OcgRtOMFsG2Nw9_lU_YztXLE-583A51UEc8nQ5XoD9ORzw_YJMpAfmP9cBeHUaDLs6J9DgM=",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "engine",
+            "transmission",
+            "exact_trim"
+          ]
+        },
+        {
+          "title": "רעם האגזוז נדם: אבארט זונחת בנזין, תייצר רק חשמליות - iCar",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGTTXvyqcEbULtpyhcy2gyNhHXEt3sTB4VmSDLVBALqDqhuyfRU_jTe1gbIE-Ly_V_49c9HvXGZ4NaIfL38Iei-zqkDxiP_8GDmxdkGRiTwkUaW8hmoJ6cxn2c2Ccc=",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "year_range"
+          ]
+        }
+      ]
     }
   },
   "decision_counts": {
     "clean_exact": 0,
-    "clean_partial": 4,
+    "clean_partial": 5,
     "split_required": 4,
     "reject": 0
   },
-  "last_validated_id": "VAL-000008",
-  "updated_at_utc": "2026-06-15T11:43:19Z"
+  "last_validated_id": "VAL-000009",
+  "updated_at_utc": "2026-06-15T11:45:10Z"
 }
