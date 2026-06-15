@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T22:20:37Z",
+  "generated_at": "2026-06-15T22:21:13Z",
   "market": "IL",
   "models": [
     {
@@ -293,7 +293,7 @@
           "engine": "2.5L v6",
           "engine_displacement_l": 2.5,
           "horsepower_hp": 190,
-          "transmission": "manual",
+          "transmission": null,
           "drivetrain": "FWD",
           "year_start": 1998,
           "year_end": 2006,
@@ -415,7 +415,6 @@
         "transmission": [
           "5-speed manual",
           "5-speed automatic",
-          "manual",
           "4-speed automatic"
         ],
         "drivetrain": [
@@ -508,12 +507,10 @@
         "2006 is the latest grounded end year from Israeli sources describing the 156 in Israel before replacement by the 159 in 2007."
       ],
       "validation_issues": [
-        "variant[2] non-null field 'transmission' has no field_sources entry",
+        "variant[2] required website field 'transmission' is null/empty",
         "variant[2] required field 'transmission' listed in missing_grounded_fields"
       ],
-      "repair_attempts": 2,
-      "last_repair_error": "Gemini client library is unavailable",
-      "repair_exhausted": true
+      "repair_attempts": 1
     },
     {
       "market": "IL",
