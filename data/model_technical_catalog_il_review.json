@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T18:49:58Z",
+  "generated_at": "2026-06-15T18:50:28Z",
   "market": "IL",
   "models": [
     {
@@ -9529,6 +9529,428 @@
         "variant[5] required field 'body_type' listed in missing_grounded_fields",
         "variant[5] required field 'transmission' listed in missing_grounded_fields",
         "variant[5] required field 'drivetrain' listed in missing_grounded_fields"
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Audi",
+      "model": "Q6 e-tron",
+      "canonical_model": "Q6 e-tron",
+      "year_start": 2025,
+      "year_end": null,
+      "technical_variants_il": [
+        {
+          "version_or_trim": "45",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 252,
+          "transmission": "single_speed",
+          "drivetrain": "RWD",
+          "year_start": 2025,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "engine_displacement_l",
+            "year_end"
+          ]
+        },
+        {
+          "version_or_trim": "50",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 306,
+          "transmission": "single_speed",
+          "drivetrain": "RWD",
+          "year_start": 2025,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              2
+            ],
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              2
+            ],
+            "engine": [
+              2
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              2
+            ],
+            "year_start": [
+              0,
+              2
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "engine_displacement_l",
+            "year_end"
+          ]
+        },
+        {
+          "version_or_trim": "55",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 387,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2025,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            3
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              3
+            ],
+            "body_type": [
+              3
+            ],
+            "fuel_type": [
+              3
+            ],
+            "engine": [
+              3
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              3
+            ],
+            "transmission": [
+              3
+            ],
+            "drivetrain": [
+              3
+            ],
+            "year_start": [
+              0,
+              3
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "engine_displacement_l",
+            "year_end"
+          ]
+        },
+        {
+          "version_or_trim": "SQ6",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 516,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2025,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            4,
+            8
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              4,
+              8
+            ],
+            "body_type": [
+              8
+            ],
+            "fuel_type": [
+              8
+            ],
+            "engine": [
+              8
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              8
+            ],
+            "transmission": [
+              8
+            ],
+            "drivetrain": [
+              8
+            ],
+            "year_start": [
+              4,
+              8
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "engine_displacement_l",
+            "year_end"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "45",
+          "50",
+          "55",
+          "SQ6"
+        ],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          252,
+          306,
+          387,
+          516
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "RWD",
+          "AWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "45 Sportback",
+          "classification": "body/model designation, not a trim"
+        },
+        {
+          "label": "50 Sportback",
+          "classification": "body/model designation, not a trim"
+        },
+        {
+          "label": "55 Sportback",
+          "classification": "body/model designation, not a trim"
+        },
+        {
+          "label": "SQ6 Sportback",
+          "classification": "body/model designation, not a trim"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "Audi Q6 e-tron catalog PDF (Israel)",
+          "url": "https://static.auto.co.il/media/bmppsi1w/audi-q6-e-tron-1.pdf",
+          "source_name": "Audi Israel / Auto",
+          "source_type": "catalog_pdf",
+          "supports": [
+            "version_or_trim",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "אודי Q6 e-tron 2025 Q6 e-tron 45 ספורטבק חשמלי, 2x4",
+          "url": "https://www.auto.co.il/cars/audi/q6-e-tron-sportback/2025/538730/",
+          "source_name": "Auto",
+          "source_type": "model_page",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "אודי Q6 e-tron 50 חשמלי, 2x4",
+          "url": "https://www.auto.co.il/cars/audi/q6-e-tron-sportback/2025/538731/",
+          "source_name": "Auto",
+          "source_type": "model_page",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "אודי Q6 e-tron 55 חשמלי, 4x4",
+          "url": "https://www.auto.co.il/cars/audi/q6-e-tron-sportback/2025/538732/",
+          "source_name": "Auto",
+          "source_type": "model_page",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 4,
+          "title": "אודי Q6 e-tron ספורטבק - אוטו",
+          "url": "https://www.auto.co.il/model/audi-q6-e-tron-sportback",
+          "source_name": "Auto",
+          "source_type": "model_overview",
+          "supports": [
+            "version_or_trim",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 5,
+          "title": "אודי Q6 e-tron 2025 Q6 e-tron 45 ספורטבק חשמלי, 2x4",
+          "url": "https://www.auto.co.il/cars/audi/q6-e-tron-sportback/2025/538730/",
+          "source_name": "Auto",
+          "source_type": "model_page",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 6,
+          "title": "אודי Q6 e-tron 2025 Q6 e-tron 50 ספורטבק חשמלי, 2x4",
+          "url": "https://www.auto.co.il/cars/audi/q6-e-tron-sportback/2025/538731/",
+          "source_name": "Auto",
+          "source_type": "model_page",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 7,
+          "title": "אודי Q6 e-tron 2025 Q6 e-tron 55 ספורטבק חשמלי, 4x4",
+          "url": "https://www.auto.co.il/cars/audi/q6-e-tron-sportback/2025/538732/",
+          "source_name": "Auto",
+          "source_type": "model_page",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 8,
+          "title": "אודי SQ6 e-tron ספורטבק חשמלי, 4x4",
+          "url": "https://www.auto.co.il/cars/audi/q6-e-tron-sportback/2025/538733/",
+          "source_name": "Auto",
+          "source_type": "model_page",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        }
+      ],
+      "profile_confidence": "medium",
+      "notes": [
+        "Israeli-market grounding found for Q6 e-tron launch in 2025 and for regular SUV variants 45/50/55 via Israeli catalog/model pages.",
+        "Israeli-market grounding also found for Sportback body launch in 2025 with 45/50/55/SQ6 configurations on Israeli Auto pages.",
+        "Official/Israeli importer PDF located for regular Q6 e-tron confirms 45/50/55 names for Israel but did not expose horsepower/transmission/drivetrain cleanly in fetched text; those fields were grounded from Israeli model pages.",
+        "No grounded Israeli-market source was found in this search session for a regular-body SQ6 e-tron sold in Israel; therefore it is not included.",
+        "Sportback entries are represented with body_type normalized to SUV because allowed schema does not include Coupe SUV and instructions forbid appending body designation to body_type.",
+        "No grounded year_end source was found for any variant; set to null."
+      ],
+      "validation_issues": [
+        "variant[0] version_or_trim '45' is a engine_size, not a trim",
+        "variant[1] version_or_trim '50' is a engine_size, not a trim",
+        "variant[2] version_or_trim '55' is a engine_size, not a trim",
+        "variant[3] version_or_trim '45' is a engine_size, not a trim",
+        "variant[4] version_or_trim '50' is a engine_size, not a trim",
+        "variant[5] version_or_trim '55' is a engine_size, not a trim"
       ]
     }
   ]
