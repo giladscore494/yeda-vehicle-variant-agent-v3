@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T18:28:31Z",
+  "generated_at": "2026-06-15T18:28:55Z",
   "market": "IL",
   "mode": "online_gpt54",
   "model_id": "gpt-5.4",
@@ -426,6 +426,188 @@
         "No Israeli-market source found for engine displacement in liters because this is a battery-electric model; field left null per schema.",
         "No grounded discontinuation/end year found; year_end left null.",
         "Secondary source mentions additional labels 'Xcite' and 'Standart', but these were not corroborated with trim-specific technical pages, so they were excluded from technical_variants_il."
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Alfa Romeo",
+      "model": "33",
+      "canonical_model": "33",
+      "year_start": 1990,
+      "year_end": 1994,
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "1.4L",
+          "engine_displacement_l": 1.4,
+          "horsepower_hp": 88,
+          "transmission": "manual",
+          "drivetrain": "FWD",
+          "year_start": 1990,
+          "year_end": 1994,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": [
+            "version_or_trim"
+          ]
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "1.7L",
+          "engine_displacement_l": 1.7,
+          "horsepower_hp": 105,
+          "transmission": "manual",
+          "drivetrain": "FWD",
+          "year_start": 1990,
+          "year_end": 1994,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": [
+            "version_or_trim"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Hatchback"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "1.4L",
+          "1.7L"
+        ],
+        "horsepower_hp": [
+          88,
+          105
+        ],
+        "transmission": [
+          "manual"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        "1.4 MT - non-trim technical label",
+        "1.4 MT AWD - non-trim technical label",
+        "1.5 MT - non-trim technical label",
+        "1.7 MT - non-trim technical label",
+        "Sportwagon - body designation/non-trim label"
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "אלפא רומיאו 33 בישראל – חוות דעת, מחירים, השוואות ודירוג באוטובום",
+          "url": "https://autoboom.co.il/catalog/cars/alfa-romeo/33",
+          "source_name": "Autoboom Israel",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "אלפא רומיאו בישראל, דגמים וביקורות באוטובום",
+          "url": "https://autoboom.co.il/catalog/cars/alfa-romeo",
+          "source_name": "Autoboom Israel",
+          "source_type": "catalog",
+          "supports": [
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "profile_confidence": "medium",
+      "notes": [
+        "Grounded Israeli-market evidence found only for 1990-1994 hatchback/FWD petrol configurations on Israeli sources reviewed.",
+        "A 1.5L estate page was found on an Israeli site but explicitly marked 'לא זמין בישראל', so it was excluded.",
+        "Additional estate/4x4/diesel configurations appeared only under 'for other countries' or non-Israel context on reviewed Israeli pages, so they were excluded.",
+        "No Israeli-market grounded trim names were found; version_or_trim set to null for all returned rows."
       ]
     }
   ],
