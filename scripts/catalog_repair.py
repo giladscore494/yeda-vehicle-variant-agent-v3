@@ -14,6 +14,7 @@ from .catalog_builder import (
     load_existing_outputs,
     merge_and_write_outputs,
 )
+from .catalog_checkpoint import CatalogCheckpointConfig, CatalogCheckpointer
 from .catalog_validation import REQUIRED_WEBSITE_FIELDS, derive_available_values, validate_profile
 from .openai_catalog_client import CatalogClientSettings, GROUNDED_TECHNICAL_FIELDS
 from .catalog_provider import CatalogProviderSettings, ProviderUnavailableError, build_catalog_client, check_provider_available
@@ -37,6 +38,15 @@ PROVIDER_SETUP_ERROR_MARKERS = (
     "OpenAI client library is not installed",
     "Google API key is missing",
     "OpenAI API key is missing",
+)
+
+_CHECKPOINT_STATE_FIELDS = (
+    "github_checkpoint_enabled",
+    "github_checkpoint_unit",
+    "github_checkpoint_count",
+    "github_checkpoint_fail_count",
+    "last_github_checkpoint_error",
+    "last_checkpointed_profile_id",
 )
 
 
@@ -149,6 +159,7 @@ def repair_review_models(
     selected_keys: Optional[list[str]] = None,
     provider_settings: Optional[CatalogProviderSettings] = None,
     settings: Optional[CatalogClientSettings] = None,
+    checkpoint: Optional[CatalogCheckpointConfig] = None,
     log: Optional[Callable[[str], None]] = None,
     catalog_path: str = CATALOG_OUTPUT_PATH,
     readiness_path: str = READINESS_OUTPUT_PATH,
@@ -162,16 +173,25 @@ def repair_review_models(
             api_key=settings.api_key, web_search_enabled=settings.use_web_search
         )
     settings = settings or CatalogClientSettings(api_key=provider_settings.api_key, model_id=provider_settings.model_id, use_web_search=provider_settings.web_search_enabled)
+
+    # Fatal provider preflight — do not write any output.
     try:
         check_provider_available(provider_settings)
         client = build_catalog_client(provider_settings)
     except ProviderUnavailableError:
         raise
+
+    checkpointer = CatalogCheckpointer(checkpoint or CatalogCheckpointConfig(), log=emit)
+
     catalog, readiness, review = load_existing_outputs(catalog_path, readiness_path, review_path)
+
+    # Carry forward existing checkpoint state so counts and last-id survive restarts.
+    for field in _CHECKPOINT_STATE_FIELDS:
+        if field in readiness:
+            checkpointer.state[field] = readiness[field]
+
     review_models = [m for m in review.get("models", []) if isinstance(m, dict)]
     processed = promoted = kept = skipped = 0
-    new_ready: List[Dict[str, Any]] = []
-    new_review: List[Dict[str, Any]] = []
 
     selected_set = set(selected_keys or [])
     for model_entry in review_models:
@@ -195,18 +215,27 @@ def repair_review_models(
             skipped += 1
             emit(f"SKIP exhausted: {key}")
             continue
+
+        market = model_entry.get("market") or "IL"
+        make = model_entry.get("make", "")
+        model = model_entry.get("model", "")
         targets = derive_repair_targets(model_entry)
         emit(f"REPAIRING WITH {provider_settings.display_name}: {key} | {targets or 'stale block; re-validating only'}")
         processed += 1
+
+        delta_ready: List[Dict[str, Any]] = []
+        delta_review: List[Dict[str, Any]] = []
+        completed = False
+
         try:
             if targets:
-                repaired = client.build_repair_profile(model_entry.get("make", ""), model_entry.get("model", ""), model_entry, targets)
+                repaired = client.build_repair_profile(make, model, model_entry, targets)
                 patched = merge_repair(model_entry, repaired, targets)
             else:
                 patched = dict(model_entry)
             result = validate_profile(patched)
             if result.ready:
-                new_ready.append(result.profile)
+                delta_ready = [result.profile]
                 promoted += 1
                 emit(f"PROMOTE {key}")
             else:
@@ -215,9 +244,10 @@ def repair_review_models(
                 kept_entry["repair_attempts"] = attempts + 1
                 if kept_entry["repair_attempts"] >= MAX_REPAIR_ATTEMPTS:
                     kept_entry["repair_exhausted"] = True
-                new_review.append(kept_entry)
+                delta_review = [kept_entry]
                 kept += 1
                 emit(f"KEEP {key}: {len(result.issues)} issue(s)")
+            completed = True
         except ProviderUnavailableError:
             raise
         except Exception as exc:  # noqa: BLE001
@@ -227,27 +257,57 @@ def repair_review_models(
                 # Provider/setup/dependency/import failure: do not consume a
                 # repair attempt and do not mark the model as exhausted.
                 processed -= 1
-                new_review.append(failed)
+                delta_review = [failed]
                 kept += 1
                 emit(f"KEEP {key}: provider/setup error (no attempt consumed): {sanitize_error(exc)}")
             else:
                 failed["repair_attempts"] = attempts + 1
                 if failed["repair_attempts"] >= MAX_REPAIR_ATTEMPTS:
                     failed["repair_exhausted"] = True
-                new_review.append(failed)
+                delta_review = [failed]
                 kept += 1
                 emit(f"KEEP {key}: repair failed: {sanitize_error(exc)}")
+            completed = True
 
+        if completed:
+            profile_id = f"{market}::{make}::{model}"
+            merge_and_write_outputs(
+                delta_ready,
+                delta_review,
+                settings=settings,
+                checkpoint_state=checkpointer.state,
+                catalog_path=catalog_path,
+                readiness_path=readiness_path,
+                review_path=review_path,
+            )
+            emit(f"local repair checkpoint written for {profile_id}")
+            checkpointer.state["last_checkpointed_profile_id"] = profile_id
+            checkpointer.maybe_checkpoint(
+                profile_id=profile_id,
+                paths=[catalog_path, readiness_path, review_path],
+                market=market,
+                make=make,
+                model=model,
+                force=True,
+            )
+
+    # Final harmless refresh — correctness does not depend on this call.
     merged_catalog, merged_readiness, merged_review = merge_and_write_outputs(
-        new_ready,
-        new_review,
+        [],
+        [],
         settings=settings,
-        checkpoint_state={
-            "github_checkpoint_count": readiness.get("github_checkpoint_count", 0),
-            "last_checkpointed_profile_id": readiness.get("last_checkpointed_profile_id"),
-        },
+        checkpoint_state=checkpointer.state,
         catalog_path=catalog_path,
         readiness_path=readiness_path,
         review_path=review_path,
     )
-    return {"selected": selected_keys or [], "processed": processed, "promoted": promoted, "kept": kept, "skipped": skipped, "catalog": merged_catalog, "readiness": merged_readiness, "review": merged_review}
+    return {
+        "selected": selected_keys or [],
+        "processed": processed,
+        "promoted": promoted,
+        "kept": kept,
+        "skipped": skipped,
+        "catalog": merged_catalog,
+        "readiness": merged_readiness,
+        "review": merged_review,
+    }

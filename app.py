@@ -145,8 +145,6 @@ repair_provider = provider_settings_for_label(repair_label, _CONFIG)
 
 blocked_options = load_blocked_model_options()
 selected_labels = st.multiselect("Blocked vehicle models to repair", options=list(blocked_options), format_func=lambda k: blocked_options[k], key="blocked_models_to_repair")
-push_after_repair = st.checkbox("Push to GitHub after repair completes", value=bool(_CONFIG.github_token), key="push_after_repair")
-
 col_run, col_repair, col_scan = st.columns(3)
 with col_run:
     batch_size = st.number_input("models this batch", min_value=1, value=25, step=1, key="batch_size")
@@ -200,14 +198,8 @@ if repair_clicked:
     st.session_state.logs = []
     try:
         with st.spinner(f"Repairing with {repair_provider.display_name}..."):
-            result = repair_review_models(batch=int(repair_batch), selected_keys=selected_labels or None, provider_settings=repair_provider, log=_on_log)
+            result = repair_review_models(batch=int(repair_batch), selected_keys=selected_labels or None, provider_settings=repair_provider, checkpoint=_checkpoint(), log=_on_log)
         st.success(f"Repair complete — processed {result['processed']}, promoted {result['promoted']}, kept {result['kept']}, skipped {result['skipped']}.")
-        if push_after_repair:
-            push = manual_push_outputs(token=_CONFIG.github_token, repo_full_name=_CONFIG.github_repo_full_name, target_branch=_CONFIG.github_target_branch, paths=OUTPUT_JSON_PATHS, message="catalog: Streamlit repair save")
-            if push.get("ok"):
-                st.success(f"Repair outputs pushed: {len(push.get('saved', []))} file(s).")
-            else:
-                st.error(f"Repair finished, but GitHub push failed: {sanitize_error(push.get('error'))}")
     except Exception as exc:  # noqa: BLE001
         st.error(sanitize_error(exc))
         st.stop()
