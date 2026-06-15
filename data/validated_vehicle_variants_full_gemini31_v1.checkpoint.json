@@ -8,24 +8,24 @@
     "run_timestamp_utc": "2026-06-15T15:08:06Z",
     "total_input_variants": 3712,
     "total_instruction_records": 3712,
-    "total_validated_variants": 1,
+    "total_validated_variants": 2,
     "decision_counts": {
       "clean_exact": 0,
-      "clean_partial": 1,
+      "clean_partial": 2,
       "split_required": 0,
       "reject": 0
     },
     "grounding_cluster_count": 3653,
-    "gemini_call_count": 1,
+    "gemini_call_count": 2,
     "github_checkpoint_enabled": true,
-    "github_checkpoint_count": 1,
+    "github_checkpoint_count": 2,
     "github_checkpoint_fail_count": 0,
     "last_github_checkpoint_error": null,
-    "last_validated_id": "VAL-000001",
+    "last_validated_id": "VAL-000002",
     "schema_version": "v3_three_stage",
     "pipeline_version": "v3_three_stage",
-    "stage1_pro_calls": 1,
-    "stage2_guard_flags_total": 1,
+    "stage1_pro_calls": 2,
+    "stage2_guard_flags_total": 2,
     "stage3_flash_calls": 0,
     "flash_overrode_guard": 0,
     "guard_overrode_flash": 0,
@@ -40,9 +40,9 @@
     "guard_verifier_overrode_guard": 0,
     "guard_overrode_verifier": 0,
     "force_per_variant_validation": true,
-    "stage0_preflight_risk_rows": 1,
-    "stage1_gemini_grounding_required": 1,
-    "stage1_gemini_grounding_present": 1,
+    "stage0_preflight_risk_rows": 2,
+    "stage1_gemini_grounding_required": 2,
+    "stage1_gemini_grounding_present": 2,
     "stage1_gemini_grounding_missing": 0,
     "stage1_gemini_weak_grounding_rows": 0,
     "stage2_guard_flags_low": 0,
@@ -50,31 +50,31 @@
     "stage2_guard_flags_high": 0,
     "stage2_guard_flags_critical": 0,
     "stage2_guard_patches_applied": 0,
-    "stage25_repair_risk_scored_rows": 1,
-    "stage25_repair_triggered_rows": 1,
-    "stage3_repair_adjudicator_calls": 1,
-    "stage3_repair_adjudicator_successes": 1,
+    "stage25_repair_risk_scored_rows": 2,
+    "stage25_repair_triggered_rows": 2,
+    "stage3_repair_adjudicator_calls": 2,
+    "stage3_repair_adjudicator_successes": 2,
     "stage3_repair_adjudicator_failures": 0,
-    "stage3_repair_adjudicator_patches": 12,
+    "stage3_repair_adjudicator_patches": 23,
     "stage3_repair_adjudicator_routing_changes": 0,
     "stage3_repair_adjudicator_summary_rewrites": 0,
-    "stage3_repair_adjudicator_grounding_required": 1,
-    "stage3_repair_adjudicator_grounding_present": 1,
+    "stage3_repair_adjudicator_grounding_required": 2,
+    "stage3_repair_adjudicator_grounding_present": 2,
     "stage3_repair_adjudicator_grounding_missing": 0,
     "stage4_final_seal_passed": 0,
-    "stage4_final_seal_blocks": 1,
+    "stage4_final_seal_blocks": 2,
     "stage4_final_guard_conflicts_remaining": 0,
     "clean_catalog_blocks_by_repair": 0,
-    "clean_catalog_blocks_by_final_seal": 1,
+    "clean_catalog_blocks_by_final_seal": 2,
     "clean_catalog_blocks_by_grounding": 1,
-    "clean_catalog_blocks_by_unresolved_trim": 1,
+    "clean_catalog_blocks_by_unresolved_trim": 2,
     "clean_catalog_blocks_by_unresolved_critical_field": 1,
     "upload_readiness": {
       "ready_for_exact_clean_upload": true,
       "ready_for_configurable_group_upload": true,
-      "total_rows": 1,
+      "total_rows": 2,
       "exact_variant_rows": 0,
-      "configurable_group_rows": 1,
+      "configurable_group_rows": 2,
       "review_only_rows": 0,
       "clean_catalog_rows": 0,
       "critical_consistency_errors": 0,
@@ -82,11 +82,12 @@
       "unknown_enum_errors": 0,
       "duplicate_group_errors": 0,
       "repair_success_rate": 1.0,
-      "grounding_pass_rate": 0.0
+      "grounding_pass_rate": 0.5
     }
   },
   "completed_validation_ids": [
-    "VAL-000001"
+    "VAL-000001",
+    "VAL-000002"
   ],
   "failed_validation_ids": [],
   "validated_variants_by_id": {
@@ -741,6 +742,510 @@
           ]
         }
       ]
+    },
+    "VAL-000002": {
+      "validation_id": "VAL-000002",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000002",
+      "source_cluster_id": "CLU-7ea11c499a5f",
+      "grounding_cluster_id": "CLU-7ea11c499a5f",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "500",
+      "canonical_series_or_generation": "1st Gen",
+      "canonical_trim": null,
+      "official_marketed_name_il": "אבארט 500",
+      "body_type": "Hatchback",
+      "fuel_type": "petrol",
+      "engine": "1.4L Turbo",
+      "transmission": "manual",
+      "drivetrain": "FWD",
+      "year_start": 2010,
+      "year_end": 2016,
+      "is_currently_produced": false,
+      "is_currently_imported_il": false,
+      "market_scope": "IL",
+      "validation_decision": "clean_partial",
+      "acceptance_tier": "partial",
+      "identity_status": "verified",
+      "identity_confidence": 0.95,
+      "trim_status": "unresolved",
+      "trim_confidence": 0.0,
+      "field_validation": {
+        "canonical_make": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "risk_tags": [],
+          "notes": "Make is supported by Israeli-market listings and reviews."
+        },
+        "canonical_model": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "risk_tags": [],
+          "notes": "Model is supported by Israeli-market listings and reviews."
+        },
+        "canonical_series_or_generation": {
+          "status": "verified",
+          "confidence": 0.9,
+          "evidence_strength": "acceptable",
+          "source_indexes": [
+            0
+          ],
+          "risk_tags": [],
+          "notes": "First-generation Abarth 500 identity is consistent with the validated Israeli-market period."
+        },
+        "canonical_trim": {
+          "status": "unresolved",
+          "confidence": 0.0,
+          "evidence_strength": "missing",
+          "source_indexes": [],
+          "risk_tags": [
+            "generic_trim",
+            "placeholder_trim"
+          ],
+          "notes": "'Base' is not directly supported as a marketed Israeli trim."
+        },
+        "official_marketed_name_il": {
+          "status": "verified",
+          "confidence": 0.9,
+          "evidence_strength": "acceptable",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "risk_tags": [],
+          "notes": "Hebrew Israeli-market sources use the marketed name אבארט 500."
+        },
+        "body_type": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0
+          ],
+          "risk_tags": [],
+          "notes": "Israeli listing identifies the car as a hatchback."
+        },
+        "fuel_type": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "risk_tags": [],
+          "notes": "Israeli sources and model coverage support petrol powertrain."
+        },
+        "engine": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "risk_tags": [],
+          "notes": "Israeli sources support the 1.4L turbo engine."
+        },
+        "transmission": {
+          "status": "verified",
+          "confidence": 0.95,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Manual transmission is supported; period specs also align with a 5-speed manual layout."
+        },
+        "drivetrain": {
+          "status": "verified",
+          "confidence": 0.9,
+          "evidence_strength": "acceptable",
+          "source_indexes": [
+            0
+          ],
+          "risk_tags": [],
+          "notes": "FWD is consistent with the model configuration."
+        },
+        "year_start": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "risk_tags": [
+            "corrected_value"
+          ],
+          "notes": "Israeli-market evidence supports 2010 as the import/start year rather than 2008."
+        },
+        "year_end": {
+          "status": "verified",
+          "confidence": 0.9,
+          "evidence_strength": "acceptable",
+          "source_indexes": [
+            1
+          ],
+          "risk_tags": [],
+          "notes": "2016 remains acceptable for this validated variant window."
+        },
+        "is_currently_produced": {
+          "status": "verified",
+          "confidence": 0.95,
+          "evidence_strength": "acceptable",
+          "source_indexes": [
+            1
+          ],
+          "risk_tags": [],
+          "notes": "This 2010-2016 combustion Abarth 500 variant is no longer in production."
+        },
+        "is_currently_imported_il": {
+          "status": "verified",
+          "confidence": 0.9,
+          "evidence_strength": "acceptable",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "risk_tags": [],
+          "notes": "Current Israeli-market coverage references newer Abarth offerings; this specific 2010-2016 variant is not currently imported."
+        }
+      },
+      "source_support_matrix": [
+        {
+          "field": "market_presence_il",
+          "value": true,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "reason": "Israeli automotive sources list and review the Abarth 500 in the local market."
+        },
+        {
+          "field": "year_start",
+          "value": 2010,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "reason": "Israeli source coverage shows Abarth 500 presence from 2010 in Israel."
+        },
+        {
+          "field": "engine",
+          "value": "1.4L Turbo",
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "reason": "Israeli sources support the turbocharged 1.4-liter engine."
+        },
+        {
+          "field": "transmission",
+          "value": "manual",
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "reason": "Manual transmission is supported by Israeli listing context and period technical specification evidence."
+        },
+        {
+          "field": "canonical_trim",
+          "value": "Base",
+          "support_level": "missing",
+          "source_indexes": [],
+          "reason": "No grounded Israeli evidence supports 'Base' as a real marketed trim."
+        }
+      ],
+      "evidence_auditability": "strong",
+      "grounding_status": {
+        "gemini_grounding_required": true,
+        "gemini_grounding_present": true,
+        "gemini_grounding_quality": "strong",
+        "gpt54_grounding_required": true,
+        "gpt54_grounding_present": true,
+        "gpt54_grounding_quality": "acceptable",
+        "final_grounding_gate_passed": true
+      },
+      "grounding_summary": "Grounded Israeli-market sources support Abarth 500 presence in Israel from 2010, with hatchback body style, petrol 1.4 turbo engine, and manual transmission. The original 2008 start year was corrected to 2010 for the Israeli market. The supplied trim 'Base' is not directly evidenced as a marketed trim and remains unresolved, so the row cannot be published as an exact clean variant.",
+      "evidence_sources": [
+        {
+          "title": "אבארט 500 2010 Abarth 1.4 - יד שניה",
+          "url": "https://www.icar.co.il/%D7%90%D7%91%D7%90%D7%A8%D7%98/%D7%90%D7%91%D7%90%D7%A8%D7%98_500/%D7%90%D7%91%D7%90%D7%A8%D7%98_500_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%94_%D7%9310/version8265/",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "year_range",
+            "engine",
+            "body_type"
+          ]
+        },
+        {
+          "title": "אבארט 500 - מחירון, חוות דעת ומידע טכני | אוטו",
+          "url": "https://www.auto.co.il/cars/abarth/500/",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "year_start",
+            "engine",
+            "fuel_type",
+            "current_model_context"
+          ]
+        },
+        {
+          "title": "Ficha técnica y precio del ABARTH 500 BERLINA 1.4 16V TJET 135CV GASOLINA 2010 | Coches.net",
+          "url": "https://www.coches.net/fichas_tecnicas/abarth/500/berlina/3-puertas/14_16v_tjet_135cv_135cv_gasolina/36480/766376620110401/",
+          "source_name": "Coches.net",
+          "source_type": "spec_db",
+          "supports": [
+            "transmission",
+            "manual_5_speed",
+            "engine",
+            "fuel_type"
+          ]
+        }
+      ],
+      "possible_trim_names": [
+        "Custom",
+        "Turismo",
+        "Competizione",
+        "EsseEsse",
+        "Nuvolari"
+      ],
+      "split_candidates": [],
+      "blocking_identity_issues": [],
+      "non_blocking_trim_issues": [
+        "The provided trim 'Base' is a generic placeholder and not a specific marketed trim in Israel.",
+        "Possible trim names exist in source ecosystem, but none is directly grounded to this exact row with sufficient certainty."
+      ],
+      "fields_changed": [
+        {
+          "field": "year_start",
+          "from": 2008,
+          "to": 2010,
+          "reason": "Corrected to Israeli-market start year based on grounded local-market evidence."
+        },
+        {
+          "field": "canonical_trim",
+          "from": "Base",
+          "to": null,
+          "reason": "Unverified placeholder trim removed from canonical field."
+        }
+      ],
+      "fields_left_unresolved": [
+        "canonical_trim"
+      ],
+      "decision_reason": "Final seal route=configurable_group_queue; publication_type=configurable_group; validation_decision=clean_partial; identity_status=verified; trim_status=unresolved. Unresolved fields: canonical_trim.",
+      "_pipeline_version": "v3_three_stage",
+      "_flags_count": 1,
+      "_flash_used": false,
+      "adjudication_log": [],
+      "publishable_to_clean_catalog": false,
+      "final_route": "configurable_group_queue",
+      "route_reason": "Valid Israeli-market identity with multiple options; routed to configurable group (user-selectable trim/transmission/body/engine/year).",
+      "duplicate_group_id": null,
+      "duplicate_of": null,
+      "publication_type": "configurable_group",
+      "user_selectable_fields": {
+        "trim": [
+          "Custom",
+          "Turismo",
+          "Competizione",
+          "EsseEsse",
+          "Nuvolari"
+        ],
+        "body_type": [
+          "Hatchback"
+        ],
+        "engine": [
+          "1.4L Turbo"
+        ],
+        "year": [
+          2010
+        ]
+      },
+      "option_matrix": [
+        {
+          "trim": "Custom",
+          "engine": "1.4L Turbo",
+          "transmission": null,
+          "body_type": "Hatchback",
+          "year_start": 2010,
+          "year_end": 2016,
+          "evidence_strength": "acceptable",
+          "source_indexes": []
+        },
+        {
+          "trim": "Turismo",
+          "engine": "1.4L Turbo",
+          "transmission": null,
+          "body_type": "Hatchback",
+          "year_start": 2010,
+          "year_end": 2016,
+          "evidence_strength": "acceptable",
+          "source_indexes": []
+        },
+        {
+          "trim": "Competizione",
+          "engine": "1.4L Turbo",
+          "transmission": null,
+          "body_type": "Hatchback",
+          "year_start": 2010,
+          "year_end": 2016,
+          "evidence_strength": "acceptable",
+          "source_indexes": []
+        },
+        {
+          "trim": "EsseEsse",
+          "engine": "1.4L Turbo",
+          "transmission": null,
+          "body_type": "Hatchback",
+          "year_start": 2010,
+          "year_end": 2016,
+          "evidence_strength": "acceptable",
+          "source_indexes": []
+        },
+        {
+          "trim": "Nuvolari",
+          "engine": "1.4L Turbo",
+          "transmission": null,
+          "body_type": "Hatchback",
+          "year_start": 2010,
+          "year_end": 2016,
+          "evidence_strength": "acceptable",
+          "source_indexes": []
+        }
+      ],
+      "candidate_values": {},
+      "preflight_risk_tags": [
+        "base_trim",
+        "placeholder_trim",
+        "weak_official_marketed_name",
+        "low_auditability_risk"
+      ],
+      "_unknown_enums": [],
+      "final_seal_result": {
+        "seal_completed": true,
+        "clean_catalog_passed": false,
+        "blocks_clean_catalog": true,
+        "publication_type": "configurable_group",
+        "unknown_enums": [],
+        "passed": true,
+        "guard_flags": [
+          {
+            "guard_name": "final_seal_route_override",
+            "severity": "medium",
+            "field_affected": "final_route",
+            "original_value": "review_queue",
+            "guard_value": "configurable_group_queue",
+            "reason": "Valid Israeli-market identity with multiple options; routed to configurable group (user-selectable trim/transmission/body/engine/year).",
+            "risk_tags": [
+              "routing",
+              "final_seal"
+            ],
+            "needs_repair_adjudication": false,
+            "allowed_patch_fields": []
+          }
+        ]
+      },
+      "risk_score": 65,
+      "_repair_adjudicator_triggered": true,
+      "gpt54_grounding_present": true,
+      "_repair_decision": "patched",
+      "field_patches": [
+        {
+          "field": "canonical_trim",
+          "patch": "set null and keep unresolved",
+          "reason": "Unverified trim cannot remain populated or verified."
+        },
+        {
+          "field": "grounding_status.gpt54_grounding_present",
+          "patch": "set true",
+          "reason": "Additional web grounding performed during repair adjudication."
+        },
+        {
+          "field": "grounding_status.gpt54_grounding_quality",
+          "patch": "set acceptable",
+          "reason": "Repair used grounded web evidence."
+        },
+        {
+          "field": "fields_left_unresolved",
+          "patch": "remove official_marketed_name_il, keep canonical_trim only",
+          "reason": "official_marketed_name_il remains populated and sufficiently grounded; unresolved populated fields are not allowed."
+        },
+        {
+          "field": "publication_type",
+          "patch": "set review_only",
+          "reason": "Partial unresolved trim row cannot be promoted to configurable_group without grounded option matrix."
+        },
+        {
+          "field": "final_route",
+          "patch": "set review_queue",
+          "reason": "Configurable-group routing in guarded row relied on ungrounded option matrix and invented combinations."
+        },
+        {
+          "field": "route_reason",
+          "patch": "replace with unresolved-trim review rationale",
+          "reason": "Must align with unresolved trim and review-only publication."
+        },
+        {
+          "field": "user_selectable_fields",
+          "patch": "clear to empty object",
+          "reason": "Selectable options were not sufficiently grounded for this exact row."
+        },
+        {
+          "field": "option_matrix",
+          "patch": "clear to empty array",
+          "reason": "Contained invented/unsupported trim combinations and null transmission values."
+        },
+        {
+          "field": "decision_reason",
+          "patch": "rewrite for internal consistency",
+          "reason": "Must match final route, publication type, and unresolved trim state."
+        },
+        {
+          "field": "final_seal_result.publication_type",
+          "patch": "set review_only",
+          "reason": "Must match repaired publication_type."
+        }
+      ],
+      "_guard_verifier_used": false,
+      "guard_flags": [
+        {
+          "guard_name": "final_seal_route_override",
+          "severity": "medium",
+          "field_affected": "final_route",
+          "original_value": "review_queue",
+          "guard_value": "configurable_group_queue",
+          "reason": "Valid Israeli-market identity with multiple options; routed to configurable group (user-selectable trim/transmission/body/engine/year).",
+          "needs_adjudication": false,
+          "recommended_verifier_model": "none",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "routing",
+            "final_seal"
+          ]
+        }
+      ]
     }
   },
   "cluster_cache": {
@@ -789,10 +1294,10 @@
   },
   "decision_counts": {
     "clean_exact": 0,
-    "clean_partial": 1,
+    "clean_partial": 2,
     "split_required": 0,
     "reject": 0
   },
-  "last_validated_id": "VAL-000001",
-  "updated_at_utc": "2026-06-15T15:08:06Z"
+  "last_validated_id": "VAL-000002",
+  "updated_at_utc": "2026-06-15T15:09:22Z"
 }
