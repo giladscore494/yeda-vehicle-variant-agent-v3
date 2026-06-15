@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T18:42:15Z",
+  "generated_at": "2026-06-15T18:42:44Z",
   "market": "IL",
   "models": [
     {
@@ -5208,6 +5208,549 @@
       ],
       "validation_issues": [
         "variant[1] version_or_trim '707' is a engine_size, not a trim"
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Aston Martin",
+      "model": "Vantage",
+      "canonical_model": "Vantage",
+      "year_start": 2015,
+      "year_end": 2026,
+      "technical_variants_il": [
+        {
+          "version_or_trim": "N430",
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "4.7L v8",
+          "engine_displacement_l": 4.7,
+          "horsepower_hp": null,
+          "transmission": "7-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 2015,
+          "year_end": 2015,
+          "support_level": "direct",
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": [
+            "horsepower_hp"
+          ]
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Convertible",
+          "fuel_type": "petrol",
+          "engine": "4.7L v8",
+          "engine_displacement_l": 4.7,
+          "horsepower_hp": null,
+          "transmission": null,
+          "drivetrain": "RWD",
+          "year_start": 2015,
+          "year_end": 2015,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            4
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              1,
+              4
+            ],
+            "fuel_type": [
+              1,
+              4
+            ],
+            "engine": [
+              1,
+              4
+            ],
+            "engine_displacement_l": [
+              1,
+              4
+            ],
+            "horsepower_hp": [],
+            "transmission": [],
+            "drivetrain": [
+              1,
+              4
+            ],
+            "year_start": [
+              1,
+              4
+            ],
+            "year_end": [
+              1,
+              4
+            ]
+          },
+          "missing_grounded_fields": [
+            "version_or_trim",
+            "horsepower_hp",
+            "transmission"
+          ]
+        },
+        {
+          "version_or_trim": "V12",
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "6.0L v12",
+          "engine_displacement_l": 6,
+          "horsepower_hp": null,
+          "transmission": null,
+          "drivetrain": "RWD",
+          "year_start": 2015,
+          "year_end": 2015,
+          "support_level": "direct",
+          "source_indexes": [
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              2
+            ],
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              2
+            ],
+            "engine": [
+              2
+            ],
+            "engine_displacement_l": [
+              2
+            ],
+            "horsepower_hp": [],
+            "transmission": [],
+            "drivetrain": [
+              2
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": [
+            "horsepower_hp",
+            "transmission"
+          ]
+        },
+        {
+          "version_or_trim": "V8",
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "4.0L turbo v8",
+          "engine_displacement_l": 4,
+          "horsepower_hp": 503,
+          "transmission": "automatic",
+          "drivetrain": "RWD",
+          "year_start": 2018,
+          "year_end": 2025,
+          "support_level": "direct",
+          "source_indexes": [
+            3,
+            5
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              3
+            ],
+            "body_type": [
+              5
+            ],
+            "fuel_type": [
+              5
+            ],
+            "engine": [
+              3,
+              5
+            ],
+            "engine_displacement_l": [
+              3,
+              5
+            ],
+            "horsepower_hp": [
+              3
+            ],
+            "transmission": [
+              3
+            ],
+            "drivetrain": [
+              5
+            ],
+            "year_start": [
+              3,
+              5
+            ],
+            "year_end": [
+              5
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "V12",
+          "body_type": "Convertible",
+          "fuel_type": "petrol",
+          "engine": "5.2L turbo v12",
+          "engine_displacement_l": 5.2,
+          "horsepower_hp": 700,
+          "transmission": null,
+          "drivetrain": "RWD",
+          "year_start": 2023,
+          "year_end": 2025,
+          "support_level": "direct",
+          "source_indexes": [
+            6,
+            7
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              6,
+              7
+            ],
+            "body_type": [
+              6,
+              7
+            ],
+            "fuel_type": [
+              6,
+              7
+            ],
+            "engine": [
+              6,
+              7
+            ],
+            "engine_displacement_l": [
+              6,
+              7
+            ],
+            "horsepower_hp": [
+              6,
+              7
+            ],
+            "transmission": [],
+            "drivetrain": [
+              6,
+              7
+            ],
+            "year_start": [
+              6,
+              7
+            ],
+            "year_end": [
+              6
+            ]
+          },
+          "missing_grounded_fields": [
+            "transmission"
+          ]
+        },
+        {
+          "version_or_trim": "V8",
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "4.0L turbo v8",
+          "engine_displacement_l": 4,
+          "horsepower_hp": 665,
+          "transmission": null,
+          "drivetrain": "RWD",
+          "year_start": 2026,
+          "year_end": 2026,
+          "support_level": "direct",
+          "source_indexes": [
+            8
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              8
+            ],
+            "body_type": [
+              8
+            ],
+            "fuel_type": [
+              8
+            ],
+            "engine": [
+              8
+            ],
+            "engine_displacement_l": [
+              8
+            ],
+            "horsepower_hp": [
+              8
+            ],
+            "transmission": [],
+            "drivetrain": [
+              8
+            ],
+            "year_start": [
+              8
+            ],
+            "year_end": [
+              8
+            ]
+          },
+          "missing_grounded_fields": [
+            "transmission"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "N430",
+          "V12",
+          "V8"
+        ],
+        "body_type": [
+          "Coupe",
+          "Convertible"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "4.7L v8",
+          "6.0L v12",
+          "4.0L turbo v8",
+          "5.2L turbo v12"
+        ],
+        "horsepower_hp": [
+          503,
+          700,
+          665
+        ],
+        "transmission": [
+          "7-speed automatic",
+          "automatic"
+        ],
+        "drivetrain": [
+          "RWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "V12 Roadster",
+          "classification": "body/model designation, not grounded as Israeli trim label"
+        },
+        {
+          "label": "V12 S",
+          "classification": "unsupported trim label for Israeli-market Vantage sources found"
+        },
+        {
+          "label": "V8 Roadster",
+          "classification": "body/model designation, not grounded as Israeli trim label"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "אסטון מרטין ונטאג' 2015 קופה N430, רובוטית יד שניה",
+          "url": "https://www.auto.co.il/cars/aston-martin/vantage/2015/525466/",
+          "source_name": "Auto",
+          "source_type": "catalog",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "אסטון מרטין ונטאג' 2015 קבריולט 4.7 ליטר, רובוטית יד שניה",
+          "url": "https://www.auto.co.il/cars/aston-martin/vantage/2015/525448/",
+          "source_name": "Auto",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "אסטון מרטין ונטאג' 2015 קופה V12, רובוטית יד שניה",
+          "url": "https://www.auto.co.il/cars/aston-martin/vantage/2015/525454/",
+          "source_name": "Auto",
+          "source_type": "catalog",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "אסטון מרטין ונטאג' החדשה נחתה בישראל",
+          "url": "https://www.icar.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA_%D7%A8%D7%9B%D7%91/%D7%90%D7%A1%D7%98%D7%95%D7%9F_%D7%9E%D7%A8%D7%98%D7%99%D7%9F_%D7%95%D7%A0%D7%98%D7%90%D7%92%27_%D7%94%D7%97%D7%93%D7%A9%D7%94_%D7%A0%D7%97%D7%AA%D7%94_%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C/",
+          "source_name": "iCar",
+          "source_type": "news",
+          "supports": [
+            "version_or_trim",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 4,
+          "title": "אסטון מרטין ונטאג' 2015 קבריולט 4.7 ליטר, ידנית יד שניה",
+          "url": "https://www.auto.co.il/cars/aston-martin/vantage/2015/525442/",
+          "source_name": "Auto",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 5,
+          "title": "אסטון מרטין ונטאג' 2025 קופה, אוט', 4.0 ל' טורבו V8 יד שניה",
+          "url": "https://www.auto.co.il/cars/aston-martin/vantage/2025/538354/",
+          "source_name": "Auto",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 6,
+          "title": "אסטון מרטין ונטאג' 2025 קבריולה, אוט', 5.2 ל' טורבו V12 מפרט טכני",
+          "url": "https://www.auto.co.il/car/21522",
+          "source_name": "Auto",
+          "source_type": "catalog",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "drivetrain",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 7,
+          "title": "אסטון מרטין ונטאג' 2023 קבריולה, אוט', 5.2 ל' טורבו V12 יד שניה",
+          "url": "https://www.auto.co.il/cars/aston-martin/vantage/2023/535503/",
+          "source_name": "Auto",
+          "source_type": "catalog",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 8,
+          "title": "אסטון מרטין ונטאג' 2026 קופה, אוט', 4.0 ל' טורבו V8",
+          "url": "https://www.auto.co.il/cars/aston-martin/vantage/2026/580773/",
+          "source_name": "Auto",
+          "source_type": "catalog",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "profile_confidence": "medium",
+      "notes": [
+        "Israeli grounding found for 2015 legacy Vantage variants and 2018+ AMG-derived V8 generation, plus 2023-2025 V12 Roadster/cabrio and 2026 updated V8 coupe.",
+        "Several Auto catalog pages expose engine family, body, drivetrain and sometimes transmission, but some horsepower/transmission values were not retrievable from page text for 2015 variants; those fields were left null.",
+        "2018-2025 V8 coupe is merged as one configuration because sourced technical fields are identical across that span; 2026 split separately due to sourced horsepower change from 503 hp to 665 hp.",
+        "No Israeli-market grounding was found to safely include a separate V8 roadster/convertible row or a V12 S row as sold versions in Israel."
+      ],
+      "validation_issues": [
+        "variant[0] required website field 'horsepower_hp' is null/empty",
+        "variant[0] required field 'horsepower_hp' listed in missing_grounded_fields",
+        "variant[1] required website field 'horsepower_hp' is null/empty",
+        "variant[1] required website field 'transmission' is null/empty",
+        "variant[1] required field 'horsepower_hp' listed in missing_grounded_fields",
+        "variant[1] required field 'transmission' listed in missing_grounded_fields",
+        "variant[2] required website field 'horsepower_hp' is null/empty",
+        "variant[2] required website field 'transmission' is null/empty",
+        "variant[2] required field 'horsepower_hp' listed in missing_grounded_fields",
+        "variant[2] required field 'transmission' listed in missing_grounded_fields",
+        "variant[4] required website field 'transmission' is null/empty",
+        "variant[4] required field 'transmission' listed in missing_grounded_fields",
+        "variant[5] required website field 'transmission' is null/empty",
+        "variant[5] required field 'transmission' listed in missing_grounded_fields"
       ]
     }
   ]
