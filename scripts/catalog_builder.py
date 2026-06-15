@@ -35,7 +35,9 @@ from .data_loader import (
     load_instructions,
     load_variants,
 )
-from .openai_catalog_client import CatalogClient, CatalogClientSettings
+from .openai_catalog_client import CatalogClientSettings
+from .catalog_provider import CatalogProviderSettings, build_catalog_client
+from .security import sanitize_error
 
 CATALOG_OUTPUT_PATH = os.path.join(DATA_DIR, "model_technical_catalog_il.json")
 READINESS_OUTPUT_PATH = os.path.join(DATA_DIR, "model_technical_catalog_il_readiness.json")
@@ -46,10 +48,7 @@ SOURCE_FILES = [
     "data/validation_instructions_by_id_v1.json",
 ]
 
-OPENAI_KEY_REQUIRED_MESSAGE = (
-    "OPENAI_API_KEY is required for GPT-5.4 grounded catalog runs. Set it in "
-    "environment variables or secrets."
-)
+MODEL_KEY_REQUIRED_MESSAGE = "Selected provider API key is missing; the run was not started."
 
 
 def _now_iso() -> str:
@@ -134,7 +133,7 @@ def merge_and_write_outputs(
     if old_readiness.get("last_checkpointed_profile_id") and not readiness.get("last_checkpointed_profile_id"):
         readiness["last_checkpointed_profile_id"] = old_readiness.get("last_checkpointed_profile_id")
     catalog = {
-        "generated_at": _now_iso(), "market": "IL", "mode": "online_gpt54",
+        "generated_at": _now_iso(), "market": "IL", "mode": "online_selectable_provider",
         "model_id": settings.model_id, "source_files": SOURCE_FILES, "models": ready_models,
     }
     catalog["ready_for_website_upload"] = readiness["ready_for_website_upload"]
@@ -190,6 +189,7 @@ def build_catalog(
     limit_models: Optional[int] = None,
     start_after_key: Optional[str] = None,
     settings: Optional[CatalogClientSettings] = None,
+    provider_settings: Optional[CatalogProviderSettings] = None,
     checkpoint: Optional[CatalogCheckpointConfig] = None,
     variants_path: str = VARIANTS_PATH,
     instructions_path: str = INSTRUCTIONS_PATH,
@@ -209,14 +209,25 @@ def build_catalog(
     """
     emit = log or (lambda _msg: None)
     progress = on_progress or (lambda _info: None)
-    settings = settings or CatalogClientSettings()
+    if provider_settings is None:
+        settings = settings or CatalogClientSettings()
+        provider_settings = CatalogProviderSettings(
+            provider="openai",
+            display_name="GPT-5.4",
+            model_id=settings.model_id,
+            api_key=settings.api_key,
+            web_search_enabled=settings.use_web_search,
+        )
+    settings = settings or CatalogClientSettings(
+        api_key=provider_settings.api_key,
+        model_id=provider_settings.model_id,
+        use_web_search=provider_settings.web_search_enabled,
+    )
 
-    # Fail closed: a run without an OpenAI key never continues, synthesizes, or
-    # falls back.
-    if not settings.api_key:
-        raise ValueError(OPENAI_KEY_REQUIRED_MESSAGE)
+    if not provider_settings.api_key:
+        raise ValueError(MODEL_KEY_REQUIRED_MESSAGE)
 
-    # GITHUB_TOKEN is required only when checkpointing is enabled (constructor
+    # [github].token is required only when checkpointing is enabled (constructor
     # raises a clear, sanitized error if so and the token is missing).
     checkpointer = CatalogCheckpointer(
         checkpoint or CatalogCheckpointConfig(), log=emit
@@ -243,7 +254,7 @@ def build_catalog(
         f"processing {total} this run."
     )
 
-    client = CatalogClient(settings)
+    client = build_catalog_client(provider_settings)
 
     validations: List[ProfileValidation] = []
     ready_models: List[Dict[str, Any]] = []
@@ -293,7 +304,7 @@ def build_catalog(
         sample_ids = group.validation_ids[:5]
         market = group.market_scope or "IL"
         emit(
-            f"[{idx}/{total}] RUNNING GPT-5.4: {market} :: {group.make} :: "
+            f"[{idx}/{total}] RUNNING {provider_settings.display_name}: {market} :: {group.make} :: "
             f"{group.model} | raw_variants={group.raw_variant_count} | "
             f"sample_ids={', '.join(sample_ids) or '(none)'}"
         )
@@ -303,12 +314,13 @@ def build_catalog(
             profile = client.build_profile(payload)
         except Exception as exc:  # noqa: BLE001 - keep building other models
             review_count += 1
-            emit(f"[{idx}/{total}] ERROR: {group.make} {group.model} routed to review: {exc}")
+            safe_error = sanitize_error(exc)
+            emit(f"[{idx}/{total}] ERROR: {group.make} {group.model} routed to review: {safe_error}")
             review_models.append(
                 {
                     "make": group.make,
                     "model": group.model,
-                    "error": str(exc),
+                    "error": safe_error,
                     "request_payload": payload,
                 }
             )

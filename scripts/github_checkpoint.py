@@ -24,7 +24,7 @@ API_ROOT = "https://api.github.com"
 
 # Last-resort fallback if detection fails and no secret/env override is given.
 FALLBACK_REPO = "giladscore494/yeda-vehicle-variant-agent-v3"
-FALLBACK_BRANCH = "claude/beautiful-mccarthy-jdjy5m"
+FALLBACK_BRANCH = "validation-v2-budgeted-dual-il-trims"
 
 
 class GitHubSaveError(RuntimeError):
@@ -57,41 +57,13 @@ def _parse_owner_repo(url: str) -> Optional[str]:
 
 
 def detect_repo(explicit: Optional[str] = None) -> Optional[str]:
-    """Resolve ``owner/repo`` from explicit config, env, git remote, fallback."""
-    if explicit:
-        return explicit
-    for env in ("GITHUB_REPO", "GITHUB_REPOSITORY"):
-        if os.environ.get(env):
-            return os.environ[env]
-    try:
-        url = subprocess.check_output(
-            ["git", "config", "--get", "remote.origin.url"],
-            stderr=subprocess.DEVNULL,
-        ).decode().strip()
-        parsed = _parse_owner_repo(url)
-        if parsed:
-            return parsed
-    except Exception:  # noqa: BLE001
-        pass
-    return FALLBACK_REPO
+    """Resolve ``owner/repo`` from explicit current secrets only, else fallback."""
+    return explicit or FALLBACK_REPO
 
 
 def detect_branch(explicit: Optional[str] = None) -> Optional[str]:
-    if explicit:
-        return explicit
-    for env in ("GITHUB_BRANCH", "GITHUB_REF_NAME"):
-        if os.environ.get(env):
-            return os.environ[env]
-    try:
-        branch = subprocess.check_output(
-            ["git", "rev-parse", "--abbrev-ref", "HEAD"],
-            stderr=subprocess.DEVNULL,
-        ).decode().strip()
-        if branch and branch != "HEAD":
-            return branch
-    except Exception:  # noqa: BLE001
-        pass
-    return FALLBACK_BRANCH
+    """Resolve target branch from explicit current secrets only, else fallback."""
+    return explicit or FALLBACK_BRANCH
 
 
 # ---------------------------------------------------------------------------
@@ -248,14 +220,14 @@ def resolve_config_from_streamlit(st_secrets) -> Tuple[Optional[GitHubConfig], L
     except Exception:  # noqa: BLE001
         gh = {}
     token = gh.get("token") or ""
-    repo = detect_repo(gh.get("repo"))
-    branch = detect_branch(gh.get("branch"))
+    repo = detect_repo(gh.get("repo_full_name"))
+    branch = detect_branch(gh.get("target_branch"))
     if not token:
         notes.append("github.token missing")
     if not repo:
-        notes.append("github.repo could not be detected")
+        notes.append("github.repo_full_name missing")
     if not branch:
-        notes.append("github.branch could not be detected")
+        notes.append("github.target_branch missing")
     config = GitHubConfig(token=token, repo=repo or "", branch=branch or "")
     return (config if token else None), notes
 
@@ -263,10 +235,32 @@ def resolve_config_from_streamlit(st_secrets) -> Tuple[Optional[GitHubConfig], L
 def resolve_config_from_env() -> Tuple[Optional[GitHubConfig], List[str]]:
     notes: List[str] = []
     # Required, documented secret name only (no GH_TOKEN/GH_PAT/GITHUB_PAT aliases).
-    token = os.environ.get("GITHUB_TOKEN") or ""
-    repo = detect_repo(os.environ.get("GITHUB_REPO"))
-    branch = detect_branch(os.environ.get("GITHUB_BRANCH"))
+    token = ""
+    repo = detect_repo(None)
+    branch = detect_branch(None)
     if not token:
-        notes.append("GITHUB_TOKEN missing")
+        notes.append("[github].token missing")
     config = GitHubConfig(token=token, repo=repo or "", branch=branch or "")
     return (config if token else None), notes
+
+
+OUTPUT_JSON_PATHS = [
+    "data/model_technical_catalog_il.json",
+    "data/model_technical_catalog_il_readiness.json",
+    "data/model_technical_catalog_il_review.json",
+    "data/model_technical_catalog_il_quality_scan.json",
+]
+
+def github_autosave_enabled(*, token: str, repo_full_name: str, target_branch: str) -> bool:
+    return bool(token and repo_full_name and target_branch)
+
+def manual_push_outputs(*, token: str, repo_full_name: str, target_branch: str, paths: List[str], message: str = "catalog: manual Streamlit save") -> Dict[str, object]:
+    safe_paths = [p for p in paths if not _is_secrets_path(p) and os.path.exists(p)]
+    if not token or not repo_full_name or not target_branch:
+        return {"ok": False, "saved": [], "error": "GitHub token, repo full name, or target branch is missing"}
+    try:
+        client = GitHubCheckpoint(GitHubConfig(token=token, repo=repo_full_name, branch=target_branch))
+        saved = client.save_paths(safe_paths, message)
+        return {"ok": True, "saved": saved, "repo_full_name": repo_full_name, "target_branch": target_branch}
+    except Exception as exc:  # noqa: BLE001
+        return {"ok": False, "saved": [], "error": _redact(str(exc))}

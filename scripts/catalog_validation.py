@@ -355,7 +355,6 @@ def build_readiness_report(
         # --- run identity / grounding ---------------------------------------
         "real_grounded_run": real_grounded_run,
         "openai_api_key_env_name": "OPENAI_API_KEY",
-        "github_token_env_name": "GITHUB_TOKEN",
         "web_search_enabled": bool(web_search_enabled),
         # --- github checkpoint status ---------------------------------------
         "github_checkpoint_enabled": bool(checkpoint_state.get("github_checkpoint_enabled", False)),

@@ -15,7 +15,9 @@ from .catalog_builder import (
     merge_and_write_outputs,
 )
 from .catalog_validation import REQUIRED_WEBSITE_FIELDS, derive_available_values, validate_profile
-from .openai_catalog_client import CatalogClient, CatalogClientSettings, GROUNDED_TECHNICAL_FIELDS
+from .openai_catalog_client import CatalogClientSettings, GROUNDED_TECHNICAL_FIELDS
+from .catalog_provider import CatalogProviderSettings, build_catalog_client
+from .security import sanitize_error
 
 MAX_REPAIR_ATTEMPTS = 2
 
@@ -76,6 +78,8 @@ def merge_repair(existing: Dict[str, Any], repaired: Dict[str, Any], targets: Di
 def repair_review_models(
     batch: Optional[int] = None,
     *,
+    selected_keys: Optional[list[str]] = None,
+    provider_settings: Optional[CatalogProviderSettings] = None,
     settings: Optional[CatalogClientSettings] = None,
     log: Optional[Callable[[str], None]] = None,
     catalog_path: str = CATALOG_OUTPUT_PATH,
@@ -83,25 +87,37 @@ def repair_review_models(
     review_path: str = REVIEW_OUTPUT_PATH,
 ) -> Dict[str, Any]:
     emit = log or (lambda _msg: None)
-    settings = settings or CatalogClientSettings()
-    client = CatalogClient(settings)
+    if provider_settings is None:
+        settings = settings or CatalogClientSettings()
+        provider_settings = CatalogProviderSettings(
+            provider="openai", display_name="GPT-5.4", model_id=settings.model_id,
+            api_key=settings.api_key, web_search_enabled=settings.use_web_search
+        )
+    settings = settings or CatalogClientSettings(api_key=provider_settings.api_key, model_id=provider_settings.model_id, use_web_search=provider_settings.web_search_enabled)
+    if not provider_settings.api_key:
+        raise ValueError("Selected provider API key is missing; repair was not started.")
+    client = build_catalog_client(provider_settings)
     catalog, readiness, review = load_existing_outputs(catalog_path, readiness_path, review_path)
     review_models = [m for m in review.get("models", []) if isinstance(m, dict)]
     processed = promoted = kept = skipped = 0
     new_ready: List[Dict[str, Any]] = []
     new_review: List[Dict[str, Any]] = []
 
+    selected_set = set(selected_keys or [])
     for model_entry in review_models:
-        if batch is not None and processed >= batch:
+        key = _model_key(model_entry)
+        if selected_keys is not None and key not in selected_set:
+            skipped += 1
+            continue
+        if batch is not None and not selected_keys and processed >= batch:
             break
         attempts = int(model_entry.get("repair_attempts", 0) or 0)
-        key = _model_key(model_entry)
         if attempts >= MAX_REPAIR_ATTEMPTS:
             skipped += 1
             emit(f"SKIP exhausted: {key}")
             continue
         targets = derive_repair_targets(model_entry)
-        emit(f"REPAIR {key}: {targets or 'stale block; re-validating only'}")
+        emit(f"REPAIRING WITH {provider_settings.display_name}: {key} | {targets or 'stale block; re-validating only'}")
         processed += 1
         try:
             if targets:
@@ -126,12 +142,12 @@ def repair_review_models(
         except Exception as exc:  # noqa: BLE001
             failed = dict(model_entry)
             failed["repair_attempts"] = attempts + 1
-            failed["last_repair_error"] = str(exc)
+            failed["last_repair_error"] = sanitize_error(exc)
             if failed["repair_attempts"] >= MAX_REPAIR_ATTEMPTS:
                 failed["repair_exhausted"] = True
             new_review.append(failed)
             kept += 1
-            emit(f"KEEP {key}: repair failed: {exc}")
+            emit(f"KEEP {key}: repair failed: {sanitize_error(exc)}")
 
     merged_catalog, merged_readiness, merged_review = merge_and_write_outputs(
         new_ready,
@@ -145,4 +161,4 @@ def repair_review_models(
         readiness_path=readiness_path,
         review_path=review_path,
     )
-    return {"processed": processed, "promoted": promoted, "kept": kept, "skipped": skipped, "catalog": merged_catalog, "readiness": merged_readiness, "review": merged_review}
+    return {"selected": selected_keys or [], "processed": processed, "promoted": promoted, "kept": kept, "skipped": skipped, "catalog": merged_catalog, "readiness": merged_readiness, "review": merged_review}

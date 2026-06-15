@@ -26,7 +26,7 @@ import argparse
 import json
 import sys
 
-from .catalog_builder import OPENAI_KEY_REQUIRED_MESSAGE, build_catalog
+from .catalog_builder import MODEL_KEY_REQUIRED_MESSAGE, build_catalog
 from .catalog_checkpoint import CatalogCheckpointConfig
 from .config import load_shared_config
 from .openai_catalog_client import CatalogClientSettings
@@ -81,7 +81,7 @@ def main(argv=None) -> int:
 
     # Fail closed for grounded runs without an OpenAI key.
     if not cfg.openai_api_key:
-        print(OPENAI_KEY_REQUIRED_MESSAGE, file=sys.stderr)
+        print(MODEL_KEY_REQUIRED_MESSAGE, file=sys.stderr)
         return 2
 
     settings = CatalogClientSettings(
@@ -90,12 +90,14 @@ def main(argv=None) -> int:
         use_web_search=True,  # runs always use web_search grounding
     )
 
-    checkpoint_enabled = args.github_checkpoint or cfg.github_checkpoint_enabled
+    checkpoint_enabled = args.github_checkpoint or bool(cfg.github_token and cfg.github_repo_full_name and cfg.github_target_branch)
     checkpoint = CatalogCheckpointConfig(
         enabled=checkpoint_enabled,
-        push_every_profiles=cfg.push_every_profiles,
+        push_every_profiles=1,
         strict=cfg.strict_github_checkpoint,
         token=cfg.github_token,
+        repo=cfg.github_repo_full_name,
+        branch=cfg.github_target_branch,
     )
 
     def _emit(msg: str) -> None:
