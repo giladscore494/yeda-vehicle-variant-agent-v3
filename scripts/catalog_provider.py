@@ -14,8 +14,22 @@ class ProviderUnavailableError(RuntimeError):
     """Selected catalog provider cannot be used before a run starts."""
 
 
+@dataclass(frozen=True)
+class CatalogProviderSettings:
+    provider: Literal["openai", "google"]
+    display_name: str
+    model_id: str
+    api_key: str
+    web_search_enabled: bool = True
+    grounding_enabled: bool = True
+
+
 def check_provider_available(settings: CatalogProviderSettings) -> None:
-    """Fail fast if the selected provider lacks credentials or client library."""
+    """Fail fast if the selected provider lacks credentials or client library.
+
+    Raises ProviderUnavailableError (never returns a fallback) so callers can
+    block before consuming any repair attempts.
+    """
     if not settings.api_key:
         if settings.provider == "openai":
             raise ProviderUnavailableError("OpenAI API key is missing for the selected GPT-5.4 validation model. No fallback was used.")
@@ -37,16 +51,6 @@ def check_provider_available(settings: CatalogProviderSettings) -> None:
     raise ProviderUnavailableError(f"Unsupported catalog provider: {settings.provider}")
 
 
-@dataclass(frozen=True)
-class CatalogProviderSettings:
-    provider: Literal["openai", "google"]
-    display_name: str
-    model_id: str
-    api_key: str
-    web_search_enabled: bool = True
-    grounding_enabled: bool = True
-
-
 def build_catalog_client(settings: CatalogProviderSettings):
     if settings.provider == "openai":
         return OpenAICatalogClient(
@@ -61,3 +65,12 @@ def build_catalog_client(settings: CatalogProviderSettings):
 
         return GeminiCatalogClient(settings)
     raise ValueError(f"Unsupported catalog provider: {settings.provider}")
+
+
+__all__ = [
+    "CatalogProviderSettings",
+    "ProviderUnavailableError",
+    "check_provider_available",
+    "build_catalog_client",
+    "GEMINI_CLIENT_MISSING_MESSAGE",
+]

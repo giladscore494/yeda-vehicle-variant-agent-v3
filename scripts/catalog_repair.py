@@ -21,6 +21,54 @@ from .security import sanitize_error
 
 MAX_REPAIR_ATTEMPTS = 2
 
+# Substrings that identify a provider/setup/dependency/API-key/import failure
+# rather than a genuine model/data repair failure. These must never consume a
+# repair attempt or mark a model as repair_exhausted.
+PROVIDER_SETUP_ERROR_MARKERS = (
+    "Gemini client library is not installed",
+    "Gemini client library is unavailable",
+    "google-genai",
+    "No module named",
+    "ImportError",
+    "cannot import name",
+    "ProviderUnavailableError",
+    "API key is missing",
+    "Selected provider API key is missing",
+    "OpenAI client library is not installed",
+    "Google API key is missing",
+    "OpenAI API key is missing",
+)
+
+
+def _error_strings(value: Any) -> List[str]:
+    """Safely collect candidate error strings from a value of any shape."""
+    if value is None:
+        return []
+    if isinstance(value, dict):
+        strings: List[str] = []
+        for field in ("last_repair_error", "error"):
+            field_value = value.get(field)
+            if field_value:
+                strings.append(str(field_value))
+        return strings
+    if isinstance(value, BaseException):
+        # repr exposes the exception type name (e.g. ImportError) in addition
+        # to the message, so markers like "ImportError" match reliably.
+        return [str(value), repr(value)]
+    return [str(value)]
+
+
+def is_provider_setup_error(value: Any) -> bool:
+    """Return True when value represents a provider/setup/dependency failure.
+
+    Accepts exceptions, raw strings, or review entries (dicts). Provider/setup
+    failures must not be counted as genuine repair attempts.
+    """
+    for text in _error_strings(value):
+        if any(marker in text for marker in PROVIDER_SETUP_ERROR_MARKERS):
+            return True
+    return False
+
 
 def derive_repair_targets(profile: Dict[str, Any]) -> Dict[int, List[str]]:
     targets: Dict[int, List[str]] = {}
@@ -76,17 +124,17 @@ def merge_repair(existing: Dict[str, Any], repaired: Dict[str, Any], targets: Di
 
 
 def clear_provider_unavailable_repair_errors(review: Dict[str, Any]) -> Dict[str, Any]:
-    """Return a copy with old Gemini dependency repair pollution cleared.
+    """Return a copy with provider/setup repair pollution cleared.
 
-    This helper is intentionally not run automatically. It only removes repair
-    metadata whose last error was the provider-level missing Gemini SDK failure.
+    Removes repair metadata whose last error was a provider/setup/dependency
+    failure (e.g. the missing google-genai SDK) so those models are retried
+    instead of staying stuck as exhausted.
     """
     cleaned = copy.deepcopy(review)
     for entry in cleaned.get("models", []) or []:
         if not isinstance(entry, dict):
             continue
-        err = str(entry.get("last_repair_error") or "")
-        if "Gemini client library is unavailable" not in err:
+        if not is_provider_setup_error(entry):
             continue
         entry.pop("last_repair_error", None)
         entry.pop("repair_exhausted", None)
@@ -133,6 +181,15 @@ def repair_review_models(
             continue
         if batch is not None and not selected_keys and processed >= batch:
             break
+        if is_provider_setup_error(model_entry):
+            # Previous attempts were consumed by a provider/setup/dependency
+            # failure, not genuine model/data repair. Discount them so the
+            # model is retried instead of staying stuck as exhausted.
+            model_entry = dict(model_entry)
+            model_entry["repair_attempts"] = 0
+            model_entry.pop("repair_exhausted", None)
+            model_entry.pop("last_repair_error", None)
+            emit(f"RESET provider/setup pollution: {key}")
         attempts = int(model_entry.get("repair_attempts", 0) or 0)
         if attempts >= MAX_REPAIR_ATTEMPTS:
             skipped += 1
@@ -165,13 +222,21 @@ def repair_review_models(
             raise
         except Exception as exc:  # noqa: BLE001
             failed = dict(model_entry)
-            failed["repair_attempts"] = attempts + 1
             failed["last_repair_error"] = sanitize_error(exc)
-            if failed["repair_attempts"] >= MAX_REPAIR_ATTEMPTS:
-                failed["repair_exhausted"] = True
-            new_review.append(failed)
-            kept += 1
-            emit(f"KEEP {key}: repair failed: {sanitize_error(exc)}")
+            if is_provider_setup_error(exc):
+                # Provider/setup/dependency/import failure: do not consume a
+                # repair attempt and do not mark the model as exhausted.
+                processed -= 1
+                new_review.append(failed)
+                kept += 1
+                emit(f"KEEP {key}: provider/setup error (no attempt consumed): {sanitize_error(exc)}")
+            else:
+                failed["repair_attempts"] = attempts + 1
+                if failed["repair_attempts"] >= MAX_REPAIR_ATTEMPTS:
+                    failed["repair_exhausted"] = True
+                new_review.append(failed)
+                kept += 1
+                emit(f"KEEP {key}: repair failed: {sanitize_error(exc)}")
 
     merged_catalog, merged_readiness, merged_review = merge_and_write_outputs(
         new_ready,
