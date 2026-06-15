@@ -368,8 +368,16 @@ st.caption(
 _catalog_mode = _SHARED_CONFIG.single_gpt54_model_catalog_mode
 st.write(
     f"`SINGLE_GPT54_MODEL_CATALOG_MODE` = `{_catalog_mode}` · "
-    f"OpenAI / GPT-5.4 key: {presence(openai_api_key)} · model: "
+    f"`OPENAI_API_KEY`: {presence(openai_api_key)} · "
+    f"`GITHUB_TOKEN`: {presence(token)} · model: "
     f"`{_SHARED_CONFIG.openai_validator_model_id}`"
+)
+st.caption(
+    "Required secrets (env vars or Streamlit secrets, same names): "
+    "**`OPENAI_API_KEY`** for real grounded GPT-5.4 runs (with web_search) and "
+    "**`GITHUB_TOKEN`** for GitHub checkpoint pushes (needed only when "
+    "checkpointing is enabled). Secrets are never printed, logged, or written "
+    "to output."
 )
 
 cc1, cc2 = st.columns(2)
@@ -386,28 +394,52 @@ with cc2:
         key="cat_offline",
     )
 
+cat_checkpoint = st.checkbox(
+    "Push GitHub checkpoint after each model profile (needs GITHUB_TOKEN)",
+    value=_SHARED_CONFIG.github_checkpoint_enabled,
+    key="cat_checkpoint",
+)
+
 if st.button("▶️ Build model technical catalog", type="primary", key="cat_run"):
     if not _catalog_mode:
         st.error("SINGLE_GPT54_MODEL_CATALOG_MODE is disabled.")
+    elif (not cat_offline) and not openai_api_key:
+        st.error(
+            "OPENAI_API_KEY is required for real GPT-5.4 grounded catalog runs. "
+            "Set it in environment variables or secrets. Use offline only for "
+            "plumbing tests."
+        )
     else:
         from scripts.catalog_builder import build_catalog
+        from scripts.catalog_checkpoint import CatalogCheckpointConfig
         from scripts.openai_catalog_client import CatalogClientSettings
 
         st.session_state.logs = []
-        use_openai = (not cat_offline) and bool(openai_api_key)
         settings = CatalogClientSettings(
             api_key=openai_api_key,
             model_id=_SHARED_CONFIG.openai_validator_model_id,
+            use_web_search=True,  # real runs always use web_search grounding
         )
-        with st.spinner("Building catalog (one GPT-5.4 call per make/model)..."):
-            result = build_catalog(
-                make=cat_make or None,
-                model=cat_model or None,
-                limit_models=int(cat_limit) if cat_limit else None,
-                use_openai=use_openai,
-                settings=settings,
-                log=log_line,
-            )
+        checkpoint = CatalogCheckpointConfig(
+            enabled=bool(cat_checkpoint),
+            push_every_profiles=_SHARED_CONFIG.push_every_profiles,
+            strict=_SHARED_CONFIG.strict_github_checkpoint,
+            token=token,
+        )
+        try:
+            with st.spinner("Building catalog (one GPT-5.4 call per make/model)..."):
+                result = build_catalog(
+                    make=cat_make or None,
+                    model=cat_model or None,
+                    limit_models=int(cat_limit) if cat_limit else None,
+                    offline=bool(cat_offline),
+                    settings=settings,
+                    checkpoint=checkpoint,
+                    log=log_line,
+                )
+        except ValueError as exc:
+            st.error(str(exc))
+            st.stop()
         st.success(
             f"Built — {result.readiness['total_models']} model(s), "
             f"{result.readiness['total_technical_variants']} technical variants, "

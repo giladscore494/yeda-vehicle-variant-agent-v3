@@ -18,6 +18,7 @@ from dataclasses import dataclass
 from datetime import datetime, timezone
 from typing import Any, Callable, Dict, List, Optional
 
+from .catalog_checkpoint import CatalogCheckpointConfig, CatalogCheckpointer
 from .catalog_grouping import ModelGroup, group_variants, select_groups
 from .catalog_validation import (
     ProfileValidation,
@@ -41,6 +42,11 @@ SOURCE_FILES = [
     "data/validation_variants_data_v1.json",
     "data/validation_instructions_by_id_v1.json",
 ]
+
+OPENAI_KEY_REQUIRED_MESSAGE = (
+    "OPENAI_API_KEY is required for real GPT-5.4 grounded catalog runs. Set it "
+    "in environment variables or secrets. Use --offline only for plumbing tests."
+)
 
 
 def _now_iso() -> str:
@@ -70,8 +76,9 @@ def build_catalog(
     make: Optional[str] = None,
     model: Optional[str] = None,
     limit_models: Optional[int] = None,
-    use_openai: bool = True,
+    offline: bool = False,
     settings: Optional[CatalogClientSettings] = None,
+    checkpoint: Optional[CatalogCheckpointConfig] = None,
     variants_path: str = VARIANTS_PATH,
     instructions_path: str = INSTRUCTIONS_PATH,
     catalog_path: str = CATALOG_OUTPUT_PATH,
@@ -81,11 +88,29 @@ def build_catalog(
 ) -> BuildResult:
     """Build the model technical catalog and write the three output files.
 
-    ``use_openai=False`` (or a missing API key) uses the deterministic offline
-    synthesizer so the pipeline can be exercised without network — used by the
-    one-model test sample.
+    A real run requires ``OPENAI_API_KEY`` (via ``settings.api_key``) and uses
+    GPT-5.4 with web_search grounding. ``offline=True`` uses the deterministic
+    offline synthesizer so the pipeline can be exercised without network — its
+    output is always marked as a stub and never website-ready.
+
+    When ``checkpoint`` is enabled the generated files are pushed to GitHub
+    after each completed model profile (never after each raw variant).
     """
     emit = log or (lambda _msg: None)
+    settings = settings or CatalogClientSettings()
+    online = not offline
+
+    # Fail fast for real runs without an OpenAI key (offline is the only escape).
+    if online and not settings.api_key:
+        raise ValueError(OPENAI_KEY_REQUIRED_MESSAGE)
+
+    web_search_enabled = bool(online and settings.use_web_search)
+
+    # GITHUB_TOKEN is required only when checkpointing is enabled (constructor
+    # raises a clear, sanitized error if so and the token is missing).
+    checkpointer = CatalogCheckpointer(
+        checkpoint or CatalogCheckpointConfig(), log=emit
+    )
 
     variants = load_variants(variants_path)
     try:
@@ -101,15 +126,44 @@ def build_catalog(
         f"processing {len(groups)} this run."
     )
 
-    settings = settings or CatalogClientSettings()
     client = CatalogClient(settings)
-    online = bool(use_openai and settings.api_key)
     if not online:
-        emit("Running OFFLINE (no API key / use_openai=False); synthesizing profiles.")
+        emit("Running OFFLINE (offline stub); synthesizing profiles — never website-ready.")
 
     validations: List[ProfileValidation] = []
     ready_models: List[Dict[str, Any]] = []
     review_models: List[Dict[str, Any]] = []
+
+    def _snapshot() -> tuple:
+        catalog = {
+            "generated_at": _now_iso(),
+            "market": "IL",
+            "mode": "online_gpt54" if online else "offline_synthesized",
+            "offline_stub": not online,
+            "ready_for_website_upload": online,  # gated again by readiness report
+            "source_files": SOURCE_FILES,
+            "models": ready_models,
+        }
+        readiness = build_readiness_report(
+            validations,
+            online=online,
+            web_search_enabled=web_search_enabled,
+            checkpoint_state=checkpointer.state,
+        )
+        catalog["ready_for_website_upload"] = readiness["ready_for_website_upload"]
+        review = {
+            "generated_at": _now_iso(),
+            "market": "IL",
+            "models": review_models,
+        }
+        _atomic_write_json(catalog_path, catalog)
+        _atomic_write_json(readiness_path, readiness)
+        _atomic_write_json(review_path, review)
+        return catalog, readiness, review
+
+    catalog: Dict[str, Any] = {}
+    readiness: Dict[str, Any] = {}
+    review: Dict[str, Any] = {}
 
     for group in groups:
         payload = group.request_payload()
@@ -128,6 +182,7 @@ def build_catalog(
                     "request_payload": payload,
                 }
             )
+            catalog, readiness, review = _snapshot()
             continue
 
         result = validate_profile(profile)
@@ -144,26 +199,35 @@ def build_catalog(
             review_entry["validation_issues"] = result.issues
             review_models.append(review_entry)
 
-    catalog = {
-        "generated_at": _now_iso(),
-        "market": "IL",
-        "mode": "online_gpt54" if online else "offline_synthesized",
-        "source_files": SOURCE_FILES,
-        "models": ready_models,
-    }
-    readiness = build_readiness_report(validations)
-    review = {
-        "generated_at": _now_iso(),
-        "market": "IL",
-        "models": review_models,
-    }
+        # Write the three files, then checkpoint AFTER this completed profile.
+        catalog, readiness, review = _snapshot()
+        profile_id = f"{group.market_scope or 'IL'}::{group.make}::{group.model}"
+        checkpointer.maybe_checkpoint(
+            profile_id=profile_id,
+            paths=[catalog_path, readiness_path, review_path],
+            market=group.market_scope or "IL",
+            make=group.make,
+            model=group.model,
+        )
 
-    _atomic_write_json(catalog_path, catalog)
+    # Ensure files exist even when no group was processed.
+    if not catalog:
+        catalog, readiness, review = _snapshot()
+
+    # Re-write readiness one last time so the final checkpoint counters land.
+    readiness = build_readiness_report(
+        validations,
+        online=online,
+        web_search_enabled=web_search_enabled,
+        checkpoint_state=checkpointer.state,
+    )
     _atomic_write_json(readiness_path, readiness)
-    _atomic_write_json(review_path, review)
+
     emit(
         f"Wrote catalog ({len(ready_models)} ready) + readiness + review "
-        f"({len(review_models)} blocked)."
+        f"({len(review_models)} blocked). "
+        f"github_checkpoints={checkpointer.state['github_checkpoint_count']} "
+        f"fails={checkpointer.state['github_checkpoint_fail_count']}."
     )
 
     return BuildResult(

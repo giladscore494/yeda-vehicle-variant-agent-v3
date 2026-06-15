@@ -27,20 +27,47 @@ CATALOG_SYSTEM_PROMPT = """You build a ready Israeli-market (IL) TECHNICAL catal
 You answer only one question: what technical versions of this make/model were
 actually sold in Israel?
 
+You must use web_search grounding for this task. Do not answer from memory. For \
+every technical configuration you return, every non-null technical field must \
+be supported by at least one Israeli-market source. Raw database values are \
+only hints and are not evidence. If you cannot find a source for a field, set \
+that field to null and list it under missing_grounded_fields. Do not invent \
+trims, engines, horsepower values, transmissions, drivetrain, body types, or \
+year ranges.
+
+Prefer Israeli official importer pages/PDFs first, then Israeli \
+catalog/spec/editorial sources, then marketplaces only as secondary evidence.
+
 You return ONLY technical data. You do NOT make any of these decisions:
 - no publication logic, no final route, no clean-catalog logic
 - no guard flags, no risk score, no upload-readiness decision
 - no per-row pass/fail validation
 
-Use Israeli-market sources and web grounding when available. Do not invent
-facts, sources, URLs, or impossible combinations.
-
 For each technical version actually sold in Israel, return a row in
 technical_variants_il. Every row MUST include:
   body_type, fuel_type, engine, engine_displacement_l, horsepower_hp,
-  transmission, drivetrain, year_start, year_end, support_level, source_indexes.
+  transmission, drivetrain, year_start, year_end, support_level, source_indexes,
+  field_sources, missing_grounded_fields.
+
+field_sources maps each technical field to a list of source_index values that
+support it, e.g. {"horsepower_hp": [0], "year_end": []}. Every non-null
+technical field MUST have at least one source_index in field_sources. Any
+field you cannot ground MUST be null and listed in missing_grounded_fields.
+
+source_indexes reference entries in the top-level "sources" array. Each source
+MUST include: source_index, title, url, source_name, source_type, supports
+(the list of fields that source backs).
 
 support_level MUST be exactly one of: direct, indirect, unknown, conflict.
+Never use: acceptable, partial, candidate, moderate, limited, inferred,
+contextual, conflicting_options, policy_consistent, patched_not_verified,
+guardrail.
+
+Do not infer horsepower from trim unless a source supports it. Do not infer
+transmission from model architecture unless a source supports it. Do not infer
+drivetrain unless sourced (if inferred from source context, support_level must
+be "indirect" and field_sources must point to that source). Do not infer
+year_end from the current year or from a raw database placeholder.
 
 Trim rules:
 - "Base" is not a trim. "Standard" is not a trim. None/null is not a trim.
@@ -61,6 +88,33 @@ available_values_for_website MUST be derived only from technical_variants_il.
 Return STRICT JSON only, matching the requested schema. No prose."""
 
 ALLOWED_SUPPORT_LEVELS = {"direct", "indirect", "unknown", "conflict"}
+FORBIDDEN_SUPPORT_LEVELS = {
+    "acceptable",
+    "partial",
+    "candidate",
+    "moderate",
+    "limited",
+    "inferred",
+    "contextual",
+    "conflicting_options",
+    "policy_consistent",
+    "patched_not_verified",
+    "guardrail",
+}
+
+# The ten technical fields that must each be web-grounded via field_sources.
+GROUNDED_TECHNICAL_FIELDS = (
+    "version_or_trim",
+    "body_type",
+    "fuel_type",
+    "engine",
+    "engine_displacement_l",
+    "horsepower_hp",
+    "transmission",
+    "drivetrain",
+    "year_start",
+    "year_end",
+)
 
 # Labels that are never valid trims (model-agnostic part).
 _GENERIC_NON_TRIMS = {
@@ -123,6 +177,12 @@ class CatalogClientSettings:
 
 
 def _output_schema() -> Dict[str, Any]:
+    field_index_list = {"type": "array", "items": {"type": "integer"}}
+    field_sources_schema = {
+        "type": "object",
+        "additionalProperties": True,
+        "properties": {f: field_index_list for f in GROUNDED_TECHNICAL_FIELDS},
+    }
     variant_schema = {
         "type": "object",
         "additionalProperties": True,
@@ -139,6 +199,20 @@ def _output_schema() -> Dict[str, Any]:
             "year_end": {"type": ["integer", "null"]},
             "support_level": {"type": "string"},
             "source_indexes": {"type": "array", "items": {"type": "integer"}},
+            "field_sources": field_sources_schema,
+            "missing_grounded_fields": {"type": "array", "items": {"type": "string"}},
+        },
+    }
+    source_schema = {
+        "type": "object",
+        "additionalProperties": True,
+        "properties": {
+            "source_index": {"type": "integer"},
+            "title": {"type": ["string", "null"]},
+            "url": {"type": ["string", "null"]},
+            "source_name": {"type": ["string", "null"]},
+            "source_type": {"type": ["string", "null"]},
+            "supports": {"type": "array", "items": {"type": "string"}},
         },
     }
     return {
@@ -155,7 +229,7 @@ def _output_schema() -> Dict[str, Any]:
             "technical_variants_il": {"type": "array", "items": variant_schema},
             "available_values_for_website": {"type": "object", "additionalProperties": True},
             "invalid_or_non_trim_labels": {"type": "array"},
-            "sources": {"type": "array"},
+            "sources": {"type": "array", "items": source_schema},
             "profile_confidence": {"type": "string"},
             "notes": {"type": "array"},
         },
@@ -177,21 +251,28 @@ class CatalogClient:
             self._client = OpenAI(api_key=self.settings.api_key)
         return self._client
 
-    def build_profile(self, request_payload: Dict[str, Any]) -> Dict[str, Any]:
-        """Send one cluster request to GPT-5.4 and return the parsed profile."""
-        if not self.settings.api_key:
-            raise RuntimeError("OpenAI API key missing for catalog client")
+    def build_request_kwargs(self, request_payload: Dict[str, Any]) -> Dict[str, Any]:
+        """Assemble the Responses API kwargs for one real grounded cluster call.
+
+        Real catalog runs MUST use web_search; we never silently drop it. A run
+        with ``use_web_search=False`` is rejected here so it can never produce
+        ungrounded "real" output.
+        """
         import json as _json
 
-        client = self._ensure_client()
-        self.calls += 1
-        kwargs: Dict[str, Any] = {
+        if not self.settings.use_web_search:
+            raise RuntimeError(
+                "web_search is required for real GPT-5.4 grounded catalog runs; "
+                "refusing to call the model without the web_search tool."
+            )
+        return {
             "model": self.settings.model_id,
             "input": [
                 {"role": "system", "content": CATALOG_SYSTEM_PROMPT},
                 {"role": "user", "content": _json.dumps(request_payload, ensure_ascii=False)},
             ],
             "max_output_tokens": self.settings.max_output_tokens,
+            "tools": [{"type": "web_search"}],
             "text": {
                 "format": {
                     "type": "json_schema",
@@ -201,18 +282,19 @@ class CatalogClient:
                 }
             },
         }
-        used_web_search = False
-        if self.settings.use_web_search:
-            kwargs["tools"] = [{"type": "web_search_preview"}]
-            used_web_search = True
+
+    def build_profile(self, request_payload: Dict[str, Any]) -> Dict[str, Any]:
+        """Send one cluster request to GPT-5.4 and return the parsed profile."""
+        if not self.settings.api_key:
+            raise RuntimeError("OpenAI API key missing for catalog client")
+
+        client = self._ensure_client()
+        self.calls += 1
+        kwargs = self.build_request_kwargs(request_payload)
         try:
             resp = client.responses.create(**kwargs)
-        except Exception as exc:  # web search may be unsupported in this env
-            if used_web_search:
-                kwargs.pop("tools", None)
-                resp = client.responses.create(**kwargs)
-            else:
-                raise RuntimeError(f"catalog API call failed: {exc}") from exc
+        except Exception as exc:  # noqa: BLE001 - surface a clean, sanitized error
+            raise RuntimeError(f"catalog API call failed: {exc}") from exc
 
         text = getattr(resp, "output_text", None)
         if not text:
@@ -269,22 +351,28 @@ class CatalogClient:
 
         variants = []
         for trim in real_trims:
-            variants.append(
-                {
-                    "version_or_trim": trim,
-                    "body_type": body,
-                    "fuel_type": fuel,
-                    "engine": engine,
-                    "engine_displacement_l": None,
-                    "horsepower_hp": None,  # unknown offline
-                    "transmission": transmission,
-                    "drivetrain": drivetrain,
-                    "year_start": year_start,
-                    "year_end": year_end,
-                    "support_level": "unknown",
-                    "source_indexes": [],
-                }
-            )
+            row = {
+                "version_or_trim": trim,
+                "body_type": body,
+                "fuel_type": fuel,
+                "engine": engine,
+                "engine_displacement_l": None,
+                "horsepower_hp": None,  # unknown offline
+                "transmission": transmission,
+                "drivetrain": drivetrain,
+                "year_start": year_start,
+                "year_end": year_end,
+                "support_level": "unknown",
+                "source_indexes": [],
+                # No web grounding offline: empty field_sources, and every
+                # non-null field is recorded as missing grounding so the
+                # validator routes the row to review (never website-ready).
+                "field_sources": {f: [] for f in GROUNDED_TECHNICAL_FIELDS},
+            }
+            row["missing_grounded_fields"] = [
+                f for f in GROUNDED_TECHNICAL_FIELDS if row.get(f) not in (None, "")
+            ]
+            variants.append(row)
 
         return {
             "market": market,
@@ -298,6 +386,8 @@ class CatalogClient:
             "invalid_or_non_trim_labels": invalid_labels,
             "sources": [],
             "profile_confidence": "low",
+            "offline_stub": True,
+            "ready_for_website_upload": False,
             "notes": [
                 "Generated offline without GPT-5.4; horsepower/sources unknown. "
                 "Run with an OpenAI API key for a grounded catalog."

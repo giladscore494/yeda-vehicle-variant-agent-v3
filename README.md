@@ -38,6 +38,80 @@ Output files (generated, git-ignored):
 disables Gemini, the legacy guard verifier, the repair adjudicator, and per-row
 validation.
 
+### Secrets
+
+The pipeline uses exactly two secret names (no alternatives).
+
+**Required for real GPT-5.4 catalog runs:**
+
+```
+OPENAI_API_KEY=<your OpenAI API key>
+```
+
+**Required for GitHub checkpoint pushes:**
+
+```
+GITHUB_TOKEN=<GitHub token with permission to push to the repository>
+```
+
+Both are read from environment variables first, then from Streamlit secrets
+using the *same key name* (`st.secrets["OPENAI_API_KEY"]` /
+`st.secrets["GITHUB_TOKEN"]`). The legacy nested shapes (`[openai].api_key` /
+`[github].token`) remain only as backward-compatible aliases. Secrets are never
+printed, logged, written to output, or included in exceptions.
+
+A real run **fails fast** without `OPENAI_API_KEY`:
+
+> `OPENAI_API_KEY is required for real GPT-5.4 grounded catalog runs. Set it in
+> environment variables or secrets. Use --offline only for plumbing tests.`
+
+GitHub checkpointing **fails gracefully** without `GITHUB_TOKEN` (only when it
+is enabled):
+
+> `GITHUB_TOKEN is required for GitHub checkpoint pushes. Set it in environment
+> variables or secrets, or disable GitHub checkpointing.`
+
+Missing `GITHUB_TOKEN` never breaks local/offline runs while checkpointing is off.
+
+**GitHub repository secrets** (Repository → Settings → Secrets and variables →
+Actions → New repository secret):
+
+| Name             | Value                                       |
+| ---------------- | ------------------------------------------- |
+| `OPENAI_API_KEY` | OpenAI API key                              |
+| `GITHUB_TOKEN`   | GitHub token with repo push permissions     |
+
+Inside GitHub Actions the built-in `GITHUB_TOKEN` is supported if it has push
+permission; outside Actions, provide a personal access token / deploy token as
+`GITHUB_TOKEN`.
+
+### Web grounding (mandatory for real runs)
+
+Real catalog runs use the OpenAI **Responses API** with GPT-5.4 and
+`tools=[{"type": "web_search"}]`. The model is instructed to ground every
+non-null technical field with at least one Israeli-market source; raw database
+values are only search *hints*, never evidence. Each `technical_variants_il`
+row carries `source_indexes`, `field_sources` (per-field source support), and
+`missing_grounded_fields`. A real call is **never** made without `web_search`.
+Offline mode is for plumbing tests only and its output is always
+`offline_stub=true` / `ready_for_website_upload=false`.
+
+### GitHub checkpointing (model-profile level)
+
+The new pipeline checkpoints **after each completed make/model profile** (never
+after each raw variant). After a profile it writes and pushes:
+
+- `data/model_technical_catalog_il.json`
+- `data/model_technical_catalog_il_readiness.json`
+- `data/model_technical_catalog_il_review.json`
+
+Config (env or `[catalog]` secrets): `github_checkpoint_enabled`,
+`push_every_profiles` (real-run default `1`), `strict_github_checkpoint`
+(default `false`). Push failures are logged with sanitized errors and counted
+in the readiness report (`github_checkpoint_fail_count`,
+`last_github_checkpoint_error`); the run only aborts when
+`strict_github_checkpoint=true`. No file change → no empty commit.
+
 ### Run
 
 ```bash
@@ -46,6 +120,9 @@ python scripts/run_model_catalog.py --make Abarth --model 500 --limit-models 1 -
 
 # One real cluster with GPT-5.4 (needs OPENAI_API_KEY)
 python scripts/run_model_catalog.py --make Abarth --model 500 --limit-models 1
+
+# One real cluster + push a GitHub checkpoint after the profile (needs GITHUB_TOKEN)
+python scripts/run_model_catalog.py --make Abarth --model 500 --limit-models 1 --github-checkpoint
 
 # Full run — only after the one-model sample passes
 python scripts/run_model_catalog.py
