@@ -36,7 +36,7 @@ from .data_loader import (
     load_variants,
 )
 from .openai_catalog_client import CatalogClientSettings
-from .catalog_provider import CatalogProviderSettings, build_catalog_client
+from .catalog_provider import CatalogProviderSettings, ProviderUnavailableError, build_catalog_client, check_provider_available
 from .security import sanitize_error
 
 CATALOG_OUTPUT_PATH = os.path.join(DATA_DIR, "model_technical_catalog_il.json")
@@ -224,8 +224,10 @@ def build_catalog(
         use_web_search=provider_settings.web_search_enabled,
     )
 
-    if not provider_settings.api_key:
-        raise ValueError(MODEL_KEY_REQUIRED_MESSAGE)
+    try:
+        check_provider_available(provider_settings)
+    except ProviderUnavailableError:
+        raise
 
     # [github].token is required only when checkpointing is enabled (constructor
     # raises a clear, sanitized error if so and the token is missing).
@@ -312,6 +314,8 @@ def build_catalog(
 
         try:
             profile = client.build_profile(payload)
+        except ProviderUnavailableError:
+            raise
         except Exception as exc:  # noqa: BLE001 - keep building other models
             review_count += 1
             safe_error = sanitize_error(exc)
@@ -325,6 +329,16 @@ def build_catalog(
                 }
             )
             catalog, readiness, review = _snapshot()
+            profile_id = f"{market}::{group.make}::{group.model}"
+            checkpointer.state["last_checkpointed_profile_id"] = profile_id
+            checkpointer.maybe_checkpoint(
+                profile_id=profile_id,
+                paths=[catalog_path, readiness_path, review_path],
+                market=market,
+                make=group.make,
+                model=group.model,
+                force=True,
+            )
             _emit_progress(group, idx, "error")
             continue
 
