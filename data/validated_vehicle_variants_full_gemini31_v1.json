@@ -8,24 +8,24 @@
     "run_timestamp_utc": "2026-06-15T15:08:06Z",
     "total_input_variants": 3712,
     "total_instruction_records": 3712,
-    "total_validated_variants": 4,
+    "total_validated_variants": 5,
     "decision_counts": {
       "clean_exact": 0,
-      "clean_partial": 2,
+      "clean_partial": 3,
       "split_required": 2,
       "reject": 0
     },
     "grounding_cluster_count": 3653,
-    "gemini_call_count": 4,
+    "gemini_call_count": 5,
     "github_checkpoint_enabled": true,
-    "github_checkpoint_count": 4,
+    "github_checkpoint_count": 5,
     "github_checkpoint_fail_count": 0,
     "last_github_checkpoint_error": null,
-    "last_validated_id": "VAL-000004",
+    "last_validated_id": "VAL-000005",
     "schema_version": "v3_three_stage",
     "pipeline_version": "v3_three_stage",
-    "stage1_pro_calls": 4,
-    "stage2_guard_flags_total": 20,
+    "stage1_pro_calls": 5,
+    "stage2_guard_flags_total": 33,
     "stage3_flash_calls": 0,
     "flash_overrode_guard": 0,
     "guard_overrode_flash": 0,
@@ -40,9 +40,9 @@
     "guard_verifier_overrode_guard": 0,
     "guard_overrode_verifier": 0,
     "force_per_variant_validation": true,
-    "stage0_preflight_risk_rows": 4,
-    "stage1_gemini_grounding_required": 4,
-    "stage1_gemini_grounding_present": 4,
+    "stage0_preflight_risk_rows": 5,
+    "stage1_gemini_grounding_required": 5,
+    "stage1_gemini_grounding_present": 5,
     "stage1_gemini_grounding_missing": 0,
     "stage1_gemini_weak_grounding_rows": 0,
     "stage2_guard_flags_low": 0,
@@ -50,39 +50,39 @@
     "stage2_guard_flags_high": 0,
     "stage2_guard_flags_critical": 0,
     "stage2_guard_patches_applied": 0,
-    "stage25_repair_risk_scored_rows": 4,
-    "stage25_repair_triggered_rows": 4,
-    "stage3_repair_adjudicator_calls": 4,
-    "stage3_repair_adjudicator_successes": 4,
+    "stage25_repair_risk_scored_rows": 5,
+    "stage25_repair_triggered_rows": 5,
+    "stage3_repair_adjudicator_calls": 5,
+    "stage3_repair_adjudicator_successes": 5,
     "stage3_repair_adjudicator_failures": 0,
-    "stage3_repair_adjudicator_patches": 35,
+    "stage3_repair_adjudicator_patches": 46,
     "stage3_repair_adjudicator_routing_changes": 0,
     "stage3_repair_adjudicator_summary_rewrites": 0,
-    "stage3_repair_adjudicator_grounding_required": 4,
-    "stage3_repair_adjudicator_grounding_present": 4,
+    "stage3_repair_adjudicator_grounding_required": 5,
+    "stage3_repair_adjudicator_grounding_present": 5,
     "stage3_repair_adjudicator_grounding_missing": 0,
     "stage4_final_seal_passed": 0,
-    "stage4_final_seal_blocks": 4,
+    "stage4_final_seal_blocks": 5,
     "stage4_final_guard_conflicts_remaining": 0,
     "clean_catalog_blocks_by_repair": 0,
-    "clean_catalog_blocks_by_final_seal": 4,
+    "clean_catalog_blocks_by_final_seal": 5,
     "clean_catalog_blocks_by_grounding": 1,
-    "clean_catalog_blocks_by_unresolved_trim": 4,
-    "clean_catalog_blocks_by_unresolved_critical_field": 2,
+    "clean_catalog_blocks_by_unresolved_trim": 5,
+    "clean_catalog_blocks_by_unresolved_critical_field": 3,
     "upload_readiness": {
       "ready_for_exact_clean_upload": false,
-      "ready_for_configurable_group_upload": true,
-      "total_rows": 4,
+      "ready_for_configurable_group_upload": false,
+      "total_rows": 5,
       "exact_variant_rows": 0,
-      "configurable_group_rows": 4,
+      "configurable_group_rows": 5,
       "review_only_rows": 0,
       "clean_catalog_rows": 0,
       "critical_consistency_errors": 0,
-      "high_consistency_errors": 0,
-      "unknown_enum_errors": 0,
+      "high_consistency_errors": 1,
+      "unknown_enum_errors": 1,
       "duplicate_group_errors": 1,
       "repair_success_rate": 1.0,
-      "grounding_pass_rate": 0.75
+      "grounding_pass_rate": 0.8
     }
   },
   "validated_variants": [
@@ -2654,6 +2654,900 @@
           "risk_tags": [
             "current_status",
             "summary_rewrite"
+          ]
+        }
+      ]
+    },
+    {
+      "validation_id": "VAL-000005",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000005",
+      "source_cluster_id": "CLU-b55fc8fd404e",
+      "grounding_cluster_id": "CLU-b55fc8fd404e",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "500",
+      "canonical_series_or_generation": "1st Gen",
+      "canonical_trim": null,
+      "official_marketed_name_il": "אבארט 500",
+      "body_type": null,
+      "fuel_type": "petrol",
+      "engine": null,
+      "transmission": null,
+      "drivetrain": "FWD",
+      "year_start": 2010,
+      "year_end": 2016,
+      "is_currently_produced": false,
+      "is_currently_imported_il": false,
+      "market_scope": "IL",
+      "validation_decision": "clean_partial",
+      "acceptance_tier": "partial",
+      "identity_status": "likely_valid",
+      "identity_confidence": 0.82,
+      "trim_status": "unresolved",
+      "trim_confidence": 0.0,
+      "field_validation": {
+        "canonical_make": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "risk_tags": [],
+          "notes": "Make is confirmed by Israeli market sources."
+        },
+        "canonical_model": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "risk_tags": [],
+          "notes": "Model is confirmed by Israeli market sources."
+        },
+        "canonical_series_or_generation": {
+          "status": "inferred",
+          "confidence": 0.85,
+          "evidence_strength": "acceptable",
+          "source_indexes": [
+            3
+          ],
+          "risk_tags": [],
+          "notes": "2010-2016 Israeli-market Abarth 500 aligns with the pre-595 first-generation period."
+        },
+        "canonical_trim": {
+          "status": "unresolved",
+          "confidence": 0.0,
+          "evidence_strength": "missing",
+          "source_indexes": [
+            1
+          ],
+          "risk_tags": [
+            "generic_trim"
+          ],
+          "notes": "Provided value '500C' is a cabriolet/body designation, not a verified exact trim. Israeli market sources show multiple trim/style names under the model family."
+        },
+        "official_marketed_name_il": {
+          "status": "verified",
+          "confidence": 0.93,
+          "evidence_strength": "acceptable",
+          "source_indexes": [
+            2,
+            3
+          ],
+          "risk_tags": [],
+          "notes": "Israeli sources refer to the vehicle as אבארט 500 / אבארט 500 קבריולט."
+        },
+        "body_type": {
+          "status": "unresolved",
+          "confidence": 0.0,
+          "evidence_strength": "missing",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Israeli sources directly describe the variant as Cabriolet / קבריולט."
+        },
+        "fuel_type": {
+          "status": "verified",
+          "confidence": 0.9,
+          "evidence_strength": "acceptable",
+          "source_indexes": [
+            1
+          ],
+          "risk_tags": [],
+          "notes": "Israeli catalog source lists petrol for this model family."
+        },
+        "engine": {
+          "status": "unresolved",
+          "confidence": 0.0,
+          "evidence_strength": "missing",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Israeli sources confirm a 1.4-liter turbo petrol engine for the 500C launch/model family."
+        },
+        "transmission": {
+          "status": "unresolved",
+          "confidence": 0.0,
+          "evidence_strength": "conflicted",
+          "source_indexes": [
+            1,
+            2,
+            4
+          ],
+          "risk_tags": [
+            "special_order_only",
+            "market_variant_mix"
+          ],
+          "notes": "Launch coverage emphasizes robotic/automatic for the cabriolet, while other listings show some manual entries and special-order/manual references. Exact transmission for this normalized variant is not safely verifiable."
+        },
+        "drivetrain": {
+          "status": "verified",
+          "confidence": 0.9,
+          "evidence_strength": "acceptable",
+          "source_indexes": [
+            1
+          ],
+          "risk_tags": [],
+          "notes": "Israeli catalog source lists front-wheel drive."
+        },
+        "year_start": {
+          "status": "verified",
+          "confidence": 0.95,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            2
+          ],
+          "risk_tags": [],
+          "notes": "Israeli launch coverage places market introduction in 2010."
+        },
+        "year_end": {
+          "status": "verified",
+          "confidence": 0.95,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            3
+          ],
+          "risk_tags": [],
+          "notes": "Israeli model coverage indicates the 500 name was replaced by 595 in October 2016."
+        },
+        "is_currently_produced": {
+          "status": "verified",
+          "confidence": 0.92,
+          "evidence_strength": "acceptable",
+          "source_indexes": [
+            3
+          ],
+          "risk_tags": [],
+          "notes": "This pre-595 Abarth 500 generation is no longer the current produced model family."
+        },
+        "is_currently_imported_il": {
+          "status": "verified",
+          "confidence": 0.92,
+          "evidence_strength": "acceptable",
+          "source_indexes": [
+            3
+          ],
+          "risk_tags": [],
+          "notes": "Israeli coverage indicates the 500 nameplate was superseded locally by 595 in 2016."
+        }
+      },
+      "source_support_matrix": [
+        {
+          "field": "market_presence_il",
+          "value": true,
+          "support_level": "direct",
+          "source_indexes": [
+            2,
+            3
+          ],
+          "reason": "Israeli launch/editorial coverage confirms the Abarth 500/500C was sold in Israel."
+        },
+        {
+          "field": "body_type",
+          "value": "Cabriolet",
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "reason": "Israeli sources explicitly identify cabriolet/cabrio body style."
+        },
+        {
+          "field": "engine",
+          "value": "1.4L Turbo",
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "reason": "Israeli sources state 1.4 turbo engine."
+        },
+        {
+          "field": "transmission",
+          "value": null,
+          "support_level": "conflicted",
+          "source_indexes": [
+            1,
+            2,
+            4
+          ],
+          "reason": "Source set does not support one exact transmission safely for this normalized IL variant."
+        },
+        {
+          "field": "canonical_trim",
+          "value": null,
+          "support_level": "missing",
+          "source_indexes": [
+            1
+          ],
+          "reason": "500C denotes cabriolet/body style; available source set does not verify one exact trim for this row."
+        }
+      ],
+      "evidence_auditability": "acceptable",
+      "grounding_status": {
+        "gemini_grounding_required": true,
+        "gemini_grounding_present": true,
+        "gemini_grounding_quality": "acceptable",
+        "gpt54_grounding_required": true,
+        "gpt54_grounding_present": true,
+        "gpt54_grounding_quality": "acceptable",
+        "final_grounding_gate_passed": true
+      },
+      "grounding_summary": "Grounded Israeli sources support Abarth 500 market presence in Israel, 2010 launch timing for the cabriolet/500C, 1.4-liter turbo petrol engine, cabriolet body style, and 2016 transition to the 595 name. However, the exact trim remains unresolved because '500C' is a body/style designation rather than a single trim, and transmission remains unresolved because the available source set mixes robotic/automatic launch coverage with manual listings/special-order references.",
+      "evidence_sources": [
+        {
+          "title": "אבארט 500 1 דור 2010-2016 בישראל - אוטובום",
+          "url": "https://autoboom.co.il/catalog/cars/abarth/500/1-generation",
+          "source_name": "autoboom.co.il",
+          "source_type": "marketplace",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "drivetrain",
+            "trim_candidates",
+            "transmission_conflict"
+          ]
+        },
+        {
+          "title": "אבארט קבריולט בישראל – החל מ-180,000 שקל - cartube",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%90%D7%91%D7%90%D7%A8%D7%98-%D7%A7%D7%91%D7%A8%D7%99%D7%95%D7%9C%D7%98-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%E2%80%93-%D7%94%D7%97%D7%9C-%D7%9E-180%2C000-%D7%A9%D7%A7%D7%9C",
+          "source_name": "cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "year_start",
+            "body_type",
+            "engine",
+            "transmission_conflict"
+          ]
+        },
+        {
+          "title": "אבארט 500 - מחירון, חוות דעת ומידע טכני | אוטו",
+          "url": "https://www.auto.co.il/cars/abarth/500/2016/",
+          "source_name": "auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "year_end",
+            "official_marketed_name_il",
+            "is_currently_imported_il",
+            "is_currently_produced"
+          ]
+        },
+        {
+          "title": "אבארט 500 קבריולט בישראל - Wheel חדשות ומבצעי רכב",
+          "url": "https://wheel.co.il/%D7%90%D7%91%D7%90%D7%A8%D7%98-500-%D7%A7%D7%91%D7%A8%D7%99%D7%95%D7%9C%D7%98-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C/",
+          "source_name": "wheel.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "body_type",
+            "engine",
+            "transmission_conflict"
+          ]
+        }
+      ],
+      "possible_trim_names": [
+        "Scorpione",
+        "Lusso",
+        "Turismo",
+        "San Marino",
+        "Competizione"
+      ],
+      "split_candidates": [],
+      "blocking_identity_issues": [],
+      "non_blocking_trim_issues": [
+        "The provided trim '500C' is a body/style designation, not a verified exact trim.",
+        "Transmission for this Israeli-market normalized variant is not safely resolved from the grounded source set.",
+        "Multiple trim/style names appear across Israeli listings, so exact trim should remain null."
+      ],
+      "fields_changed": [
+        "body_type",
+        "identity_confidence",
+        "grounding_status",
+        "grounding_summary",
+        "evidence_sources",
+        "source_support_matrix",
+        "field_validation",
+        "decision_reason",
+        "route_reason",
+        "publication_type",
+        "final_route",
+        "user_selectable_fields",
+        "option_matrix"
+      ],
+      "fields_left_unresolved": [
+        "canonical_trim",
+        "transmission",
+        "body_type",
+        "engine"
+      ],
+      "decision_reason": "Final seal route=configurable_group_queue; publication_type=configurable_group; validation_decision=clean_partial; identity_status=likely_valid; trim_status=unresolved. Unresolved fields: canonical_trim, transmission, body_type, engine.",
+      "_pipeline_version": "v3_three_stage",
+      "_flags_count": 9,
+      "_flash_used": false,
+      "adjudication_log": [
+        "Repaired contradictory unresolved/nullable handling: body_type restored as populated and verified because grounded sources directly support Cabriolet.",
+        "Kept transmission null and unresolved due to mixed Israeli-source evidence.",
+        "Kept canonical_trim null and unresolved because 500C is body/style designation, not exact trim.",
+        "Downgraded identity to likely_valid rather than verified because unresolved transmission and trim prevent exact-variant certainty."
+      ],
+      "publishable_to_clean_catalog": false,
+      "final_route": "configurable_group_queue",
+      "route_reason": "Valid Israeli-market identity with multiple options; routed to configurable group (user-selectable trim/transmission/body/engine/year).",
+      "duplicate_group_id": "dup-62ee5a9d",
+      "duplicate_of": null,
+      "publication_type": "configurable_group",
+      "user_selectable_fields": {
+        "trim": [
+          "Scorpione",
+          "Lusso",
+          "Turismo",
+          "San Marino",
+          "Competizione"
+        ],
+        "year": [
+          2010
+        ]
+      },
+      "option_matrix": [
+        {
+          "trim": "Scorpione",
+          "engine": null,
+          "transmission": null,
+          "body_type": null,
+          "year_start": 2010,
+          "year_end": 2016,
+          "evidence_strength": "acceptable",
+          "source_indexes": []
+        },
+        {
+          "trim": "Lusso",
+          "engine": null,
+          "transmission": null,
+          "body_type": null,
+          "year_start": 2010,
+          "year_end": 2016,
+          "evidence_strength": "acceptable",
+          "source_indexes": []
+        },
+        {
+          "trim": "Turismo",
+          "engine": null,
+          "transmission": null,
+          "body_type": null,
+          "year_start": 2010,
+          "year_end": 2016,
+          "evidence_strength": "acceptable",
+          "source_indexes": []
+        },
+        {
+          "trim": "San Marino",
+          "engine": null,
+          "transmission": null,
+          "body_type": null,
+          "year_start": 2010,
+          "year_end": 2016,
+          "evidence_strength": "acceptable",
+          "source_indexes": []
+        },
+        {
+          "trim": "Competizione",
+          "engine": null,
+          "transmission": null,
+          "body_type": null,
+          "year_start": 2010,
+          "year_end": 2016,
+          "evidence_strength": "acceptable",
+          "source_indexes": []
+        }
+      ],
+      "candidate_values": {},
+      "guard_corrected_reason": "Repair adjudication resolved internal inconsistencies by restoring grounded body_type, keeping trim/transmission unresolved, and aligning routing/publication with partial grounded evidence.",
+      "preflight_risk_tags": [
+        "body_style_as_trim",
+        "transmission_variant_conflict",
+        "low_trim_specificity"
+      ],
+      "_unknown_enums": [
+        "field_validation.transmission.evidence_strength=conflicted",
+        "source_support_matrix[transmission].support_level=conflicted"
+      ],
+      "final_seal_result": {
+        "seal_completed": true,
+        "clean_catalog_passed": false,
+        "blocks_clean_catalog": true,
+        "publication_type": "configurable_group",
+        "unknown_enums": [
+          "field_validation.transmission.evidence_strength=conflicted",
+          "source_support_matrix[transmission].support_level=conflicted"
+        ],
+        "passed": true,
+        "guard_flags": [
+          {
+            "guard_name": "generic_trim",
+            "severity": "medium",
+            "field_affected": "canonical_trim",
+            "original_value": null,
+            "guard_value": null,
+            "reason": "500C/Cabriolet trim cleanup.",
+            "risk_tags": [],
+            "needs_repair_adjudication": false,
+            "allowed_patch_fields": []
+          },
+          {
+            "guard_name": "domain_500c_transmission",
+            "severity": "medium",
+            "field_affected": "identity_status",
+            "original_value": "clean_partial",
+            "guard_value": "clean_partial",
+            "reason": "Manual transmission not verified for Israeli Abarth 500C/Cabriolet.",
+            "risk_tags": [],
+            "needs_repair_adjudication": true,
+            "allowed_patch_fields": [
+              "validation_decision",
+              "identity_status",
+              "identity_confidence",
+              "fields_left_unresolved"
+            ]
+          },
+          {
+            "guard_name": "unresolved_field_sync",
+            "severity": "medium",
+            "field_affected": "canonical_trim",
+            "original_value": null,
+            "guard_value": "canonical_trim",
+            "reason": "Audit text marks canonical_trim unresolved but fields_left_unresolved omitted it.",
+            "risk_tags": [
+              "audit_consistency"
+            ],
+            "needs_repair_adjudication": false,
+            "allowed_patch_fields": [
+              "fields_left_unresolved",
+              "identity_status",
+              "identity_confidence",
+              "validation_decision"
+            ]
+          },
+          {
+            "guard_name": "unresolved_field_sync",
+            "severity": "high",
+            "field_affected": "body_type",
+            "original_value": null,
+            "guard_value": "body_type",
+            "reason": "Audit text marks body_type unresolved but fields_left_unresolved omitted it.",
+            "risk_tags": [
+              "audit_consistency",
+              "identity_critical"
+            ],
+            "needs_repair_adjudication": true,
+            "allowed_patch_fields": [
+              "fields_left_unresolved",
+              "identity_status",
+              "identity_confidence",
+              "validation_decision"
+            ]
+          },
+          {
+            "guard_name": "decision_reason_conflict",
+            "severity": "high",
+            "field_affected": "identity_status",
+            "original_value": "likely_valid",
+            "guard_value": "likely_valid",
+            "reason": "Audit text claims verified identity while final identity_status is not verified.",
+            "risk_tags": [
+              "audit_consistency",
+              "publishability"
+            ],
+            "needs_repair_adjudication": true,
+            "allowed_patch_fields": [
+              "validation_decision",
+              "identity_status",
+              "identity_confidence",
+              "fields_left_unresolved"
+            ]
+          },
+          {
+            "guard_name": "populated_field_marked_unresolved",
+            "severity": "critical",
+            "field_affected": "body_type",
+            "original_value": "Cabriolet",
+            "guard_value": null,
+            "reason": "Audit/issues mark body_type unresolved; canonical value nullified.",
+            "risk_tags": [
+              "audit_consistency",
+              "populated_unresolved"
+            ],
+            "needs_repair_adjudication": true,
+            "allowed_patch_fields": []
+          },
+          {
+            "guard_name": "populated_field_marked_unresolved",
+            "severity": "critical",
+            "field_affected": "transmission",
+            "original_value": "manual",
+            "guard_value": null,
+            "reason": "Audit/issues mark transmission unresolved; canonical value nullified.",
+            "risk_tags": [
+              "audit_consistency",
+              "populated_unresolved"
+            ],
+            "needs_repair_adjudication": true,
+            "allowed_patch_fields": []
+          },
+          {
+            "guard_name": "final_seal_route_override",
+            "severity": "medium",
+            "field_affected": "final_route",
+            "original_value": "review_queue",
+            "guard_value": "configurable_group_queue",
+            "reason": "Valid Israeli-market identity with multiple options; routed to configurable group (user-selectable trim/transmission/body/engine/year).",
+            "risk_tags": [
+              "routing",
+              "final_seal"
+            ],
+            "needs_repair_adjudication": false,
+            "allowed_patch_fields": []
+          },
+          {
+            "guard_name": "populated_field_marked_unresolved",
+            "severity": "critical",
+            "field_affected": "engine",
+            "original_value": "1.4L Turbo",
+            "guard_value": null,
+            "reason": "Audit/issues mark engine unresolved; canonical value nullified.",
+            "risk_tags": [
+              "audit_consistency",
+              "populated_unresolved"
+            ],
+            "needs_repair_adjudication": true,
+            "allowed_patch_fields": []
+          }
+        ]
+      },
+      "risk_score": 780,
+      "_repair_adjudicator_triggered": true,
+      "gpt54_grounding_present": true,
+      "_repair_decision": "patched",
+      "field_patches": [
+        {
+          "field": "body_type",
+          "old_value": null,
+          "new_value": "Cabriolet",
+          "reason": "Grounded Israeli sources directly support Cabriolet; field could not remain null while notes said confirmed."
+        },
+        {
+          "field": "field_validation.body_type.status",
+          "old_value": "unresolved",
+          "new_value": "verified",
+          "reason": "Direct support exists for cabriolet body style."
+        },
+        {
+          "field": "transmission",
+          "old_value": null,
+          "new_value": null,
+          "reason": "No change; kept unresolved because source set is mixed and not exact-variant safe."
+        },
+        {
+          "field": "canonical_trim",
+          "old_value": null,
+          "new_value": null,
+          "reason": "No change; kept unresolved because 500C is body/style, not verified trim."
+        },
+        {
+          "field": "identity_status",
+          "old_value": "likely_valid",
+          "new_value": "likely_valid",
+          "reason": "Retained, now consistent with unresolved trim/transmission."
+        },
+        {
+          "field": "identity_confidence",
+          "old_value": 0.7,
+          "new_value": 0.82,
+          "reason": "Raised modestly because body_type is grounded, but kept below verified due to unresolved trim/transmission."
+        },
+        {
+          "field": "fields_left_unresolved",
+          "old_value": [
+            "transmission",
+            "canonical_trim",
+            "body_type"
+          ],
+          "new_value": [
+            "canonical_trim",
+            "transmission"
+          ],
+          "reason": "Removed body_type because it is grounded and populated."
+        },
+        {
+          "field": "publication_type",
+          "old_value": "configurable_group",
+          "new_value": "review_only",
+          "reason": "Configurable group options were not safely grounded as exact selectable combinations."
+        },
+        {
+          "field": "final_route",
+          "old_value": "configurable_group_queue",
+          "new_value": "review_queue",
+          "reason": "Unresolved trim/transmission without safely grounded option matrix should not route as configurable group."
+        },
+        {
+          "field": "user_selectable_fields",
+          "old_value": {
+            "trim": [
+              "Scorpione",
+              "Turismo",
+              "Competizione",
+              "Lusso",
+              "San Marino"
+            ],
+            "engine": [
+              "1.4L Turbo"
+            ],
+            "year": [
+              2010
+            ]
+          },
+          "new_value": {},
+          "reason": "Removed unsupported configurable options."
+        },
+        {
+          "field": "option_matrix",
+          "old_value": [
+            {
+              "trim": "Scorpione",
+              "engine": "1.4L Turbo",
+              "transmission": null,
+              "body_type": null,
+              "year_start": 2010,
+              "year_end": 2016,
+              "evidence_strength": "acceptable",
+              "source_indexes": []
+            },
+            {
+              "trim": "Turismo",
+              "engine": "1.4L Turbo",
+              "transmission": null,
+              "body_type": null,
+              "year_start": 2010,
+              "year_end": 2016,
+              "evidence_strength": "acceptable",
+              "source_indexes": []
+            },
+            {
+              "trim": "Competizione",
+              "engine": "1.4L Turbo",
+              "transmission": null,
+              "body_type": null,
+              "year_start": 2010,
+              "year_end": 2016,
+              "evidence_strength": "acceptable",
+              "source_indexes": []
+            },
+            {
+              "trim": "Lusso",
+              "engine": "1.4L Turbo",
+              "transmission": null,
+              "body_type": null,
+              "year_start": 2010,
+              "year_end": 2016,
+              "evidence_strength": "acceptable",
+              "source_indexes": []
+            },
+            {
+              "trim": "San Marino",
+              "engine": "1.4L Turbo",
+              "transmission": null,
+              "body_type": null,
+              "year_start": 2010,
+              "year_end": 2016,
+              "evidence_strength": "acceptable",
+              "source_indexes": []
+            }
+          ],
+          "new_value": [],
+          "reason": "Removed invented/weakly grounded combinations."
+        }
+      ],
+      "_guard_verifier_used": false,
+      "guard_flags": [
+        {
+          "guard_name": "generic_trim",
+          "severity": "medium",
+          "field_affected": "canonical_trim",
+          "original_value": null,
+          "guard_value": null,
+          "reason": "500C/Cabriolet trim cleanup.",
+          "needs_adjudication": false,
+          "recommended_verifier_model": "none",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": []
+        },
+        {
+          "guard_name": "domain_500c_transmission",
+          "severity": "medium",
+          "field_affected": "identity_status",
+          "original_value": "clean_partial",
+          "guard_value": "clean_partial",
+          "reason": "Manual transmission not verified for Israeli Abarth 500C/Cabriolet.",
+          "needs_adjudication": true,
+          "recommended_verifier_model": "gpt-5.4",
+          "allowed_decisions": [
+            "clean_exact",
+            "clean_partial"
+          ],
+          "allowed_patch_fields": [
+            "validation_decision",
+            "identity_status",
+            "identity_confidence",
+            "fields_left_unresolved"
+          ],
+          "risk_tags": []
+        },
+        {
+          "guard_name": "unresolved_field_sync",
+          "severity": "medium",
+          "field_affected": "canonical_trim",
+          "original_value": null,
+          "guard_value": "canonical_trim",
+          "reason": "Audit text marks canonical_trim unresolved but fields_left_unresolved omitted it.",
+          "needs_adjudication": false,
+          "recommended_verifier_model": "none",
+          "allowed_decisions": [
+            "clean_exact",
+            "clean_partial"
+          ],
+          "allowed_patch_fields": [
+            "fields_left_unresolved",
+            "identity_status",
+            "identity_confidence",
+            "validation_decision"
+          ],
+          "risk_tags": [
+            "audit_consistency"
+          ]
+        },
+        {
+          "guard_name": "unresolved_field_sync",
+          "severity": "high",
+          "field_affected": "body_type",
+          "original_value": null,
+          "guard_value": "body_type",
+          "reason": "Audit text marks body_type unresolved but fields_left_unresolved omitted it.",
+          "needs_adjudication": true,
+          "recommended_verifier_model": "gpt-5.4",
+          "allowed_decisions": [
+            "clean_exact",
+            "clean_partial"
+          ],
+          "allowed_patch_fields": [
+            "fields_left_unresolved",
+            "identity_status",
+            "identity_confidence",
+            "validation_decision"
+          ],
+          "risk_tags": [
+            "audit_consistency",
+            "identity_critical"
+          ]
+        },
+        {
+          "guard_name": "decision_reason_conflict",
+          "severity": "high",
+          "field_affected": "identity_status",
+          "original_value": "likely_valid",
+          "guard_value": "likely_valid",
+          "reason": "Audit text claims verified identity while final identity_status is not verified.",
+          "needs_adjudication": true,
+          "recommended_verifier_model": "gpt-5.4",
+          "allowed_decisions": [
+            "clean_exact",
+            "clean_partial",
+            "split_required"
+          ],
+          "allowed_patch_fields": [
+            "validation_decision",
+            "identity_status",
+            "identity_confidence",
+            "fields_left_unresolved"
+          ],
+          "risk_tags": [
+            "audit_consistency",
+            "publishability"
+          ]
+        },
+        {
+          "guard_name": "populated_field_marked_unresolved",
+          "severity": "critical",
+          "field_affected": "body_type",
+          "original_value": "Cabriolet",
+          "guard_value": null,
+          "reason": "Audit/issues mark body_type unresolved; canonical value nullified.",
+          "needs_adjudication": true,
+          "recommended_verifier_model": "gpt-5.4",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "audit_consistency",
+            "populated_unresolved"
+          ]
+        },
+        {
+          "guard_name": "populated_field_marked_unresolved",
+          "severity": "critical",
+          "field_affected": "transmission",
+          "original_value": "manual",
+          "guard_value": null,
+          "reason": "Audit/issues mark transmission unresolved; canonical value nullified.",
+          "needs_adjudication": true,
+          "recommended_verifier_model": "gpt-5.4",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "audit_consistency",
+            "populated_unresolved"
+          ]
+        },
+        {
+          "guard_name": "final_seal_route_override",
+          "severity": "medium",
+          "field_affected": "final_route",
+          "original_value": "review_queue",
+          "guard_value": "configurable_group_queue",
+          "reason": "Valid Israeli-market identity with multiple options; routed to configurable group (user-selectable trim/transmission/body/engine/year).",
+          "needs_adjudication": false,
+          "recommended_verifier_model": "none",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "routing",
+            "final_seal"
+          ]
+        },
+        {
+          "guard_name": "populated_field_marked_unresolved",
+          "severity": "critical",
+          "field_affected": "engine",
+          "original_value": "1.4L Turbo",
+          "guard_value": null,
+          "reason": "Audit/issues mark engine unresolved; canonical value nullified.",
+          "needs_adjudication": true,
+          "recommended_verifier_model": "gpt-5.4",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "audit_consistency",
+            "populated_unresolved"
           ]
         }
       ]
