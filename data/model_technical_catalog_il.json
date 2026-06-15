@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T17:53:00Z",
+  "generated_at": "2026-06-15T17:53:20Z",
   "market": "IL",
   "mode": "online_gpt54",
   "model_id": "gpt-5.4",
@@ -7,6 +7,183 @@
     "data/validation_variants_data_v1.json",
     "data/validation_instructions_by_id_v1.json"
   ],
-  "models": [],
+  "models": [
+    {
+      "market": "IL",
+      "make": "Abarth",
+      "model": "124 Spider",
+      "canonical_model": "124 Spider",
+      "year_start": 2016,
+      "year_end": null,
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Roadster",
+          "fuel_type": "petrol",
+          "engine": "1.4L Turbo",
+          "engine_displacement_l": 1.4,
+          "horsepower_hp": 170,
+          "transmission": "automatic",
+          "drivetrain": "RWD",
+          "year_start": 2016,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1,
+              3
+            ],
+            "engine_displacement_l": [
+              0,
+              1,
+              3
+            ],
+            "horsepower_hp": [
+              0,
+              1,
+              3
+            ],
+            "transmission": [
+              0,
+              1,
+              4
+            ],
+            "drivetrain": [
+              1,
+              4
+            ],
+            "year_start": [
+              2,
+              0
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "version_or_trim",
+            "year_end"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Roadster"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "1.4L Turbo"
+        ],
+        "horsepower_hp": [
+          170
+        ],
+        "transmission": [
+          "automatic"
+        ],
+        "drivetrain": [
+          "RWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "1.4",
+          "classification": "bare_engine_size_not_trim"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "אבארט 124 ספיידר - iCar",
+          "url": "https://www.icar.co.il/%D7%90%D7%91%D7%90%D7%A8%D7%98/%D7%90%D7%91%D7%90%D7%A8%D7%98_124_%D7%A1%D7%A4%D7%99%D7%99%D7%93%D7%A8/%D7%90%D7%91%D7%90%D7%A8%D7%98_124_%D7%A1%D7%A4%D7%99%D7%99%D7%93%D7%A8_%D7%97%D7%93%D7%A9/",
+          "source_name": "iCar",
+          "source_type": "catalog/editorial",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "אבארט 124 ספיידר – בארץ",
+          "url": "https://www.auto.co.il/articles/car-news/128483/",
+          "source_name": "אוטו",
+          "source_type": "news/editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "year_start",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "אבארט 124 ספיידר - iCar",
+          "url": "https://www.icar.co.il/%D7%90%D7%91%D7%90%D7%A8%D7%98/%D7%90%D7%91%D7%90%D7%A8%D7%98_124_%D7%A1%D7%A4%D7%99%D7%99%D7%93%D7%A8/%D7%90%D7%91%D7%90%D7%A8%D7%98_124_%D7%A1%D7%A4%D7%99%D7%99%D7%93%D7%A8_%D7%97%D7%93%D7%A9/",
+          "source_name": "iCar",
+          "source_type": "catalog/editorial",
+          "supports": [
+            "body_type",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "אבארט 124 ספיידר יד שניה - iCar",
+          "url": "https://www.icar.co.il/%D7%90%D7%91%D7%90%D7%A8%D7%98/%D7%90%D7%91%D7%90%D7%A8%D7%98_124_%D7%A1%D7%A4%D7%99%D7%99%D7%93%D7%A8/%D7%90%D7%91%D7%90%D7%A8%D7%98_124_%D7%A1%D7%A4%D7%99%D7%99%D7%93%D7%A8_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%94_%D7%9310/",
+          "source_name": "iCar",
+          "source_type": "catalog/editorial",
+          "supports": [
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 4,
+          "title": "אבארט 124 - מבחן דרכים (1.4 ל' טורבו, אוט')",
+          "url": "https://www.auto.co.il/articles/test-drives/128076/",
+          "source_name": "אוטו",
+          "source_type": "test/editorial",
+          "supports": [
+            "transmission",
+            "drivetrain"
+          ]
+        }
+      ],
+      "profile_confidence": "medium",
+      "notes": [
+        "Israeli sources found consistent evidence for an automatic 1.4L turbo petrol RWD roadster with 170 hp.",
+        "No grounded Israeli-market evidence was found that a manual transmission version was actually sold in Israel; sources explicitly describe the Israeli car as automatic and mention manual only as hoped-for/future possibility.",
+        "No grounded Israeli trim name was established from the consulted Israeli sources, so version_or_trim is null.",
+        "year_end could not be grounded from Israeli sources and is left null."
+      ]
+    }
+  ],
   "ready_for_website_upload": false
 }
