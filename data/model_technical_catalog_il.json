@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T18:28:02Z",
+  "generated_at": "2026-06-15T18:28:15Z",
   "market": "IL",
   "mode": "online_gpt54",
   "model_id": "gpt-5.4",
@@ -183,6 +183,249 @@
         "Body type normalized from Hebrew 'קבריולה' to 'Convertible'.",
         "Drivetrain normalized from Hebrew 'הנעה אחורית/אחורית' to 'RWD'.",
         "Transmission normalized from Israel-source 'אוטומטית/טיפטרוניק' with 6 gears to '6-speed automatic'."
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Aiways",
+      "model": "U5",
+      "canonical_model": "U5",
+      "year_start": 2021,
+      "year_end": null,
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Prime",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 204,
+          "transmission": "automatic",
+          "drivetrain": "FWD",
+          "year_start": 2021,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              3
+            ],
+            "body_type": [
+              0,
+              2
+            ],
+            "fuel_type": [
+              0,
+              1,
+              2
+            ],
+            "engine": [
+              0,
+              1,
+              2
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1,
+              2
+            ],
+            "transmission": [
+              0,
+              2
+            ],
+            "drivetrain": [
+              0,
+              2
+            ],
+            "year_start": [
+              0,
+              3
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "engine_displacement_l",
+            "year_end"
+          ]
+        },
+        {
+          "version_or_trim": "Premium",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 204,
+          "transmission": "automatic",
+          "drivetrain": "FWD",
+          "year_start": 2021,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2,
+            4
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              4
+            ],
+            "body_type": [
+              0,
+              2
+            ],
+            "fuel_type": [
+              0,
+              1,
+              2
+            ],
+            "engine": [
+              0,
+              1,
+              2
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1,
+              2
+            ],
+            "transmission": [
+              0,
+              2
+            ],
+            "drivetrain": [
+              0,
+              2
+            ],
+            "year_start": [
+              0,
+              4
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "engine_displacement_l",
+            "year_end"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Prime",
+          "Premium"
+        ],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          204
+        ],
+        "transmission": [
+          "automatic"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Xcite",
+          "classification": "unverified_trim_label_from_secondary_source_only"
+        },
+        {
+          "label": "Standart",
+          "classification": "invalid_or_unverified_trim_label_from_secondary_source_only"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "Aiways U5 in Israel – Review, Prices, Comparisons and Rating on Autoboom",
+          "url": "https://autoboom.co.il/en/catalog/cars/aiways/u5/2025",
+          "source_name": "Autoboom",
+          "source_type": "catalog",
+          "supports": [
+            "version_or_trim",
+            "horsepower_hp",
+            "body_type",
+            "fuel_type",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "2021 Aiways U5 SUV. 1st generation - AUTOBOOM",
+          "url": "https://autoboom.co.il/en/magazine/crossover-iways-u5-first-generation-2021",
+          "source_name": "Autoboom",
+          "source_type": "editorial",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "horsepower_hp"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "Aiways U5 SUV 5-doors AT electro | 204 hp fwd type of drive | 1 generation (2021 – now) in Israel",
+          "url": "https://autoboom.co.il/en/catalog/cars/aiways/u5/1-generation/suv-5-doors/63715",
+          "source_name": "Autoboom",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "Aiways U5, 2021 year of release, 1 generation, suv 5-doors - Trim versions and modifications of the car on Autoboom",
+          "url": "https://autoboom.co.il/en/catalog/cars/aiways/u5/1-generation/suv-5-doors",
+          "source_name": "Autoboom",
+          "source_type": "catalog",
+          "supports": [
+            "version_or_trim",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 4,
+          "title": "Aiways U5 Premium 2021 year of release in Israel - full version, cost and specifications on Autoboom",
+          "url": "https://autoboom.co.il/en/catalog/cars/aiways/u5/1-generation/suv-5-doors/63715-9987",
+          "source_name": "Autoboom",
+          "source_type": "catalog",
+          "supports": [
+            "version_or_trim",
+            "year_start"
+          ]
+        }
+      ],
+      "profile_confidence": "medium",
+      "notes": [
+        "Israeli-market grounding found in Autoboom Israel catalog/editorial pages only; no official Israeli importer source was found in search results.",
+        "Technical evidence supports two sold trims in Israel: Prime and Premium.",
+        "No Israeli-market source found for engine displacement in liters because this is a battery-electric model; field left null per schema.",
+        "No grounded discontinuation/end year found; year_end left null.",
+        "Secondary source mentions additional labels 'Xcite' and 'Standart', but these were not corroborated with trim-specific technical pages, so they were excluded from technical_variants_il."
       ]
     }
   ],
