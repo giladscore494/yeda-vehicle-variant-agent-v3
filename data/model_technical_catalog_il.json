@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T17:43:54Z",
+  "generated_at": "2026-06-15T17:44:12Z",
   "market": "IL",
   "mode": "online_gpt54",
   "model_id": "gpt-5.4",
@@ -173,6 +173,200 @@
         "Israeli-market grounding found for an automatic 1.4L turbo petrol RWD convertible configuration at 170 hp.",
         "Auto model page states Israel launch was toward the end of 2016 with automatic only first, while the Auto version page lists model year launch in Israel as 2017 and model year 2019 for the version page. Catalog uses grounded sold-version years 2017-2019 from the version page.",
         "A manual transmission was mentioned by editorial sources as planned/offered later, but no Israeli-market technical version page or importer spec sheet was found with grounded technical fields for a sold manual configuration, so no manual row is included."
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Abarth",
+      "model": "500e",
+      "canonical_model": "500e",
+      "year_start": 2024,
+      "year_end": null,
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Turismo",
+          "body_type": "Hatchback",
+          "fuel_type": "electric",
+          "engine": "Electric motor",
+          "engine_displacement_l": null,
+          "horsepower_hp": 155,
+          "transmission": "direct drive",
+          "drivetrain": "FWD",
+          "year_start": 2024,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "engine_displacement_l",
+            "year_end"
+          ]
+        },
+        {
+          "version_or_trim": "Turismo",
+          "body_type": "Cabriolet",
+          "fuel_type": "electric",
+          "engine": "Electric motor",
+          "engine_displacement_l": null,
+          "horsepower_hp": 155,
+          "transmission": "direct drive",
+          "drivetrain": "FWD",
+          "year_start": 2024,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              2
+            ],
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              2
+            ],
+            "engine": [
+              2
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              2
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "engine_displacement_l",
+            "year_end"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Turismo"
+        ],
+        "body_type": [
+          "Hatchback",
+          "Cabriolet"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "Electric motor"
+        ],
+        "horsepower_hp": [
+          155
+        ],
+        "transmission": [
+          "direct drive"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Turismo Cabrio",
+          "classification": "body-style-appended label, not a standalone trim"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "Abarth electric PDF",
+          "url": "https://abarth.co.il/wp-content/uploads/2024/01/abarth_electric.pdf",
+          "source_name": "Abarth Israel",
+          "source_type": "official_importer_pdf",
+          "supports": [
+            "version_or_trim",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "אבארט 500e האצ'בק טוריסמו 155 כ\"ס 2026 | מפרט טכני",
+          "url": "https://www.cartube.co.il/%D7%9E%D7%97%D7%99%D7%A8%D7%95%D7%9F-%D7%A8%D7%9B%D7%91-%D7%97%D7%93%D7%A9/%D7%90%D7%91%D7%90%D7%A8%D7%98/%D7%90%D7%91%D7%90%D7%A8%D7%98-500e/5689-%D7%90%D7%91%D7%90%D7%A8%D7%98-500e-%D7%94%D7%90%D7%A6-%D7%91%D7%A7-%D7%98%D7%95%D7%A8%D7%99%D7%A1%D7%9E%D7%95-155-%D7%9B-%D7%A1",
+          "source_name": "CarTube Israel",
+          "source_type": "israeli_catalog",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "אבארט 500e קבריו טוריסמו 155 כ\"ס 2026 | מפרט טכני",
+          "url": "https://www.cartube.co.il/%D7%9E%D7%97%D7%99%D7%A8%D7%95%D7%9F-%D7%A8%D7%9B%D7%91-%D7%97%D7%93%D7%A9/%D7%90%D7%91%D7%90%D7%A8%D7%98/%D7%90%D7%91%D7%90%D7%A8%D7%98-500e/5690-%D7%90%D7%91%D7%90%D7%A8%D7%98-500e-%D7%A7%D7%91%D7%A8%D7%99%D7%95-%D7%98%D7%95%D7%A8%D7%99%D7%A1%D7%9E%D7%95-155-%D7%9B-%D7%A1",
+          "source_name": "CarTube Israel",
+          "source_type": "israeli_catalog",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        }
+      ],
+      "profile_confidence": "medium",
+      "notes": [
+        "Official Israeli importer PDF confirms Abarth 500e sold in HB and CAB Turismo forms in Israel.",
+        "Grounded Israeli sources found for two sold technical variants only: Hatchback Turismo and Cabriolet Turismo.",
+        "engine_displacement_l is null because EV source material does not provide a displacement value and this model is a separate EV model.",
+        "year_end is null because no Israeli-market source reviewed provides a discontinuation/end year."
       ]
     }
   ],
