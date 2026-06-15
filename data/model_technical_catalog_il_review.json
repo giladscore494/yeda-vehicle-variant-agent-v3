@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T18:32:59Z",
+  "generated_at": "2026-06-15T18:33:30Z",
   "market": "IL",
   "models": [
     {
@@ -3571,6 +3571,293 @@
         "variant[2] required website field 'drivetrain' is null/empty",
         "variant[2] required field 'fuel_type' listed in missing_grounded_fields",
         "variant[2] required field 'drivetrain' listed in missing_grounded_fields"
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Alfa Romeo",
+      "model": "Brera",
+      "canonical_model": "Brera",
+      "year_start": 2006,
+      "year_end": 2011,
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "2.2L i4",
+          "engine_displacement_l": 2.2,
+          "horsepower_hp": 185,
+          "transmission": "6-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2007,
+          "year_end": 2011,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "3.2L v6",
+          "engine_displacement_l": 3.2,
+          "horsepower_hp": 260,
+          "transmission": "automatic",
+          "drivetrain": "AWD",
+          "year_start": 2007,
+          "year_end": 2011,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            3
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              3
+            ],
+            "engine_displacement_l": [
+              3
+            ],
+            "horsepower_hp": [
+              1,
+              3
+            ],
+            "transmission": [
+              3
+            ],
+            "drivetrain": [
+              1,
+              3
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "3.2L v6",
+          "engine_displacement_l": 3.2,
+          "horsepower_hp": null,
+          "transmission": "manual",
+          "drivetrain": "AWD",
+          "year_start": 2006,
+          "year_end": 2010,
+          "support_level": "unknown",
+          "source_indexes": [
+            2,
+            4
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [],
+            "fuel_type": [],
+            "engine": [
+              4
+            ],
+            "engine_displacement_l": [
+              4
+            ],
+            "horsepower_hp": [],
+            "transmission": [
+              2,
+              4
+            ],
+            "drivetrain": [
+              4
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              4
+            ]
+          },
+          "missing_grounded_fields": [
+            "horsepower_hp",
+            "body_type",
+            "fuel_type"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Hatchback"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "2.2L i4",
+          "3.2L v6"
+        ],
+        "horsepower_hp": [
+          185,
+          260
+        ],
+        "transmission": [
+          "6-speed automatic",
+          "automatic",
+          "manual"
+        ],
+        "drivetrain": [
+          "FWD",
+          "AWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Sky View",
+          "classification": "non_trim_label"
+        },
+        {
+          "label": "2.2 JTS",
+          "classification": "engine_label"
+        },
+        {
+          "label": "3.2 V6 JTS AWD",
+          "classification": "engine_drivetrain_label"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "מידע מקיף ומקצועי על אלפא רומיאו בררה 2006-2011 - אתר iCar",
+          "url": "https://www.icar.co.il/%D7%90%D7%9C%D7%A4%D7%90_%D7%A8%D7%95%D7%9E%D7%99%D7%90%D7%95/%D7%90%D7%9C%D7%A4%D7%90_%D7%A8%D7%95%D7%9E%D7%99%D7%90%D7%95_%D7%91%D7%A8%D7%A8%D7%94/%D7%90%D7%9C%D7%A4%D7%90_%D7%A8%D7%95%D7%9E%D7%99%D7%90%D7%95_%D7%91%D7%A8%D7%A8%D7%94_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%94_%D7%9310/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "model_years_overview"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "אלפא רומיאו בררה 2010 2.2 JTS אוטומט בפורטל הרכב גיר",
+          "url": "https://www.gear.co.il/%D7%92%D7%A8%D7%A1%D7%94/%D7%90%D7%9C%D7%A4%D7%90-%D7%A8%D7%95%D7%9E%D7%99%D7%90%D7%95/%D7%91%D7%A8%D7%A8%D7%94/2010/%D7%91%D7%A8%D7%A8%D7%94/2.2-JTS-%D7%90%D7%95%D7%98%D7%95%D7%9E%D7%98",
+          "source_name": "Gear",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "2.2_variant_presence",
+            "3.2_variant_presence_listed"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "אחת מקטלוג אוטו: אלפא רומיאו בררה",
+          "url": "https://www.auto.co.il/articles/car-news/117720/",
+          "source_name": "Auto",
+          "source_type": "editorial",
+          "supports": [
+            "2.2_engine",
+            "2.2_horsepower_hp",
+            "manual_transmission_presence",
+            "3.2_manual_presence"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "אלפא רומיאו בררה 2009 3.2 V6 JTS AWD אוטומט בפורטל הרכב גיר",
+          "url": "https://www.gear.co.il/%D7%92%D7%A8%D7%A1%D7%94/%D7%90%D7%9C%D7%A4%D7%90-%D7%A8%D7%95%D7%9E%D7%99%D7%90%D7%95/%D7%91%D7%A8%D7%A8%D7%94/2009/%D7%91%D7%A8%D7%A8%D7%94/3.2-V6-JTS-AWD-%D7%90%D7%95%D7%98%D7%95%D7%9E%D7%98",
+          "source_name": "Gear",
+          "source_type": "catalog",
+          "supports": [
+            "3.2_engine",
+            "3.2_engine_displacement_l",
+            "3.2_horsepower_hp",
+            "3.2_transmission",
+            "3.2_drivetrain"
+          ]
+        },
+        {
+          "source_index": 4,
+          "title": "אלפא רומיאו בררה 2006 3.2 V6 JTS AWD ידני בפורטל הרכב גיר",
+          "url": "https://www.gear.co.il/%D7%92%D7%A8%D7%A1%D7%94/%D7%90%D7%9C%D7%A4%D7%90-%D7%A8%D7%95%D7%9E%D7%99%D7%90%D7%95/%D7%91%D7%A8%D7%A8%D7%94/2006/%D7%91%D7%A8%D7%A8%D7%94/3.2-V6-JTS-AWD-%D7%99%D7%93%D7%A0%D7%99",
+          "source_name": "Gear",
+          "source_type": "catalog",
+          "supports": [
+            "3.2_manual_engine",
+            "3.2_manual_engine_displacement_l",
+            "3.2_manual_transmission",
+            "3.2_manual_drivetrain",
+            "3.2_manual_year_end"
+          ]
+        }
+      ],
+      "profile_confidence": "medium",
+      "notes": [
+        "Israeli-market grounding found for Brera sold years in Israel and for 2.2 automatic, 3.2 automatic AWD, and 3.2 manual AWD presence.",
+        "For the 2.2 row, the source labels the gearbox as 'רובוטית חד מצמדית' with 6 gears; normalized here under the allowed transmission taxonomy as '6-speed automatic', so support_level is indirect.",
+        "For the 3.2 automatic row, year range was grounded from the Gear 2.2 page model overview/listing plus 3.2-specific Gear listing; 2011 remains catalog-listed in the overview, not individually opened here.",
+        "For the 3.2 manual row, horsepower could not be grounded from the Israeli sources retrieved, so it is null.",
+        "Body type normalized from 'האצ'בק 3 דלתות' to 'Hatchback'.",
+        "No grounded evidence was found to use 'Sky View' as a technical trim sold in Israel."
+      ],
+      "validation_issues": [
+        "variant[2] non-null field 'body_type' has no field_sources entry",
+        "variant[2] non-null field 'fuel_type' has no field_sources entry",
+        "variant[2] required website field 'horsepower_hp' is null/empty",
+        "variant[2] required field 'horsepower_hp' listed in missing_grounded_fields",
+        "variant[2] required field 'body_type' listed in missing_grounded_fields",
+        "variant[2] required field 'fuel_type' listed in missing_grounded_fields"
       ]
     }
   ]
