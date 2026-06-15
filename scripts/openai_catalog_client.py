@@ -78,6 +78,32 @@ Model identity rules:
 - Do not invent combinations. Each row must be a real sold configuration.
 - If there is no source for a row, keep support_level="unknown".
 
+Normalization (use these canonical values exactly; map Hebrew/alternate terms
+to them — never invent a value no source supports):
+- body_type (Title Case, singular), one of: Hatchback, Sedan, Estate, Coupe,
+  Convertible, Roadster, SUV, Crossover, MPV, Van, Pickup, Liftback.
+  "Cabriolet"/"Cabrio" -> Convertible; Roadster ONLY for a two-seat open
+  sports car. Never append a trim/engine to the body label.
+- fuel_type (lowercase), one of: petrol, diesel, electric, hybrid,
+  plug_in_hybrid, mild_hybrid, lpg, cng, hydrogen.
+- transmission (lowercase base type), one of: manual, automatic, dual_clutch,
+  cvt, single_speed. Add a speed count ONLY as "N-speed <type>" and ONLY if
+  sourced; apply the same granularity to every row in the model.
+- drivetrain, one of: FWD, RWD, AWD, 4WD.
+- engine: "<displacement>L <aspiration?> <config?>" with lowercase descriptors
+  (e.g. "1.4L turbo", "2.0L V6 turbo"); always include the "L" suffix; do not
+  repeat the fuel type; for an electric model engine = "electric".
+
+support_level invariant: use "indirect" ONLY if at least one non-null technical
+field was inferred from context rather than directly stated by a source. If
+every non-null field is directly sourced AND missing_grounded_fields is empty,
+support_level MUST be "direct".
+
+Variant merging: do NOT split by year alone. If two configurations are
+identical across body_type, fuel_type, engine, horsepower_hp, transmission and
+drivetrain, return ONE row spanning min year_start to max year_end. Create
+separate rows by period ONLY when a sourced technical field actually changed.
+
 available_values_for_website MUST be derived only from technical_variants_il.
 
 Return STRICT JSON only, matching the requested schema. No prose."""

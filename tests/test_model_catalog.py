@@ -20,6 +20,16 @@ from scripts.catalog_validation import (
     derive_available_values,
     validate_profile,
 )
+from scripts.catalog_normalization import (
+    merge_year_variants,
+    normalize_body_type,
+    normalize_drivetrain,
+    normalize_engine,
+    normalize_fuel_type,
+    normalize_support_level,
+    normalize_transmission,
+    normalize_variant,
+)
 from scripts.openai_catalog_client import (
     CatalogClient,
     CatalogClientSettings,
@@ -172,6 +182,140 @@ def test_classify_non_trim():
 
 
 # ---------------------------------------------------------------------------
+# Canonical normalization
+# ---------------------------------------------------------------------------
+
+
+def test_normalize_body_type_canonical():
+    assert normalize_body_type("Cabriolet") == "Convertible"
+    assert normalize_body_type("Turismo Cabrio") == "Convertible"
+    assert normalize_body_type("station wagon") == "Estate"
+    assert normalize_body_type("Avant") == "Estate"
+    assert normalize_body_type("Saloon") == "Sedan"
+    assert normalize_body_type("Crossover SUV") == "Crossover"
+    assert normalize_body_type("MPV") == "MPV"
+    assert normalize_body_type(None) is None
+
+
+def test_normalize_fuel_type_canonical():
+    assert normalize_fuel_type("Gasoline") == "petrol"
+    assert normalize_fuel_type("Plug-in Hybrid") == "plug_in_hybrid"
+    assert normalize_fuel_type("MHEV") == "mild_hybrid"
+    assert normalize_fuel_type("Hybrid") == "hybrid"
+    assert normalize_fuel_type("BEV") == "electric"
+    assert normalize_fuel_type("Fuel Cell") == "hydrogen"
+
+
+def test_normalize_transmission_keeps_sourced_speed_count():
+    assert normalize_transmission("Automatic") == "automatic"
+    assert normalize_transmission("DSG") == "dual_clutch"
+    assert normalize_transmission("7-speed DSG") == "7-speed dual_clutch"
+    assert normalize_transmission("6 speed manual") == "6-speed manual"
+    assert normalize_transmission("e-CVT") == "cvt"
+
+
+def test_normalize_drivetrain_canonical():
+    assert normalize_drivetrain("all-wheel drive") == "AWD"
+    assert normalize_drivetrain("Quattro") == "AWD"
+    assert normalize_drivetrain("4x4") == "4WD"
+    assert normalize_drivetrain("front wheel drive") == "FWD"
+
+
+def test_normalize_engine_canonical_string():
+    assert normalize_engine("1.4") == "1.4L"
+    assert normalize_engine("1.4L Turbo") == "1.4L turbo"
+    assert normalize_engine("2.0 V6 Turbo") == "2.0L v6 turbo"
+    assert normalize_engine("2.0L gasoline turbo") == "2.0L turbo"
+    assert normalize_engine(None, fuel_type="electric") == "electric"
+    assert normalize_engine("Single Motor", fuel_type="electric") == "electric"
+
+
+def test_normalize_support_level_invariant():
+    grounded = {
+        "body_type": "SUV",
+        "fuel_type": "petrol",
+        "engine": "2.0L turbo",
+        "horsepower_hp": 200,
+        "transmission": "automatic",
+        "drivetrain": "AWD",
+        "year_start": 2018,
+        "year_end": 2022,
+        "support_level": "indirect",
+        "field_sources": {
+            "body_type": [0], "fuel_type": [0], "engine": [0],
+            "horsepower_hp": [0], "transmission": [0], "drivetrain": [0],
+            "year_start": [0], "year_end": [0],
+        },
+        "missing_grounded_fields": [],
+    }
+    # Fully grounded + complete -> must be direct.
+    assert normalize_support_level(grounded) == "direct"
+    # An inferred (ungrounded) non-null field keeps it indirect.
+    inferred = dict(grounded, field_sources=dict(grounded["field_sources"], drivetrain=[]))
+    assert normalize_support_level(inferred) == "indirect"
+    # A listed missing field keeps it indirect.
+    missing = dict(grounded, missing_grounded_fields=["year_end"], year_end=None)
+    assert normalize_support_level(missing) == "indirect"
+    # Other levels are untouched.
+    assert normalize_support_level(dict(grounded, support_level="conflict")) == "conflict"
+
+
+def test_normalize_variant_applies_all_fields():
+    out = normalize_variant({
+        "body_type": "Cabriolet",
+        "fuel_type": "Gasoline",
+        "engine": "1.4L Turbo",
+        "transmission": "7-speed DSG",
+        "drivetrain": "Quattro",
+        "support_level": "unknown",
+    })
+    assert out["body_type"] == "Convertible"
+    assert out["fuel_type"] == "petrol"
+    assert out["engine"] == "1.4L turbo"
+    assert out["transmission"] == "7-speed dual_clutch"
+    assert out["drivetrain"] == "AWD"
+
+
+def test_merge_year_variants_spans_range():
+    base = {
+        "version_or_trim": "Sport",
+        "body_type": "SUV",
+        "fuel_type": "petrol",
+        "engine": "2.0L turbo",
+        "horsepower_hp": 200,
+        "transmission": "automatic",
+        "drivetrain": "AWD",
+        "source_indexes": [0],
+        "field_sources": {"engine": [0]},
+        "missing_grounded_fields": [],
+    }
+    rows = [
+        dict(base, year_start=2015, year_end=2018),
+        dict(base, year_start=2019, year_end=2022, source_indexes=[1]),
+    ]
+    merged, count = merge_year_variants(rows)
+    assert count == 1
+    assert len(merged) == 1
+    assert merged[0]["year_start"] == 2015
+    assert merged[0]["year_end"] == 2022
+    assert merged[0]["source_indexes"] == [0, 1]
+
+
+def test_merge_year_variants_keeps_distinct_horsepower():
+    base = {
+        "version_or_trim": "Sport", "body_type": "SUV", "fuel_type": "petrol",
+        "engine": "2.0L turbo", "transmission": "automatic", "drivetrain": "AWD",
+    }
+    rows = [
+        dict(base, horsepower_hp=180, year_start=2015, year_end=2018),
+        dict(base, horsepower_hp=200, year_start=2019, year_end=2022),
+    ]
+    merged, count = merge_year_variants(rows)
+    assert count == 0
+    assert len(merged) == 2
+
+
+# ---------------------------------------------------------------------------
 # Profile validation
 # ---------------------------------------------------------------------------
 
@@ -183,6 +327,36 @@ def test_validate_profile_ready():
     avw = result.profile["available_values_for_website"]
     assert avw["version_or_trim"] == ["Scorpione"]
     assert avw["horsepower_hp"] == [145]
+
+
+def test_validate_profile_normalizes_canonical_values():
+    profile = _grounded_profile()
+    profile["technical_variants_il"][0]["body_type"] = "Cabriolet"
+    profile["technical_variants_il"][0]["fuel_type"] = "Gasoline"
+    profile["technical_variants_il"][0]["drivetrain"] = "Quattro"
+    result = validate_profile(profile)
+    variant = result.profile["technical_variants_il"][0]
+    assert variant["body_type"] == "Convertible"
+    assert variant["fuel_type"] == "petrol"
+    assert variant["engine"] == "1.4L turbo"
+    assert variant["drivetrain"] == "AWD"
+    assert result.profile["available_values_for_website"]["body_type"] == ["Convertible"]
+
+
+def test_validate_profile_merges_year_split_rows():
+    profile = _grounded_profile()
+    second = dict(profile["technical_variants_il"][0])
+    profile["technical_variants_il"][0]["year_start"] = 2010
+    profile["technical_variants_il"][0]["year_end"] = 2015
+    second["year_start"] = 2016
+    second["year_end"] = 2020
+    profile["technical_variants_il"].append(second)
+    result = validate_profile(profile)
+    assert result.stats["merged_year_variants"] == 1
+    assert len(result.profile["technical_variants_il"]) == 1
+    assert result.profile["technical_variants_il"][0]["year_start"] == 2010
+    assert result.profile["technical_variants_il"][0]["year_end"] == 2020
+    assert result.ready is True
 
 
 def test_technical_variant_requires_field_sources():
@@ -402,6 +576,16 @@ def test_catalog_prompt_requires_web_grounding():
     assert "You must use web_search grounding for this task." in CATALOG_SYSTEM_PROMPT
     assert "Do not answer from memory." in CATALOG_SYSTEM_PROMPT
     assert "Raw database values are only hints" in CATALOG_SYSTEM_PROMPT
+
+
+def test_catalog_prompt_states_canonical_normalization():
+    from scripts.openai_catalog_client import CATALOG_SYSTEM_PROMPT
+
+    assert "Normalization" in CATALOG_SYSTEM_PROMPT
+    assert "plug_in_hybrid" in CATALOG_SYSTEM_PROMPT
+    assert "dual_clutch" in CATALOG_SYSTEM_PROMPT
+    assert "do NOT split by year alone" in CATALOG_SYSTEM_PROMPT
+    assert 'support_level MUST be "direct"' in CATALOG_SYSTEM_PROMPT
 
 
 # ---------------------------------------------------------------------------

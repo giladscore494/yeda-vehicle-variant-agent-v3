@@ -19,6 +19,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional, Set, Tuple
 
+from .catalog_normalization import merge_year_variants, normalize_variant
 from .openai_catalog_client import (
     ALLOWED_SUPPORT_LEVELS,
     GROUNDED_TECHNICAL_FIELDS,
@@ -264,6 +265,10 @@ def validate_profile(profile: Dict[str, Any]) -> ProfileValidation:
             all_variants_ready = False
             continue
 
+        # Enforce canonical values + the support_level invariant before any
+        # check, signature, or website derivation sees the row.
+        variant = normalize_variant(variant)
+
         if variant.get("support_level") in ("unknown", None):
             unknown_support += 1
         if _is_ev_fuel(variant.get("fuel_type")) and profile_is_petrol and profile_has_petrol_label:
@@ -298,6 +303,9 @@ def validate_profile(profile: Dict[str, Any]) -> ProfileValidation:
         seen_signatures.add(sig)
         cleaned_variants.append(variant)
 
+    # Merge rows that differ only by year into one row spanning the range.
+    cleaned_variants, merged_year_variants_count = merge_year_variants(cleaned_variants)
+
     profile["technical_variants_il"] = cleaned_variants
     profile["available_values_for_website"] = derive_available_values(cleaned_variants)
 
@@ -306,6 +314,7 @@ def validate_profile(profile: Dict[str, Any]) -> ProfileValidation:
     stats = {
         "technical_variant_count": len(cleaned_variants),
         "duplicate_technical_variants": duplicate_count,
+        "merged_year_variants": merged_year_variants_count,
         "technical_variants_with_sources": variants_with_sources,
         "technical_variants_with_field_sources": variants_with_field_sources,
         "technical_variants_missing_required_grounding": variants_missing_required_grounding,
@@ -374,6 +383,7 @@ def build_readiness_report(
         "invalid_source_references": _sum("invalid_source_references"),
         "unknown_support_values": _sum("unknown_support_values"),
         "duplicate_technical_variants": _sum("duplicate_technical_variants"),
+        "merged_year_variants": _sum("merged_year_variants"),
         "model_identity_conflicts": _sum("model_identity_conflicts"),
         # --- final gate -----------------------------------------------------
         "ready_for_website_upload": ready_for_website_upload,
