@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T23:30:53Z",
+  "generated_at": "2026-06-15T23:31:31Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -13923,6 +13923,357 @@
         "No Israeli official importer page/PDF with stable accessible technical tables was retrieved in search results; grounding relies mainly on Israeli catalog/editorial sources (auto.co.il, iCar, Wheel).",
         "Rows were merged only where sourced technical fields matched; year ranges are conservative and based on retrieved Israeli-market evidence rather than assumed continuous sales."
       ]
+    },
+    {
+      "market": "IL",
+      "make": "Audi",
+      "model": "A4",
+      "canonical_model": "A4",
+      "year_start": 2008,
+      "year_end": 2024,
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Executive",
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "1.8L turbo",
+          "engine_displacement_l": 1.8,
+          "horsepower_hp": 120,
+          "transmission": "cvt",
+          "drivetrain": "FWD",
+          "year_start": 2008,
+          "year_end": 2015,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Advanced",
+          "body_type": "Sedan",
+          "fuel_type": "mild_hybrid",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2,
+          "horsepower_hp": 150,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "FWD",
+          "year_start": 2020,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            3,
+            4
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              3,
+              4
+            ],
+            "body_type": [
+              4
+            ],
+            "fuel_type": [
+              3
+            ],
+            "engine": [
+              4
+            ],
+            "engine_displacement_l": [
+              3
+            ],
+            "horsepower_hp": [
+              3,
+              4
+            ],
+            "transmission": [
+              3
+            ],
+            "drivetrain": [
+              3,
+              4
+            ],
+            "year_start": [
+              4
+            ],
+            "year_end": [
+              4
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Advanced",
+          "body_type": "Sedan",
+          "fuel_type": "mild_hybrid",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2,
+          "horsepower_hp": 204,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "FWD",
+          "year_start": 2020,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            3,
+            4
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              3,
+              4
+            ],
+            "body_type": [
+              4
+            ],
+            "fuel_type": [
+              3
+            ],
+            "engine": [
+              4
+            ],
+            "engine_displacement_l": [
+              3
+            ],
+            "horsepower_hp": [
+              3,
+              4
+            ],
+            "transmission": [
+              3
+            ],
+            "drivetrain": [
+              3,
+              4
+            ],
+            "year_start": [
+              4
+            ],
+            "year_end": [
+              4
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "S line",
+          "body_type": "Sedan",
+          "fuel_type": "mild_hybrid",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2,
+          "horsepower_hp": 265,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "AWD",
+          "year_start": 2020,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            3,
+            4
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              3,
+              4
+            ],
+            "body_type": [
+              4
+            ],
+            "fuel_type": [
+              3
+            ],
+            "engine": [
+              4
+            ],
+            "engine_displacement_l": [
+              3
+            ],
+            "horsepower_hp": [
+              3,
+              4
+            ],
+            "transmission": [
+              3
+            ],
+            "drivetrain": [
+              3,
+              4
+            ],
+            "year_start": [
+              4
+            ],
+            "year_end": [
+              4
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Executive",
+          "Advanced",
+          "S line"
+        ],
+        "body_type": [
+          "Sedan"
+        ],
+        "fuel_type": [
+          "petrol",
+          "mild_hybrid"
+        ],
+        "engine": [
+          "1.8L turbo",
+          "2.0L turbo"
+        ],
+        "horsepower_hp": [
+          120,
+          150,
+          204,
+          265
+        ],
+        "transmission": [
+          "cvt",
+          "7-speed dual_clutch"
+        ],
+        "drivetrain": [
+          "FWD",
+          "AWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        "Base: non-trim generic label",
+        "1.4 TFSI: engine label, not a trim",
+        "1.8 TFSI: engine label, not a trim",
+        "1.8T: engine label, not a trim",
+        "35 TFSI: powertrain/grade label, not a trim"
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "אודי A4 2012 יד שניה - אוטו",
+          "url": "https://www.auto.co.il/cars/audi/a4/2012/",
+          "source_name": "Auto",
+          "source_type": "editorial/catalog",
+          "supports": [
+            "version_or_trim",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "אודי A4 2008 1.8TFSI אוט' (120 כ\"ס) Executive יד שניה",
+          "url": "https://www.auto.co.il/cars/audi/a4/2008/508939/",
+          "source_name": "Auto",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "אודי A4 2015 יד שניה - אוטו",
+          "url": "https://www.auto.co.il/model/audi-a4_2015",
+          "source_name": "Auto",
+          "source_type": "editorial/catalog",
+          "supports": [
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "A4",
+          "url": "https://images.auto.co.il/attachment/catalog/pdf/2071%2C.pdf",
+          "source_name": "Auto / Audi Israel catalog PDF",
+          "source_type": "catalog_pdf",
+          "supports": [
+            "version_or_trim",
+            "fuel_type",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 4,
+          "title": "אודי A4 - מחירון, חוות דעת ומידע טכני",
+          "url": "https://www.auto.co.il/cars/audi/a4/",
+          "source_name": "Auto",
+          "source_type": "editorial/catalog",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "engine",
+            "horsepower_hp",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "profile_confidence": "medium",
+      "notes": [
+        "Grounded Israeli sources found clearly for facelift-era A4 sold in Israel with 35/40/45 powertrains and for older 1.8TFSI Executive.",
+        "Could not ground a precise Israeli-market year_end for current/facelift variants from importer/catalog sources without inferring from current listings; therefore year_end is left as sourced only at top-level profile and marked missing per row.",
+        "Pre-2016 generations show additional Israeli engines/versions in broad editorial text, but not enough direct per-configuration technical grounding across all required fields from the gathered sources, so they were not added as separate rows.",
+        "Body type for facelift rows is grounded via Israeli Auto model pages listing sedan A4 variants; the provided Israeli PDFs do not explicitly state body type text beyond the model family context.",
+        "For facelift rows, fuel_type is normalized to mild_hybrid because the Israeli catalog PDF explicitly references MHEV technology for these petrol variants."
+      ],
+      "validation_issues": [
+        "variant[0] required website field 'drivetrain' is null/empty",
+        "variant[0] required field 'drivetrain' listed in missing_grounded_fields",
+        "variant[1] non-null field 'year_end' has no field_sources entry",
+        "variant[2] non-null field 'year_end' has no field_sources entry",
+        "variant[3] non-null field 'year_end' has no field_sources entry"
+      ],
+      "repair_attempts": 0
     },
     {
       "market": "IL",
