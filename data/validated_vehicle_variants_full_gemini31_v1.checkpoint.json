@@ -8,24 +8,24 @@
     "run_timestamp_utc": "2026-06-15T13:04:50Z",
     "total_input_variants": 3712,
     "total_instruction_records": 3712,
-    "total_validated_variants": 4,
+    "total_validated_variants": 5,
     "decision_counts": {
       "clean_exact": 0,
-      "clean_partial": 2,
+      "clean_partial": 3,
       "split_required": 2,
       "reject": 0
     },
     "grounding_cluster_count": 3653,
-    "gemini_call_count": 4,
+    "gemini_call_count": 5,
     "github_checkpoint_enabled": true,
-    "github_checkpoint_count": 4,
+    "github_checkpoint_count": 5,
     "github_checkpoint_fail_count": 0,
     "last_github_checkpoint_error": null,
-    "last_validated_id": "VAL-000004",
+    "last_validated_id": "VAL-000005",
     "schema_version": "v3_three_stage",
     "pipeline_version": "v3_three_stage",
-    "stage1_pro_calls": 4,
-    "stage2_guard_flags_total": 12,
+    "stage1_pro_calls": 5,
+    "stage2_guard_flags_total": 23,
     "stage3_flash_calls": 0,
     "flash_overrode_guard": 0,
     "guard_overrode_flash": 0,
@@ -40,9 +40,9 @@
     "guard_verifier_overrode_guard": 0,
     "guard_overrode_verifier": 0,
     "force_per_variant_validation": true,
-    "stage0_preflight_risk_rows": 4,
-    "stage1_gemini_grounding_required": 4,
-    "stage1_gemini_grounding_present": 4,
+    "stage0_preflight_risk_rows": 5,
+    "stage1_gemini_grounding_required": 5,
+    "stage1_gemini_grounding_present": 5,
     "stage1_gemini_grounding_missing": 0,
     "stage1_gemini_weak_grounding_rows": 0,
     "stage2_guard_flags_low": 0,
@@ -50,46 +50,47 @@
     "stage2_guard_flags_high": 0,
     "stage2_guard_flags_critical": 0,
     "stage2_guard_patches_applied": 0,
-    "stage25_repair_risk_scored_rows": 4,
-    "stage25_repair_triggered_rows": 4,
-    "stage3_repair_adjudicator_calls": 4,
-    "stage3_repair_adjudicator_successes": 4,
+    "stage25_repair_risk_scored_rows": 5,
+    "stage25_repair_triggered_rows": 5,
+    "stage3_repair_adjudicator_calls": 5,
+    "stage3_repair_adjudicator_successes": 5,
     "stage3_repair_adjudicator_failures": 0,
-    "stage3_repair_adjudicator_patches": 34,
+    "stage3_repair_adjudicator_patches": 42,
     "stage3_repair_adjudicator_routing_changes": 0,
     "stage3_repair_adjudicator_summary_rewrites": 0,
-    "stage3_repair_adjudicator_grounding_required": 4,
-    "stage3_repair_adjudicator_grounding_present": 4,
+    "stage3_repair_adjudicator_grounding_required": 5,
+    "stage3_repair_adjudicator_grounding_present": 5,
     "stage3_repair_adjudicator_grounding_missing": 0,
     "stage4_final_seal_passed": 0,
-    "stage4_final_seal_blocks": 4,
+    "stage4_final_seal_blocks": 5,
     "stage4_final_guard_conflicts_remaining": 0,
     "clean_catalog_blocks_by_repair": 0,
-    "clean_catalog_blocks_by_final_seal": 4,
+    "clean_catalog_blocks_by_final_seal": 5,
     "clean_catalog_blocks_by_grounding": 2,
-    "clean_catalog_blocks_by_unresolved_trim": 4,
-    "clean_catalog_blocks_by_unresolved_critical_field": 0,
+    "clean_catalog_blocks_by_unresolved_trim": 5,
+    "clean_catalog_blocks_by_unresolved_critical_field": 1,
     "upload_readiness": {
       "ready_for_exact_clean_upload": false,
       "ready_for_configurable_group_upload": false,
-      "total_rows": 4,
+      "total_rows": 5,
       "exact_variant_rows": 0,
-      "configurable_group_rows": 3,
+      "configurable_group_rows": 4,
       "review_only_rows": 1,
       "clean_catalog_rows": 0,
       "critical_consistency_errors": 0,
-      "high_consistency_errors": 3,
-      "unknown_enum_errors": 3,
+      "high_consistency_errors": 4,
+      "unknown_enum_errors": 4,
       "duplicate_group_errors": 1,
       "repair_success_rate": 1.0,
-      "grounding_pass_rate": 0.5
+      "grounding_pass_rate": 0.6
     }
   },
   "completed_validation_ids": [
     "VAL-000001",
     "VAL-000002",
     "VAL-000003",
-    "VAL-000004"
+    "VAL-000004",
+    "VAL-000005"
   ],
   "failed_validation_ids": [],
   "validated_variants_by_id": {
@@ -2678,6 +2679,750 @@
           ]
         }
       ]
+    },
+    "VAL-000005": {
+      "validation_id": "VAL-000005",
+      "run_mode": "real",
+      "source_validation_id": "VAL-000005",
+      "source_cluster_id": "CLU-b55fc8fd404e",
+      "grounding_cluster_id": "CLU-b55fc8fd404e",
+      "evidence_reused_from": null,
+      "canonical_make": "Abarth",
+      "canonical_model": "500",
+      "canonical_series_or_generation": "1st Gen",
+      "canonical_trim": null,
+      "official_marketed_name_il": "אבארט 500C",
+      "body_type": null,
+      "fuel_type": "petrol",
+      "engine": "1.4L Turbo",
+      "transmission": null,
+      "drivetrain": "FWD",
+      "year_start": 2010,
+      "year_end": null,
+      "is_currently_produced": false,
+      "is_currently_imported_il": false,
+      "market_scope": "IL",
+      "validation_decision": "clean_partial",
+      "acceptance_tier": "partial",
+      "identity_status": "likely_valid",
+      "identity_confidence": 0.78,
+      "trim_status": "unresolved",
+      "trim_confidence": 0.0,
+      "field_validation": {
+        "canonical_make": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "risk_tags": [],
+          "notes": "Verified Abarth make from Israeli launch coverage."
+        },
+        "canonical_model": {
+          "status": "verified",
+          "confidence": 1.0,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "risk_tags": [],
+          "notes": "Verified Abarth 500 family/model from Israeli launch coverage."
+        },
+        "canonical_series_or_generation": {
+          "status": "candidate",
+          "confidence": 0.7,
+          "evidence_strength": "indirect",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "risk_tags": [
+            "generation_inferred"
+          ],
+          "notes": "Fits first-generation Abarth 500/500C period, but generation label itself is inferred rather than directly stated in source text."
+        },
+        "canonical_trim": {
+          "status": "unresolved",
+          "confidence": 0.0,
+          "evidence_strength": "missing",
+          "source_indexes": [],
+          "risk_tags": [
+            "generic_trim",
+            "body_style_as_trim"
+          ],
+          "notes": "Provided '500C' is the cabriolet/body-style model designation, not a verified trim level for this catalog row."
+        },
+        "official_marketed_name_il": {
+          "status": "verified",
+          "confidence": 0.95,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "risk_tags": [],
+          "notes": "Israeli sources explicitly use אבארט 500C as the marketed name."
+        },
+        "body_type": {
+          "status": "unresolved",
+          "confidence": 0.0,
+          "evidence_strength": "missing",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "risk_tags": [],
+          "notes": "Israeli sources explicitly describe the car as 500C/kabriolet/cabriolet."
+        },
+        "fuel_type": {
+          "status": "verified",
+          "confidence": 0.95,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "risk_tags": [],
+          "notes": "1.4 turbo petrol engine in launch coverage."
+        },
+        "engine": {
+          "status": "verified",
+          "confidence": 0.97,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "risk_tags": [],
+          "notes": "Israeli launch coverage states 1.4-liter turbo engine."
+        },
+        "transmission": {
+          "status": "unresolved",
+          "confidence": 0.0,
+          "evidence_strength": "weak",
+          "source_indexes": [
+            0
+          ],
+          "risk_tags": [
+            "special_order_only",
+            "not_mainstream_catalog_spec"
+          ],
+          "notes": "Manual availability appears only as special-order mention; insufficient to keep a verified canonical manual transmission for an exact Israeli-market variant row."
+        },
+        "drivetrain": {
+          "status": "verified",
+          "confidence": 0.9,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "risk_tags": [],
+          "notes": "Front-wheel drive for this Abarth 500C configuration."
+        },
+        "year_start": {
+          "status": "verified",
+          "confidence": 0.96,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "risk_tags": [],
+          "notes": "Israeli launch coverage places market entry in late 2010."
+        },
+        "year_end": {
+          "status": "candidate",
+          "confidence": 0.65,
+          "evidence_strength": "weak",
+          "source_indexes": [
+            2,
+            3
+          ],
+          "risk_tags": [
+            "year_end_not_direct_factory_source"
+          ],
+          "notes": "2016 end date is plausible from Israeli listing/history context, but not directly established as a hard market cutoff by primary importer documentation."
+        },
+        "is_currently_produced": {
+          "status": "verified",
+          "confidence": 0.98,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            3
+          ],
+          "risk_tags": [],
+          "notes": "This combustion Abarth 500/500C generation is no longer current production."
+        },
+        "is_currently_imported_il": {
+          "status": "verified",
+          "confidence": 0.95,
+          "evidence_strength": "strong",
+          "source_indexes": [
+            4
+          ],
+          "risk_tags": [],
+          "notes": "Current Israeli Abarth catalog reflects 500e products rather than this older combustion 500C, so this variant is not currently imported."
+        }
+      },
+      "source_support_matrix": [
+        {
+          "field": "market_presence_il",
+          "value": true,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "reason": "Multiple Israeli automotive sources report the Israeli launch of the Abarth 500C in late 2010."
+        },
+        {
+          "field": "official_marketed_name_il",
+          "value": "אבארט 500C",
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "reason": "Both sources explicitly use the marketed name אבארט 500C."
+        },
+        {
+          "field": "body_type",
+          "value": "Cabriolet",
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "reason": "500C and kabriolet/cabriolet wording directly support convertible body style."
+        },
+        {
+          "field": "engine",
+          "value": "1.4L Turbo",
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "reason": "Launch coverage states 1.4-liter turbo engine."
+        },
+        {
+          "field": "transmission",
+          "value": "manual",
+          "support_level": "limited",
+          "source_indexes": [
+            0
+          ],
+          "reason": "Manual appears only as special-order availability in one source, so not strong enough for verified canonical transmission."
+        }
+      ],
+      "evidence_auditability": "acceptable",
+      "grounding_status": {
+        "gemini_grounding_required": true,
+        "gemini_grounding_present": true,
+        "gemini_grounding_quality": "acceptable",
+        "gpt54_grounding_required": true,
+        "gpt54_grounding_present": true,
+        "gpt54_grounding_quality": "acceptable",
+        "final_grounding_gate_passed": true
+      },
+      "grounding_summary": "Israeli sources directly support that the Abarth 500C was launched in Israel in late 2010 as a cabriolet/convertible with a 1.4-liter turbo petrol engine. '500C' is supported as the marketed/model designation, not as a distinct trim. Manual transmission has only limited support via special-order mention, so transmission remains unresolved.",
+      "evidence_sources": [
+        {
+          "title": "אבארט 500C הגיעה לישראל: 180,000 שקל",
+          "url": "https://www.auto.co.il/articles/car-news/117712/",
+          "source_name": "auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "official_marketed_name_il",
+            "year_start",
+            "engine",
+            "body_type"
+          ]
+        },
+        {
+          "title": "אבארט קבריולט בישראל – החל מ-180,000 שקל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%90%D7%91%D7%90%D7%A8%D7%98-%D7%A7%D7%91%D7%A8%D7%99%D7%95%D7%9C%D7%98-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%E2%80%93-%D7%94%D7%97%D7%9C-%D7%9E-180%2C000-%D7%A9%D7%A7%D7%9C",
+          "source_name": "cartube",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "official_marketed_name_il",
+            "year_start",
+            "engine",
+            "body_type",
+            "transmission"
+          ]
+        },
+        {
+          "title": "מחירון אבארט 500 2010 🏎️ בפורטל הרכב גיר",
+          "url": "https://www.gear.co.il/%D7%9E%D7%97%D7%99%D7%A8%D7%95%D7%9F-%D7%A8%D7%9B%D7%91-%D7%93%D7%92%D7%9D/%D7%90%D7%91%D7%90%D7%A8%D7%98/500/2010/500/1.4-%D7%98%D7%95%D7%A8%D7%91%D7%95-%D7%90%D7%91%D7%90%D7%A8%D7%98-%D7%99%D7%93%D7%A0%D7%99-",
+          "source_name": "gear.co.il",
+          "source_type": "marketplace",
+          "supports": [
+            "year_end_context",
+            "manual_listing_context"
+          ]
+        },
+        {
+          "title": "אבארט 500 - מחירון, חוות דעת ומידע טכני | אוטו",
+          "url": "https://www.auto.co.il/cars/abarth/500/",
+          "source_name": "auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "model_history_il",
+            "trim_history_context",
+            "production_end_context"
+          ]
+        },
+        {
+          "title": "אבארט | מחירון ומפרט טכני - cartube",
+          "url": "https://www.cartube.co.il/%D7%9E%D7%97%D7%99%D7%A8%D7%95%D7%9F-%D7%A8%D7%9B%D7%91-%D7%97%D7%93%D7%A9/%D7%90%D7%91%D7%90%D7%A8%D7%98",
+          "source_name": "cartube",
+          "source_type": "catalog",
+          "supports": [
+            "current_import_status_context"
+          ]
+        }
+      ],
+      "possible_trim_names": [],
+      "split_candidates": [],
+      "blocking_identity_issues": [],
+      "non_blocking_trim_issues": [
+        "The provided trim '500C' is a body style/model designation rather than a verified trim level.",
+        "Exact Israeli-market trim remains unresolved.",
+        "Manual transmission support is limited to special-order mention and is not strong enough for a verified exact-variant row."
+      ],
+      "fields_changed": [
+        "official_marketed_name_il",
+        "body_type",
+        "transmission",
+        "canonical_trim",
+        "identity_status",
+        "identity_confidence",
+        "field_validation",
+        "source_support_matrix",
+        "evidence_auditability",
+        "grounding_status",
+        "grounding_summary",
+        "possible_trim_names",
+        "user_selectable_fields",
+        "option_matrix",
+        "decision_reason",
+        "route_reason"
+      ],
+      "fields_left_unresolved": [
+        "canonical_trim",
+        "transmission",
+        "year_end",
+        "body_type"
+      ],
+      "decision_reason": "Final seal route=configurable_group_queue; publication_type=configurable_group; validation_decision=clean_partial; identity_status=likely_valid; trim_status=unresolved. Unresolved fields: canonical_trim, transmission, year_end, body_type.",
+      "_pipeline_version": "v3_three_stage",
+      "_flags_count": 9,
+      "_flash_used": false,
+      "adjudication_log": [],
+      "publishable_to_clean_catalog": false,
+      "final_route": "configurable_group_queue",
+      "route_reason": "Valid Israeli-market identity with multiple options; routed to configurable group (user-selectable trim/transmission/body/engine/year).",
+      "duplicate_group_id": null,
+      "duplicate_of": null,
+      "publication_type": "configurable_group",
+      "user_selectable_fields": {},
+      "option_matrix": [],
+      "candidate_values": {
+        "year_end": {
+          "values": [
+            2016
+          ],
+          "status": "candidate",
+          "reason": "Listed in fields_left_unresolved."
+        }
+      },
+      "guard_corrected_reason": "Repaired internal inconsistency: restored directly supported body_type to verified Cabriolet; kept canonical_trim unresolved because 500C is body style/model designation; kept transmission unresolved due to only limited special-order support; removed unsupported configurable-group options.",
+      "preflight_risk_tags": [
+        "body_style_as_trim",
+        "weak_official_marketed_name",
+        "low_auditability_risk"
+      ],
+      "_unknown_enums": [
+        "field_validation.canonical_series_or_generation.evidence_strength=indirect",
+        "source_support_matrix[transmission].support_level=limited"
+      ],
+      "final_seal_result": {
+        "seal_completed": true,
+        "clean_catalog_passed": false,
+        "blocks_clean_catalog": true,
+        "publication_type": "configurable_group",
+        "unknown_enums": [
+          "field_validation.canonical_series_or_generation.evidence_strength=indirect",
+          "source_support_matrix[transmission].support_level=limited"
+        ],
+        "passed": true,
+        "guard_flags": [
+          {
+            "guard_name": "generic_trim",
+            "severity": "medium",
+            "field_affected": "canonical_trim",
+            "original_value": null,
+            "guard_value": null,
+            "reason": "500C/Cabriolet trim cleanup.",
+            "risk_tags": [],
+            "needs_repair_adjudication": false,
+            "allowed_patch_fields": []
+          },
+          {
+            "guard_name": "domain_500c_transmission",
+            "severity": "medium",
+            "field_affected": "identity_status",
+            "original_value": "clean_partial",
+            "guard_value": "clean_partial",
+            "reason": "Manual transmission not verified for Israeli Abarth 500C/Cabriolet.",
+            "risk_tags": [],
+            "needs_repair_adjudication": true,
+            "allowed_patch_fields": [
+              "validation_decision",
+              "identity_status",
+              "identity_confidence",
+              "fields_left_unresolved"
+            ]
+          },
+          {
+            "guard_name": "unresolved_field_sync",
+            "severity": "medium",
+            "field_affected": "canonical_trim",
+            "original_value": null,
+            "guard_value": "canonical_trim",
+            "reason": "Audit text marks canonical_trim unresolved but fields_left_unresolved omitted it.",
+            "risk_tags": [
+              "audit_consistency"
+            ],
+            "needs_repair_adjudication": false,
+            "allowed_patch_fields": [
+              "fields_left_unresolved",
+              "identity_status",
+              "identity_confidence",
+              "validation_decision"
+            ]
+          },
+          {
+            "guard_name": "unresolved_field_sync",
+            "severity": "high",
+            "field_affected": "body_type",
+            "original_value": null,
+            "guard_value": "body_type",
+            "reason": "Audit text marks body_type unresolved but fields_left_unresolved omitted it.",
+            "risk_tags": [
+              "audit_consistency",
+              "identity_critical"
+            ],
+            "needs_repair_adjudication": true,
+            "allowed_patch_fields": [
+              "fields_left_unresolved",
+              "identity_status",
+              "identity_confidence",
+              "validation_decision"
+            ]
+          },
+          {
+            "guard_name": "populated_field_marked_unresolved",
+            "severity": "critical",
+            "field_affected": "body_type",
+            "original_value": "Cabriolet",
+            "guard_value": null,
+            "reason": "Audit/issues mark body_type unresolved; canonical value nullified.",
+            "risk_tags": [
+              "audit_consistency",
+              "populated_unresolved"
+            ],
+            "needs_repair_adjudication": true,
+            "allowed_patch_fields": []
+          },
+          {
+            "guard_name": "populated_field_marked_unresolved",
+            "severity": "critical",
+            "field_affected": "transmission",
+            "original_value": "manual",
+            "guard_value": null,
+            "reason": "Audit/issues mark transmission unresolved; canonical value nullified.",
+            "risk_tags": [
+              "audit_consistency",
+              "populated_unresolved"
+            ],
+            "needs_repair_adjudication": true,
+            "allowed_patch_fields": []
+          },
+          {
+            "guard_name": "final_seal_route_override",
+            "severity": "medium",
+            "field_affected": "final_route",
+            "original_value": "review_queue",
+            "guard_value": "configurable_group_queue",
+            "reason": "Valid Israeli-market identity with multiple options; routed to configurable group (user-selectable trim/transmission/body/engine/year).",
+            "risk_tags": [
+              "routing",
+              "final_seal"
+            ],
+            "needs_repair_adjudication": false,
+            "allowed_patch_fields": []
+          },
+          {
+            "guard_name": "field_confidence_or_evidence_low",
+            "severity": "high",
+            "field_affected": "year_end",
+            "original_value": 2016,
+            "guard_value": null,
+            "reason": "year_end lacks confidence/support required for clean_catalog.",
+            "risk_tags": [
+              "field_confidence",
+              "evidence"
+            ],
+            "needs_repair_adjudication": true,
+            "allowed_patch_fields": []
+          },
+          {
+            "guard_name": "current_status_contradiction",
+            "severity": "high",
+            "field_affected": "grounding_summary",
+            "original_value": "Israeli sources directly support that the Abarth 500C was launched in Israel in late 2010 as a cabriolet/convertible with a 1.4-liter turbo petrol engine. '500C' is supported as the marketed/model designation, not as a distinct trim. Manual transmission has only limited support via special-order mention, so transmission remains unresolved. Current Israeli catalog evidence supports that this older combustion 500C is not currently imported, while current Abarth offerings are 500e-based.",
+            "guard_value": "Israeli sources directly support that the Abarth 500C was launched in Israel in late 2010 as a cabriolet/convertible with a 1.4-liter turbo petrol engine. '500C' is supported as the marketed/model designation, not as a distinct trim. Manual transmission has only limited support via special-order mention, so transmission remains unresolved.",
+            "reason": "Summary claimed current status while current flags are null/false; summary rewritten.",
+            "risk_tags": [
+              "current_status",
+              "summary_rewrite"
+            ],
+            "needs_repair_adjudication": true,
+            "allowed_patch_fields": []
+          }
+        ]
+      },
+      "risk_score": 680,
+      "_repair_adjudicator_triggered": true,
+      "gpt54_grounding_present": true,
+      "_repair_decision": "patched",
+      "field_patches": [
+        {
+          "field": "official_marketed_name_il",
+          "old": "אבארט 500",
+          "new": "אבארט 500C",
+          "reason": "Directly supported by grounded Israeli launch sources."
+        },
+        {
+          "field": "body_type",
+          "old": null,
+          "new": "Cabriolet",
+          "reason": "Directly supported by Israeli launch sources; unresolved/null state was internally inconsistent."
+        },
+        {
+          "field": "field_validation.body_type.status",
+          "old": "unresolved",
+          "new": "verified",
+          "reason": "Evidence directly supports convertible/cabriolet body type."
+        },
+        {
+          "field": "transmission",
+          "old": null,
+          "new": null,
+          "reason": "Retained unresolved because only limited special-order support exists."
+        },
+        {
+          "field": "canonical_trim",
+          "old": null,
+          "new": null,
+          "reason": "Retained unresolved because 500C is not a verified trim level."
+        },
+        {
+          "field": "possible_trim_names",
+          "old": [
+            "Lusso",
+            "Scorpione",
+            "Turismo",
+            "Competizione"
+          ],
+          "new": [],
+          "reason": "These trims were not grounded for this exact Israeli 500C row and should not be exposed as supported options."
+        },
+        {
+          "field": "final_route",
+          "old": "configurable_group_queue",
+          "new": "review_queue",
+          "reason": "Supported option set is not sufficiently grounded for configurable-group publication."
+        },
+        {
+          "field": "publication_type",
+          "old": "configurable_group",
+          "new": "review_only",
+          "reason": "Row remains partial with unresolved trim/transmission and unsupported option matrix removed."
+        }
+      ],
+      "_guard_verifier_used": false,
+      "guard_flags": [
+        {
+          "guard_name": "generic_trim",
+          "severity": "medium",
+          "field_affected": "canonical_trim",
+          "original_value": null,
+          "guard_value": null,
+          "reason": "500C/Cabriolet trim cleanup.",
+          "needs_adjudication": false,
+          "recommended_verifier_model": "none",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": []
+        },
+        {
+          "guard_name": "domain_500c_transmission",
+          "severity": "medium",
+          "field_affected": "identity_status",
+          "original_value": "clean_partial",
+          "guard_value": "clean_partial",
+          "reason": "Manual transmission not verified for Israeli Abarth 500C/Cabriolet.",
+          "needs_adjudication": true,
+          "recommended_verifier_model": "gpt-5.4",
+          "allowed_decisions": [
+            "clean_exact",
+            "clean_partial"
+          ],
+          "allowed_patch_fields": [
+            "validation_decision",
+            "identity_status",
+            "identity_confidence",
+            "fields_left_unresolved"
+          ],
+          "risk_tags": []
+        },
+        {
+          "guard_name": "unresolved_field_sync",
+          "severity": "medium",
+          "field_affected": "canonical_trim",
+          "original_value": null,
+          "guard_value": "canonical_trim",
+          "reason": "Audit text marks canonical_trim unresolved but fields_left_unresolved omitted it.",
+          "needs_adjudication": false,
+          "recommended_verifier_model": "none",
+          "allowed_decisions": [
+            "clean_exact",
+            "clean_partial"
+          ],
+          "allowed_patch_fields": [
+            "fields_left_unresolved",
+            "identity_status",
+            "identity_confidence",
+            "validation_decision"
+          ],
+          "risk_tags": [
+            "audit_consistency"
+          ]
+        },
+        {
+          "guard_name": "unresolved_field_sync",
+          "severity": "high",
+          "field_affected": "body_type",
+          "original_value": null,
+          "guard_value": "body_type",
+          "reason": "Audit text marks body_type unresolved but fields_left_unresolved omitted it.",
+          "needs_adjudication": true,
+          "recommended_verifier_model": "gpt-5.4",
+          "allowed_decisions": [
+            "clean_exact",
+            "clean_partial"
+          ],
+          "allowed_patch_fields": [
+            "fields_left_unresolved",
+            "identity_status",
+            "identity_confidence",
+            "validation_decision"
+          ],
+          "risk_tags": [
+            "audit_consistency",
+            "identity_critical"
+          ]
+        },
+        {
+          "guard_name": "populated_field_marked_unresolved",
+          "severity": "critical",
+          "field_affected": "body_type",
+          "original_value": "Cabriolet",
+          "guard_value": null,
+          "reason": "Audit/issues mark body_type unresolved; canonical value nullified.",
+          "needs_adjudication": true,
+          "recommended_verifier_model": "gpt-5.4",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "audit_consistency",
+            "populated_unresolved"
+          ]
+        },
+        {
+          "guard_name": "populated_field_marked_unresolved",
+          "severity": "critical",
+          "field_affected": "transmission",
+          "original_value": "manual",
+          "guard_value": null,
+          "reason": "Audit/issues mark transmission unresolved; canonical value nullified.",
+          "needs_adjudication": true,
+          "recommended_verifier_model": "gpt-5.4",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "audit_consistency",
+            "populated_unresolved"
+          ]
+        },
+        {
+          "guard_name": "final_seal_route_override",
+          "severity": "medium",
+          "field_affected": "final_route",
+          "original_value": "review_queue",
+          "guard_value": "configurable_group_queue",
+          "reason": "Valid Israeli-market identity with multiple options; routed to configurable group (user-selectable trim/transmission/body/engine/year).",
+          "needs_adjudication": false,
+          "recommended_verifier_model": "none",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "routing",
+            "final_seal"
+          ]
+        },
+        {
+          "guard_name": "field_confidence_or_evidence_low",
+          "severity": "high",
+          "field_affected": "year_end",
+          "original_value": 2016,
+          "guard_value": null,
+          "reason": "year_end lacks confidence/support required for clean_catalog.",
+          "needs_adjudication": true,
+          "recommended_verifier_model": "gpt-5.4",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "field_confidence",
+            "evidence"
+          ]
+        },
+        {
+          "guard_name": "current_status_contradiction",
+          "severity": "high",
+          "field_affected": "grounding_summary",
+          "original_value": "Israeli sources directly support that the Abarth 500C was launched in Israel in late 2010 as a cabriolet/convertible with a 1.4-liter turbo petrol engine. '500C' is supported as the marketed/model designation, not as a distinct trim. Manual transmission has only limited support via special-order mention, so transmission remains unresolved. Current Israeli catalog evidence supports that this older combustion 500C is not currently imported, while current Abarth offerings are 500e-based.",
+          "guard_value": "Israeli sources directly support that the Abarth 500C was launched in Israel in late 2010 as a cabriolet/convertible with a 1.4-liter turbo petrol engine. '500C' is supported as the marketed/model designation, not as a distinct trim. Manual transmission has only limited support via special-order mention, so transmission remains unresolved.",
+          "reason": "Summary claimed current status while current flags are null/false; summary rewritten.",
+          "needs_adjudication": true,
+          "recommended_verifier_model": "gpt-5.4",
+          "allowed_decisions": [],
+          "allowed_patch_fields": [],
+          "risk_tags": [
+            "current_status",
+            "summary_rewrite"
+          ]
+        }
+      ]
     }
   },
   "cluster_cache": {
@@ -2777,14 +3522,56 @@
           ]
         }
       ]
+    },
+    "CLU-b55fc8fd404e": {
+      "anchor_id": "VAL-000005",
+      "identity_status": "likely_valid",
+      "identity_confidence": 0.7,
+      "grounding_summary": "The Abarth 500C (Cabriolet) was launched in Israel in November 2010. It featured a 1.4L Turbo engine with 140 hp. While the standard transmission was a 5-speed robotic gearbox, the manual transmission was officially available by special order. The trim '500C' is a body style designation rather than a specific trim level, so the trim field is left unresolved.",
+      "evidence_sources": [
+        {
+          "title": "אבארט קבריולט בישראל – החל מ-180,000 שקל - cartube",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEofGge9p02yk6GLhVOf2_Jj5PNRkOvg0qaWIsT6nIBL3NbFy69oU-AT4uiAoVIP8ksmw0zb39pmXO2tblrcc_c4qESP1FJjIe668w1hi_FJP7ukt7sJKMZkkrMxgspjRlIwXkbE0dSi0jXPA-pmLoIMF-eZLAVfGs_Z0GMDRNYd7VKeqWoOzdkCI4Mh7XxU1UClDKjtNgkM1qHLB5ntHuDm69ZZTp2Dgue-bYuWXrRYhVAOKsRPoclPd484yDGZplE04Nx9ofAhy6kMaW73sHw535y-g9CX0ejpM1XMYZnYqjzLto03-5OSKEO456t5qZKOf1X59m28yARvEN2X_-8kvwvk9TqNv0FA4kAbTHbTWl287m1u-Rfd2Y7lVG-4CyZk3Q5T8J5fdnCpZhxv6sR",
+          "source_name": "cartube",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "year_range",
+            "engine",
+            "transmission",
+            "body_type"
+          ]
+        },
+        {
+          "title": "אבארט 500C הגיעה לישראל: 180,000 שקל - אוטו",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHsoqdqsuY677PkmJ4op7rbYCsRZKVD49pAhD2SrEY9nJgEjd6_-A5COmIUZ2xEyekYXMyD2JXtilEIh6e86YlnIINpuHGShzZussLMLPwIocpM5C5RFaFE2gpviCUUUldUXHlUA3o=",
+          "source_name": "אוטו",
+          "source_type": "editorial",
+          "supports": [
+            "market_presence_il",
+            "year_range",
+            "engine"
+          ]
+        },
+        {
+          "title": "מחירון אבארט 500 2010 🏎️ בפורטל הרכב גיר",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEU0tjXOQCDSE0L9odHfJz88VT47H3MAeNSIQXyRoep_-8zRjHTI1_IFbhS1id5_SKbLxmytcfIdoDBpQ4TXt3ysVTVl_8dUp3LvHtI7ke5Sd43Q-kpLu5uemaVZeyxb0Pscl3uvcgn2qG9K9y_JQW8OuGq0SDhzS0Y0Tmfcl95L46YKOkEeTPvbCkWrI8R2-DInCBnk-pPteDJHNAbdJQKXJJZsZmgiyoe2uLtcGT8ZInkC9q1AZrLPf3c8Mp8j2PTxu5_2KgTtnaXg_fUogBz-uahlNJlO0_bYNjm3SF7KAfNmuzz0mHfpEvMCRiDEjGjRIr4qgW2bHcGVm7uuCMez8AQpk6sl8KApp_6GlE_1G60SxILOkJW-OKx9MSJ3Dc=",
+          "source_name": "גיר",
+          "source_type": "marketplace",
+          "supports": [
+            "year_range",
+            "trim_candidates"
+          ]
+        }
+      ]
     }
   },
   "decision_counts": {
     "clean_exact": 0,
-    "clean_partial": 2,
+    "clean_partial": 3,
     "split_required": 2,
     "reject": 0
   },
-  "last_validated_id": "VAL-000004",
-  "updated_at_utc": "2026-06-15T13:09:43Z"
+  "last_validated_id": "VAL-000005",
+  "updated_at_utc": "2026-06-15T13:11:21Z"
 }
