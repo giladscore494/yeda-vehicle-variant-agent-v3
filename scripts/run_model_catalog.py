@@ -25,7 +25,8 @@ import argparse
 import json
 import sys
 
-from .catalog_builder import build_catalog
+from .catalog_builder import build_catalog, OPENAI_KEY_REQUIRED_MESSAGE
+from .catalog_checkpoint import CatalogCheckpointConfig
 from .config import load_shared_config
 from .openai_catalog_client import CatalogClientSettings
 
@@ -46,9 +47,9 @@ def main(argv=None) -> int:
         help="Synthesize profiles deterministically without calling GPT-5.4.",
     )
     parser.add_argument(
-        "--no-web-search",
+        "--github-checkpoint",
         action="store_true",
-        help="Disable the GPT-5.4 web_search tool (still calls the model).",
+        help="Push generated catalog files to GitHub after each model profile.",
     )
     args = parser.parse_args(argv)
 
@@ -61,28 +62,38 @@ def main(argv=None) -> int:
         )
         return 2
 
-    use_openai = not args.offline and bool(cfg.openai_api_key)
+    # Fail fast for real grounded runs without an OpenAI key.
     if not args.offline and not cfg.openai_api_key:
-        print(
-            "No OpenAI API key found — falling back to OFFLINE synthesis. "
-            "Set OPENAI_API_KEY (or secrets [openai].api_key) for a grounded run.",
-            file=sys.stderr,
-        )
+        print(OPENAI_KEY_REQUIRED_MESSAGE, file=sys.stderr)
+        return 2
 
     settings = CatalogClientSettings(
         api_key=cfg.openai_api_key,
         model_id=cfg.openai_validator_model_id,
-        use_web_search=not args.no_web_search,
+        use_web_search=True,  # real runs always use web_search grounding
     )
 
-    result = build_catalog(
-        make=args.make,
-        model=args.model,
-        limit_models=args.limit_models,
-        use_openai=use_openai,
-        settings=settings,
-        log=lambda msg: print(msg, file=sys.stderr),
+    checkpoint_enabled = args.github_checkpoint or cfg.github_checkpoint_enabled
+    checkpoint = CatalogCheckpointConfig(
+        enabled=checkpoint_enabled,
+        push_every_profiles=cfg.push_every_profiles,
+        strict=cfg.strict_github_checkpoint,
+        token=cfg.github_token,
     )
+
+    try:
+        result = build_catalog(
+            make=args.make,
+            model=args.model,
+            limit_models=args.limit_models,
+            offline=args.offline,
+            settings=settings,
+            checkpoint=checkpoint,
+            log=lambda msg: print(msg, file=sys.stderr),
+        )
+    except ValueError as exc:
+        print(str(exc), file=sys.stderr)
+        return 2
 
     print(json.dumps(result.readiness, indent=2, ensure_ascii=False))
     print(f"\ncatalog   -> {result.catalog_path}", file=sys.stderr)

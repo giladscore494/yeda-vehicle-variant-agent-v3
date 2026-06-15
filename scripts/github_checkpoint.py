@@ -262,7 +262,8 @@ def resolve_config_from_streamlit(st_secrets) -> Tuple[Optional[GitHubConfig], L
 
 def resolve_config_from_env() -> Tuple[Optional[GitHubConfig], List[str]]:
     notes: List[str] = []
-    token = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN") or ""
+    # Required, documented secret name only (no GH_TOKEN/GH_PAT/GITHUB_PAT aliases).
+    token = os.environ.get("GITHUB_TOKEN") or ""
     repo = detect_repo(os.environ.get("GITHUB_REPO"))
     branch = detect_branch(os.environ.get("GITHUB_BRANCH"))
     if not token:
