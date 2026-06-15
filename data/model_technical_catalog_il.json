@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T18:43:52Z",
+  "generated_at": "2026-06-15T18:44:28Z",
   "market": "IL",
   "mode": "online_gpt54",
   "model_id": "gpt-5.4",
@@ -6994,6 +6994,807 @@
         "Model-level Israeli catalog page shows only 2013–2018 availability in Israel; no grounded Israeli-market source was found here for 2010–2012 or 2019–2020 local sales.",
         "iCar page mentions a 552 hp sedan configuration, but without sufficient trim/year grounding against the stronger Israeli catalog evidence, so it was not included as a separate sold technical row.",
         "Engine normalized to '5.9L V12' from sourced 5935 cc / 5.9 liter and V12 configuration."
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Audi",
+      "model": "A3",
+      "canonical_model": "A3",
+      "year_start": 2013,
+      "year_end": 2026,
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Sharp",
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "1.4L turbo",
+          "engine_displacement_l": 1.4,
+          "horsepower_hp": 125,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "FWD",
+          "year_start": 2013,
+          "year_end": 2015,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              2
+            ],
+            "body_type": [
+              0,
+              2
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              2
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "1.4L turbo",
+          "engine_displacement_l": 1.4,
+          "horsepower_hp": 150,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "FWD",
+          "year_start": 2016,
+          "year_end": 2017,
+          "support_level": "indirect",
+          "source_indexes": [
+            3,
+            4
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              3
+            ],
+            "fuel_type": [
+              3
+            ],
+            "engine": [
+              3
+            ],
+            "engine_displacement_l": [
+              3
+            ],
+            "horsepower_hp": [
+              3
+            ],
+            "transmission": [
+              3
+            ],
+            "drivetrain": [
+              4
+            ],
+            "year_start": [
+              3
+            ],
+            "year_end": [
+              4
+            ]
+          },
+          "missing_grounded_fields": [
+            "version_or_trim"
+          ]
+        },
+        {
+          "version_or_trim": "Sharp",
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "1.4L turbo",
+          "engine_displacement_l": 1.4,
+          "horsepower_hp": 150,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "FWD",
+          "year_start": 2016,
+          "year_end": 2017,
+          "support_level": "direct",
+          "source_indexes": [
+            3,
+            5
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              5
+            ],
+            "body_type": [
+              5
+            ],
+            "fuel_type": [
+              3
+            ],
+            "engine": [
+              3,
+              5
+            ],
+            "engine_displacement_l": [
+              3,
+              5
+            ],
+            "horsepower_hp": [
+              3
+            ],
+            "transmission": [
+              3
+            ],
+            "drivetrain": [
+              5
+            ],
+            "year_start": [
+              3
+            ],
+            "year_end": [
+              3
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "1.5L turbo",
+          "engine_displacement_l": 1.5,
+          "horsepower_hp": 150,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "FWD",
+          "year_start": 2017,
+          "year_end": 2019,
+          "support_level": "indirect",
+          "source_indexes": [
+            6,
+            7,
+            8
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              6
+            ],
+            "fuel_type": [
+              6
+            ],
+            "engine": [
+              6,
+              8
+            ],
+            "engine_displacement_l": [
+              6,
+              8
+            ],
+            "horsepower_hp": [
+              6
+            ],
+            "transmission": [
+              6
+            ],
+            "drivetrain": [
+              8
+            ],
+            "year_start": [
+              6
+            ],
+            "year_end": [
+              7
+            ]
+          },
+          "missing_grounded_fields": [
+            "version_or_trim"
+          ]
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "1.5L turbo",
+          "engine_displacement_l": 1.5,
+          "horsepower_hp": 150,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "FWD",
+          "year_start": 2019,
+          "year_end": 2020,
+          "support_level": "indirect",
+          "source_indexes": [
+            9,
+            10
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              9
+            ],
+            "fuel_type": [
+              9
+            ],
+            "engine": [
+              9
+            ],
+            "engine_displacement_l": [
+              9
+            ],
+            "horsepower_hp": [
+              9
+            ],
+            "transmission": [
+              10
+            ],
+            "drivetrain": [
+              10
+            ],
+            "year_start": [
+              9
+            ],
+            "year_end": [
+              10
+            ]
+          },
+          "missing_grounded_fields": [
+            "version_or_trim"
+          ]
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Hatchback",
+          "fuel_type": "mild_hybrid",
+          "engine": "1.5L turbo",
+          "engine_displacement_l": 1.5,
+          "horsepower_hp": 150,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "FWD",
+          "year_start": 2020,
+          "year_end": 2026,
+          "support_level": "indirect",
+          "source_indexes": [
+            11,
+            12,
+            13,
+            14
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              12,
+              13
+            ],
+            "fuel_type": [
+              11,
+              14
+            ],
+            "engine": [
+              11,
+              12,
+              13
+            ],
+            "engine_displacement_l": [
+              11,
+              12,
+              13
+            ],
+            "horsepower_hp": [
+              11,
+              12
+            ],
+            "transmission": [
+              11,
+              13
+            ],
+            "drivetrain": [
+              11
+            ],
+            "year_start": [
+              11
+            ],
+            "year_end": [
+              14
+            ]
+          },
+          "missing_grounded_fields": [
+            "version_or_trim"
+          ]
+        },
+        {
+          "version_or_trim": "S line",
+          "body_type": "Hatchback",
+          "fuel_type": "mild_hybrid",
+          "engine": "1.5L turbo",
+          "engine_displacement_l": 1.5,
+          "horsepower_hp": 150,
+          "transmission": "dual_clutch",
+          "drivetrain": "FWD",
+          "year_start": 2026,
+          "year_end": 2026,
+          "support_level": "direct",
+          "source_indexes": [
+            12,
+            14,
+            15
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              15
+            ],
+            "body_type": [
+              15
+            ],
+            "fuel_type": [
+              14
+            ],
+            "engine": [
+              15
+            ],
+            "engine_displacement_l": [
+              15
+            ],
+            "horsepower_hp": [
+              15
+            ],
+            "transmission": [
+              12
+            ],
+            "drivetrain": [
+              14
+            ],
+            "year_start": [
+              15
+            ],
+            "year_end": [
+              15
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "1.5L turbo",
+          "engine_displacement_l": 1.5,
+          "horsepower_hp": 150,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "FWD",
+          "year_start": 2020,
+          "year_end": 2026,
+          "support_level": "indirect",
+          "source_indexes": [
+            16,
+            17,
+            18,
+            14
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              16,
+              18
+            ],
+            "fuel_type": [
+              16
+            ],
+            "engine": [
+              16,
+              17,
+              18
+            ],
+            "engine_displacement_l": [
+              16,
+              17,
+              18
+            ],
+            "horsepower_hp": [
+              16,
+              17
+            ],
+            "transmission": [
+              16,
+              18
+            ],
+            "drivetrain": [
+              16
+            ],
+            "year_start": [
+              16
+            ],
+            "year_end": [
+              14
+            ]
+          },
+          "missing_grounded_fields": [
+            "version_or_trim"
+          ]
+        },
+        {
+          "version_or_trim": "S line",
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "1.5L turbo",
+          "engine_displacement_l": 1.5,
+          "horsepower_hp": 150,
+          "transmission": "dual_clutch",
+          "drivetrain": "FWD",
+          "year_start": 2026,
+          "year_end": 2026,
+          "support_level": "direct",
+          "source_indexes": [
+            15,
+            16,
+            14
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              15
+            ],
+            "body_type": [
+              15
+            ],
+            "fuel_type": [
+              16
+            ],
+            "engine": [
+              15,
+              16
+            ],
+            "engine_displacement_l": [
+              15,
+              16
+            ],
+            "horsepower_hp": [
+              15
+            ],
+            "transmission": [
+              16
+            ],
+            "drivetrain": [
+              14
+            ],
+            "year_start": [
+              15
+            ],
+            "year_end": [
+              15
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Sharp",
+          "S line"
+        ],
+        "body_type": [
+          "Hatchback",
+          "Sedan"
+        ],
+        "fuel_type": [
+          "petrol",
+          "mild_hybrid"
+        ],
+        "engine": [
+          "1.4L turbo",
+          "1.5L turbo"
+        ],
+        "horsepower_hp": [
+          125,
+          150
+        ],
+        "transmission": [
+          "7-speed dual_clutch",
+          "dual_clutch"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        "Advanced: classification=trim_label_seen_in_raw_but_not_grounded",
+        "Ambition: classification=trim_label_seen_in_raw_but_not_grounded",
+        "Attraction: classification=trim_label_seen_in_raw_but_not_grounded",
+        "Design: classification=trim_label_seen_in_raw_but_not_grounded",
+        "Sportback: classification=body_designation_not_trim",
+        "1.4: classification=engine_size_not_trim",
+        "145hp: classification=horsepower_label_not_trim",
+        "165hp: classification=horsepower_label_not_trim",
+        "180hp: classification=horsepower_label_not_trim"
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "אודי A3 2014 ספורטבק אוט', 1.4 ל' טורבו, Sharp יד שניה",
+          "url": "https://www.auto.co.il/cars/audi/a3/2014/531087/",
+          "source_name": "auto.co.il",
+          "source_type": "catalog",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "engine",
+            "engine_displacement_l",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "מבצע אודי A3 ספורטבק ב- 17,000 ש\"ח הנחה",
+          "url": "https://wheel.co.il/%D7%9E%D7%91%D7%A6%D7%A2-%D7%90%D7%95%D7%93%D7%99-a3-%D7%A1%D7%A4%D7%95%D7%A8%D7%98%D7%91%D7%A7-%D7%91-17000-%D7%A9%D7%97-%D7%94%D7%A0%D7%97%D7%94/",
+          "source_name": "Wheel",
+          "source_type": "editorial",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "אודי A3 ספורטבק יוצאת לדרך ב-167,400 שקלים",
+          "url": "https://www.auto.co.il/articles/car-news/114027/",
+          "source_name": "auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "בארץ: אאודי A3 החדשה - מתיחת פנים מקיפה",
+          "url": "https://wheel.co.il/%D7%91%D7%90%D7%A8%D7%A5-%D7%90%D7%90%D7%95%D7%93%D7%99-a3-%D7%94%D7%97%D7%93%D7%A9%D7%94-%D7%9E%D7%AA%D7%99%D7%97%D7%AA-%D7%A4%D7%A0%D7%99%D7%9D-%D7%9E%D7%A7%D7%99%D7%A4%D7%94/",
+          "source_name": "Wheel",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 4,
+          "title": "אאודי A3 בהצעה שמשנה את החוקים !",
+          "url": "https://wheel.co.il/%D7%90%D7%90%D7%95%D7%93%D7%99-a3-%D7%91%D7%94%D7%A6%D7%A2%D7%94-%D7%A9%D7%9E%D7%A9%D7%A0%D7%94-%D7%90%D7%AA-%D7%94%D7%97%D7%95%D7%A7%D7%99%D7%9D/",
+          "source_name": "Wheel",
+          "source_type": "editorial",
+          "supports": [
+            "drivetrain",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 5,
+          "title": "אודי A3 2014 - אוטו",
+          "url": "https://www.auto.co.il/model/audi-a3_2014",
+          "source_name": "auto.co.il",
+          "source_type": "catalog",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "engine",
+            "engine_displacement_l",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 6,
+          "title": "חדש בארץ: אאודי A3 עם מנוע 1.5 ליטר",
+          "url": "https://wheel.co.il/%D7%9E%D7%91%D7%A6%D7%A2-%D7%90%D7%90%D7%95%D7%93%D7%99-a3-%D7%97%D7%93%D7%A9%D7%94-%D7%91-169900-%D7%A9%D7%A7%D7%9C/",
+          "source_name": "Wheel",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 7,
+          "title": "אודי A3 2019 יד שניה - אוטו",
+          "url": "https://www.auto.co.il/cars/audi/a3/2019",
+          "source_name": "auto.co.il",
+          "source_type": "catalog",
+          "supports": [
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 8,
+          "title": "אודי A3 2019 יד שניה - אוטו",
+          "url": "https://www.auto.co.il/cars/audi/a3/2019",
+          "source_name": "auto.co.il",
+          "source_type": "catalog",
+          "supports": [
+            "engine",
+            "engine_displacement_l",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 9,
+          "title": "אודי A3 סדאן 2019 1.5 35TFSI - יד שניה",
+          "url": "https://www.icar.co.il/%D7%90%D7%95%D7%93%D7%99/%D7%90%D7%95%D7%93%D7%99_A3_%D7%A1%D7%93%D7%90%D7%9F/%D7%90%D7%95%D7%93%D7%99_A3_%D7%A1%D7%93%D7%90%D7%9F_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%94_%D7%9310/version20553/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 10,
+          "title": "אודי A3 סדאן - מבחן דרכים (1.5 ל', 35TFSI)",
+          "url": "https://www.auto.co.il/articles/test-drives/road-tests/134251/",
+          "source_name": "auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "transmission",
+            "drivetrain",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 11,
+          "title": "אודי A3 2020 יד שניה - אוטו",
+          "url": "https://www.auto.co.il/model/audi-a3_2020",
+          "source_name": "auto.co.il",
+          "source_type": "catalog",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 12,
+          "title": "אודי A3 2022 Sportback 35 TFSI, אוט', 1.5 ל' טורבו היברידי מתון יד שניה",
+          "url": "https://www.auto.co.il/cars/audi/a3/2022/531900/",
+          "source_name": "auto.co.il",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission"
+          ]
+        },
+        {
+          "source_index": 13,
+          "title": "דור 4: אאודי A3 החדשה בישראל- החל מ-198,000 שקל",
+          "url": "https://wheel.co.il/%D7%93%D7%95%D7%A8-4-%D7%90%D7%90%D7%95%D7%93%D7%99-a3-%D7%94%D7%97%D7%93%D7%A9%D7%94-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%94%D7%97%D7%9C-%D7%9E-198000-%D7%A9%D7%A7%D7%9C-2/",
+          "source_name": "Wheel",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "engine",
+            "engine_displacement_l",
+            "transmission"
+          ]
+        },
+        {
+          "source_index": 14,
+          "title": "אודי A3 - מחירון, חוות דעת ומידע טכני | אוטו",
+          "url": "https://www.auto.co.il/cars/audi/a3/",
+          "source_name": "auto.co.il",
+          "source_type": "catalog",
+          "supports": [
+            "fuel_type",
+            "drivetrain",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 15,
+          "title": "אודי A3 2026 Sportback 35 TFSI, אוט', 1.5 ל' טורבו, S-Line",
+          "url": "https://www.auto.co.il/cars/audi/a3/2026/581154/",
+          "source_name": "auto.co.il",
+          "source_type": "catalog",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 16,
+          "title": "אודי A3 סדאן - מחירון, חוות דעת ומידע טכני | אוטו",
+          "url": "https://www.auto.co.il/model/audi-a3-sedan_G1629",
+          "source_name": "auto.co.il",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 17,
+          "title": "אודי A3 סדאן 2019 1.5 35TFSI - יד שניה",
+          "url": "https://www.icar.co.il/%D7%90%D7%95%D7%93%D7%99/%D7%90%D7%95%D7%93%D7%99_A3_%D7%A1%D7%93%D7%90%D7%9F/%D7%90%D7%95%D7%93%D7%99_A3_%D7%A1%D7%93%D7%90%D7%9F_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%94_%D7%9310/version20553/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp"
+          ]
+        },
+        {
+          "source_index": 18,
+          "title": "A3 Sportback 30 TFSI קטלוג / מסמך בטיחות",
+          "url": "https://www.auto.co.il/attachment/catalog/pdf/3843%2C.pdf",
+          "source_name": "auto.co.il",
+          "source_type": "pdf",
+          "supports": [
+            "body_type",
+            "engine",
+            "engine_displacement_l",
+            "transmission"
+          ]
+        }
+      ],
+      "profile_confidence": "medium",
+      "notes": [
+        "Excluded A3 Cabriolet / Convertible and A3 e-tron plug-in hybrid because they are separate body/model lines or electrified submodels not requested as the core Audi A3 profile, and grounding was insufficient to merge them safely into this catalog.",
+        "No Israeli official importer page/PDF with stable accessible technical tables was retrieved in search results; grounding relies mainly on Israeli catalog/editorial sources (auto.co.il, iCar, Wheel).",
+        "Rows were merged only where sourced technical fields matched; year ranges are conservative and based on retrieved Israeli-market evidence rather than assumed continuous sales."
       ]
     }
   ],
