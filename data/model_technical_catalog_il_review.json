@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T17:58:02Z",
+  "generated_at": "2026-06-15T17:58:19Z",
   "market": "IL",
   "models": [
     {
@@ -2907,6 +2907,202 @@
         "variant[0] required website field 'transmission' is null/empty",
         "variant[1] required website field 'horsepower_hp' is null/empty",
         "variant[1] required website field 'transmission' is null/empty"
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Alfa Romeo",
+      "model": "166",
+      "canonical_model": "166",
+      "year_start": 1998,
+      "year_end": 2006,
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Distinctive",
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "3.0 V6",
+          "engine_displacement_l": 3,
+          "horsepower_hp": 226,
+          "transmission": "manual",
+          "drivetrain": null,
+          "year_start": 1998,
+          "year_end": 2003,
+          "support_level": "direct",
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": [
+            "drivetrain"
+          ]
+        },
+        {
+          "version_or_trim": "Distinctive",
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "3.0 V6",
+          "engine_displacement_l": 3,
+          "horsepower_hp": 220,
+          "transmission": "automatic",
+          "drivetrain": null,
+          "year_start": 2003,
+          "year_end": 2006,
+          "support_level": "direct",
+          "source_indexes": [
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1
+            ],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": [
+            "drivetrain"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Distinctive"
+        ],
+        "body_type": [
+          "Sedan"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "3.0 V6"
+        ],
+        "horsepower_hp": [
+          226,
+          220
+        ],
+        "transmission": [
+          "manual",
+          "automatic"
+        ],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "value": "2.4 JTD",
+          "classification": "engine_not_trim"
+        },
+        {
+          "value": "3.0 V6",
+          "classification": "engine_not_trim"
+        },
+        {
+          "value": "3.2 V6",
+          "classification": "engine_not_trim"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "אלפא רומיאו 166 2000 Distinctive ידני 3.0 (226 כ״ס) | מחירון יד2",
+          "url": "https://www.yad2.co.il/price-list/sub-model/102354/2000",
+          "source_name": "יד2",
+          "source_type": "marketplace_catalog",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "אלפא רומיאו 166 2005 Distinctive אוט׳ 3.0 (220 כ״ס) | מחירון יד2",
+          "url": "https://www.yad2.co.il/price-list/sub-model/102353/2005",
+          "source_name": "יד2",
+          "source_type": "marketplace_catalog",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "profile_confidence": "medium",
+      "notes": [
+        "Grounding found only in secondary Israeli marketplace/catalog sources (Yad2); no accessible Israeli official importer/spec source for Alfa Romeo 166 was found.",
+        "No Israeli-market source was found to ground diesel (2.4 JTD) or 3.2 V6 versions, so they were not included as sold technical variants.",
+        "Year ranges are grounded only by year-navigation availability on the specific Israeli catalog pages: manual 3.0 page shows 1998-2003; automatic 3.0 page shows 2003-2006.",
+        "Drivetrain was not set because no Israeli-market source accessed here explicitly stated it."
+      ],
+      "validation_issues": [
+        "variant[0] required website field 'drivetrain' is null/empty",
+        "variant[0] required field 'drivetrain' listed in missing_grounded_fields",
+        "variant[1] required website field 'drivetrain' is null/empty",
+        "variant[1] required field 'drivetrain' listed in missing_grounded_fields"
       ]
     }
   ]
