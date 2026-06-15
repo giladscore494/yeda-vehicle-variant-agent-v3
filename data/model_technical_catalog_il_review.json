@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T17:57:06Z",
+  "generated_at": "2026-06-15T17:57:27Z",
   "market": "IL",
   "models": [
     {
@@ -2396,6 +2396,220 @@
         "variant[12] required website field 'drivetrain' is null/empty",
         "variant[12] required field 'body_type' listed in missing_grounded_fields",
         "variant[12] required field 'drivetrain' listed in missing_grounded_fields"
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Alfa Romeo",
+      "model": "156",
+      "canonical_model": "156",
+      "year_start": 1998,
+      "year_end": 2007,
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": null,
+          "fuel_type": "petrol",
+          "engine": "2.0",
+          "engine_displacement_l": 2,
+          "horsepower_hp": 155,
+          "transmission": "single-clutch automated manual",
+          "drivetrain": "FWD",
+          "year_start": 1998,
+          "year_end": 2007,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0
+            ],
+            "year_start_model": [
+              0
+            ],
+            "year_end_model": [
+              0
+            ]
+          },
+          "missing_grounded_fields": [
+            "version_or_trim",
+            "body_type"
+          ]
+        },
+        {
+          "version_or_trim": null,
+          "body_type": null,
+          "fuel_type": "petrol",
+          "engine": "2.5 V6",
+          "engine_displacement_l": 2.5,
+          "horsepower_hp": null,
+          "transmission": null,
+          "drivetrain": null,
+          "year_start": null,
+          "year_end": null,
+          "support_level": "indirect",
+          "source_indexes": [
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [],
+            "fuel_type": [
+              2
+            ],
+            "engine": [
+              2
+            ],
+            "engine_displacement_l": [
+              2
+            ],
+            "horsepower_hp": [],
+            "transmission": [],
+            "drivetrain": [],
+            "year_start": [],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "version_or_trim",
+            "body_type",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "2.0",
+          "2.5 V6"
+        ],
+        "horsepower_hp": [
+          155
+        ],
+        "transmission": [
+          "single-clutch automated manual"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Distinctive",
+          "classification": "unverified_trim_label_no_israeli_source_found"
+        },
+        {
+          "label": "Unspecified",
+          "classification": "non_trim_placeholder"
+        },
+        {
+          "label": "2.0",
+          "classification": "engine_size_not_trim"
+        },
+        {
+          "label": "2.4",
+          "classification": "engine_size_not_trim"
+        },
+        {
+          "label": "2.5",
+          "classification": "engine_size_not_trim"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "אלפא רומיאו 156 1998-2026 - אתר iCar",
+          "url": "https://www.icar.co.il/%D7%90%D7%9C%D7%A4%D7%90_%D7%A8%D7%95%D7%9E%D7%99%D7%90%D7%95/%D7%90%D7%9C%D7%A4%D7%90_%D7%A8%D7%95%D7%9E%D7%99%D7%90%D7%95_156/%D7%90%D7%9C%D7%A4%D7%90_%D7%A8%D7%95%D7%9E%D7%99%D7%90%D7%95_156_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%94_%D7%9310/",
+          "source_name": "iCar",
+          "source_type": "Israeli catalog/editorial",
+          "supports": [
+            "model",
+            "year_start",
+            "year_end",
+            "engine"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "אלפא רומיאו 156 2001 2.0, סלספיד - יד שניה",
+          "url": "https://www.icar.co.il/%D7%90%D7%9C%D7%A4%D7%90_%D7%A8%D7%95%D7%9E%D7%99%D7%90%D7%95/%D7%90%D7%9C%D7%A4%D7%90_%D7%A8%D7%95%D7%9E%D7%99%D7%90%D7%95_156/%D7%90%D7%9C%D7%A4%D7%90_%D7%A8%D7%95%D7%9E%D7%99%D7%90%D7%95_156_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%94_%D7%9310/version3047/",
+          "source_name": "iCar",
+          "source_type": "Israeli catalog/spec page",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "אלפא רומיאו 156 1998-2026 - אתר iCar",
+          "url": "https://www.icar.co.il/%D7%90%D7%9C%D7%A4%D7%90_%D7%A8%D7%95%D7%9E%D7%99%D7%90%D7%95/%D7%90%D7%9C%D7%A4%D7%90_%D7%A8%D7%95%D7%9E%D7%99%D7%90%D7%95_156/%D7%90%D7%9C%D7%A4%D7%90_%D7%A8%D7%95%D7%9E%D7%99%D7%90%D7%95_156_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%94_%D7%9310/",
+          "source_name": "iCar",
+          "source_type": "Israeli catalog/editorial",
+          "supports": [
+            "engine"
+          ]
+        }
+      ],
+      "profile_confidence": "low",
+      "notes": [
+        "Grounded Israeli-market evidence found clearly for 156 2.0 Selespeed petrol with 1970cc, 155hp, FWD, single-clutch automated manual.",
+        "A 2.5-liter petrol version is mentioned on the Israeli model page in equipment context, which supports existence of a 2.5 variant in Israel, but no directly grounded Israeli spec page was found for horsepower, transmission, drivetrain, body type, or Israeli sale years.",
+        "No Israeli-market grounded evidence was found for a 2.4 diesel variant despite raw database hints, so it is not included as a technical row.",
+        "Body type was left null because the located Israeli sources did not explicitly state sedan/saloon on the extracted lines for the grounded variants.",
+        "Top-level model years reflect the Israeli model page lifespan shown by iCar, not guaranteed per-variant sale years."
+      ],
+      "validation_issues": [
+        "variant[0] required website field 'body_type' is null/empty",
+        "variant[0] required field 'body_type' listed in missing_grounded_fields",
+        "variant[1] required website field 'body_type' is null/empty",
+        "variant[1] required website field 'horsepower_hp' is null/empty",
+        "variant[1] required website field 'transmission' is null/empty",
+        "variant[1] required website field 'drivetrain' is null/empty",
+        "variant[1] required field 'body_type' listed in missing_grounded_fields",
+        "variant[1] required field 'horsepower_hp' listed in missing_grounded_fields",
+        "variant[1] required field 'transmission' listed in missing_grounded_fields",
+        "variant[1] required field 'drivetrain' listed in missing_grounded_fields"
       ]
     }
   ]
