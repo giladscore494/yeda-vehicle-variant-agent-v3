@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T22:07:48Z",
+  "generated_at": "2026-06-16T22:08:05Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -59129,6 +59129,152 @@
       "make": "BYD",
       "model": "Sealion 7",
       "canonical_model": "Sealion 7",
+      "profile_confidence": "medium"
+    },
+    {
+      "make": "BYD",
+      "model": "Tang",
+      "market": "IL",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "BYD Tang - Official Technical Specifications",
+          "url": "https://bydauto.co.il/models/tang/",
+          "source_name": "BYD Israel Official",
+          "source_type": "official_importer",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "בי.וויי.די טאנג - מחירון מפרטים ורמות גימור - iCar",
+          "url": "https://www.icar.co.il/BYD/%D7%91%D7%99.%D7%95%D7%95%D7%99%D7%99.%D7%93%D7%99_%D7%98%D7%90%D7%A0%D7%92/%D7%91%D7%99.%D7%95%D7%95%D7%99%D7%99.%D7%93%D7%99_%D7%98%D7%90%D7%A0%D7%92_%D7%97%D7%93%D7%A9/",
+          "source_name": "iCar",
+          "source_type": "auto_catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "בי.וויי.די טאנג - מפרט טכני - Gear",
+          "url": "https://gear.co.il/models/byd-tang",
+          "source_name": "Gear Israel",
+          "source_type": "auto_catalog",
+          "supports": [
+            "engine",
+            "horsepower_hp",
+            "drivetrain",
+            "year_start"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Premium",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 518,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2022,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1
+            ],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1,
+              2
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1,
+              2
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1,
+              2
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": [
+            "engine_displacement_l"
+          ]
+        }
+      ],
+      "invalid_or_non_trim_labels": {
+        "1.5L Turbo PHEV": "engine_label",
+        "245 hp Electric Motor": "horsepower_label",
+        "380 kW Dual Motor": "engine_and_horsepower_label"
+      },
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Premium"
+        ],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          518
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "AWD"
+        ]
+      },
+      "canonical_model": "Tang",
       "profile_confidence": "medium"
     }
   ],
