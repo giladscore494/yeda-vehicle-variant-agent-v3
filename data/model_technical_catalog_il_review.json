@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T20:39:30Z",
+  "generated_at": "2026-06-16T20:40:25Z",
   "market": "IL",
   "models": [
     {
@@ -2184,6 +2184,92 @@
       "validation_issues": [
         "variant[0] is electric inside a petrol model profile",
         "variant[2] is electric inside a petrol model profile"
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "BMW",
+      "model": "X1 sDrive18i",
+      "canonical_model": "X1 sDrive18i",
+      "year_start": null,
+      "year_end": null,
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [],
+      "profile_confidence": null,
+      "notes": [],
+      "error": "Extra data: line 223 column 1 (char 5150)",
+      "request_payload": {
+        "task": "build_israeli_model_technical_catalog",
+        "market": "IL",
+        "make": "BMW",
+        "model": "X1 sDrive18i",
+        "raw_database_values": {
+          "years_seen": [
+            2010,
+            2015,
+            2022,
+            2026
+          ],
+          "trims_seen": [
+            "Business, Luxury",
+            "Business, xLine, M-Sport, Exclusive, Sport",
+            "Style, M-Sport, M-Sport SE, xLine"
+          ],
+          "engines_seen": [
+            "1.5L Turbo",
+            "2.0L"
+          ],
+          "horsepower_seen": [],
+          "transmissions_seen": [
+            "automatic",
+            "dual_clutch"
+          ],
+          "body_types_seen": [
+            "SUV"
+          ],
+          "fuel_types_seen": [
+            "petrol"
+          ],
+          "drivetrains_seen": [
+            "FWD",
+            "RWD"
+          ]
+        },
+        "sample_validation_ids": [
+          "VAL-000574",
+          "VAL-000575",
+          "VAL-000576"
+        ],
+        "source_indexes": [
+          447,
+          448,
+          449
+        ],
+        "metadata_hints": {
+          "priorities_seen": [
+            "medium"
+          ],
+          "validation_routes_seen": [
+            "cheap_model_structured_validation"
+          ],
+          "possible_duplicate_rows": 0,
+          "validation_id_count": 3
+        },
+        "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
+      },
+      "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
       ]
     }
   ]
