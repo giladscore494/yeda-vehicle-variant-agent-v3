@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-06-16T19:38:15Z",
+  "generated_at": "2026-06-16T19:48:01Z",
   "totals": {
-    "models": 129,
-    "findings": 263,
-    "grounded_cells": 4354,
-    "total_cells": 4354,
-    "marketplace_citation_share": 0.09965709387055294,
-    "official_citations": 9223,
+    "models": 128,
+    "findings": 261,
+    "grounded_cells": 4343,
+    "total_cells": 4343,
+    "marketplace_citation_share": 0.0999462654486835,
+    "official_citations": 9196,
     "bug": 0,
     "leak": 108,
-    "normalization": 1,
-    "structure": 154
+    "normalization": 0,
+    "structure": 153
   },
   "findings": [
     {
@@ -1355,7 +1355,7 @@
       "severity": "structure",
       "make": "Bentley",
       "model": "Bentayga",
-      "detail": "50/50 grounded cells (100.0%)"
+      "detail": "48/48 grounded cells (100.0%)"
     },
     {
       "type": "grounding_completeness",
@@ -1680,41 +1680,6 @@
       "detail": "10/10 grounded cells (100.0%)"
     },
     {
-      "type": "grounding_completeness",
-      "severity": "structure",
-      "make": "BMW",
-      "model": "630i GT",
-      "detail": "20/20 grounded cells (100.0%)"
-    },
-    {
-      "type": "grounding_completeness",
-      "severity": "structure",
-      "make": "BMW",
-      "model": "640i GT",
-      "detail": "10/10 grounded cells (100.0%)"
-    },
-    {
-      "type": "grounding_completeness",
-      "severity": "structure",
-      "make": "BMW",
-      "model": "650i",
-      "detail": "63/63 grounded cells (100.0%)"
-    },
-    {
-      "type": "grounding_completeness",
-      "severity": "structure",
-      "make": "BMW",
-      "model": "728i",
-      "detail": "9/9 grounded cells (100.0%)"
-    },
-    {
-      "type": "grounding_completeness",
-      "severity": "structure",
-      "make": "BMW",
-      "model": "730i",
-      "detail": "45/45 grounded cells (100.0%)"
-    },
-    {
       "type": "source_tier_inversion",
       "severity": "leak",
       "make": "BMW",
@@ -1774,8 +1739,43 @@
       "type": "grounding_completeness",
       "severity": "structure",
       "make": "BMW",
+      "model": "630i GT",
+      "detail": "20/20 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
       "model": "640i",
       "detail": "27/27 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "640i GT",
+      "detail": "10/10 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "650i",
+      "detail": "63/63 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "728i",
+      "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "730i",
+      "detail": "45/45 grounded cells (100.0%)"
     },
     {
       "type": "grounding_completeness",
@@ -1831,13 +1831,6 @@
       "severity": "structure",
       "make": "BMW",
       "model": "340i",
-      "detail": "9/9 grounded cells (100.0%)"
-    },
-    {
-      "type": "grounding_completeness",
-      "severity": "structure",
-      "make": "BMW",
-      "model": "340i",
       "detail": "10/10 grounded cells (100.0%)"
     },
     {
@@ -1846,20 +1839,12 @@
       "make": "BMW",
       "model": "650i",
       "detail": "9/9 grounded cells (100.0%)"
-    },
-    {
-      "type": "canonical_consistency",
-      "severity": "normalization",
-      "make": null,
-      "model": null,
-      "detail": "body_type value outside canonical list: Gran Coupe"
     }
   ],
   "counts_by_type": {
-    "grounding_completeness": 129,
+    "grounding_completeness": 128,
     "year_split_duplicates": 25,
     "source_tier_inversion": 104,
-    "source_domain": 4,
-    "canonical_consistency": 1
+    "source_domain": 4
   }
 }

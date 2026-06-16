@@ -35,6 +35,8 @@ _BODY_TYPE_KEYWORDS: Tuple[Tuple[str, str], ...] = (
     ("convertible", "Convertible"),
     ("cabriolet", "Convertible"),
     ("cabrio", "Convertible"),
+    ("gran coupe", "Gran Coupe"),
+    ("gran coupé", "Gran Coupe"),
     ("coupe", "Coupe"),
     ("coupé", "Coupe"),
     ("hatchback", "Hatchback"),
