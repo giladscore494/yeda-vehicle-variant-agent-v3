@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-06-16T15:09:04Z",
+  "generated_at": "2026-06-16T16:19:52Z",
   "totals": {
-    "models": 61,
-    "findings": 201,
-    "grounded_cells": 2206,
-    "total_cells": 2206,
-    "marketplace_citation_share": 0.21116986120290812,
-    "official_citations": 2993,
+    "models": 66,
+    "findings": 207,
+    "grounded_cells": 2416,
+    "total_cells": 2416,
+    "marketplace_citation_share": 0.19357770372614358,
+    "official_citations": 3267,
     "bug": 0,
-    "leak": 123,
+    "leak": 124,
     "normalization": 0,
-    "structure": 78
+    "structure": 83
   },
   "findings": [
     {
@@ -1419,12 +1419,54 @@
       "make": "Audi",
       "model": "RS5",
       "detail": "38/38 grounded cells (100.0%)"
+    },
+    {
+      "type": "source_domain",
+      "severity": "leak",
+      "make": "Audi",
+      "model": "RS6",
+      "detail": "non Israeli source host: auto-data.net"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Audi",
+      "model": "RS6",
+      "detail": "19/19 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Audi",
+      "model": "RS7",
+      "detail": "38/38 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Audi",
+      "model": "S3",
+      "detail": "72/72 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Audi",
+      "model": "S4",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Audi",
+      "model": "S5",
+      "detail": "63/63 grounded cells (100.0%)"
     }
   ],
   "counts_by_type": {
-    "grounding_completeness": 61,
+    "grounding_completeness": 66,
     "year_split_duplicates": 17,
     "source_tier_inversion": 120,
-    "source_domain": 3
+    "source_domain": 4
   }
 }

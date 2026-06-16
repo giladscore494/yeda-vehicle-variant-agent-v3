@@ -62,6 +62,10 @@ _REVIEW_ONLY_KEYS = (
     "repair_exhausted",
     "last_repair_error",
     "request_payload",
+    "rebuild_required",
+    "manual_full_rebuild_override_used",
+    "last_repair_mode",
+    "error",
 )
 
 
@@ -283,33 +287,39 @@ def clear_provider_unavailable_repair_errors(review: Dict[str, Any]) -> Dict[str
     return cleaned
 
 
-FULL_REBUILD_ISSUE_MARKERS = (
-    "technical_variants_il missing or not a list",
-    "technical_variants_il is empty",
-    "catalog client returned non-object JSON",
-    "Extra data:",
-    "strict JSON",
-    "JSON parse",
-    "non-object JSON",
-)
+def requires_full_rebuild(entry: Dict[str, Any]) -> bool:
+    """Classify a blocked entry as a full-rebuild (vs deterministic/targeted) case.
 
-
-def _needs_full_rebuild(entry: Dict[str, Any]) -> bool:
+    A full rebuild is required only when the profile is empty/parse-failed — i.e.
+    its ``technical_variants_il`` is missing or empty AND an error/validation
+    marker shows a parse/API/non-object/empty-variants failure — or when the
+    entry was explicitly flagged ``rebuild_required`` (e.g. by a normalized build
+    error). Field-level grounding gaps on a populated profile are NOT full
+    rebuilds; they are deterministic or targeted repairs.
+    """
+    error_text = " ".join(str(entry.get(k, "")) for k in ("error", "last_repair_error"))
+    issues = " ".join(str(x) for x in entry.get("validation_issues") or [])
     variants = entry.get("technical_variants_il")
-    issues = [str(i) for i in (entry.get("validation_issues") or [])]
-    texts = issues + [str(entry.get("error") or ""), str(entry.get("last_repair_error") or "")]
-    if entry.get("rebuild_required") is True:
-        return True
-    if entry.get("error") and not variants:
-        return True
-    marker_match = any(marker in text for marker in FULL_REBUILD_ISSUE_MARKERS for text in texts)
-    if marker_match:
-        return True
-    # Legacy tests/fixtures use empty profiles as generic blocked entries
-    # without request_payload; those can still follow the old deterministic
-    # revalidate path. Real parse/API failures include request_payload and are
-    # marked/validated with the explicit empty-variants issue above.
-    return bool((variants == [] or variants is None) and isinstance(entry.get("request_payload"), dict))
+
+    markers = (
+        "technical_variants_il missing or not a list",
+        "technical_variants_il is empty",
+        "Extra data",
+        "non-object JSON",
+        "catalog client returned non-object JSON",
+        "Gemini catalog client returned non-object JSON",
+        "JSON parse",
+        "parse",
+    )
+
+    empty_variants = not isinstance(variants, list) or len(variants) == 0
+    has_marker = any(marker in error_text or marker in issues for marker in markers)
+
+    return bool(entry.get("rebuild_required") is True or (empty_variants and has_marker))
+
+
+# Backwards-compatible private alias for existing call sites/tests.
+_needs_full_rebuild = requires_full_rebuild
 
 
 def _enforce_rebuilt_identity(rebuilt: Dict[str, Any], request_payload: Dict[str, Any]) -> Dict[str, Any]:
@@ -326,6 +336,7 @@ def repair_review_models(
     batch: Optional[int] = None,
     *,
     selected_keys: Optional[list[str]] = None,
+    allow_exhausted_full_rebuild_once: bool = False,
     provider_settings: Optional[CatalogProviderSettings] = None,
     settings: Optional[CatalogClientSettings] = None,
     checkpoint: Optional[CatalogCheckpointConfig] = None,
@@ -385,26 +396,60 @@ def repair_review_models(
             model_entry.pop("last_repair_error", None)
             emit(f"RESET provider/setup pollution: {key}")
         attempts = int(model_entry.get("repair_attempts", 0) or 0)
+        explicitly_selected = selected_keys is not None and key in selected_set
+
+        # Exhausted gate. A model that has used its repair budget is normally
+        # skipped. The ONLY exception is a SELECTED model when the caller
+        # explicitly opted into a one-shot override — and only if that override
+        # has not already been used. The override is mode-aware downstream:
+        #   * empty parse/API profile with a valid request_payload -> one full
+        #     rebuild from request_payload;
+        #   * non-empty profile with real variants -> one targeted/deterministic
+        #     repair pass.
+        # This is manual/selected only; automatic batch repair (no selected_keys
+        # / no override flag) never bypasses an exhausted model.
+        manual_override = False
         if attempts >= MAX_REPAIR_ATTEMPTS:
-            skipped += 1
-            emit(f"SKIP exhausted: {key}")
-            continue
+            can_override = (
+                explicitly_selected
+                and allow_exhausted_full_rebuild_once
+                and not model_entry.get("manual_full_rebuild_override_used")
+            )
+            if not can_override:
+                skipped += 1
+                emit(f"SKIP exhausted: {key}")
+                continue
+            manual_override = True
 
         patched_entry = apply_deterministic_patches(model_entry)
         market = patched_entry.get("market") or "IL"
         make = patched_entry.get("make", "")
         model = patched_entry.get("model", "")
         deterministic_changed = _stable(model_entry) != _stable(patched_entry)
-        full_rebuild = _needs_full_rebuild(patched_entry)
+        full_rebuild = requires_full_rebuild(patched_entry)
         targets: Dict[int, List[str]] = {} if full_rebuild else derive_repair_targets(patched_entry)
-        if full_rebuild:
+
+        # A full rebuild needs a usable request_payload; without one no model
+        # call can happen, so the attempt must NOT be consumed.
+        rebuild_payload = (
+            patched_entry.get("request_payload")
+            if isinstance(patched_entry.get("request_payload"), dict)
+            else {}
+        )
+        rebuild_payload_ok = bool(rebuild_payload) and all(
+            rebuild_payload.get(f) for f in ("market", "make", "model")
+        )
+
+        if full_rebuild and not rebuild_payload_ok:
+            emit(f"FULL REBUILD BLOCKED: {key} | missing request_payload")
+        elif full_rebuild:
             emit(f"REBUILDING WITH {provider_settings.display_name}: {key} | full rebuild from request_payload")
         elif targets:
             emit(f"REPAIRING WITH {provider_settings.display_name}: {key} | targets={targets}")
         elif deterministic_changed:
             emit(f"DETERMINISTIC PATCH ONLY: {key} | no model call")
         else:
-            emit(f"NO-OP REPAIR BLOCKED: {key} | full rebuild required")
+            emit(f"NO-OP REPAIR BLOCKED: {key} | full rebuild required; no attempt consumed")
         processed += 1
 
         delta_ready: List[Dict[str, Any]] = []
@@ -412,14 +457,27 @@ def repair_review_models(
         completed = False
 
         try:
+            if full_rebuild and not rebuild_payload_ok:
+                # No usable request_payload: cannot rebuild and must not call the
+                # model, so do NOT consume a repair attempt. Keep in review,
+                # flagged for a future full rebuild once a payload is available.
+                kept_entry = dict(model_entry)
+                kept_entry["rebuild_required"] = True
+                kept_entry["last_repair_error"] = "Full rebuild required but request_payload is missing/incomplete."
+                if manual_override:
+                    kept_entry["manual_full_rebuild_override_used"] = True
+                    kept_entry["last_repair_mode"] = "manual_full_rebuild"
+                delta_review = [kept_entry]
+                kept += 1
+                completed = True
+                raise StopIteration
             if full_rebuild:
-                request_payload = patched_entry.get("request_payload") if isinstance(patched_entry.get("request_payload"), dict) else {}
-                if not all(request_payload.get(f) for f in ("market", "make", "model")):
-                    raise ValueError("full rebuild requires request_payload with market, make, and model")
-                rebuilt = client.build_profile(request_payload)
+                if manual_override:
+                    emit(f"manual one-shot full rebuild override for {key}")
+                rebuilt = client.build_profile(rebuild_payload)
                 if not isinstance(rebuilt, dict):
                     raise ValueError("catalog client returned non-object JSON")
-                patched = _enforce_rebuilt_identity(rebuilt, request_payload)
+                patched = _enforce_rebuilt_identity(rebuilt, rebuild_payload)
                 market, make, model = patched["market"], patched["make"], patched["model"]
             elif targets:
                 repaired = client.build_repair_profile(make, model, patched_entry, targets)
@@ -428,10 +486,13 @@ def repair_review_models(
                 patched = dict(patched_entry)
             result = validate_profile(patched)
             if (not result.ready) and (not full_rebuild) and (not targets) and (not deterministic_changed):
+                # No-op deterministic repair: nothing changed and still invalid.
+                # No model call and no real patch happened, so do NOT consume an
+                # attempt; route to a full rebuild instead.
                 kept_entry = dict(result.profile)
                 kept_entry["validation_issues"] = result.issues
                 kept_entry["rebuild_required"] = True
-                kept_entry["last_repair_error"] = "No deterministic or targeted repair possible; full rebuild required."
+                kept_entry["last_repair_error"] = "No deterministic repair targets; full rebuild required."
                 delta_review = [kept_entry]
                 kept += 1
                 completed = True
@@ -442,16 +503,30 @@ def repair_review_models(
                     clean_profile.pop(review_key, None)
                 delta_ready = [clean_profile]
                 promoted += 1
-                emit(f"PROMOTE {key}")
+                emit(f"PROMOTE {key} after full rebuild" if full_rebuild else f"PROMOTE {key}")
             else:
                 kept_entry = dict(result.profile)
                 kept_entry["validation_issues"] = result.issues
+                # A real provider/data call happened, so the attempt is consumed.
                 kept_entry["repair_attempts"] = attempts + 1
                 if kept_entry["repair_attempts"] >= MAX_REPAIR_ATTEMPTS:
                     kept_entry["repair_exhausted"] = True
+                if full_rebuild:
+                    # Preserve the ability to rebuild again from the payload.
+                    kept_entry["rebuild_required"] = True
+                    kept_entry["request_payload"] = rebuild_payload
+                if manual_override:
+                    kept_entry["manual_full_rebuild_override_used"] = True
+                    kept_entry["last_repair_mode"] = (
+                        "manual_full_rebuild" if full_rebuild else "manual_targeted_repair"
+                    )
                 delta_review = [kept_entry]
                 kept += 1
-                emit(f"KEEP {key}: {len(result.issues)} issue(s)")
+                emit(
+                    f"KEEP {key} after full rebuild: {len(result.issues)} issue(s)"
+                    if full_rebuild
+                    else f"KEEP {key}: {len(result.issues)} issue(s)"
+                )
             completed = True
         except StopIteration:
             pass
