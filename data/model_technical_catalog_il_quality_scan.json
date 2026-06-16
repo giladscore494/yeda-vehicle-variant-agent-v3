@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-06-16T16:54:50Z",
+  "generated_at": "2026-06-16T19:38:15Z",
   "totals": {
-    "models": 71,
-    "findings": 212,
-    "grounded_cells": 2677,
-    "total_cells": 2677,
-    "marketplace_citation_share": 0.1641829393627955,
-    "official_citations": 3859,
+    "models": 129,
+    "findings": 263,
+    "grounded_cells": 4354,
+    "total_cells": 4354,
+    "marketplace_citation_share": 0.09965709387055294,
+    "official_citations": 9223,
     "bug": 0,
-    "leak": 124,
-    "normalization": 0,
-    "structure": 88
+    "leak": 108,
+    "normalization": 1,
+    "structure": 154
   },
   "findings": [
     {
@@ -49,34 +49,6 @@
       "detail": "18/18 grounded cells (100.0%)"
     },
     {
-      "type": "source_tier_inversion",
-      "severity": "leak",
-      "make": "Abarth",
-      "model": "600e",
-      "detail": "variant[0] version_or_trim grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il']"
-    },
-    {
-      "type": "source_tier_inversion",
-      "severity": "leak",
-      "make": "Abarth",
-      "model": "600e",
-      "detail": "variant[0] year_start grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il']"
-    },
-    {
-      "type": "source_tier_inversion",
-      "severity": "leak",
-      "make": "Abarth",
-      "model": "600e",
-      "detail": "variant[1] version_or_trim grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il']"
-    },
-    {
-      "type": "source_tier_inversion",
-      "severity": "leak",
-      "make": "Abarth",
-      "model": "600e",
-      "detail": "variant[1] year_start grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il']"
-    },
-    {
       "type": "grounding_completeness",
       "severity": "structure",
       "make": "Abarth",
@@ -88,28 +60,7 @@
       "severity": "leak",
       "make": "Abarth",
       "model": "600e",
-      "detail": "marketplace citation share 93.8%"
-    },
-    {
-      "type": "source_tier_inversion",
-      "severity": "leak",
-      "make": "Abarth",
-      "model": "Punto",
-      "detail": "variant[0] version_or_trim grounded only by marketplace/aggregator source(s): ['yad2.co.il', 'yad2.co.il']"
-    },
-    {
-      "type": "source_tier_inversion",
-      "severity": "leak",
-      "make": "Abarth",
-      "model": "Punto",
-      "detail": "variant[0] year_start grounded only by marketplace/aggregator source(s): ['yad2.co.il']"
-    },
-    {
-      "type": "source_tier_inversion",
-      "severity": "leak",
-      "make": "Abarth",
-      "model": "Punto",
-      "detail": "variant[0] year_end grounded only by marketplace/aggregator source(s): ['yad2.co.il']"
+      "detail": "marketplace citation share 75.0%"
     },
     {
       "type": "source_tier_inversion",
@@ -144,35 +95,35 @@
       "severity": "leak",
       "make": "Abarth",
       "model": "Punto",
-      "detail": "marketplace citation share 79.2%"
+      "detail": "marketplace citation share 60.0%"
     },
     {
       "type": "source_tier_inversion",
       "severity": "leak",
       "make": "Aiways",
       "model": "U5",
-      "detail": "variant[0] version_or_trim grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il']"
+      "detail": "variant[0] version_or_trim grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il', 'autoboom.co.il', 'autoboom.co.il']"
     },
     {
       "type": "source_tier_inversion",
       "severity": "leak",
       "make": "Aiways",
       "model": "U5",
-      "detail": "variant[0] year_start grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il']"
+      "detail": "variant[0] year_start grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il', 'autoboom.co.il', 'autoboom.co.il']"
     },
     {
       "type": "source_tier_inversion",
       "severity": "leak",
       "make": "Aiways",
       "model": "U5",
-      "detail": "variant[1] version_or_trim grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il']"
+      "detail": "variant[1] version_or_trim grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il', 'autoboom.co.il', 'autoboom.co.il']"
     },
     {
       "type": "source_tier_inversion",
       "severity": "leak",
       "make": "Aiways",
       "model": "U5",
-      "detail": "variant[1] year_start grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il']"
+      "detail": "variant[1] year_start grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il', 'autoboom.co.il', 'autoboom.co.il']"
     },
     {
       "type": "grounding_completeness",
@@ -207,49 +158,49 @@
       "severity": "leak",
       "make": "Alfa Romeo",
       "model": "146",
-      "detail": "variant[0] year_start grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+      "detail": "variant[0] year_start grounded only by marketplace/aggregator source(s): ['yad2.co.il', 'autoboom.co.il']"
     },
     {
       "type": "source_tier_inversion",
       "severity": "leak",
       "make": "Alfa Romeo",
       "model": "146",
-      "detail": "variant[0] year_end grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+      "detail": "variant[0] year_end grounded only by marketplace/aggregator source(s): ['yad2.co.il', 'autoboom.co.il']"
     },
     {
       "type": "source_tier_inversion",
       "severity": "leak",
       "make": "Alfa Romeo",
       "model": "146",
-      "detail": "variant[1] year_start grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+      "detail": "variant[1] year_start grounded only by marketplace/aggregator source(s): ['yad2.co.il', 'autoboom.co.il']"
     },
     {
       "type": "source_tier_inversion",
       "severity": "leak",
       "make": "Alfa Romeo",
       "model": "146",
-      "detail": "variant[1] year_end grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+      "detail": "variant[1] year_end grounded only by marketplace/aggregator source(s): ['yad2.co.il', 'autoboom.co.il']"
     },
     {
       "type": "source_tier_inversion",
       "severity": "leak",
       "make": "Alfa Romeo",
       "model": "146",
-      "detail": "variant[2] version_or_trim grounded only by marketplace/aggregator source(s): ['yad2.co.il']"
+      "detail": "variant[2] version_or_trim grounded only by marketplace/aggregator source(s): ['yad2.co.il', 'autoboom.co.il', 'yad2.co.il']"
     },
     {
       "type": "source_tier_inversion",
       "severity": "leak",
       "make": "Alfa Romeo",
       "model": "146",
-      "detail": "variant[2] year_start grounded only by marketplace/aggregator source(s): ['yad2.co.il']"
+      "detail": "variant[2] year_start grounded only by marketplace/aggregator source(s): ['yad2.co.il', 'autoboom.co.il', 'yad2.co.il']"
     },
     {
       "type": "source_tier_inversion",
       "severity": "leak",
       "make": "Alfa Romeo",
       "model": "146",
-      "detail": "variant[2] year_end grounded only by marketplace/aggregator source(s): ['yad2.co.il']"
+      "detail": "variant[2] year_end grounded only by marketplace/aggregator source(s): ['yad2.co.il', 'autoboom.co.il', 'yad2.co.il']"
     },
     {
       "type": "grounding_completeness",
@@ -264,13 +215,6 @@
       "make": "Alfa Romeo",
       "model": "146",
       "detail": "marketplace citation share 100.0%"
-    },
-    {
-      "type": "source_tier_inversion",
-      "severity": "leak",
-      "make": "Alfa Romeo",
-      "model": "147",
-      "detail": "variant[0] version_or_trim grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il']"
     },
     {
       "type": "source_tier_inversion",
@@ -298,13 +242,6 @@
       "severity": "leak",
       "make": "Alfa Romeo",
       "model": "147",
-      "detail": "variant[2] version_or_trim grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il']"
-    },
-    {
-      "type": "source_tier_inversion",
-      "severity": "leak",
-      "make": "Alfa Romeo",
-      "model": "147",
       "detail": "variant[3] year_start grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il']"
     },
     {
@@ -326,7 +263,7 @@
       "severity": "leak",
       "make": "Alfa Romeo",
       "model": "147",
-      "detail": "marketplace citation share 78.2%"
+      "detail": "marketplace citation share 56.5%"
     },
     {
       "type": "grounding_completeness",
@@ -403,14 +340,14 @@
       "severity": "leak",
       "make": "Alfa Romeo",
       "model": "166",
-      "detail": "variant[4] year_start grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+      "detail": "variant[4] year_start grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il']"
     },
     {
       "type": "source_tier_inversion",
       "severity": "leak",
       "make": "Alfa Romeo",
       "model": "166",
-      "detail": "variant[4] year_end grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+      "detail": "variant[4] year_end grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il']"
     },
     {
       "type": "source_tier_inversion",
@@ -571,7 +508,7 @@
       "severity": "leak",
       "make": "Alfa Romeo",
       "model": "166",
-      "detail": "marketplace citation share 96.6%"
+      "detail": "marketplace citation share 93.5%"
     },
     {
       "type": "source_tier_inversion",
@@ -634,77 +571,77 @@
       "severity": "leak",
       "make": "Alfa Romeo",
       "model": "75",
-      "detail": "variant[0] year_start grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+      "detail": "variant[0] year_start grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il']"
     },
     {
       "type": "source_tier_inversion",
       "severity": "leak",
       "make": "Alfa Romeo",
       "model": "75",
-      "detail": "variant[0] year_end grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+      "detail": "variant[0] year_end grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il']"
     },
     {
       "type": "source_tier_inversion",
       "severity": "leak",
       "make": "Alfa Romeo",
       "model": "75",
-      "detail": "variant[1] year_start grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+      "detail": "variant[1] year_start grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il', 'autoboom.co.il']"
     },
     {
       "type": "source_tier_inversion",
       "severity": "leak",
       "make": "Alfa Romeo",
       "model": "75",
-      "detail": "variant[1] year_end grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+      "detail": "variant[1] year_end grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il', 'autoboom.co.il']"
     },
     {
       "type": "source_tier_inversion",
       "severity": "leak",
       "make": "Alfa Romeo",
       "model": "75",
-      "detail": "variant[2] year_start grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+      "detail": "variant[2] year_start grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il']"
     },
     {
       "type": "source_tier_inversion",
       "severity": "leak",
       "make": "Alfa Romeo",
       "model": "75",
-      "detail": "variant[2] year_end grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+      "detail": "variant[2] year_end grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il']"
     },
     {
       "type": "source_tier_inversion",
       "severity": "leak",
       "make": "Alfa Romeo",
       "model": "75",
-      "detail": "variant[3] year_start grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+      "detail": "variant[3] year_start grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il']"
     },
     {
       "type": "source_tier_inversion",
       "severity": "leak",
       "make": "Alfa Romeo",
       "model": "75",
-      "detail": "variant[3] year_end grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+      "detail": "variant[3] year_end grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il']"
     },
     {
       "type": "source_tier_inversion",
       "severity": "leak",
       "make": "Alfa Romeo",
       "model": "75",
-      "detail": "variant[4] version_or_trim grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+      "detail": "variant[4] version_or_trim grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il']"
     },
     {
       "type": "source_tier_inversion",
       "severity": "leak",
       "make": "Alfa Romeo",
       "model": "75",
-      "detail": "variant[4] year_start grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+      "detail": "variant[4] year_start grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il']"
     },
     {
       "type": "source_tier_inversion",
       "severity": "leak",
       "make": "Alfa Romeo",
       "model": "75",
-      "detail": "variant[4] year_end grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+      "detail": "variant[4] year_end grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il']"
     },
     {
       "type": "grounding_completeness",
@@ -781,28 +718,28 @@
       "severity": "leak",
       "make": "Alfa Romeo",
       "model": "GTV",
-      "detail": "variant[0] year_start grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il']"
+      "detail": "variant[0] year_start grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il', 'autoboom.co.il']"
     },
     {
       "type": "source_tier_inversion",
       "severity": "leak",
       "make": "Alfa Romeo",
       "model": "GTV",
-      "detail": "variant[0] year_end grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il']"
+      "detail": "variant[0] year_end grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il', 'autoboom.co.il']"
     },
     {
       "type": "source_tier_inversion",
       "severity": "leak",
       "make": "Alfa Romeo",
       "model": "GTV",
-      "detail": "variant[1] year_start grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il']"
+      "detail": "variant[1] year_start grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il', 'autoboom.co.il']"
     },
     {
       "type": "source_tier_inversion",
       "severity": "leak",
       "make": "Alfa Romeo",
       "model": "GTV",
-      "detail": "variant[1] year_end grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il']"
+      "detail": "variant[1] year_end grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il', 'autoboom.co.il']"
     },
     {
       "type": "source_tier_inversion",
@@ -942,13 +879,6 @@
       "severity": "leak",
       "make": "Aston Martin",
       "model": "DB12",
-      "detail": "variant[0] year_start grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
-    },
-    {
-      "type": "source_tier_inversion",
-      "severity": "leak",
-      "make": "Aston Martin",
-      "model": "DB12",
       "detail": "variant[1] version_or_trim grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
     },
     {
@@ -970,28 +900,7 @@
       "severity": "leak",
       "make": "Aston Martin",
       "model": "DB12",
-      "detail": "marketplace citation share 83.3%"
-    },
-    {
-      "type": "source_tier_inversion",
-      "severity": "leak",
-      "make": "Aston Martin",
-      "model": "DB9",
-      "detail": "variant[0] version_or_trim grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il']"
-    },
-    {
-      "type": "source_tier_inversion",
-      "severity": "leak",
-      "make": "Aston Martin",
-      "model": "DB9",
-      "detail": "variant[0] year_start grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il']"
-    },
-    {
-      "type": "source_tier_inversion",
-      "severity": "leak",
-      "make": "Aston Martin",
-      "model": "DB9",
-      "detail": "variant[0] year_end grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il']"
+      "detail": "marketplace citation share 75.8%"
     },
     {
       "type": "source_tier_inversion",
@@ -1015,13 +924,6 @@
       "detail": "variant[1] year_end grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il']"
     },
     {
-      "type": "source_tier_inversion",
-      "severity": "leak",
-      "make": "Aston Martin",
-      "model": "DB9",
-      "detail": "variant[2] version_or_trim grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
-    },
-    {
       "type": "grounding_completeness",
       "severity": "structure",
       "make": "Aston Martin",
@@ -1033,7 +935,7 @@
       "severity": "leak",
       "make": "Aston Martin",
       "model": "DB9",
-      "detail": "marketplace citation share 84.2%"
+      "detail": "marketplace citation share 62.5%"
     },
     {
       "type": "source_domain",
@@ -1048,13 +950,6 @@
       "make": "Aston Martin",
       "model": "DBS Superleggera",
       "detail": "10/10 grounded cells (100.0%)"
-    },
-    {
-      "type": "source_tier_inversion",
-      "severity": "leak",
-      "make": "Aston Martin",
-      "model": "DBS Superleggera",
-      "detail": "marketplace citation share 57.1%"
     },
     {
       "type": "source_domain",
@@ -1075,42 +970,42 @@
       "severity": "leak",
       "make": "Aston Martin",
       "model": "Rapide",
-      "detail": "variant[0] version_or_trim grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+      "detail": "variant[0] version_or_trim grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il']"
     },
     {
       "type": "source_tier_inversion",
       "severity": "leak",
       "make": "Aston Martin",
       "model": "Rapide",
-      "detail": "variant[0] year_start grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+      "detail": "variant[0] year_start grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il']"
     },
     {
       "type": "source_tier_inversion",
       "severity": "leak",
       "make": "Aston Martin",
       "model": "Rapide",
-      "detail": "variant[0] year_end grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+      "detail": "variant[0] year_end grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il']"
     },
     {
       "type": "source_tier_inversion",
       "severity": "leak",
       "make": "Aston Martin",
       "model": "Rapide",
-      "detail": "variant[1] version_or_trim grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+      "detail": "variant[1] version_or_trim grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il', 'autoboom.co.il']"
     },
     {
       "type": "source_tier_inversion",
       "severity": "leak",
       "make": "Aston Martin",
       "model": "Rapide",
-      "detail": "variant[1] year_start grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+      "detail": "variant[1] year_start grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il', 'autoboom.co.il']"
     },
     {
       "type": "source_tier_inversion",
       "severity": "leak",
       "make": "Aston Martin",
       "model": "Rapide",
-      "detail": "variant[1] year_end grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+      "detail": "variant[1] year_end grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il', 'autoboom.co.il']"
     },
     {
       "type": "grounding_completeness",
@@ -1134,48 +1029,6 @@
       "detail": "60/60 grounded cells (100.0%)"
     },
     {
-      "type": "source_tier_inversion",
-      "severity": "leak",
-      "make": "Audi",
-      "model": "100",
-      "detail": "variant[0] year_start grounded only by marketplace/aggregator source(s): ['yad2.co.il']"
-    },
-    {
-      "type": "source_tier_inversion",
-      "severity": "leak",
-      "make": "Audi",
-      "model": "100",
-      "detail": "variant[0] year_end grounded only by marketplace/aggregator source(s): ['yad2.co.il']"
-    },
-    {
-      "type": "source_tier_inversion",
-      "severity": "leak",
-      "make": "Audi",
-      "model": "100",
-      "detail": "variant[1] year_start grounded only by marketplace/aggregator source(s): ['yad2.co.il']"
-    },
-    {
-      "type": "source_tier_inversion",
-      "severity": "leak",
-      "make": "Audi",
-      "model": "100",
-      "detail": "variant[1] year_end grounded only by marketplace/aggregator source(s): ['yad2.co.il']"
-    },
-    {
-      "type": "source_tier_inversion",
-      "severity": "leak",
-      "make": "Audi",
-      "model": "100",
-      "detail": "variant[2] year_start grounded only by marketplace/aggregator source(s): ['yad2.co.il']"
-    },
-    {
-      "type": "source_tier_inversion",
-      "severity": "leak",
-      "make": "Audi",
-      "model": "100",
-      "detail": "variant[2] year_end grounded only by marketplace/aggregator source(s): ['yad2.co.il']"
-    },
-    {
       "type": "grounding_completeness",
       "severity": "structure",
       "make": "Audi",
@@ -1187,35 +1040,35 @@
       "severity": "leak",
       "make": "Audi",
       "model": "100",
-      "detail": "marketplace citation share 81.2%"
+      "detail": "marketplace citation share 57.1%"
     },
     {
       "type": "source_tier_inversion",
       "severity": "leak",
       "make": "Audi",
       "model": "80",
-      "detail": "variant[0] year_start grounded only by marketplace/aggregator source(s): ['yad2.co.il']"
+      "detail": "variant[0] year_start grounded only by marketplace/aggregator source(s): ['yad2.co.il', 'yad2.co.il']"
     },
     {
       "type": "source_tier_inversion",
       "severity": "leak",
       "make": "Audi",
       "model": "80",
-      "detail": "variant[0] year_end grounded only by marketplace/aggregator source(s): ['yad2.co.il']"
+      "detail": "variant[0] year_end grounded only by marketplace/aggregator source(s): ['yad2.co.il', 'yad2.co.il']"
     },
     {
       "type": "source_tier_inversion",
       "severity": "leak",
       "make": "Audi",
       "model": "80",
-      "detail": "variant[1] year_start grounded only by marketplace/aggregator source(s): ['yad2.co.il']"
+      "detail": "variant[1] year_start grounded only by marketplace/aggregator source(s): ['yad2.co.il', 'yad2.co.il', 'yad2.co.il']"
     },
     {
       "type": "source_tier_inversion",
       "severity": "leak",
       "make": "Audi",
       "model": "80",
-      "detail": "variant[1] year_end grounded only by marketplace/aggregator source(s): ['yad2.co.il']"
+      "detail": "variant[1] year_end grounded only by marketplace/aggregator source(s): ['yad2.co.il', 'yad2.co.il', 'yad2.co.il']"
     },
     {
       "type": "source_tier_inversion",
@@ -1467,7 +1320,7 @@
       "severity": "structure",
       "make": "Audi",
       "model": "SQ7",
-      "detail": "18/18 grounded cells (100.0%)"
+      "detail": "17/17 grounded cells (100.0%)"
     },
     {
       "type": "grounding_completeness",
@@ -1481,27 +1334,532 @@
       "severity": "structure",
       "make": "Audi",
       "model": "TT",
-      "detail": "81/81 grounded cells (100.0%)"
+      "detail": "63/63 grounded cells (100.0%)"
     },
     {
       "type": "year_split_duplicates",
       "severity": "structure",
       "make": "Bentley",
       "model": "Bentayga",
-      "detail": "merge candidate signature=('SUV', 'petrol', '4.0L turbo v8', 550, '8-speed automatic', 'AWD') rows=[(0, 2019, 2026), (1, 2019, 2022), (4, 2023, 2026)]"
+      "detail": "merge candidate signature=('SUV', 'petrol', '4.0L turbo v8', 550, '8-speed automatic', 'AWD') rows=[(0, 2019, 2022), (1, 2022, 2022), (4, 2023, 2026)]"
+    },
+    {
+      "type": "year_split_duplicates",
+      "severity": "structure",
+      "make": "Bentley",
+      "model": "Bentayga",
+      "detail": "merge candidate signature=('SUV', 'petrol', '6.0L turbo w12', 608, '8-speed automatic', 'AWD') rows=[(2, 2019, 2022), (3, 2022, 2022)]"
     },
     {
       "type": "grounding_completeness",
       "severity": "structure",
       "make": "Bentley",
       "model": "Bentayga",
-      "detail": "48/48 grounded cells (100.0%)"
+      "detail": "50/50 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Bentley",
+      "model": "Continental GT",
+      "detail": "40/40 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Bentley",
+      "model": "Flying Spur",
+      "detail": "40/40 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "116i",
+      "detail": "58/58 grounded cells (100.0%)"
+    },
+    {
+      "type": "year_split_duplicates",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "118d",
+      "detail": "merge candidate signature=('Hatchback', 'diesel', '2.0L inline-4 turbo', 143, '6-speed manual', 'RWD') rows=[(0, 2008, 2011), (1, 2011, 2015)]"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "118d",
+      "detail": "27/27 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "118i",
+      "detail": "39/39 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "120i",
+      "detail": "36/36 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "125i",
+      "detail": "36/36 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "128ti",
+      "detail": "10/10 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "218i",
+      "detail": "17/17 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "218i Gran Coupe",
+      "detail": "20/20 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "220i",
+      "detail": "36/36 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "225xe (Active Tourer PHEV)",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "230e (Active Tourer PHEV)",
+      "detail": "20/20 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "316i",
+      "detail": "36/36 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "318d",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "318i",
+      "detail": "40/40 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "320e",
+      "detail": "10/10 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "320i",
+      "detail": "45/45 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "323i",
+      "detail": "36/36 grounded cells (100.0%)"
+    },
+    {
+      "type": "year_split_duplicates",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "325i",
+      "detail": "merge candidate signature=('Sedan', 'petrol', '2.5L inline-6', 192, 'automatic', 'RWD') rows=[(3, 2000, 2005), (6, 1991, 1998)]"
+    },
+    {
+      "type": "year_split_duplicates",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "325i",
+      "detail": "merge candidate signature=('Coupe', 'petrol', '2.5L inline-6', 192, 'automatic', 'RWD') rows=[(4, 2000, 2005), (7, 1992, 1998)]"
+    },
+    {
+      "type": "year_split_duplicates",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "325i",
+      "detail": "merge candidate signature=('Convertible', 'petrol', '2.5L inline-6', 192, 'automatic', 'RWD') rows=[(5, 2000, 2005), (8, 1993, 1998)]"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "325i",
+      "detail": "81/81 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "328i",
+      "detail": "20/20 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "330e",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "330i",
+      "detail": "36/36 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "335i",
+      "detail": "27/27 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "340i",
+      "detail": "10/10 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "420i",
+      "detail": "27/27 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "428i",
+      "detail": "27/27 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "430i",
+      "detail": "72/72 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "435i",
+      "detail": "30/30 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "440i",
+      "detail": "54/54 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "518i",
+      "detail": "36/36 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "520d",
+      "detail": "27/27 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "520i",
+      "detail": "17/17 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "523i",
+      "detail": "49/49 grounded cells (100.0%)"
+    },
+    {
+      "type": "year_split_duplicates",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "525i",
+      "detail": "merge candidate signature=('Sedan', 'petrol', '2.5L i6', 192, 'automatic', 'RWD') rows=[(1, 2003, 2005), (2, 2000, 2003), (3, 1990, 1995)]"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "525i",
+      "detail": "37/37 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "528i",
+      "detail": "29/29 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "530e",
+      "detail": "26/26 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "530i",
+      "detail": "36/36 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "535i",
+      "detail": "37/37 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "540i",
+      "detail": "45/45 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "545e",
+      "detail": "10/10 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "630i GT",
+      "detail": "20/20 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "640i GT",
+      "detail": "10/10 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "650i",
+      "detail": "63/63 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "728i",
+      "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "730i",
+      "detail": "45/45 grounded cells (100.0%)"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "BMW",
+      "model": "550i",
+      "detail": "variant[0] year_start grounded only by marketplace/aggregator source(s): ['yad2.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "BMW",
+      "model": "550i",
+      "detail": "variant[0] year_end grounded only by marketplace/aggregator source(s): ['yad2.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "BMW",
+      "model": "550i",
+      "detail": "variant[1] version_or_trim grounded only by marketplace/aggregator source(s): ['yad2.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "BMW",
+      "model": "550i",
+      "detail": "variant[1] year_start grounded only by marketplace/aggregator source(s): ['yad2.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "BMW",
+      "model": "550i",
+      "detail": "variant[1] year_end grounded only by marketplace/aggregator source(s): ['yad2.co.il']"
+    },
+    {
+      "type": "year_split_duplicates",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "550i",
+      "detail": "merge candidate signature=('Sedan', 'petrol', '4.4L turbo v8', 449, 'automatic', 'RWD') rows=[(1, 2014, 2014), (2, 2015, 2016)]"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "550i",
+      "detail": "29/29 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "630i",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "640i",
+      "detail": "27/27 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Audi",
+      "model": "TT",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Bentley",
+      "model": "Continental GT",
+      "detail": "10/10 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Bentley",
+      "model": "Flying Spur",
+      "detail": "10/10 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "116i",
+      "detail": "20/20 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "318d",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "year_split_duplicates",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "328i",
+      "detail": "merge candidate signature=('Sedan', 'petrol', '2.8L', 193, 'automatic', 'RWD') rows=[(0, 1998, 2000), (2, 1995, 1998)]"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "328i",
+      "detail": "36/36 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "340i",
+      "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "340i",
+      "detail": "10/10 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "650i",
+      "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "canonical_consistency",
+      "severity": "normalization",
+      "make": null,
+      "model": null,
+      "detail": "body_type value outside canonical list: Gran Coupe"
     }
   ],
   "counts_by_type": {
-    "grounding_completeness": 71,
-    "year_split_duplicates": 17,
-    "source_tier_inversion": 120,
-    "source_domain": 4
+    "grounding_completeness": 129,
+    "year_split_duplicates": 25,
+    "source_tier_inversion": 104,
+    "source_domain": 4,
+    "canonical_consistency": 1
   }
 }
