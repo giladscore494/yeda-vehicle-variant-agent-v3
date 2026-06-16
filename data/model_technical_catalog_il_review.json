@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T15:21:44Z",
+  "generated_at": "2026-06-16T15:21:53Z",
   "market": "IL",
   "models": [
     {
@@ -74,7 +74,24 @@
           "validation_id_count": 6
         },
         "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
-      }
+      },
+      "market": "IL",
+      "canonical_model": "RS6",
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "validation_issues": [
+        "technical_variants_il missing or not a list",
+        "technical_variants_il is empty"
+      ],
+      "repair_attempts": 1
     },
     {
       "make": "Audi",
