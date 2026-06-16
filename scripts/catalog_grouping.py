@@ -208,11 +208,18 @@ def select_groups(
     model: Optional[str] = None,
     limit_models: Optional[int] = None,
     start_after_key: Optional[str] = None,
+    allow_missing_start_after: bool = False,
 ) -> List[ModelGroup]:
     """Filter/limit clusters for one run.
 
     ``start_after_key`` resumes processing AFTER the cluster whose ``key``
     (``market|make|model``) matches, so a long run can be continued in batches.
+
+    If ``start_after_key`` is supplied but is not found among the selected
+    clusters, the run does NOT silently restart from the beginning: a
+    :class:`ValueError` is raised (so a stale/typo'd checkpoint is loud) unless
+    ``allow_missing_start_after=True`` is passed by a caller that has already
+    validated/handled the fallback itself.
     """
     selected = groups
     if make:
@@ -224,6 +231,16 @@ def select_groups(
         keys = [g.key for g in selected]
         if target in keys:
             selected = selected[keys.index(target) + 1:]
+        elif not allow_missing_start_after:
+            raise ValueError(
+                f"start_after_key {target!r} was not found among the "
+                f"{len(keys)} selected model clusters. Refusing to silently "
+                "restart from the beginning (the checkpoint is stale or does "
+                "not match the current source grouping). Pass "
+                "allow_missing_start_after=True to override."
+            )
+        # else: explicit override -> leave ``selected`` unfiltered (caller owns
+        # the fallback decision).
     if limit_models is not None and limit_models >= 0:
         selected = selected[:limit_models]
     return selected

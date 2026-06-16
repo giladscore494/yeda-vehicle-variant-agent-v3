@@ -15,6 +15,7 @@ escape that runs without it.
 
 from __future__ import annotations
 
+import hashlib
 import json
 import os
 from dataclasses import dataclass
@@ -26,6 +27,7 @@ from .catalog_grouping import group_variants, select_groups
 from .catalog_validation import (
     ProfileValidation,
     build_readiness_report,
+    is_valid_profile_id,
     validate_profile,
 )
 from .data_loader import (
@@ -73,13 +75,47 @@ def _load_json_file(path: str, default: Any) -> Any:
         return default
 
 
+CORRUPT_KEY_PREFIX = "__CORRUPT__"
+
+
+def _clean_identity(value: Any) -> str:
+    return value.strip() if isinstance(value, str) else ""
+
+
+def is_corrupt_key(key: Optional[str]) -> bool:
+    return bool(key) and str(key).startswith(CORRUPT_KEY_PREFIX)
+
+
 def _model_key(model: Dict[str, Any]) -> str:
-    market = model.get("market") or "IL"
-    return f"{market}|{model.get('make', '')}|{model.get('model', '')}"
+    """Stable ``market|make|model`` key, refusing to invent corrupt identities.
+
+    A row with a missing make/model is never collapsed to ``IL||``: we first try
+    to recover the identity from an attached ``request_payload`` and, failing
+    that, return a quarantined ``__CORRUPT__::<hash>`` key. Quarantined keys are
+    never written to clean/review and never advance the resume pointer.
+    """
+    make = _clean_identity(model.get("make"))
+    model_name = _clean_identity(model.get("model"))
+    market = _clean_identity(model.get("market"))
+
+    if (not make or not model_name) and isinstance(model.get("request_payload"), dict):
+        rp = model["request_payload"]
+        make = make or _clean_identity(rp.get("make"))
+        model_name = model_name or _clean_identity(rp.get("model"))
+        market = market or _clean_identity(rp.get("market"))
+
+    if not make or not model_name:
+        stable = hashlib.sha1(
+            json.dumps(model, sort_keys=True, ensure_ascii=False, default=str).encode("utf-8")
+        ).hexdigest()[:16]
+        return f"{CORRUPT_KEY_PREFIX}::{stable}"
+
+    return f"{market or 'IL'}|{make}|{model_name}"
 
 
 def _profile_id_to_group_key(profile_id: Optional[str]) -> Optional[str]:
-    if not profile_id:
+    # Invalid ids (empty make/model, e.g. "IL::::") are ignored, never resumed.
+    if not is_valid_profile_id(profile_id):
         return None
     parts = str(profile_id).split("::")
     if len(parts) == 3:
@@ -114,14 +150,35 @@ def merge_and_write_outputs(
     review_path: str = REVIEW_OUTPUT_PATH,
 ) -> tuple[Dict[str, Any], Dict[str, Any], Dict[str, Any]]:
     old_catalog, old_readiness, old_review = load_existing_outputs(catalog_path, readiness_path, review_path)
-    ready_by_key = {_model_key(m): m for m in old_catalog.get("models", []) if isinstance(m, dict)}
-    review_by_key = {_model_key(m): m for m in old_review.get("models", []) if isinstance(m, dict)}
+
+    # Quarantine corrupt-identity rows: they must never overwrite a real
+    # clean/review entry and must never be counted as real models.
+    ready_by_key: Dict[str, Any] = {}
+    review_by_key: Dict[str, Any] = {}
+    for m in old_catalog.get("models", []):
+        if not isinstance(m, dict):
+            continue
+        key = _model_key(m)
+        if is_corrupt_key(key):
+            continue
+        ready_by_key[key] = m
+    for m in old_review.get("models", []):
+        if not isinstance(m, dict):
+            continue
+        key = _model_key(m)
+        if is_corrupt_key(key):
+            continue
+        review_by_key[key] = m
     for entry in new_ready:
         key = _model_key(entry)
+        if is_corrupt_key(key):
+            continue
         ready_by_key[key] = entry
         review_by_key.pop(key, None)
     for entry in new_review:
         key = _model_key(entry)
+        if is_corrupt_key(key):
+            continue
         review_by_key[key] = entry
         ready_by_key.pop(key, None)
     ready_models = _sort_models(list(ready_by_key.values()))
@@ -130,8 +187,12 @@ def merge_and_write_outputs(
     for m in review_models:
         validations.append(validate_profile(m))
     readiness = build_readiness_report(validations, web_search_enabled=True, checkpoint_state=checkpoint_state or {})
-    if old_readiness.get("last_checkpointed_profile_id") and not readiness.get("last_checkpointed_profile_id"):
-        readiness["last_checkpointed_profile_id"] = old_readiness.get("last_checkpointed_profile_id")
+    # Preserve a previously-stored resume pointer only when it is still valid;
+    # an invalid stale id (e.g. "IL::::") must never be carried forward.
+    if not readiness.get("last_checkpointed_profile_id"):
+        prior = old_readiness.get("last_checkpointed_profile_id")
+        if is_valid_profile_id(prior):
+            readiness["last_checkpointed_profile_id"] = prior
     catalog = {
         "generated_at": _now_iso(), "market": "IL", "mode": "online_selectable_provider",
         "model_id": settings.model_id, "source_files": SOURCE_FILES, "models": ready_models,
@@ -159,16 +220,36 @@ def compute_resume_state(
         instructions = {}
     groups = group_variants(variants, instructions)
     catalog, readiness, review = load_existing_outputs(catalog_path, readiness_path, review_path)
-    keys = {_model_key(m) for m in catalog.get("models", []) if isinstance(m, dict)} | {_model_key(m) for m in review.get("models", []) if isinstance(m, dict)}
+    group_keys = [g.key for g in groups]
+    group_key_set = set(group_keys)
+    keys = {
+        k
+        for k in (_model_key(m) for m in catalog.get("models", []) if isinstance(m, dict))
+        if not is_corrupt_key(k)
+    } | {
+        k
+        for k in (_model_key(m) for m in review.get("models", []) if isinstance(m, dict))
+        if not is_corrupt_key(k)
+    }
     next_key = _profile_id_to_group_key(readiness.get("last_checkpointed_profile_id"))
-    if not next_key and keys:
-        ordered = [g.key for g in groups if g.key in keys]
-        next_key = ordered[-1] if ordered else sorted(keys)[-1]
+    # A checkpoint that is invalid OR no longer present in the current grouped
+    # source list must NOT silently restart from the beginning: fall back to the
+    # last valid ordered model key that actually exists in clean/review.
+    if next_key not in group_key_set:
+        next_key = None
+    if next_key is None and keys:
+        ordered = [k for k in group_keys if k in keys]
+        next_key = ordered[-1] if ordered else None
     done = len(keys)
     ready = int(readiness.get("models_ready_for_website") or len(catalog.get("models", [])))
     blocked = int(readiness.get("models_blocked") or len(review.get("models", [])))
     total = len(groups)
-    upcoming = select_groups(groups, start_after_key=next_key, limit_models=1)
+    upcoming = select_groups(
+        groups,
+        start_after_key=next_key,
+        limit_models=1,
+        allow_missing_start_after=True,
+    )
     return {"next_key": next_key, "total_universe": total, "done": done, "ready": ready, "blocked": blocked, "remaining": max(total - done, 0), "next_make": upcoming[0].make if upcoming else None, "next_model": upcoming[0].model if upcoming else None}
 
 
@@ -341,6 +422,15 @@ def build_catalog(
             )
             _emit_progress(group, idx, "error")
             continue
+
+        # Enforce top-level identity from the ModelGroup/request payload, never
+        # trusting whatever the model echoed back. This prevents corrupt rows
+        # like "IL||" / "IL::::" from ever being created.
+        profile["market"] = market
+        profile["make"] = group.make
+        profile["model"] = group.model
+        profile["canonical_model"] = profile.get("canonical_model") or group.model
+        profile["profile_confidence"] = profile.get("profile_confidence") or "medium"
 
         result = validate_profile(profile)
         validations.append(result)

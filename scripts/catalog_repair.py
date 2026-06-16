@@ -15,7 +15,12 @@ from .catalog_builder import (
     merge_and_write_outputs,
 )
 from .catalog_checkpoint import CatalogCheckpointConfig, CatalogCheckpointer
-from .catalog_validation import REQUIRED_WEBSITE_FIELDS, derive_available_values, validate_profile
+from .catalog_validation import (
+    REQUIRED_WEBSITE_FIELDS,
+    _valid_source_indexes,
+    derive_available_values,
+    validate_profile,
+)
 from .openai_catalog_client import CatalogClientSettings, GROUNDED_TECHNICAL_FIELDS
 from .catalog_provider import CatalogProviderSettings, ProviderUnavailableError, build_catalog_client, check_provider_available
 from .security import sanitize_error
@@ -47,6 +52,16 @@ _CHECKPOINT_STATE_FIELDS = (
     "github_checkpoint_fail_count",
     "last_github_checkpoint_error",
     "last_checkpointed_profile_id",
+    "last_repair_checkpointed_profile_id",
+)
+
+# Review-only bookkeeping keys that must never leak into the clean catalog.
+_REVIEW_ONLY_KEYS = (
+    "validation_issues",
+    "repair_attempts",
+    "repair_exhausted",
+    "last_repair_error",
+    "request_payload",
 )
 
 
@@ -80,9 +95,97 @@ def is_provider_setup_error(value: Any) -> bool:
     return False
 
 
+def _derivable_source_indexes(variant: Dict[str, Any]) -> List[int]:
+    """The variant-level source_indexes implied by its grounded field_sources.
+
+    These are the unique source ids that the variant's own ``field_sources``
+    already reference for grounded fields — i.e. the deterministic value the
+    missing ``source_indexes`` should have had.
+    """
+    field_sources = variant.get("field_sources")
+    if not isinstance(field_sources, dict):
+        return []
+    refs: set = set()
+    for fname in GROUNDED_TECHNICAL_FIELDS:
+        for ref in field_sources.get(fname) or []:
+            if isinstance(ref, int):
+                refs.add(ref)
+    return sorted(refs)
+
+
+def patch_source_indexes_from_field_sources(variant: Dict[str, Any]) -> bool:
+    """Deterministically fill a variant's missing ``source_indexes`` (spec 8).
+
+    If ``field_sources`` is populated for grounded fields but the variant-level
+    ``source_indexes`` is missing/empty, set ``source_indexes`` to the sorted,
+    unique source ids those grounded fields reference. No model call needed.
+    Returns True when a patch was applied.
+    """
+    if not isinstance(variant, dict):
+        return False
+    existing = variant.get("source_indexes")
+    if isinstance(existing, list) and existing:
+        return False
+    derived = _derivable_source_indexes(variant)
+    if not derived:
+        return False
+    variant["source_indexes"] = derived
+    return True
+
+
+def recover_identity_from_payload(entry: Dict[str, Any]) -> bool:
+    """Deterministically restore top-level identity for a review entry (spec 9).
+
+    Identity is recovered ONLY from an attached ``request_payload`` (never
+    invented). ``canonical_model`` defaults to ``model`` once ``model`` is known.
+    Returns True when any identity field was filled.
+    """
+    if not isinstance(entry, dict):
+        return False
+    rp = entry.get("request_payload") if isinstance(entry.get("request_payload"), dict) else {}
+    changed = False
+    if not entry.get("market"):
+        recovered = rp.get("market") or ("IL" if (rp.get("make") or rp.get("model")) else None)
+        if recovered:
+            entry["market"] = recovered
+            changed = True
+    if not entry.get("make") and rp.get("make"):
+        entry["make"] = rp.get("make")
+        changed = True
+    if not entry.get("model") and rp.get("model"):
+        entry["model"] = rp.get("model")
+        changed = True
+    if entry.get("model") and not entry.get("canonical_model"):
+        entry["canonical_model"] = entry["model"]
+        changed = True
+    return changed
+
+
+def apply_deterministic_patches(entry: Dict[str, Any]) -> Dict[str, Any]:
+    """Apply model-free repairs (identity + source_indexes) and return a copy."""
+    patched = copy.deepcopy(entry)
+    recover_identity_from_payload(patched)
+    for variant in patched.get("technical_variants_il") or []:
+        if isinstance(variant, dict):
+            patch_source_indexes_from_field_sources(variant)
+    return patched
+
+
 def derive_repair_targets(profile: Dict[str, Any]) -> Dict[int, List[str]]:
+    """Map variant index -> fields a model must re-ground.
+
+    Detects (spec 7): missing required fields, non-null fields lacking
+    field_sources, declared missing_grounded_fields, AND structural source
+    grounding problems — a variant with no source_indexes that cannot be
+    self-healed from field_sources, or source/field_sources references to
+    source ids that do not exist. When any structural problem is present, all
+    present grounded fields are flagged so the model re-grounds them (the pure
+    source_indexes-only case is patched deterministically elsewhere, so it does
+    not reach here).
+    """
     targets: Dict[int, List[str]] = {}
     variants = profile.get("technical_variants_il") or []
+    valid_source_indexes = _valid_source_indexes(profile.get("sources"))
     for idx, variant in enumerate(variants):
         if not isinstance(variant, dict):
             continue
@@ -96,6 +199,33 @@ def derive_repair_targets(profile: Dict[str, Any]) -> Dict[int, List[str]]:
             if variant.get(fname) not in (None, "") and not field_sources.get(fname):
                 fields.add(fname)
         fields.update(f for f in missing if isinstance(f, str))
+
+        present_grounded = [
+            fname for fname in GROUNDED_TECHNICAL_FIELDS if variant.get(fname) not in (None, "")
+        ]
+
+        # Structural source_indexes problems.
+        src_indexes = variant.get("source_indexes")
+        has_source_indexes = isinstance(src_indexes, list) and bool(src_indexes)
+        if not has_source_indexes and not _derivable_source_indexes(variant):
+            # Cannot self-heal: the model must re-ground this variant.
+            fields.update(present_grounded)
+
+        # References (variant-level or field_sources) to non-existent sources.
+        invalid_ref = any(
+            isinstance(ref, int) and ref not in valid_source_indexes
+            for ref in (src_indexes or [])
+        )
+        if not invalid_ref:
+            for refs in field_sources.values():
+                if isinstance(refs, list) and any(
+                    isinstance(ref, int) and ref not in valid_source_indexes for ref in refs
+                ):
+                    invalid_ref = True
+                    break
+        if invalid_ref:
+            fields.update(present_grounded)
+
         if fields:
             targets[idx] = sorted(fields)
     return targets
@@ -190,6 +320,11 @@ def repair_review_models(
         if field in readiness:
             checkpointer.state[field] = readiness[field]
 
+    # Repair must NOT advance the main build resume pointer. Snapshot it so we
+    # can restore it after each (potentially github-pushing) checkpoint call,
+    # which would otherwise overwrite it with the repaired profile id.
+    build_resume_pointer = checkpointer.state.get("last_checkpointed_profile_id")
+
     review_models = [m for m in review.get("models", []) if isinstance(m, dict)]
     processed = promoted = kept = skipped = 0
 
@@ -216,11 +351,17 @@ def repair_review_models(
             emit(f"SKIP exhausted: {key}")
             continue
 
-        market = model_entry.get("market") or "IL"
-        make = model_entry.get("make", "")
-        model = model_entry.get("model", "")
-        targets = derive_repair_targets(model_entry)
-        emit(f"REPAIRING WITH {provider_settings.display_name}: {key} | {targets or 'stale block; re-validating only'}")
+        # Deterministic, model-free repairs first: recover identity from the
+        # request payload and fill missing source_indexes from field_sources.
+        # This resolves source_indexes-only / identity-only blocks without
+        # spending a model call (and without ever doing a no-op "re-validate
+        # only" when there is something concrete to fix).
+        patched_entry = apply_deterministic_patches(model_entry)
+        market = patched_entry.get("market") or "IL"
+        make = patched_entry.get("make", "")
+        model = patched_entry.get("model", "")
+        targets = derive_repair_targets(patched_entry)
+        emit(f"REPAIRING WITH {provider_settings.display_name}: {key} | {targets or 'deterministic patch / re-validate'}")
         processed += 1
 
         delta_ready: List[Dict[str, Any]] = []
@@ -229,13 +370,16 @@ def repair_review_models(
 
         try:
             if targets:
-                repaired = client.build_repair_profile(make, model, model_entry, targets)
-                patched = merge_repair(model_entry, repaired, targets)
+                repaired = client.build_repair_profile(make, model, patched_entry, targets)
+                patched = merge_repair(patched_entry, repaired, targets)
             else:
-                patched = dict(model_entry)
+                patched = dict(patched_entry)
             result = validate_profile(patched)
             if result.ready:
-                delta_ready = [result.profile]
+                clean_profile = dict(result.profile)
+                for review_key in _REVIEW_ONLY_KEYS:
+                    clean_profile.pop(review_key, None)
+                delta_ready = [clean_profile]
                 promoted += 1
                 emit(f"PROMOTE {key}")
             else:
@@ -271,6 +415,10 @@ def repair_review_models(
 
         if completed:
             profile_id = f"{market}::{make}::{model}"
+            # Track the repair pointer separately; the main build resume pointer
+            # must stay exactly where the last normal build left it.
+            checkpointer.state["last_repair_checkpointed_profile_id"] = profile_id
+            checkpointer.state["last_checkpointed_profile_id"] = build_resume_pointer
             merge_and_write_outputs(
                 delta_ready,
                 delta_review,
@@ -281,7 +429,6 @@ def repair_review_models(
                 review_path=review_path,
             )
             emit(f"local repair checkpoint written for {profile_id}")
-            checkpointer.state["last_checkpointed_profile_id"] = profile_id
             checkpointer.maybe_checkpoint(
                 profile_id=profile_id,
                 paths=[catalog_path, readiness_path, review_path],
@@ -290,6 +437,10 @@ def repair_review_models(
                 model=model,
                 force=True,
             )
+            # maybe_checkpoint may have set last_checkpointed_profile_id to the
+            # repaired profile id on a successful github push; restore the build
+            # pointer so repair never moves it.
+            checkpointer.state["last_checkpointed_profile_id"] = build_resume_pointer
 
     # Final harmless refresh — correctness does not depend on this call.
     merged_catalog, merged_readiness, merged_review = merge_and_write_outputs(

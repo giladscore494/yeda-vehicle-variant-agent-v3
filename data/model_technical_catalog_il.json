@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T14:45:57Z",
+  "generated_at": "2026-06-16T15:08:38Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gpt-5.4",
@@ -21805,8 +21805,12 @@
       ]
     },
     {
+      "market": "IL",
       "make": "Audi",
       "model": "RS4",
+      "canonical_model": "RS4",
+      "year_start": 2006,
+      "year_end": 2024,
       "technical_variants_il": [
         {
           "version_or_trim": null,
@@ -21817,7 +21821,7 @@
           "horsepower_hp": 450,
           "transmission": "8-speed automatic",
           "drivetrain": "AWD",
-          "year_start": 2018,
+          "year_start": 2020,
           "year_end": 2024,
           "support_level": "direct",
           "source_indexes": [
@@ -21977,24 +21981,6 @@
           "missing_grounded_fields": []
         }
       ],
-      "invalid_or_non_trim_labels": [
-        {
-          "label": "Avant",
-          "classification": "body_designation"
-        },
-        {
-          "label": "Base",
-          "classification": "standard_trim_placeholder"
-        },
-        {
-          "label": "Cabriolet",
-          "classification": "body_designation"
-        },
-        {
-          "label": "25 Years Edition",
-          "classification": "special_edition"
-        }
-      ],
       "available_values_for_website": {
         "version_or_trim": [],
         "body_type": [
@@ -22021,6 +22007,24 @@
           "AWD"
         ]
       },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Avant",
+          "classification": "body_designation"
+        },
+        {
+          "label": "Base",
+          "classification": "standard_trim_placeholder"
+        },
+        {
+          "label": "Cabriolet",
+          "classification": "body_designation"
+        },
+        {
+          "label": "25 Years Edition",
+          "classification": "special_edition"
+        }
+      ],
       "sources": [
         {
           "source_index": 88,
@@ -22127,7 +22131,8 @@
             "year_end"
           ]
         }
-      ]
+      ],
+      "profile_confidence": "medium"
     },
     {
       "market": "IL",
@@ -22431,5 +22436,5 @@
       ]
     }
   ],
-  "ready_for_website_upload": false
+  "ready_for_website_upload": true
 }

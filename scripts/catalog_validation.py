@@ -56,6 +56,26 @@ class ProfileValidation:
     stats: Dict[str, int] = field(default_factory=dict)
 
 
+def is_valid_profile_id(profile_id: Any) -> bool:
+    """True only when a checkpoint/profile id carries a real make AND model.
+
+    Corrupt ids such as ``"IL::::"`` (empty make/model) must never be treated as
+    a valid resume pointer; they would otherwise rebuild from the beginning or
+    poison the readiness report.
+    """
+    if not profile_id:
+        return False
+    text = str(profile_id)
+    parts = text.split("::")
+    if len(parts) == 3:
+        _market, make, model = parts
+        return bool(make.strip() and model.strip())
+    parts = text.split("|")
+    if len(parts) == 3:
+        return bool(parts[1].strip() and parts[2].strip())
+    return False
+
+
 def _variant_signature(variant: Dict[str, Any]) -> Tuple:
     return tuple(
         str(variant.get(k)).strip().lower() if variant.get(k) is not None else None
@@ -233,6 +253,23 @@ def validate_profile(profile: Dict[str, Any]) -> ProfileValidation:
     profile = dict(profile)  # shallow copy; we mutate top-level keys only
     model = profile.get("model", "")
 
+    # --- hard top-level identity checks ---------------------------------
+    # A profile with a missing make/model must never be website-ready and must
+    # never be allowed to masquerade as a real model. ``canonical_model``
+    # defaults to ``model`` (never invents a new identity).
+    market = profile.get("market")
+    make = profile.get("make")
+    if not (isinstance(market, str) and market.strip()):
+        issues.append("top-level market is missing/empty")
+    if not (isinstance(make, str) and make.strip()):
+        issues.append("top-level make is missing/empty")
+    if not (isinstance(model, str) and str(model).strip()):
+        issues.append("top-level model is missing/empty")
+    else:
+        canonical = profile.get("canonical_model")
+        if not (isinstance(canonical, str) and canonical.strip()):
+            profile["canonical_model"] = model
+
     variants = profile.get("technical_variants_il")
     if not isinstance(variants, list):
         variants = []
@@ -351,6 +388,16 @@ def build_readiness_report(
         real_grounded_run and blocked == 0 and ready_models > 0
     )
 
+    # Never preserve an invalid/stale build resume pointer (e.g. "IL::::").
+    last_checkpointed_profile_id = checkpoint_state.get("last_checkpointed_profile_id")
+    if not is_valid_profile_id(last_checkpointed_profile_id):
+        last_checkpointed_profile_id = None
+    last_repair_checkpointed_profile_id = checkpoint_state.get(
+        "last_repair_checkpointed_profile_id"
+    )
+    if not is_valid_profile_id(last_repair_checkpointed_profile_id):
+        last_repair_checkpointed_profile_id = None
+
     return {
         # --- run identity / grounding ---------------------------------------
         "real_grounded_run": real_grounded_run,
@@ -362,7 +409,10 @@ def build_readiness_report(
         "github_checkpoint_count": int(checkpoint_state.get("github_checkpoint_count", 0)),
         "github_checkpoint_fail_count": int(checkpoint_state.get("github_checkpoint_fail_count", 0)),
         "last_github_checkpoint_error": checkpoint_state.get("last_github_checkpoint_error"),
-        "last_checkpointed_profile_id": checkpoint_state.get("last_checkpointed_profile_id"),
+        "last_checkpointed_profile_id": last_checkpointed_profile_id,
+        # Repair runs advance a SEPARATE pointer; they must never move the main
+        # build resume pointer above.
+        "last_repair_checkpointed_profile_id": last_repair_checkpointed_profile_id,
         # --- aggregate counts (legacy keys kept for the UI) -----------------
         "total_models": total_models,
         "total_technical_variants": total_variants,
