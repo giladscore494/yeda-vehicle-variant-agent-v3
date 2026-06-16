@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T17:34:41Z",
+  "generated_at": "2026-06-16T17:35:15Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -35422,6 +35422,240 @@
         ]
       },
       "canonical_model": "518i",
+      "profile_confidence": "medium"
+    },
+    {
+      "make": "BMW",
+      "model": "520d",
+      "sources": [
+        {
+          "source_index": 516,
+          "title": "ב.מ.וו סדרה 5 (2010-2017) 520d - מפרט טכני",
+          "url": "https://www.icar.co.il/bmw/5_series/f10/specs/",
+          "source_name": "iCar",
+          "source_type": "israeli_catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 517,
+          "title": "ב.מ.וו סדרה 5 החדשה בישראל - מחיר החל מ-390,000 שקל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/ב-מ-וו-סדרה-5-החדשה-בישראל-מחיר-החל-מ-390000-שקל",
+          "source_name": "Cartube",
+          "source_type": "israeli_editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 518,
+          "title": "ב.מ.וו סדרה 5 (2004-2010) - מפרט טכני",
+          "url": "https://www.icar.co.il/bmw/5_series/e60/specs/",
+          "source_name": "iCar",
+          "source_type": "israeli_catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "Sedan",
+          "fuel_type": "diesel",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 177,
+          "transmission": "6-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 2008,
+          "year_end": 2010,
+          "support_level": "direct",
+          "source_indexes": [
+            518
+          ],
+          "field_sources": {
+            "body_type": [
+              518
+            ],
+            "fuel_type": [
+              518
+            ],
+            "engine": [
+              518
+            ],
+            "engine_displacement_l": [
+              518
+            ],
+            "horsepower_hp": [
+              518
+            ],
+            "transmission": [
+              518
+            ],
+            "drivetrain": [
+              518
+            ],
+            "year_start": [
+              518
+            ],
+            "year_end": [
+              518
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Sedan",
+          "fuel_type": "diesel",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 184,
+          "transmission": "8-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 2010,
+          "year_end": 2016,
+          "support_level": "direct",
+          "source_indexes": [
+            516
+          ],
+          "field_sources": {
+            "body_type": [
+              516
+            ],
+            "fuel_type": [
+              516
+            ],
+            "engine": [
+              516
+            ],
+            "engine_displacement_l": [
+              516
+            ],
+            "horsepower_hp": [
+              516
+            ],
+            "transmission": [
+              516
+            ],
+            "drivetrain": [
+              516
+            ],
+            "year_start": [
+              516
+            ],
+            "year_end": [
+              516
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Sedan",
+          "fuel_type": "diesel",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 190,
+          "transmission": "8-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 2017,
+          "year_end": 2020,
+          "support_level": "direct",
+          "source_indexes": [
+            517
+          ],
+          "field_sources": {
+            "body_type": [
+              517
+            ],
+            "fuel_type": [
+              517
+            ],
+            "engine": [
+              517
+            ],
+            "engine_displacement_l": [
+              517
+            ],
+            "horsepower_hp": [
+              517
+            ],
+            "transmission": [
+              517
+            ],
+            "drivetrain": [
+              517
+            ],
+            "year_start": [
+              517
+            ],
+            "year_end": [
+              517
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Sedan"
+        ],
+        "fuel_type": [
+          "diesel"
+        ],
+        "engine": [
+          "2.0L turbo"
+        ],
+        "horsepower_hp": [
+          177,
+          184,
+          190
+        ],
+        "transmission": [
+          "6-speed automatic",
+          "8-speed automatic"
+        ],
+        "drivetrain": [
+          "RWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "2.0L Turbo Diesel",
+          "classification": "engine_spec"
+        },
+        {
+          "label": "automatic",
+          "classification": "transmission"
+        }
+      ],
+      "market": "IL",
+      "canonical_model": "520d",
       "profile_confidence": "medium"
     }
   ],
