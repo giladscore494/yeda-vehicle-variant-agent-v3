@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T17:41:45Z",
+  "generated_at": "2026-06-16T17:42:40Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -37663,6 +37663,371 @@
       "make": "BMW",
       "model": "535i",
       "canonical_model": "535i",
+      "profile_confidence": "medium"
+    },
+    {
+      "task": "build_israeli_model_technical_catalog",
+      "market": "IL",
+      "make": "BMW",
+      "model": "540i",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "ב.מ.וו סדרה 5 החדשה 2017 בישראל - מחיר החל מ-480,000 שקל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%91-%D7%9E-%D7%95%D7%95-%D7%A1%D7%93%D7%A8%D7%94-5-%D7%94%D7%97%D7%93%D7%A9%D7%94-2017-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-480-000-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "ב.מ.וו סדרה 5 (2017-2023) - מחירון מפרטים",
+          "url": "https://www.icar.co.il/%D7%91.%D7%9E.%D7%95%D7%95/%D7%91.%D7%9E.%D7%95%D7%95_%D7%A1%D7%93%D7%A8%D7%94_5/%D7%91.%D7%9E.%D7%95%D7%95_%D7%A1%D7%93%D7%A8%D7%94_5_%D7%97%D7%93%D7%A9/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "year_end",
+            "fuel_type",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "ב.מ.וו סדרה 5 2004-2010 - מחירון מפרטים",
+          "url": "https://www.icar.co.il/%D7%91.%D7%9E.%D7%95%D7%95/%D7%91.%D7%9E.%D7%95%D7%95_%D7%A1%D7%93%D7%A8%D7%94_5/%D7%91.%D7%9E.%D7%95%D7%95_%D7%A1%D7%93%D7%A8%D7%94_5_%D7%99%D7%A9%D7%9F_4/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "ב.מ.וו סדרה 5 1996-2003 מפרט טכני",
+          "url": "https://www.auto.co.il/model/bmw-5-series_g209",
+          "source_name": "Auto.co.il",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 4,
+          "title": "ב.מ.וו סדרה 5 דור שלישי (E34)",
+          "url": "https://www.auto.co.il/model/bmw-5-series_g208",
+          "source_name": "Auto.co.il",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "invalid_or_non_trim_labels": {
+        "Base": "base_or_standard_placeholder",
+        "Sport / Sport Exclusive / Exclusive": "multiple_trims_combined",
+        "3.0L I6 Turbo": "engine_spec",
+        "3.0L I6 Turbo Mild Hybrid": "engine_spec",
+        "4.0L V8": "engine_spec",
+        "4.4L V8": "engine_spec"
+      },
+      "technical_variants_il": [
+        {
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "4.0L v8",
+          "engine_displacement_l": 4.0,
+          "horsepower_hp": 286,
+          "transmission": "5-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 1992,
+          "year_end": 1996,
+          "support_level": "direct",
+          "source_indexes": [
+            4
+          ],
+          "field_sources": {
+            "body_type": [
+              4
+            ],
+            "fuel_type": [
+              4
+            ],
+            "engine": [
+              4
+            ],
+            "engine_displacement_l": [
+              4
+            ],
+            "horsepower_hp": [
+              4
+            ],
+            "transmission": [
+              4
+            ],
+            "drivetrain": [
+              4
+            ],
+            "year_start": [
+              4
+            ],
+            "year_end": [
+              4
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "4.4L v8",
+          "engine_displacement_l": 4.4,
+          "horsepower_hp": 286,
+          "transmission": "5-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 1996,
+          "year_end": 2003,
+          "support_level": "direct",
+          "source_indexes": [
+            3
+          ],
+          "field_sources": {
+            "body_type": [
+              3
+            ],
+            "fuel_type": [
+              3
+            ],
+            "engine": [
+              3
+            ],
+            "engine_displacement_l": [
+              3
+            ],
+            "horsepower_hp": [
+              3
+            ],
+            "transmission": [
+              3
+            ],
+            "drivetrain": [
+              3
+            ],
+            "year_start": [
+              3
+            ],
+            "year_end": [
+              3
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "4.0L v8",
+          "engine_displacement_l": 4.0,
+          "horsepower_hp": 306,
+          "transmission": "6-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 2005,
+          "year_end": 2010,
+          "support_level": "direct",
+          "source_indexes": [
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              2
+            ],
+            "engine": [
+              2
+            ],
+            "engine_displacement_l": [
+              2
+            ],
+            "horsepower_hp": [
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              2
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "3.0L turbo",
+          "engine_displacement_l": 3.0,
+          "horsepower_hp": 340,
+          "transmission": "8-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 2017,
+          "year_end": 2020,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Sedan",
+          "fuel_type": "mild_hybrid",
+          "engine": "3.0L turbo",
+          "engine_displacement_l": 3.0,
+          "horsepower_hp": 333,
+          "transmission": "8-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 2020,
+          "year_end": 2023,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Sedan"
+        ],
+        "fuel_type": [
+          "petrol",
+          "mild_hybrid"
+        ],
+        "engine": [
+          "4.0L v8",
+          "4.4L v8",
+          "3.0L turbo"
+        ],
+        "horsepower_hp": [
+          286,
+          306,
+          340,
+          333
+        ],
+        "transmission": [
+          "5-speed automatic",
+          "6-speed automatic",
+          "8-speed automatic"
+        ],
+        "drivetrain": [
+          "RWD"
+        ]
+      },
+      "canonical_model": "540i",
       "profile_confidence": "medium"
     }
   ],
