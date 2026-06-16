@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T17:34:00Z",
+  "generated_at": "2026-06-16T17:34:41Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -35122,6 +35122,306 @@
       "make": "BMW",
       "model": "440i",
       "canonical_model": "440i",
+      "profile_confidence": "medium"
+    },
+    {
+      "task": "build_israeli_model_technical_catalog",
+      "market": "IL",
+      "make": "BMW",
+      "model": "518i",
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Base",
+          "classification": "generic_placeholder"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 785,
+          "title": "ב.מ.וו סדרה 5 (1988-1996) מפרט טכני",
+          "url": "https://www.auto.co.il/catalog/bmw/5-series",
+          "source_name": "Auto.co.il",
+          "source_type": "catalog/spec",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 786,
+          "title": "מחירון רכב קמ''ל - ב.מ.וו סדרה 5 1988-1996 (דגמי 518i)",
+          "url": "https://www.kml.co.il/car/BMW/5-Series/1988-1996",
+          "source_name": "KML Israel",
+          "source_type": "price_list",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "1.8L",
+          "engine_displacement_l": 1.8,
+          "horsepower_hp": 113,
+          "transmission": "manual",
+          "drivetrain": "RWD",
+          "year_start": 1990,
+          "year_end": 1993,
+          "support_level": "direct",
+          "source_indexes": [
+            785,
+            786
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              785,
+              786
+            ],
+            "fuel_type": [
+              785,
+              786
+            ],
+            "engine": [
+              785,
+              786
+            ],
+            "engine_displacement_l": [
+              785,
+              786
+            ],
+            "horsepower_hp": [
+              785,
+              786
+            ],
+            "transmission": [
+              785,
+              786
+            ],
+            "drivetrain": [
+              785
+            ],
+            "year_start": [
+              785,
+              786
+            ],
+            "year_end": [
+              785,
+              786
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "1.8L",
+          "engine_displacement_l": 1.8,
+          "horsepower_hp": 113,
+          "transmission": "automatic",
+          "drivetrain": "RWD",
+          "year_start": 1990,
+          "year_end": 1993,
+          "support_level": "direct",
+          "source_indexes": [
+            785,
+            786
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              785,
+              786
+            ],
+            "fuel_type": [
+              785,
+              786
+            ],
+            "engine": [
+              785,
+              786
+            ],
+            "engine_displacement_l": [
+              785,
+              786
+            ],
+            "horsepower_hp": [
+              785,
+              786
+            ],
+            "transmission": [
+              785,
+              786
+            ],
+            "drivetrain": [
+              785
+            ],
+            "year_start": [
+              785,
+              786
+            ],
+            "year_end": [
+              785,
+              786
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "1.8L",
+          "engine_displacement_l": 1.8,
+          "horsepower_hp": 115,
+          "transmission": "manual",
+          "drivetrain": "RWD",
+          "year_start": 1994,
+          "year_end": 1996,
+          "support_level": "direct",
+          "source_indexes": [
+            785,
+            786
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              785,
+              786
+            ],
+            "fuel_type": [
+              785,
+              786
+            ],
+            "engine": [
+              785,
+              786
+            ],
+            "engine_displacement_l": [
+              785,
+              786
+            ],
+            "horsepower_hp": [
+              785,
+              786
+            ],
+            "transmission": [
+              785,
+              786
+            ],
+            "drivetrain": [
+              785
+            ],
+            "year_start": [
+              785,
+              786
+            ],
+            "year_end": [
+              785,
+              786
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "1.8L",
+          "engine_displacement_l": 1.8,
+          "horsepower_hp": 115,
+          "transmission": "automatic",
+          "drivetrain": "RWD",
+          "year_start": 1994,
+          "year_end": 1996,
+          "support_level": "direct",
+          "source_indexes": [
+            785,
+            786
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              785,
+              786
+            ],
+            "fuel_type": [
+              785,
+              786
+            ],
+            "engine": [
+              785,
+              786
+            ],
+            "engine_displacement_l": [
+              785,
+              786
+            ],
+            "horsepower_hp": [
+              785,
+              786
+            ],
+            "transmission": [
+              785,
+              786
+            ],
+            "drivetrain": [
+              785
+            ],
+            "year_start": [
+              785,
+              786
+            ],
+            "year_end": [
+              785,
+              786
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Sedan"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "1.8L"
+        ],
+        "horsepower_hp": [
+          113,
+          115
+        ],
+        "transmission": [
+          "manual",
+          "automatic"
+        ],
+        "drivetrain": [
+          "RWD"
+        ]
+      },
+      "canonical_model": "518i",
       "profile_confidence": "medium"
     }
   ],
