@@ -16,7 +16,7 @@ from .openai_catalog_client import GROUNDED_TECHNICAL_FIELDS
 
 QUALITY_SCAN_OUTPUT_PATH = os.path.join(os.path.dirname(CATALOG_OUTPUT_PATH), "model_technical_catalog_il_quality_scan.json")
 CANONICAL = {
-    "body_type": {"Hatchback", "Sedan", "Estate", "Coupe", "Convertible", "Roadster", "SUV", "Crossover", "MPV", "Van", "Pickup", "Liftback"},
+    "body_type": {"Hatchback", "Sedan", "Estate", "Coupe", "Gran Coupe", "Convertible", "Roadster", "SUV", "Crossover", "MPV", "Van", "Pickup", "Liftback"},
     "fuel_type": {"petrol", "diesel", "electric", "hybrid", "plug_in_hybrid", "mild_hybrid", "lpg", "cng", "hydrogen"},
     "transmission": {"manual", "automatic", "dual_clutch", "cvt", "single_speed"},
     "drivetrain": {"FWD", "RWD", "AWD", "4WD"},
