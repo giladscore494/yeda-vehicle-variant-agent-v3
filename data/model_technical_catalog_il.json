@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T21:59:50Z",
+  "generated_at": "2026-06-16T22:00:32Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -57580,6 +57580,133 @@
         ]
       },
       "canonical_model": "Z3 M Roadster",
+      "profile_confidence": "medium"
+    },
+    {
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "ב.מ.וו Z4 דור 1 (2003-2009) מחירון ומפרט טכני - iCar",
+          "url": "https://www.icar.co.il/%D7%91.%D7%9E.%D7%95%D7%95/%D7%91.%D7%9E.%D7%95%D7%95_Z4/%D7%91.%D7%9E.%D7%95%D7%95_Z4_%D7%93%D7%95%D7%A8_1/",
+          "source_name": "iCar",
+          "source_type": "israeli_catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "ב.מ.וו Z4 דור 1 - Auto.co.il",
+          "url": "https://www.auto.co.il/model/bmw-z4_g144",
+          "source_name": "Auto.co.il",
+          "source_type": "israeli_catalog",
+          "supports": [
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "invalid_or_non_trim_labels": [
+            {
+              "label": "2.0i",
+              "classification": "engine_model_designation"
+            }
+          ],
+          "body_type": "Roadster",
+          "fuel_type": "petrol",
+          "engine": "2.0L inline-4",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 150,
+          "transmission": "manual",
+          "drivetrain": "RWD",
+          "year_start": 2005,
+          "year_end": 2008,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": [
+            "version_or_trim"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Roadster"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "2.0L inline-4"
+        ],
+        "horsepower_hp": [
+          150
+        ],
+        "transmission": [
+          "manual"
+        ],
+        "drivetrain": [
+          "RWD"
+        ]
+      },
+      "market": "IL",
+      "make": "BMW",
+      "model": "Z4 2.0i",
+      "canonical_model": "Z4 2.0i",
       "profile_confidence": "medium"
     }
   ],
