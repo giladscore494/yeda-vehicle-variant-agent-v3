@@ -594,18 +594,22 @@ def test_resume_state_readiness_models_blocked_overrides_review_only_count(tmp_p
     assert state["blocked"] == 3
 
 
-def test_current_catalog_resume_state_keeps_bmw_735i_next_source():
+def test_current_catalog_resume_state_advances_past_repaired_bmw_blockers():
     state = cb.compute_resume_state()
 
-    assert state["clean_count"] == 120
-    assert state["review_entries_count"] == 8
-    assert state["review_overlap_count"] == 8
+    assert state["clean_count"] == 161
+    assert state["review_entries_count"] == 0
+    assert state["review_overlap_count"] == 0
     assert state["review_only_blocked_count"] == 0
     assert state["active_blocked_count"] == 0
     assert state["blocked"] == 0
-    assert state["next_key_to_process"] == "IL|BMW|735i"
-    assert state["next_key"] == "IL|BMW|735i"
+    assert state["resume_after_key"] == "IL|BMW|X3 xDrive30e"
+    assert state["next_key_to_process"] == "IL|BMW|X3 xDrive30i"
+    assert state["next_key"] == "IL|BMW|X3 xDrive30i"
     assert state["next_make"] == "BMW"
-    assert state["next_model"] == "735i"
-    assert state["unmatched_output_keys_count"] == 1
-    assert state["unmatched_output_keys_sample"] == ["IL|Alfa Romeo|Junior Elettrica"]
+    assert state["next_model"] == "X3 xDrive30i"
+    assert state["unmatched_output_keys_count"] == 2
+    assert state["unmatched_output_keys_sample"] == [
+        "IL|Alfa Romeo|Junior Elettrica",
+        "IL|BMW|M850i",
+    ]

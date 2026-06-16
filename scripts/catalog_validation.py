@@ -282,7 +282,15 @@ def validate_profile(profile: Dict[str, Any]) -> ProfileValidation:
     profile_is_petrol = any(
         not _is_ev_fuel(v.get("fuel_type")) for v in variants if isinstance(v, dict)
     )
-    profile_has_petrol_label = "e" not in str(model).strip().lower()[-1:] if model else True
+    model_label = str(model).strip().lower() if model else ""
+    # BMW i-family models such as i3 and i8 are electrified model profiles.
+    # They may legitimately mix pure-electric and range-extender/PHEV rows, so
+    # do not infer a petrol-only profile from the presence of a non-EV variant.
+    profile_has_petrol_label = not (
+        model_label.startswith("i")
+        or model_label.startswith("ix")
+        or model_label.endswith("e")
+    )
 
     cleaned_variants: List[Dict[str, Any]] = []
     seen_signatures: set = set()
