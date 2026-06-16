@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T20:28:01Z",
+  "generated_at": "2026-06-16T20:28:37Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -45483,6 +45483,122 @@
       "make": "BMW",
       "model": "i8",
       "canonical_model": "i8",
+      "profile_confidence": "medium"
+    },
+    {
+      "technical_variants_il": [
+        {
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 326,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2021,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": [
+            "engine_displacement_l"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "ב.מ.וו iX החשמלי בישראל - מחיר החל מ-559,000 שקלים",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%91-%D7%9E-%D7%95%D7%95-ix-%D7%94%D7%97%D7%A9%D7%9E%D7%9C%D7%99-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-559,000-%D7%A9%D7%A7%D7%9C%D7%99%D7%9D",
+          "source_name": "Cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "ב.מ.וו iX - מחירון, מפרטים, אמינות וחוות דעת",
+          "url": "https://www.icar.co.il/%D7%91.%D7%9E.%D7%95%D7%95/%D7%91.%D7%9E.%D7%95%D7%95_iX/%D7%91.%D7%9E.%D7%95%D7%95_iX_%D7%97%D7%93%D7%A9/",
+          "source_name": "iCar.co.il",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          326
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "AWD"
+        ]
+      },
+      "market": "IL",
+      "make": "BMW",
+      "model": "iX xDrive40",
+      "canonical_model": "iX xDrive40",
       "profile_confidence": "medium"
     }
   ],
