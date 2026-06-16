@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T17:21:18Z",
+  "generated_at": "2026-06-16T17:22:04Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -32622,6 +32622,191 @@
         ]
       },
       "canonical_model": "328i",
+      "profile_confidence": "medium"
+    },
+    {
+      "make": "BMW",
+      "model": "330e",
+      "market": "IL",
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "ב.מ.וו 330e פלאג-אין בישראל – מחיר החל מ-290 אלף שקל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/ב-מ-וו-330e-פלאג-אין-בישראל-מחיר-החל-מ-290-אלף-שקל",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "year_start",
+            "horsepower_hp",
+            "engine",
+            "engine_displacement_l",
+            "transmission",
+            "body_type",
+            "fuel_type",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "ב.מ.וו 330e החדשה 2019 בישראל - מחיר החל מ- 299,000 שקל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/ב-מ-וו-330e-החדשה-2019-בישראל-מחיר-החל-מ-299-000-שקל",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "year_start",
+            "horsepower_hp",
+            "engine",
+            "engine_displacement_l",
+            "transmission",
+            "body_type",
+            "fuel_type",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "ב.מ.וו סדרה 3 יד שניה - מחירון, מפרטים, אמינות",
+          "url": "https://www.icar.co.il/ב.מ.וו/ב.מ.וו_סדרה_3/ב.מ.וו_סדרה_3_יד_שניה_ד6/",
+          "source_name": "iCar",
+          "source_type": "specs",
+          "supports": [
+            "year_end",
+            "drivetrain"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Sedan",
+          "fuel_type": "plug_in_hybrid",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 252,
+          "transmission": "8-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 2016,
+          "year_end": 2018,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            3
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1,
+              3
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              3
+            ]
+          },
+          "missing_grounded_fields": [
+            "version_or_trim"
+          ]
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Sedan",
+          "fuel_type": "plug_in_hybrid",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 292,
+          "transmission": "8-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 2019,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            2,
+            3
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              2
+            ],
+            "engine": [
+              2
+            ],
+            "engine_displacement_l": [
+              2
+            ],
+            "horsepower_hp": [
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              2,
+              3
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "version_or_trim",
+            "year_end"
+          ]
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "2.0L Turbo PHEV",
+          "classification": "engine_spec"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Sedan"
+        ],
+        "fuel_type": [
+          "plug_in_hybrid"
+        ],
+        "engine": [
+          "2.0L turbo"
+        ],
+        "horsepower_hp": [
+          252,
+          292
+        ],
+        "transmission": [
+          "8-speed automatic"
+        ],
+        "drivetrain": [
+          "RWD"
+        ]
+      },
+      "canonical_model": "330e",
       "profile_confidence": "medium"
     }
   ],
