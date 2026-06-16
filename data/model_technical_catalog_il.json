@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T22:04:03Z",
+  "generated_at": "2026-06-16T22:04:44Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -58684,6 +58684,192 @@
         ]
       },
       "canonical_model": "Han",
+      "profile_confidence": "medium"
+    },
+    {
+      "make": "BYD",
+      "model": "Seal",
+      "market": "IL",
+      "sources": [
+        {
+          "source_index": 1,
+          "source_name": "Cartube.co.il",
+          "source_type": "editorial",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%91%D7%99-%D7%95%D7%95%D7%90%D7%99-%D7%93%D7%99-%D7%A1%D7%99%D7%9C-byd-seal-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-216990-%D7%A9%D7%A7%D7%9C",
+          "title": "בי.וואי.די סיל (BYD Seal) בישראל - מחיר החל מ- 216,990 שקל",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "drivetrain",
+            "version_or_trim",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 2,
+          "source_name": "iCar.co.il",
+          "source_type": "catalog",
+          "url": "https://www.icar.co.il/BYD/BYD_%D7%A1%D7%99%D7%9C/",
+          "title": "BYD סיל - מחירון, מפרטים, ואבזור",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "Sedan",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 313,
+          "transmission": "single_speed",
+          "drivetrain": "RWD",
+          "version_or_trim": "Design",
+          "year_start": 2024,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "version_or_trim": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "engine_displacement_l",
+            "year_end"
+          ]
+        },
+        {
+          "body_type": "Sedan",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 530,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "version_or_trim": "Excellence",
+          "year_start": 2024,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "version_or_trim": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "engine_displacement_l",
+            "year_end"
+          ]
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Dual Electric Motors (390 kW)",
+          "classification": "engine_description"
+        },
+        {
+          "label": "Electric Motor (230 kW)",
+          "classification": "engine_description"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Design",
+          "Excellence"
+        ],
+        "body_type": [
+          "Sedan"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          313,
+          530
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "RWD",
+          "AWD"
+        ]
+      },
+      "canonical_model": "Seal",
       "profile_confidence": "medium"
     }
   ],
