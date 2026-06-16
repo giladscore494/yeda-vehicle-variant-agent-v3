@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T17:12:44Z",
+  "generated_at": "2026-06-16T17:13:28Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -30045,6 +30045,195 @@
       "make": "BMW",
       "model": "220i",
       "canonical_model": "220i",
+      "profile_confidence": "medium"
+    },
+    {
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "ב.מ.וו סדרה 2 אקטיב טורר פלאג-אין 2023 בישראל - מחיר החל מ-289,900 שקל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%91-%D7%9E-%D7%95%D7%95-%D7%A1%D7%93%D7%A8%D7%94-2-%D7%90%D7%A7%D7%98%D7%99%D7%91-%D7%98%D7%95%D7%A8%D7%A8-%D7%A4%D7%9C%D7%90%D7%92-%D7%90%D7%99%D7%9F-2023-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-289,900-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "ב.מ.וו סדרה 2 אקטיב טורר - מחירון, קטלוג רכב",
+          "url": "https://www.icar.co.il/%D7%91.%D7%9E.%D7%95%D7%95/%D7%91.%D7%9E.%D7%95%D7%95_%D7%A1%D7%93%D7%A8%D7%94_2_%D7%90%D7%A7%D7%98%D7%99%D7%91_%D7%98%D7%95%D7%A8%D7%A8/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "MPV",
+          "fuel_type": "plug_in_hybrid",
+          "engine": "1.5L turbo",
+          "engine_displacement_l": 1.5,
+          "horsepower_hp": 326,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "AWD",
+          "year_start": 2022,
+          "year_end": 2025,
+          "version_or_trim": "M-Sport",
+          "invalid_or_non_trim_labels": {
+            "xDrive": "Drivetrain indicator",
+            "1.5L 3-cylinder Turbo + Electric Motor (326 hp)": "Engine specifications"
+          },
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              2
+            ],
+            "version_or_trim": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "MPV",
+          "fuel_type": "plug_in_hybrid",
+          "engine": "1.5L turbo",
+          "engine_displacement_l": 1.5,
+          "horsepower_hp": 326,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "AWD",
+          "year_start": 2022,
+          "year_end": 2025,
+          "version_or_trim": "M-Express",
+          "invalid_or_non_trim_labels": {
+            "xDrive": "Drivetrain indicator",
+            "1.5L 3-cylinder Turbo + Electric Motor (326 hp)": "Engine specifications"
+          },
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              2
+            ],
+            "version_or_trim": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "M-Sport",
+          "M-Express"
+        ],
+        "body_type": [
+          "MPV"
+        ],
+        "fuel_type": [
+          "plug_in_hybrid"
+        ],
+        "engine": [
+          "1.5L turbo"
+        ],
+        "horsepower_hp": [
+          326
+        ],
+        "transmission": [
+          "7-speed dual_clutch"
+        ],
+        "drivetrain": [
+          "AWD"
+        ]
+      },
+      "market": "IL",
+      "make": "BMW",
+      "model": "230e (Active Tourer PHEV)",
+      "canonical_model": "230e (Active Tourer PHEV)",
       "profile_confidence": "medium"
     }
   ],
