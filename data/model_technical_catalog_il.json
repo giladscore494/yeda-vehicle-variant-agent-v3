@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T21:51:37Z",
+  "generated_at": "2026-06-16T21:52:12Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -55423,6 +55423,132 @@
       "make": "BMW",
       "model": "X5 xDrive40i",
       "canonical_model": "X5 xDrive40i",
+      "profile_confidence": "medium"
+    },
+    {
+      "make": "BMW",
+      "model": "X5 xDrive45e",
+      "market": "IL",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "ב.מ.וו X5 xDrive45e פלאג-אין בישראל - מחיר החל מ-599,000 שקל",
+          "url": "https://www.cartube.co.il/%חדשות-רכב/ב-מ-וו-x5-xdrive45e-פלאג-אין-בישראל-מחיר-החל-מ-599,000-שקל",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "body_type"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "ב.מ.וו X5 (2019-2023) יד שניה - מפרט טכני",
+          "url": "https://www.icar.co.il/%D7%91.%D7%9E.%D7%95%D7%95/%D7%91.%D7%9E.%D7%95%D7%95_X5/%D7%91.%D7%9E.%D7%95%D7%95_X5_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%94_%D7%93%D7%99%D7%994/",
+          "source_name": "Icar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "SUV",
+          "fuel_type": "plug_in_hybrid",
+          "engine": "3.0L inline-6 turbo",
+          "engine_displacement_l": 3.0,
+          "horsepower_hp": 394,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2019,
+          "year_end": 2023,
+          "version_or_trim": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              1
+            ],
+            "version_or_trim": []
+          },
+          "missing_grounded_fields": [
+            "version_or_trim"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "plug_in_hybrid"
+        ],
+        "engine": [
+          "3.0L inline-6 turbo"
+        ],
+        "horsepower_hp": [
+          394
+        ],
+        "transmission": [
+          "8-speed automatic"
+        ],
+        "drivetrain": [
+          "AWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": {
+        "xDrive45e": "model_designation"
+      },
+      "canonical_model": "X5 xDrive45e",
       "profile_confidence": "medium"
     }
   ],
