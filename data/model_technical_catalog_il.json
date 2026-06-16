@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T20:17:14Z",
+  "generated_at": "2026-06-16T20:18:24Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -43640,6 +43640,136 @@
       "make": "BMW",
       "model": "735i",
       "canonical_model": "735i",
+      "profile_confidence": "medium"
+    },
+    {
+      "technical_variants_il": [
+        {
+          "version_or_trim": "iPerformance",
+          "body_type": "Sedan",
+          "fuel_type": "plug_in_hybrid",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 326,
+          "transmission": "8-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 2016,
+          "year_end": 2019,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1
+            ],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": {
+        "Luxury / iPerformance": "compound_trim_and_badge_label",
+        "2.0L I4 Turbo PHEV": "engine_spec"
+      },
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "ב.מ.וו סדרה 7 פלאג-אין (740e) בישראל – מחיר החל מ- 730,000 שקל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/ב-מ-וו-סדרה-7-פלאג-אין-740e-בישראל-מחיר-החל-מ-730000-שקל",
+          "source_name": "Cartube Israel",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "ב.מ.וו סדרה 7 (2016-2019) מפרט טכני - דגם פלאג-אין iPerformance",
+          "url": "https://www.icar.co.il/ב.מ.וו/ב.מ.וו_סדרה_7/ב.מ.וו_סדרה_7_יד_שניה_דגם_6/",
+          "source_name": "iCar",
+          "source_type": "specs",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "iPerformance"
+        ],
+        "body_type": [
+          "Sedan"
+        ],
+        "fuel_type": [
+          "plug_in_hybrid"
+        ],
+        "engine": [
+          "2.0L turbo"
+        ],
+        "horsepower_hp": [
+          326
+        ],
+        "transmission": [
+          "8-speed automatic"
+        ],
+        "drivetrain": [
+          "RWD"
+        ]
+      },
+      "market": "IL",
+      "make": "BMW",
+      "model": "740e",
+      "canonical_model": "740e",
       "profile_confidence": "medium"
     }
   ],
