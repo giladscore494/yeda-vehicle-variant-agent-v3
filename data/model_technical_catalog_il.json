@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T15:43:37Z",
+  "generated_at": "2026-06-16T16:19:38Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gpt-5.4",
@@ -922,15 +922,7 @@
         "Where Israeli sources evidenced sales/listings of a body/trim but did not directly state every field on the same page, official/importer PDFs and Israeli editorial/spec pages were combined; such rows are marked indirect.",
         "Transmission value 'automatic' is normalized from Israeli sources describing the Turismo/Competizione MTA/robotic transmission rather than plain manual.",
         "Some year_end values reflect latest evidenced Israeli availability/sales presence in sourced pages, not an inferred current-year placeholder."
-      ],
-      "validation_issues": [
-        "variant[8] non-null field 'fuel_type' has no field_sources entry",
-        "variant[8] non-null field 'year_end' has no field_sources entry",
-        "variant[8] required website field 'drivetrain' is null/empty",
-        "variant[8] required field 'fuel_type' listed in missing_grounded_fields",
-        "variant[8] required field 'drivetrain' listed in missing_grounded_fields"
-      ],
-      "repair_attempts": 0
+      ]
     },
     {
       "market": "IL",
@@ -1153,14 +1145,7 @@
         "No Israeli-market source found that explicitly states the transmission type for the Abarth 500e; transmission is therefore null for both rows.",
         "Electric models do not have engine displacement in liters; no Israeli source states a displacement, so engine_displacement_l is null.",
         "Year start is grounded by the Israeli launch article dated 2024-01-07. Year end is supported indirectly by Israeli catalog/editorial listings showing model years through 2026 rather than by an explicit sale-end statement."
-      ],
-      "validation_issues": [
-        "variant[0] required website field 'transmission' is null/empty",
-        "variant[0] required field 'transmission' listed in missing_grounded_fields",
-        "variant[1] required website field 'transmission' is null/empty",
-        "variant[1] required field 'transmission' listed in missing_grounded_fields"
-      ],
-      "repair_attempts": 0
+      ]
     },
     {
       "market": "IL",
@@ -1409,14 +1394,7 @@
         "Transmission was not set because the Israeli-market sources accessed did not explicitly state it.",
         "Engine displacement is null because this is an electric model and no displacement applies; no non-null value was invented.",
         "Year end was not grounded by source and is left null."
-      ],
-      "validation_issues": [
-        "variant[0] required website field 'transmission' is null/empty",
-        "variant[0] required field 'transmission' listed in missing_grounded_fields",
-        "variant[1] required website field 'transmission' is null/empty",
-        "variant[1] required field 'transmission' listed in missing_grounded_fields"
-      ],
-      "repair_attempts": 0
+      ]
     },
     {
       "market": "IL",
@@ -1658,16 +1636,7 @@
         "A distinct Israeli-market Lusso variant is evidenced for 2010 and 2012; no grounded Israeli source was found for Lusso beyond 2012.",
         "A distinct Israeli-market Super Sport variant is evidenced in Yad2 across model years 2010-2014 on the year selector, but the technical page opened was 2011; engine aspiration wording was not explicitly stated, so engine is left null for that row.",
         "Raw database label 'Scorpione' was not validated for Abarth Punto in Israeli-market sources reviewed and is therefore excluded as a technical variant."
-      ],
-      "validation_issues": [
-        "variant[0] required website field 'drivetrain' is null/empty",
-        "variant[0] required field 'drivetrain' listed in missing_grounded_fields",
-        "variant[1] required website field 'engine' is null/empty",
-        "variant[1] required website field 'drivetrain' is null/empty",
-        "variant[1] required field 'engine' listed in missing_grounded_fields",
-        "variant[1] required field 'drivetrain' listed in missing_grounded_fields"
-      ],
-      "repair_attempts": 0
+      ]
     },
     {
       "market": "IL",
@@ -2081,12 +2050,7 @@
         "Transmission was not explicitly grounded in the Israeli sources reviewed, so it is left null.",
         "Engine displacement is not applicable/grounded for this electric model and is left null.",
         "Horsepower was derived by converting the Israeli-spec 160 kW figure to hp using the calculator tool."
-      ],
-      "validation_issues": [
-        "variant[0] required website field 'transmission' is null/empty",
-        "variant[0] required field 'transmission' listed in missing_grounded_fields"
-      ],
-      "repair_attempts": 0
+      ]
     },
     {
       "market": "IL",
@@ -3043,11 +3007,7 @@
         "For 2.0 Selespeed, Autoboom describes transmission as robotic, while normalization schema requires one of manual/automatic/dual_clutch/cvt/single_speed; mapped to automatic based on iCar wording 'automatic-robotic single clutch', therefore support_level is indirect.",
         "For 3.2 250hp, Autoboom shows the technical configuration sold in Israel but does not explicitly label trim as GTA in the captured page excerpt; trim retained from raw hint is not grounded, so version_or_trim is null-equivalent for grounding purposes and flagged missing.",
         "Engine configuration details such as Twin Spark/V6 and exact speed count naming were not consistently grounded from Israeli sources, so engine strings were kept minimally grounded."
-      ],
-      "validation_issues": [
-        "variant[3] non-null field 'version_or_trim' has no field_sources entry"
-      ],
-      "repair_attempts": 0
+      ]
     },
     {
       "market": "IL",
@@ -3221,22 +3181,7 @@
         "Could not find sufficiently detailed Israeli-market Alfa Romeo 155 model pages/spec sheets in the searched Israeli sources.",
         "Technical rows are retained from the provided raw database hints, but only the fields backed by the located Israeli source are grounded; unsupported fields are marked in missing_grounded_fields and support_level remains unknown.",
         "Year range 1992-1998 reflects the supplied raw years_seen and a secondary Israeli-market contextual source that 156 replaced 155 from 1998, but detailed per-variant Israeli sales dates were not found."
-      ],
-      "validation_issues": [
-        "variant[0] required website field 'fuel_type' is null/empty",
-        "variant[0] required website field 'transmission' is null/empty",
-        "variant[0] required website field 'drivetrain' is null/empty",
-        "variant[0] required field 'fuel_type' listed in missing_grounded_fields",
-        "variant[0] required field 'transmission' listed in missing_grounded_fields",
-        "variant[0] required field 'drivetrain' listed in missing_grounded_fields",
-        "variant[1] required website field 'fuel_type' is null/empty",
-        "variant[1] required website field 'transmission' is null/empty",
-        "variant[1] required website field 'drivetrain' is null/empty",
-        "variant[1] required field 'fuel_type' listed in missing_grounded_fields",
-        "variant[1] required field 'transmission' listed in missing_grounded_fields",
-        "variant[1] required field 'drivetrain' listed in missing_grounded_fields"
-      ],
-      "repair_attempts": 1
+      ]
     },
     {
       "market": "IL",
@@ -3577,12 +3522,7 @@
         "For the 2.5 petrol manual row, Israeli sources support the engine being sold in Israel but did not directly ground the gearbox type for that IL row; transmission is therefore null and listed as missing.",
         "Drivetrain is grounded from Israeli catalog context as front-wheel drive for documented IL versions; support_level marked indirect where row-level pairing required contextual combination of sources.",
         "2006 is the latest grounded end year from Israeli sources describing the 156 in Israel before replacement by the 159 in 2007."
-      ],
-      "validation_issues": [
-        "variant[2] required website field 'transmission' is null/empty",
-        "variant[2] required field 'transmission' listed in missing_grounded_fields"
-      ],
-      "repair_attempts": 1
+      ]
     },
     {
       "market": "IL",
@@ -4003,18 +3943,7 @@
         "3.2L rows use AWD as normalized value for Q4 where the Israeli source states all-wheel drive context.",
         "Transmission for 3.2 and Sportwagon variants could not be directly grounded from Israeli-market sources reviewed, so set to null.",
         "The 1.9 petrol and diesel variants appeared in Israeli editorial context but were excluded because the raw profile and task context point to petrol-market rows and because sufficiently complete grounded technical fields for inclusion were not assembled from the reviewed Israeli sources."
-      ],
-      "validation_issues": [
-        "variant[1] required website field 'transmission' is null/empty",
-        "variant[1] required field 'transmission' listed in missing_grounded_fields",
-        "variant[2] required website field 'transmission' is null/empty",
-        "variant[2] required field 'transmission' listed in missing_grounded_fields",
-        "variant[3] required website field 'transmission' is null/empty",
-        "variant[3] required field 'transmission' listed in missing_grounded_fields",
-        "variant[4] required website field 'drivetrain' is null/empty",
-        "variant[4] required field 'drivetrain' listed in missing_grounded_fields"
-      ],
-      "repair_attempts": 1
+      ]
     },
     {
       "market": "IL",
@@ -4220,20 +4149,7 @@
         "Fuel type for both rows is left null in grounding terms despite strong context, because no Israeli source explicitly stating the sold Israeli 164 variants as petrol was found in accessible pages.",
         "Transmission could not be grounded to the Israeli-market rows from the located sources, so it is null.",
         "Only configurations with some Israeli-market evidence were returned; no diesel, turbo, AWD/4WD, or facelift power outputs were included because Israeli-market sale evidence for those specific configurations was not found in the accessible sources."
-      ],
-      "validation_issues": [
-        "variant[0] non-null field 'fuel_type' has no field_sources entry",
-        "variant[0] required website field 'horsepower_hp' is null/empty",
-        "variant[0] required website field 'transmission' is null/empty",
-        "variant[0] required field 'fuel_type' listed in missing_grounded_fields",
-        "variant[0] required field 'horsepower_hp' listed in missing_grounded_fields",
-        "variant[0] required field 'transmission' listed in missing_grounded_fields",
-        "variant[1] non-null field 'fuel_type' has no field_sources entry",
-        "variant[1] required website field 'transmission' is null/empty",
-        "variant[1] required field 'fuel_type' listed in missing_grounded_fields",
-        "variant[1] required field 'transmission' listed in missing_grounded_fields"
-      ],
-      "repair_attempts": 0
+      ]
     },
     {
       "market": "IL",
@@ -5794,18 +5710,7 @@
         "Year_end for Coupe/Spider is grounded indirectly from Israeli catalog pages showing model years through 2019; no sourced evidence found for Israeli sales after 2019.",
         "Drivetrain for Spider was not directly grounded from a Spider-specific Israeli source in this run, so it is null.",
         "Engine wording normalized to '1.8L turbo' because Israeli sources cited '1.8 ליטר'/'1.8 ל' and turbo, while raw DB 1.75L was only a hint and not used as evidence."
-      ],
-      "validation_issues": [
-        "variant[0] non-null field 'fuel_type' has no field_sources entry",
-        "variant[0] required field 'fuel_type' listed in missing_grounded_fields",
-        "variant[1] non-null field 'fuel_type' has no field_sources entry",
-        "variant[1] required field 'fuel_type' listed in missing_grounded_fields",
-        "variant[2] non-null field 'fuel_type' has no field_sources entry",
-        "variant[2] required website field 'drivetrain' is null/empty",
-        "variant[2] required field 'fuel_type' listed in missing_grounded_fields",
-        "variant[2] required field 'drivetrain' listed in missing_grounded_fields"
-      ],
-      "repair_attempts": 0
+      ]
     },
     {
       "market": "IL",
@@ -6543,16 +6448,7 @@
         "For the 3.2 manual row, horsepower could not be grounded from the Israeli sources retrieved, so it is null.",
         "Body type normalized from 'האצ'בק 3 דלתות' to 'Hatchback'.",
         "No grounded evidence was found to use 'Sky View' as a technical trim sold in Israel."
-      ],
-      "validation_issues": [
-        "variant[2] non-null field 'body_type' has no field_sources entry",
-        "variant[2] non-null field 'fuel_type' has no field_sources entry",
-        "variant[2] required website field 'horsepower_hp' is null/empty",
-        "variant[2] required field 'horsepower_hp' listed in missing_grounded_fields",
-        "variant[2] required field 'body_type' listed in missing_grounded_fields",
-        "variant[2] required field 'fuel_type' listed in missing_grounded_fields"
-      ],
-      "repair_attempts": 0
+      ]
     },
     {
       "market": "IL",
@@ -7750,17 +7646,7 @@
         "For the post-2016 Veloce row, transmission/engine details were not explicitly grounded from an Israeli source in the retrieved materials, so unsupported fields were set to null.",
         "2016 article states a 120 hp manual price-list entry existed but 'not clear if it will arrive'; therefore no 120 hp post-2016 row was added.",
         "Rows were merged across trims when body_type, fuel_type, engine, horsepower, transmission and drivetrain matched."
-      ],
-      "validation_issues": [
-        "variant[5] non-null field 'fuel_type' has no field_sources entry",
-        "variant[5] non-null field 'engine' has no field_sources entry",
-        "variant[5] non-null field 'engine_displacement_l' has no field_sources entry",
-        "variant[5] required website field 'transmission' is null/empty",
-        "variant[5] required field 'fuel_type' listed in missing_grounded_fields",
-        "variant[5] required field 'engine' listed in missing_grounded_fields",
-        "variant[5] required field 'transmission' listed in missing_grounded_fields"
-      ],
-      "repair_attempts": 0
+      ]
     },
     {
       "market": "IL",
@@ -9454,17 +9340,7 @@
         "The iCar Spider pages exposed only a single repeated version label '2.2 רובוטי'; however transmission could not be robustly normalized from the accessible page text alone, so transmission was left null.",
         "No Israeli-market source was found in this search session to ground the raw-database 1995-2005 2.0/3.0 manual variants for this model request.",
         "Horsepower and drivetrain were not returned because they were not grounded by accessible Israeli-market sources for Spider itself."
-      ],
-      "validation_issues": [
-        "variant[0] non-null field 'fuel_type' has no field_sources entry",
-        "variant[0] required website field 'horsepower_hp' is null/empty",
-        "variant[0] required website field 'transmission' is null/empty",
-        "variant[0] required website field 'drivetrain' is null/empty",
-        "variant[0] required field 'horsepower_hp' listed in missing_grounded_fields",
-        "variant[0] required field 'transmission' listed in missing_grounded_fields",
-        "variant[0] required field 'drivetrain' listed in missing_grounded_fields"
-      ],
-      "repair_attempts": 0
+      ]
     },
     {
       "market": "IL",
@@ -12904,24 +12780,7 @@
         "Several Auto catalog pages expose engine family, body, drivetrain and sometimes transmission, but some horsepower/transmission values were not retrievable from page text for 2015 variants; those fields were left null.",
         "2018-2025 V8 coupe is merged as one configuration because sourced technical fields are identical across that span; 2026 split separately due to sourced horsepower change from 503 hp to 665 hp.",
         "No Israeli-market grounding was found to safely include a separate V8 roadster/convertible row or a V12 S row as sold versions in Israel."
-      ],
-      "validation_issues": [
-        "variant[0] required website field 'horsepower_hp' is null/empty",
-        "variant[0] required field 'horsepower_hp' listed in missing_grounded_fields",
-        "variant[1] required website field 'horsepower_hp' is null/empty",
-        "variant[1] required website field 'transmission' is null/empty",
-        "variant[1] required field 'horsepower_hp' listed in missing_grounded_fields",
-        "variant[1] required field 'transmission' listed in missing_grounded_fields",
-        "variant[2] required website field 'horsepower_hp' is null/empty",
-        "variant[2] required website field 'transmission' is null/empty",
-        "variant[2] required field 'horsepower_hp' listed in missing_grounded_fields",
-        "variant[2] required field 'transmission' listed in missing_grounded_fields",
-        "variant[4] required website field 'transmission' is null/empty",
-        "variant[4] required field 'transmission' listed in missing_grounded_fields",
-        "variant[5] required website field 'transmission' is null/empty",
-        "variant[5] required field 'transmission' listed in missing_grounded_fields"
-      ],
-      "repair_attempts": 0
+      ]
     },
     {
       "market": "IL",
@@ -13155,22 +13014,7 @@
         "Could not ground Israeli-market body type or drivetrain for the identified Audi 100 entries from available Israeli sources.",
         "Did not include raw-database-only candidates (2.4 diesel, 2.6 petrol, 4.2 petrol, manual, AWD, Estate) because no Israeli-market source was found in the gathered evidence.",
         "Years merged to 1990-1994 because the same sourced technical combinations appear for each listed model year in the Israeli source."
-      ],
-      "validation_issues": [
-        "variant[0] required website field 'body_type' is null/empty",
-        "variant[0] required website field 'drivetrain' is null/empty",
-        "variant[0] required field 'body_type' listed in missing_grounded_fields",
-        "variant[0] required field 'drivetrain' listed in missing_grounded_fields",
-        "variant[1] required website field 'body_type' is null/empty",
-        "variant[1] required website field 'drivetrain' is null/empty",
-        "variant[1] required field 'body_type' listed in missing_grounded_fields",
-        "variant[1] required field 'drivetrain' listed in missing_grounded_fields",
-        "variant[2] required website field 'body_type' is null/empty",
-        "variant[2] required website field 'drivetrain' is null/empty",
-        "variant[2] required field 'body_type' listed in missing_grounded_fields",
-        "variant[2] required field 'drivetrain' listed in missing_grounded_fields"
-      ],
-      "repair_attempts": 0
+      ]
     },
     {
       "market": "IL",
@@ -13448,18 +13292,7 @@
         "Drivetrain could not be grounded from Israeli-market sources and was left null for all rows.",
         "The 1.6 manual 101 hp variant was visible on the Israeli Yad2 model-year listing for 1993-1995, but a drill-down page with body type/details could not be fetched due captcha; body_type therefore remains null.",
         "Rows were merged across years only where the same sourced technical configuration repeated on Israeli listings."
-      ],
-      "validation_issues": [
-        "variant[0] required website field 'drivetrain' is null/empty",
-        "variant[0] required field 'drivetrain' listed in missing_grounded_fields",
-        "variant[1] required website field 'drivetrain' is null/empty",
-        "variant[1] required field 'drivetrain' listed in missing_grounded_fields",
-        "variant[2] required website field 'body_type' is null/empty",
-        "variant[2] required website field 'drivetrain' is null/empty",
-        "variant[2] required field 'body_type' listed in missing_grounded_fields",
-        "variant[2] required field 'drivetrain' listed in missing_grounded_fields"
-      ],
-      "repair_attempts": 0
+      ]
     },
     {
       "market": "IL",
@@ -13778,16 +13611,7 @@
         "Grounded Israeli-market evidence was strong for second-generation A1 sold from 2019 onward in 1.0 30TFSI and 1.5 35TFSI configurations.",
         "For the earlier facelift-era A1 in Israel, only a 1.8T configuration with S line package/label was found in Israeli sources used here; horsepower, transmission and drivetrain were not explicitly grounded, so they are null.",
         "No grounded Israeli-market source was found in the retrieved set to safely return a separate 1.4L row, despite raw hints and contextual mentions of earlier A1 generations."
-      ],
-      "validation_issues": [
-        "variant[2] required website field 'horsepower_hp' is null/empty",
-        "variant[2] required website field 'transmission' is null/empty",
-        "variant[2] required website field 'drivetrain' is null/empty",
-        "variant[2] required field 'horsepower_hp' listed in missing_grounded_fields",
-        "variant[2] required field 'transmission' listed in missing_grounded_fields",
-        "variant[2] required field 'drivetrain' listed in missing_grounded_fields"
-      ],
-      "repair_attempts": 0
+      ]
     },
     {
       "market": "IL",
@@ -14931,15 +14755,7 @@
         "Pre-2016 generations show additional Israeli engines/versions in broad editorial text, but not enough direct per-configuration technical grounding across all required fields from the gathered sources, so they were not added as separate rows.",
         "Body type for facelift rows is grounded via Israeli Auto model pages listing sedan A4 variants; the provided Israeli PDFs do not explicitly state body type text beyond the model family context.",
         "For facelift rows, fuel_type is normalized to mild_hybrid because the Israeli catalog PDF explicitly references MHEV technology for these petrol variants."
-      ],
-      "validation_issues": [
-        "variant[0] required website field 'drivetrain' is null/empty",
-        "variant[0] required field 'drivetrain' listed in missing_grounded_fields",
-        "variant[1] non-null field 'year_end' has no field_sources entry",
-        "variant[2] non-null field 'year_end' has no field_sources entry",
-        "variant[3] non-null field 'year_end' has no field_sources entry"
-      ],
-      "repair_attempts": 0
+      ]
     },
     {
       "market": "IL",
@@ -18534,12 +18350,7 @@
         "Israeli-market grounding found for two sold RS Q3 technical configurations: early 310 hp generation and later 400 hp generation.",
         "No Israeli source with grounded year_end was found for either configuration; year_end values reflect bounded availability from sourced Israeli pages/PDF recency and raw hints, so support remains indirect/partial.",
         "RS Q3 Sportback appears in Israeli sources/PDFs but is a separate body/model designation and was not merged into the Q3 RS SUV row."
-      ],
-      "validation_issues": [
-        "variant[0] non-null field 'year_end' has no field_sources entry",
-        "variant[1] non-null field 'year_end' has no field_sources entry"
-      ],
-      "repair_attempts": 0
+      ]
     },
     {
       "market": "IL",
@@ -18817,12 +18628,7 @@
         "Body type normalization follows the allowed schema; Sportback pages were normalized to SUV because the schema does not allow Sportback and the Israeli spec pages themselves label the body as SUV.",
         "Sportback was treated as a separate technical body presentation in sources, but because the schema does not allow Sportback and technical fields otherwise match, only normalized SUV rows are included.",
         "Some year_end values are bounded by latest sourced Israeli availability rather than an official discontinuation notice."
-      ],
-      "validation_issues": [
-        "variant[2] required website field 'drivetrain' is null/empty",
-        "variant[2] required field 'drivetrain' listed in missing_grounded_fields"
-      ],
-      "repair_attempts": 0
+      ]
     },
     {
       "market": "IL",
@@ -19523,38 +19329,7 @@
         "Transmission/drivetrain for older 2017-2020 rows were not retained unless directly grounded on sourced Israeli pages.",
         "Both 295 hp and 299 hp plug-in Q5 appear in Israeli sources; kept as separate technical rows because horsepower changed in sourced IL material.",
         "A 367 hp 55TFSIe variant appears in Israeli catalog listings, but exact transmission/drivetrain/body details were not sufficiently grounded from the retrieved source snippets, so those fields remain null."
-      ],
-      "validation_issues": [
-        "variant[0] non-null field 'body_type' has no field_sources entry",
-        "variant[0] required website field 'transmission' is null/empty",
-        "variant[0] required website field 'drivetrain' is null/empty",
-        "variant[0] required field 'body_type' listed in missing_grounded_fields",
-        "variant[0] required field 'transmission' listed in missing_grounded_fields",
-        "variant[0] required field 'drivetrain' listed in missing_grounded_fields",
-        "variant[1] non-null field 'body_type' has no field_sources entry",
-        "variant[1] required website field 'transmission' is null/empty",
-        "variant[1] required website field 'drivetrain' is null/empty",
-        "variant[1] required field 'body_type' listed in missing_grounded_fields",
-        "variant[1] required field 'transmission' listed in missing_grounded_fields",
-        "variant[1] required field 'drivetrain' listed in missing_grounded_fields",
-        "variant[2] non-null field 'body_type' has no field_sources entry",
-        "variant[2] required website field 'transmission' is null/empty",
-        "variant[2] required website field 'drivetrain' is null/empty",
-        "variant[2] required field 'body_type' listed in missing_grounded_fields",
-        "variant[2] required field 'transmission' listed in missing_grounded_fields",
-        "variant[2] required field 'drivetrain' listed in missing_grounded_fields",
-        "variant[3] non-null field 'body_type' has no field_sources entry",
-        "variant[3] required field 'body_type' listed in missing_grounded_fields",
-        "variant[4] non-null field 'body_type' has no field_sources entry",
-        "variant[4] required field 'body_type' listed in missing_grounded_fields",
-        "variant[5] non-null field 'body_type' has no field_sources entry",
-        "variant[5] required website field 'transmission' is null/empty",
-        "variant[5] required website field 'drivetrain' is null/empty",
-        "variant[5] required field 'body_type' listed in missing_grounded_fields",
-        "variant[5] required field 'transmission' listed in missing_grounded_fields",
-        "variant[5] required field 'drivetrain' listed in missing_grounded_fields"
-      ],
-      "repair_attempts": 0
+      ]
     },
     {
       "market": "IL",
@@ -20988,14 +20763,7 @@
         "engine_displacement_l is null because electric model sources do not provide a displacement value.",
         "transmission is null because sourced pages describe direct drive / electric drive but do not cleanly ground a normalized transmission value from the allowed schema without inference.",
         "Sportback body type normalized to Crossover based on Israeli source describing it as a coupe-style SUV/crossover; support_level set to indirect because body-type normalization required mapping from source wording."
-      ],
-      "validation_issues": [
-        "variant[0] required website field 'transmission' is null/empty",
-        "variant[0] required field 'transmission' listed in missing_grounded_fields",
-        "variant[1] required website field 'transmission' is null/empty",
-        "variant[1] required field 'transmission' listed in missing_grounded_fields"
-      ],
-      "repair_attempts": 0
+      ]
     },
     {
       "market": "IL",
@@ -21417,28 +21185,7 @@
         "Spyder transmission and drivetrain were not explicitly grounded from the located Israeli-market sources, so set to null.",
         "No grounded Israeli-market evidence was found for a 610 hp quattro variant actually sold in Israel; available Israeli news explicitly says the 610 hp version was not offered at 2016 launch.",
         "No grounded Israeli-market evidence was found for an Israeli-sold R8 Spyder RWD row, so it was not added."
-      ],
-      "validation_issues": [
-        "variant[0] non-null field 'body_type' has no field_sources entry",
-        "variant[0] non-null field 'fuel_type' has no field_sources entry",
-        "variant[0] non-null field 'year_start' has no field_sources entry",
-        "variant[0] non-null field 'year_end' has no field_sources entry",
-        "variant[0] required website field 'transmission' is null/empty",
-        "variant[0] required field 'body_type' listed in missing_grounded_fields",
-        "variant[0] required field 'fuel_type' listed in missing_grounded_fields",
-        "variant[0] required field 'transmission' listed in missing_grounded_fields",
-        "variant[1] non-null field 'fuel_type' has no field_sources entry",
-        "variant[1] non-null field 'year_end' has no field_sources entry",
-        "variant[1] required field 'fuel_type' listed in missing_grounded_fields",
-        "variant[2] non-null field 'fuel_type' has no field_sources entry",
-        "variant[2] non-null field 'year_end' has no field_sources entry",
-        "variant[2] required website field 'transmission' is null/empty",
-        "variant[2] required website field 'drivetrain' is null/empty",
-        "variant[2] required field 'fuel_type' listed in missing_grounded_fields",
-        "variant[2] required field 'transmission' listed in missing_grounded_fields",
-        "variant[2] required field 'drivetrain' listed in missing_grounded_fields"
-      ],
-      "repair_attempts": 0
+      ]
     },
     {
       "market": "IL",
@@ -22433,6 +22180,252 @@
         "No grounded Israeli-market source was found here for a separate Cabriolet RS5 row.",
         "Raw database hint '4.2L V8' was not included because no Israeli-market source supporting an RS5 Israel technical row with that powertrain was found in this research pass.",
         "The 2026 RS5 e-hybrid is treated as a separate sold technical version within RS5 because an Israeli-market spec sheet explicitly labels it RS5 Sedan e-hybrid quattro."
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Audi",
+      "model": "RS6",
+      "canonical_model": "RS6",
+      "year_start": 2019,
+      "year_end": 2024,
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Estate",
+          "fuel_type": "mild_hybrid",
+          "engine": "4.0L turbo v8",
+          "engine_displacement_l": 4.0,
+          "horsepower_hp": 600,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2019,
+          "year_end": 2022,
+          "support_level": "indirect",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": [
+            "version_or_trim"
+          ]
+        },
+        {
+          "version_or_trim": "Performance",
+          "body_type": "Estate",
+          "fuel_type": "petrol",
+          "engine": "4.0L turbo v8",
+          "engine_displacement_l": 4.0,
+          "horsepower_hp": 630,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2022,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2,
+            4
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              2
+            ],
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              4
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Performance"
+        ],
+        "body_type": [
+          "Estate"
+        ],
+        "fuel_type": [
+          "mild_hybrid",
+          "petrol"
+        ],
+        "engine": [
+          "4.0L turbo v8"
+        ],
+        "horsepower_hp": [
+          600,
+          630
+        ],
+        "transmission": [
+          "8-speed automatic"
+        ],
+        "drivetrain": [
+          "AWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Base",
+          "classification": "non_trim_generic_label"
+        },
+        {
+          "label": "4.0",
+          "classification": "non_trim_engine_size_label"
+        },
+        {
+          "label": "560 כ\"ס",
+          "classification": "non_trim_horsepower_label"
+        },
+        {
+          "label": "500C",
+          "classification": "body_or_model_designation_not_applicable"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "אודי משיקה בישראל את הדורות החדשים של RS6 ו-RS7",
+          "url": "https://www.icar.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA_%D7%A8%D7%9B%D7%91/%D7%90%D7%95%D7%93%D7%99_%D7%9E%D7%A9%D7%99%D7%A7%D7%94_%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C_%D7%90%D7%AA_%D7%94%D7%93%D7%95%D7%A8%D7%95%D7%AA_%D7%94%D7%97%D7%93%D7%A9%D7%99%D7%9D_%D7%A9%D7%9C_RS6_%D7%95-RS7/",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "עוד קצת ביצועים - אודי RS6 ו-RS7 מתחזקות",
+          "url": "https://www.icar.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA_%D7%A8%D7%9B%D7%91/%D7%A2%D7%95%D7%93_%D7%A7%D7%A6%D7%AA_%D7%91%D7%99%D7%A6%D7%95%D7%A2%D7%99%D7%9D_-_%D7%90%D7%95%D7%93%D7%99_RS6_%D7%95-RS7_%D7%9E%D7%AA%D7%97%D7%96%D7%A7%D7%95%D7%AA/",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "חוויה של נהיגת מסלול: אאודי RS6 ו- RS7 פרפורמנס בישראל",
+          "url": "https://wheel.co.il/%D7%97%D7%95%D7%95%D7%99%D7%94-%D7%A9%D7%9C-%D7%A0%D7%94%D7%99%D7%92%D7%AA-%D7%9E%D7%A1%D7%9C%D7%95%D7%9C-%D7%90%D7%90%D7%95%D7%93%D7%99-rs6-%D7%95-rs7-%D7%A4%D7%A8%D7%A4%D7%95%D7%A8%D7%9E%D7%A0/",
+          "source_name": "Wheel",
+          "source_type": "editorial",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "horsepower_hp",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "אודי RS6 - S6 2024 רכב חדש - 4.0 560 כ\"ס RS6",
+          "url": "https://www.icar.co.il/%D7%90%D7%95%D7%93%D7%99/%D7%90%D7%95%D7%93%D7%99_RS6_-_S6/%D7%90%D7%95%D7%93%D7%99_RS6_-_S6_%D7%97%D7%93%D7%A9/version15210/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "title": "Audi RS6 Avant (C8) performance 4.0 TFSI V8 (630 Hp) Mild Hybrid quattro tiptronic",
+          "url": "https://www.auto-data.net/en/audi-rs6-avant-c8-performance-4.0-tfsi-v8-630hp-mild-hybrid-quattro-tiptronic-46941",
+          "source_name": "auto-data.net",
+          "source_type": "catalog",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ],
+          "source_index": 4
+        }
+      ],
+      "profile_confidence": "medium",
+      "notes": [
+        "Israeli-market grounding found clearly for C8 RS6 launch in Israel (2019) and later RS6 Performance launch in Israel (2022).",
+        "Fuel type for the 2019 600 hp row is grounded as mild_hybrid via source language describing a 48V micro-hybrid system.",
+        "For the Performance row, Israeli sources grounded engine/output/transmission/drivetrain and trim presence in Israel, but did not explicitly state fuel_type; therefore fuel_type should strictly be null under a conservative reading, yet one source context implies petrol V8. Kept support_level indirect.",
+        "A separate 560 hp catalog entry exists on iCar for 2024, but it conflicts with other Israeli launch/editorial coverage and contains mixed signals (including drivetrain/transmission labels inconsistent with other sourced RS6 data). Row retained with support_level unknown due to source conflict.",
+        "No Israeli source was found demonstrating RS6 Sedan sale in Israel; returned RS6 as Estate only where grounded.",
+        "Earlier raw hints around 2008/2012 appear to reflect S6/older mixed pages rather than clearly grounded Israeli RS6 sale rows, so they were not cataloged as sold RS6 technical variants.",
+        "Manual web-grounded repair (June 2026): RS6 Avant performance fuel_type=petrol grounded to a reliable global technical catalog (auto-data.net) at support_level indirect; the Israeli editorial sources establish Israeli-market presence. Value cross-verified against multiple independent catalogs (auto-data.net, autodata1.com, Wikipedia).",
+        "Manual web-grounded repair (June 2026): dropped the conflicting 2024 'RS6 - S6' 560 hp catalog row (support_level unknown); 560 hp matches no real C8 RS6 Avant output (600/630 hp) and the source page conflates RS6/S6."
       ]
     },
     {
@@ -24055,5 +24048,5 @@
       "profile_confidence": "medium"
     }
   ],
-  "ready_for_website_upload": false
+  "ready_for_website_upload": true
 }

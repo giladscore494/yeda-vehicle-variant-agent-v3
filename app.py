@@ -11,7 +11,7 @@ from scripts.catalog_builder import CATALOG_OUTPUT_PATH, READINESS_OUTPUT_PATH, 
 from scripts.catalog_checkpoint import CatalogCheckpointConfig
 from scripts.catalog_provider import CatalogProviderSettings, ProviderUnavailableError, check_provider_available
 from scripts.catalog_quality_scan import QUALITY_SCAN_OUTPUT_PATH, scan_quality
-from scripts.catalog_repair import repair_review_models
+from scripts.catalog_repair import MAX_REPAIR_ATTEMPTS, repair_review_models
 from scripts.config import DEFAULT_GEMINI_VALIDATOR_MODEL_ID, DEFAULT_OPENAI_VALIDATOR_MODEL_ID, SharedConfig, load_shared_config
 from scripts.data_loader import INSTRUCTIONS_PATH, VARIANTS_PATH, files_present, validate_and_join
 from scripts.github_checkpoint import OUTPUT_JSON_PATHS, github_autosave_enabled, manual_push_outputs
@@ -50,6 +50,41 @@ def can_start_provider(settings: CatalogProviderSettings) -> tuple[bool, str]:
 
 def existing_output_paths(paths: Optional[List[str]] = None) -> List[str]:
     return [p for p in (paths or OUTPUT_JSON_PATHS) if os.path.exists(p)]
+
+
+def _review_entries(review_path: str = REVIEW_OUTPUT_PATH) -> List[Dict[str, Any]]:
+    if not os.path.exists(review_path):
+        return []
+    try:
+        with open(review_path, "r", encoding="utf-8") as fh:
+            review = json.load(fh)
+    except Exception:
+        return []
+    return [e for e in review.get("models", []) or [] if isinstance(e, dict)]
+
+
+def selected_needs_exhausted_override(
+    selected_keys: List[str], review_path: str = REVIEW_OUTPUT_PATH
+) -> bool:
+    """True when a SELECTED blocked model is exhausted (full rebuild OR targeted).
+
+    Only then do we hand ``repair_review_models`` the one-shot override. The
+    override is internally restricted to the explicitly-selected keys and is
+    mode-aware: an empty parse/API profile with a request_payload gets one full
+    rebuild, while a non-empty profile gets one targeted/deterministic pass.
+    """
+    selected = set(selected_keys or [])
+    if not selected:
+        return False
+    for entry in _review_entries(review_path):
+        market = entry.get("market") or "IL"
+        key = f"{market}|{entry.get('make', '')}|{entry.get('model', '')}"
+        if key not in selected:
+            continue
+        attempts = int(entry.get("repair_attempts", 0) or 0)
+        if attempts >= MAX_REPAIR_ATTEMPTS:
+            return True
+    return False
 
 
 def load_blocked_model_options(review_path: str = REVIEW_OUTPUT_PATH) -> Dict[str, str]:
@@ -198,8 +233,9 @@ if repair_clicked:
         st.stop()
     st.session_state.logs = []
     try:
+        allow_override = selected_needs_exhausted_override(selected_labels or [])
         with st.spinner(f"Repairing with {repair_provider.display_name}..."):
-            result = repair_review_models(batch=int(repair_batch), selected_keys=selected_labels or None, provider_settings=repair_provider, checkpoint=_checkpoint(), log=_on_log)
+            result = repair_review_models(batch=int(repair_batch), selected_keys=selected_labels or None, allow_exhausted_full_rebuild_once=allow_override, provider_settings=repair_provider, checkpoint=_checkpoint(), log=_on_log)
         st.success(f"Repair complete — processed {result['processed']}, promoted {result['promoted']}, kept {result['kept']}, skipped {result['skipped']}.")
     except Exception as exc:  # noqa: BLE001
         st.error(sanitize_error(exc))
