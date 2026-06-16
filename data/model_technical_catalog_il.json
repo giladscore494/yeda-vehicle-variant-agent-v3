@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-16T16:34:52Z",
+  "generated_at": "2026-06-16T17:01:52Z",
   "market": "IL",
   "mode": "online_selectable_provider",
-  "model_id": "gpt-5.4",
+  "model_id": "gemini-3.1-pro-preview",
   "source_files": [
     "data/validation_variants_data_v1.json",
     "data/validation_instructions_by_id_v1.json"
@@ -26763,6 +26763,399 @@
         "Rows were merged across years where accessible Israeli source pages showed the same technical configuration and the model-range page listed continuity through those years.",
         "Bentayga V8 rows extended to 2026 from iCar/Cartube current listings."
       ]
+    },
+    {
+      "make": "Bentley",
+      "model": "Continental GT",
+      "technical_variants_il": [
+        {
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "6.0L w12 twin-turbo",
+          "engine_displacement_l": 6.0,
+          "horsepower_hp": 635,
+          "transmission": "8-speed dual_clutch",
+          "drivetrain": "AWD",
+          "version_or_trim": null,
+          "year_start": 2018,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "version_or_trim": [],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": [
+            "version_or_trim"
+          ]
+        },
+        {
+          "body_type": "Convertible",
+          "fuel_type": "petrol",
+          "engine": "6.0L w12 twin-turbo",
+          "engine_displacement_l": 6.0,
+          "horsepower_hp": 635,
+          "transmission": "8-speed dual_clutch",
+          "drivetrain": "AWD",
+          "version_or_trim": null,
+          "year_start": 2019,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              2
+            ],
+            "engine": [
+              2
+            ],
+            "engine_displacement_l": [
+              2
+            ],
+            "horsepower_hp": [
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              2
+            ],
+            "version_or_trim": [],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": [
+            "version_or_trim"
+          ]
+        },
+        {
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "4.0L v8 twin-turbo",
+          "engine_displacement_l": 4.0,
+          "horsepower_hp": 550,
+          "transmission": "8-speed dual_clutch",
+          "drivetrain": "AWD",
+          "version_or_trim": "V8",
+          "year_start": 2020,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            3
+          ],
+          "field_sources": {
+            "body_type": [
+              3
+            ],
+            "fuel_type": [
+              3
+            ],
+            "engine": [
+              3
+            ],
+            "engine_displacement_l": [
+              3
+            ],
+            "horsepower_hp": [
+              3
+            ],
+            "transmission": [
+              3
+            ],
+            "drivetrain": [
+              3
+            ],
+            "version_or_trim": [
+              3
+            ],
+            "year_start": [
+              3
+            ],
+            "year_end": [
+              3
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Convertible",
+          "fuel_type": "petrol",
+          "engine": "4.0L v8 twin-turbo",
+          "engine_displacement_l": 4.0,
+          "horsepower_hp": 550,
+          "transmission": "8-speed dual_clutch",
+          "drivetrain": "AWD",
+          "version_or_trim": "V8",
+          "year_start": 2020,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            3
+          ],
+          "field_sources": {
+            "body_type": [
+              3
+            ],
+            "fuel_type": [
+              3
+            ],
+            "engine": [
+              3
+            ],
+            "engine_displacement_l": [
+              3
+            ],
+            "horsepower_hp": [
+              3
+            ],
+            "transmission": [
+              3
+            ],
+            "drivetrain": [
+              3
+            ],
+            "version_or_trim": [
+              3
+            ],
+            "year_start": [
+              3
+            ],
+            "year_end": [
+              3
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Coupe",
+          "fuel_type": "plug_in_hybrid",
+          "engine": "4.0L v8 twin-turbo",
+          "engine_displacement_l": 4.0,
+          "horsepower_hp": 782,
+          "transmission": "8-speed dual_clutch",
+          "drivetrain": "AWD",
+          "version_or_trim": "Speed",
+          "year_start": 2024,
+          "year_end": 2025,
+          "support_level": "direct",
+          "source_indexes": [
+            4
+          ],
+          "field_sources": {
+            "body_type": [
+              4
+            ],
+            "fuel_type": [
+              4
+            ],
+            "engine": [
+              4
+            ],
+            "engine_displacement_l": [
+              4
+            ],
+            "horsepower_hp": [
+              4
+            ],
+            "transmission": [
+              4
+            ],
+            "drivetrain": [
+              4
+            ],
+            "version_or_trim": [
+              4
+            ],
+            "year_start": [
+              4
+            ],
+            "year_end": [
+              4
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Base",
+          "classification": "generic_unbranded"
+        },
+        {
+          "label": "GTC",
+          "classification": "body_designation"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "הדור החדש של בנטלי קונטיננטל GT בישראל – החל מ- 1.77 מיליון שקל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%94%D7%93%D7%95%D7%A8-%D7%94%D7%97%D7%93%D7%A9-%D7%A9%D7%9C-%D7%91%D7%A0%D7%98%D7%9C%D7%99-%D7%A7%D7%95%D7%A0%D7%98%D7%99%D7%A0%D7%A0%D7%98%D7%9C-gt-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%94%D7%97%D7%9C-%D7%9E-177-%D7%9E%D7%99%D7%9C%D7%99%D7%95%D7%9F-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "year_start",
+            "body_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "fuel_type"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "בנטלי קונטיננטל GT חדשה, מחיר, מפרט - אוטו",
+          "url": "https://www.auto.co.il/model/bentley-continental-gt_g119",
+          "source_name": "Auto.co.il",
+          "source_type": "catalog",
+          "supports": [
+            "year_end",
+            "body_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "fuel_type"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "בנטלי קונטיננטל GT פתוחה בישראל - מחיר החל מ-2 מיליון שקל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%91%D7%A0%D7%98%D7%9C%D7%99-%D7%A7%D7%95%D7%A0%D7%98%D7%99%D7%A0%D7%A0%D7%98%D7%9C-gt-%D7%A4%D7%AA%D7%95%D7%97%D7%94-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-2-%D7%9E%D7%99%D7%9C%D7%99%D7%95%D7%9F-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "year_start",
+            "year_end",
+            "body_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "fuel_type"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "בישראל: בנטלי קונטיננטל V8 החדשה במחיר של 1.56 מיליון שקל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%91%D7%A0%D7%98%D7%9C%D7%99-%D7%A7%D7%95%D7%A0%D7%98%D7%99%D7%A0%D7%A0%D7%98%D7%9C-v8-%D7%94%D7%97%D7%93%D7%A9%D7%94-%D7%91%D7%9E%D7%97%D7%99%D7%A8-%D7%A9%D7%9C-1-56-%D7%9E%D7%99%D7%9C%D7%99%D7%95%D7%9F-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "year_start",
+            "year_end",
+            "version_or_trim",
+            "body_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "fuel_type"
+          ]
+        },
+        {
+          "source_index": 4,
+          "title": "בנטלי קונטיננטל 2025 החדשה נחשפת (דור 4) עם פלאג-אין V8 בהספק של 782 כ\"ס",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%91%D7%A0%D7%98%D7%9C%D7%99-%D7%A7%D7%95%D7%A0%D7%98%D7%99%D7%A0%D7%A0%D7%98%D7%9C-gt-speed-%D7%94%D7%97%D7%93%D7%A9%D7%94-2025-%D7%A0%D7%97%D7%A9%D7%A4%D7%AA-%D7%93%D7%95%D7%A8-4",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "year_start",
+            "year_end",
+            "version_or_trim",
+            "body_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "fuel_type"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "V8",
+          "Speed"
+        ],
+        "body_type": [
+          "Coupe",
+          "Convertible"
+        ],
+        "fuel_type": [
+          "petrol",
+          "plug_in_hybrid"
+        ],
+        "engine": [
+          "6.0L w12 twin-turbo",
+          "4.0L v8 twin-turbo"
+        ],
+        "horsepower_hp": [
+          635,
+          550,
+          782
+        ],
+        "transmission": [
+          "8-speed dual_clutch"
+        ],
+        "drivetrain": [
+          "AWD"
+        ]
+      },
+      "market": "IL",
+      "canonical_model": "Continental GT",
+      "profile_confidence": "medium"
     }
   ],
   "ready_for_website_upload": true
