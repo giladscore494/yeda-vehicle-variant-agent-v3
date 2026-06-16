@@ -368,3 +368,147 @@ def test_rs4_with_enforced_identity_is_ready():
     res = validate_profile(_profile(make="Audi", model="RS4"))
     assert res.ready is True
     assert not res.issues
+
+
+def test_resume_source_cursor_uses_clean_and_review_not_stale_checkpoint(tmp_path):
+    variants = [
+        _variant_row("Audi", "RS6"),
+        _variant_row("Audi", "RS7"),
+        _variant_row("Audi", "S3"),
+        _variant_row("Audi", "S4"),
+        _variant_row("Audi", "S5"),
+        _variant_row("Audi", "SQ5"),
+    ]
+    variants_path = tmp_path / "variants.json"
+    variants_path.write_text(json.dumps({"variants": variants}), encoding="utf-8")
+    catalog_path = tmp_path / "catalog.json"
+    review_path = tmp_path / "review.json"
+    readiness_path = tmp_path / "readiness.json"
+    catalog_path.write_text(json.dumps({"models": [
+        {"market": "IL", "make": "Audi", "model": "RS7"},
+        {"market": "IL", "make": "Audi", "model": "S3"},
+        {"market": "IL", "make": "Audi", "model": "S5"},
+    ]}), encoding="utf-8")
+    review_path.write_text(json.dumps({"models": [
+        {"market": "IL", "make": "Audi", "model": "RS6", "technical_variants_il": []},
+        {"market": "IL", "make": "Audi", "model": "S4", "technical_variants_il": []},
+    ]}), encoding="utf-8")
+    readiness_path.write_text(json.dumps({"last_checkpointed_profile_id": "IL::Audi::S3"}), encoding="utf-8")
+
+    state = cb.compute_resume_state(
+        variants_path=str(variants_path),
+        instructions_path=str(tmp_path / "missing.json"),
+        catalog_path=str(catalog_path),
+        readiness_path=str(readiness_path),
+        review_path=str(review_path),
+    )
+    assert state["done_source_cursor"] == 5
+    assert state["resume_after_key"] == "IL|Audi|S5"
+    assert state["next_key"] == "IL|Audi|S5"
+    assert state["next_key_to_process"] == "IL|Audi|SQ5"
+    assert state["next_make"] == "Audi"
+    assert state["next_model"] == "SQ5"
+    assert state["ready"] == 3
+    assert state["blocked"] == 2
+
+
+def test_build_error_profile_is_normalized(monkeypatch, tmp_path):
+    class _FailClient:
+        def build_profile(self, payload):
+            raise ValueError("Gemini catalog client returned non-object JSON")
+
+    monkeypatch.setattr(cb, "check_provider_available", lambda _s: None)
+    monkeypatch.setattr(cb, "build_catalog_client", lambda _s: _FailClient())
+    result = cb.build_catalog(
+        make="Audi", model="RS4", limit_models=1,
+        provider_settings=CatalogProviderSettings("openai", "GPT-5.4", "gpt-5.4", "sk-test"),
+        catalog_path=str(tmp_path / "c.json"),
+        readiness_path=str(tmp_path / "r.json"),
+        review_path=str(tmp_path / "v.json"),
+    )
+    entry = result.review["models"][0]
+    assert entry["market"] == "IL"
+    assert entry["make"] == "Audi"
+    assert entry["model"] == "RS4"
+    assert entry["canonical_model"] == "RS4"
+    assert entry["technical_variants_il"] == []
+    assert entry["validation_issues"]
+    assert entry["request_payload"]["model"] == "RS4"
+    assert entry["rebuild_required"] is True
+
+
+def test_full_rebuild_repair_calls_build_profile_not_targeted(monkeypatch, tmp_path):
+    blocked = {"market": "IL", "make": "Audi", "model": "RS6", "canonical_model": "RS6", "technical_variants_il": [],
+               "error": "Extra data: line 407 column 1", "rebuild_required": True,
+               "request_payload": {"market": "IL", "make": "Audi", "model": "RS6", "variants": []},
+               "validation_issues": ["technical_variants_il is empty"], "repair_attempts": 0}
+    catalog_path, readiness_path, review_path = _write_outputs(tmp_path, [blocked])
+    calls = {"build": 0, "repair": 0}
+
+    class _Client:
+        def build_profile(self, payload):
+            calls["build"] += 1
+            return _profile(make=payload["make"], model=payload["model"])
+        def build_repair_profile(self, *a, **k):
+            calls["repair"] += 1
+            raise AssertionError("targeted repair must not be called")
+
+    _bypass_provider(monkeypatch, _Client())
+    result = repair.repair_review_models(
+        selected_keys=["IL|Audi|RS6"],
+        provider_settings=CatalogProviderSettings("openai", "GPT-5.4", "gpt-5.4", "sk-test"),
+        catalog_path=catalog_path, readiness_path=readiness_path, review_path=review_path,
+    )
+    assert calls == {"build": 1, "repair": 0}
+    assert result["promoted"] == 1
+
+
+def test_noop_deterministic_repair_does_not_increment_attempts(monkeypatch, tmp_path):
+    blocked = _profile()
+    blocked["technical_variants_il"][0]["source_indexes"] = [999]
+    blocked["technical_variants_il"][0]["field_sources"] = _grounded_field_sources([999])
+    blocked["validation_issues"] = ["source index 999 does not exist"]
+    blocked["repair_attempts"] = 1
+    catalog_path, readiness_path, review_path = _write_outputs(tmp_path, [blocked])
+    monkeypatch.setattr(repair, "derive_repair_targets", lambda _p: {})
+    _bypass_provider(monkeypatch, object())
+    result = repair.repair_review_models(
+        selected_keys=["IL|Audi|RS4"],
+        provider_settings=CatalogProviderSettings("openai", "GPT-5.4", "gpt-5.4", "sk-test"),
+        catalog_path=catalog_path, readiness_path=readiness_path, review_path=review_path,
+    )
+    entry = result["review"]["models"][0]
+    assert entry["repair_attempts"] == 1
+    assert entry["rebuild_required"] is True
+    assert "full rebuild required" in entry["last_repair_error"]
+
+
+def test_truthful_repair_logs(monkeypatch, tmp_path):
+    full = {"market": "IL", "make": "Audi", "model": "RS6", "canonical_model": "RS6", "technical_variants_il": [],
+            "rebuild_required": True, "request_payload": {"market": "IL", "make": "Audi", "model": "RS6", "variants": []}}
+    targeted = _profile(make="Audi", model="RS4")
+    targeted["technical_variants_il"][0]["horsepower_hp"] = None
+    deterministic = _profile(make="Audi", model="S4")
+    deterministic["technical_variants_il"][0].pop("source_indexes")
+    catalog_path, readiness_path, review_path = _write_outputs(tmp_path, [full, targeted, deterministic])
+
+    class _Client:
+        def build_profile(self, payload):
+            return _profile(make=payload["make"], model=payload["model"])
+        def build_repair_profile(self, make, model, profile, targets):
+            fixed = _profile(make=make, model=model)
+            fixed["technical_variants_il"][0]["horsepower_hp"] = 450
+            return fixed
+
+    _bypass_provider(monkeypatch, _Client())
+    logs = []
+    repair.repair_review_models(
+        selected_keys=["IL|Audi|RS6", "IL|Audi|RS4", "IL|Audi|S4"],
+        provider_settings=CatalogProviderSettings("openai", "GPT-5.4", "gpt-5.4", "sk-test"),
+        catalog_path=catalog_path, readiness_path=readiness_path, review_path=review_path,
+        log=logs.append,
+    )
+    joined = "\n".join(logs)
+    assert "REBUILDING WITH GPT-5.4: IL|Audi|RS6 | full rebuild from request_payload" in joined
+    assert "REPAIRING WITH GPT-5.4: IL|Audi|RS4 | targets=" in joined
+    assert "DETERMINISTIC PATCH ONLY: IL|Audi|S4 | no model call" in joined

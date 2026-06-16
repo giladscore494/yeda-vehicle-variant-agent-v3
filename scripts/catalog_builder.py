@@ -222,7 +222,7 @@ def compute_resume_state(
     catalog, readiness, review = load_existing_outputs(catalog_path, readiness_path, review_path)
     group_keys = [g.key for g in groups]
     group_key_set = set(group_keys)
-    keys = {
+    output_keys = {
         k
         for k in (_model_key(m) for m in catalog.get("models", []) if isinstance(m, dict))
         if not is_corrupt_key(k)
@@ -231,27 +231,94 @@ def compute_resume_state(
         for k in (_model_key(m) for m in review.get("models", []) if isinstance(m, dict))
         if not is_corrupt_key(k)
     }
-    next_key = _profile_id_to_group_key(readiness.get("last_checkpointed_profile_id"))
-    # A checkpoint that is invalid OR no longer present in the current grouped
-    # source list must NOT silently restart from the beginning: fall back to the
-    # last valid ordered model key that actually exists in clean/review.
-    if next_key not in group_key_set:
-        next_key = None
-    if next_key is None and keys:
-        ordered = [k for k in group_keys if k in keys]
-        next_key = ordered[-1] if ordered else None
-    done = len(keys)
-    ready = int(readiness.get("models_ready_for_website") or len(catalog.get("models", [])))
-    blocked = int(readiness.get("models_blocked") or len(review.get("models", [])))
-    total = len(groups)
-    upcoming = select_groups(
-        groups,
-        start_after_key=next_key,
-        limit_models=1,
-        allow_missing_start_after=True,
-    )
-    return {"next_key": next_key, "total_universe": total, "done": done, "ready": ready, "blocked": blocked, "remaining": max(total - done, 0), "next_make": upcoming[0].make if upcoming else None, "next_model": upcoming[0].model if upcoming else None}
+    matched_output_keys = output_keys & group_key_set
+    unmatched_output_keys = output_keys - group_key_set
 
+    cursor_index = 0
+    for idx, key in enumerate(group_keys):
+        if key not in matched_output_keys:
+            cursor_index = idx
+            break
+    else:
+        cursor_index = len(group_keys)
+
+    done_source_cursor = cursor_index
+    resume_after_key = group_keys[cursor_index - 1] if cursor_index > 0 else None
+    next_key_to_process = group_keys[cursor_index] if cursor_index < len(group_keys) else None
+    next_group = groups[cursor_index] if cursor_index < len(groups) else None
+
+    last_checkpointed_profile_id = readiness.get("last_checkpointed_profile_id")
+    last_repair_checkpointed_profile_id = readiness.get("last_repair_checkpointed_profile_id")
+    checkpoint_key = _profile_id_to_group_key(last_checkpointed_profile_id)
+    resume_warning = None
+    if checkpoint_key and resume_after_key and checkpoint_key != resume_after_key:
+        resume_warning = (
+            f"last_checkpointed_profile_id points to {checkpoint_key}, "
+            f"but source/output cursor resumes after {resume_after_key}"
+        )
+
+    ready = len([m for m in catalog.get("models", []) if isinstance(m, dict) and not is_corrupt_key(_model_key(m))])
+    blocked = len([m for m in review.get("models", []) if isinstance(m, dict) and not is_corrupt_key(_model_key(m))])
+    total = len(groups)
+    remaining = max(total - done_source_cursor, 0)
+    quality_scan = _load_json_file(os.path.join(DATA_DIR, "model_technical_catalog_il_quality_scan.json"), {})
+    quality_scan_stale = False
+    if quality_scan.get("generated_at"):
+        newest_output = max(str(catalog.get("generated_at") or ""), str(review.get("generated_at") or ""), str(readiness.get("generated_at") or ""))
+        quality_scan_stale = str(quality_scan.get("generated_at") or "") < newest_output
+    return {
+        "done_source_cursor": done_source_cursor,
+        "resume_after_key": resume_after_key,
+        "next_key": resume_after_key,
+        "next_key_to_process": next_key_to_process,
+        "next_make": next_group.make if next_group else None,
+        "next_model": next_group.model if next_group else None,
+        "ready": ready,
+        "blocked": blocked,
+        "total_universe": total,
+        "remaining": remaining,
+        "matched_output_keys_count": len(matched_output_keys),
+        "unmatched_output_keys_count": len(unmatched_output_keys),
+        "unmatched_output_keys_sample": sorted(unmatched_output_keys)[:10],
+        "last_checkpointed_profile_id": last_checkpointed_profile_id,
+        "last_repair_checkpointed_profile_id": last_repair_checkpointed_profile_id,
+        "resume_warning": resume_warning,
+        "quality_scan_stale": quality_scan_stale,
+        "quality_scan_generated_at": quality_scan.get("generated_at"),
+        "done": done_source_cursor,
+    }
+
+
+
+def _normalized_error_profile(market: str, group: Any, payload: Dict[str, Any], safe_error: str) -> Dict[str, Any]:
+    error_profile = {
+        "market": market,
+        "make": group.make,
+        "model": group.model,
+        "canonical_model": group.model,
+        "year_start": None,
+        "year_end": None,
+        "technical_variants_il": [],
+        "available_values_for_website": {
+            "version_or_trim": [],
+            "body_type": [],
+            "fuel_type": [],
+            "engine": [],
+            "horsepower_hp": [],
+            "transmission": [],
+            "drivetrain": [],
+        },
+        "invalid_or_non_trim_labels": [],
+        "sources": [],
+        "profile_confidence": None,
+        "notes": [],
+        "error": safe_error,
+        "request_payload": payload,
+        "rebuild_required": True,
+    }
+    result = validate_profile(error_profile)
+    error_profile["validation_issues"] = result.issues
+    return error_profile
 
 @dataclass
 class BuildResult:
@@ -395,20 +462,15 @@ def build_catalog(
 
         try:
             profile = client.build_profile(payload)
+            if not isinstance(profile, dict):
+                raise ValueError("catalog client returned non-object JSON")
         except ProviderUnavailableError:
             raise
         except Exception as exc:  # noqa: BLE001 - keep building other models
             review_count += 1
             safe_error = sanitize_error(exc)
             emit(f"[{idx}/{total}] ERROR: {group.make} {group.model} routed to review: {safe_error}")
-            review_models.append(
-                {
-                    "make": group.make,
-                    "model": group.model,
-                    "error": safe_error,
-                    "request_payload": payload,
-                }
-            )
+            review_models.append(_normalized_error_profile(market, group, payload, safe_error))
             catalog, readiness, review = _snapshot()
             profile_id = f"{market}::{group.make}::{group.model}"
             checkpointer.state["last_checkpointed_profile_id"] = profile_id
