@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T17:13:28Z",
+  "generated_at": "2026-06-16T17:14:14Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -30234,6 +30234,321 @@
       "make": "BMW",
       "model": "230e (Active Tourer PHEV)",
       "canonical_model": "230e (Active Tourer PHEV)",
+      "profile_confidence": "medium"
+    },
+    {
+      "make": "BMW",
+      "model": "316i",
+      "market": "IL",
+      "sources": [
+        {
+          "source_index": 140,
+          "title": "ב.מ.וו סדרה 3 (2012-2019) מפרט טכני - iCar",
+          "url": "https://www.icar.co.il/ב.מ.וו/ב.מ.וו_סדרה_3_דגם_2012/מפרט_טכני/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 141,
+          "title": "ב.מ.וו 316i במבחן דרכים - אוטו",
+          "url": "https://www.auto.co.il/article/roadcartest/29959-road-tests-bmw-3-series",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "horsepower_hp",
+            "engine",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 142,
+          "title": "ב.מ.וו סדרה 3 (1998-2005) - קטלוג רכב - אוטו",
+          "url": "https://www.auto.co.il/catalog/bmw/3-series/1998-2005",
+          "source_name": "Auto.co.il",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 143,
+          "title": "ב.מ.וו סדרה 3 (1991-1998) - קטלוג רכב - אוטו",
+          "url": "https://www.auto.co.il/catalog/bmw/3-series/1991-1998",
+          "source_name": "Auto.co.il",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "1.6L turbo",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 136,
+          "transmission": "8-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 2013,
+          "year_end": 2015,
+          "support_level": "direct",
+          "source_indexes": [
+            140,
+            141
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              140
+            ],
+            "fuel_type": [
+              140
+            ],
+            "engine": [
+              140,
+              141
+            ],
+            "engine_displacement_l": [
+              140,
+              141
+            ],
+            "horsepower_hp": [
+              140,
+              141
+            ],
+            "transmission": [
+              140,
+              141
+            ],
+            "drivetrain": [
+              140,
+              141
+            ],
+            "year_start": [
+              140
+            ],
+            "year_end": [
+              140
+            ]
+          },
+          "missing_grounded_fields": [
+            "version_or_trim"
+          ]
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "1.8L",
+          "engine_displacement_l": 1.8,
+          "horsepower_hp": 115,
+          "transmission": "automatic",
+          "drivetrain": "RWD",
+          "year_start": 2002,
+          "year_end": 2005,
+          "support_level": "direct",
+          "source_indexes": [
+            142
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              142
+            ],
+            "fuel_type": [
+              142
+            ],
+            "engine": [
+              142
+            ],
+            "engine_displacement_l": [
+              142
+            ],
+            "horsepower_hp": [
+              142
+            ],
+            "transmission": [
+              142
+            ],
+            "drivetrain": [
+              142
+            ],
+            "year_start": [
+              142
+            ],
+            "year_end": [
+              142
+            ]
+          },
+          "missing_grounded_fields": [
+            "version_or_trim"
+          ]
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "1.9L",
+          "engine_displacement_l": 1.9,
+          "horsepower_hp": 105,
+          "transmission": "automatic",
+          "drivetrain": "RWD",
+          "year_start": 1999,
+          "year_end": 2001,
+          "support_level": "direct",
+          "source_indexes": [
+            142
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              142
+            ],
+            "fuel_type": [
+              142
+            ],
+            "engine": [
+              142
+            ],
+            "engine_displacement_l": [
+              142
+            ],
+            "horsepower_hp": [
+              142
+            ],
+            "transmission": [
+              142
+            ],
+            "drivetrain": [
+              142
+            ],
+            "year_start": [
+              142
+            ],
+            "year_end": [
+              142
+            ]
+          },
+          "missing_grounded_fields": [
+            "version_or_trim"
+          ]
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "1.6L",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 102,
+          "transmission": "automatic",
+          "drivetrain": "RWD",
+          "year_start": 1991,
+          "year_end": 1998,
+          "support_level": "direct",
+          "source_indexes": [
+            143
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              143
+            ],
+            "fuel_type": [
+              143
+            ],
+            "engine": [
+              143
+            ],
+            "engine_displacement_l": [
+              143
+            ],
+            "horsepower_hp": [
+              143
+            ],
+            "transmission": [
+              143
+            ],
+            "drivetrain": [
+              143
+            ],
+            "year_start": [
+              143
+            ],
+            "year_end": [
+              143
+            ]
+          },
+          "missing_grounded_fields": [
+            "version_or_trim"
+          ]
+        }
+      ],
+      "invalid_or_non_trim_labels": {
+        "Base": "non_trim_placeholder",
+        "1.6L": "engine_displacement_label",
+        "1.6L Turbo": "engine_displacement_label",
+        "1.8L / 1.9L": "engine_displacement_label"
+      },
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Sedan"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "1.6L turbo",
+          "1.8L",
+          "1.9L",
+          "1.6L"
+        ],
+        "horsepower_hp": [
+          136,
+          115,
+          105,
+          102
+        ],
+        "transmission": [
+          "8-speed automatic",
+          "automatic"
+        ],
+        "drivetrain": [
+          "RWD"
+        ]
+      },
+      "canonical_model": "316i",
       "profile_confidence": "medium"
     }
   ],
