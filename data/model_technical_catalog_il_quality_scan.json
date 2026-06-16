@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-06-16T19:48:01Z",
+  "generated_at": "2026-06-16T21:50:51Z",
   "totals": {
-    "models": 128,
-    "findings": 261,
-    "grounded_cells": 4343,
-    "total_cells": 4343,
-    "marketplace_citation_share": 0.0999462654486835,
-    "official_citations": 9196,
-    "bug": 0,
+    "models": 168,
+    "findings": 310,
+    "grounded_cells": 5417,
+    "total_cells": 5417,
+    "marketplace_citation_share": 0.08583294877711121,
+    "official_citations": 10726,
+    "bug": 9,
     "leak": 108,
     "normalization": 0,
-    "structure": 153
+    "structure": 193
   },
   "findings": [
     {
@@ -40,6 +40,20 @@
       "make": "Abarth",
       "model": "500",
       "detail": "89/89 grounded cells (100.0%)"
+    },
+    {
+      "type": "support_level_invariant",
+      "severity": "bug",
+      "make": "Abarth",
+      "model": "500e",
+      "detail": "variant[0] is indirect but all non-null fields are grounded"
+    },
+    {
+      "type": "support_level_invariant",
+      "severity": "bug",
+      "make": "Abarth",
+      "model": "500e",
+      "detail": "variant[1] is indirect but all non-null fields are grounded"
     },
     {
       "type": "grounding_completeness",
@@ -854,6 +868,27 @@
       "detail": "29/29 grounded cells (100.0%)"
     },
     {
+      "type": "support_level_invariant",
+      "severity": "bug",
+      "make": "Alpine",
+      "model": "A290",
+      "detail": "variant[0] is indirect but all non-null fields are grounded"
+    },
+    {
+      "type": "support_level_invariant",
+      "severity": "bug",
+      "make": "Alpine",
+      "model": "A290",
+      "detail": "variant[1] is indirect but all non-null fields are grounded"
+    },
+    {
+      "type": "support_level_invariant",
+      "severity": "bug",
+      "make": "Alpine",
+      "model": "A290",
+      "detail": "variant[2] is indirect but all non-null fields are grounded"
+    },
+    {
       "type": "grounding_completeness",
       "severity": "structure",
       "make": "Alpine",
@@ -1153,6 +1188,34 @@
       "make": "Audi",
       "model": "A8",
       "detail": "30/30 grounded cells (100.0%)"
+    },
+    {
+      "type": "support_level_invariant",
+      "severity": "bug",
+      "make": "Audi",
+      "model": "e-tron GT",
+      "detail": "variant[0] is indirect but all non-null fields are grounded"
+    },
+    {
+      "type": "support_level_invariant",
+      "severity": "bug",
+      "make": "Audi",
+      "model": "e-tron GT",
+      "detail": "variant[1] is indirect but all non-null fields are grounded"
+    },
+    {
+      "type": "support_level_invariant",
+      "severity": "bug",
+      "make": "Audi",
+      "model": "e-tron GT",
+      "detail": "variant[2] is indirect but all non-null fields are grounded"
+    },
+    {
+      "type": "support_level_invariant",
+      "severity": "bug",
+      "make": "Audi",
+      "model": "e-tron GT",
+      "detail": "variant[3] is indirect but all non-null fields are grounded"
     },
     {
       "type": "grounding_completeness",
@@ -1780,70 +1843,351 @@
     {
       "type": "grounding_completeness",
       "severity": "structure",
-      "make": "Audi",
-      "model": "TT",
+      "make": "BMW",
+      "model": "735i",
       "detail": "18/18 grounded cells (100.0%)"
     },
     {
       "type": "grounding_completeness",
       "severity": "structure",
-      "make": "Bentley",
-      "model": "Continental GT",
-      "detail": "10/10 grounded cells (100.0%)"
-    },
-    {
-      "type": "grounding_completeness",
-      "severity": "structure",
-      "make": "Bentley",
-      "model": "Flying Spur",
-      "detail": "10/10 grounded cells (100.0%)"
+      "make": "BMW",
+      "model": "740e",
+      "detail": "9/9 grounded cells (100.0%)"
     },
     {
       "type": "grounding_completeness",
       "severity": "structure",
       "make": "BMW",
-      "model": "116i",
+      "model": "740i",
+      "detail": "29/29 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "745i",
+      "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "750i",
+      "detail": "49/49 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "760i",
+      "detail": "19/19 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "840i",
+      "detail": "30/30 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "850i",
+      "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Bmw",
+      "model": "850i",
+      "detail": "30/30 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "i3",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "i3s",
+      "detail": "8/8 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "i4 eDrive35",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "i5 eDrive40",
+      "detail": "16/16 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "i7 xDrive60",
+      "detail": "7/7 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "i8",
+      "detail": "27/27 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "iX xDrive40",
+      "detail": "8/8 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "iX1 eDrive20",
+      "detail": "16/16 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "iX2 eDrive20",
+      "detail": "16/16 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "iX3",
+      "detail": "8/8 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "M135i",
+      "detail": "19/19 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "M2",
+      "detail": "39/39 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "M235i",
+      "detail": "17/17 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "M3",
+      "detail": "82/82 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "M4",
+      "detail": "58/58 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "M5",
+      "detail": "55/55 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "M6",
+      "detail": "45/45 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "M760Li",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "M8",
+      "detail": "30/30 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "M850i",
+      "detail": "30/30 grounded cells (100.0%)"
+    },
+    {
+      "type": "year_split_duplicates",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X1 sDrive18i",
+      "detail": "merge candidate signature=('SUV', 'petrol', '1.5L turbo', 136, '7-speed dual_clutch', 'FWD') rows=[(2, 2015, 2022), (3, 2015, 2022), (4, 2015, 2022), (5, 2015, 2022), (6, 2015, 2022), (7, 2023, 2026), (8, 2023, 2026), (9, 2023, 2026), (10, 2023, 2026)]"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X1 sDrive18i",
+      "detail": "110/110 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X1 sDrive20i",
+      "detail": "36/36 grounded cells (100.0%)"
+    },
+    {
+      "type": "year_split_duplicates",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X1 xDrive25e",
+      "detail": "merge candidate signature=('SUV', 'plug_in_hybrid', '1.5L turbo plug-in hybrid', 220, '6-speed automatic', 'AWD') rows=[(0, 2020, 2022), (1, 2021, 2022)]"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X1 xDrive25e",
       "detail": "20/20 grounded cells (100.0%)"
     },
     {
       "type": "grounding_completeness",
       "severity": "structure",
       "make": "BMW",
-      "model": "318d",
+      "model": "X2 M35i",
+      "detail": "19/19 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X2 sDrive18i",
+      "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X2 sDrive20i",
+      "detail": "19/19 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X3 2.0i",
+      "detail": "30/30 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X3 2.5i",
       "detail": "18/18 grounded cells (100.0%)"
     },
     {
-      "type": "year_split_duplicates",
-      "severity": "structure",
-      "make": "BMW",
-      "model": "328i",
-      "detail": "merge candidate signature=('Sedan', 'petrol', '2.8L', 193, 'automatic', 'RWD') rows=[(0, 1998, 2000), (2, 1995, 1998)]"
-    },
-    {
       "type": "grounding_completeness",
       "severity": "structure",
       "make": "BMW",
-      "model": "328i",
-      "detail": "36/36 grounded cells (100.0%)"
-    },
-    {
-      "type": "grounding_completeness",
-      "severity": "structure",
-      "make": "BMW",
-      "model": "340i",
+      "model": "X3 M",
       "detail": "10/10 grounded cells (100.0%)"
     },
     {
       "type": "grounding_completeness",
       "severity": "structure",
       "make": "BMW",
-      "model": "650i",
+      "model": "X3 M40i",
+      "detail": "10/10 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X3 xDrive20d",
+      "detail": "20/20 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X3 xDrive30e",
+      "detail": "10/10 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X3 xDrive30i",
       "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X4 M40i",
+      "detail": "27/27 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X4 xDrive30i",
+      "detail": "19/19 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X5 3.0i",
+      "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X5 4.4i",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X5 3.0d",
+      "detail": "75/75 grounded cells (100.0%)"
     }
   ],
   "counts_by_type": {
-    "grounding_completeness": 128,
-    "year_split_duplicates": 25,
+    "grounding_completeness": 167,
+    "year_split_duplicates": 26,
+    "support_level_invariant": 9,
     "source_tier_inversion": 104,
     "source_domain": 4
   }
