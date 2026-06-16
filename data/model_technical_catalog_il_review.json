@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T20:23:23Z",
+  "generated_at": "2026-06-16T20:24:41Z",
   "market": "IL",
   "models": [
     {
@@ -1955,6 +1955,235 @@
       "rebuild_required": true,
       "validation_issues": [
         "technical_variants_il is empty"
+      ]
+    },
+    {
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "ב.מ.וו i3 - מחירון, מפרט טכני וחוות דעת | iCar",
+          "url": "https://www.icar.co.il/%D7%91.%D7%9E.%D7%95%D7%95/%D7%91.%D7%9E.%D7%95%D7%95_i3/%D7%91.%D7%9E.%D7%95%D7%95_i3_%D7%97%D7%93%D7%A9/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "ב.מ.וו i3 בישראל - מחירון החל מ- 249,000 שקל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%91-%D7%9E-%D7%95%D7%95-i3-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8%D7%95%D7%9F-%D7%94%D7%97%D7%9C-%D7%9E-249,000-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "ב.מ.וו i3 החדשה 2018 בישראל - מחיר החל מ- 249,000 שקל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%91-%D7%9E-%D7%95%D7%95-i3-%D7%94%D7%97%D7%93%D7%A9%D7%94-2018-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-249,000-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "horsepower_hp",
+            "year_start"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "Hatchback",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 170,
+          "transmission": "single_speed",
+          "drivetrain": "RWD",
+          "year_start": 2016,
+          "year_end": 2022,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": [
+            "engine_displacement_l"
+          ]
+        },
+        {
+          "body_type": "Hatchback",
+          "fuel_type": "plug_in_hybrid",
+          "engine": "0.6L 2-cylinder",
+          "engine_displacement_l": 0.6,
+          "horsepower_hp": 170,
+          "transmission": "single_speed",
+          "drivetrain": "RWD",
+          "year_start": 2016,
+          "year_end": 2018,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Hatchback",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 184,
+          "transmission": "single_speed",
+          "drivetrain": "RWD",
+          "year_start": 2018,
+          "year_end": 2022,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              2
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0,
+              2
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": [
+            "engine_displacement_l"
+          ]
+        }
+      ],
+      "invalid_or_non_trim_labels": {
+        "170 hp Electric Motor": "engine_and_power_spec",
+        "170 hp Electric Motor + 647cc 2-cylinder REx": "engine_and_power_spec",
+        "184 hp Electric Motor": "engine_and_power_spec"
+      },
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Hatchback"
+        ],
+        "fuel_type": [
+          "electric",
+          "plug_in_hybrid"
+        ],
+        "engine": [
+          "electric",
+          "0.6L 2-cylinder"
+        ],
+        "horsepower_hp": [
+          170,
+          184
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "RWD"
+        ]
+      },
+      "market": "IL",
+      "make": "BMW",
+      "model": "i3",
+      "canonical_model": "i3",
+      "profile_confidence": "medium",
+      "validation_issues": [
+        "variant[0] is electric inside a petrol model profile",
+        "variant[2] is electric inside a petrol model profile"
       ]
     }
   ]
