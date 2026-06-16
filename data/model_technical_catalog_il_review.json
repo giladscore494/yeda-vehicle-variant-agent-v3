@@ -1,5 +1,80 @@
 {
-  "generated_at": "2026-06-16T15:08:38Z",
+  "generated_at": "2026-06-16T15:18:10Z",
   "market": "IL",
-  "models": []
+  "models": [
+    {
+      "make": "Audi",
+      "model": "RS6",
+      "error": "Extra data: line 407 column 1 (char 8468)",
+      "request_payload": {
+        "task": "build_israeli_model_technical_catalog",
+        "market": "IL",
+        "make": "Audi",
+        "model": "RS6",
+        "raw_database_values": {
+          "years_seen": [
+            2008,
+            2012,
+            2013,
+            2016,
+            2018,
+            2019,
+            2023,
+            2026
+          ],
+          "trims_seen": [
+            "Base",
+            "Performance"
+          ],
+          "engines_seen": [
+            "4.0L V8 TFSI",
+            "4.0L V8 TFSI MHEV",
+            "5.0L V10 TFSI"
+          ],
+          "horsepower_seen": [],
+          "transmissions_seen": [
+            "automatic"
+          ],
+          "body_types_seen": [
+            "Avant",
+            "Sedan"
+          ],
+          "fuel_types_seen": [
+            "mild_hybrid",
+            "petrol"
+          ],
+          "drivetrains_seen": [
+            "AWD"
+          ]
+        },
+        "sample_validation_ids": [
+          "VAL-000270",
+          "VAL-000271",
+          "VAL-000272",
+          "VAL-000273",
+          "VAL-000274",
+          "VAL-000275"
+        ],
+        "source_indexes": [
+          701,
+          702,
+          703,
+          704,
+          705,
+          706
+        ],
+        "metadata_hints": {
+          "priorities_seen": [
+            "medium"
+          ],
+          "validation_routes_seen": [
+            "cheap_model_structured_validation"
+          ],
+          "possible_duplicate_rows": 0,
+          "validation_id_count": 6
+        },
+        "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
+      }
+    }
+  ]
 }
