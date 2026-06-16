@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T15:19:40Z",
+  "generated_at": "2026-06-16T15:20:39Z",
   "market": "IL",
   "models": [
     {
@@ -72,6 +72,78 @@
           ],
           "possible_duplicate_rows": 0,
           "validation_id_count": 6
+        },
+        "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
+      }
+    },
+    {
+      "make": "Audi",
+      "model": "S4",
+      "error": "Gemini catalog client returned non-object JSON",
+      "request_payload": {
+        "task": "build_israeli_model_technical_catalog",
+        "market": "IL",
+        "make": "Audi",
+        "model": "S4",
+        "raw_database_values": {
+          "years_seen": [
+            1998,
+            2002,
+            2003,
+            2005,
+            2008,
+            2009,
+            2016,
+            2017,
+            2026
+          ],
+          "trims_seen": [
+            "Base",
+            "Luxury"
+          ],
+          "engines_seen": [
+            "2.7L V6 BiTurbo",
+            "3.0L V6 TFSI",
+            "4.2L V8"
+          ],
+          "horsepower_seen": [],
+          "transmissions_seen": [
+            "automatic",
+            "manual"
+          ],
+          "body_types_seen": [
+            "Sedan"
+          ],
+          "fuel_types_seen": [
+            "petrol"
+          ],
+          "drivetrains_seen": [
+            "AWD"
+          ]
+        },
+        "sample_validation_ids": [
+          "VAL-000284",
+          "VAL-000285",
+          "VAL-000286",
+          "VAL-000287",
+          "VAL-000288"
+        ],
+        "source_indexes": [
+          103,
+          713,
+          714,
+          715,
+          716
+        ],
+        "metadata_hints": {
+          "priorities_seen": [
+            "medium"
+          ],
+          "validation_routes_seen": [
+            "cheap_model_structured_validation"
+          ],
+          "possible_duplicate_rows": 0,
+          "validation_id_count": 5
         },
         "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
       }
