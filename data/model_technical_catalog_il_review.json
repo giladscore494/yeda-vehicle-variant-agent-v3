@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T22:09:50Z",
+  "generated_at": "2026-06-16T22:10:58Z",
   "market": "IL",
   "models": [
     {
@@ -1981,6 +1981,98 @@
         "variant[4] support_level=direct but no source directly supports it",
         "variant[5] has no source_indexes",
         "variant[5] support_level=direct but no source directly supports it"
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Cadillac",
+      "model": "Escalade",
+      "canonical_model": "Escalade",
+      "year_start": null,
+      "year_end": null,
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [],
+      "profile_confidence": null,
+      "notes": [],
+      "error": "Extra data: line 307 column 1 (char 7088)",
+      "request_payload": {
+        "task": "build_israeli_model_technical_catalog",
+        "market": "IL",
+        "make": "Cadillac",
+        "model": "Escalade",
+        "raw_database_values": {
+          "years_seen": [
+            2007,
+            2014,
+            2015,
+            2020,
+            2021,
+            2025,
+            2026
+          ],
+          "trims_seen": [
+            "Luxury Sport",
+            "Sport Platinum"
+          ],
+          "engines_seen": [
+            "6.2L V8",
+            "Electric"
+          ],
+          "horsepower_seen": [],
+          "transmissions_seen": [
+            "automatic"
+          ],
+          "body_types_seen": [
+            "SUV"
+          ],
+          "fuel_types_seen": [
+            "electric",
+            "petrol"
+          ],
+          "drivetrains_seen": [
+            "4WD",
+            "AWD"
+          ]
+        },
+        "sample_validation_ids": [
+          "VAL-000679",
+          "VAL-000680",
+          "VAL-000681",
+          "VAL-000682"
+        ],
+        "source_indexes": [
+          264,
+          265,
+          374,
+          375
+        ],
+        "metadata_hints": {
+          "priorities_seen": [
+            "high",
+            "medium"
+          ],
+          "validation_routes_seen": [
+            "cheap_model_structured_validation",
+            "strong_model_or_manual_review"
+          ],
+          "possible_duplicate_rows": 0,
+          "validation_id_count": 4
+        },
+        "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
+      },
+      "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
       ]
     }
   ]
