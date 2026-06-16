@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T17:15:05Z",
+  "generated_at": "2026-06-16T17:15:33Z",
   "market": "IL",
   "models": [
     {
@@ -201,6 +201,282 @@
       "validation_issues": [
         "variant[0] non-null field 'version_or_trim' has no field_sources entry",
         "variant[1] non-null field 'version_or_trim' has no field_sources entry"
+      ]
+    },
+    {
+      "make": "BMW",
+      "model": "318i",
+      "sources": [
+        {
+          "source_index": 752,
+          "title": "ב.מ.וו סדרה 3 2015 - 2019 - מפרט טכני - iCar",
+          "url": "https://www.icar.co.il/bmw/%D7%91.%D7%9E.%D7%95%D7%95_%D7%A1%D7%93%D7%A8%D7%94_3/%D7%91.%D7%9E.%D7%95%D7%95_%D7%A1%D7%93%D7%A8%D7%94_3_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%94_d18/version7948/",
+          "source_name": "iCar Israel",
+          "source_type": "israeli_catalog",
+          "supports": [
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "body_type",
+            "fuel_type",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 753,
+          "title": "ב.מ.וו 318i סדאן (156 כ\"ס) 2020 - מפרט טכני - iCar",
+          "url": "https://www.icar.co.il/bmw/%D7%91.%D7%9E.%D7%95%D7%95_%D7%A1%D7%93%D7%A8%D7%94_3/%D7%91.%D7%9E.%D7%95%D7%95_%D7%A1%D7%93%D7%A8%D7%94_3_%D7%97%D7%93%D7%A9/version15167/",
+          "source_name": "iCar Israel",
+          "source_type": "israeli_catalog",
+          "supports": [
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "body_type",
+            "fuel_type",
+            "year_start",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 754,
+          "title": "ב.מ.וו סדרה 3 מפרט טכני - אוטו",
+          "url": "https://www.auto.co.il/model/bmw-3-series_g250",
+          "source_name": "Auto.co.il",
+          "source_type": "israeli_catalog",
+          "supports": [
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "fuel_type"
+          ]
+        },
+        {
+          "source_index": 755,
+          "title": "ב.מ.וו סדרה 3 2005 - 2012 - מפרט טכני - iCar",
+          "url": "https://www.icar.co.il/bmw/%D7%91.%D7%9E.%D7%95%D7%95_%D7%A1%D7%93%D7%A8%D7%94_3/%D7%91.%D7%9E.%D7%95%D7%95_%D7%A1%D7%93%D7%A8%D7%94_3_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%94_d16/version5224/",
+          "source_name": "iCar Israel",
+          "source_type": "israeli_catalog",
+          "supports": [
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "body_type",
+            "fuel_type",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "2.0L",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 136,
+          "transmission": "6-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 2005,
+          "year_end": 2012,
+          "support_level": "direct",
+          "source_indexes": [
+            755
+          ],
+          "field_sources": {
+            "body_type": [
+              755
+            ],
+            "fuel_type": [
+              755
+            ],
+            "engine": [
+              755
+            ],
+            "engine_displacement_l": [
+              755
+            ],
+            "horsepower_hp": [
+              755
+            ],
+            "transmission": [
+              755
+            ],
+            "drivetrain": [
+              755
+            ],
+            "year_start": [
+              755
+            ],
+            "year_end": [
+              755
+            ]
+          },
+          "missing_grounded_fields": [],
+          "version_or_trim": "Business"
+        },
+        {
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "1.5L turbo",
+          "engine_displacement_l": 1.5,
+          "horsepower_hp": 136,
+          "transmission": "8-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 2015,
+          "year_end": 2019,
+          "support_level": "direct",
+          "source_indexes": [
+            752
+          ],
+          "field_sources": {
+            "body_type": [
+              752
+            ],
+            "fuel_type": [
+              752
+            ],
+            "engine": [
+              752
+            ],
+            "engine_displacement_l": [
+              752
+            ],
+            "horsepower_hp": [
+              752
+            ],
+            "transmission": [
+              752
+            ],
+            "drivetrain": [
+              752
+            ],
+            "year_start": [
+              752
+            ],
+            "year_end": [
+              752
+            ]
+          },
+          "missing_grounded_fields": [],
+          "version_or_trim": "Sport"
+        },
+        {
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 156,
+          "transmission": "8-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 2020,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            753,
+            754
+          ],
+          "field_sources": {
+            "body_type": [
+              753
+            ],
+            "fuel_type": [
+              753,
+              754
+            ],
+            "engine": [
+              753,
+              754
+            ],
+            "engine_displacement_l": [
+              753
+            ],
+            "horsepower_hp": [
+              753,
+              754
+            ],
+            "transmission": [
+              753,
+              754
+            ],
+            "drivetrain": [
+              753
+            ],
+            "year_start": [
+              753
+            ],
+            "year_end": [
+              753,
+              754
+            ]
+          },
+          "missing_grounded_fields": [],
+          "version_or_trim": "Business / M-Design"
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Base",
+          "classification": "generic_placeholder"
+        },
+        {
+          "label": "Base / Business",
+          "classification": "composite_with_generic"
+        },
+        {
+          "label": "Sport / Luxury / Business",
+          "classification": "composite_trims"
+        },
+        {
+          "label": "Business / Style / M-Design",
+          "classification": "composite_trims"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Business",
+          "Sport",
+          "Business / M-Design"
+        ],
+        "body_type": [
+          "Sedan"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "2.0L",
+          "1.5L turbo",
+          "2.0L turbo"
+        ],
+        "horsepower_hp": [
+          136,
+          156
+        ],
+        "transmission": [
+          "6-speed automatic",
+          "8-speed automatic"
+        ],
+        "drivetrain": [
+          "RWD"
+        ]
+      },
+      "market": "IL",
+      "canonical_model": "318i",
+      "profile_confidence": "medium",
+      "validation_issues": [
+        "variant[0] non-null field 'version_or_trim' has no field_sources entry",
+        "variant[1] non-null field 'version_or_trim' has no field_sources entry",
+        "variant[2] non-null field 'version_or_trim' has no field_sources entry"
       ]
     }
   ]
