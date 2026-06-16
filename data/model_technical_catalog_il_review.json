@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T22:04:44Z",
+  "generated_at": "2026-06-16T22:05:35Z",
   "market": "IL",
   "models": [
     {
@@ -1041,6 +1041,238 @@
         "variant[0] support_level=direct but no source directly supports it",
         "variant[1] has no source_indexes",
         "variant[1] support_level=direct but no source directly supports it"
+      ]
+    },
+    {
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "BYD SEAL U - מפרט טכני",
+          "url": "https://byd.co.il/models/seal-u/",
+          "source_name": "BYD Israel Official Website",
+          "source_type": "official_importer",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "BYD סיל U פלאג-אין (DM-i) בישראל - מחיר החל מ- 170,000 שקל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/byd-סיל-u-פלאג-אין-dm-i-בישראל-מחיר-החל-מ-170000-שקל",
+          "source_name": "Cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 218,
+          "transmission": "single_speed",
+          "drivetrain": "FWD",
+          "year_start": 2024,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "year_end"
+          ]
+        },
+        {
+          "body_type": "SUV",
+          "fuel_type": "plug_in_hybrid",
+          "engine": "1.5L",
+          "engine_displacement_l": 1.5,
+          "horsepower_hp": 218,
+          "transmission": "automatic",
+          "drivetrain": "FWD",
+          "year_start": 2024,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "year_end"
+          ]
+        },
+        {
+          "body_type": "SUV",
+          "fuel_type": "plug_in_hybrid",
+          "engine": "1.5L turbo",
+          "engine_displacement_l": 1.5,
+          "horsepower_hp": 324,
+          "transmission": "automatic",
+          "drivetrain": "AWD",
+          "year_start": 2024,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "year_end"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "electric",
+          "plug_in_hybrid"
+        ],
+        "engine": [
+          "electric",
+          "1.5L",
+          "1.5L turbo"
+        ],
+        "horsepower_hp": [
+          218,
+          324
+        ],
+        "transmission": [
+          "single_speed",
+          "automatic"
+        ],
+        "drivetrain": [
+          "FWD",
+          "AWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Comfort DM-i",
+          "classification": "trim_and_powertrain_mixed"
+        },
+        {
+          "label": "Design DM-i",
+          "classification": "trim_and_powertrain_mixed"
+        },
+        {
+          "label": "1.5L PHEV",
+          "classification": "powertrain"
+        },
+        {
+          "label": "1.5L Turbo PHEV",
+          "classification": "powertrain"
+        },
+        {
+          "label": "Electric",
+          "classification": "fuel_type"
+        }
+      ],
+      "market": "IL",
+      "make": "BYD",
+      "model": "Seal U",
+      "canonical_model": "Seal U",
+      "profile_confidence": "medium",
+      "validation_issues": [
+        "variant[0] is electric inside a petrol model profile"
       ]
     }
   ]
