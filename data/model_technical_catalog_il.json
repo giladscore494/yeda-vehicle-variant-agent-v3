@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T20:20:11Z",
+  "generated_at": "2026-06-16T20:20:59Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -43899,6 +43899,366 @@
       "make": "BMW",
       "model": "745i",
       "canonical_model": "745i",
+      "profile_confidence": "medium"
+    },
+    {
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "ב.מ.וו סדרה 7 1995-2001 מפרט טכני - אוטו",
+          "url": "https://www.auto.co.il/model/bmw-7-series_g157",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "ב.מ.וו סדרה 7 (2009-2015) - מחירון ומפרטים",
+          "url": "https://www.icar.co.il/ב.מ.וו/ב.מ.וו_סדרה_7/ב.מ.וו_סדרה_7_דגם_2009/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "ב.מ.וו סדרה 7 החדשה בישראל – מחיר החל מ- 890,000 שקל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/ב-מ-וו-סדרה-7-החדשה-בישראל-מחיר-החל-מ-890000-שקל",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "ב.מ.וו סדרה 7 החדשה 2019 בארץ - מחירון ומפרט טכני",
+          "url": "https://www.cartube.co.il/חדשות-רכב/2019-ב-מ-וו-סדרה-7-החדשה-בישראל-מחיר-החל-מ-765000-שקל",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "engine",
+            "horsepower_hp",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Standard",
+          "classification": "base_or_placeholder"
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "version_or_trim": null,
+          "engine": "5.4L v12",
+          "engine_displacement_l": 5.4,
+          "horsepower_hp": 326,
+          "transmission": "automatic",
+          "drivetrain": "RWD",
+          "year_start": 1995,
+          "year_end": 2001,
+          "support_level": "direct",
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "version_or_trim": [],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "version_or_trim": "Exclusive",
+          "engine": "4.4L v8 turbo",
+          "engine_displacement_l": 4.4,
+          "horsepower_hp": 407,
+          "transmission": "automatic",
+          "drivetrain": "RWD",
+          "year_start": 2009,
+          "year_end": 2012,
+          "support_level": "direct",
+          "source_indexes": [
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "version_or_trim": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "version_or_trim": "Exclusive",
+          "engine": "4.4L v8 turbo",
+          "engine_displacement_l": 4.4,
+          "horsepower_hp": 450,
+          "transmission": "automatic",
+          "drivetrain": "RWD",
+          "year_start": 2013,
+          "year_end": 2015,
+          "support_level": "direct",
+          "source_indexes": [
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "version_or_trim": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "version_or_trim": "Pure Excellence",
+          "engine": "4.4L v8 turbo",
+          "engine_displacement_l": 4.4,
+          "horsepower_hp": 450,
+          "transmission": "automatic",
+          "drivetrain": "AWD",
+          "year_start": 2016,
+          "year_end": 2019,
+          "support_level": "direct",
+          "source_indexes": [
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              2
+            ],
+            "version_or_trim": [
+              2
+            ],
+            "engine": [
+              2
+            ],
+            "engine_displacement_l": [
+              2
+            ],
+            "horsepower_hp": [
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              2
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "version_or_trim": "Pure Excellence",
+          "engine": "4.4L v8 turbo",
+          "engine_displacement_l": 4.4,
+          "horsepower_hp": 530,
+          "transmission": "automatic",
+          "drivetrain": "AWD",
+          "year_start": 2020,
+          "year_end": 2022,
+          "support_level": "direct",
+          "source_indexes": [
+            2,
+            3
+          ],
+          "field_sources": {
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              2
+            ],
+            "version_or_trim": [
+              2
+            ],
+            "engine": [
+              3
+            ],
+            "engine_displacement_l": [
+              2
+            ],
+            "horsepower_hp": [
+              3
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              3
+            ],
+            "year_start": [
+              3
+            ],
+            "year_end": [
+              3
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Exclusive",
+          "Pure Excellence"
+        ],
+        "body_type": [
+          "Sedan"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "5.4L v12",
+          "4.4L v8 turbo"
+        ],
+        "horsepower_hp": [
+          326,
+          407,
+          450,
+          530
+        ],
+        "transmission": [
+          "automatic"
+        ],
+        "drivetrain": [
+          "RWD",
+          "AWD"
+        ]
+      },
+      "market": "IL",
+      "make": "BMW",
+      "model": "750i",
+      "canonical_model": "750i",
       "profile_confidence": "medium"
     }
   ],
