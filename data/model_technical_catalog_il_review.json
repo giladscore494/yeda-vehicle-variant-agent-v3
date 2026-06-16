@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T17:43:12Z",
+  "generated_at": "2026-06-16T17:44:38Z",
   "market": "IL",
   "models": [
     {
@@ -552,6 +552,92 @@
           ],
           "possible_duplicate_rows": 0,
           "validation_id_count": 2
+        },
+        "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
+      },
+      "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "BMW",
+      "model": "550i",
+      "canonical_model": "550i",
+      "year_start": null,
+      "year_end": null,
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [],
+      "profile_confidence": null,
+      "notes": [],
+      "error": "Extra data: line 373 column 1 (char 8048)",
+      "request_payload": {
+        "task": "build_israeli_model_technical_catalog",
+        "market": "IL",
+        "make": "BMW",
+        "model": "550i",
+        "raw_database_values": {
+          "years_seen": [
+            2005,
+            2010,
+            2016,
+            2017,
+            2023
+          ],
+          "trims_seen": [
+            "Base",
+            "Luxury",
+            "M550i xDrive"
+          ],
+          "engines_seen": [
+            "4.4L V8 Turbo",
+            "4.8L V8"
+          ],
+          "horsepower_seen": [],
+          "transmissions_seen": [
+            "automatic"
+          ],
+          "body_types_seen": [
+            "Sedan"
+          ],
+          "fuel_types_seen": [
+            "petrol"
+          ],
+          "drivetrains_seen": [
+            "AWD",
+            "RWD"
+          ]
+        },
+        "sample_validation_ids": [
+          "VAL-000482",
+          "VAL-000483",
+          "VAL-000484"
+        ],
+        "source_indexes": [
+          198,
+          199,
+          200
+        ],
+        "metadata_hints": {
+          "priorities_seen": [
+            "medium"
+          ],
+          "validation_routes_seen": [
+            "cheap_model_structured_validation"
+          ],
+          "possible_duplicate_rows": 0,
+          "validation_id_count": 3
         },
         "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
       },
