@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T21:47:59Z",
+  "generated_at": "2026-06-16T21:48:29Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -54366,6 +54366,135 @@
         ]
       },
       "canonical_model": "X4 xDrive30i",
+      "profile_confidence": "medium"
+    },
+    {
+      "make": "BMW",
+      "model": "X5 3.0i",
+      "market": "IL",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "ב.מ.וו X5 (2001-2006) - מחירון, מפרטים ואמינות - iCar",
+          "url": "https://www.icar.co.il/%D7%91.%D7%9E.%D7%95%D7%95/%D7%91.%D7%9E.%D7%95%D7%95_X5/%D7%91.%D7%9E.%D7%95%D7%95_X5_%D7%93%D7%95%D7%A8_1/",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "ב.מ.וו X5 2001 - 2006 מחירון רכב, מפרט טכני - קילומטר",
+          "url": "https://kml.co.il/Car/%D7%91.%D7%9E.%D7%95%D7%95_X5_2001-2006_8497",
+          "source_name": "KML",
+          "source_type": "catalog",
+          "supports": [
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "engine_displacement_l",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "3.0L inline-6",
+          "engine_displacement_l": 3.0,
+          "horsepower_hp": 231,
+          "transmission": "automatic",
+          "drivetrain": "AWD",
+          "year_start": 2001,
+          "year_end": 2006,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": [],
+          "invalid_or_non_trim_labels": [
+            {
+              "label": "Base",
+              "classification": "generic_placeholder"
+            },
+            {
+              "label": "3.0i",
+              "classification": "engine_displacement_indicator"
+            }
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "3.0L inline-6"
+        ],
+        "horsepower_hp": [
+          231
+        ],
+        "transmission": [
+          "automatic"
+        ],
+        "drivetrain": [
+          "AWD"
+        ]
+      },
+      "canonical_model": "X5 3.0i",
       "profile_confidence": "medium"
     }
   ],
