@@ -184,7 +184,8 @@ if run_clicked:
     st.session_state.logs = []
     try:
         with st.spinner(f"Running {validation_provider.display_name} batch..."):
-            result = build_catalog(limit_models=int(batch_size), start_after_key=state.get("next_key"), provider_settings=validation_provider, checkpoint=_checkpoint(), log=_on_log, on_progress=_on_progress)
+            state = compute_resume_state()
+            result = build_catalog(limit_models=int(batch_size), start_after_key=state.get("resume_after_key") or state.get("next_key"), provider_settings=validation_provider, checkpoint=_checkpoint(), log=_on_log, on_progress=_on_progress)
         st.success(f"Batch complete — ready {result.readiness['models_ready_for_website']} | blocked {result.readiness['models_blocked']} | total {result.readiness['total_models']}.")
     except Exception as exc:  # noqa: BLE001
         st.error(sanitize_error(exc))

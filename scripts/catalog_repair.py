@@ -283,6 +283,45 @@ def clear_provider_unavailable_repair_errors(review: Dict[str, Any]) -> Dict[str
     return cleaned
 
 
+FULL_REBUILD_ISSUE_MARKERS = (
+    "technical_variants_il missing or not a list",
+    "technical_variants_il is empty",
+    "catalog client returned non-object JSON",
+    "Extra data:",
+    "strict JSON",
+    "JSON parse",
+    "non-object JSON",
+)
+
+
+def _needs_full_rebuild(entry: Dict[str, Any]) -> bool:
+    variants = entry.get("technical_variants_il")
+    issues = [str(i) for i in (entry.get("validation_issues") or [])]
+    texts = issues + [str(entry.get("error") or ""), str(entry.get("last_repair_error") or "")]
+    if entry.get("rebuild_required") is True:
+        return True
+    if entry.get("error") and not variants:
+        return True
+    marker_match = any(marker in text for marker in FULL_REBUILD_ISSUE_MARKERS for text in texts)
+    if marker_match:
+        return True
+    # Legacy tests/fixtures use empty profiles as generic blocked entries
+    # without request_payload; those can still follow the old deterministic
+    # revalidate path. Real parse/API failures include request_payload and are
+    # marked/validated with the explicit empty-variants issue above.
+    return bool((variants == [] or variants is None) and isinstance(entry.get("request_payload"), dict))
+
+
+def _enforce_rebuilt_identity(rebuilt: Dict[str, Any], request_payload: Dict[str, Any]) -> Dict[str, Any]:
+    rebuilt = dict(rebuilt)
+    rebuilt["market"] = request_payload["market"]
+    rebuilt["make"] = request_payload["make"]
+    rebuilt["model"] = request_payload["model"]
+    rebuilt["canonical_model"] = rebuilt.get("canonical_model") or request_payload["model"]
+    rebuilt["profile_confidence"] = rebuilt.get("profile_confidence") or "medium"
+    return rebuilt
+
+
 def repair_review_models(
     batch: Optional[int] = None,
     *,
@@ -351,17 +390,21 @@ def repair_review_models(
             emit(f"SKIP exhausted: {key}")
             continue
 
-        # Deterministic, model-free repairs first: recover identity from the
-        # request payload and fill missing source_indexes from field_sources.
-        # This resolves source_indexes-only / identity-only blocks without
-        # spending a model call (and without ever doing a no-op "re-validate
-        # only" when there is something concrete to fix).
         patched_entry = apply_deterministic_patches(model_entry)
         market = patched_entry.get("market") or "IL"
         make = patched_entry.get("make", "")
         model = patched_entry.get("model", "")
-        targets = derive_repair_targets(patched_entry)
-        emit(f"REPAIRING WITH {provider_settings.display_name}: {key} | {targets or 'deterministic patch / re-validate'}")
+        deterministic_changed = _stable(model_entry) != _stable(patched_entry)
+        full_rebuild = _needs_full_rebuild(patched_entry)
+        targets: Dict[int, List[str]] = {} if full_rebuild else derive_repair_targets(patched_entry)
+        if full_rebuild:
+            emit(f"REBUILDING WITH {provider_settings.display_name}: {key} | full rebuild from request_payload")
+        elif targets:
+            emit(f"REPAIRING WITH {provider_settings.display_name}: {key} | targets={targets}")
+        elif deterministic_changed:
+            emit(f"DETERMINISTIC PATCH ONLY: {key} | no model call")
+        else:
+            emit(f"NO-OP REPAIR BLOCKED: {key} | full rebuild required")
         processed += 1
 
         delta_ready: List[Dict[str, Any]] = []
@@ -369,12 +412,30 @@ def repair_review_models(
         completed = False
 
         try:
-            if targets:
+            if full_rebuild:
+                request_payload = patched_entry.get("request_payload") if isinstance(patched_entry.get("request_payload"), dict) else {}
+                if not all(request_payload.get(f) for f in ("market", "make", "model")):
+                    raise ValueError("full rebuild requires request_payload with market, make, and model")
+                rebuilt = client.build_profile(request_payload)
+                if not isinstance(rebuilt, dict):
+                    raise ValueError("catalog client returned non-object JSON")
+                patched = _enforce_rebuilt_identity(rebuilt, request_payload)
+                market, make, model = patched["market"], patched["make"], patched["model"]
+            elif targets:
                 repaired = client.build_repair_profile(make, model, patched_entry, targets)
                 patched = merge_repair(patched_entry, repaired, targets)
             else:
                 patched = dict(patched_entry)
             result = validate_profile(patched)
+            if (not result.ready) and (not full_rebuild) and (not targets) and (not deterministic_changed):
+                kept_entry = dict(result.profile)
+                kept_entry["validation_issues"] = result.issues
+                kept_entry["rebuild_required"] = True
+                kept_entry["last_repair_error"] = "No deterministic or targeted repair possible; full rebuild required."
+                delta_review = [kept_entry]
+                kept += 1
+                completed = True
+                raise StopIteration
             if result.ready:
                 clean_profile = dict(result.profile)
                 for review_key in _REVIEW_ONLY_KEYS:
@@ -392,6 +453,8 @@ def repair_review_models(
                 kept += 1
                 emit(f"KEEP {key}: {len(result.issues)} issue(s)")
             completed = True
+        except StopIteration:
+            pass
         except ProviderUnavailableError:
             raise
         except Exception as exc:  # noqa: BLE001
