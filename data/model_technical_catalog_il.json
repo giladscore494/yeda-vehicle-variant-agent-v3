@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T21:48:29Z",
+  "generated_at": "2026-06-16T21:48:56Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -54495,6 +54495,195 @@
         ]
       },
       "canonical_model": "X5 3.0i",
+      "profile_confidence": "medium"
+    },
+    {
+      "make": "BMW",
+      "model": "X5 4.4i",
+      "market": "IL",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "ב.מ.וו X5 2000 - 2006 מחירון, מפרטים - קארזון",
+          "url": "https://www.carzone.co.il/bmw/x5/2000-2006/",
+          "source_name": "CarZone Israel",
+          "source_type": "israeli_catalog_spec",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "ב.מ.וו X5 יד שניה 2000 - 2006 - אוטו",
+          "url": "https://www.auto.co.il/model/bmw-x5_g162",
+          "source_name": "Auto.co.il",
+          "source_type": "israeli_catalog_spec",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "4.4L v8",
+          "engine_displacement_l": 4.4,
+          "horsepower_hp": 286,
+          "transmission": "automatic",
+          "drivetrain": "AWD",
+          "year_start": 2000,
+          "year_end": 2003,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "4.4L v8",
+          "engine_displacement_l": 4.4,
+          "horsepower_hp": 320,
+          "transmission": "automatic",
+          "drivetrain": "AWD",
+          "year_start": 2004,
+          "year_end": 2006,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Base",
+          "classification": "generic_placeholder"
+        },
+        {
+          "label": "4.4i",
+          "classification": "engine_displacement_or_model_designation"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "4.4L v8"
+        ],
+        "horsepower_hp": [
+          286,
+          320
+        ],
+        "transmission": [
+          "automatic"
+        ],
+        "drivetrain": [
+          "AWD"
+        ]
+      },
+      "canonical_model": "X5 4.4i",
       "profile_confidence": "medium"
     }
   ],
