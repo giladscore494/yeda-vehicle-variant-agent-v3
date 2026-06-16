@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T20:24:41Z",
+  "generated_at": "2026-06-16T20:25:14Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -44663,6 +44663,128 @@
       "make": "Bmw",
       "model": "850i",
       "canonical_model": "850i",
+      "profile_confidence": "medium"
+    },
+    {
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "ב.מ.וו i3 החדשה 2018 בישראל - מחיר החל מ- 249,000 שקל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%91-%D7%9E-%D7%95%D7%95-i3-%D7%94%D7%97%D7%93%D7%A9%D7%94-2018-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-249-000-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "ב.מ.וו i3 - מחירון, מפרטים, אמינות וחוות דעת",
+          "url": "https://www.icar.co.il/%D7%91.%D7%9E.%D7%95%D7%95/%D7%91.%D7%9E.%D7%95%D7%95_i3/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Hatchback",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 184,
+          "transmission": "single_speed",
+          "drivetrain": "RWD",
+          "year_start": 2018,
+          "year_end": 2022,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              2
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Hatchback"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          184
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "RWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "i3s",
+          "classification": "model_designation_or_architecture"
+        },
+        {
+          "label": "Electric 184 hp",
+          "classification": "engine_and_horsepower"
+        }
+      ],
+      "market": "IL",
+      "make": "BMW",
+      "model": "i3s",
+      "canonical_model": "i3s",
       "profile_confidence": "medium"
     }
   ],
