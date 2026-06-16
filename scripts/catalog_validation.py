@@ -232,8 +232,12 @@ def _check_variant(
                 f"{classification['classification']}, not a trim"
             )
 
-    # No EV data inside a petrol model profile (identity rule).
-    if profile_has_petrol_label and profile_is_petrol and _is_ev_fuel(variant.get("fuel_type")):
+    # No EV data inside explicitly combustion-labelled model profiles (identity rule).
+    # Mixed EV/PHEV nameplates such as BYD Seal U / Seal U DM-i are legitimate
+    # when the model label itself is not an explicit petrol/diesel designation.
+    combustion_markers = ("petrol", "diesel", "tdi", "tfsi", "tsi", "30d", "40d", "35i", "40i", "50i", "3.0d", "3.0i", "4.4i")
+    explicitly_combustion_model = any(marker in str(model).strip().lower() for marker in combustion_markers)
+    if explicitly_combustion_model and profile_has_petrol_label and profile_is_petrol and _is_ev_fuel(variant.get("fuel_type")):
         block("is electric inside a petrol model profile")
 
     return _VariantCheck(
@@ -316,7 +320,9 @@ def validate_profile(profile: Dict[str, Any]) -> ProfileValidation:
 
         if variant.get("support_level") in ("unknown", None):
             unknown_support += 1
-        if _is_ev_fuel(variant.get("fuel_type")) and profile_is_petrol and profile_has_petrol_label:
+        combustion_markers = ("petrol", "diesel", "tdi", "tfsi", "tsi", "30d", "40d", "35i", "40i", "50i", "3.0d", "3.0i", "4.4i")
+        explicitly_combustion_model = any(marker in model_label for marker in combustion_markers)
+        if _is_ev_fuel(variant.get("fuel_type")) and explicitly_combustion_model and profile_is_petrol and profile_has_petrol_label:
             ev_in_petrol += 1
 
         check = _check_variant(

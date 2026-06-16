@@ -246,8 +246,29 @@ def compute_resume_state(
     review_only_keys = review_keys - clean_keys
     review_overlap_keys = review_keys & clean_keys
     output_keys = clean_keys | review_keys
-    matched_output_keys = output_keys & group_key_set
-    unmatched_output_keys = output_keys - group_key_set
+
+    split_profile_aliases: Dict[str, List[str]] = {}
+    for model in list(catalog.get("models", [])) + list(review.get("models", [])):
+        if not isinstance(model, dict):
+            continue
+        key = _model_key(model)
+        if is_corrupt_key(key):
+            continue
+        aliases: List[str] = []
+        for field_name in ("source_group_key", "split_from_source_group_key"):
+            value = model.get(field_name)
+            if isinstance(value, str) and value.strip():
+                aliases.append(value.strip())
+        values = model.get("source_alias_keys")
+        if isinstance(values, list):
+            aliases.extend(v.strip() for v in values if isinstance(v, str) and v.strip())
+        valid_aliases = sorted({a for a in aliases if a in group_key_set})
+        if valid_aliases:
+            split_profile_aliases[key] = valid_aliases
+
+    alias_matched_output_keys = {key for key, aliases in split_profile_aliases.items() if aliases}
+    matched_output_keys = (output_keys & group_key_set) | alias_matched_output_keys
+    unmatched_output_keys = output_keys - matched_output_keys
 
     cursor_index = 0
     for idx, key in enumerate(group_keys):
@@ -305,6 +326,11 @@ def compute_resume_state(
         "matched_output_keys_count": len(matched_output_keys),
         "unmatched_output_keys_count": len(unmatched_output_keys),
         "unmatched_output_keys_sample": sorted(unmatched_output_keys)[:10],
+        "split_profile_alias_count": len(split_profile_aliases),
+        "split_profile_alias_sample": [
+            {"output_key": key, "source_aliases": split_profile_aliases[key]}
+            for key in sorted(split_profile_aliases)[:10]
+        ],
         "last_checkpointed_profile_id": last_checkpointed_profile_id,
         "last_repair_checkpointed_profile_id": last_repair_checkpointed_profile_id,
         "resume_warning": resume_warning,

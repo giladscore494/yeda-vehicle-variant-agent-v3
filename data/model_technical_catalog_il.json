@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T22:14:40Z",
+  "generated_at": "2026-06-16T22:50:50Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gpt-5.4",
@@ -9758,6 +9758,10 @@
         "Transmission for electric versions was not explicitly grounded in retrieved Israeli sources, so left null.",
         "year_end was not grounded for any variant and remains null.",
         "Repair: dedicated electric profile (156hp + Veloce 280hp) split from the Alfa Romeo Junior cluster; mild-hybrid stays under 'Junior'."
+      ],
+      "split_from_source_group_key": "IL|Alfa Romeo|Junior",
+      "source_alias_keys": [
+        "IL|Alfa Romeo|Junior"
       ]
     },
     {
@@ -50832,7 +50836,11 @@
       "canonical_model": "M850i",
       "profile_confidence": "medium",
       "year_start": 2018,
-      "year_end": 2024
+      "year_end": 2024,
+      "split_from_source_group_key": "IL|BMW|850i",
+      "source_alias_keys": [
+        "IL|BMW|850i"
+      ]
     },
     {
       "market": "IL",
@@ -54156,6 +54164,129 @@
       "profile_confidence": "medium"
     },
     {
+      "market": "IL",
+      "make": "BMW",
+      "model": "X4 xDrive20i",
+      "canonical_model": "X4 xDrive20i",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "Cartube: 2014/2022 BMW X4 xDrive20i Israel evidence",
+          "url": "https://www.cartube.co.il/חדשות-רכב/ב-מ-וו-x4-בישראל-–-מחיר-החל-מ-340-אלף-שקל",
+          "source_name": "Cartube",
+          "source_type": "embedded_task_evidence",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 184,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2014,
+          "year_end": 2018,
+          "support_level": "direct",
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "source_indexes": [
+            0
+          ],
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 184,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2021,
+          "year_end": null,
+          "support_level": "direct",
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ]
+          },
+          "source_indexes": [
+            0
+          ],
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [],
+      "profile_confidence": "high",
+      "notes": [
+        "Repaired from embedded FINAL_CURRENT_BATCH task evidence."
+      ]
+    },
+    {
       "make": "BMW",
       "model": "X4 xDrive30i",
       "market": "IL",
@@ -54367,6 +54498,224 @@
       },
       "canonical_model": "X4 xDrive30i",
       "profile_confidence": "medium"
+    },
+    {
+      "market": "IL",
+      "make": "BMW",
+      "model": "X5 3.0d",
+      "canonical_model": "X5 3.0d",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "iCar/KML: historical BMW X5 3.0d Israel generations",
+          "url": "local_profile_sources",
+          "source_name": "iCar/KML",
+          "source_type": "embedded_task_evidence",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "diesel",
+          "engine": "3.0L inline-6 turbo diesel",
+          "engine_displacement_l": 3.0,
+          "horsepower_hp": 184,
+          "transmission": "5-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2002,
+          "year_end": 2003,
+          "support_level": "direct",
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "source_indexes": [
+            0
+          ],
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "diesel",
+          "engine": "3.0L inline-6 turbo diesel",
+          "engine_displacement_l": 3.0,
+          "horsepower_hp": 218,
+          "transmission": "6-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2004,
+          "year_end": 2006,
+          "support_level": "direct",
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "source_indexes": [
+            0
+          ],
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "diesel",
+          "engine": "3.0L inline-6 turbo diesel",
+          "engine_displacement_l": 3.0,
+          "horsepower_hp": 235,
+          "transmission": "6-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2007,
+          "year_end": 2010,
+          "support_level": "direct",
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "source_indexes": [
+            0
+          ],
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "diesel",
+          "engine": "3.0L inline-6 turbo diesel",
+          "engine_displacement_l": 3.0,
+          "horsepower_hp": 245,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2010,
+          "year_end": 2013,
+          "support_level": "direct",
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "source_indexes": [
+            0
+          ],
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [],
+      "profile_confidence": "high",
+      "notes": [
+        "Repaired from embedded FINAL_CURRENT_BATCH task evidence."
+      ]
     },
     {
       "make": "BMW",
@@ -55068,6 +55417,317 @@
       "profile_confidence": "medium"
     },
     {
+      "market": "IL",
+      "make": "BMW",
+      "model": "X5 M50i",
+      "canonical_model": "X5 M50i",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "Cartube: BMW X5/X7 M50i Israel evidence",
+          "url": "https://www.cartube.co.il/חדשות-רכב/ב-מ-וו-מציגה-דגמי-קצה-m50i-ל-x5-ול-x7",
+          "source_name": "Cartube",
+          "source_type": "embedded_task_evidence",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Superior",
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "4.4L V8 twin-turbo",
+          "engine_displacement_l": 4.4,
+          "horsepower_hp": 530,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2019,
+          "year_end": 2023,
+          "support_level": "direct",
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "source_indexes": [
+            0
+          ],
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [],
+      "profile_confidence": "high",
+      "notes": [
+        "Repaired from embedded FINAL_CURRENT_BATCH task evidence."
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "BMW",
+      "model": "X5 xDrive30d",
+      "canonical_model": "X5 xDrive30d",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "Cartube/current: BMW X5 xDrive30d Israel split evidence",
+          "url": "https://www.cartube.co.il/חדשות-רכב/ב-מ-וו-x5-החדש-2019-בישראל-מחיר-600000-שקל",
+          "source_name": "Cartube/current",
+          "source_type": "embedded_task_evidence",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "diesel",
+          "engine": "3.0L inline-6 turbo diesel",
+          "engine_displacement_l": 3.0,
+          "horsepower_hp": 258,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2014,
+          "year_end": 2018,
+          "support_level": "direct",
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "source_indexes": [
+            0
+          ],
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "diesel",
+          "engine": "3.0L inline-6 turbo diesel",
+          "engine_displacement_l": 3.0,
+          "horsepower_hp": 265,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2019,
+          "year_end": 2020,
+          "support_level": "direct",
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "source_indexes": [
+            0
+          ],
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "M-Executive",
+          "body_type": "SUV",
+          "fuel_type": "diesel",
+          "engine": "3.0L inline-6 turbo diesel",
+          "engine_displacement_l": 3.0,
+          "horsepower_hp": 286,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2021,
+          "year_end": 2023,
+          "support_level": "direct",
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "source_indexes": [
+            0
+          ],
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "M-Executive",
+          "body_type": "SUV",
+          "fuel_type": "mild_hybrid",
+          "engine": "3.0L inline-6 turbo diesel mild-hybrid",
+          "engine_displacement_l": 3.0,
+          "horsepower_hp": 298,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2024,
+          "year_end": 2026,
+          "support_level": "direct",
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "source_indexes": [
+            0
+          ],
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [],
+      "profile_confidence": "high",
+      "notes": [
+        "Repaired from embedded FINAL_CURRENT_BATCH task evidence."
+      ],
+      "split_from_source_group_key": "IL|BMW|X5 3.0d",
+      "source_alias_keys": [
+        "IL|BMW|X5 3.0d"
+      ]
+    },
+    {
       "make": "BMW",
       "model": "X5 xDrive40e",
       "market": "IL",
@@ -55550,6 +56210,89 @@
       },
       "canonical_model": "X5 xDrive45e",
       "profile_confidence": "medium"
+    },
+    {
+      "market": "IL",
+      "make": "BMW",
+      "model": "X5 xDrive50e",
+      "canonical_model": "X5 xDrive50e",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "Cartube: 2024 BMW X5 xDrive50e M-Expressive spec",
+          "url": "https://www.cartube.co.il/מחירון-רכב-חדש/ב-מ-וו/ב-מ-וו-x5/3661-ב-מ-וו-x5-פלאג-אין-5-מושבים-xdrive50e-m-expressive",
+          "source_name": "Cartube",
+          "source_type": "embedded_task_evidence",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "M-Expressive",
+          "body_type": "SUV",
+          "fuel_type": "plug_in_hybrid",
+          "engine": "3.0L inline-6 turbo phev",
+          "engine_displacement_l": 3.0,
+          "horsepower_hp": 489,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2024,
+          "year_end": 2026,
+          "support_level": "direct",
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "source_indexes": [
+            0
+          ],
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [],
+      "profile_confidence": "high",
+      "notes": [
+        "Repaired from embedded FINAL_CURRENT_BATCH task evidence."
+      ]
     },
     {
       "make": "BMW",
@@ -56886,6 +57629,221 @@
       },
       "canonical_model": "X7 M50i",
       "profile_confidence": "medium"
+    },
+    {
+      "market": "IL",
+      "make": "BMW",
+      "model": "X7 xDrive30d",
+      "canonical_model": "X7 xDrive30d",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "Cartube: 2019 BMW X7 xDrive30d Israel launch",
+          "url": "https://www.cartube.co.il/חדשות-רכב/ב-מ-וו-x7-החדש-בישראל-מחיר-890000-שקל",
+          "source_name": "Cartube",
+          "source_type": "embedded_task_evidence",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Pure Excellence",
+          "body_type": "SUV",
+          "fuel_type": "diesel",
+          "engine": "3.0L inline-6 turbo diesel",
+          "engine_displacement_l": 3.0,
+          "horsepower_hp": 265,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2019,
+          "year_end": 2021,
+          "support_level": "direct",
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "source_indexes": [
+            0
+          ],
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [],
+      "profile_confidence": "high",
+      "notes": [
+        "Repaired from embedded FINAL_CURRENT_BATCH task evidence."
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "BMW",
+      "model": "X7 xDrive40i",
+      "canonical_model": "X7 xDrive40i",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "Cartube/BMW Israel: BMW X7 xDrive40i evidence",
+          "url": "https://www.cartube.co.il/חדשות-רכב/2019-ב-מ-וו-x7-נחשף-הענק-של-ב-מ-וו",
+          "source_name": "Cartube/BMW Israel",
+          "source_type": "embedded_task_evidence",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Pure Excellence",
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "3.0L inline-6 turbo",
+          "engine_displacement_l": 3.0,
+          "horsepower_hp": 340,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2019,
+          "year_end": 2022,
+          "support_level": "direct",
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "source_indexes": [
+            0
+          ],
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Pure Excellence",
+          "body_type": "SUV",
+          "fuel_type": "mild_hybrid",
+          "engine": "3.0L inline-6 turbo mild-hybrid",
+          "engine_displacement_l": 3.0,
+          "horsepower_hp": 381,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2023,
+          "year_end": 2026,
+          "support_level": "direct",
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "source_indexes": [
+            0
+          ],
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [],
+      "profile_confidence": "high",
+      "notes": [
+        "Repaired from embedded FINAL_CURRENT_BATCH task evidence."
+      ]
     },
     {
       "technical_variants_il": [
@@ -58351,6 +59309,130 @@
       "profile_confidence": "medium"
     },
     {
+      "market": "IL",
+      "make": "BYD",
+      "model": "Atto 3 EVO",
+      "canonical_model": "Atto 3 EVO",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "Cartube: BYD Atto 3 EVO landed in Israel 2026",
+          "url": "https://www.cartube.co.il/חדשות-רכב/byd-אטו-3-evo-החדש-נחת-בישראל-מחיר-154990-שקל",
+          "source_name": "Cartube",
+          "source_type": "embedded_task_evidence",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Design",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 313,
+          "transmission": "single_speed",
+          "drivetrain": "RWD",
+          "year_start": 2026,
+          "year_end": null,
+          "support_level": "direct",
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ]
+          },
+          "source_indexes": [
+            0
+          ],
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Excellence",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 449,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2026,
+          "year_end": null,
+          "support_level": "direct",
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ]
+          },
+          "source_indexes": [
+            0
+          ],
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [],
+      "profile_confidence": "high",
+      "notes": [
+        "Repaired from embedded FINAL_CURRENT_BATCH task evidence."
+      ],
+      "split_from_source_group_key": "IL|BYD|Atto 3",
+      "source_alias_keys": [
+        "IL|BYD|Atto 3"
+      ]
+    },
+    {
       "make": "BYD",
       "model": "Dolphin",
       "market": "IL",
@@ -58873,6 +59955,181 @@
       "profile_confidence": "medium"
     },
     {
+      "market": "IL",
+      "make": "BYD",
+      "model": "Seal U",
+      "canonical_model": "Seal U",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "Cartube/BYD Israel: BYD Seal U and Seal U DM-i Israel evidence",
+          "url": "https://www.cartube.co.il/חדשות-רכב/byd-סיל-u-פלאג-אין-בישראל-מחיר-209990-שקל",
+          "source_name": "Cartube/BYD Israel",
+          "source_type": "embedded_task_evidence",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 218,
+          "transmission": "single_speed",
+          "drivetrain": "FWD",
+          "year_start": 2024,
+          "year_end": 2026,
+          "support_level": "direct",
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "source_indexes": [
+            0
+          ],
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Comfort",
+          "body_type": "SUV",
+          "fuel_type": "plug_in_hybrid",
+          "engine": "1.5L plug-in hybrid",
+          "engine_displacement_l": 1.5,
+          "horsepower_hp": 218,
+          "transmission": "automatic",
+          "drivetrain": "FWD",
+          "year_start": 2024,
+          "year_end": 2026,
+          "support_level": "direct",
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "source_indexes": [
+            0
+          ],
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Design",
+          "body_type": "SUV",
+          "fuel_type": "plug_in_hybrid",
+          "engine": "1.5L plug-in hybrid",
+          "engine_displacement_l": 1.5,
+          "horsepower_hp": 324,
+          "transmission": "automatic",
+          "drivetrain": "AWD",
+          "year_start": 2024,
+          "year_end": 2026,
+          "support_level": "direct",
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "source_indexes": [
+            0
+          ],
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [],
+      "profile_confidence": "high",
+      "notes": [
+        "Repaired from embedded FINAL_CURRENT_BATCH task evidence."
+      ]
+    },
+    {
       "sources": [
         {
           "source_index": 0,
@@ -59132,6 +60389,80 @@
       "profile_confidence": "medium"
     },
     {
+      "market": "IL",
+      "make": "BYD",
+      "model": "Song Plus",
+      "canonical_model": "Song Plus",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "BYD Song Plus EV parallel-import Israel evidence",
+          "url": "local_review_source",
+          "source_name": "BYD Song Plus EV parallel-import Israel evidence",
+          "source_type": "embedded_task_evidence",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 204,
+          "transmission": "single_speed",
+          "drivetrain": "FWD",
+          "year_start": 2024,
+          "year_end": null,
+          "support_level": "direct",
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ]
+          },
+          "source_indexes": [
+            0
+          ],
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [],
+      "profile_confidence": "high",
+      "notes": [
+        "Repaired from embedded FINAL_CURRENT_BATCH task evidence."
+      ]
+    },
+    {
       "make": "BYD",
       "model": "Tang",
       "market": "IL",
@@ -59276,6 +60607,334 @@
       },
       "canonical_model": "Tang",
       "profile_confidence": "medium"
+    },
+    {
+      "market": "IL",
+      "make": "Cadillac",
+      "model": "ATS",
+      "canonical_model": "ATS",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "iCar/Auto/Cartube: Cadillac ATS Israel evidence",
+          "url": "https://www.cartube.co.il/חדשות-רכב/קאדילק-ישראל-cts-ו-ats-מחודשות-2016",
+          "source_name": "iCar/Auto/Cartube",
+          "source_type": "embedded_task_evidence",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Luxury",
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 272,
+          "transmission": "6-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 2013,
+          "year_end": 2015,
+          "support_level": "direct",
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "source_indexes": [
+            0
+          ],
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Premium",
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 272,
+          "transmission": "6-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 2013,
+          "year_end": 2015,
+          "support_level": "direct",
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "source_indexes": [
+            0
+          ],
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Luxury",
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 272,
+          "transmission": "8-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 2016,
+          "year_end": 2019,
+          "support_level": "direct",
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "source_indexes": [
+            0
+          ],
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Premium",
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 272,
+          "transmission": "8-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 2016,
+          "year_end": 2019,
+          "support_level": "direct",
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "source_indexes": [
+            0
+          ],
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Premium",
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 272,
+          "transmission": "6-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 2015,
+          "year_end": 2015,
+          "support_level": "direct",
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "source_indexes": [
+            0
+          ],
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Premium",
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 272,
+          "transmission": "8-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 2016,
+          "year_end": 2019,
+          "support_level": "direct",
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "source_indexes": [
+            0
+          ],
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [],
+      "profile_confidence": "high",
+      "notes": [
+        "Repaired from embedded FINAL_CURRENT_BATCH task evidence."
+      ]
     },
     {
       "make": "Cadillac",
@@ -59841,7 +61500,248 @@
       },
       "canonical_model": "CTS",
       "profile_confidence": "medium"
+    },
+    {
+      "market": "IL",
+      "make": "Cadillac",
+      "model": "Escalade",
+      "canonical_model": "Escalade",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "Cartube: 2022 Cadillac Escalade Israel",
+          "url": "https://www.cartube.co.il/חדשות-רכב/קאדילק-אסקלייד-החדש-2022-בישראל-מחיר-899990-שקל",
+          "source_name": "Cartube",
+          "source_type": "embedded_task_evidence",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Luxury Sport",
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "6.2L V8",
+          "engine_displacement_l": 6.2,
+          "horsepower_hp": 420,
+          "transmission": "10-speed automatic",
+          "drivetrain": "4WD",
+          "year_start": 2022,
+          "year_end": 2026,
+          "support_level": "direct",
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "source_indexes": [
+            0
+          ],
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [],
+      "profile_confidence": "high",
+      "notes": [
+        "Repaired from embedded FINAL_CURRENT_BATCH task evidence."
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Cadillac",
+      "model": "Escalade IQ",
+      "canonical_model": "Escalade IQ",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "Cartube: 2025 Cadillac Escalade IQ Israel",
+          "url": "https://www.cartube.co.il/חדשות-רכב/הענק-החשמלי-נחת-בישראל-קאדילק-iq-במחיר-700000-שקל",
+          "source_name": "Cartube",
+          "source_type": "embedded_task_evidence",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 750,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2025,
+          "year_end": null,
+          "support_level": "direct",
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ]
+          },
+          "source_indexes": [
+            0
+          ],
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [],
+      "profile_confidence": "high",
+      "notes": [
+        "Repaired from embedded FINAL_CURRENT_BATCH task evidence."
+      ],
+      "split_from_source_group_key": "IL|Cadillac|Escalade",
+      "source_alias_keys": [
+        "IL|Cadillac|Escalade"
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Cadillac",
+      "model": "Lyriq",
+      "canonical_model": "Lyriq",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "Cadillac Israel: Lyriq Luxury AWD technical evidence",
+          "url": "https://www.cadillac.co.il/LYRIQ/מפרט-טכני/",
+          "source_name": "Cadillac Israel",
+          "source_type": "embedded_task_evidence",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Luxury AWD",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 515,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2025,
+          "year_end": 2026,
+          "support_level": "direct",
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "source_indexes": [
+            0
+          ],
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [],
+      "profile_confidence": "high",
+      "notes": [
+        "Repaired from embedded FINAL_CURRENT_BATCH task evidence."
+      ]
     }
   ],
-  "ready_for_website_upload": false
+  "ready_for_website_upload": true
 }
