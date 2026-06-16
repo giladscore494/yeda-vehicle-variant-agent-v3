@@ -219,7 +219,8 @@ def test_resume_state_ignores_corrupt_checkpoint_and_continues_after_last_real(t
     )
     # Must NOT restart from the beginning: the next model is the one AFTER the
     # last real clean model (RS5) in source order -> BMW X5.
-    assert state["next_key"] == "IL|Audi|RS5"
+    assert state["resume_after_key"] == "IL|Audi|RS5"
+    assert state["next_key"] == "IL|BMW|X5"
     assert state["next_make"] == "BMW"
     assert state["next_model"] == "X5"
 
@@ -404,7 +405,7 @@ def test_resume_source_cursor_uses_clean_and_review_not_stale_checkpoint(tmp_pat
     )
     assert state["done_source_cursor"] == 5
     assert state["resume_after_key"] == "IL|Audi|S5"
-    assert state["next_key"] == "IL|Audi|S5"
+    assert state["next_key"] == "IL|Audi|SQ5"
     assert state["next_key_to_process"] == "IL|Audi|SQ5"
     assert state["next_make"] == "Audi"
     assert state["next_model"] == "SQ5"
@@ -512,3 +513,99 @@ def test_truthful_repair_logs(monkeypatch, tmp_path):
     assert "REBUILDING WITH GPT-5.4: IL|Audi|RS6 | full rebuild from request_payload" in joined
     assert "REPAIRING WITH GPT-5.4: IL|Audi|RS4 | targets=" in joined
     assert "DETERMINISTIC PATCH ONLY: IL|Audi|S4 | no model call" in joined
+
+
+def test_resume_state_review_overlap_is_not_active_blocked(tmp_path):
+    variants = [_variant_row("Audi", "TT"), _variant_row("BMW", "735i")]
+    variants_path = tmp_path / "variants.json"
+    variants_path.write_text(json.dumps({"variants": variants}), encoding="utf-8")
+    catalog_path = tmp_path / "catalog.json"
+    review_path = tmp_path / "review.json"
+    readiness_path = tmp_path / "readiness.json"
+    catalog_path.write_text(json.dumps({"models": [{"market": "IL", "make": "Audi", "model": "TT"}]}), encoding="utf-8")
+    review_path.write_text(json.dumps({"models": [{"market": "IL", "make": "Audi", "model": "TT"}]}), encoding="utf-8")
+    readiness_path.write_text(json.dumps({"models_blocked": 0}), encoding="utf-8")
+
+    state = cb.compute_resume_state(
+        variants_path=str(variants_path),
+        instructions_path=str(tmp_path / "missing.json"),
+        catalog_path=str(catalog_path),
+        readiness_path=str(readiness_path),
+        review_path=str(review_path),
+    )
+
+    assert state["clean_count"] == 1
+    assert state["review_entries_count"] == 1
+    assert state["review_overlap_count"] == 1
+    assert state["review_only_blocked_count"] == 0
+    assert state["active_blocked_count"] == 0
+    assert state["blocked"] == 0
+    assert state["resume_after_key"] == "IL|Audi|TT"
+    assert state["next_key_to_process"] == "IL|BMW|735i"
+    assert state["next_key"] == "IL|BMW|735i"
+
+
+def test_resume_state_review_only_counts_blocked_without_readiness_override(tmp_path):
+    variants = [_variant_row("Audi", "TT"), _variant_row("BMW", "735i")]
+    variants_path = tmp_path / "variants.json"
+    variants_path.write_text(json.dumps({"variants": variants}), encoding="utf-8")
+    catalog_path = tmp_path / "catalog.json"
+    review_path = tmp_path / "review.json"
+    readiness_path = tmp_path / "readiness.json"
+    catalog_path.write_text(json.dumps({"models": []}), encoding="utf-8")
+    review_path.write_text(json.dumps({"models": [{"market": "IL", "make": "Audi", "model": "TT"}]}), encoding="utf-8")
+    readiness_path.write_text(json.dumps({}), encoding="utf-8")
+
+    state = cb.compute_resume_state(
+        variants_path=str(variants_path),
+        instructions_path=str(tmp_path / "missing.json"),
+        catalog_path=str(catalog_path),
+        readiness_path=str(readiness_path),
+        review_path=str(review_path),
+    )
+
+    assert state["review_only_blocked_count"] == 1
+    assert state["active_blocked_count"] == 1
+    assert state["blocked"] == 1
+    assert state["next_key_to_process"] == "IL|BMW|735i"
+
+
+def test_resume_state_readiness_models_blocked_overrides_review_only_count(tmp_path):
+    variants = [_variant_row("Audi", "TT"), _variant_row("BMW", "735i")]
+    variants_path = tmp_path / "variants.json"
+    variants_path.write_text(json.dumps({"variants": variants}), encoding="utf-8")
+    catalog_path = tmp_path / "catalog.json"
+    review_path = tmp_path / "review.json"
+    readiness_path = tmp_path / "readiness.json"
+    catalog_path.write_text(json.dumps({"models": []}), encoding="utf-8")
+    review_path.write_text(json.dumps({"models": [{"market": "IL", "make": "Audi", "model": "TT"}]}), encoding="utf-8")
+    readiness_path.write_text(json.dumps({"models_blocked": 3}), encoding="utf-8")
+
+    state = cb.compute_resume_state(
+        variants_path=str(variants_path),
+        instructions_path=str(tmp_path / "missing.json"),
+        catalog_path=str(catalog_path),
+        readiness_path=str(readiness_path),
+        review_path=str(review_path),
+    )
+
+    assert state["review_only_blocked_count"] == 1
+    assert state["active_blocked_count"] == 3
+    assert state["blocked"] == 3
+
+
+def test_current_catalog_resume_state_keeps_bmw_735i_next_source():
+    state = cb.compute_resume_state()
+
+    assert state["clean_count"] == 120
+    assert state["review_entries_count"] == 8
+    assert state["review_overlap_count"] == 8
+    assert state["review_only_blocked_count"] == 0
+    assert state["active_blocked_count"] == 0
+    assert state["blocked"] == 0
+    assert state["next_key_to_process"] == "IL|BMW|735i"
+    assert state["next_key"] == "IL|BMW|735i"
+    assert state["next_make"] == "BMW"
+    assert state["next_model"] == "735i"
+    assert state["unmatched_output_keys_count"] == 1
+    assert state["unmatched_output_keys_sample"] == ["IL|Alfa Romeo|Junior Elettrica"]

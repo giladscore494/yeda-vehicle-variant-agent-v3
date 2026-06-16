@@ -130,7 +130,20 @@ try:
     state = compute_resume_state()
     total = state["total_universe"] or 1
     st.progress(min(state["done"] / total, 1.0))
-    st.info(f"Processed {state['done']}/{state['total_universe']} | ready {state['ready']} | blocked {state['blocked']} | remaining {state['remaining']} | next: {state.get('next_make') or 'START'} {state.get('next_model') or ''}")
+    st.info(
+        f"Source cursor {state['done']}/{state['total_universe']} | "
+        f"clean {state.get('clean_count', state.get('ready', 0))} | "
+        f"active blocked {state.get('active_blocked_count', state.get('blocked', 0))} | "
+        f"review overlap {state.get('review_overlap_count', 0)} | "
+        f"remaining {state['remaining']} | "
+        f"next source: {state.get('next_make') or 'START'} {state.get('next_model') or ''}"
+    )
+    if state.get("unmatched_output_keys_count", 0) > 0:
+        st.warning(
+            "Unmatched output/split-profile keys: "
+            f"{state.get('unmatched_output_keys_count')} "
+            f"({', '.join(state.get('unmatched_output_keys_sample') or [])})"
+        )
 except Exception as exc:  # noqa: BLE001
     st.warning(f"Progress unavailable: {sanitize_error(exc)}")
     state = {"next_key": None}

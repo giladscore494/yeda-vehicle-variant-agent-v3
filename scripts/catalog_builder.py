@@ -183,10 +183,21 @@ def merge_and_write_outputs(
         ready_by_key.pop(key, None)
     ready_models = _sort_models(list(ready_by_key.values()))
     review_models = _sort_models(list(review_by_key.values()))
+    clean_keys = set(ready_by_key)
+    review_keys = set(review_by_key)
+    review_only_keys = review_keys - clean_keys
+    review_overlap_keys = review_keys & clean_keys
     validations = [validate_profile(m) for m in ready_models]
-    for m in review_models:
-        validations.append(validate_profile(m))
+    for key, m in review_by_key.items():
+        if key in review_only_keys:
+            validations.append(validate_profile(m))
     readiness = build_readiness_report(validations, web_search_enabled=True, checkpoint_state=checkpoint_state or {})
+    readiness.update({
+        "clean_models": len(clean_keys),
+        "review_entries": len(review_keys),
+        "review_overlap_entries": len(review_overlap_keys),
+        "review_only_blocked_entries": len(review_only_keys),
+    })
     # Preserve a previously-stored resume pointer only when it is still valid;
     # an invalid stale id (e.g. "IL::::") must never be carried forward.
     if not readiness.get("last_checkpointed_profile_id"):
@@ -222,15 +233,19 @@ def compute_resume_state(
     catalog, readiness, review = load_existing_outputs(catalog_path, readiness_path, review_path)
     group_keys = [g.key for g in groups]
     group_key_set = set(group_keys)
-    output_keys = {
+    clean_keys = {
         k
         for k in (_model_key(m) for m in catalog.get("models", []) if isinstance(m, dict))
         if not is_corrupt_key(k)
-    } | {
+    }
+    review_keys = {
         k
         for k in (_model_key(m) for m in review.get("models", []) if isinstance(m, dict))
         if not is_corrupt_key(k)
     }
+    review_only_keys = review_keys - clean_keys
+    review_overlap_keys = review_keys & clean_keys
+    output_keys = clean_keys | review_keys
     matched_output_keys = output_keys & group_key_set
     unmatched_output_keys = output_keys - group_key_set
 
@@ -257,8 +272,13 @@ def compute_resume_state(
             f"but source/output cursor resumes after {resume_after_key}"
         )
 
-    ready = len([m for m in catalog.get("models", []) if isinstance(m, dict) and not is_corrupt_key(_model_key(m))])
-    blocked = len([m for m in review.get("models", []) if isinstance(m, dict) and not is_corrupt_key(_model_key(m))])
+    clean_count = len(clean_keys)
+    review_entries_count = len(review_keys)
+    review_only_blocked_count = len(review_only_keys)
+    review_overlap_count = len(review_overlap_keys)
+    active_blocked_count = int(readiness.get("models_blocked", len(review_only_keys)) or 0)
+    ready = clean_count
+    blocked = active_blocked_count
     total = len(groups)
     remaining = max(total - done_source_cursor, 0)
     quality_scan = _load_json_file(os.path.join(DATA_DIR, "model_technical_catalog_il_quality_scan.json"), {})
@@ -269,11 +289,16 @@ def compute_resume_state(
     return {
         "done_source_cursor": done_source_cursor,
         "resume_after_key": resume_after_key,
-        "next_key": resume_after_key,
         "next_key_to_process": next_key_to_process,
+        "next_key": next_key_to_process,
         "next_make": next_group.make if next_group else None,
         "next_model": next_group.model if next_group else None,
         "ready": ready,
+        "clean_count": clean_count,
+        "review_entries_count": review_entries_count,
+        "review_only_blocked_count": review_only_blocked_count,
+        "review_overlap_count": review_overlap_count,
+        "active_blocked_count": active_blocked_count,
         "blocked": blocked,
         "total_universe": total,
         "remaining": remaining,
