@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T21:57:58Z",
+  "generated_at": "2026-06-16T21:58:30Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -56885,6 +56885,283 @@
         ]
       },
       "canonical_model": "X7 M50i",
+      "profile_confidence": "medium"
+    },
+    {
+      "technical_variants_il": [
+        {
+          "body_type": "SUV",
+          "fuel_type": "plug_in_hybrid",
+          "engine": "3.0L i6 turbo",
+          "engine_displacement_l": 3.0,
+          "horsepower_hp": 476,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "version_or_trim": "50e Ultimate",
+          "year_start": 2023,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            399,
+            401
+          ],
+          "field_sources": {
+            "body_type": [
+              399,
+              401
+            ],
+            "fuel_type": [
+              399,
+              401
+            ],
+            "engine": [
+              399,
+              401
+            ],
+            "engine_displacement_l": [
+              399,
+              401
+            ],
+            "horsepower_hp": [
+              399,
+              401
+            ],
+            "transmission": [
+              399,
+              401
+            ],
+            "drivetrain": [
+              399,
+              401
+            ],
+            "version_or_trim": [
+              399,
+              401
+            ],
+            "year_start": [
+              399
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "year_end"
+          ]
+        },
+        {
+          "body_type": "SUV",
+          "fuel_type": "plug_in_hybrid",
+          "engine": "4.4L v8 twin-turbo",
+          "engine_displacement_l": 4.4,
+          "horsepower_hp": 653,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "version_or_trim": "Ultimate",
+          "year_start": 2023,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            399,
+            400,
+            401
+          ],
+          "field_sources": {
+            "body_type": [
+              399,
+              400,
+              401
+            ],
+            "fuel_type": [
+              399,
+              400,
+              401
+            ],
+            "engine": [
+              399,
+              400,
+              401
+            ],
+            "engine_displacement_l": [
+              399,
+              400,
+              401
+            ],
+            "horsepower_hp": [
+              399,
+              400,
+              401
+            ],
+            "transmission": [
+              399,
+              400,
+              401
+            ],
+            "drivetrain": [
+              399,
+              400,
+              401
+            ],
+            "version_or_trim": [
+              399,
+              400,
+              401
+            ],
+            "year_start": [
+              399,
+              400
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "year_end"
+          ]
+        },
+        {
+          "body_type": "SUV",
+          "fuel_type": "plug_in_hybrid",
+          "engine": "4.4L v8 twin-turbo",
+          "engine_displacement_l": 4.4,
+          "horsepower_hp": 748,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "version_or_trim": "Label Red",
+          "year_start": 2023,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            399,
+            401
+          ],
+          "field_sources": {
+            "body_type": [
+              399,
+              401
+            ],
+            "fuel_type": [
+              399,
+              401
+            ],
+            "engine": [
+              399,
+              401
+            ],
+            "engine_displacement_l": [
+              399,
+              401
+            ],
+            "horsepower_hp": [
+              399,
+              401
+            ],
+            "transmission": [
+              399,
+              401
+            ],
+            "drivetrain": [
+              399,
+              401
+            ],
+            "version_or_trim": [
+              399,
+              401
+            ],
+            "year_start": [
+              399
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "year_end"
+          ]
+        }
+      ],
+      "invalid_or_non_trim_labels": [],
+      "sources": [
+        {
+          "source_index": 399,
+          "title": "ב.מ.וו XM מחירון רכב, מפרט טכני - iCar",
+          "url": "https://www.icar.co.il/%D7%91.%D7%9E.%D7%95%D7%95/ב.מ.וו_XM",
+          "source_name": "iCar Israel",
+          "source_type": "automotive_catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "version_or_trim",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 400,
+          "title": "החל מ-1,350,000 שקל: ב.מ.וו XM בישראל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/החל-מ-1-350-000-שקל-ב-מ-וו-xm-בישראל",
+          "source_name": "Cartube Israel",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "version_or_trim",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 401,
+          "title": "BMW XM - Official Importer Page",
+          "url": "https://www.bmw.co.il/he/all-models/m-series/xm/2022/bmw-xm-highlights.html",
+          "source_name": "BMW Israel",
+          "source_type": "official_importer",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "version_or_trim"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "50e Ultimate",
+          "Ultimate",
+          "Label Red"
+        ],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "plug_in_hybrid"
+        ],
+        "engine": [
+          "3.0L i6 turbo",
+          "4.4L v8 twin-turbo"
+        ],
+        "horsepower_hp": [
+          476,
+          653,
+          748
+        ],
+        "transmission": [
+          "8-speed automatic"
+        ],
+        "drivetrain": [
+          "AWD"
+        ]
+      },
+      "market": "IL",
+      "make": "BMW",
+      "model": "XM",
+      "canonical_model": "XM",
       "profile_confidence": "medium"
     }
   ],
