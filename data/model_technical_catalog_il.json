@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-16T16:19:38Z",
+  "generated_at": "2026-06-16T16:26:57Z",
   "market": "IL",
   "mode": "online_selectable_provider",
-  "model_id": "gpt-5.4",
+  "model_id": "gemini-3.1-pro-preview",
   "source_files": [
     "data/validation_variants_data_v1.json",
     "data/validation_instructions_by_id_v1.json"
@@ -24045,6 +24045,254 @@
         ]
       },
       "canonical_model": "S5",
+      "profile_confidence": "medium"
+    },
+    {
+      "make": "Audi",
+      "model": "SQ5",
+      "market": "IL",
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "אאודי SQ5 בישראל – מחיר החל מ-420,000 שקל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%90%D7%90%D7%95%D7%93%D7%99-sq5-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-420-000-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "year_start",
+            "year_end",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "body_type",
+            "fuel_type"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "אאודי SQ5 החדש 2017 בישראל - מחיר החל מ-519,900 שקל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%90%D7%90%D7%95%D7%93%D7%99-sq5-%D7%94%D7%97%D7%93%D7%A9-2017-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-519-900-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "year_start",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "body_type",
+            "fuel_type"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "אאודי SQ5 - מחירון, מפרט טכני",
+          "url": "https://www.icar.co.il/%D7%90%D7%90%D7%95%D7%93%D7%99/%D7%90%D7%90%D7%95%D7%93%D7%99_SQ5/",
+          "source_name": "iCar",
+          "source_type": "specs",
+          "supports": [
+            "year_start",
+            "year_end",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "body_type",
+            "fuel_type"
+          ]
+        },
+        {
+          "source_index": 4,
+          "title": "אאודי SQ5 ספורטבק 2021 החדש בישראל - מחיר החל מ-620,000 שקל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%90%D7%90%D7%95%D7%93%D7%99-sq5-%D7%A1%D7%A4%D7%95%D7%A8%D7%98%D7%91%D7%A7-2021-%D7%94%D7%97%D7%93%D7%A9-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-620-000-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "year_end",
+            "horsepower_hp",
+            "drivetrain",
+            "transmission"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "3.0L supercharged v6",
+          "engine_displacement_l": 3.0,
+          "horsepower_hp": 354,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2013,
+          "year_end": 2017,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            3
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              1,
+              3
+            ],
+            "fuel_type": [
+              1,
+              3
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1,
+              3
+            ],
+            "horsepower_hp": [
+              1,
+              3
+            ],
+            "transmission": [
+              1,
+              3
+            ],
+            "drivetrain": [
+              1,
+              3
+            ],
+            "year_start": [
+              1,
+              3
+            ],
+            "year_end": [
+              1,
+              3
+            ]
+          },
+          "missing_grounded_fields": [
+            "version_or_trim"
+          ]
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "3.0L turbo v6",
+          "engine_displacement_l": 3.0,
+          "horsepower_hp": 354,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2017,
+          "year_end": 2025,
+          "support_level": "direct",
+          "source_indexes": [
+            2,
+            3,
+            4
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              2,
+              3
+            ],
+            "fuel_type": [
+              2,
+              3
+            ],
+            "engine": [
+              2
+            ],
+            "engine_displacement_l": [
+              2,
+              3
+            ],
+            "horsepower_hp": [
+              2,
+              3,
+              4
+            ],
+            "transmission": [
+              2,
+              3,
+              4
+            ],
+            "drivetrain": [
+              2,
+              3,
+              4
+            ],
+            "year_start": [
+              2,
+              3
+            ],
+            "year_end": [
+              3,
+              4
+            ]
+          },
+          "missing_grounded_fields": [
+            "version_or_trim"
+          ]
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Base / Luxury",
+          "classification": "trim_combination_with_base"
+        },
+        {
+          "label": "Luxury",
+          "classification": "trim"
+        },
+        {
+          "label": "Luxury / S-Line Luxury",
+          "classification": "trim_combination"
+        },
+        {
+          "label": "Premium / Luxury",
+          "classification": "trim_combination"
+        },
+        {
+          "label": "3.0L Supercharged V6",
+          "classification": "engine"
+        },
+        {
+          "label": "3.0L Turbocharged V6",
+          "classification": "engine"
+        },
+        {
+          "label": "SUV Coupe",
+          "classification": "body_type"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "3.0L supercharged v6",
+          "3.0L turbo v6"
+        ],
+        "horsepower_hp": [
+          354
+        ],
+        "transmission": [
+          "8-speed automatic"
+        ],
+        "drivetrain": [
+          "AWD"
+        ]
+      },
+      "canonical_model": "SQ5",
       "profile_confidence": "medium"
     }
   ],
