@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T20:51:35Z",
+  "generated_at": "2026-06-16T20:52:12Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -50799,6 +50799,134 @@
       "make": "BMW",
       "model": "X3 xDrive20d",
       "canonical_model": "X3 xDrive20d",
+      "profile_confidence": "medium"
+    },
+    {
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "ב.מ.וו X3 פלאג-אין - מחירון, מפרט טכני",
+          "url": "https://www.icar.co.il/ב.מ.וו/ב.מ.וו_X3_פלאג-אין/",
+          "source_name": "iCar Israel",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "מחירון רכב דגמי ב.מ.וו - BMW Israel",
+          "url": "https://www.bmw.co.il/he/topics/offers-and-services/price-list.html",
+          "source_name": "BMW Israel Official",
+          "source_type": "official_importer",
+          "supports": [
+            "fuel_type",
+            "horsepower_hp",
+            "drivetrain",
+            "year_end",
+            "version_or_trim"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Executive",
+          "body_type": "SUV",
+          "fuel_type": "plug_in_hybrid",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 292,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2020,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "2.0L Turbo PHEV",
+          "classification": "engine_as_trim"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Executive"
+        ],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "plug_in_hybrid"
+        ],
+        "engine": [
+          "2.0L turbo"
+        ],
+        "horsepower_hp": [
+          292
+        ],
+        "transmission": [
+          "8-speed automatic"
+        ],
+        "drivetrain": [
+          "AWD"
+        ]
+      },
+      "market": "IL",
+      "make": "BMW",
+      "model": "X3 xDrive30e",
+      "canonical_model": "X3 xDrive30e",
       "profile_confidence": "medium"
     }
   ],
