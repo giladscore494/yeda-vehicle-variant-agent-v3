@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T17:42:40Z",
+  "generated_at": "2026-06-16T17:43:12Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -38028,6 +38028,164 @@
         ]
       },
       "canonical_model": "540i",
+      "profile_confidence": "medium"
+    },
+    {
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "ב.מ.וו 545e פלאג-אין xDrive - מפרט, מחירים, ורמות גימור",
+          "url": "https://www.icar.co.il/%D7%91.%D7%9E.%D7%95.%D7%95/%D7%91.%D7%9E.%D7%95.%D7%95_%D7%A1%D7%93%D7%A8%D7%94_5/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "ב.מ.וו סדרה 5 (G30) פלאג אין הייבריד 545e M-Superior 4X4 3.0",
+          "url": "https://gear.co.il/%D7%A8%D7%9B%D7%91%D7%99%D7%9D/%D7%91.%D7%9E.%D7%95.%D7%95-%D7%A1%D7%93%D7%A8%D7%94-5",
+          "source_name": "Gear.co.il",
+          "source_type": "catalog",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "ב.מ.וו 545e xDrive פלאג-אין - נחשפת רשמית",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%91-%D7%9E-%D7%95%D7%95-545e-%D7%A4%D7%9C%D7%90%D7%92-%D7%90%D7%99%D7%9F-%D7%A0%D7%97%D7%A9%D7%A4%D7%AA-%D7%A8%D7%A9%D7%9E%D7%99%D7%AA",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "fuel_type"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "M-Superior",
+          "body_type": "Sedan",
+          "fuel_type": "plug_in_hybrid",
+          "engine": "3.0L turbo",
+          "engine_displacement_l": 3.0,
+          "horsepower_hp": 394,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2021,
+          "year_end": 2023,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2,
+            3
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1,
+              2
+            ],
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2,
+              3
+            ],
+            "engine": [
+              1,
+              3
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              1,
+              2,
+              3
+            ],
+            "transmission": [
+              1,
+              2,
+              3
+            ],
+            "drivetrain": [
+              1,
+              2,
+              3
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "M-Superior"
+        ],
+        "body_type": [
+          "Sedan"
+        ],
+        "fuel_type": [
+          "plug_in_hybrid"
+        ],
+        "engine": [
+          "3.0L turbo"
+        ],
+        "horsepower_hp": [
+          394
+        ],
+        "transmission": [
+          "8-speed automatic"
+        ],
+        "drivetrain": [
+          "AWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "xDrive",
+          "classification": "drivetrain"
+        },
+        {
+          "label": "3.0L Inline-6 Turbo PHEV",
+          "classification": "engine_configuration"
+        }
+      ],
+      "market": "IL",
+      "make": "BMW",
+      "model": "545e",
+      "canonical_model": "545e",
       "profile_confidence": "medium"
     }
   ],
