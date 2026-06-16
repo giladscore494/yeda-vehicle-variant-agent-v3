@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T17:59:51Z",
+  "generated_at": "2026-06-16T18:00:21Z",
   "market": "IL",
   "models": [
     {
@@ -347,24 +347,237 @@
       "market": "IL",
       "make": "BMW",
       "model": "630i",
-      "canonical_model": "630i",
-      "year_start": null,
-      "year_end": null,
-      "technical_variants_il": [],
+      "canonical_model": "6 Series",
+      "year_start": 2007,
+      "year_end": 2011,
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "3.0L i6",
+          "engine_displacement_l": 3.0,
+          "horsepower_hp": 272,
+          "transmission": "automatic",
+          "drivetrain": null,
+          "year_start": 2007,
+          "year_end": 2011,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              0,
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [],
+            "year_start": [
+              3
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": [
+            "drivetrain"
+          ]
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Convertible",
+          "fuel_type": "petrol",
+          "engine": "3.0L i6",
+          "engine_displacement_l": 3.0,
+          "horsepower_hp": 272,
+          "transmission": "automatic",
+          "drivetrain": null,
+          "year_start": 2008,
+          "year_end": 2010,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            4,
+            5
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              4
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              5
+            ],
+            "drivetrain": [],
+            "year_start": [
+              4
+            ],
+            "year_end": [
+              5
+            ]
+          },
+          "missing_grounded_fields": [
+            "drivetrain"
+          ]
+        }
+      ],
       "available_values_for_website": {
         "version_or_trim": [],
-        "body_type": [],
-        "fuel_type": [],
-        "engine": [],
-        "horsepower_hp": [],
-        "transmission": [],
+        "body_type": [
+          "Coupe",
+          "Convertible"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "3.0L i6"
+        ],
+        "horsepower_hp": [
+          272
+        ],
+        "transmission": [
+          "automatic"
+        ],
         "drivetrain": []
       },
-      "invalid_or_non_trim_labels": [],
-      "sources": [],
-      "profile_confidence": null,
-      "notes": [],
-      "error": "Gemini catalog client returned non-object JSON",
+      "invalid_or_non_trim_labels": [
+        "Base — non-trim generic label",
+        "Cabriolet — body-type label, not a trim"
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "ב.מ.וו סדרה 6 קבריולה 2008 630i 3.0 - יד שניה",
+          "url": "https://www.icar.co.il/%D7%91.%D7%9E.%D7%95%D7%95/%D7%91.%D7%9E.%D7%95%D7%95_%D7%A1%D7%93%D7%A8%D7%94_6_%D7%A7%D7%91%D7%A8%D7%99%D7%95%D7%9C%D7%94/%D7%91.%D7%9E.%D7%95%D7%95_%D7%A1%D7%93%D7%A8%D7%94_6_%D7%A7%D7%91%D7%A8%D7%99%D7%95%D7%9C%D7%94_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%94_%D7%9310/version4414/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "ב מ וו סדרה 6 2008 630 Ci אוט׳ 3.0 (272 כ״ס)",
+          "url": "https://www.yad2.co.il/price-list/sub-model/117269/2008",
+          "source_name": "יד2",
+          "source_type": "marketplace_catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "ב מ וו סדרה 6 2010 630i אוט׳ 3.0 (272 כ״ס)",
+          "url": "https://www.yad2.co.il/price-list/sub-model/124599/2010",
+          "source_name": "יד2",
+          "source_type": "marketplace_catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "ב.מ.וו סדרה 6 קופה 2011 3.0 630i - יד שניה",
+          "url": "https://www.icar.co.il/%D7%91.%D7%9E.%D7%95%D7%95/%D7%91.%D7%9E.%D7%95%D7%95_%D7%A1%D7%93%D7%A8%D7%94_6_%D7%A7%D7%95%D7%A4%D7%94/%D7%91.%D7%9E.%D7%95%D7%95_%D7%A1%D7%93%D7%A8%D7%94_6_%D7%A7%D7%95%D7%A4%D7%94_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%94_%D7%9310/version24504/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 4,
+          "title": "ב.מ.וו סדרה 6 2003-2010 יד שניה, 630ci קבריולה אוט' מפרט טכני - אוטו",
+          "url": "https://www.auto.co.il/car/181",
+          "source_name": "Auto",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 5,
+          "title": "ב.מ.וו סדרה 6 2010 630ci קבריולה אוט' יד שניה",
+          "url": "https://www.auto.co.il/cars/bmw/6-series/2010/523036/",
+          "source_name": "Auto",
+          "source_type": "catalog",
+          "supports": [
+            "engine_displacement_l",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "year_end"
+          ]
+        }
+      ],
+      "profile_confidence": "medium",
+      "notes": [
+        "Grounding for BMW 630i in Israel was found mainly in Israeli secondary catalog/marketplace sources (iCar, Auto, Yad2); no Israeli official importer archive/spec sheet for the E63/E64 630i was found.",
+        "Drivetrain was not returned because available Israeli sources accessed here did not provide a reliable grounded drivetrain field for these 630i rows.",
+        "Coupe evidence appears under both 630i and 630 Ci naming in Israeli sources; retained under requested model 630i as the technical configuration matches the sourced Israeli listings.",
+        "Year ranges are merged only where the sourced technical fields remain identical across the observed Israeli source years."
+      ],
+      "validation_issues": [
+        "variant[0] required website field 'drivetrain' is null/empty",
+        "variant[0] required field 'drivetrain' listed in missing_grounded_fields",
+        "variant[1] required website field 'drivetrain' is null/empty",
+        "variant[1] required field 'drivetrain' listed in missing_grounded_fields"
+      ],
+      "repair_attempts": 1,
+      "rebuild_required": true,
       "request_payload": {
         "task": "build_israeli_model_technical_catalog",
         "market": "IL",
@@ -416,11 +629,7 @@
           "validation_id_count": 2
         },
         "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
-      },
-      "rebuild_required": true,
-      "validation_issues": [
-        "technical_variants_il is empty"
-      ]
+      }
     },
     {
       "sources": [
