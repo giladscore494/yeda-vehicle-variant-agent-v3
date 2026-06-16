@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T17:47:10Z",
+  "generated_at": "2026-06-16T17:47:47Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -38375,6 +38375,146 @@
       },
       "market": "IL",
       "canonical_model": "630i GT",
+      "profile_confidence": "medium"
+    },
+    {
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "ב.מ.וו סדרה 6 GT - מחירון, צריכת דלק, רמות גימור",
+          "url": "https://www.icar.co.il/%D7%91.%D7%9E.%D7%95%D7%95/%D7%91.%D7%9E.%D7%95%D7%95_%D7%A1%D7%93%D7%A8%D7%94_6_GT/",
+          "source_name": "iCar Israel",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "ב.מ.וו סדרה 6 GT החדשה בישראל - מחיר החל מ- 545,000 שקל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%91-%D7%9E-%D7%95%D7%95-%D7%A1%D7%93%D7%A8%D7%94-6-gt-%D7%94%D7%97%D7%93%D7%A9%D7%94-%D7%91%D7%9A%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-545000-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube Israel",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "version_or_trim",
+            "year_start"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Luxury",
+          "body_type": "Liftback",
+          "fuel_type": "petrol",
+          "engine": "3.0L inline-6 turbo",
+          "engine_displacement_l": 3.0,
+          "horsepower_hp": 340,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2017,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "xDrive",
+          "classification": "drivetrain"
+        },
+        {
+          "label": "640i",
+          "classification": "model_designation"
+        },
+        {
+          "label": "Gran Turismo",
+          "classification": "body_type"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Luxury"
+        ],
+        "body_type": [
+          "Liftback"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "3.0L inline-6 turbo"
+        ],
+        "horsepower_hp": [
+          340
+        ],
+        "transmission": [
+          "8-speed automatic"
+        ],
+        "drivetrain": [
+          "AWD"
+        ]
+      },
+      "market": "IL",
+      "make": "BMW",
+      "model": "640i GT",
+      "canonical_model": "640i GT",
       "profile_confidence": "medium"
     }
   ],
