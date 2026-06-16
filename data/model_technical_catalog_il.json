@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T16:28:16Z",
+  "generated_at": "2026-06-16T16:29:39Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -24655,6 +24655,643 @@
         ]
       },
       "canonical_model": "SQ8",
+      "profile_confidence": "medium"
+    },
+    {
+      "task": "build_israeli_model_technical_catalog",
+      "market": "IL",
+      "make": "Audi",
+      "model": "TT",
+      "sources": [
+        {
+          "source_index": 109,
+          "title": "אאודי TT - מחירון, מפרטים, אמינות - אוטו",
+          "url": "https://www.auto.co.il/model/audi-tt",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial_spec",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 110,
+          "title": "אאודי TT (2015-2023) - מפרט טכני, מחירון, וחוות דעת - קארזון",
+          "url": "https://www.carzone.co.il/audi/tt/",
+          "source_name": "Carzone",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 111,
+          "title": "אאודי TT דורות - iCar",
+          "url": "https://www.icar.co.il/audi/tt",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "invalid_or_non_trim_labels": {
+        "Base": "base_or_standard_placeholder",
+        "1.8T": "engine_displacement_or_type",
+        "2.0 TFSI": "engine_displacement_or_type"
+      },
+      "technical_variants_il": [
+        {
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "1.8L turbo",
+          "engine_displacement_l": 1.8,
+          "horsepower_hp": 180,
+          "transmission": "manual",
+          "drivetrain": "FWD",
+          "year_start": 1999,
+          "year_end": 2006,
+          "support_level": "direct",
+          "source_indexes": [
+            109,
+            111
+          ],
+          "field_sources": {
+            "body_type": [
+              109,
+              111
+            ],
+            "fuel_type": [
+              109,
+              111
+            ],
+            "engine": [
+              109,
+              111
+            ],
+            "engine_displacement_l": [
+              109,
+              111
+            ],
+            "horsepower_hp": [
+              109,
+              111
+            ],
+            "transmission": [
+              109,
+              111
+            ],
+            "drivetrain": [
+              109,
+              111
+            ],
+            "year_start": [
+              109,
+              111
+            ],
+            "year_end": [
+              109,
+              111
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "1.8L turbo",
+          "engine_displacement_l": 1.8,
+          "horsepower_hp": 180,
+          "transmission": "automatic",
+          "drivetrain": "FWD",
+          "year_start": 1999,
+          "year_end": 2006,
+          "support_level": "direct",
+          "source_indexes": [
+            109,
+            111
+          ],
+          "field_sources": {
+            "body_type": [
+              109,
+              111
+            ],
+            "fuel_type": [
+              109,
+              111
+            ],
+            "engine": [
+              109,
+              111
+            ],
+            "engine_displacement_l": [
+              109,
+              111
+            ],
+            "horsepower_hp": [
+              109,
+              111
+            ],
+            "transmission": [
+              109,
+              111
+            ],
+            "drivetrain": [
+              109,
+              111
+            ],
+            "year_start": [
+              109,
+              111
+            ],
+            "year_end": [
+              109,
+              111
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "1.8L turbo",
+          "engine_displacement_l": 1.8,
+          "horsepower_hp": 225,
+          "transmission": "manual",
+          "drivetrain": "AWD",
+          "year_start": 1999,
+          "year_end": 2006,
+          "support_level": "direct",
+          "source_indexes": [
+            109,
+            111
+          ],
+          "field_sources": {
+            "body_type": [
+              109,
+              111
+            ],
+            "fuel_type": [
+              109,
+              111
+            ],
+            "engine": [
+              109,
+              111
+            ],
+            "engine_displacement_l": [
+              109,
+              111
+            ],
+            "horsepower_hp": [
+              109,
+              111
+            ],
+            "transmission": [
+              109,
+              111
+            ],
+            "drivetrain": [
+              109,
+              111
+            ],
+            "year_start": [
+              109,
+              111
+            ],
+            "year_end": [
+              109,
+              111
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 200,
+          "transmission": "dual_clutch",
+          "drivetrain": "FWD",
+          "year_start": 2007,
+          "year_end": 2010,
+          "support_level": "direct",
+          "source_indexes": [
+            109,
+            111
+          ],
+          "field_sources": {
+            "body_type": [
+              109,
+              111
+            ],
+            "fuel_type": [
+              109,
+              111
+            ],
+            "engine": [
+              109,
+              111
+            ],
+            "engine_displacement_l": [
+              109,
+              111
+            ],
+            "horsepower_hp": [
+              109,
+              111
+            ],
+            "transmission": [
+              109,
+              111
+            ],
+            "drivetrain": [
+              109,
+              111
+            ],
+            "year_start": [
+              109,
+              111
+            ],
+            "year_end": [
+              109,
+              111
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 211,
+          "transmission": "dual_clutch",
+          "drivetrain": "FWD",
+          "year_start": 2010,
+          "year_end": 2014,
+          "support_level": "direct",
+          "source_indexes": [
+            109,
+            111
+          ],
+          "field_sources": {
+            "body_type": [
+              109,
+              111
+            ],
+            "fuel_type": [
+              109,
+              111
+            ],
+            "engine": [
+              109,
+              111
+            ],
+            "engine_displacement_l": [
+              109,
+              111
+            ],
+            "horsepower_hp": [
+              109,
+              111
+            ],
+            "transmission": [
+              109,
+              111
+            ],
+            "drivetrain": [
+              109,
+              111
+            ],
+            "year_start": [
+              109,
+              111
+            ],
+            "year_end": [
+              109,
+              111
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 230,
+          "transmission": "dual_clutch",
+          "drivetrain": "FWD",
+          "year_start": 2015,
+          "year_end": 2018,
+          "support_level": "direct",
+          "source_indexes": [
+            109,
+            110,
+            111
+          ],
+          "field_sources": {
+            "body_type": [
+              109,
+              110,
+              111
+            ],
+            "fuel_type": [
+              109,
+              110,
+              111
+            ],
+            "engine": [
+              109,
+              110,
+              111
+            ],
+            "engine_displacement_l": [
+              109,
+              110,
+              111
+            ],
+            "horsepower_hp": [
+              109,
+              110,
+              111
+            ],
+            "transmission": [
+              109,
+              110,
+              111
+            ],
+            "drivetrain": [
+              109,
+              110,
+              111
+            ],
+            "year_start": [
+              109,
+              110,
+              111
+            ],
+            "year_end": [
+              109,
+              110,
+              111
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 245,
+          "transmission": "dual_clutch",
+          "drivetrain": "FWD",
+          "year_start": 2019,
+          "year_end": 2023,
+          "support_level": "direct",
+          "source_indexes": [
+            109,
+            110,
+            111
+          ],
+          "field_sources": {
+            "body_type": [
+              109,
+              110,
+              111
+            ],
+            "fuel_type": [
+              109,
+              110,
+              111
+            ],
+            "engine": [
+              109,
+              110,
+              111
+            ],
+            "engine_displacement_l": [
+              109,
+              110,
+              111
+            ],
+            "horsepower_hp": [
+              109,
+              110,
+              111
+            ],
+            "transmission": [
+              109,
+              110,
+              111
+            ],
+            "drivetrain": [
+              109,
+              110,
+              111
+            ],
+            "year_start": [
+              109,
+              110,
+              111
+            ],
+            "year_end": [
+              109,
+              110,
+              111
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Roadster",
+          "fuel_type": "petrol",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 230,
+          "transmission": "dual_clutch",
+          "drivetrain": "FWD",
+          "year_start": 2015,
+          "year_end": 2018,
+          "support_level": "direct",
+          "source_indexes": [
+            109,
+            110,
+            111
+          ],
+          "field_sources": {
+            "body_type": [
+              109,
+              110,
+              111
+            ],
+            "fuel_type": [
+              109,
+              110,
+              111
+            ],
+            "engine": [
+              109,
+              110,
+              111
+            ],
+            "engine_displacement_l": [
+              109,
+              110,
+              111
+            ],
+            "horsepower_hp": [
+              109,
+              110,
+              111
+            ],
+            "transmission": [
+              109,
+              110,
+              111
+            ],
+            "drivetrain": [
+              109,
+              110,
+              111
+            ],
+            "year_start": [
+              109,
+              110,
+              111
+            ],
+            "year_end": [
+              109,
+              110,
+              111
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Roadster",
+          "fuel_type": "petrol",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 245,
+          "transmission": "dual_clutch",
+          "drivetrain": "FWD",
+          "year_start": 2019,
+          "year_end": 2023,
+          "support_level": "direct",
+          "source_indexes": [
+            109,
+            110,
+            111
+          ],
+          "field_sources": {
+            "body_type": [
+              109,
+              110,
+              111
+            ],
+            "fuel_type": [
+              109,
+              110,
+              111
+            ],
+            "engine": [
+              109,
+              110,
+              111
+            ],
+            "engine_displacement_l": [
+              109,
+              110,
+              111
+            ],
+            "horsepower_hp": [
+              109,
+              110,
+              111
+            ],
+            "transmission": [
+              109,
+              110,
+              111
+            ],
+            "drivetrain": [
+              109,
+              110,
+              111
+            ],
+            "year_start": [
+              109,
+              110,
+              111
+            ],
+            "year_end": [
+              109,
+              110,
+              111
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Coupe",
+          "Roadster"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "1.8L turbo",
+          "2.0L turbo"
+        ],
+        "horsepower_hp": [
+          180,
+          225,
+          200,
+          211,
+          230,
+          245
+        ],
+        "transmission": [
+          "manual",
+          "automatic",
+          "dual_clutch"
+        ],
+        "drivetrain": [
+          "FWD",
+          "AWD"
+        ]
+      },
+      "canonical_model": "TT",
       "profile_confidence": "medium"
     }
   ],
