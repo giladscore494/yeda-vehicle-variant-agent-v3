@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T20:21:42Z",
+  "generated_at": "2026-06-16T20:22:04Z",
   "market": "IL",
   "models": [
     {
@@ -1868,6 +1868,87 @@
           ],
           "possible_duplicate_rows": 0,
           "validation_id_count": 4
+        },
+        "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
+      },
+      "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "BMW",
+      "model": "840i",
+      "canonical_model": "840i",
+      "year_start": null,
+      "year_end": null,
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [],
+      "profile_confidence": null,
+      "notes": [],
+      "error": "Expecting ',' delimiter: line 157 column 6 (char 4613)",
+      "request_payload": {
+        "task": "build_israeli_model_technical_catalog",
+        "market": "IL",
+        "make": "BMW",
+        "model": "840i",
+        "raw_database_values": {
+          "years_seen": [
+            2019,
+            2026
+          ],
+          "trims_seen": [
+            "M-Superior"
+          ],
+          "engines_seen": [
+            "3.0L I6 Turbo"
+          ],
+          "horsepower_seen": [],
+          "transmissions_seen": [
+            "automatic"
+          ],
+          "body_types_seen": [
+            "Convertible",
+            "Coupe",
+            "Gran Coupe"
+          ],
+          "fuel_types_seen": [
+            "petrol"
+          ],
+          "drivetrains_seen": [
+            "RWD"
+          ]
+        },
+        "sample_validation_ids": [
+          "VAL-000521",
+          "VAL-000522",
+          "VAL-000523"
+        ],
+        "source_indexes": [
+          477,
+          478,
+          479
+        ],
+        "metadata_hints": {
+          "priorities_seen": [
+            "medium"
+          ],
+          "validation_routes_seen": [
+            "cheap_model_structured_validation"
+          ],
+          "possible_duplicate_rows": 0,
+          "validation_id_count": 3
         },
         "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
       },
