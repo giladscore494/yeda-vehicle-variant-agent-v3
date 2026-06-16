@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T21:49:50Z",
+  "generated_at": "2026-06-16T21:50:21Z",
   "market": "IL",
   "models": [
     {
@@ -579,6 +579,146 @@
         "variant[6] support_level=direct but no source directly supports it",
         "variant[7] has no source_indexes",
         "variant[7] support_level=direct but no source directly supports it"
+      ]
+    },
+    {
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "ב.מ.וו X5 ו- X7 בגרסת M50i - בישראל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%91-%D7%9E-%D7%95%D7%95-x5-%D7%95-x7-%D7%91%D7%92%D7%A8%D7%A1%D7%AA-m50i-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "year_start",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "fuel_type",
+            "body_type",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "ב.מ.וו X5 - מחירון, מפרטים, אמינות וחוות דעת - iCar",
+          "url": "https://www.icar.co.il/%D7%91.%D7%9E.%D7%95%D7%95/%D7%91.%D7%9E.%D7%95%D7%95_X5/%D7%91.%D7%9E.%D7%95%D7%95_X5_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%94_-_%D7%93%D7%95%D7%A8_4/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "year_start",
+            "year_end",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "fuel_type",
+            "body_type"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "ב.מ.וו X5 החדש 2023 בישראל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%91-%D7%9E-%D7%95%D7%95-x5-%D7%94%D7%97%D7%93%D7%A9-2023-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-719,900-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Superior",
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "4.4L v8 twin-turbo",
+          "engine_displacement_l": 4.4,
+          "horsepower_hp": 530,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2019,
+          "year_end": 2023,
+          "support_level": "direct",
+          "missing_grounded_fields": [],
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              1,
+              2
+            ]
+          }
+        }
+      ],
+      "invalid_or_non_trim_labels": [],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Superior"
+        ],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "4.4L v8 twin-turbo"
+        ],
+        "horsepower_hp": [
+          530
+        ],
+        "transmission": [
+          "8-speed automatic"
+        ],
+        "drivetrain": [
+          "AWD"
+        ]
+      },
+      "market": "IL",
+      "make": "BMW",
+      "model": "X5 M50i",
+      "canonical_model": "X5 M50i",
+      "profile_confidence": "medium",
+      "validation_issues": [
+        "variant[0] has no source_indexes",
+        "variant[0] support_level=direct but no source directly supports it"
       ]
     }
   ]
