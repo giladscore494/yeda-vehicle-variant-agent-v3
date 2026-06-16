@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T17:24:20Z",
+  "generated_at": "2026-06-16T17:25:05Z",
   "market": "IL",
   "models": [
     {
@@ -477,6 +477,87 @@
         "variant[0] non-null field 'version_or_trim' has no field_sources entry",
         "variant[1] non-null field 'version_or_trim' has no field_sources entry",
         "variant[2] non-null field 'version_or_trim' has no field_sources entry"
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "BMW",
+      "model": "340i",
+      "canonical_model": "340i",
+      "year_start": null,
+      "year_end": null,
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [],
+      "profile_confidence": null,
+      "notes": [],
+      "error": "Gemini catalog client returned non-object JSON",
+      "request_payload": {
+        "task": "build_israeli_model_technical_catalog",
+        "market": "IL",
+        "make": "BMW",
+        "model": "340i",
+        "raw_database_values": {
+          "years_seen": [
+            2015,
+            2018,
+            2019,
+            2026
+          ],
+          "trims_seen": [
+            "Luxury",
+            "M Performance"
+          ],
+          "engines_seen": [
+            "3.0L Turbo I6"
+          ],
+          "horsepower_seen": [],
+          "transmissions_seen": [
+            "automatic"
+          ],
+          "body_types_seen": [
+            "Sedan"
+          ],
+          "fuel_types_seen": [
+            "petrol"
+          ],
+          "drivetrains_seen": [
+            "AWD",
+            "RWD"
+          ]
+        },
+        "sample_validation_ids": [
+          "VAL-000403",
+          "VAL-000404"
+        ],
+        "source_indexes": [
+          161,
+          162
+        ],
+        "metadata_hints": {
+          "priorities_seen": [
+            "medium"
+          ],
+          "validation_routes_seen": [
+            "cheap_model_structured_validation"
+          ],
+          "possible_duplicate_rows": 0,
+          "validation_id_count": 2
+        },
+        "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
+      },
+      "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
       ]
     }
   ]
