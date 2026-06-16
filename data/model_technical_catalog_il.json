@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T22:02:07Z",
+  "generated_at": "2026-06-16T22:02:59Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -58137,6 +58137,217 @@
       ],
       "market": "IL",
       "canonical_model": "z4 sdrive20i",
+      "profile_confidence": "medium"
+    },
+    {
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "BYD Atto 3 מפרט טכני",
+          "url": "https://byd.co.il/models/atto-3/",
+          "source_name": "BYD Israel Official Website",
+          "source_type": "official_importer",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "BYD אטו 3 - מחירון, מפרטים, אמינות וחוות דעת",
+          "url": "https://www.icar.co.il/BYD/BYD_%D7%90%D7%98%D7%95_3/",
+          "source_name": "iCar Israel",
+          "source_type": "editorial_catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Comfort",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 204,
+          "transmission": "single_speed",
+          "drivetrain": "FWD",
+          "year_start": 2022,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1,
+              2
+            ],
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": [
+              1,
+              2
+            ]
+          },
+          "missing_grounded_fields": [
+            "engine_displacement_l"
+          ]
+        },
+        {
+          "version_or_trim": "Design",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 204,
+          "transmission": "single_speed",
+          "drivetrain": "FWD",
+          "year_start": 2022,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1,
+              2
+            ],
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": [
+              1,
+              2
+            ]
+          },
+          "missing_grounded_fields": [
+            "engine_displacement_l"
+          ]
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Evo AWD",
+          "classification": "wrong_model_trim_belongs_to_byd_seal"
+        },
+        {
+          "label": "Evo RWD",
+          "classification": "wrong_model_trim_belongs_to_byd_seal"
+        },
+        {
+          "label": "Electric 150 kW (204 hp)",
+          "classification": "engine_spec"
+        },
+        {
+          "label": "Electric 230 kW (313 hp)",
+          "classification": "wrong_model_spec_belongs_to_byd_seal"
+        },
+        {
+          "label": "Electric 330 kW (449 hp)",
+          "classification": "wrong_model_spec_belongs_to_byd_seal"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Comfort",
+          "Design"
+        ],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          204
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "market": "IL",
+      "make": "BYD",
+      "model": "Atto 3",
+      "canonical_model": "Atto 3",
       "profile_confidence": "medium"
     }
   ],
