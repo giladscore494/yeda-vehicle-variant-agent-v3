@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-16T16:30:36Z",
+  "generated_at": "2026-06-16T16:34:52Z",
   "market": "IL",
   "mode": "online_selectable_provider",
-  "model_id": "gemini-3.1-pro-preview",
+  "model_id": "gpt-5.4",
   "source_files": [
     "data/validation_variants_data_v1.json",
     "data/validation_instructions_by_id_v1.json"
@@ -25293,7 +25293,422 @@
       },
       "canonical_model": "TT",
       "profile_confidence": "medium"
+    },
+    {
+      "market": "IL",
+      "make": "Bentley",
+      "model": "Bentayga",
+      "canonical_model": "Bentayga",
+      "year_start": 2019,
+      "year_end": 2025,
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "4.0L turbo v8",
+          "engine_displacement_l": 4,
+          "horsepower_hp": 550,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2019,
+          "year_end": 2025,
+          "support_level": "indirect",
+          "source_indexes": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1,
+              4
+            ],
+            "horsepower_hp": [
+              1,
+              4
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0,
+              4
+            ]
+          },
+          "missing_grounded_fields": [
+            "version_or_trim"
+          ]
+        },
+        {
+          "version_or_trim": "Mulliner",
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "4.0L turbo v8",
+          "engine_displacement_l": 4,
+          "horsepower_hp": 550,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2019,
+          "year_end": 2022,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            3
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              3
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1,
+              3
+            ],
+            "horsepower_hp": [
+              1,
+              3
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              0,
+              3
+            ],
+            "year_end": [
+              0,
+              3
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "6.0L turbo w12",
+          "engine_displacement_l": 6,
+          "horsepower_hp": 608,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2019,
+          "year_end": 2022,
+          "support_level": "indirect",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              2
+            ],
+            "engine": [
+              2
+            ],
+            "engine_displacement_l": [
+              2
+            ],
+            "horsepower_hp": [
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              2
+            ],
+            "year_start": [
+              0,
+              2
+            ],
+            "year_end": [
+              0,
+              2
+            ]
+          },
+          "missing_grounded_fields": [
+            "version_or_trim"
+          ]
+        },
+        {
+          "version_or_trim": "Mulliner",
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "6.0L turbo w12",
+          "engine_displacement_l": 6,
+          "horsepower_hp": 608,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2019,
+          "year_end": 2022,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              2
+            ],
+            "engine": [
+              2
+            ],
+            "engine_displacement_l": [
+              2
+            ],
+            "horsepower_hp": [
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              2
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "S",
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "4.0L turbo v8",
+          "engine_displacement_l": 4,
+          "horsepower_hp": 550,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2023,
+          "year_end": 2025,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            4
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              4
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1,
+              4
+            ],
+            "horsepower_hp": [
+              1,
+              4
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              0,
+              4
+            ],
+            "year_end": [
+              0,
+              4
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Mulliner",
+          "S"
+        ],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "4.0L turbo v8",
+          "6.0L turbo w12"
+        ],
+        "horsepower_hp": [
+          550,
+          608
+        ],
+        "transmission": [
+          "8-speed automatic"
+        ],
+        "drivetrain": [
+          "AWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "4.0",
+          "classification": "bare_engine_size_not_trim"
+        },
+        {
+          "label": "6.0",
+          "classification": "bare_engine_size_not_trim"
+        },
+        {
+          "label": "V8",
+          "classification": "engine_label_not_trim"
+        },
+        {
+          "label": "W12",
+          "classification": "engine_label_not_trim"
+        },
+        {
+          "label": "Hybrid",
+          "classification": "unsupported_for_IL_model_sources"
+        },
+        {
+          "label": "EWB",
+          "classification": "unsupported_for_IL_model_sources"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "בנטלי בנטאיגה 2019-2025 - iCar model range page",
+          "url": "https://www.icar.co.il/%D7%91%D7%A0%D7%98%D7%9C%D7%99/%D7%91%D7%A0%D7%98%D7%9C%D7%99_%D7%91%D7%A0%D7%98%D7%90%D7%99%D7%92%D7%94/%D7%91%D7%A0%D7%98%D7%9C%D7%99_%D7%91%D7%A0%D7%98%D7%90%D7%99%D7%92%D7%94_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%94_%D7%9310/",
+          "source_name": "iCar",
+          "source_type": "editorial_catalog",
+          "supports": [
+            "body_type",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "בנטלי בנטאיגה 2019 4.0 - iCar version page",
+          "url": "https://www.icar.co.il/%D7%91%D7%A0%D7%98%D7%9C%D7%99/%D7%91%D7%A0%D7%98%D7%9C%D7%99_%D7%91%D7%A0%D7%98%D7%90%D7%99%D7%92%D7%94/%D7%91%D7%A0%D7%98%D7%9C%D7%99_%D7%91%D7%A0%D7%98%D7%90%D7%99%D7%92%D7%94_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%94_%D7%9310/version20211/",
+          "source_name": "iCar",
+          "source_type": "editorial_catalog",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "בנטלי בנטאיגה 2019 6.0 - iCar version page",
+          "url": "https://www.icar.co.il/%D7%91%D7%A0%D7%98%D7%9C%D7%99/%D7%91%D7%A0%D7%98%D7%9C%D7%99_%D7%91%D7%A0%D7%98%D7%90%D7%99%D7%92%D7%94/%D7%91%D7%A0%D7%98%D7%9C%D7%99_%D7%91%D7%A0%D7%98%D7%90%D7%99%D7%92%D7%94_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%94_%D7%9310/version20213/",
+          "source_name": "iCar",
+          "source_type": "editorial_catalog",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "בנטלי בנטאיגה 2022 4.0 Mulliner - iCar version page",
+          "url": "https://www.icar.co.il/%D7%91%D7%A0%D7%98%D7%9C%D7%99/%D7%91%D7%A0%D7%98%D7%9C%D7%99_%D7%91%D7%A0%D7%98%D7%90%D7%99%D7%92%D7%94/%D7%91%D7%A0%D7%98%D7%9C%D7%99_%D7%91%D7%A0%D7%98%D7%90%D7%99%D7%92%D7%94_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%94_%D7%9310/version25368/",
+          "source_name": "iCar",
+          "source_type": "editorial_catalog",
+          "supports": [
+            "version_or_trim",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 4,
+          "title": "בנטלי בנטאיגה 2025 4.0 S - iCar version page",
+          "url": "https://www.icar.co.il/%D7%91%D7%A0%D7%98%D7%9C%D7%99/%D7%91%D7%A0%D7%98%D7%9C%D7%99_%D7%91%D7%A0%D7%98%D7%90%D7%99%D7%92%D7%94/%D7%91%D7%A0%D7%98%D7%9C%D7%99_%D7%91%D7%A0%D7%98%D7%90%D7%99%D7%92%D7%94_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%94_%D7%9310/version30901/",
+          "source_name": "iCar",
+          "source_type": "editorial_catalog",
+          "supports": [
+            "version_or_trim",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "profile_confidence": "medium",
+      "notes": [
+        "No Israeli official importer technical spec page/PDF for Bentayga was found in accessible search results; catalog grounded primarily on Israeli iCar version pages.",
+        "All returned rows are SUV petrol variants only; no Israeli-market source was found in accessible results for Bentayga Hybrid/PHEV or EWB under this model profile.",
+        "Engine configuration labels V8 and W12 were normalized from sourced cylinder counts plus displacement; aspiration 'turbo' was grounded via iCar 'טורבו בנזין' engine type text. Because the exact engine string is normalized from multiple sourced fields/context rather than stated verbatim as a single canonical label, support_level is set to indirect.",
+        "Rows were merged across years where accessible Israeli source pages showed the same technical configuration and the model-range page listed continuity through those years."
+      ]
     }
   ],
-  "ready_for_website_upload": false
+  "ready_for_website_upload": true
 }
