@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T20:26:40Z",
+  "generated_at": "2026-06-16T20:27:18Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -45094,6 +45094,129 @@
       ],
       "market": "IL",
       "canonical_model": "i5 eDrive40",
+      "profile_confidence": "medium"
+    },
+    {
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "ב.מ.וו סדרה 7 החדשה 2023 בישראל - מחיר החל מ- 869,900 שקל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/ב-מ-וו-סדרה-7-החדשה-2023-בישראל-מחיר-החל-מ-869,900-שקל",
+          "source_name": "Cartube IL",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "BMW i7 - ב.מ.וו i7 מפרט טכני",
+          "url": "https://www.icar.co.il/ב.מ.וו/ב.מ.וו_i7/ב.מ.וו_i7_חדש/",
+          "source_name": "iCar Israel",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "Sedan",
+          "fuel_type": "electric",
+          "version_or_trim": null,
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 544,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2022,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "version_or_trim": [],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "engine_displacement_l",
+            "year_end",
+            "version_or_trim"
+          ],
+          "invalid_or_non_trim_labels": [
+            {
+              "label": "Superior",
+              "classification": "unverified_or_foreign_market_trim"
+            }
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Sedan"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          544
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "AWD"
+        ]
+      },
+      "market": "IL",
+      "make": "BMW",
+      "model": "i7 xDrive60",
+      "canonical_model": "i7 xDrive60",
       "profile_confidence": "medium"
     }
   ],
