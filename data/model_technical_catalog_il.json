@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T17:45:22Z",
+  "generated_at": "2026-06-16T17:46:21Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -38186,6 +38186,195 @@
       "make": "BMW",
       "model": "545e",
       "canonical_model": "545e",
+      "profile_confidence": "medium"
+    },
+    {
+      "make": "BMW",
+      "model": "630i GT",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "ב.מ.וו סדרה 6 גראן טוריסמו החדשה בישראל - מחיר החל מ-545,000 שקל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%91-%D7%9E-%D7%95%D7%95-%D7%A1%D7%93%D7%A8%D7%94-6-%D7%92%D7%A8%D7%90%D7%9F-%D7%98%D7%95%D7%A8%D7%99%D7%A1%D7%9E%D7%95-%D7%94%D7%97%D7%93%D7%A9%D7%94-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-545000-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "version_or_trim",
+            "year_start",
+            "horsepower_hp",
+            "engine",
+            "engine_displacement_l",
+            "transmission",
+            "drivetrain",
+            "fuel_type"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "ב.מ.וו סדרה 6 GT - מחירון, מפרטים, אבזור",
+          "url": "https://www.icar.co.il/%D7%91.%D7%9E.%D7%95%D7%95/%D7%91.%D7%9E.%D7%95%D7%95_%D7%A1%D7%93%D7%A8%D7%94_6_GT/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "horsepower_hp",
+            "engine",
+            "engine_displacement_l",
+            "transmission",
+            "drivetrain",
+            "fuel_type",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "M Sport",
+          "body_type": "Liftback",
+          "fuel_type": "petrol",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 258,
+          "transmission": "8-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 2017,
+          "year_end": 2023,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Luxury Line",
+          "body_type": "Liftback",
+          "fuel_type": "petrol",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 258,
+          "transmission": "8-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 2017,
+          "year_end": 2023,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": {
+        "630i": "model_designation",
+        "2.0L Turbo I4": "bare_engine_size",
+        "Fastback": "body_type"
+      },
+      "available_values_for_website": {
+        "version_or_trim": [
+          "M Sport",
+          "Luxury Line"
+        ],
+        "body_type": [
+          "Liftback"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "2.0L turbo"
+        ],
+        "horsepower_hp": [
+          258
+        ],
+        "transmission": [
+          "8-speed automatic"
+        ],
+        "drivetrain": [
+          "RWD"
+        ]
+      },
+      "market": "IL",
+      "canonical_model": "630i GT",
       "profile_confidence": "medium"
     }
   ],
