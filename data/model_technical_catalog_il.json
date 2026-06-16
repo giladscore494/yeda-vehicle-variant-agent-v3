@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T22:05:35Z",
+  "generated_at": "2026-06-16T22:06:24Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -58870,6 +58870,265 @@
         ]
       },
       "canonical_model": "Seal",
+      "profile_confidence": "medium"
+    },
+    {
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "BYD Sealion 7 Official Price List - Shlomo Motors Israel",
+          "url": "https://bydauto.co.il/models/sealion-7/",
+          "source_name": "BYD Auto Israel",
+          "source_type": "official_importer",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "transmission",
+            "year_start",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "BYD Sealion 7 Launch in Israel - Specifications and Trims",
+          "url": "https://www.cartube.co.il/חדשות-רכב/byd-סילון-7-בישראל-מפרט-טכני",
+          "source_name": "Cartube Israel",
+          "source_type": "editorial",
+          "supports": [
+            "horsepower_hp",
+            "drivetrain",
+            "version_or_trim",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "BYD Sealion 7 Specifications",
+          "url": "https://www.icar.co.il/BYD/BYD_סילון_7/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "horsepower_hp",
+            "drivetrain",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "transmission"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Boost",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 231,
+          "transmission": "single_speed",
+          "drivetrain": "RWD",
+          "year_start": 2025,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              0,
+              2
+            ],
+            "fuel_type": [
+              0,
+              2
+            ],
+            "engine": [
+              0,
+              2
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              0,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "engine_displacement_l",
+            "year_end"
+          ],
+          "invalid_or_non_trim_labels": []
+        },
+        {
+          "version_or_trim": "Design",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 313,
+          "transmission": "single_speed",
+          "drivetrain": "RWD",
+          "year_start": 2025,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              0,
+              2
+            ],
+            "fuel_type": [
+              0,
+              2
+            ],
+            "engine": [
+              0,
+              2
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              0,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "engine_displacement_l",
+            "year_end"
+          ],
+          "invalid_or_non_trim_labels": []
+        },
+        {
+          "version_or_trim": "Excellence",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 530,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2025,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              0,
+              2
+            ],
+            "fuel_type": [
+              0,
+              2
+            ],
+            "engine": [
+              0,
+              2
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              0,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "engine_displacement_l",
+            "year_end"
+          ],
+          "invalid_or_non_trim_labels": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Boost",
+          "Design",
+          "Excellence"
+        ],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          231,
+          313,
+          530
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "RWD",
+          "AWD"
+        ]
+      },
+      "market": "IL",
+      "make": "BYD",
+      "model": "Sealion 7",
+      "canonical_model": "Sealion 7",
       "profile_confidence": "medium"
     }
   ],
