@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T17:15:33Z",
+  "generated_at": "2026-06-16T17:16:10Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -30845,6 +30845,127 @@
         ]
       },
       "canonical_model": "318d",
+      "profile_confidence": "medium"
+    },
+    {
+      "make": "BMW",
+      "model": "320e",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "ב.מ.וו 320e בישראל - מחיר החל מ-290,000 שקל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%92%D7%A8%D7%A1%D7%AA-%D7%A4%D7%9C%D7%90%D7%92-%D7%90%D7%99%D7%9F-%D7%96%D7%95%D7%9C%D7%94-%D7%99%D7%95%D7%AA%D7%A8-%D7%91-%D7%9E-%D7%95%D7%95-320e-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-290,000-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "ב.מ.וו סדרה 3 - מפרט טכני",
+          "url": "https://www.icar.co.il/%D7%91.%D7%9E.%D7%95%D7%95/%D7%91.%D7%9E.%D7%95%D7%95_%D7%A1%D7%93%D7%A8%D7%94_3/%D7%91.%D7%9E.%D7%95%D7%95_%D7%A1%D7%93%D7%A8%D7%94_3_%D7%99%D7%93_%D7%A8%D7%90%D7%A9%D7%95%D7%A0%D7%94_%D7%93%D7%92%D7%9D_%D7%A9%D7%91%D7%99%D7%A2%D7%99/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "year_start",
+            "year_end",
+            "horsepower_hp",
+            "fuel_type",
+            "body_type"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "M-Design",
+          "body_type": "Sedan",
+          "fuel_type": "plug_in_hybrid",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 204,
+          "transmission": "8-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 2021,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "M-Design"
+        ],
+        "body_type": [
+          "Sedan"
+        ],
+        "fuel_type": [
+          "plug_in_hybrid"
+        ],
+        "engine": [
+          "2.0L turbo"
+        ],
+        "horsepower_hp": [
+          204
+        ],
+        "transmission": [
+          "8-speed automatic"
+        ],
+        "drivetrain": [
+          "RWD"
+        ]
+      },
+      "market": "IL",
+      "canonical_model": "320e",
       "profile_confidence": "medium"
     }
   ],
