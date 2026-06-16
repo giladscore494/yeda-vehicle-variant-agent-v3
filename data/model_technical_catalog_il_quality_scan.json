@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-06-16T16:19:52Z",
+  "generated_at": "2026-06-16T16:54:50Z",
   "totals": {
-    "models": 66,
-    "findings": 207,
-    "grounded_cells": 2416,
-    "total_cells": 2416,
-    "marketplace_citation_share": 0.19357770372614358,
-    "official_citations": 3267,
+    "models": 71,
+    "findings": 212,
+    "grounded_cells": 2677,
+    "total_cells": 2677,
+    "marketplace_citation_share": 0.1641829393627955,
+    "official_citations": 3859,
     "bug": 0,
     "leak": 124,
     "normalization": 0,
-    "structure": 83
+    "structure": 88
   },
   "findings": [
     {
@@ -1334,21 +1334,21 @@
       "severity": "structure",
       "make": "Audi",
       "model": "Q4 e-tron",
-      "detail": "18/18 grounded cells (100.0%)"
+      "detail": "36/36 grounded cells (100.0%)"
     },
     {
       "type": "grounding_completeness",
       "severity": "structure",
       "make": "Audi",
       "model": "Q5",
-      "detail": "73/73 grounded cells (100.0%)"
+      "detail": "63/63 grounded cells (100.0%)"
     },
     {
       "type": "grounding_completeness",
       "severity": "structure",
       "make": "Audi",
       "model": "Q6 e-tron",
-      "detail": "32/32 grounded cells (100.0%)"
+      "detail": "64/64 grounded cells (100.0%)"
     },
     {
       "type": "year_split_duplicates",
@@ -1369,7 +1369,7 @@
       "severity": "structure",
       "make": "Audi",
       "model": "Q8",
-      "detail": "20/20 grounded cells (100.0%)"
+      "detail": "40/40 grounded cells (100.0%)"
     },
     {
       "type": "grounding_completeness",
@@ -1407,18 +1407,11 @@
       "detail": "27/27 grounded cells (100.0%)"
     },
     {
-      "type": "year_split_duplicates",
-      "severity": "structure",
-      "make": "Audi",
-      "model": "RS5",
-      "detail": "merge candidate signature=('Coupe', 'petrol', '2.9L turbo v6', 450, '8-speed automatic', 'AWD') rows=[(0, 2021, 2021), (1, 2022, 2022)]"
-    },
-    {
       "type": "grounding_completeness",
       "severity": "structure",
       "make": "Audi",
       "model": "RS5",
-      "detail": "38/38 grounded cells (100.0%)"
+      "detail": "29/29 grounded cells (100.0%)"
     },
     {
       "type": "source_domain",
@@ -1446,7 +1439,7 @@
       "severity": "structure",
       "make": "Audi",
       "model": "S3",
-      "detail": "72/72 grounded cells (100.0%)"
+      "detail": "90/90 grounded cells (100.0%)"
     },
     {
       "type": "grounding_completeness",
@@ -1460,11 +1453,53 @@
       "severity": "structure",
       "make": "Audi",
       "model": "S5",
-      "detail": "63/63 grounded cells (100.0%)"
+      "detail": "72/72 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Audi",
+      "model": "SQ5",
+      "detail": "27/27 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Audi",
+      "model": "SQ7",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Audi",
+      "model": "SQ8",
+      "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Audi",
+      "model": "TT",
+      "detail": "81/81 grounded cells (100.0%)"
+    },
+    {
+      "type": "year_split_duplicates",
+      "severity": "structure",
+      "make": "Bentley",
+      "model": "Bentayga",
+      "detail": "merge candidate signature=('SUV', 'petrol', '4.0L turbo v8', 550, '8-speed automatic', 'AWD') rows=[(0, 2019, 2026), (1, 2019, 2022), (4, 2023, 2026)]"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Bentley",
+      "model": "Bentayga",
+      "detail": "48/48 grounded cells (100.0%)"
     }
   ],
   "counts_by_type": {
-    "grounding_completeness": 66,
+    "grounding_completeness": 71,
     "year_split_duplicates": 17,
     "source_tier_inversion": 120,
     "source_domain": 4
