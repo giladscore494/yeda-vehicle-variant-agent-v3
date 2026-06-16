@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T20:30:02Z",
+  "generated_at": "2026-06-16T20:30:45Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -45848,6 +45848,146 @@
       "make": "BMW",
       "model": "iX2 eDrive20",
       "canonical_model": "iX2 eDrive20",
+      "profile_confidence": "medium"
+    },
+    {
+      "make": "BMW",
+      "model": "iX3",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "BMW iX3: מחיר, טווח נסיעה חשמלי, מפרט ועיצוב | BMW.co.il",
+          "url": "https://www.bmw.co.il/he/all-models/x-series/iX3/2021/bmw-ix3-highlights.html",
+          "source_name": "BMW Israel",
+          "source_type": "official_importer",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "ב.מ.וו iX3 חדש - מחירון, מבחנים ומפרט טכני - iCar",
+          "url": "https://www.icar.co.il/%D7%91.%D7%9E.%D7%95%D7%95/iX3/%D7%91.%D7%9E.%D7%95%D7%95_iX3_%D7%97%D7%93%D7%A9/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "ב.מ.וו iX3 החשמלי בישראל - מחיר החל מ-429,900 שקל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%91-%D7%9E-%D7%95%D7%95-ix3-%D7%94%D7%97%D7%A9%D7%9E%D7%9C%D7%99-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-429,900-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 286,
+          "transmission": "single_speed",
+          "drivetrain": "RWD",
+          "year_start": 2021,
+          "year_end": 2025,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1,
+              2
+            ],
+            "engine": [
+              0,
+              1,
+              2
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": [
+            "engine_displacement_l"
+          ]
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "M-Exclusive",
+          "classification": "trim_not_supported_by_sources"
+        },
+        {
+          "label": "Electric 286 hp",
+          "classification": "engine_and_horsepower"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          286
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "RWD"
+        ]
+      },
+      "market": "IL",
+      "canonical_model": "iX3",
       "profile_confidence": "medium"
     }
   ],
