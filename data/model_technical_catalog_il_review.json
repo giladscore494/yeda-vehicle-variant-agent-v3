@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T20:18:24Z",
+  "generated_at": "2026-06-16T20:19:34Z",
   "market": "IL",
   "models": [
     {
@@ -1693,6 +1693,103 @@
       "notes": "650i Gran Coupe xDrive needs direct Israeli source",
       "year_start": 2013,
       "year_end": 2018
+    },
+    {
+      "market": "IL",
+      "make": "BMW",
+      "model": "740i",
+      "canonical_model": "740i",
+      "year_start": null,
+      "year_end": null,
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [],
+      "profile_confidence": null,
+      "notes": [],
+      "error": "Extra data: line 435 column 1 (char 9490)",
+      "request_payload": {
+        "task": "build_israeli_model_technical_catalog",
+        "market": "IL",
+        "make": "BMW",
+        "model": "740i",
+        "raw_database_values": {
+          "years_seen": [
+            1992,
+            1994,
+            2001,
+            2005,
+            2008,
+            2015,
+            2022,
+            2026
+          ],
+          "trims_seen": [
+            "Base",
+            "Luxury",
+            "M Expressive"
+          ],
+          "engines_seen": [
+            "3.0L I6 Turbo",
+            "3.0L I6 Turbo Mild Hybrid",
+            "4.0L V8",
+            "4.0L V8 / 4.4L V8"
+          ],
+          "horsepower_seen": [],
+          "transmissions_seen": [
+            "automatic"
+          ],
+          "body_types_seen": [
+            "Sedan"
+          ],
+          "fuel_types_seen": [
+            "mild_hybrid",
+            "petrol"
+          ],
+          "drivetrains_seen": [
+            "RWD"
+          ]
+        },
+        "sample_validation_ids": [
+          "VAL-000507",
+          "VAL-000508",
+          "VAL-000509",
+          "VAL-000510",
+          "VAL-000511",
+          "VAL-000512"
+        ],
+        "source_indexes": [
+          484,
+          485,
+          486,
+          487,
+          488,
+          489
+        ],
+        "metadata_hints": {
+          "priorities_seen": [
+            "medium"
+          ],
+          "validation_routes_seen": [
+            "cheap_model_structured_validation"
+          ],
+          "possible_duplicate_rows": 0,
+          "validation_id_count": 6
+        },
+        "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
+      },
+      "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
+      ]
     }
   ]
 }
