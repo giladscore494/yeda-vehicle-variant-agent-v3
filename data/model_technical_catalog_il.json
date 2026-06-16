@@ -18371,7 +18371,7 @@
           "drivetrain": "RWD",
           "year_start": 2021,
           "year_end": 2023,
-          "support_level": "indirect",
+          "support_level": "direct",
           "source_indexes": [
             0,
             1,
@@ -18412,9 +18412,7 @@
               1
             ]
           },
-          "missing_grounded_fields": [
-            "engine_displacement_l"
-          ]
+          "missing_grounded_fields": []
         },
         {
           "version_or_trim": "45 e-tron",
@@ -18427,7 +18425,7 @@
           "drivetrain": "RWD",
           "year_start": 2023,
           "year_end": 2026,
-          "support_level": "indirect",
+          "support_level": "direct",
           "source_indexes": [
             1,
             2,
@@ -18467,18 +18465,131 @@
               5
             ]
           },
-          "missing_grounded_fields": [
-            "engine_displacement_l"
-          ]
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "40 e-tron Sportback",
+          "body_type": "Crossover",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 204,
+          "transmission": "single_speed",
+          "drivetrain": "RWD",
+          "year_start": 2022,
+          "year_end": 2023,
+          "support_level": "direct",
+          "source_indexes": [
+            8
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              8
+            ],
+            "body_type": [
+              8
+            ],
+            "fuel_type": [
+              8
+            ],
+            "engine": [
+              8
+            ],
+            "horsepower_hp": [
+              8
+            ],
+            "transmission": [
+              8
+            ],
+            "drivetrain": [
+              8
+            ],
+            "year_start": [
+              8
+            ],
+            "year_end": [
+              8
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "45 e-tron Sportback",
+          "body_type": "Crossover",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 285,
+          "transmission": "single_speed",
+          "drivetrain": "RWD",
+          "year_start": 2023,
+          "year_end": 2026,
+          "support_level": "direct",
+          "source_indexes": [
+            8,
+            9,
+            10
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              8,
+              9,
+              10
+            ],
+            "body_type": [
+              8,
+              9,
+              10
+            ],
+            "fuel_type": [
+              8,
+              9,
+              10
+            ],
+            "engine": [
+              8,
+              9,
+              10
+            ],
+            "horsepower_hp": [
+              8,
+              9,
+              10
+            ],
+            "transmission": [
+              8,
+              9,
+              10
+            ],
+            "drivetrain": [
+              8,
+              9,
+              10
+            ],
+            "year_start": [
+              8,
+              9,
+              10
+            ],
+            "year_end": [
+              8,
+              9,
+              10
+            ]
+          },
+          "missing_grounded_fields": []
         }
       ],
       "available_values_for_website": {
         "version_or_trim": [
           "40 e-tron",
-          "45 e-tron"
+          "45 e-tron",
+          "40 e-tron Sportback",
+          "45 e-tron Sportback"
         ],
         "body_type": [
-          "SUV"
+          "SUV",
+          "Crossover"
         ],
         "fuel_type": [
           "electric"
@@ -18619,6 +18730,49 @@
             "horsepower_hp",
             "transmission"
           ]
+        },
+        {
+          "title": "אודי Q4 e-tron ספורטבק 2023 יד שניה",
+          "url": "https://www.auto.co.il/cars/audi/q4-e-tron-sportback/2023/",
+          "source_name": "Auto",
+          "source_type": "catalog/editorial",
+          "supports": [
+            "Sportback",
+            "40 e-tron Sportback",
+            "45 e-tron Sportback",
+            "body_type",
+            "fuel_type",
+            "horsepower_hp",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ],
+          "source_index": 8
+        },
+        {
+          "title": "אודי Q4 e-tron ספורטבק 2026 רכב חדש 45",
+          "url": "https://www.icar.co.il/אודי/אודי_Q4_e-tron_ספורטבק/אודי_Q4_e-tron_ספורטבק_חדש/version27615/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "45 e-tron Sportback",
+            "body_type",
+            "fuel_type",
+            "year_end"
+          ],
+          "source_index": 9
+        },
+        {
+          "title": "אודי Q4 e-tron 45 ספורטבק 2026 | מפרט טכני",
+          "url": "https://www.cartube.co.il/מחירון-רכב-חדש/אודי/אודי-q4/5791-אודי-q4-e-tron-45-ספורטבק",
+          "source_name": "Cartube",
+          "source_type": "catalog",
+          "supports": [
+            "45 e-tron Sportback",
+            "year_end",
+            "body_type"
+          ],
+          "source_index": 10
         }
       ],
       "profile_confidence": "medium",
@@ -18627,7 +18781,8 @@
         "No Israeli-market source was found that grounds 35 e-tron or 50 e-tron quattro as actually sold in Israel for this model profile.",
         "Body type normalization follows the allowed schema; Sportback pages were normalized to SUV because the schema does not allow Sportback and the Israeli spec pages themselves label the body as SUV.",
         "Sportback was treated as a separate technical body presentation in sources, but because the schema does not allow Sportback and technical fields otherwise match, only normalized SUV rows are included.",
-        "Some year_end values are bounded by latest sourced Israeli availability rather than an official discontinuation notice."
+        "Some year_end values are bounded by latest sourced Israeli availability rather than an official discontinuation notice.",
+        "Q4 e-tron Sportback rows added from Israeli catalog sources."
       ]
     },
     {
@@ -18873,7 +19028,7 @@
           "transmission": "dual_clutch",
           "drivetrain": "AWD",
           "year_start": 2021,
-          "year_end": 2025,
+          "year_end": 2026,
           "support_level": "direct",
           "source_indexes": [
             0,
@@ -18932,7 +19087,7 @@
           "transmission": "7-speed dual_clutch",
           "drivetrain": "AWD",
           "year_start": 2021,
-          "year_end": 2025,
+          "year_end": 2026,
           "support_level": "direct",
           "source_indexes": [
             0,
@@ -19027,69 +19182,10 @@
             ]
           },
           "missing_grounded_fields": []
-        },
-        {
-          "version_or_trim": "SQ5",
-          "body_type": "SUV",
-          "fuel_type": "mild_hybrid",
-          "engine": "3.0L v6 turbo",
-          "engine_displacement_l": 3,
-          "horsepower_hp": 367,
-          "transmission": "7-speed dual_clutch",
-          "drivetrain": "AWD",
-          "year_start": 2025,
-          "year_end": 2026,
-          "support_level": "direct",
-          "source_indexes": [
-            6,
-            8,
-            7
-          ],
-          "field_sources": {
-            "version_or_trim": [
-              8
-            ],
-            "body_type": [
-              6
-            ],
-            "fuel_type": [
-              7
-            ],
-            "engine": [
-              6,
-              8
-            ],
-            "engine_displacement_l": [
-              6,
-              8
-            ],
-            "horsepower_hp": [
-              6,
-              8
-            ],
-            "transmission": [
-              6,
-              7
-            ],
-            "drivetrain": [
-              6,
-              7
-            ],
-            "year_start": [
-              6,
-              7
-            ],
-            "year_end": [
-              7
-            ]
-          },
-          "missing_grounded_fields": []
         }
       ],
       "available_values_for_website": {
-        "version_or_trim": [
-          "SQ5"
-        ],
+        "version_or_trim": [],
         "body_type": [
           "SUV"
         ],
@@ -19100,8 +19196,7 @@
           "mild_hybrid"
         ],
         "engine": [
-          "2.0L turbo",
-          "3.0L v6 turbo"
+          "2.0L turbo"
         ],
         "horsepower_hp": [
           190,
@@ -19386,7 +19481,6 @@
             "year_end": []
           },
           "missing_grounded_fields": [
-            "engine_displacement_l",
             "year_end"
           ]
         },
@@ -19437,7 +19531,6 @@
             "year_end": []
           },
           "missing_grounded_fields": [
-            "engine_displacement_l",
             "year_end"
           ]
         },
@@ -19488,7 +19581,6 @@
             "year_end": []
           },
           "missing_grounded_fields": [
-            "engine_displacement_l",
             "year_end"
           ]
         },
@@ -19539,9 +19631,189 @@
             "year_end": []
           },
           "missing_grounded_fields": [
-            "engine_displacement_l",
             "year_end"
           ]
+        },
+        {
+          "version_or_trim": "45 e-tron Sportback",
+          "body_type": "Crossover",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 252,
+          "transmission": "single_speed",
+          "drivetrain": "RWD",
+          "year_start": 2025,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            9
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              9
+            ],
+            "body_type": [
+              9
+            ],
+            "fuel_type": [
+              9
+            ],
+            "engine": [
+              9
+            ],
+            "horsepower_hp": [
+              9
+            ],
+            "transmission": [
+              9
+            ],
+            "drivetrain": [
+              9
+            ],
+            "year_start": [
+              9
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "50 e-tron Sportback",
+          "body_type": "Crossover",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 306,
+          "transmission": "single_speed",
+          "drivetrain": "RWD",
+          "year_start": 2025,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            9
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              9
+            ],
+            "body_type": [
+              9
+            ],
+            "fuel_type": [
+              9
+            ],
+            "engine": [
+              9
+            ],
+            "horsepower_hp": [
+              9
+            ],
+            "transmission": [
+              9
+            ],
+            "drivetrain": [
+              9
+            ],
+            "year_start": [
+              9
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "55 e-tron Sportback",
+          "body_type": "Crossover",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 387,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2025,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            9
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              9
+            ],
+            "body_type": [
+              9
+            ],
+            "fuel_type": [
+              9
+            ],
+            "engine": [
+              9
+            ],
+            "horsepower_hp": [
+              9
+            ],
+            "transmission": [
+              9
+            ],
+            "drivetrain": [
+              9
+            ],
+            "year_start": [
+              9
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "SQ6 Sportback",
+          "body_type": "Crossover",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 516,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2025,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            9,
+            10
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              9,
+              10
+            ],
+            "body_type": [
+              9,
+              10
+            ],
+            "fuel_type": [
+              9,
+              10
+            ],
+            "engine": [
+              9,
+              10
+            ],
+            "horsepower_hp": [
+              9,
+              10
+            ],
+            "transmission": [
+              9,
+              10
+            ],
+            "drivetrain": [
+              9,
+              10
+            ],
+            "year_start": [
+              9,
+              10
+            ]
+          },
+          "missing_grounded_fields": []
         }
       ],
       "available_values_for_website": {
@@ -19549,10 +19821,15 @@
           "45 e-tron",
           "50 e-tron",
           "55 e-tron",
-          "SQ6"
+          "SQ6",
+          "45 e-tron Sportback",
+          "50 e-tron Sportback",
+          "55 e-tron Sportback",
+          "SQ6 Sportback"
         ],
         "body_type": [
-          "SUV"
+          "SUV",
+          "Crossover"
         ],
         "fuel_type": [
           "electric"
@@ -19733,6 +20010,32 @@
             "drivetrain",
             "year_start"
           ]
+        },
+        {
+          "title": "אודי Q6 e-tron ספורטבק נחת בישראל - מחיר החל מ-521900 שקל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/אודי-q6-e-tron-ספורטבק-נחת-בישראל-מחיר-521900-שקל",
+          "source_name": "Cartube",
+          "source_type": "local_news",
+          "supports": [
+            "Q6 e-tron Sportback",
+            "body_type",
+            "fuel_type",
+            "year_start"
+          ],
+          "source_index": 9
+        },
+        {
+          "title": "אודי Q6 e-tron ספורטבק 2026 רכב חדש 516 כ\"ס SQ6 quattro",
+          "url": "https://www.icar.co.il/אודי/אודי_Q6_e-tron_ספורטבק/אודי_Q6_e-tron_ספורטבק_חדש/version29618/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "SQ6 Sportback",
+            "horsepower_hp",
+            "body_type",
+            "year_end"
+          ],
+          "source_index": 10
         }
       ],
       "profile_confidence": "medium",
@@ -19743,7 +20046,8 @@
         "No grounded Israeli-market source was found in this search session for a regular-body SQ6 e-tron sold in Israel; therefore it is not included.",
         "Sportback entries are represented with body_type normalized to SUV because allowed schema does not include Coupe SUV and instructions forbid appending body designation to body_type.",
         "No grounded year_end source was found for any variant; set to null.",
-        "Repair: bare power-class trims 45/50/55 re-labelled to Audi's Israeli-market designation '45/50/55 e-tron'."
+        "Repair: bare power-class trims 45/50/55 re-labelled to Audi's Israeli-market designation '45/50/55 e-tron'.",
+        "Q6 e-tron Sportback rows added from Israeli catalog sources."
       ]
     },
     {
@@ -20366,26 +20670,173 @@
             ]
           },
           "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "55 TFSIe quattro",
+          "body_type": "SUV",
+          "fuel_type": "plug_in_hybrid",
+          "engine": "3.0L turbo v6",
+          "engine_displacement_l": 3.0,
+          "horsepower_hp": 394,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2024,
+          "year_end": 2026,
+          "support_level": "direct",
+          "source_indexes": [
+            8,
+            9,
+            10
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              8,
+              9,
+              10
+            ],
+            "body_type": [
+              8,
+              9,
+              10
+            ],
+            "fuel_type": [
+              8,
+              9,
+              10
+            ],
+            "engine": [
+              8,
+              9,
+              10
+            ],
+            "engine_displacement_l": [
+              8,
+              9,
+              10
+            ],
+            "horsepower_hp": [
+              8,
+              9,
+              10
+            ],
+            "transmission": [
+              8,
+              9,
+              10
+            ],
+            "drivetrain": [
+              8,
+              9,
+              10
+            ],
+            "year_start": [
+              8,
+              9,
+              10
+            ],
+            "year_end": [
+              8,
+              9,
+              10
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "60 TFSIe quattro",
+          "body_type": "SUV",
+          "fuel_type": "plug_in_hybrid",
+          "engine": "3.0L turbo v6",
+          "engine_displacement_l": 3.0,
+          "horsepower_hp": 489,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2024,
+          "year_end": 2026,
+          "support_level": "direct",
+          "source_indexes": [
+            8,
+            9,
+            10
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              8,
+              9,
+              10
+            ],
+            "body_type": [
+              8,
+              9,
+              10
+            ],
+            "fuel_type": [
+              8,
+              9,
+              10
+            ],
+            "engine": [
+              8,
+              9,
+              10
+            ],
+            "engine_displacement_l": [
+              8,
+              9,
+              10
+            ],
+            "horsepower_hp": [
+              8,
+              9,
+              10
+            ],
+            "transmission": [
+              8,
+              9,
+              10
+            ],
+            "drivetrain": [
+              8,
+              9,
+              10
+            ],
+            "year_start": [
+              8,
+              9,
+              10
+            ],
+            "year_end": [
+              8,
+              9,
+              10
+            ]
+          },
+          "missing_grounded_fields": []
         }
       ],
       "available_values_for_website": {
         "version_or_trim": [
           "50 TDI quattro",
-          "55 TFSI quattro"
+          "55 TFSI quattro",
+          "55 TFSIe quattro",
+          "60 TFSIe quattro"
         ],
         "body_type": [
           "SUV"
         ],
         "fuel_type": [
           "diesel",
-          "petrol"
+          "petrol",
+          "plug_in_hybrid"
         ],
         "engine": [
           "3.0L turbo v6"
         ],
         "horsepower_hp": [
           286,
-          340
+          340,
+          394,
+          489
         ],
         "transmission": [
           "8-speed automatic"
@@ -20531,13 +20982,57 @@
             "drivetrain",
             "version_or_trim"
           ]
+        },
+        {
+          "title": "אודי Q8 המחודש בארץ – מחיר החל מ-720000 שקלים",
+          "url": "https://www.auto.co.il/articles/car-news/local-news/137210/",
+          "source_name": "Auto",
+          "source_type": "local_news",
+          "supports": [
+            "55 TFSIe",
+            "60 TFSIe",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "year_start"
+          ],
+          "source_index": 8
+        },
+        {
+          "title": "אודי Q8 | מחירון ומפרט טכני",
+          "url": "https://www.cartube.co.il/מחירון-רכב-חדש/אודי/אודי-q8",
+          "source_name": "Cartube",
+          "source_type": "catalog",
+          "supports": [
+            "55 TFSIe",
+            "60 TFSIe",
+            "SQ8",
+            "horsepower_hp",
+            "fuel_type",
+            "year_end"
+          ],
+          "source_index": 9
+        },
+        {
+          "title": "אודי Q8 החדש 2024 נחת בישראל - מחיר החל מ-720 אלף שקל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/אודי-q8-החדש-2024-נחת-בישראל-מחיר-720000-שקל",
+          "source_name": "Cartube",
+          "source_type": "local_news",
+          "supports": [
+            "55 TFSIe",
+            "60 TFSIe",
+            "50 TDI",
+            "SQ8",
+            "year_start"
+          ],
+          "source_index": 10
         }
       ],
       "profile_confidence": "medium",
       "notes": [
-        "Excluded Q8 e-tron because electric model is a separate model.",
-        "Excluded Q8 55 TFSIe plug-in hybrid because raw database hints were for diesel/petrol Q8 and the request targets model Q8; available Israeli sources show later PHEV variants but they represent a separate technical addition not present in the raw hints.",
-        "55 TFSI year_end is grounded only to the latest located Israeli-market listing/model-year source found during search (2023), so this row is marked indirect rather than direct."
+        "55 TFSI year_end is grounded only to the latest located Israeli-market listing/model-year source found during search (2023), so this row is marked indirect rather than direct.",
+        "Q8 PHEV rows added from Auto/Cartube Israeli sources."
       ]
     },
     {
@@ -20546,7 +21041,7 @@
       "model": "Q8 e-tron",
       "canonical_model": "Q8 e-tron",
       "year_start": 2023,
-      "year_end": 2024,
+      "year_end": 2026,
       "technical_variants_il": [
         {
           "version_or_trim": "55 quattro",
@@ -20558,51 +21053,54 @@
           "transmission": "single_speed",
           "drivetrain": "AWD",
           "year_start": 2023,
-          "year_end": 2024,
-          "support_level": "indirect",
+          "year_end": 2026,
+          "support_level": "direct",
           "source_indexes": [
             0,
             1,
-            2
+            2,
+            4,
+            5
           ],
           "field_sources": {
             "version_or_trim": [
-              0,
-              2
+              4,
+              5
             ],
             "body_type": [
-              2
+              4,
+              5
             ],
             "fuel_type": [
-              0
+              4,
+              5
             ],
             "engine": [
-              0
+              4,
+              5
             ],
-            "engine_displacement_l": [],
             "horsepower_hp": [
-              0,
-              1,
-              2
+              4,
+              5
             ],
             "transmission": [
-              0
+              4,
+              5
             ],
             "drivetrain": [
-              0
+              4,
+              5
             ],
             "year_start": [
-              1,
-              2
+              4,
+              5
             ],
             "year_end": [
-              1,
-              2
+              4,
+              5
             ]
           },
-          "missing_grounded_fields": [
-            "engine_displacement_l"
-          ]
+          "missing_grounded_fields": []
         },
         {
           "version_or_trim": "Sportback 55 quattro",
@@ -20614,52 +21112,44 @@
           "transmission": "single_speed",
           "drivetrain": "AWD",
           "year_start": 2023,
-          "year_end": 2024,
-          "support_level": "indirect",
+          "year_end": 2026,
+          "support_level": "direct",
           "source_indexes": [
             0,
             1,
-            3
+            3,
+            6
           ],
           "field_sources": {
             "version_or_trim": [
-              0,
-              1
+              6
             ],
             "body_type": [
-              1
+              6
             ],
             "fuel_type": [
-              1
+              6
             ],
             "engine": [
-              0
+              6
             ],
-            "engine_displacement_l": [],
             "horsepower_hp": [
-              0,
-              1,
-              3
+              6
             ],
             "transmission": [
-              0,
-              1
+              6
             ],
             "drivetrain": [
-              0
+              6
             ],
             "year_start": [
-              1,
-              3
+              6
             ],
             "year_end": [
-              1,
-              3
+              6
             ]
           },
-          "missing_grounded_fields": [
-            "engine_displacement_l"
-          ]
+          "missing_grounded_fields": []
         }
       ],
       "available_values_for_website": {
@@ -20754,6 +21244,47 @@
             "year_start",
             "year_end"
           ]
+        },
+        {
+          "title": "אודי Q8 e-tron - מחירון, חוות דעת ומידע טכני",
+          "url": "https://www.auto.co.il/cars/audi/q8-e-tron/",
+          "source_name": "Auto",
+          "source_type": "catalog",
+          "supports": [
+            "55 quattro",
+            "fuel_type",
+            "horsepower_hp",
+            "drivetrain",
+            "transmission"
+          ],
+          "source_index": 4
+        },
+        {
+          "title": "אודי Q8 e-tron 2026 55 חשמלי, 4x4",
+          "url": "https://www.auto.co.il/cars/audi/q8-e-tron/2026/580056/",
+          "source_name": "Auto",
+          "source_type": "catalog",
+          "supports": [
+            "55 quattro",
+            "year_end",
+            "fuel_type",
+            "drivetrain"
+          ],
+          "source_index": 5
+        },
+        {
+          "title": "Q8 e-tron 55 ספורטבק חשמלי, 4x4",
+          "url": "https://www.auto.co.il/cars/audi/q8-e-tron-sportback/2026/580087/",
+          "source_name": "Auto",
+          "source_type": "catalog",
+          "supports": [
+            "Sportback 55 quattro",
+            "year_end",
+            "body_type",
+            "fuel_type",
+            "drivetrain"
+          ],
+          "source_index": 6
         }
       ],
       "profile_confidence": "medium",
@@ -20762,7 +21293,8 @@
         "Did not include SQ8 e-tron because it is a separate model identity under the provided model name Q8 e-tron.",
         "engine_displacement_l is null because electric model sources do not provide a displacement value.",
         "transmission is null because sourced pages describe direct drive / electric drive but do not cleanly ground a normalized transmission value from the allowed schema without inference.",
-        "Sportback body type normalized to Crossover based on Israeli source describing it as a coupe-style SUV/crossover; support_level set to indirect because body-type normalization required mapping from source wording."
+        "Sportback body type normalized to Crossover based on Israeli source describing it as a coupe-style SUV/crossover; support_level set to indirect because body-type normalization required mapping from source wording.",
+        "Q8 e-tron extended to 2026 from Auto Israeli catalog."
       ]
     },
     {
@@ -20784,7 +21316,7 @@
           "drivetrain": "AWD",
           "year_start": 2008,
           "year_end": 2015,
-          "support_level": "unknown",
+          "support_level": "indirect",
           "source_indexes": [
             0
           ],
@@ -21890,153 +22422,10 @@
       "year_end": 2026,
       "technical_variants_il": [
         {
-          "version_or_trim": null,
-          "body_type": "Coupe",
-          "fuel_type": "petrol",
-          "engine": "2.9L turbo v6",
-          "engine_displacement_l": 2.9,
-          "horsepower_hp": 450,
-          "transmission": "8-speed automatic",
-          "drivetrain": "AWD",
-          "year_start": 2021,
-          "year_end": 2021,
-          "support_level": "direct",
-          "source_indexes": [
-            0
-          ],
-          "field_sources": {
-            "version_or_trim": [],
-            "body_type": [
-              0
-            ],
-            "fuel_type": [
-              0
-            ],
-            "engine": [
-              0
-            ],
-            "engine_displacement_l": [
-              0
-            ],
-            "horsepower_hp": [
-              0
-            ],
-            "transmission": [
-              0
-            ],
-            "drivetrain": [
-              0
-            ],
-            "year_start": [
-              0
-            ],
-            "year_end": [
-              0
-            ]
-          },
-          "missing_grounded_fields": []
-        },
-        {
-          "version_or_trim": null,
-          "body_type": "Coupe",
-          "fuel_type": "petrol",
-          "engine": "2.9L turbo v6",
-          "engine_displacement_l": 2.9,
-          "horsepower_hp": 450,
-          "transmission": "8-speed automatic",
-          "drivetrain": "AWD",
-          "year_start": 2022,
-          "year_end": 2022,
-          "support_level": "direct",
-          "source_indexes": [
-            1
-          ],
-          "field_sources": {
-            "version_or_trim": [],
-            "body_type": [
-              1
-            ],
-            "fuel_type": [
-              1
-            ],
-            "engine": [
-              1
-            ],
-            "engine_displacement_l": [
-              1
-            ],
-            "horsepower_hp": [
-              1
-            ],
-            "transmission": [
-              1
-            ],
-            "drivetrain": [
-              1
-            ],
-            "year_start": [
-              1
-            ],
-            "year_end": [
-              1
-            ]
-          },
-          "missing_grounded_fields": []
-        },
-        {
-          "version_or_trim": "Sportback",
-          "body_type": "Liftback",
-          "fuel_type": "petrol",
-          "engine": "2.9L turbo v6",
-          "engine_displacement_l": 2.9,
-          "horsepower_hp": 450,
-          "transmission": "8-speed automatic",
-          "drivetrain": "AWD",
-          "year_start": 2022,
-          "year_end": 2022,
-          "support_level": "direct",
-          "source_indexes": [
-            1
-          ],
-          "field_sources": {
-            "version_or_trim": [
-              1
-            ],
-            "body_type": [
-              1
-            ],
-            "fuel_type": [
-              1
-            ],
-            "engine": [
-              1
-            ],
-            "engine_displacement_l": [
-              1
-            ],
-            "horsepower_hp": [
-              1
-            ],
-            "transmission": [
-              1
-            ],
-            "drivetrain": [
-              1
-            ],
-            "year_start": [
-              1
-            ],
-            "year_end": [
-              1
-            ]
-          },
-          "missing_grounded_fields": []
-        },
-        {
           "version_or_trim": "e-hybrid",
           "body_type": "Sedan",
           "fuel_type": "plug_in_hybrid",
-          "engine": "2.9L v6 turbo",
+          "engine": "2.9L twin-turbo v6",
           "engine_displacement_l": 2.9,
           "horsepower_hp": 639,
           "transmission": "8-speed automatic",
@@ -22045,38 +22434,176 @@
           "year_end": 2026,
           "support_level": "direct",
           "source_indexes": [
-            2
+            2,
+            5,
+            6
           ],
           "field_sources": {
             "version_or_trim": [
+              5,
+              6,
               2
             ],
             "body_type": [
+              5,
+              6,
               2
             ],
             "fuel_type": [
+              5,
+              6,
               2
             ],
             "engine": [
+              5,
+              6,
               2
             ],
             "engine_displacement_l": [
+              5,
+              6,
               2
             ],
             "horsepower_hp": [
+              5,
+              6,
               2
             ],
             "transmission": [
+              5,
+              6,
               2
             ],
             "drivetrain": [
+              5,
+              6,
               2
             ],
             "year_start": [
+              5,
+              6,
               2
             ],
             "year_end": [
+              5,
+              6,
               2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "2.9L twin-turbo v6",
+          "engine_displacement_l": 2.9,
+          "horsepower_hp": 450,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2021,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            3,
+            4
+          ],
+          "field_sources": {
+            "body_type": [
+              3,
+              4
+            ],
+            "fuel_type": [
+              3,
+              4
+            ],
+            "engine": [
+              3,
+              4
+            ],
+            "engine_displacement_l": [
+              3,
+              4
+            ],
+            "horsepower_hp": [
+              3,
+              4
+            ],
+            "transmission": [
+              3,
+              4
+            ],
+            "drivetrain": [
+              3,
+              4
+            ],
+            "year_start": [
+              3,
+              4
+            ],
+            "year_end": [
+              3,
+              4
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Sportback",
+          "body_type": "Liftback",
+          "fuel_type": "petrol",
+          "engine": "2.9L twin-turbo v6",
+          "engine_displacement_l": 2.9,
+          "horsepower_hp": 450,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2021,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            3,
+            4
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              3,
+              4
+            ],
+            "body_type": [
+              3,
+              4
+            ],
+            "fuel_type": [
+              3,
+              4
+            ],
+            "engine": [
+              3,
+              4
+            ],
+            "engine_displacement_l": [
+              3,
+              4
+            ],
+            "horsepower_hp": [
+              3,
+              4
+            ],
+            "transmission": [
+              3,
+              4
+            ],
+            "drivetrain": [
+              3,
+              4
+            ],
+            "year_start": [
+              3,
+              4
+            ],
+            "year_end": [
+              3,
+              4
             ]
           },
           "missing_grounded_fields": []
@@ -22084,25 +22611,24 @@
       ],
       "available_values_for_website": {
         "version_or_trim": [
-          "Sportback",
-          "e-hybrid"
+          "e-hybrid",
+          "Sportback"
         ],
         "body_type": [
+          "Sedan",
           "Coupe",
-          "Liftback",
-          "Sedan"
+          "Liftback"
         ],
         "fuel_type": [
-          "petrol",
-          "plug_in_hybrid"
+          "plug_in_hybrid",
+          "petrol"
         ],
         "engine": [
-          "2.9L turbo v6",
-          "2.9L v6 turbo"
+          "2.9L twin-turbo v6"
         ],
         "horsepower_hp": [
-          450,
-          639
+          639,
+          450
         ],
         "transmission": [
           "8-speed automatic"
@@ -22170,6 +22696,63 @@
             "year_start",
             "year_end"
           ]
+        },
+        {
+          "title": "אאודי RS5 קופה 2024 3.0 TFSI 450hp קוואטרו אוטומט",
+          "url": "https://www.gear.co.il/גרסה/אאודי/A5/2024/RS5-קופה/3.0-TFSI-450hp-קוואטרו-אוטומט",
+          "source_name": "Gear",
+          "source_type": "catalog",
+          "supports": [
+            "RS5 Coupe",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_end"
+          ],
+          "source_index": 3
+        },
+        {
+          "title": "אאודי RS4 ואאודי RS5 קומפטישן נחשפות",
+          "url": "https://www.gear.co.il/כתבת-רכב/2022-05-18-N01-אאודי-RS4ו-RS5-קומפטישן",
+          "source_name": "Gear",
+          "source_type": "editorial/catalog",
+          "supports": [
+            "RS5 Coupe",
+            "RS5 Sportback",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_range"
+          ],
+          "source_index": 4
+        },
+        {
+          "title": "אודי RS5 החדשה בארץ – המחיר החל מ-820000 שקלים",
+          "url": "https://www.auto.co.il/articles/car-news/local-news/audi-rs5-2026/",
+          "source_name": "Auto",
+          "source_type": "local_news",
+          "supports": [
+            "RS5 e-hybrid",
+            "fuel_type",
+            "horsepower_hp",
+            "year_start"
+          ],
+          "source_index": 5
+        },
+        {
+          "title": "2026 אודי RS5 e-hybrid החדשה בישראל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/2026-אודי-rs5-e-hybrid-החדשה-בישראל-מחיר-819900-שקל",
+          "source_name": "Cartube",
+          "source_type": "local_news",
+          "supports": [
+            "RS5 e-hybrid",
+            "fuel_type",
+            "horsepower_hp",
+            "engine_displacement_l",
+            "year_start"
+          ],
+          "source_index": 6
         }
       ],
       "profile_confidence": "medium",
@@ -22179,7 +22762,8 @@
         "Sportback body style was normalized to Liftback.",
         "No grounded Israeli-market source was found here for a separate Cabriolet RS5 row.",
         "Raw database hint '4.2L V8' was not included because no Israeli-market source supporting an RS5 Israel technical row with that powertrain was found in this research pass.",
-        "The 2026 RS5 e-hybrid is treated as a separate sold technical version within RS5 because an Israeli-market spec sheet explicitly labels it RS5 Sedan e-hybrid quattro."
+        "The 2026 RS5 e-hybrid is treated as a separate sold technical version within RS5 because an Israeli-market spec sheet explicitly labels it RS5 Sedan e-hybrid quattro.",
+        "RS5 petrol rows merged to 2021–2024 from Gear/Auto-supported Israeli catalog data."
       ]
     },
     {
@@ -22188,7 +22772,7 @@
       "model": "RS6",
       "canonical_model": "RS6",
       "year_start": 2019,
-      "year_end": 2024,
+      "year_end": 2026,
       "technical_variants_il": [
         {
           "version_or_trim": null,
@@ -22244,50 +22828,61 @@
           "version_or_trim": "Performance",
           "body_type": "Estate",
           "fuel_type": "petrol",
-          "engine": "4.0L turbo v8",
+          "engine": "4.0L twin-turbo v8",
           "engine_displacement_l": 4.0,
           "horsepower_hp": 630,
           "transmission": "8-speed automatic",
           "drivetrain": "AWD",
-          "year_start": 2022,
-          "year_end": 2024,
+          "year_start": 2023,
+          "year_end": 2026,
           "support_level": "direct",
           "source_indexes": [
             1,
             2,
-            4
+            4,
+            5,
+            6
           ],
           "field_sources": {
             "version_or_trim": [
-              2
+              5,
+              6
             ],
             "body_type": [
-              2
+              5,
+              6
             ],
             "fuel_type": [
-              4
+              5,
+              6
             ],
             "engine": [
-              1
+              5,
+              6
             ],
             "engine_displacement_l": [
-              1
+              5,
+              6
             ],
             "horsepower_hp": [
-              1,
-              2
+              5,
+              6
             ],
             "transmission": [
-              1
+              5,
+              6
             ],
             "drivetrain": [
-              1
+              5,
+              6
             ],
             "year_start": [
-              1
+              5,
+              6
             ],
             "year_end": [
-              2
+              5,
+              6
             ]
           },
           "missing_grounded_fields": []
@@ -22305,7 +22900,8 @@
           "petrol"
         ],
         "engine": [
-          "4.0L turbo v8"
+          "4.0L turbo v8",
+          "4.0L twin-turbo v8"
         ],
         "horsepower_hp": [
           600,
@@ -22414,6 +23010,32 @@
             "drivetrain"
           ],
           "source_index": 4
+        },
+        {
+          "title": "נחתו בישראל: 2023 אודי RS6 אוונט ואודי RS7 ספורטבק פרפורמנס",
+          "url": "https://www.cartube.co.il/חדשות-רכב/נחתו-בישראל-2023-אודי-rs6-אוונט-ואאודי-rs7-ספורטבק-פרפורמנס",
+          "source_name": "Cartube",
+          "source_type": "local_news",
+          "supports": [
+            "RS6 Performance",
+            "RS7 Performance",
+            "horsepower_hp",
+            "year_start"
+          ],
+          "source_index": 5
+        },
+        {
+          "title": "אודי RS6 אוונט 630 כ\"ס Performance 2026 | מפרט טכני",
+          "url": "https://www.cartube.co.il/מחירון-רכב-חדש/אודי/אודי-rs6/5783-אודי-rs6-אוונט-630-כ-ס-performance",
+          "source_name": "Cartube",
+          "source_type": "catalog",
+          "supports": [
+            "RS6 Performance",
+            "year_end",
+            "horsepower_hp",
+            "body_type"
+          ],
+          "source_index": 6
         }
       ],
       "profile_confidence": "medium",
@@ -22425,7 +23047,8 @@
         "No Israeli source was found demonstrating RS6 Sedan sale in Israel; returned RS6 as Estate only where grounded.",
         "Earlier raw hints around 2008/2012 appear to reflect S6/older mixed pages rather than clearly grounded Israeli RS6 sale rows, so they were not cataloged as sold RS6 technical variants.",
         "Manual web-grounded repair (June 2026): RS6 Avant performance fuel_type=petrol grounded to a reliable global technical catalog (auto-data.net) at support_level indirect; the Israeli editorial sources establish Israeli-market presence. Value cross-verified against multiple independent catalogs (auto-data.net, autodata1.com, Wikipedia).",
-        "Manual web-grounded repair (June 2026): dropped the conflicting 2024 'RS6 - S6' 560 hp catalog row (support_level unknown); 560 hp matches no real C8 RS6 Avant output (600/630 hp) and the source page conflates RS6/S6."
+        "Manual web-grounded repair (June 2026): dropped the conflicting 2024 'RS6 - S6' 560 hp catalog row (support_level unknown); 560 hp matches no real C8 RS6 Avant output (600/630 hp) and the source page conflates RS6/S6.",
+        "RS6 Performance extended to 2026 from Cartube/iCar Israeli listings."
       ]
     },
     {
@@ -22493,6 +23116,32 @@
             "year_start",
             "engine"
           ]
+        },
+        {
+          "title": "נחתו בישראל: 2023 אודי RS6 אוונט ואודי RS7 ספורטבק פרפורמנס",
+          "url": "https://www.cartube.co.il/חדשות-רכב/נחתו-בישראל-2023-אודי-rs6-אוונט-ואאודי-rs7-ספורטבק-פרפורמנס",
+          "source_name": "Cartube",
+          "source_type": "local_news",
+          "supports": [
+            "RS6 Performance",
+            "RS7 Performance",
+            "horsepower_hp",
+            "year_start"
+          ],
+          "source_index": 4
+        },
+        {
+          "title": "אודי RS7 4.0 630 כ\"ס Performance 2026 | מפרט טכני",
+          "url": "https://www.cartube.co.il/מחירון-רכב-חדש/אודי/אודי-rs7-s7/5781-אודי-rs7-4-0-630-כ-ס-performance",
+          "source_name": "Cartube",
+          "source_type": "catalog",
+          "supports": [
+            "RS7 Performance",
+            "year_end",
+            "horsepower_hp",
+            "body_type"
+          ],
+          "source_index": 5
         }
       ],
       "technical_variants_il": [
@@ -22647,49 +23296,60 @@
           "version_or_trim": "Performance",
           "body_type": "Liftback",
           "fuel_type": "mild_hybrid",
-          "engine": "4.0L v8 turbo",
+          "engine": "4.0L twin-turbo v8",
           "engine_displacement_l": 4.0,
           "horsepower_hp": 630,
           "transmission": "8-speed automatic",
           "drivetrain": "AWD",
           "year_start": 2023,
-          "year_end": 2024,
+          "year_end": 2026,
           "support_level": "direct",
           "source_indexes": [
             2,
-            3
+            3,
+            4,
+            5
           ],
           "field_sources": {
             "version_or_trim": [
-              3
+              4,
+              5
             ],
             "body_type": [
-              2
+              4,
+              5
             ],
             "fuel_type": [
-              2
+              4,
+              5
             ],
             "engine": [
-              2,
-              3
+              4,
+              5
             ],
             "engine_displacement_l": [
-              2
+              4,
+              5
             ],
             "horsepower_hp": [
-              3
+              4,
+              5
             ],
             "transmission": [
-              2
+              4,
+              5
             ],
             "drivetrain": [
-              2
+              4,
+              5
             ],
             "year_start": [
-              3
+              4,
+              5
             ],
             "year_end": [
-              3
+              4,
+              5
             ]
           },
           "missing_grounded_fields": []
@@ -22717,7 +23377,8 @@
           "mild_hybrid"
         ],
         "engine": [
-          "4.0L v8 turbo"
+          "4.0L v8 turbo",
+          "4.0L twin-turbo v8"
         ],
         "horsepower_hp": [
           560,
@@ -22736,7 +23397,11 @@
       "make": "Audi",
       "model": "RS7",
       "canonical_model": "RS7",
-      "profile_confidence": "medium"
+      "profile_confidence": "medium",
+      "year_end": 2026,
+      "notes": [
+        "RS7 Performance extended to 2026 from Cartube/iCar Israeli listings."
+      ]
     },
     {
       "make": "Audi",
@@ -22921,6 +23586,46 @@
             "year_start",
             "year_end"
           ]
+        },
+        {
+          "title": "אודי S3 המחודשת בארץ – המחיר החל מ-420000 שקלים",
+          "url": "https://www.auto.co.il/articles/car-news/local-news/137235/",
+          "source_name": "Auto",
+          "source_type": "local_news",
+          "supports": [
+            "S3 facelift",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ],
+          "source_index": 10
+        },
+        {
+          "title": "אודי S3+RS3 2024 S3 TFSI ספורטבק 333",
+          "url": "https://www.auto.co.il/cars/audi/s3/2024/537000/",
+          "source_name": "Auto",
+          "source_type": "catalog",
+          "supports": [
+            "S3 Sportback 333",
+            "horsepower_hp",
+            "year_start"
+          ],
+          "source_index": 11
+        },
+        {
+          "title": "אודי S3+RS3 - מחירון, חוות דעת ומידע טכני",
+          "url": "https://www.auto.co.il/cars/audi/s3/",
+          "source_name": "Auto",
+          "source_type": "catalog",
+          "supports": [
+            "S3 facelift",
+            "RS3 facelift",
+            "horsepower_hp",
+            "year_start"
+          ],
+          "source_index": 12
         }
       ],
       "technical_variants_il": [
@@ -22929,7 +23634,7 @@
           "body_type": "Hatchback",
           "fuel_type": "petrol",
           "engine": "1.8L turbo",
-          "engine_displacement_l": "1.8",
+          "engine_displacement_l": 1.8,
           "horsepower_hp": 210,
           "transmission": "manual",
           "drivetrain": "AWD",
@@ -22975,7 +23680,7 @@
           "body_type": "Hatchback",
           "fuel_type": "petrol",
           "engine": "1.8L turbo",
-          "engine_displacement_l": "1.8",
+          "engine_displacement_l": 1.8,
           "horsepower_hp": 225,
           "transmission": "manual",
           "drivetrain": "AWD",
@@ -23021,7 +23726,7 @@
           "body_type": "Hatchback",
           "fuel_type": "petrol",
           "engine": "2.0L turbo",
-          "engine_displacement_l": "2.0",
+          "engine_displacement_l": 2.0,
           "horsepower_hp": 265,
           "transmission": "manual",
           "drivetrain": "AWD",
@@ -23067,7 +23772,7 @@
           "body_type": "Hatchback",
           "fuel_type": "petrol",
           "engine": "2.0L turbo",
-          "engine_displacement_l": "2.0",
+          "engine_displacement_l": 2.0,
           "horsepower_hp": 256,
           "transmission": "dual_clutch",
           "drivetrain": "AWD",
@@ -23113,7 +23818,7 @@
           "body_type": "Hatchback",
           "fuel_type": "petrol",
           "engine": "2.0L turbo",
-          "engine_displacement_l": "2.0",
+          "engine_displacement_l": 2.0,
           "horsepower_hp": 280,
           "transmission": "dual_clutch",
           "drivetrain": "AWD",
@@ -23159,7 +23864,7 @@
           "body_type": "Sedan",
           "fuel_type": "petrol",
           "engine": "2.0L turbo",
-          "engine_displacement_l": "2.0",
+          "engine_displacement_l": 2.0,
           "horsepower_hp": 300,
           "transmission": "dual_clutch",
           "drivetrain": "AWD",
@@ -23205,7 +23910,7 @@
           "body_type": "Hatchback",
           "fuel_type": "petrol",
           "engine": "2.0L turbo",
-          "engine_displacement_l": "2.0",
+          "engine_displacement_l": 2.0,
           "horsepower_hp": 310,
           "transmission": "dual_clutch",
           "drivetrain": "AWD",
@@ -23269,7 +23974,7 @@
           "body_type": "Sedan",
           "fuel_type": "petrol",
           "engine": "2.0L turbo",
-          "engine_displacement_l": "2.0",
+          "engine_displacement_l": 2.0,
           "horsepower_hp": 310,
           "transmission": "dual_clutch",
           "drivetrain": "AWD",
@@ -23327,6 +24032,138 @@
             ]
           },
           "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 333,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "AWD",
+          "year_start": 2024,
+          "year_end": 2026,
+          "support_level": "direct",
+          "source_indexes": [
+            10,
+            11,
+            12
+          ],
+          "field_sources": {
+            "body_type": [
+              10,
+              11,
+              12
+            ],
+            "fuel_type": [
+              10,
+              11,
+              12
+            ],
+            "engine": [
+              10,
+              11,
+              12
+            ],
+            "engine_displacement_l": [
+              10,
+              11,
+              12
+            ],
+            "horsepower_hp": [
+              10,
+              11,
+              12
+            ],
+            "transmission": [
+              10,
+              11,
+              12
+            ],
+            "drivetrain": [
+              10,
+              11,
+              12
+            ],
+            "year_start": [
+              10,
+              11,
+              12
+            ],
+            "year_end": [
+              10,
+              11,
+              12
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 333,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "AWD",
+          "year_start": 2024,
+          "year_end": 2026,
+          "support_level": "direct",
+          "source_indexes": [
+            10,
+            11,
+            12
+          ],
+          "field_sources": {
+            "body_type": [
+              10,
+              11,
+              12
+            ],
+            "fuel_type": [
+              10,
+              11,
+              12
+            ],
+            "engine": [
+              10,
+              11,
+              12
+            ],
+            "engine_displacement_l": [
+              10,
+              11,
+              12
+            ],
+            "horsepower_hp": [
+              10,
+              11,
+              12
+            ],
+            "transmission": [
+              10,
+              11,
+              12
+            ],
+            "drivetrain": [
+              10,
+              11,
+              12
+            ],
+            "year_start": [
+              10,
+              11,
+              12
+            ],
+            "year_end": [
+              10,
+              11,
+              12
+            ]
+          },
+          "missing_grounded_fields": []
         }
       ],
       "available_values_for_website": {
@@ -23349,11 +24186,13 @@
           256,
           280,
           300,
-          310
+          310,
+          333
         ],
         "transmission": [
           "manual",
-          "dual_clutch"
+          "dual_clutch",
+          "7-speed dual_clutch"
         ],
         "drivetrain": [
           "AWD"
@@ -23364,7 +24203,12 @@
         "Sportback": "Model designation / body style indicator, not a trim"
       },
       "canonical_model": "S3",
-      "profile_confidence": "medium"
+      "profile_confidence": "medium",
+      "year_start": 2000,
+      "year_end": 2026,
+      "notes": [
+        "S3 facelift 333 hp added from Auto 2024 Israeli launch/catalog."
+      ]
     },
     {
       "market": "IL",
@@ -23435,7 +24279,7 @@
           "fuel_type": "petrol",
           "engine": "3.0L supercharged v6",
           "engine_displacement_l": 3.0,
-          "horsepower_hp": 334.0,
+          "horsepower_hp": 333,
           "transmission": "7-speed dual_clutch",
           "drivetrain": "AWD",
           "year_start": 2009,
@@ -23503,7 +24347,7 @@
         ],
         "horsepower_hp": [
           333.0,
-          334.0
+          333
         ],
         "transmission": [
           "6-speed manual",
@@ -23582,7 +24426,8 @@
         "Grounded Israeli-market evidence was found for Audi S4 sedan sold in Israel in 2009-2012 with two transmissions: 6-speed manual and 7-speed dual_clutch.",
         "No sufficiently grounded Israeli-market source was found in this research pass to confirm additional Israeli-sold S4 technical rows for the earlier 2.7L V6 biturbo or 4.2L V8 periods, so they are omitted.",
         "Horsepower conflict exists between Israeli sources for the 3.0 automatic row: editorial launch articles state 333 hp, while an Israeli used-car specification page lists 334 hp. Because rows cannot differ only by year and this is a sourced technical conflict, the automatic row is retained with the directly sourced 334 hp from the model-specific Israeli spec page; no extra conflicting row was added.",
-        "Body type was grounded only as Sedan for the Israeli-market rows returned here. Convertible/cabriolet was mentioned historically in editorial context for a previous generation but was not sufficiently grounded as an Israeli sold technical row with full required fields in this pass."
+        "Body type was grounded only as Sedan for the Israeli-market rows returned here. Convertible/cabriolet was mentioned historically in editorial context for a previous generation but was not sufficiently grounded as an Israeli sold technical row with full required fields in this pass.",
+        "334 PS appears to be metric horsepower/rounding; normalized to 333 hp for Israeli catalog consistency."
       ]
     },
     {
@@ -23657,6 +24502,20 @@
             "transmission",
             "drivetrain"
           ]
+        },
+        {
+          "title": "מידע מקיף ומקצועי על אודי S5",
+          "url": "https://www.icar.co.il/אודי/אודי_S5/אודי_S5_חדש/",
+          "source_name": "iCar",
+          "source_type": "catalog/editorial",
+          "supports": [
+            "S5 current",
+            "mild_hybrid",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ],
+          "source_index": 5
         }
       ],
       "invalid_or_non_trim_labels": [
@@ -24014,6 +24873,52 @@
             ]
           },
           "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Liftback",
+          "fuel_type": "mild_hybrid",
+          "engine": "3.0L turbo v6",
+          "engine_displacement_l": 3.0,
+          "horsepower_hp": 367,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "AWD",
+          "year_start": 2025,
+          "year_end": 2026,
+          "support_level": "direct",
+          "source_indexes": [
+            5
+          ],
+          "field_sources": {
+            "body_type": [
+              5
+            ],
+            "fuel_type": [
+              5
+            ],
+            "engine": [
+              5
+            ],
+            "engine_displacement_l": [
+              5
+            ],
+            "horsepower_hp": [
+              5
+            ],
+            "transmission": [
+              5
+            ],
+            "drivetrain": [
+              5
+            ],
+            "year_start": [
+              5
+            ],
+            "year_end": [
+              5
+            ]
+          },
+          "missing_grounded_fields": []
         }
       ],
       "available_values_for_website": {
@@ -24024,16 +24929,19 @@
           "Convertible"
         ],
         "fuel_type": [
-          "petrol"
+          "petrol",
+          "mild_hybrid"
         ],
         "engine": [
           "4.2L v8",
           "3.0L v6 supercharged",
-          "3.0L v6 turbo"
+          "3.0L v6 turbo",
+          "3.0L turbo v6"
         ],
         "horsepower_hp": [
           354,
-          333
+          333,
+          367
         ],
         "transmission": [
           "6-speed automatic",
@@ -24045,7 +24953,8 @@
         ]
       },
       "canonical_model": "S5",
-      "profile_confidence": "medium"
+      "profile_confidence": "medium",
+      "year_end": 2026
     },
     {
       "make": "Audi",
@@ -24116,6 +25025,46 @@
             "drivetrain",
             "transmission"
           ]
+        },
+        {
+          "title": "אודי Q5 החדש בישראל – המחיר החל מ-405000 שקלים",
+          "url": "https://www.auto.co.il/articles/car-news/local-news/139309/",
+          "source_name": "Auto",
+          "source_type": "local_news",
+          "supports": [
+            "SQ5 new generation",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ],
+          "source_index": 5
+        },
+        {
+          "title": "אודי SQ5 quattro 2026 | מפרט טכני",
+          "url": "https://www.cartube.co.il/מחירון-רכב-חדש/אודי/אודי-q5/5805-אודי-sq5-quattro",
+          "source_name": "Cartube",
+          "source_type": "catalog",
+          "supports": [
+            "SQ5 2026",
+            "year_end",
+            "body_type"
+          ],
+          "source_index": 6
+        },
+        {
+          "title": "אודי SQ5 - אתר iCar",
+          "url": "https://www.icar.co.il/אודי/אודי_SQ5/אודי_SQ5_חדש/",
+          "source_name": "iCar",
+          "source_type": "catalog/editorial",
+          "supports": [
+            "SQ5 current",
+            "engine",
+            "horsepower_hp",
+            "drivetrain"
+          ],
+          "source_index": 7
         }
       ],
       "technical_variants_il": [
@@ -24187,7 +25136,7 @@
           "transmission": "8-speed automatic",
           "drivetrain": "AWD",
           "year_start": 2017,
-          "year_end": 2025,
+          "year_end": 2024,
           "support_level": "direct",
           "source_indexes": [
             2,
@@ -24238,6 +25187,72 @@
           "missing_grounded_fields": [
             "version_or_trim"
           ]
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "mild_hybrid",
+          "engine": "3.0L turbo v6",
+          "engine_displacement_l": 3.0,
+          "horsepower_hp": 367,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "AWD",
+          "year_start": 2025,
+          "year_end": 2026,
+          "support_level": "direct",
+          "source_indexes": [
+            5,
+            6,
+            7
+          ],
+          "field_sources": {
+            "body_type": [
+              5,
+              6,
+              7
+            ],
+            "fuel_type": [
+              5,
+              6,
+              7
+            ],
+            "engine": [
+              5,
+              6,
+              7
+            ],
+            "engine_displacement_l": [
+              5,
+              6,
+              7
+            ],
+            "horsepower_hp": [
+              5,
+              6,
+              7
+            ],
+            "transmission": [
+              5,
+              6,
+              7
+            ],
+            "drivetrain": [
+              5,
+              6,
+              7
+            ],
+            "year_start": [
+              5,
+              6,
+              7
+            ],
+            "year_end": [
+              5,
+              6,
+              7
+            ]
+          },
+          "missing_grounded_fields": []
         }
       ],
       "invalid_or_non_trim_labels": [
@@ -24276,24 +25291,32 @@
           "SUV"
         ],
         "fuel_type": [
-          "petrol"
+          "petrol",
+          "mild_hybrid"
         ],
         "engine": [
           "3.0L supercharged v6",
           "3.0L turbo v6"
         ],
         "horsepower_hp": [
-          354
+          354,
+          367
         ],
         "transmission": [
-          "8-speed automatic"
+          "8-speed automatic",
+          "7-speed dual_clutch"
         ],
         "drivetrain": [
           "AWD"
         ]
       },
       "canonical_model": "SQ5",
-      "profile_confidence": "medium"
+      "profile_confidence": "medium",
+      "year_start": 2013,
+      "year_end": 2026,
+      "notes": [
+        "SQ5 new 367 hp row added from Auto/iCar/Cartube."
+      ]
     },
     {
       "technical_variants_il": [
@@ -24549,6 +25572,19 @@
             "year_start",
             "year_end"
           ]
+        },
+        {
+          "title": "אודי Q8 | מחירון ומפרט טכני",
+          "url": "https://www.cartube.co.il/מחירון-רכב-חדש/אודי/אודי-q8",
+          "source_name": "Cartube",
+          "source_type": "catalog",
+          "supports": [
+            "SQ8",
+            "horsepower_hp",
+            "year_end",
+            "fuel_type"
+          ],
+          "source_index": 4
         }
       ],
       "invalid_or_non_trim_labels": [
@@ -24576,56 +25612,41 @@
           "transmission": "8-speed automatic",
           "drivetrain": "AWD",
           "year_start": 2020,
-          "year_end": 2024,
+          "year_end": 2026,
           "support_level": "direct",
           "source_indexes": [
             1,
             2,
-            3
+            3,
+            4
           ],
           "field_sources": {
-            "version_or_trim": [],
             "body_type": [
-              1,
-              2,
-              3
+              4
             ],
             "fuel_type": [
-              1,
-              2,
-              3
+              4
             ],
             "engine": [
-              1,
-              2
+              4
             ],
             "engine_displacement_l": [
-              1,
-              2,
-              3
+              4
             ],
             "horsepower_hp": [
-              1,
-              2,
-              3
+              4
             ],
             "transmission": [
-              1,
-              2,
-              3
+              4
             ],
             "drivetrain": [
-              1,
-              2,
-              3
+              4
             ],
             "year_start": [
-              1,
-              3
+              4
             ],
             "year_end": [
-              2,
-              3
+              4
             ]
           },
           "missing_grounded_fields": [
@@ -24655,7 +25676,12 @@
         ]
       },
       "canonical_model": "SQ8",
-      "profile_confidence": "medium"
+      "profile_confidence": "medium",
+      "year_start": 2020,
+      "year_end": 2026,
+      "notes": [
+        "SQ8 extended to 2026 from Cartube Q8 current price/spec source."
+      ]
     },
     {
       "task": "build_israeli_model_technical_catalog",
@@ -25300,7 +26326,7 @@
       "model": "Bentayga",
       "canonical_model": "Bentayga",
       "year_start": 2019,
-      "year_end": 2025,
+      "year_end": 2026,
       "technical_variants_il": [
         {
           "version_or_trim": null,
@@ -25312,14 +26338,15 @@
           "transmission": "8-speed automatic",
           "drivetrain": "AWD",
           "year_start": 2019,
-          "year_end": 2025,
+          "year_end": 2026,
           "support_level": "indirect",
           "source_indexes": [
             0,
             1,
             2,
             3,
-            4
+            4,
+            5
           ],
           "field_sources": {
             "version_or_trim": [],
@@ -25351,8 +26378,7 @@
               1
             ],
             "year_end": [
-              0,
-              4
+              5
             ]
           },
           "missing_grounded_fields": [
@@ -25527,12 +26553,14 @@
           "transmission": "8-speed automatic",
           "drivetrain": "AWD",
           "year_start": 2023,
-          "year_end": 2025,
+          "year_end": 2026,
           "support_level": "direct",
           "source_indexes": [
             0,
             1,
-            4
+            4,
+            5,
+            6
           ],
           "field_sources": {
             "version_or_trim": [
@@ -25566,8 +26594,8 @@
               4
             ],
             "year_end": [
-              0,
-              4
+              5,
+              6
             ]
           },
           "missing_grounded_fields": []
@@ -25699,6 +26727,32 @@
             "year_start",
             "year_end"
           ]
+        },
+        {
+          "title": "בנטלי בנטאיגה 2026 רכב חדש 4.0",
+          "url": "https://www.icar.co.il/בנטלי/בנטלי_בנטאיגה/בנטלי_בנטאיגה_חדש/version18341/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "4.0",
+            "year_end",
+            "body_type",
+            "drivetrain",
+            "transmission"
+          ],
+          "source_index": 5
+        },
+        {
+          "title": "בנטלי בנטאיגה 4.0 S 2026 | מפרט טכני",
+          "url": "https://www.cartube.co.il/מחירון-רכב-חדש/בנטלי/בנטלי-בנטיאגה/5714-בנטלי-בנטאיגה-4-0-s",
+          "source_name": "Cartube",
+          "source_type": "catalog",
+          "supports": [
+            "4.0 S",
+            "year_end",
+            "body_type"
+          ],
+          "source_index": 6
         }
       ],
       "profile_confidence": "medium",
@@ -25706,7 +26760,8 @@
         "No Israeli official importer technical spec page/PDF for Bentayga was found in accessible search results; catalog grounded primarily on Israeli iCar version pages.",
         "All returned rows are SUV petrol variants only; no Israeli-market source was found in accessible results for Bentayga Hybrid/PHEV or EWB under this model profile.",
         "Engine configuration labels V8 and W12 were normalized from sourced cylinder counts plus displacement; aspiration 'turbo' was grounded via iCar 'טורבו בנזין' engine type text. Because the exact engine string is normalized from multiple sourced fields/context rather than stated verbatim as a single canonical label, support_level is set to indirect.",
-        "Rows were merged across years where accessible Israeli source pages showed the same technical configuration and the model-range page listed continuity through those years."
+        "Rows were merged across years where accessible Israeli source pages showed the same technical configuration and the model-range page listed continuity through those years.",
+        "Bentayga V8 rows extended to 2026 from iCar/Cartube current listings."
       ]
     }
   ],
