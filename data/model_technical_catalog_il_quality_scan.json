@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-06-15T23:54:38Z",
+  "generated_at": "2026-06-16T14:45:41Z",
   "totals": {
-    "models": 61,
-    "findings": 201,
-    "grounded_cells": 2189,
-    "total_cells": 2189,
-    "marketplace_citation_share": 0.2113095238095238,
-    "official_citations": 2991,
+    "models": 62,
+    "findings": 202,
+    "grounded_cells": 2233,
+    "total_cells": 2233,
+    "marketplace_citation_share": 0.2088235294117647,
+    "official_citations": 3027,
     "bug": 0,
     "leak": 123,
     "normalization": 0,
-    "structure": 78
+    "structure": 79
   },
   "findings": [
     {
@@ -1404,7 +1404,7 @@
       "severity": "structure",
       "make": "Audi",
       "model": "RS4",
-      "detail": "10/10 grounded cells (100.0%)"
+      "detail": "27/27 grounded cells (100.0%)"
     },
     {
       "type": "year_split_duplicates",
@@ -1419,10 +1419,17 @@
       "make": "Audi",
       "model": "RS5",
       "detail": "38/38 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": null,
+      "model": null,
+      "detail": "27/27 grounded cells (100.0%)"
     }
   ],
   "counts_by_type": {
-    "grounding_completeness": 61,
+    "grounding_completeness": 62,
     "year_split_duplicates": 17,
     "source_tier_inversion": 120,
     "source_domain": 3
