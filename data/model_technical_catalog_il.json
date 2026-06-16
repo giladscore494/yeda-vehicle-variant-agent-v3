@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T16:26:57Z",
+  "generated_at": "2026-06-16T16:27:30Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -24293,6 +24293,205 @@
         ]
       },
       "canonical_model": "SQ5",
+      "profile_confidence": "medium"
+    },
+    {
+      "technical_variants_il": [
+        {
+          "body_type": "SUV",
+          "fuel_type": "diesel",
+          "engine": "4.0L v8 turbo",
+          "engine_displacement_l": 4.0,
+          "horsepower_hp": 435,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2016,
+          "year_end": 2020,
+          "version_or_trim": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              0,
+              2
+            ],
+            "engine": [
+              0,
+              2
+            ],
+            "engine_displacement_l": [
+              0,
+              2
+            ],
+            "horsepower_hp": [
+              0,
+              2
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0,
+              2
+            ],
+            "year_start": [
+              0,
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "4.0L v8 turbo",
+          "engine_displacement_l": 4.0,
+          "horsepower_hp": 507,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2020,
+          "year_end": 2024,
+          "version_or_trim": null,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "אאודי SQ7 בישראל - מחיר החל מ- 845,000 שקל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/אאודי-sq7-בישראל-מחיר-החל-מ-845000-שקל",
+          "source_name": "Cartube IL",
+          "source_type": "editorial",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "בנזין במקום דיזל: 2021 אאודי SQ7 ו- SQ8 החדשים בישראל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/בנזין-במקום-דיזל-2021-אאודי-sq7-ו-sq8-החדשים-בישראל",
+          "source_name": "Cartube IL",
+          "source_type": "editorial",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "אאודי SQ7 - מחירון רכב, מפרט טכני",
+          "url": "https://www.icar.co.il/audi/audi_sq7/",
+          "source_name": "iCar IL",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Base",
+          "classification": "base_or_standard_term"
+        },
+        {
+          "label": "Premium Plus",
+          "classification": "unverified_for_market"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "diesel",
+          "petrol"
+        ],
+        "engine": [
+          "4.0L v8 turbo"
+        ],
+        "horsepower_hp": [
+          435,
+          507
+        ],
+        "transmission": [
+          "8-speed automatic"
+        ],
+        "drivetrain": [
+          "AWD"
+        ]
+      },
+      "market": "IL",
+      "make": "Audi",
+      "model": "SQ7",
+      "canonical_model": "SQ7",
       "profile_confidence": "medium"
     }
   ],
