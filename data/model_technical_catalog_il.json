@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T21:50:38Z",
+  "generated_at": "2026-06-16T21:51:37Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -55244,6 +55244,185 @@
         ]
       },
       "canonical_model": "X5 xDrive40e",
+      "profile_confidence": "medium"
+    },
+    {
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "ב.מ.וו X5 החדש 2019 בישראל - מחיר החל מ- 600,000 שקל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/ב-מ-וו-x5-החדש-2019-בישראל-מחיר-החל-מ-600000-שקל",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "year_start",
+            "horsepower_hp",
+            "engine",
+            "engine_displacement_l",
+            "transmission",
+            "drivetrain",
+            "fuel_type"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "דגמי 2023 המחודשים: ב.מ.וו X5 ו- X6 בישראל - מחיר החל מ-729,900 שקל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/דגמי-2023-המחודשים-ב-מ-וו-x5-ו-x6-בישראל-מחיר-החל-מ-729900-שקל",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "year_start",
+            "year_end",
+            "horsepower_hp",
+            "engine",
+            "engine_displacement_l",
+            "transmission",
+            "drivetrain",
+            "fuel_type"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "ב.מ.וו X5 - מחירון, מפרטים, תמונות",
+          "url": "https://www.icar.co.il/ב.מ.וו/ב.מ.וו_X5/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "3.0L turbo",
+          "engine_displacement_l": 3.0,
+          "horsepower_hp": 340,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2019,
+          "year_end": 2023,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "mild_hybrid",
+          "engine": "3.0L turbo",
+          "engine_displacement_l": 3.0,
+          "horsepower_hp": 381,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2023,
+          "year_end": 2026,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "petrol",
+          "mild_hybrid"
+        ],
+        "engine": [
+          "3.0L turbo"
+        ],
+        "horsepower_hp": [
+          340,
+          381
+        ],
+        "transmission": [
+          "8-speed automatic"
+        ],
+        "drivetrain": [
+          "AWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "3.0L Inline-6 Turbo",
+          "classification": "engine_spec"
+        }
+      ],
+      "market": "IL",
+      "make": "BMW",
+      "model": "X5 xDrive40i",
+      "canonical_model": "X5 xDrive40i",
       "profile_confidence": "medium"
     }
   ],
