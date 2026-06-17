@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T14:32:37Z",
+  "generated_at": "2026-06-17T14:33:24Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -81005,6 +81005,230 @@
       "profile_confidence": "medium",
       "year_start": 2025,
       "year_end": null
+    },
+    {
+      "make": "Dacia",
+      "model": "Dokker",
+      "market": "IL",
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "דאצ'יה דוקר - מחירון מפרטים ורמות גימור - אוטו",
+          "url": "https://www.auto.co.il/model/dacia-dokker_g1061",
+          "source_name": "auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "דאצ'יה דוקר מחירון, מפרט טכני, חוות דעת - iCar",
+          "url": "https://www.icar.co.il/דאצ'יה/דאצ'יה_דוקר/דאצ'יה_דוקר_חדש/",
+          "source_name": "icar.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "דאצ'יה חוזרת לישראל - מחירון ודגמים",
+          "url": "https://www.cartube.co.il/חדשות-רכב/דאצ-יה-חוזרת-לישראל-מחירון-ודגמים",
+          "source_name": "cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "year_start",
+            "horsepower_hp",
+            "engine_displacement_l",
+            "transmission"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "Van",
+          "fuel_type": "petrol",
+          "engine": "1.2L turbo",
+          "engine_displacement_l": 1.2,
+          "horsepower_hp": 115,
+          "transmission": "5-speed manual",
+          "drivetrain": "FWD",
+          "year_start": 2015,
+          "year_end": 2019,
+          "version_or_trim": "Laureate",
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2,
+            3
+          ],
+          "field_sources": {
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2,
+              3
+            ],
+            "horsepower_hp": [
+              1,
+              2,
+              3
+            ],
+            "transmission": [
+              1,
+              2,
+              3
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              1,
+              3
+            ],
+            "year_end": [
+              1
+            ],
+            "version_or_trim": [
+              1,
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Van",
+          "fuel_type": "diesel",
+          "engine": "1.5L turbo",
+          "engine_displacement_l": 1.5,
+          "horsepower_hp": 90,
+          "transmission": "5-speed manual",
+          "drivetrain": "FWD",
+          "year_start": 2015,
+          "year_end": 2021,
+          "version_or_trim": "Laureate",
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2,
+            3
+          ],
+          "field_sources": {
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2,
+              3
+            ],
+            "horsepower_hp": [
+              1,
+              2,
+              3
+            ],
+            "transmission": [
+              1,
+              2,
+              3
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              1,
+              3
+            ],
+            "year_end": [
+              1
+            ],
+            "version_or_trim": [
+              1,
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "1.2L Turbo Petrol (115 hp)",
+          "classification": "engine_specification"
+        },
+        {
+          "label": "1.5L Turbo Diesel (90 hp)",
+          "classification": "engine_specification"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Laureate"
+        ],
+        "body_type": [
+          "Van"
+        ],
+        "fuel_type": [
+          "petrol",
+          "diesel"
+        ],
+        "engine": [
+          "1.2L turbo",
+          "1.5L turbo"
+        ],
+        "horsepower_hp": [
+          115,
+          90
+        ],
+        "transmission": [
+          "5-speed manual"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "canonical_model": "Dokker",
+      "profile_confidence": "medium",
+      "year_start": 2015,
+      "year_end": 2021
     }
   ],
   "ready_for_website_upload": false
