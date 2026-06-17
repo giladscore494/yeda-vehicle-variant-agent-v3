@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T16:36:25Z",
+  "generated_at": "2026-06-17T16:37:10Z",
   "market": "IL",
   "models": [
     {
@@ -323,6 +323,46 @@
         "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
       },
       "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
+      ]
+    },
+    {
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "Auto.co.il - Daihatsu Models Israel Catalog",
+          "url": "https://www.auto.co.il/catalog/brands/daihatsu",
+          "source_name": "Auto.co.il",
+          "source_type": "catalog",
+          "supports": []
+        },
+        {
+          "source_index": 1,
+          "title": "iCar - Daihatsu Israel",
+          "url": "https://www.icar.co.il/Daihatsu/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": []
+        }
+      ],
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "market": "IL",
+      "make": "Daihatsu",
+      "model": "Move",
+      "canonical_model": "Move",
+      "profile_confidence": "medium",
+      "year_start": null,
+      "year_end": null,
       "validation_issues": [
         "technical_variants_il is empty"
       ]
