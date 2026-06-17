@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T14:21:02Z",
+  "generated_at": "2026-06-17T14:22:36Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -77502,6 +77502,180 @@
       "profile_confidence": "medium",
       "year_start": 1996,
       "year_end": 2003
+    },
+    {
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "סיטרואן ספייסטורר בישראל – מחיר החל מ- 239,900 שקל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%A1%D7%99%D7%98%D7%A8%D7%95%D7%90%D7%9F-%D7%A1%D7%A4%D7%99%D7%99%D7%A1%D7%98%D7%95%D7%A8%D7%A8-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-239-900-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "סיטרואן ספייס טורר חדש - מחירון, מפרט טכני וקטלוג רכבים | iCar",
+          "url": "https://www.icar.co.il/%D7%A1%D7%99%D7%98%D7%A8%D7%95%D7%90%D7%9F/%D7%A1%D7%99%D7%98%D7%A8%D7%95%D7%90%D7%9F_%D7%A1%D7%A4%D7%99%D7%99%D7%A1_%D7%98%D7%95%D7%A8%D7%A8/%D7%A1%D7%99%D7%98%D7%A8%D7%95%D7%90%D7%9F_%D7%A1%D7%A4%D7%99%D7%99%D7%A1_%D7%98%D7%95%D7%A8%D7%A8_%D7%97%D7%93%D7%A9/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "Van",
+          "fuel_type": "diesel",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 150,
+          "transmission": "6-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2017,
+          "year_end": 2019,
+          "version_or_trim": null,
+          "support_level": "indirect",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              1
+            ],
+            "version_or_trim": []
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Van",
+          "fuel_type": "diesel",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 177,
+          "transmission": "8-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2019,
+          "year_end": 2024,
+          "version_or_trim": "Business",
+          "support_level": "direct",
+          "source_indexes": [
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ],
+            "version_or_trim": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": {
+        "Exclusive": "unverified_trim"
+      },
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Business"
+        ],
+        "body_type": [
+          "Van"
+        ],
+        "fuel_type": [
+          "diesel"
+        ],
+        "engine": [
+          "2.0L turbo"
+        ],
+        "horsepower_hp": [
+          150,
+          177
+        ],
+        "transmission": [
+          "6-speed automatic",
+          "8-speed automatic"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "market": "IL",
+      "make": "Citroen",
+      "model": "SpaceTourer",
+      "canonical_model": "SpaceTourer",
+      "profile_confidence": "medium",
+      "year_start": 2017,
+      "year_end": 2024
     }
   ],
   "ready_for_website_upload": false
