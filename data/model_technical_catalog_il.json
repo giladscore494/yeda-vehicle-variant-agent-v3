@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T12:46:17Z",
+  "generated_at": "2026-06-17T12:47:00Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -67434,6 +67434,217 @@
       ],
       "invalid_or_non_trim_labels": [],
       "canonical_model": "Pacifica",
+      "profile_confidence": "medium"
+    },
+    {
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "קרייזלר PT קרוזר (2000-2010) - מחירון רכב, מפרט טכני ועוד",
+          "url": "https://www.icar.co.il/Chrysler/Chrysler_PT_Cruiser/Chrysler_PT_Cruiser_yad_shniya/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "year_start",
+            "year_end",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "body_type",
+            "fuel_type",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "קרייזלר PT קרוזר 2000-2010 - מידע מקיף, מבחני דרכים ומפרטים",
+          "url": "https://www.auto.co.il/model/chrysler-pt-cruiser_g196",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "year_start",
+            "year_end",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "body_type",
+            "fuel_type"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "2.0L",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 141,
+          "transmission": "automatic",
+          "drivetrain": "FWD",
+          "year_start": 2000,
+          "year_end": 2004,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": [
+            "version_or_trim"
+          ]
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "2.4L",
+          "engine_displacement_l": 2.4,
+          "horsepower_hp": 143,
+          "transmission": "automatic",
+          "drivetrain": "FWD",
+          "year_start": 2004,
+          "year_end": 2010,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": [
+            "version_or_trim"
+          ]
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "2.0L Inline-4",
+          "classification": "engine_as_trim"
+        },
+        {
+          "label": "2.4L Inline-4",
+          "classification": "engine_as_trim"
+        },
+        {
+          "label": "2.2L Inline-4 Diesel",
+          "classification": "engine_as_trim"
+        },
+        {
+          "label": "2.4L Inline-4 Turbo",
+          "classification": "engine_as_trim"
+        },
+        {
+          "label": "automatic",
+          "classification": "transmission_as_trim"
+        },
+        {
+          "label": "manual",
+          "classification": "transmission_as_trim"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Hatchback"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "2.0L",
+          "2.4L"
+        ],
+        "horsepower_hp": [
+          141,
+          143
+        ],
+        "transmission": [
+          "automatic"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "market": "IL",
+      "make": "Chrysler",
+      "model": "PT Cruiser",
+      "canonical_model": "PT Cruiser",
       "profile_confidence": "medium"
     }
   ],
