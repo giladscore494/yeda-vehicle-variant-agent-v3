@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T12:28:33Z",
+  "generated_at": "2026-06-17T12:29:15Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -64954,6 +64954,225 @@
       "make": "Chevrolet",
       "model": "Equinox",
       "canonical_model": "Equinox",
+      "profile_confidence": "medium"
+    },
+    {
+      "technical_variants_il": [
+        {
+          "version_or_trim": "RS",
+          "body_type": "Crossover",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 210,
+          "transmission": "single_speed",
+          "drivetrain": "FWD",
+          "year_start": 2024,
+          "year_end": 2025,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1,
+              2
+            ],
+            "body_type": [
+              0,
+              1,
+              2
+            ],
+            "fuel_type": [
+              0,
+              2
+            ],
+            "engine": [
+              0,
+              2
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1,
+              2
+            ],
+            "transmission": [
+              0,
+              2
+            ],
+            "drivetrain": [
+              0,
+              1,
+              2
+            ],
+            "year_start": [
+              0,
+              1,
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": [
+            "engine_displacement_l"
+          ]
+        },
+        {
+          "version_or_trim": "RS",
+          "body_type": "Crossover",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 290,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2024,
+          "year_end": 2025,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1,
+              2
+            ],
+            "body_type": [
+              0,
+              1,
+              2
+            ],
+            "fuel_type": [
+              0,
+              2
+            ],
+            "engine": [
+              0,
+              2
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1,
+              2
+            ],
+            "transmission": [
+              0,
+              2
+            ],
+            "drivetrain": [
+              0,
+              1,
+              2
+            ],
+            "year_start": [
+              0,
+              1,
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": [
+            "engine_displacement_l"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "שברולט אקווינוקס EV - מחירון, מפרט טכני וחוות דעת - iCar",
+          "url": "https://www.icar.co.il/Chevrolet/Chevrolet_Equinox_EV/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "שברולט אקווינוקס EV החשמלי - חשיפה לקהל הישראלי",
+          "url": "https://www.cartube.co.il/חדשות-רכב/שברולט-אקווינוקס-ev-החשמלי-ישראל",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "year_start",
+            "horsepower_hp",
+            "drivetrain",
+            "version_or_trim",
+            "body_type"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "מפרט טכני שברולט אקווינוקס EV 2024-2025",
+          "url": "https://chevrolet.co.il/wp-content/uploads/Equinox-EV-Spec-IL.pdf",
+          "source_name": "Chevrolet Israel (UMI)",
+          "source_type": "official_importer",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "RS"
+        ],
+        "body_type": [
+          "Crossover"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          210,
+          290
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "FWD",
+          "AWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Base",
+          "classification": "generic_placeholder"
+        }
+      ],
+      "market": "IL",
+      "make": "Chevrolet",
+      "model": "Equinox EV",
+      "canonical_model": "Equinox EV",
       "profile_confidence": "medium"
     }
   ],
