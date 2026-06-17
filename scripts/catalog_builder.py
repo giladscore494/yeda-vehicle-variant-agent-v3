@@ -44,6 +44,7 @@ from .security import sanitize_error
 CATALOG_OUTPUT_PATH = os.path.join(DATA_DIR, "model_technical_catalog_il.json")
 READINESS_OUTPUT_PATH = os.path.join(DATA_DIR, "model_technical_catalog_il_readiness.json")
 REVIEW_OUTPUT_PATH = os.path.join(DATA_DIR, "model_technical_catalog_il_review.json")
+ARCHIVE_OUTPUT_PATH = os.path.join(DATA_DIR, "model_technical_catalog_il_archive.json")
 
 SOURCE_FILES = [
     "data/validation_variants_data_v1.json",
@@ -223,6 +224,7 @@ def compute_resume_state(
     catalog_path: str = CATALOG_OUTPUT_PATH,
     readiness_path: str = READINESS_OUTPUT_PATH,
     review_path: str = REVIEW_OUTPUT_PATH,
+    archive_path: Optional[str] = None,
 ) -> Dict[str, Any]:
     variants = load_variants(variants_path)
     try:
@@ -231,6 +233,13 @@ def compute_resume_state(
         instructions = {}
     groups = group_variants(variants, instructions)
     catalog, readiness, review = load_existing_outputs(catalog_path, readiness_path, review_path)
+    if archive_path is None:
+        archive_path = (
+            ARCHIVE_OUTPUT_PATH
+            if catalog_path == CATALOG_OUTPUT_PATH
+            else os.path.join(os.path.dirname(catalog_path), "model_technical_catalog_il_archive.json")
+        )
+    archive = _load_json_file(archive_path, {"models": []})
     group_keys = [g.key for g in groups]
     group_key_set = set(group_keys)
     clean_keys = {
@@ -246,6 +255,15 @@ def compute_resume_state(
     review_only_keys = review_keys - clean_keys
     review_overlap_keys = review_keys & clean_keys
     output_keys = clean_keys | review_keys
+    archive_keys = {
+        k
+        for k in (
+            _model_key(m)
+            for m in archive.get("models", [])
+            if isinstance(m, dict) and m.get("non_blocking") is True
+        )
+        if not is_corrupt_key(k)
+    }
 
     split_profile_aliases: Dict[str, List[str]] = {}
     for model in list(catalog.get("models", [])) + list(review.get("models", [])):
@@ -268,7 +286,14 @@ def compute_resume_state(
 
     alias_matched_output_keys = {key for key, aliases in split_profile_aliases.items() if aliases}
     alias_matched_source_keys = {alias for aliases in split_profile_aliases.values() for alias in aliases}
-    matched_output_keys = (output_keys & group_key_set) | alias_matched_output_keys | alias_matched_source_keys
+    # A deliberately archived non-blocking profile is complete for cursor
+    # purposes even though it is intentionally absent from clean/review.
+    matched_output_keys = (
+        (output_keys & group_key_set)
+        | (archive_keys & group_key_set)
+        | alias_matched_output_keys
+        | alias_matched_source_keys
+    )
     unmatched_output_keys = output_keys - matched_output_keys
 
     cursor_index = 0
