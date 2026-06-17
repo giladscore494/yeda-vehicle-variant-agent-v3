@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T13:01:00Z",
+  "generated_at": "2026-06-17T13:01:23Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -72102,6 +72102,316 @@
       "make": "Citroen",
       "model": "C5 X",
       "canonical_model": "C5 X",
+      "profile_confidence": "medium"
+    },
+    {
+      "task": "build_israeli_model_technical_catalog",
+      "market": "IL",
+      "make": "Citroen",
+      "model": "C6",
+      "technical_variants_il": [
+        {
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "3.0L v6",
+          "engine_displacement_l": 2.9,
+          "horsepower_hp": 215,
+          "transmission": "6-speed automatic",
+          "drivetrain": "FWD",
+          "version_or_trim": "Exclusive",
+          "year_start": 2006,
+          "year_end": 2008,
+          "support_level": "direct",
+          "source_indexes": [
+            280,
+            327
+          ],
+          "field_sources": {
+            "body_type": [
+              280,
+              327
+            ],
+            "fuel_type": [
+              280,
+              327
+            ],
+            "engine": [
+              280,
+              327
+            ],
+            "engine_displacement_l": [
+              280,
+              327
+            ],
+            "horsepower_hp": [
+              280,
+              327
+            ],
+            "transmission": [
+              280,
+              327
+            ],
+            "drivetrain": [
+              280,
+              327
+            ],
+            "version_or_trim": [
+              280,
+              327
+            ],
+            "year_start": [
+              280,
+              327
+            ],
+            "year_end": [
+              280,
+              327
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Sedan",
+          "fuel_type": "diesel",
+          "engine": "2.7L v6 turbo",
+          "engine_displacement_l": 2.7,
+          "horsepower_hp": 208,
+          "transmission": "6-speed automatic",
+          "drivetrain": "FWD",
+          "version_or_trim": "Exclusive",
+          "year_start": 2006,
+          "year_end": 2009,
+          "support_level": "direct",
+          "source_indexes": [
+            280,
+            328
+          ],
+          "field_sources": {
+            "body_type": [
+              280,
+              328
+            ],
+            "fuel_type": [
+              280,
+              328
+            ],
+            "engine": [
+              280,
+              328
+            ],
+            "engine_displacement_l": [
+              280,
+              328
+            ],
+            "horsepower_hp": [
+              280,
+              328
+            ],
+            "transmission": [
+              280,
+              328
+            ],
+            "drivetrain": [
+              280,
+              328
+            ],
+            "version_or_trim": [
+              280,
+              328
+            ],
+            "year_start": [
+              280,
+              328
+            ],
+            "year_end": [
+              280,
+              328
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Sedan",
+          "fuel_type": "diesel",
+          "engine": "3.0L v6 turbo",
+          "engine_displacement_l": 3.0,
+          "horsepower_hp": 240,
+          "transmission": "6-speed automatic",
+          "drivetrain": "FWD",
+          "version_or_trim": "Exclusive",
+          "year_start": 2010,
+          "year_end": 2012,
+          "support_level": "direct",
+          "source_indexes": [
+            280,
+            329
+          ],
+          "field_sources": {
+            "body_type": [
+              280,
+              329
+            ],
+            "fuel_type": [
+              280,
+              329
+            ],
+            "engine": [
+              280,
+              329
+            ],
+            "engine_displacement_l": [
+              280,
+              329
+            ],
+            "horsepower_hp": [
+              280,
+              329
+            ],
+            "transmission": [
+              280,
+              329
+            ],
+            "drivetrain": [
+              280,
+              329
+            ],
+            "version_or_trim": [
+              280,
+              329
+            ],
+            "year_start": [
+              280,
+              329
+            ],
+            "year_end": [
+              280,
+              329
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "2.2L",
+          "classification": "engine_displacement"
+        },
+        {
+          "label": "2.7L V6",
+          "classification": "engine_displacement"
+        },
+        {
+          "label": "3.0L V6",
+          "classification": "engine_displacement"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 280,
+          "title": "מחירון רכב סיטרואן C6",
+          "url": "https://www.icar.co.il/%D7%A1%D7%99%D7%98%D7%A8%D7%95%D7%90%D7%9F/%D7%A1%D7%99%D7%98%D7%A8%D7%95%D7%90%D7%9F_C6/%D7%A1%D7%99%D7%98%D7%A8%D7%95%D7%90%D7%9F_C6_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%99%D7%94_-_%D7%9E%D7%97%D7%99%D7%A8%D7%95%D7%9F/",
+          "source_name": "iCar",
+          "source_type": "israeli_car_catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "transmission",
+            "drivetrain",
+            "version_or_trim",
+            "year_start",
+            "year_end",
+            "engine_displacement_l",
+            "horsepower_hp"
+          ]
+        },
+        {
+          "source_index": 327,
+          "title": "סיטרואן C6 3.0 בנזין אקסקלוסיב - מפרט",
+          "url": "https://www.auto.co.il/catalog/citroen/c6/2422",
+          "source_name": "Auto.co.il",
+          "source_type": "israeli_car_catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "transmission",
+            "drivetrain",
+            "version_or_trim",
+            "year_start",
+            "year_end",
+            "engine_displacement_l",
+            "horsepower_hp"
+          ]
+        },
+        {
+          "source_index": 328,
+          "title": "סיטרואן C6 2.7 דיזל אקסקלוסיב - מפרט",
+          "url": "https://www.auto.co.il/catalog/citroen/c6/2421",
+          "source_name": "Auto.co.il",
+          "source_type": "israeli_car_catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "transmission",
+            "drivetrain",
+            "version_or_trim",
+            "year_start",
+            "year_end",
+            "engine_displacement_l",
+            "horsepower_hp"
+          ]
+        },
+        {
+          "source_index": 329,
+          "title": "סיטרואן C6 3.0 דיזל אקסקלוסיב - מפרט",
+          "url": "https://www.auto.co.il/catalog/citroen/c6/3392",
+          "source_name": "Auto.co.il",
+          "source_type": "israeli_car_catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "transmission",
+            "drivetrain",
+            "version_or_trim",
+            "year_start",
+            "year_end",
+            "engine_displacement_l",
+            "horsepower_hp"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Exclusive"
+        ],
+        "body_type": [
+          "Sedan"
+        ],
+        "fuel_type": [
+          "petrol",
+          "diesel"
+        ],
+        "engine": [
+          "3.0L v6",
+          "2.7L v6 turbo",
+          "3.0L v6 turbo"
+        ],
+        "horsepower_hp": [
+          215,
+          208,
+          240
+        ],
+        "transmission": [
+          "6-speed automatic"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "canonical_model": "C6",
       "profile_confidence": "medium"
     }
   ],
