@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T14:37:29Z",
+  "generated_at": "2026-06-17T14:38:40Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -82510,6 +82510,312 @@
       "make": "Dacia",
       "model": "Logan",
       "canonical_model": "Logan",
+      "profile_confidence": "medium",
+      "year_start": 2015,
+      "year_end": 2024
+    },
+    {
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "1.2L",
+          "engine_displacement_l": 1.2,
+          "horsepower_hp": 75,
+          "transmission": "manual",
+          "drivetrain": "FWD",
+          "year_start": 2015,
+          "year_end": 2018,
+          "support_level": "direct",
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Stepway",
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "0.9L turbo",
+          "engine_displacement_l": 0.9,
+          "horsepower_hp": 90,
+          "transmission": "manual",
+          "drivetrain": "FWD",
+          "year_start": 2015,
+          "year_end": 2020,
+          "support_level": "direct",
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Stepway",
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "0.9L turbo",
+          "engine_displacement_l": 0.9,
+          "horsepower_hp": 90,
+          "transmission": "automatic",
+          "drivetrain": "FWD",
+          "year_start": 2016,
+          "year_end": 2020,
+          "support_level": "direct",
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Stepway Expression",
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "1.0L turbo",
+          "engine_displacement_l": 1.0,
+          "horsepower_hp": 91,
+          "transmission": "cvt",
+          "drivetrain": "FWD",
+          "year_start": 2021,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1,
+              2
+            ],
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": {
+        "0.9 L Turbo": "engine_designation",
+        "1.0 L Turbo": "engine_designation",
+        "Standard": "not_a_trim"
+      },
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Stepway",
+          "Stepway Expression"
+        ],
+        "body_type": [
+          "Hatchback"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "1.2L",
+          "0.9L turbo",
+          "1.0L turbo"
+        ],
+        "horsepower_hp": [
+          75,
+          90,
+          91
+        ],
+        "transmission": [
+          "manual",
+          "automatic",
+          "cvt"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "דאצ'יה סנדרו / סטפווי (2015-2020) מפרט טכני ומידות - iCar",
+          "url": "https://www.icar.co.il/dacia/sandero/mk2/",
+          "source_name": "iCar Israel",
+          "source_type": "editorial",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "דאצ'יה סנדרו סטפווי החדש (2021+) - חוות דעת, מחירון, צריכת דלק ומפרט טכני",
+          "url": "https://www.auto.co.il/model/dacia-sandero-stepway_g1414",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "סנדרו סטפווי - דאצ'יה ישראל",
+          "url": "https://www.dacia.co.il/models/sandero-stepway.html",
+          "source_name": "Dacia Israel (Carasso Motors)",
+          "source_type": "official_importer",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        }
+      ],
+      "market": "IL",
+      "make": "Dacia",
+      "model": "Sandero",
+      "canonical_model": "Sandero",
       "profile_confidence": "medium",
       "year_start": 2015,
       "year_end": 2024
