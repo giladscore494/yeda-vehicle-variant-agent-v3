@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T14:43:26Z",
+  "generated_at": "2026-06-17T14:43:42Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -84313,6 +84313,157 @@
       "make": "Daewoo",
       "model": "Lanos",
       "canonical_model": "Lanos",
+      "profile_confidence": "medium",
+      "year_start": 1997,
+      "year_end": 2002
+    },
+    {
+      "make": "Daewoo",
+      "model": "Leganza",
+      "market": "IL",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "דייהו לגנזה - מפרט טכני, חוות דעת, גרסאות - iCar",
+          "url": "https://www.icar.co.il/%D7%93%D7%99%D7%99%D7%94%D7%95/%D7%93%D7%99%D7%99%D7%94%D7%95_%D7%9C%D7%92%D7%A0%D7%96%D7%94/%D7%93%D7%99%D7%99%D7%94%D7%95_%D7%9C%D7%92%D7%A0%D7%96%D7%94_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%99%D7%94_1998-2003",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "Daewoo Leganza 2.0 CDX Automatic (133 hp) Specs - auto.co.il",
+          "url": "https://www.auto.co.il/model/daewoo-leganza_g317",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "2.0L",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 133,
+          "transmission": "4-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 1997,
+          "year_end": 2002,
+          "version_or_trim": "CDX",
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0,
+              1
+            ],
+            "version_or_trim": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Base",
+          "classification": "generic_placeholder"
+        },
+        {
+          "label": "2.0L 133 hp",
+          "classification": "engine_spec"
+        },
+        {
+          "label": "2.0L 146 hp",
+          "classification": "engine_spec"
+        },
+        {
+          "label": "2.2L 133 hp",
+          "classification": "engine_spec"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "CDX"
+        ],
+        "body_type": [
+          "Sedan"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "2.0L"
+        ],
+        "horsepower_hp": [
+          133
+        ],
+        "transmission": [
+          "4-speed automatic"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "canonical_model": "Leganza",
       "profile_confidence": "medium",
       "year_start": 1997,
       "year_end": 2002
