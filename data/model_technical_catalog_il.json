@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T14:25:26Z",
+  "generated_at": "2026-06-17T14:26:13Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -79296,6 +79296,136 @@
       "profile_confidence": "medium",
       "year_start": 1992,
       "year_end": 1998
+    },
+    {
+      "make": "Citroen",
+      "model": "ë-Berlingo",
+      "market": "IL",
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "חשמלי לעבודה ולמשפחה: סיטרואן e-ברלינגו בישראל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/חשמלי-לעבודה-ולמשפחה-סיטרואן-e-ברלינגו-בישראל-מחיר-החל-מ-169-990-שקל",
+          "source_name": "Cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "year_start",
+            "fuel_type",
+            "body_type",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "engine",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "סיטרואן e-ברלינגו מפרט טכני",
+          "url": "https://www.icar.co.il/סיטרואן/סיטרואן_e-ברלינגו/",
+          "source_name": "iCar.co.il",
+          "source_type": "specs_catalog",
+          "supports": [
+            "horsepower_hp",
+            "fuel_type",
+            "engine",
+            "drivetrain",
+            "transmission",
+            "body_type"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "Van",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 136,
+          "transmission": "single_speed",
+          "drivetrain": "FWD",
+          "year_start": 2022,
+          "year_end": null,
+          "version_or_trim": "Shine Pack",
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [],
+            "version_or_trim": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Shine Pack"
+        ],
+        "body_type": [
+          "Van"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          136
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "100 kW Electric",
+          "classification": "engine_spec"
+        },
+        {
+          "label": "Shine PK",
+          "classification": "alternate_spelling"
+        }
+      ],
+      "canonical_model": "ë-Berlingo",
+      "profile_confidence": "medium",
+      "year_start": 2022,
+      "year_end": null
     }
   ],
   "ready_for_website_upload": false
