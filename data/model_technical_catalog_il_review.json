@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T16:41:26Z",
+  "generated_at": "2026-06-17T16:42:59Z",
   "market": "IL",
   "models": [
     {
@@ -363,6 +363,109 @@
       "profile_confidence": "medium",
       "year_start": null,
       "year_end": null,
+      "validation_issues": [
+        "technical_variants_il is empty"
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Dodge",
+      "model": "Charger",
+      "canonical_model": "Charger",
+      "year_start": null,
+      "year_end": null,
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [],
+      "profile_confidence": null,
+      "notes": [],
+      "error": "Gemini catalog client returned non-object JSON",
+      "request_payload": {
+        "task": "build_israeli_model_technical_catalog",
+        "market": "IL",
+        "make": "Dodge",
+        "model": "Charger",
+        "raw_database_values": {
+          "years_seen": [
+            2006,
+            2010,
+            2011,
+            2014,
+            2015,
+            2023
+          ],
+          "trims_seen": [
+            "GT",
+            "R/T",
+            "Scat Pack",
+            "SRT Hellcat",
+            "SXT"
+          ],
+          "engines_seen": [
+            "3.5L V6",
+            "3.6L V6",
+            "5.7L V8",
+            "6.2L V8 Supercharged",
+            "6.4L V8"
+          ],
+          "horsepower_seen": [],
+          "transmissions_seen": [
+            "automatic"
+          ],
+          "body_types_seen": [
+            "Sedan"
+          ],
+          "fuel_types_seen": [
+            "petrol"
+          ],
+          "drivetrains_seen": [
+            "RWD"
+          ]
+        },
+        "sample_validation_ids": [
+          "VAL-001015",
+          "VAL-001016",
+          "VAL-001017",
+          "VAL-001018",
+          "VAL-001019",
+          "VAL-001020",
+          "VAL-001021",
+          "VAL-001022"
+        ],
+        "source_indexes": [
+          178,
+          179,
+          180,
+          181,
+          399,
+          400,
+          401,
+          402
+        ],
+        "metadata_hints": {
+          "priorities_seen": [
+            "high",
+            "medium"
+          ],
+          "validation_routes_seen": [
+            "cheap_model_structured_validation",
+            "strong_model_or_manual_review"
+          ],
+          "possible_duplicate_rows": 0,
+          "validation_id_count": 8
+        },
+        "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
+      },
+      "rebuild_required": true,
       "validation_issues": [
         "technical_variants_il is empty"
       ]
