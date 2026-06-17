@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T12:22:44Z",
+  "generated_at": "2026-06-17T12:23:21Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -63829,6 +63829,133 @@
         }
       ],
       "canonical_model": "Blazer EV",
+      "profile_confidence": "medium"
+    },
+    {
+      "technical_variants_il": [
+        {
+          "body_type": "Hatchback",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 204,
+          "transmission": "single_speed",
+          "drivetrain": "FWD",
+          "year_start": 2021,
+          "year_end": 2023,
+          "version_or_trim": "Premier Plus",
+          "support_level": "direct",
+          "source_indexes": [
+            281,
+            282
+          ],
+          "field_sources": {
+            "body_type": [
+              282
+            ],
+            "fuel_type": [
+              281,
+              282
+            ],
+            "engine": [
+              281,
+              282
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              281,
+              282
+            ],
+            "transmission": [
+              282
+            ],
+            "drivetrain": [
+              281,
+              282
+            ],
+            "year_start": [
+              281,
+              282
+            ],
+            "year_end": [
+              282
+            ],
+            "version_or_trim": [
+              282
+            ]
+          },
+          "missing_grounded_fields": [
+            "engine_displacement_l"
+          ]
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Electric (200 hp)",
+          "classification": "engine_and_horsepower"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Premier Plus"
+        ],
+        "body_type": [
+          "Hatchback"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          204
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "sources": [
+        {
+          "source_index": 281,
+          "title": "שברולט בולט EV ו-EUV בישראל - מחיר החל מ- 134,990 שקלים",
+          "url": "https://www.cartube.co.il/חדשות-רכב/שברולט-בולט-ev-ו-euv-בישראל-מחיר-החל-מ-134990-שקלים",
+          "source_name": "Cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "horsepower_hp",
+            "drivetrain",
+            "engine",
+            "fuel_type",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 282,
+          "title": "שברולט בולט EV מפרט טכני",
+          "url": "https://www.icar.co.il/שברולט/שברולט_בולט_EV/שברולט_בולט_EV_חדש/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "transmission",
+            "year_end",
+            "version_or_trim",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "drivetrain",
+            "year_start"
+          ]
+        }
+      ],
+      "market": "IL",
+      "make": "Chevrolet",
+      "model": "Bolt EV",
+      "canonical_model": "Bolt EV",
       "profile_confidence": "medium"
     }
   ],
