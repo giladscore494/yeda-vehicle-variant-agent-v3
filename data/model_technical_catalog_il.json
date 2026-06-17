@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T16:34:18Z",
+  "generated_at": "2026-06-17T16:35:14Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -85856,6 +85856,293 @@
       "profile_confidence": "medium",
       "year_start": 2006,
       "year_end": 2008
+    },
+    {
+      "technical_variants_il": [
+        {
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "0.9L",
+          "engine_displacement_l": 0.85,
+          "horsepower_hp": 42,
+          "transmission": "manual",
+          "drivetrain": "FWD",
+          "year_start": 1990,
+          "year_end": 1998,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": [
+              1,
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "0.9L",
+          "engine_displacement_l": 0.85,
+          "horsepower_hp": 42,
+          "transmission": "automatic",
+          "drivetrain": "FWD",
+          "year_start": 1990,
+          "year_end": 1998,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": [
+              1,
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "1.0L",
+          "engine_displacement_l": 0.99,
+          "horsepower_hp": 56,
+          "transmission": "manual",
+          "drivetrain": "FWD",
+          "year_start": 1999,
+          "year_end": 2003,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": [
+              1,
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "1.0L",
+          "engine_displacement_l": 0.99,
+          "horsepower_hp": 56,
+          "transmission": "automatic",
+          "drivetrain": "FWD",
+          "year_start": 1999,
+          "year_end": 2003,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": [
+              1,
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "0.9 MT",
+          "classification": "engine_and_transmission"
+        },
+        {
+          "label": "1.0 AT",
+          "classification": "engine_and_transmission"
+        },
+        {
+          "label": "1.0 MT",
+          "classification": "engine_and_transmission"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "דייהטסו קורה - מפרט טכני ומחירון רכב",
+          "url": "https://www.auto.co.il/model/daihatsu-cuore",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial_spec_catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "מחירון רכב דייהטסו קורה 1990-2003",
+          "url": "https://www.kml.co.il/car/Daihatsu_Cuore",
+          "source_name": "KML Israel",
+          "source_type": "market_price_guide",
+          "supports": [
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Hatchback"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "0.9L",
+          "1.0L"
+        ],
+        "horsepower_hp": [
+          42,
+          56
+        ],
+        "transmission": [
+          "manual",
+          "automatic"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "market": "IL",
+      "make": "Daihatsu",
+      "model": "Cuore",
+      "canonical_model": "Cuore",
+      "profile_confidence": "medium",
+      "year_start": 1990,
+      "year_end": 2003
     }
   ],
   "ready_for_website_upload": false
