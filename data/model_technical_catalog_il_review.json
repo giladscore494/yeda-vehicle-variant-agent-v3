@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T12:58:56Z",
+  "generated_at": "2026-06-17T13:00:05Z",
   "market": "IL",
   "models": [
     {
@@ -1238,6 +1238,104 @@
         "variant[0] non-null field 'version_or_trim' has no field_sources entry",
         "variant[1] non-null field 'version_or_trim' has no field_sources entry",
         "variant[2] non-null field 'version_or_trim' has no field_sources entry"
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Citroen",
+      "model": "C5 Aircross",
+      "canonical_model": "C5 Aircross",
+      "year_start": null,
+      "year_end": null,
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [],
+      "profile_confidence": null,
+      "notes": [],
+      "error": "Gemini catalog client returned non-object JSON",
+      "request_payload": {
+        "task": "build_israeli_model_technical_catalog",
+        "market": "IL",
+        "make": "Citroen",
+        "model": "C5 Aircross",
+        "raw_database_values": {
+          "years_seen": [
+            2018,
+            2020,
+            2024,
+            2026
+          ],
+          "trims_seen": [
+            "Feel / Shine",
+            "Shine Pack",
+            "Shine Pack / Max",
+            "You / Max"
+          ],
+          "engines_seen": [
+            "1.2L MHEV",
+            "1.2L Turbo",
+            "1.5L BlueHDi Turbo",
+            "1.6L PHEV",
+            "1.6L Turbo"
+          ],
+          "horsepower_seen": [],
+          "transmissions_seen": [
+            "automatic",
+            "dual_clutch"
+          ],
+          "body_types_seen": [
+            "SUV"
+          ],
+          "fuel_types_seen": [
+            "diesel",
+            "mild_hybrid",
+            "petrol",
+            "plug_in_hybrid"
+          ],
+          "drivetrains_seen": [
+            "FWD"
+          ]
+        },
+        "sample_validation_ids": [
+          "VAL-000829",
+          "VAL-000830",
+          "VAL-000831",
+          "VAL-000832",
+          "VAL-000833"
+        ],
+        "source_indexes": [
+          284,
+          285,
+          286,
+          287,
+          288
+        ],
+        "metadata_hints": {
+          "priorities_seen": [
+            "high",
+            "medium"
+          ],
+          "validation_routes_seen": [
+            "cheap_model_structured_validation",
+            "strong_model_or_manual_review"
+          ],
+          "possible_duplicate_rows": 0,
+          "validation_id_count": 5
+        },
+        "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
+      },
+      "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
       ]
     }
   ]
