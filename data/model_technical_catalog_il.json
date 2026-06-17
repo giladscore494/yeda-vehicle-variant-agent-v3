@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T14:38:40Z",
+  "generated_at": "2026-06-17T14:39:17Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -82819,6 +82819,178 @@
       "profile_confidence": "medium",
       "year_start": 2015,
       "year_end": 2024
+    },
+    {
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "דאצ'יה ספרינג – מפרט טכני מלא רכב חשמלי | iCar",
+          "url": "https://www.icar.co.il/dacia/dacia_spring/",
+          "source_name": "iCar",
+          "source_type": "specs_catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "דאצ'יה ספרינג החשמלית בישראל - מחיר החל מ- 97,990 שקלים",
+          "url": "https://www.cartube.co.il/חדשות-רכב/דאציה-ספרינג-החשמלית-בישראל-מחיר-החל-מ-97,990-שקלים",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "version_or_trim",
+            "horsepower_hp",
+            "year_start"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Essential",
+          "body_type": "Hatchback",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 45,
+          "transmission": "single_speed",
+          "drivetrain": "FWD",
+          "year_start": 2023,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              2
+            ],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Extreme",
+          "body_type": "Hatchback",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 65,
+          "transmission": "single_speed",
+          "drivetrain": "FWD",
+          "year_start": 2023,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              2
+            ],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Essential",
+          "Extreme"
+        ],
+        "body_type": [
+          "Hatchback"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          45,
+          65
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Electric 33 kW",
+          "classification": "engine_specification"
+        },
+        {
+          "label": "Electric 48 kW",
+          "classification": "engine_specification"
+        }
+      ],
+      "market": "IL",
+      "make": "Dacia",
+      "model": "Spring",
+      "canonical_model": "Spring",
+      "profile_confidence": "medium",
+      "year_start": 2023,
+      "year_end": null
     }
   ],
   "ready_for_website_upload": false
