@@ -292,6 +292,10 @@ def normalize_variant(variant: Dict[str, Any]) -> Dict[str, Any]:
     if not isinstance(variant, dict):
         return variant
     out = dict(variant)
+    trim = out.get("version_or_trim")
+    if isinstance(trim, list):
+        values = [str(v).strip() for v in trim if str(v).strip()]
+        out["version_or_trim"] = values[0] if len(values) == 1 else (" / ".join(values) if values else None)
     out["body_type"] = normalize_body_type(out.get("body_type"))
     out["fuel_type"] = normalize_fuel_type(out.get("fuel_type"))
     out["transmission"] = normalize_transmission(out.get("transmission"))

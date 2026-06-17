@@ -267,7 +267,8 @@ def compute_resume_state(
             split_profile_aliases[key] = valid_aliases
 
     alias_matched_output_keys = {key for key, aliases in split_profile_aliases.items() if aliases}
-    matched_output_keys = (output_keys & group_key_set) | alias_matched_output_keys
+    alias_matched_source_keys = {alias for aliases in split_profile_aliases.values() for alias in aliases}
+    matched_output_keys = (output_keys & group_key_set) | alias_matched_output_keys | alias_matched_source_keys
     unmatched_output_keys = output_keys - matched_output_keys
 
     cursor_index = 0

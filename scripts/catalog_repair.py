@@ -19,6 +19,7 @@ from .catalog_validation import (
     REQUIRED_WEBSITE_FIELDS,
     _valid_source_indexes,
     derive_available_values,
+    normalize_missing_grounded_fields,
     validate_profile,
 )
 from .openai_catalog_client import CatalogClientSettings, GROUNDED_TECHNICAL_FIELDS
@@ -194,6 +195,7 @@ def derive_repair_targets(profile: Dict[str, Any]) -> Dict[int, List[str]]:
         if not isinstance(variant, dict):
             continue
         field_sources = variant.get("field_sources") if isinstance(variant.get("field_sources"), dict) else {}
+        variant["missing_grounded_fields"] = normalize_missing_grounded_fields(variant)
         missing = set(variant.get("missing_grounded_fields") or [])
         fields = set()
         for fname in REQUIRED_WEBSITE_FIELDS:

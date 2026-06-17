@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-06-16T19:48:01Z",
+  "generated_at": "2026-06-17T13:45:41Z",
   "totals": {
-    "models": 128,
-    "findings": 261,
-    "grounded_cells": 4343,
-    "total_cells": 4343,
-    "marketplace_citation_share": 0.0999462654486835,
-    "official_citations": 9196,
+    "models": 247,
+    "findings": 388,
+    "grounded_cells": 7665,
+    "total_cells": 7665,
+    "marketplace_citation_share": 0.06759873162294609,
+    "official_citations": 13767,
     "bug": 0,
-    "leak": 108,
+    "leak": 110,
     "normalization": 0,
-    "structure": 153
+    "structure": 278
   },
   "findings": [
     {
@@ -1780,71 +1780,960 @@
     {
       "type": "grounding_completeness",
       "severity": "structure",
-      "make": "Audi",
-      "model": "TT",
+      "make": "BMW",
+      "model": "735i",
       "detail": "18/18 grounded cells (100.0%)"
     },
     {
       "type": "grounding_completeness",
       "severity": "structure",
-      "make": "Bentley",
-      "model": "Continental GT",
-      "detail": "10/10 grounded cells (100.0%)"
-    },
-    {
-      "type": "grounding_completeness",
-      "severity": "structure",
-      "make": "Bentley",
-      "model": "Flying Spur",
-      "detail": "10/10 grounded cells (100.0%)"
+      "make": "BMW",
+      "model": "740e",
+      "detail": "9/9 grounded cells (100.0%)"
     },
     {
       "type": "grounding_completeness",
       "severity": "structure",
       "make": "BMW",
-      "model": "116i",
+      "model": "740i",
+      "detail": "29/29 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "745i",
+      "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "750i",
+      "detail": "49/49 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "760i",
+      "detail": "19/19 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "840i",
+      "detail": "30/30 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "850i",
+      "detail": "30/30 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "i3",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "i3s",
+      "detail": "8/8 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "i4 eDrive35",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "i5 eDrive40",
+      "detail": "16/16 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "i7 xDrive60",
+      "detail": "7/7 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "i8",
+      "detail": "27/27 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "iX xDrive40",
+      "detail": "8/8 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "iX1 eDrive20",
+      "detail": "16/16 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "iX2 eDrive20",
+      "detail": "16/16 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "iX3",
+      "detail": "8/8 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "M135i",
+      "detail": "19/19 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "M2",
+      "detail": "39/39 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "M235i",
+      "detail": "17/17 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "M3",
+      "detail": "82/82 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "M4",
+      "detail": "58/58 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "M5",
+      "detail": "55/55 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "M6",
+      "detail": "45/45 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "M760Li",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "M8",
+      "detail": "30/30 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "M850i",
+      "detail": "30/30 grounded cells (100.0%)"
+    },
+    {
+      "type": "year_split_duplicates",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X1 sDrive18i",
+      "detail": "merge candidate signature=('SUV', 'petrol', '1.5L turbo', 136, '7-speed dual_clutch', 'FWD') rows=[(2, 2015, 2022), (3, 2015, 2022), (4, 2015, 2022), (5, 2015, 2022), (6, 2015, 2022), (7, 2023, 2026), (8, 2023, 2026), (9, 2023, 2026), (10, 2023, 2026)]"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X1 sDrive18i",
+      "detail": "110/110 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X1 sDrive20i",
+      "detail": "36/36 grounded cells (100.0%)"
+    },
+    {
+      "type": "year_split_duplicates",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X1 xDrive25e",
+      "detail": "merge candidate signature=('SUV', 'plug_in_hybrid', '1.5L turbo plug-in hybrid', 220, '6-speed automatic', 'AWD') rows=[(0, 2020, 2022), (1, 2021, 2022)]"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X1 xDrive25e",
       "detail": "20/20 grounded cells (100.0%)"
     },
     {
       "type": "grounding_completeness",
       "severity": "structure",
       "make": "BMW",
-      "model": "318d",
+      "model": "X2 M35i",
+      "detail": "19/19 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X2 sDrive18i",
+      "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X2 sDrive20i",
+      "detail": "19/19 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X3 2.0i",
+      "detail": "30/30 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X3 2.5i",
       "detail": "18/18 grounded cells (100.0%)"
     },
     {
-      "type": "year_split_duplicates",
-      "severity": "structure",
-      "make": "BMW",
-      "model": "328i",
-      "detail": "merge candidate signature=('Sedan', 'petrol', '2.8L', 193, 'automatic', 'RWD') rows=[(0, 1998, 2000), (2, 1995, 1998)]"
-    },
-    {
       "type": "grounding_completeness",
       "severity": "structure",
       "make": "BMW",
-      "model": "328i",
-      "detail": "36/36 grounded cells (100.0%)"
-    },
-    {
-      "type": "grounding_completeness",
-      "severity": "structure",
-      "make": "BMW",
-      "model": "340i",
+      "model": "X3 M",
       "detail": "10/10 grounded cells (100.0%)"
     },
     {
       "type": "grounding_completeness",
       "severity": "structure",
       "make": "BMW",
-      "model": "650i",
+      "model": "X3 M40i",
+      "detail": "10/10 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X3 xDrive20d",
+      "detail": "20/20 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X3 xDrive30e",
+      "detail": "10/10 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X3 xDrive30i",
       "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X4 M40i",
+      "detail": "27/27 grounded cells (100.0%)"
+    },
+    {
+      "type": "year_split_duplicates",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X4 xDrive20i",
+      "detail": "merge candidate signature=('SUV', 'petrol', '2.0L turbo', 184, '8-speed automatic', 'AWD') rows=[(0, 2014, 2018), (1, 2021, None)]"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X4 xDrive20i",
+      "detail": "17/17 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X4 xDrive30i",
+      "detail": "19/19 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X5 3.0d",
+      "detail": "36/36 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X5 3.0i",
+      "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X5 4.4i",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X5 M",
+      "detail": "47/47 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X5 M50i",
+      "detail": "10/10 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X5 xDrive30d",
+      "detail": "38/38 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X5 xDrive40e",
+      "detail": "20/20 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X5 xDrive40i",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X5 xDrive45e",
+      "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X5 xDrive50e",
+      "detail": "10/10 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X6 M",
+      "detail": "47/47 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X6 xDrive30d",
+      "detail": "78/78 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X6 xDrive35i",
+      "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X6 xDrive50i",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X7 M50i",
+      "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X7 xDrive30d",
+      "detail": "10/10 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "X7 xDrive40i",
+      "detail": "20/20 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "XM",
+      "detail": "27/27 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "Z3 1.8",
+      "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "Z3 2.8",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "Z3 M Roadster",
+      "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "Z4 2.0i",
+      "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "year_split_duplicates",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "Z4 sDrive20i",
+      "detail": "merge candidate signature=('Roadster', 'petrol', '2.0L inline-4 turbo', 197, '8-speed automatic', 'RWD') rows=[(0, 2019, 2023), (1, 2019, 2024), (2, 2023, 2024)]"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BMW",
+      "model": "Z4 sDrive20i",
+      "detail": "30/30 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BYD",
+      "model": "Atto 3",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BYD",
+      "model": "Atto 3 EVO",
+      "detail": "16/16 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BYD",
+      "model": "Dolphin",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BYD",
+      "model": "Han",
+      "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BYD",
+      "model": "Seal",
+      "detail": "16/16 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BYD",
+      "model": "Seal U",
+      "detail": "48/48 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BYD",
+      "model": "Sealion 7",
+      "detail": "32/32 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "BYD",
+      "model": "Tang",
+      "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Cadillac",
+      "model": "ATS",
+      "detail": "60/60 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Cadillac",
+      "model": "CTS",
+      "detail": "83/83 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Cadillac",
+      "model": "Escalade",
+      "detail": "10/10 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Cadillac",
+      "model": "Escalade IQ",
+      "detail": "16/16 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Cadillac",
+      "model": "Lyriq",
+      "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Cadillac",
+      "model": "SRX",
+      "detail": "45/45 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Cadillac",
+      "model": "XT4",
+      "detail": "20/20 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Cadillac",
+      "model": "XT5",
+      "detail": "36/36 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Cadillac",
+      "model": "XT6",
+      "detail": "20/20 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Chery",
+      "model": "Arrizo 8",
+      "detail": "20/20 grounded cells (100.0%)"
+    },
+    {
+      "type": "year_split_duplicates",
+      "severity": "structure",
+      "make": "Chery",
+      "model": "Tiggo 4 Pro",
+      "detail": "merge candidate signature=('SUV', 'petrol', '1.5L', 95, 'cvt', 'FWD') rows=[(0, 2024, 2025), (1, 2025, None)]"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Chery",
+      "model": "Tiggo 4 Pro",
+      "detail": "19/19 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Chery",
+      "model": "Tiggo 7 Pro",
+      "detail": "20/20 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Chery",
+      "model": "Tiggo 8 Pro",
+      "detail": "20/20 grounded cells (100.0%)"
+    },
+    {
+      "type": "year_split_duplicates",
+      "severity": "structure",
+      "make": "Chery",
+      "model": "Tiggo 9 Pro PHEV",
+      "detail": "merge candidate signature=('SUV', 'plug_in_hybrid', '1.5L turbo plug-in hybrid', 428, 'automatic', 'AWD') rows=[(0, 2026, None), (1, 2025, None)]"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Chery",
+      "model": "Tiggo 9 Pro PHEV",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Chevrolet",
+      "model": "Aveo",
+      "detail": "36/36 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Chevrolet",
+      "model": "Blazer EV",
+      "detail": "8/8 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Chevrolet",
+      "model": "Bolt EV",
+      "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Chevrolet",
+      "model": "Camaro",
+      "detail": "30/30 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Chevrolet",
+      "model": "Captiva",
+      "detail": "30/30 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Chevrolet",
+      "model": "Corvette",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Chevrolet",
+      "model": "Cruze",
+      "detail": "90/90 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Chevrolet",
+      "model": "Equinox",
+      "detail": "27/27 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Chevrolet",
+      "model": "Equinox EV",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Chevrolet",
+      "model": "Malibu",
+      "detail": "60/60 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Chevrolet",
+      "model": "Orlando",
+      "detail": "30/30 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Chevrolet",
+      "model": "Silverado",
+      "detail": "35/35 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Chevrolet",
+      "model": "Spark",
+      "detail": "70/70 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Chevrolet",
+      "model": "Tahoe",
+      "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Chevrolet",
+      "model": "Traverse",
+      "detail": "27/27 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Chevrolet",
+      "model": "Trax",
+      "detail": "36/36 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Chevrolet",
+      "model": "Volt",
+      "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Chrysler",
+      "model": "300C",
+      "detail": "28/28 grounded cells (100.0%)"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Chrysler",
+      "model": "Crossfire",
+      "detail": "variant[0] version_or_trim grounded only by marketplace/aggregator source(s): ['yitzhak-levy.yad2.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Chrysler",
+      "model": "Crossfire",
+      "detail": "variant[1] version_or_trim grounded only by marketplace/aggregator source(s): ['yitzhak-levy.yad2.co.il']"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Chrysler",
+      "model": "Crossfire",
+      "detail": "20/20 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Chrysler",
+      "model": "Pacifica",
+      "detail": "20/20 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Chrysler",
+      "model": "PT Cruiser",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Chrysler",
+      "model": "Sebring",
+      "detail": "40/40 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Chrysler",
+      "model": "Voyager",
+      "detail": "40/40 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Citroen",
+      "model": "Ami",
+      "detail": "7/7 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Citroen",
+      "model": "Berlingo",
+      "detail": "79/79 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Citroen",
+      "model": "C-Elysee",
+      "detail": "45/45 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Citroen",
+      "model": "C1",
+      "detail": "45/45 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Citroen",
+      "model": "C2",
+      "detail": "38/38 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Citroen",
+      "model": "C3",
+      "detail": "27/27 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Citroen",
+      "model": "C3 Aircross",
+      "detail": "20/20 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Citroen",
+      "model": "C3 Picasso",
+      "detail": "10/10 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Citroen",
+      "model": "C4",
+      "detail": "36/36 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Citroen",
+      "model": "C4 Picasso",
+      "detail": "45/45 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Citroen",
+      "model": "C4 X",
+      "detail": "26/26 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Citroen",
+      "model": "C5",
+      "detail": "80/80 grounded cells (100.0%)"
+    },
+    {
+      "type": "year_split_duplicates",
+      "severity": "structure",
+      "make": "Citroen",
+      "model": "C5 Aircross",
+      "detail": "merge candidate signature=('SUV', 'diesel', '1.5L bluehdi turbo', 130, '8-speed automatic', 'FWD') rows=[(0, 2019, 2022), (1, 2019, 2025)]"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Citroen",
+      "model": "C5 Aircross",
+      "detail": "49/49 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Citroen",
+      "model": "C5 X",
+      "detail": "27/27 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Citroen",
+      "model": "C6",
+      "detail": "30/30 grounded cells (100.0%)"
     }
   ],
   "counts_by_type": {
-    "grounding_completeness": 128,
-    "year_split_duplicates": 25,
-    "source_tier_inversion": 104,
+    "grounding_completeness": 247,
+    "year_split_duplicates": 31,
+    "source_tier_inversion": 106,
     "source_domain": 4
   }
 }

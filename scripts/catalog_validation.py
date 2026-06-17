@@ -117,6 +117,43 @@ def _is_ev_fuel(value: Any) -> bool:
     return low in {"electric", "ev", "bev"}
 
 
+def _optional_null_missing_fields(variant: Dict[str, Any]) -> Set[str]:
+    """Grounding fields that are allowed to be null for this row."""
+    optional = {"version_or_trim", "year_end"}
+    if _is_ev_fuel(variant.get("fuel_type")) or str(variant.get("engine") or "").strip().lower() == "electric":
+        optional.add("engine_displacement_l")
+    return optional
+
+
+def normalize_missing_grounded_fields(variant: Dict[str, Any]) -> List[str]:
+    """Drop optional-null fields from missing_grounded_fields.
+
+    EV displacement, open-ended current year_end, and null trim on technical
+    rows are valid nulls and must not make readiness falsely red.
+    """
+    missing = variant.get("missing_grounded_fields") or []
+    if not isinstance(missing, list):
+        return []
+    optional = _optional_null_missing_fields(variant)
+    out: List[str] = []
+    for field_name in missing:
+        if not isinstance(field_name, str):
+            continue
+        if field_name in optional and variant.get(field_name) in (None, ""):
+            continue
+        out.append(field_name)
+    return out
+
+
+def derive_profile_years(profile: Dict[str, Any]) -> None:
+    variants = profile.get("technical_variants_il") or []
+    starts = [v.get("year_start") for v in variants if isinstance(v, dict) and isinstance(v.get("year_start"), int)]
+    ends = [v.get("year_end") for v in variants if isinstance(v, dict) and isinstance(v.get("year_end"), int)]
+    has_open_end = any(isinstance(v, dict) and v.get("year_end") is None for v in variants)
+    profile["year_start"] = min(starts) if starts else None
+    profile["year_end"] = None if has_open_end else (max(ends) if ends else None)
+
+
 def _valid_source_indexes(sources: Any) -> Set[int]:
     """The set of source_index values declared by the profile ``sources``."""
     valid: Set[int] = set()
@@ -178,9 +215,8 @@ def _check_variant(
         block("missing field_sources")
         field_sources = {}
 
-    missing_grounded = variant.get("missing_grounded_fields") or []
-    if not isinstance(missing_grounded, list):
-        missing_grounded = []
+    missing_grounded = normalize_missing_grounded_fields(variant)
+    variant["missing_grounded_fields"] = missing_grounded
 
     # 4. all source indexes referenced (variant + field_sources) exist in sources.
     invalid_refs = 0
@@ -358,6 +394,7 @@ def validate_profile(profile: Dict[str, Any]) -> ProfileValidation:
     cleaned_variants, merged_year_variants_count = merge_year_variants(cleaned_variants)
 
     profile["technical_variants_il"] = cleaned_variants
+    derive_profile_years(profile)
     profile["available_values_for_website"] = derive_available_values(cleaned_variants)
 
     has_grounding = bool(valid_source_indexes) and variants_with_field_sources > 0

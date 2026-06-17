@@ -597,17 +597,17 @@ def test_resume_state_readiness_models_blocked_overrides_review_only_count(tmp_p
 def test_current_catalog_resume_state_advances_past_repaired_bmw_blockers():
     state = cb.compute_resume_state()
 
-    assert state["clean_count"] == 203
+    assert state["clean_count"] == 247
     assert state["review_entries_count"] == 0
     assert state["review_overlap_count"] == 0
     assert state["review_only_blocked_count"] == 0
     assert state["active_blocked_count"] == 0
     assert state["blocked"] == 0
-    assert state["resume_after_key"] == "IL|Cadillac|Lyriq"
-    assert state["next_key_to_process"] == "IL|Cadillac|SRX"
-    assert state["next_key"] == "IL|Cadillac|SRX"
-    assert state["next_make"] == "Cadillac"
-    assert state["next_model"] == "SRX"
+    assert state["resume_after_key"] == "IL|Citroen|C6"
+    assert state["next_key_to_process"] == "IL|Citroen|C8"
+    assert state["next_key"] == "IL|Citroen|C8"
+    assert state["next_make"] == "Citroen"
+    assert state["next_model"] == "C8"
     assert state["unmatched_output_keys_count"] == 0
     assert state["unmatched_output_keys_sample"] == []
     assert state["split_profile_alias_count"] >= 5
