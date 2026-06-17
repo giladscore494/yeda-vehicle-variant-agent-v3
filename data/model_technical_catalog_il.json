@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T12:50:28Z",
+  "generated_at": "2026-06-17T12:51:35Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -68995,6 +68995,418 @@
       "make": "Citroen",
       "model": "Berlingo",
       "canonical_model": "Berlingo",
+      "profile_confidence": "medium"
+    },
+    {
+      "task": "build_israeli_model_technical_catalog",
+      "market": "IL",
+      "make": "Citroen",
+      "model": "C-Elysee",
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "1.2 PureTech 82 hp",
+          "classification": "engine_spec"
+        },
+        {
+          "label": "1.2 VTi 72 hp",
+          "classification": "engine_spec"
+        },
+        {
+          "label": "1.6 HDi 92 hp",
+          "classification": "engine_spec"
+        },
+        {
+          "label": "1.6 VTi 115 hp",
+          "classification": "engine_spec"
+        },
+        {
+          "label": "Comfort / Comfort Pack",
+          "classification": "trim_level"
+        },
+        {
+          "label": "Comfort Pack / Exclusive",
+          "classification": "trim_level"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "סיטרואן C אליזה בישראל – החל מ-89,990 שקל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/סיטרואן-c-אליזה-בישראל-–-החל-מ-89990-שקל",
+          "source_name": "Cartube IL",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "סיטרואן C אליזה - מחירון, מפרטים, אמינות וחוות דעת",
+          "url": "https://www.icar.co.il/סיטרואן/סיטרואן_C-אליזה/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "סיטרואן C-אליזה מפרט טכני מלא",
+          "url": "https://gear.co.il/car_models/Citroen-C-Elysee",
+          "source_name": "Gear IL",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "1.2L",
+          "engine_displacement_l": 1.2,
+          "horsepower_hp": 72,
+          "transmission": "manual",
+          "drivetrain": "FWD",
+          "year_start": 2013,
+          "year_end": 2016,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": [
+            "version_or_trim"
+          ]
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "1.2L",
+          "engine_displacement_l": 1.2,
+          "horsepower_hp": 72,
+          "transmission": "automatic",
+          "drivetrain": "FWD",
+          "year_start": 2013,
+          "year_end": 2016,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": [
+            "version_or_trim"
+          ]
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "1.2L",
+          "engine_displacement_l": 1.2,
+          "horsepower_hp": 82,
+          "transmission": "manual",
+          "drivetrain": "FWD",
+          "year_start": 2016,
+          "year_end": 2020,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1,
+              2
+            ]
+          },
+          "missing_grounded_fields": [
+            "version_or_trim"
+          ]
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "1.6L",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 115,
+          "transmission": "automatic",
+          "drivetrain": "FWD",
+          "year_start": 2013,
+          "year_end": 2020,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0,
+              1,
+              2
+            ],
+            "fuel_type": [
+              0,
+              1,
+              2
+            ],
+            "engine": [
+              0,
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              0,
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              0,
+              1,
+              2
+            ],
+            "transmission": [
+              0,
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              1,
+              2
+            ]
+          },
+          "missing_grounded_fields": [
+            "version_or_trim"
+          ]
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Sedan",
+          "fuel_type": "diesel",
+          "engine": "1.6L turbo",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 92,
+          "transmission": "manual",
+          "drivetrain": "FWD",
+          "year_start": 2013,
+          "year_end": 2018,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": [
+            "version_or_trim"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Sedan"
+        ],
+        "fuel_type": [
+          "petrol",
+          "diesel"
+        ],
+        "engine": [
+          "1.2L",
+          "1.6L",
+          "1.6L turbo"
+        ],
+        "horsepower_hp": [
+          72,
+          82,
+          115,
+          92
+        ],
+        "transmission": [
+          "manual",
+          "automatic"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "canonical_model": "C-Elysee",
       "profile_confidence": "medium"
     }
   ],
