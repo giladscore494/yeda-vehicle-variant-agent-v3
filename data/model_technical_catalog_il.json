@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T12:32:08Z",
+  "generated_at": "2026-06-17T12:33:05Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -66093,6 +66093,341 @@
       "make": "Chevrolet",
       "model": "Silverado",
       "canonical_model": "Silverado",
+      "profile_confidence": "medium"
+    },
+    {
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "Chevrolet Spark (2011-2015) Specs - iCar",
+          "url": "https://www.icar.co.il/שברולט/שברולט_ספארק_עד_2015/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "Chevrolet Spark (2016-2022) Specs - iCar",
+          "url": "https://www.icar.co.il/שברולט/שברולט_ספארק/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "שברולט ספארק החדשה 2016 בישראל - מחיר החל מ- 60,900 שקל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/שברולט-ספארק-החדשה-2016-בישראל-מחיר-החל-מ-60900-שקל",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "year_start"
+          ]
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "LS / LT / LTZ",
+          "classification": "combination"
+        },
+        {
+          "label": "LT / LT+ / LTZ",
+          "classification": "combination"
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": [
+            "LS"
+          ],
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "1.0L",
+          "engine_displacement_l": 1.0,
+          "horsepower_hp": 68,
+          "transmission": "manual",
+          "drivetrain": "FWD",
+          "year_start": 2011,
+          "year_end": 2015,
+          "support_level": "direct",
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": [
+            "LT",
+            "LTZ"
+          ],
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "1.2L",
+          "engine_displacement_l": 1.2,
+          "horsepower_hp": 82,
+          "transmission": "manual",
+          "drivetrain": "FWD",
+          "year_start": 2011,
+          "year_end": 2015,
+          "support_level": "direct",
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": [
+            "LT"
+          ],
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "1.0L",
+          "engine_displacement_l": 1.0,
+          "horsepower_hp": 74,
+          "transmission": "manual",
+          "drivetrain": "FWD",
+          "year_start": 2016,
+          "year_end": 2018,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1
+            ],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": [
+            "LT+",
+            "LTZ",
+            "Premier"
+          ],
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "1.4L",
+          "engine_displacement_l": 1.4,
+          "horsepower_hp": 98,
+          "transmission": "cvt",
+          "drivetrain": "FWD",
+          "year_start": 2016,
+          "year_end": 2022,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1
+            ],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          [
+            "LS"
+          ],
+          [
+            "LT",
+            "LTZ"
+          ],
+          [
+            "LT"
+          ],
+          [
+            "LT+",
+            "LTZ",
+            "Premier"
+          ]
+        ],
+        "body_type": [
+          "Hatchback"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "1.0L",
+          "1.2L",
+          "1.4L"
+        ],
+        "horsepower_hp": [
+          68,
+          82,
+          74,
+          98
+        ],
+        "transmission": [
+          "manual",
+          "cvt"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "market": "IL",
+      "make": "Chevrolet",
+      "model": "Spark",
+      "canonical_model": "Spark",
       "profile_confidence": "medium"
     }
   ],
