@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T14:43:42Z",
+  "generated_at": "2026-06-17T14:44:09Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -84467,6 +84467,132 @@
       "profile_confidence": "medium",
       "year_start": 1997,
       "year_end": 2002
+    },
+    {
+      "make": "Daewoo",
+      "model": "Matiz",
+      "market": "IL",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "דייהו מאטיז 1998-2001 - מחירון רכב, מפרט טכני",
+          "url": "https://www.kml.co.il/Car/%D7%93%D7%99%D7%99%D7%94%D7%95_%D7%9E%D7%90%D7%98%D7%99%D7%96_1998-2001",
+          "source_name": "KML.co.il",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "דייהו מאטיז - מפרט, גרסאות ומחירים",
+          "url": "https://www.auto.co.il/model/daewoo-matiz",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "0.8L",
+          "engine_displacement_l": 0.8,
+          "horsepower_hp": 51,
+          "transmission": "manual",
+          "drivetrain": "FWD",
+          "year_start": 1998,
+          "year_end": 2001,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Hatchback"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "0.8L"
+        ],
+        "horsepower_hp": [
+          51
+        ],
+        "transmission": [
+          "manual"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "canonical_model": "Matiz",
+      "profile_confidence": "medium",
+      "year_start": 1998,
+      "year_end": 2001
     }
   ],
   "ready_for_website_upload": false
