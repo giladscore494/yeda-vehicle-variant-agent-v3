@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T12:38:28Z",
+  "generated_at": "2026-06-17T12:45:20Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -67064,6 +67064,179 @@
       "make": "Chrysler",
       "model": "300C",
       "canonical_model": "300C",
+      "profile_confidence": "medium"
+    },
+    {
+      "make": "Chrysler",
+      "model": "Crossfire",
+      "market": "IL",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "קרייזלר קרוספייר (2004-2008) - מחירון, חוות דעת, נתונים | iCar",
+          "url": "https://www.icar.co.il/%D7%A7%D7%A8%D7%99%D7%99%D7%96%D7%9C%D7%A8/%D7%A7%D7%A8%D7%99%D7%99%D7%96%D7%9C%D7%A8_%D7%A7%D7%A8%D7%95%D7%A1%D7%A4%D7%99%D7%99%D7%A8/",
+          "source_name": "iCar Israel",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "מחירון רכב קרייזלר קרוספייר | יד2 מחירון רכב (לוי יצחק)",
+          "url": "https://yitzhak-levy.yad2.co.il/car-models/chrysler/crossfire",
+          "source_name": "Yad2 Levi Yitzhak",
+          "source_type": "marketplace",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "Coupe",
+          "version_or_trim": "Limited",
+          "fuel_type": "petrol",
+          "engine": "3.2L v6",
+          "engine_displacement_l": 3.2,
+          "horsepower_hp": 215,
+          "transmission": "automatic",
+          "drivetrain": "RWD",
+          "year_start": 2004,
+          "year_end": 2008,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1
+            ],
+            "version_or_trim": [
+              1
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Roadster",
+          "version_or_trim": "Limited",
+          "fuel_type": "petrol",
+          "engine": "3.2L v6",
+          "engine_displacement_l": 3.2,
+          "horsepower_hp": 215,
+          "transmission": "automatic",
+          "drivetrain": "RWD",
+          "year_start": 2005,
+          "year_end": 2008,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1
+            ],
+            "version_or_trim": [
+              1
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Limited"
+        ],
+        "body_type": [
+          "Coupe",
+          "Roadster"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "3.2L v6"
+        ],
+        "horsepower_hp": [
+          215
+        ],
+        "transmission": [
+          "automatic"
+        ],
+        "drivetrain": [
+          "RWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [],
+      "canonical_model": "Crossfire",
       "profile_confidence": "medium"
     }
   ],
