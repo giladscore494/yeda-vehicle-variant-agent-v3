@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T12:18:33Z",
+  "generated_at": "2026-06-17T12:19:21Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -62943,6 +62943,211 @@
       },
       "market": "IL",
       "canonical_model": "Arrizo 8",
+      "profile_confidence": "medium"
+    },
+    {
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "צ'רי (Chery) נוחתת בישראל: דגמי FX, טיגו 7 פרו וטיגו 8 פרו",
+          "url": "https://www.cartube.co.il/חדשות-רכב/צ-רי-chery-נוחתת-בישראל-דגמי-fx-טיגו-7-פרו-וטיגו-8-פרו",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "צ'רי טיגו 7 פרו - מחירון, מפרטים, אמינות וחוות דעת",
+          "url": "https://www.icar.co.il/Chery/צ'רי_טיגו_7_פרו/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "עם 320 כ\"ס: צ'רי טיגו 7 פרו פלאג-אין PHEV בישראל - מחיר החל מ-199,990 שקל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/עם-320-כ-ס-צ-רי-טיגו-7-פרו-פלאג-אין-phev-בישראל-מחיר-החל-מ-199990-שקל",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Comfort / Noble",
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "1.6L turbo",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 186,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "FWD",
+          "year_start": 2022,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Supreme",
+          "body_type": "SUV",
+          "fuel_type": "plug_in_hybrid",
+          "engine": "1.5L turbo",
+          "engine_displacement_l": 1.5,
+          "horsepower_hp": 320,
+          "transmission": "3-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2024,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              2
+            ],
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              2
+            ],
+            "engine": [
+              2
+            ],
+            "engine_displacement_l": [
+              2
+            ],
+            "horsepower_hp": [
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              2
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": {
+        "Sense": "invalid_hallucination_or_wrong_model",
+        "1.5L Turbo PHEV": "powertrain_designation",
+        "1.6L Turbo": "engine_designation"
+      },
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Comfort / Noble",
+          "Supreme"
+        ],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "petrol",
+          "plug_in_hybrid"
+        ],
+        "engine": [
+          "1.6L turbo",
+          "1.5L turbo"
+        ],
+        "horsepower_hp": [
+          186,
+          320
+        ],
+        "transmission": [
+          "7-speed dual_clutch",
+          "3-speed automatic"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "market": "IL",
+      "make": "Chery",
+      "model": "Tiggo 7 Pro",
+      "canonical_model": "Tiggo 7 Pro",
       "profile_confidence": "medium"
     }
   ],
