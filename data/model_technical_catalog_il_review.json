@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T12:54:45Z",
+  "generated_at": "2026-06-17T12:56:01Z",
   "market": "IL",
   "models": [
     {
@@ -831,6 +831,101 @@
           ],
           "possible_duplicate_rows": 0,
           "validation_id_count": 3
+        },
+        "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
+      },
+      "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Citroen",
+      "model": "C3 Picasso",
+      "canonical_model": "C3 Picasso",
+      "year_start": null,
+      "year_end": null,
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [],
+      "profile_confidence": null,
+      "notes": [],
+      "error": "Gemini catalog client returned non-object JSON",
+      "request_payload": {
+        "task": "build_israeli_model_technical_catalog",
+        "market": "IL",
+        "make": "Citroen",
+        "model": "C3 Picasso",
+        "raw_database_values": {
+          "years_seen": [
+            2009,
+            2010,
+            2015,
+            2017
+          ],
+          "trims_seen": [
+            "Comfort"
+          ],
+          "engines_seen": [
+            "1.2L PureTech 110 hp",
+            "1.4L 95 hp",
+            "1.6L 115/120 hp",
+            "1.6L 92 hp"
+          ],
+          "horsepower_seen": [],
+          "transmissions_seen": [
+            "automatic",
+            "manual",
+            "unknown"
+          ],
+          "body_types_seen": [
+            "Compact Van"
+          ],
+          "fuel_types_seen": [
+            "diesel",
+            "petrol"
+          ],
+          "drivetrains_seen": [
+            "FWD"
+          ]
+        },
+        "sample_validation_ids": [
+          "VAL-000805",
+          "VAL-000806",
+          "VAL-000807",
+          "VAL-000808",
+          "VAL-000809",
+          "VAL-000810"
+        ],
+        "source_indexes": [
+          299,
+          300,
+          301,
+          302,
+          303,
+          304
+        ],
+        "metadata_hints": {
+          "priorities_seen": [
+            "high",
+            "medium"
+          ],
+          "validation_routes_seen": [
+            "cheap_model_structured_validation",
+            "strong_model_or_manual_review"
+          ],
+          "possible_duplicate_rows": 0,
+          "validation_id_count": 6
         },
         "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
       },
