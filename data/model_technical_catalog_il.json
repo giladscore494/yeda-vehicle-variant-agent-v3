@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T12:27:38Z",
+  "generated_at": "2026-06-17T12:28:33Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -64732,6 +64732,228 @@
         }
       ],
       "canonical_model": "Cruze",
+      "profile_confidence": "medium"
+    },
+    {
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "שברולט אקווינוקס - מחירון, מפרטים, אמינות",
+          "url": "https://www.icar.co.il/%D7%A9%D7%91%D7%A8%D7%95%D7%9C%D7%98/%D7%A9%D7%91%D7%A8%D7%95%D7%9C%D7%98_%D7%90%D7%A7%D7%95%D7%95%D7%99%D7%A0%D7%95%D7%A7%D7%A1/",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "שברולט אקווינוקס החדש 2018 בישראל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%A9%D7%91%D7%A8%D7%95%D7%9C%D7%98-%D7%90%D7%A7%D7%95%D7%95%D7%99%D7%A0%D7%95%D7%A7%D7%A1-%D7%94%D7%97%D7%93%D7%A9-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-149900-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "שברולט אקווינוקס - מפרט טכני",
+          "url": "https://www.chevrolet.co.il/equinox/",
+          "source_name": "Chevrolet Israel Official",
+          "source_type": "official_importer",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "LTP",
+          "classification": "misspelled_or_typo"
+        },
+        {
+          "label": "1.5L Turbo",
+          "classification": "engine_displacement_and_aspiration"
+        },
+        {
+          "label": "2.4L",
+          "classification": "engine_displacement"
+        },
+        {
+          "label": "automatic",
+          "classification": "transmission"
+        },
+        {
+          "label": "AWD",
+          "classification": "drivetrain"
+        },
+        {
+          "label": "FWD",
+          "classification": "drivetrain"
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "2.4L",
+          "engine_displacement_l": 2.4,
+          "horsepower_hp": 182,
+          "transmission": "6-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2016,
+          "year_end": 2017,
+          "support_level": "direct",
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": [
+            "version_or_trim"
+          ]
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "1.5L turbo",
+          "engine_displacement_l": 1.5,
+          "horsepower_hp": 170,
+          "transmission": "6-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2018,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0,
+              2
+            ],
+            "fuel_type": [
+              0,
+              2
+            ],
+            "engine": [
+              0,
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              0,
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              0,
+              1,
+              2
+            ],
+            "transmission": [
+              0,
+              1,
+              2
+            ],
+            "drivetrain": [
+              0,
+              1,
+              2
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": [
+            "version_or_trim"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "2.4L",
+          "1.5L turbo"
+        ],
+        "horsepower_hp": [
+          182,
+          170
+        ],
+        "transmission": [
+          "6-speed automatic"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "market": "IL",
+      "make": "Chevrolet",
+      "model": "Equinox",
+      "canonical_model": "Equinox",
       "profile_confidence": "medium"
     }
   ],
