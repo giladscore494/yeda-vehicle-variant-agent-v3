@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T16:43:53Z",
+  "generated_at": "2026-06-17T16:44:53Z",
   "market": "IL",
   "models": [
     {
@@ -468,6 +468,205 @@
       "rebuild_required": true,
       "validation_issues": [
         "technical_variants_il is empty"
+      ]
+    },
+    {
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "דודג' ג'רני (2008-2016) - מחירון רכב, מפרט טכני",
+          "url": "https://www.auto.co.il/model/dodge-journey_g248",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "דודג' ג'רני 2012 החדש נוחת בישראל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%93%D7%95%D7%93%D7%92-%D7%92%D7%A8%D7%A0%D7%99-2012-%D7%94%D7%97%D7%93%D7%A9-%D7%A0%D7%95%D7%97%D7%AA-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "version_or_trim",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "דודג' ג'רני יד שניה",
+          "url": "https://www.icar.co.il/%D7%93%D7%95%D7%93%D7%92'/%D7%93%D7%95%D7%93%D7%92'_%D7%92'%D7%A8%D7%A0%D7%99/%D7%93%D7%95%D7%93%D7%92'_%D7%92'%D7%A8%D7%A0%D7%99_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%94_1/",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "2.4L",
+          "engine_displacement_l": 2.4,
+          "horsepower_hp": 170,
+          "transmission": "4-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2008,
+          "year_end": 2016,
+          "version_or_trim": "SXT",
+          "support_level": "direct",
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0,
+              2
+            ],
+            "year_end": [
+              0,
+              2
+            ],
+            "version_or_trim": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "3.6L v6",
+          "engine_displacement_l": 3.6,
+          "horsepower_hp": 283,
+          "transmission": "6-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2012,
+          "year_end": 2016,
+          "version_or_trim": "R/T",
+          "support_level": "direct",
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": [
+              0,
+              2
+            ],
+            "version_or_trim": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "SXT",
+          "R/T"
+        ],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "2.4L",
+          "3.6L v6"
+        ],
+        "horsepower_hp": [
+          170,
+          283
+        ],
+        "transmission": [
+          "4-speed automatic",
+          "6-speed automatic"
+        ],
+        "drivetrain": [
+          "FWD",
+          "AWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": {},
+      "market": "IL",
+      "make": "Dodge",
+      "model": "Journey",
+      "canonical_model": "Journey",
+      "profile_confidence": "medium",
+      "year_start": 2008,
+      "year_end": 2016,
+      "validation_issues": [
+        "variant[0] has no source_indexes",
+        "variant[0] support_level=direct but no source directly supports it",
+        "variant[1] has no source_indexes",
+        "variant[1] support_level=direct but no source directly supports it"
       ]
     }
   ]
