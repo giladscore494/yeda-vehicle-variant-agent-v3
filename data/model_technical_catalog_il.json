@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T12:14:31Z",
+  "generated_at": "2026-06-17T12:15:09Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -62145,6 +62145,219 @@
         }
       ],
       "canonical_model": "SRX",
+      "profile_confidence": "medium"
+    },
+    {
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "קדילאק XT4 - רכב פנאי יוקרתי | קדילאק ישראל",
+          "url": "https://cadillac.co.il/models/xt4/",
+          "source_name": "Cadillac Israel (UMI)",
+          "source_type": "official_importer",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "קדילאק XT4 בישראל - מחיר החל מ-264,900 שקל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%A7%D7%93%D7%99%D7%9C%D7%90%D7%A7-xt4-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-264900-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "year_start",
+            "horsepower_hp",
+            "engine",
+            "transmission",
+            "drivetrain",
+            "engine_displacement_l",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "קדילאק XT4 - מחירון רכב, מבחני דרכים וחוות דעת - iCar",
+          "url": "https://www.icar.co.il/%D7%A7%D7%93%D7%99%D7%9C%D7%90%D7%A7/%D7%A7%D7%93%D7%99%D7%9C%D7%90%D7%A7_XT4/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "year_start",
+            "year_end",
+            "body_type",
+            "fuel_type",
+            "horsepower_hp",
+            "engine",
+            "transmission",
+            "drivetrain",
+            "engine_displacement_l",
+            "version_or_trim"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Premium Luxury",
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 237,
+          "transmission": "9-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2019,
+          "year_end": 2025,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1,
+              2
+            ],
+            "body_type": [
+              0,
+              2
+            ],
+            "fuel_type": [
+              0,
+              2
+            ],
+            "engine": [
+              0,
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              0,
+              1,
+              2
+            ],
+            "transmission": [
+              0,
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Sport",
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 237,
+          "transmission": "9-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2019,
+          "year_end": 2025,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1,
+              2
+            ],
+            "body_type": [
+              0,
+              2
+            ],
+            "fuel_type": [
+              0,
+              2
+            ],
+            "engine": [
+              0,
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              0,
+              1,
+              2
+            ],
+            "transmission": [
+              0,
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Premium Luxury",
+          "Sport"
+        ],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "2.0L turbo"
+        ],
+        "horsepower_hp": [
+          237
+        ],
+        "transmission": [
+          "9-speed automatic"
+        ],
+        "drivetrain": [
+          "FWD",
+          "AWD"
+        ]
+      },
+      "market": "IL",
+      "make": "Cadillac",
+      "model": "XT4",
+      "canonical_model": "XT4",
       "profile_confidence": "medium"
     }
   ],
