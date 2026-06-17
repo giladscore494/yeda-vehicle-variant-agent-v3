@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T12:45:20Z",
+  "generated_at": "2026-06-17T12:46:17Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -67237,6 +67237,203 @@
       },
       "invalid_or_non_trim_labels": [],
       "canonical_model": "Crossfire",
+      "profile_confidence": "medium"
+    },
+    {
+      "make": "Chrysler",
+      "model": "Pacifica",
+      "market": "IL",
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Limited",
+          "body_type": "MPV",
+          "fuel_type": "petrol",
+          "engine": "3.6L v6",
+          "engine_displacement_l": 3.6,
+          "horsepower_hp": 280,
+          "transmission": "9-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2018,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Hybrid Limited",
+          "body_type": "MPV",
+          "fuel_type": "plug_in_hybrid",
+          "engine": "3.6L v6",
+          "engine_displacement_l": 3.6,
+          "horsepower_hp": 260,
+          "transmission": "cvt",
+          "drivetrain": "FWD",
+          "year_start": 2019,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Limited",
+          "Hybrid Limited"
+        ],
+        "body_type": [
+          "MPV"
+        ],
+        "fuel_type": [
+          "petrol",
+          "plug_in_hybrid"
+        ],
+        "engine": [
+          "3.6L v6"
+        ],
+        "horsepower_hp": [
+          280,
+          260
+        ],
+        "transmission": [
+          "9-speed automatic",
+          "cvt"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "קרייזלר פסיפיקה קטלוג רכבים, מחירון, מפרט טכני - אוטו",
+          "url": "https://www.auto.co.il/model/chrysler-pacifica_g1325",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial_spec_catalog",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "קרייזלר פסיפיקה חדש - מחירון, מבחני דרכים ומפרט טכני | iCar",
+          "url": "https://www.icar.co.il/%D7%A7%D7%A8%D7%99%D7%99%D7%96%D7%9C%D7%A8/%D7%A7%D7%A8%D7%99%D7%99%D7%96%D7%9C%D7%A8_%D7%A4%D7%A1%D7%99%D7%A4%D7%99%D7%A7%D7%94/",
+          "source_name": "iCar.co.il",
+          "source_type": "editorial_spec_catalog",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "invalid_or_non_trim_labels": [],
+      "canonical_model": "Pacifica",
       "profile_confidence": "medium"
     }
   ],
