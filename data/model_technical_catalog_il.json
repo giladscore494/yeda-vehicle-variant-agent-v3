@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T12:57:46Z",
+  "generated_at": "2026-06-17T12:58:56Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -71314,6 +71314,552 @@
       "make": "Citroen",
       "model": "C4 Picasso",
       "canonical_model": "C4 Picasso",
+      "profile_confidence": "medium"
+    },
+    {
+      "task": "build_israeli_model_technical_catalog",
+      "market": "IL",
+      "make": "Citroen",
+      "model": "C5",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "Citroen C5 Gen 1 (2001-2008) Technical Specifications - iCar",
+          "url": "https://www.icar.co.il/%D7%A1%D7%99%D7%98%D7%A8%D7%95%D7%90%D7%9F/%D7%A1%D7%99%D7%98%D7%A8%D7%95%D7%90%D7%9F_C5/%D7%A1%D7%99%D7%98%D7%A8%D7%95%D7%90%D7%9F_C5_%D7%93%D7%95%D7%A8_1_%D7%9E%D7%A4%D7%A8%D7%98_%D7%98%D7%9B%D7%A0%D7%99/",
+          "source_name": "iCar Israel",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "Citroen C5 Gen 2 (2008-2017) Technical Specifications - iCar",
+          "url": "https://www.icar.co.il/%D7%A1%D7%99%D7%98%D7%A8%D7%95%D7%90%D7%9F/%D7%A1%D7%99%D7%98%D7%A8%D7%95%D7%90%D7%9F_C5/%D7%A1%D7%99%D7%98%D7%A8%D7%95%D7%90%D7%9F_C5_%D7%93%D7%95%D7%A8_2_%D7%9E%D7%A4%D7%A8%D7%98_%D7%98%D7%9B%D7%A0%D7%99/",
+          "source_name": "iCar Israel",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "Citroen C5 Specifications - Gear.co.il",
+          "url": "https://gear.co.il/%D7%A1%D7%99%D7%98%D7%A8%D7%95%D7%90%D7%9F_C5",
+          "source_name": "Gear Israel",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "Liftback",
+          "fuel_type": "petrol",
+          "engine": "2.0L",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 136,
+          "transmission": "automatic",
+          "drivetrain": "FWD",
+          "year_start": 2001,
+          "year_end": 2008,
+          "version_or_trim": "SX",
+          "support_level": "direct",
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ],
+            "version_or_trim": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Estate",
+          "fuel_type": "petrol",
+          "engine": "2.0L",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 136,
+          "transmission": "automatic",
+          "drivetrain": "FWD",
+          "year_start": 2001,
+          "year_end": 2008,
+          "version_or_trim": "SX",
+          "support_level": "direct",
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ],
+            "version_or_trim": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Liftback",
+          "fuel_type": "diesel",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 109,
+          "transmission": "manual",
+          "drivetrain": "FWD",
+          "year_start": 2001,
+          "year_end": 2004,
+          "version_or_trim": "SX",
+          "support_level": "direct",
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ],
+            "version_or_trim": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Liftback",
+          "fuel_type": "petrol",
+          "engine": "3.0L v6",
+          "engine_displacement_l": 3.0,
+          "horsepower_hp": 207,
+          "transmission": "automatic",
+          "drivetrain": "FWD",
+          "year_start": 2001,
+          "year_end": 2008,
+          "version_or_trim": "Exclusive",
+          "support_level": "direct",
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ],
+            "version_or_trim": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "2.0L",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 143,
+          "transmission": "automatic",
+          "drivetrain": "FWD",
+          "year_start": 2008,
+          "year_end": 2010,
+          "version_or_trim": "Comfort",
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": [
+              1,
+              2
+            ],
+            "version_or_trim": [
+              1,
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "1.6L turbo",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 156,
+          "transmission": "automatic",
+          "drivetrain": "FWD",
+          "year_start": 2010,
+          "year_end": 2017,
+          "version_or_trim": "Comfort",
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": [
+              1,
+              2
+            ],
+            "version_or_trim": [
+              1,
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Estate",
+          "fuel_type": "petrol",
+          "engine": "1.6L turbo",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 156,
+          "transmission": "automatic",
+          "drivetrain": "FWD",
+          "year_start": 2010,
+          "year_end": 2017,
+          "version_or_trim": "Exclusive",
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": [
+              1,
+              2
+            ],
+            "version_or_trim": [
+              1,
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Sedan",
+          "fuel_type": "diesel",
+          "engine": "3.0L v6 turbo",
+          "engine_displacement_l": 3.0,
+          "horsepower_hp": 240,
+          "transmission": "automatic",
+          "drivetrain": "FWD",
+          "year_start": 2010,
+          "year_end": 2012,
+          "version_or_trim": "Exclusive",
+          "support_level": "direct",
+          "source_indexes": [
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ],
+            "version_or_trim": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "1.6 AT",
+          "classification": "engine_and_transmission"
+        },
+        {
+          "label": "2.0 AT",
+          "classification": "engine_and_transmission"
+        },
+        {
+          "label": "2.0 MT",
+          "classification": "engine_and_transmission"
+        },
+        {
+          "label": "3.0 AT",
+          "classification": "engine_and_transmission"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "SX",
+          "Exclusive",
+          "Comfort"
+        ],
+        "body_type": [
+          "Liftback",
+          "Estate",
+          "Sedan"
+        ],
+        "fuel_type": [
+          "petrol",
+          "diesel"
+        ],
+        "engine": [
+          "2.0L",
+          "2.0L turbo",
+          "3.0L v6",
+          "1.6L turbo",
+          "3.0L v6 turbo"
+        ],
+        "horsepower_hp": [
+          136,
+          109,
+          207,
+          143,
+          156,
+          240
+        ],
+        "transmission": [
+          "automatic",
+          "manual"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "canonical_model": "C5",
       "profile_confidence": "medium"
     }
   ],
