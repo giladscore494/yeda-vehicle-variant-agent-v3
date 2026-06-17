@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-06-17T18:48:27Z",
+  "generated_at": "2026-06-17T22:14:42Z",
   "totals": {
-    "models": 297,
-    "findings": 440,
-    "grounded_cells": 9289,
-    "total_cells": 9289,
-    "marketplace_citation_share": 0.06009774935135461,
-    "official_citations": 16374,
+    "models": 298,
+    "findings": 441,
+    "grounded_cells": 9362,
+    "total_cells": 9362,
+    "marketplace_citation_share": 0.059730134932533735,
+    "official_citations": 16476,
     "bug": 0,
     "leak": 111,
     "normalization": 0,
-    "structure": 329
+    "structure": 330
   },
   "findings": [
     {
@@ -2523,6 +2523,13 @@
       "type": "grounding_completeness",
       "severity": "structure",
       "make": "Chevrolet",
+      "model": "Optra",
+      "detail": "45/45 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Chevrolet",
       "model": "Orlando",
       "detail": "30/30 grounded cells (100.0%)"
     },
@@ -2873,6 +2880,13 @@
       "type": "grounding_completeness",
       "severity": "structure",
       "make": "Cupra",
+      "model": "Formentor",
+      "detail": "63/63 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Cupra",
       "model": "Leon",
       "detail": "46/46 grounded cells (100.0%)"
     },
@@ -2888,21 +2902,21 @@
       "severity": "structure",
       "make": "Dacia",
       "model": "Bigster",
-      "detail": "24/24 grounded cells (100.0%)"
+      "detail": "45/45 grounded cells (100.0%)"
     },
     {
       "type": "grounding_completeness",
       "severity": "structure",
       "make": "Dacia",
       "model": "Dokker",
-      "detail": "20/20 grounded cells (100.0%)"
+      "detail": "30/30 grounded cells (100.0%)"
     },
     {
       "type": "grounding_completeness",
       "severity": "structure",
       "make": "Dacia",
       "model": "Duster",
-      "detail": "90/90 grounded cells (100.0%)"
+      "detail": "97/97 grounded cells (100.0%)"
     },
     {
       "type": "grounding_completeness",
@@ -2923,14 +2937,14 @@
       "severity": "structure",
       "make": "Dacia",
       "model": "Logan",
-      "detail": "28/28 grounded cells (100.0%)"
+      "detail": "27/27 grounded cells (100.0%)"
     },
     {
       "type": "grounding_completeness",
       "severity": "structure",
       "make": "Dacia",
       "model": "Sandero",
-      "detail": "39/39 grounded cells (100.0%)"
+      "detail": "38/38 grounded cells (100.0%)"
     },
     {
       "type": "grounding_completeness",
@@ -2944,7 +2958,7 @@
       "severity": "structure",
       "make": "Daewoo",
       "model": "Espero",
-      "detail": "36/36 grounded cells (100.0%)"
+      "detail": "27/27 grounded cells (100.0%)"
     },
     {
       "type": "grounding_completeness",
@@ -2957,15 +2971,8 @@
       "type": "grounding_completeness",
       "severity": "structure",
       "make": "Daewoo",
-      "model": "Lacetti",
-      "detail": "45/45 grounded cells (100.0%)"
-    },
-    {
-      "type": "grounding_completeness",
-      "severity": "structure",
-      "make": "Daewoo",
       "model": "Lanos",
-      "detail": "54/54 grounded cells (100.0%)"
+      "detail": "45/45 grounded cells (100.0%)"
     },
     {
       "type": "grounding_completeness",
@@ -3000,7 +3007,7 @@
       "severity": "structure",
       "make": "Daewoo",
       "model": "Tico",
-      "detail": "18/18 grounded cells (100.0%)"
+      "detail": "9/9 grounded cells (100.0%)"
     },
     {
       "type": "grounding_completeness",
@@ -3042,7 +3049,7 @@
       "severity": "structure",
       "make": "Daihatsu",
       "model": "Sirion",
-      "detail": "28/28 grounded cells (100.0%)"
+      "detail": "29/29 grounded cells (100.0%)"
     },
     {
       "type": "grounding_completeness",
@@ -3095,7 +3102,7 @@
     }
   ],
   "counts_by_type": {
-    "grounding_completeness": 297,
+    "grounding_completeness": 298,
     "year_split_duplicates": 32,
     "source_tier_inversion": 106,
     "source_domain": 5
