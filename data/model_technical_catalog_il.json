@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T12:19:21Z",
+  "generated_at": "2026-06-17T12:20:17Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -63148,6 +63148,254 @@
       "make": "Chery",
       "model": "Tiggo 7 Pro",
       "canonical_model": "Tiggo 7 Pro",
+      "profile_confidence": "medium"
+    },
+    {
+      "technical_variants_il": [
+        {
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "1.6L turbo",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 186,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "FWD",
+          "year_start": 2022,
+          "year_end": 2024,
+          "version_or_trim": [
+            "Luxury",
+            "Noble"
+          ],
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1,
+              2
+            ],
+            "fuel_type": [
+              0,
+              1,
+              2
+            ],
+            "engine": [
+              0,
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              0,
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              0,
+              1,
+              2
+            ],
+            "transmission": [
+              0,
+              1,
+              2
+            ],
+            "drivetrain": [
+              0,
+              1,
+              2
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              1
+            ],
+            "version_or_trim": [
+              0,
+              1,
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "SUV",
+          "fuel_type": "plug_in_hybrid",
+          "engine": "1.5L turbo",
+          "engine_displacement_l": 1.5,
+          "horsepower_hp": 318,
+          "transmission": "3-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2023,
+          "year_end": 2024,
+          "version_or_trim": [
+            "Ultimate"
+          ],
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            3
+          ],
+          "field_sources": {
+            "body_type": [
+              1,
+              3
+            ],
+            "fuel_type": [
+              1,
+              3
+            ],
+            "engine": [
+              1,
+              3
+            ],
+            "engine_displacement_l": [
+              1,
+              3
+            ],
+            "horsepower_hp": [
+              1,
+              3
+            ],
+            "transmission": [
+              1,
+              3
+            ],
+            "drivetrain": [
+              1,
+              3
+            ],
+            "year_start": [
+              3
+            ],
+            "year_end": [
+              1
+            ],
+            "version_or_trim": [
+              1,
+              3
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "צ'רי טיגו 8 פרו בישראל - מפרט טכני",
+          "url": "https://www.cartube.co.il/חדשות-רכב/צרי-טיגו-8-פרו-בישראל-מחירים-החל-מ-167990-שקל",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "צ'רי טיגו 8 פרו - מחירון, מפרטים ואמינות",
+          "url": "https://www.icar.co.il/צ'רי/צ'רי_טיגו_8_פרו/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "טיגו 8 פרו - האתר הרשמי",
+          "url": "https://cheryisrael.co.il/models/tiggo-8-pro/",
+          "source_name": "Chery Israel",
+          "source_type": "official",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "החל מ-279,990 שקל: צ'רי טיגו 8 פרו פלאג-אין בישראל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/החל-מ-279990-שקל-צרי-טיגו-8-פרו-פלאג-אין-בישראל",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "version_or_trim"
+          ]
+        }
+      ],
+      "invalid_or_non_trim_labels": [],
+      "available_values_for_website": {
+        "version_or_trim": [
+          [
+            "Luxury",
+            "Noble"
+          ],
+          [
+            "Ultimate"
+          ]
+        ],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "petrol",
+          "plug_in_hybrid"
+        ],
+        "engine": [
+          "1.6L turbo",
+          "1.5L turbo"
+        ],
+        "horsepower_hp": [
+          186,
+          318
+        ],
+        "transmission": [
+          "7-speed dual_clutch",
+          "3-speed automatic"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "market": "IL",
+      "make": "Chery",
+      "model": "Tiggo 8 Pro",
+      "canonical_model": "Tiggo 8 Pro",
       "profile_confidence": "medium"
     }
   ],
