@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T12:56:30Z",
+  "generated_at": "2026-06-17T12:57:24Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -70949,6 +70949,371 @@
       ],
       "market": "IL",
       "canonical_model": "C4",
+      "profile_confidence": "medium"
+    },
+    {
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "סיטרואן C4 פיקאסו (2007-2013) - מפרט טכני",
+          "url": "https://www.icar.co.il/citroen/c4_picasso/2007/",
+          "source_name": "iCar Israel",
+          "source_type": "specs",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "סיטרואן C4 פיקאסו (2014-2018) - מפרט טכני",
+          "url": "https://www.icar.co.il/citroen/c4_picasso/2014/",
+          "source_name": "iCar Israel",
+          "source_type": "specs",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "סיטרואן C4 פיקאסו החדש 2014 בישראל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/סיטרואן-c4-פיקאסו-החדש-2014-בישראל",
+          "source_name": "Cartube Israel",
+          "source_type": "editorial",
+          "supports": [
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "year_start"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "MPV",
+          "fuel_type": "petrol",
+          "engine": "2.0L",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 143,
+          "transmission": "automatic",
+          "drivetrain": "FWD",
+          "year_start": 2007,
+          "year_end": 2013,
+          "support_level": "direct",
+          "version_or_trim": null,
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ],
+            "version_or_trim": []
+          },
+          "missing_grounded_fields": [
+            "version_or_trim"
+          ]
+        },
+        {
+          "body_type": "MPV",
+          "fuel_type": "petrol",
+          "engine": "1.6L turbo",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 156,
+          "transmission": "automatic",
+          "drivetrain": "FWD",
+          "year_start": 2010,
+          "year_end": 2013,
+          "support_level": "direct",
+          "version_or_trim": null,
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ],
+            "version_or_trim": []
+          },
+          "missing_grounded_fields": [
+            "version_or_trim"
+          ]
+        },
+        {
+          "body_type": "MPV",
+          "fuel_type": "petrol",
+          "engine": "1.6L turbo",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 165,
+          "transmission": "6-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2014,
+          "year_end": 2018,
+          "support_level": "direct",
+          "version_or_trim": null,
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": [
+              1
+            ],
+            "version_or_trim": []
+          },
+          "missing_grounded_fields": [
+            "version_or_trim"
+          ]
+        },
+        {
+          "body_type": "MPV",
+          "fuel_type": "diesel",
+          "engine": "1.6L turbo",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 120,
+          "transmission": "6-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2015,
+          "year_end": 2018,
+          "support_level": "direct",
+          "version_or_trim": null,
+          "source_indexes": [
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ],
+            "version_or_trim": []
+          },
+          "missing_grounded_fields": [
+            "version_or_trim"
+          ]
+        },
+        {
+          "body_type": "MPV",
+          "fuel_type": "diesel",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 150,
+          "transmission": "6-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2014,
+          "year_end": 2018,
+          "support_level": "direct",
+          "version_or_trim": null,
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": [
+              1
+            ],
+            "version_or_trim": []
+          },
+          "missing_grounded_fields": [
+            "version_or_trim"
+          ]
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "1.6L Diesel",
+          "classification": "engine_displacement_and_fuel"
+        },
+        {
+          "label": "1.6L Turbo Petrol",
+          "classification": "engine_displacement_and_fuel"
+        },
+        {
+          "label": "2.0L Petrol",
+          "classification": "engine_displacement_and_fuel"
+        },
+        {
+          "label": "Minivan",
+          "classification": "body_type"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "MPV"
+        ],
+        "fuel_type": [
+          "petrol",
+          "diesel"
+        ],
+        "engine": [
+          "2.0L",
+          "1.6L turbo",
+          "2.0L turbo"
+        ],
+        "horsepower_hp": [
+          143,
+          156,
+          165,
+          120,
+          150
+        ],
+        "transmission": [
+          "automatic",
+          "6-speed automatic"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "market": "IL",
+      "make": "Citroen",
+      "model": "C4 Picasso",
+      "canonical_model": "C4 Picasso",
       "profile_confidence": "medium"
     }
   ],
