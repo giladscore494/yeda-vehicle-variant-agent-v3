@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T12:17:11Z",
+  "generated_at": "2026-06-17T12:17:54Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -62840,6 +62840,109 @@
         ]
       },
       "canonical_model": "XT6",
+      "profile_confidence": "medium"
+    },
+    {
+      "make": "Chery",
+      "model": "Arrizo 8",
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Noble",
+          "body_type": "Sedan",
+          "fuel_type": "plug_in_hybrid",
+          "engine": "1.5L turbo",
+          "engine_displacement_l": 1.5,
+          "horsepower_hp": 347,
+          "transmission": "automatic",
+          "drivetrain": "FWD",
+          "year_start": 2024,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1
+            ],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [],
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "צ'רי אריזו 8 פלאג-אין PHEV (סדאן) בישראל - מפרט, גרסאות ומחירים",
+          "url": "https://www.cartube.co.il/chery-arrizo-8-phev-israel",
+          "source_name": "Cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Noble"
+        ],
+        "body_type": [
+          "Sedan"
+        ],
+        "fuel_type": [
+          "plug_in_hybrid"
+        ],
+        "engine": [
+          "1.5L turbo"
+        ],
+        "horsepower_hp": [
+          347
+        ],
+        "transmission": [
+          "automatic"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "market": "IL",
+      "canonical_model": "Arrizo 8",
       "profile_confidence": "medium"
     }
   ],
