@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T12:22:09Z",
+  "generated_at": "2026-06-17T12:22:44Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -63706,6 +63706,129 @@
         ]
       },
       "canonical_model": "Aveo",
+      "profile_confidence": "medium"
+    },
+    {
+      "make": "Chevrolet",
+      "model": "Blazer EV",
+      "market": "IL",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "שברולט בלייזר EV - מפרט טכני",
+          "url": "https://www.chevrolet.co.il/blazer-ev",
+          "source_name": "UMI Israel (Official Chevrolet Importer)",
+          "source_type": "official_importer",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "שברולט בלייזר EV בישראל",
+          "url": "https://www.icar.co.il/chevrolet/blazer_ev",
+          "source_name": "iCar",
+          "source_type": "automotive_catalog",
+          "supports": [
+            "year_start",
+            "horsepower_hp",
+            "drivetrain",
+            "body_type",
+            "version_or_trim"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "RS",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 288,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2024,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "engine_displacement_l",
+            "year_end"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "RS"
+        ],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          288
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "AWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Dual Electric Motors 300 hp",
+          "classification": "engine_powertrain_specification"
+        }
+      ],
+      "canonical_model": "Blazer EV",
       "profile_confidence": "medium"
     }
   ],
