@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T11:00:02Z",
+  "generated_at": "2026-06-18T11:00:46Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -116172,6 +116172,154 @@
       "profile_confidence": "medium",
       "year_start": 1992,
       "year_end": 2000
+    },
+    {
+      "make": "Honda",
+      "model": "ZR-V",
+      "market": "IL",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "הונדה ZR-V החדש - מפרט טכני",
+          "url": "https://www.icar.co.il/%D7%94%D7%95%D7%A0%D7%93%D7%94/%D7%94%D7%95%D7%A0%D7%93%D7%94_ZR-V/%D7%94%D7%95%D7%A0%D7%93%D7%94_ZR-V_%D7%97%D7%93%D7%A9/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "הונדה ZR-V בישראל - מחיר החל מ- 236,900 שקל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%94%D7%95%D7%A0%D7%93%D7%94-zr-v-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-236,900-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "year_start",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "ZR-V - הונדה ישראל",
+          "url": "https://honda.co.il/models/zr-v/",
+          "source_name": "Honda Israel Official",
+          "source_type": "official_importer",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Crossover",
+          "fuel_type": "hybrid",
+          "engine": "2.0L",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 184,
+          "transmission": "cvt",
+          "drivetrain": "FWD",
+          "year_start": 2023,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              2
+            ],
+            "fuel_type": [
+              0,
+              1,
+              2
+            ],
+            "engine": [
+              0,
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              0,
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              0,
+              1,
+              2
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "2.0L e:HEV (184 hp)",
+          "classification": "engine_and_horsepower"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Crossover"
+        ],
+        "fuel_type": [
+          "hybrid"
+        ],
+        "engine": [
+          "2.0L"
+        ],
+        "horsepower_hp": [
+          184
+        ],
+        "transmission": [
+          "cvt"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "canonical_model": "ZR-V",
+      "profile_confidence": "medium",
+      "year_start": 2023,
+      "year_end": 2024
     }
   ],
   "ready_for_website_upload": false
