@@ -594,20 +594,20 @@ def test_resume_state_readiness_models_blocked_overrides_review_only_count(tmp_p
     assert state["blocked"] == 3
 
 
-def test_current_catalog_resume_state_advances_past_repaired_bmw_blockers():
+def test_current_catalog_resume_state_advances_through_batch23_window():
     state = cb.compute_resume_state()
 
-    assert state["clean_count"] == 298
+    assert state["clean_count"] == 369
     assert state["review_entries_count"] == 0
     assert state["review_overlap_count"] == 0
     assert state["review_only_blocked_count"] == 0
     assert state["active_blocked_count"] == 0
     assert state["blocked"] == 0
-    assert state["resume_after_key"] == "IL|Dodge|Nitro"
-    assert state["next_key_to_process"] == "IL|Dodge|Ram"
-    assert state["next_key"] == "IL|Dodge|Ram"
-    assert state["next_make"] == "Dodge"
-    assert state["next_model"] == "Ram"
+    assert state["resume_after_key"] == "IL|Honda|CR-Z"
+    assert state["next_key_to_process"] == "IL|Honda|e:Ny1"
+    assert state["next_key"] == "IL|Honda|e:Ny1"
+    assert state["next_make"] == "Honda"
+    assert state["next_model"] == "e:Ny1"
     assert state["unmatched_output_keys_count"] == 0
     assert state["unmatched_output_keys_sample"] == []
-    assert state["split_profile_alias_count"] >= 5
+    assert state["split_profile_alias_count"] >= 17

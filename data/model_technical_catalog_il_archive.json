@@ -1,7 +1,94 @@
 {
-  "generated_at": "2026-06-17T18:48:27Z",
+  "generated_at": "2026-06-18T09:13:37Z",
   "market": "IL",
   "models": [
+    {
+      "market": "IL",
+      "make": "Daewoo",
+      "model": "Cielo",
+      "canonical_model": "Cielo",
+      "year_start": null,
+      "year_end": null,
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [],
+      "profile_confidence": null,
+      "notes": [],
+      "error": "Extra data: line 298 column 1 (char 7500)",
+      "request_payload": {
+        "task": "build_israeli_model_technical_catalog",
+        "market": "IL",
+        "make": "Daewoo",
+        "model": "Cielo",
+        "raw_database_values": {
+          "years_seen": [
+            1995,
+            1998
+          ],
+          "trims_seen": [
+            "GL",
+            "GLX"
+          ],
+          "engines_seen": [
+            "1.5L"
+          ],
+          "horsepower_seen": [],
+          "transmissions_seen": [
+            "automatic",
+            "manual"
+          ],
+          "body_types_seen": [
+            "Hatchback",
+            "Sedan"
+          ],
+          "fuel_types_seen": [
+            "petrol"
+          ],
+          "drivetrains_seen": [
+            "FWD"
+          ]
+        },
+        "sample_validation_ids": [
+          "VAL-000943",
+          "VAL-000944",
+          "VAL-000945",
+          "VAL-000946"
+        ],
+        "source_indexes": [
+          218,
+          219,
+          220,
+          221
+        ],
+        "metadata_hints": {
+          "priorities_seen": [
+            "medium"
+          ],
+          "validation_routes_seen": [
+            "cheap_model_structured_validation"
+          ],
+          "possible_duplicate_rows": 0,
+          "validation_id_count": 4
+        },
+        "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
+      },
+      "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
+      ],
+      "archive_reason": "horsepower is not source-grounded and required by website gate",
+      "archived_at": "2026-06-17T18:47:33Z",
+      "non_blocking": true
+    },
     {
       "sources": [
         {
@@ -152,91 +239,273 @@
       "non_blocking": true
     },
     {
+      "market": "IL-confirmed",
+      "make": "Ford",
+      "model": "EcoSport",
+      "source_key": "IL-confirmed|Ford|EcoSport",
+      "canonical_make": "Ford",
+      "canonical_model": "EcoSport",
+      "reason": "weak_or_insufficient_israeli_evidence",
+      "non_blocking": true,
+      "batch_id": "BATCH23",
+      "lineage_target": null
+    },
+    {
+      "market": "IL-confirmed",
+      "make": "Gac - Aion",
+      "model": "aion v",
+      "source_key": "IL-confirmed|Gac - Aion|aion v",
+      "canonical_make": "GAC / Aion",
+      "canonical_model": "Aion V",
+      "reason": "duplicate_alias_source_key",
+      "non_blocking": true,
+      "batch_id": "BATCH23",
+      "lineage_target": "IL|GAC / Aion|Aion V"
+    },
+    {
+      "market": "IL-confirmed",
+      "make": "Gac - Aion",
+      "model": "aion y",
+      "source_key": "IL-confirmed|Gac - Aion|aion y",
+      "canonical_make": "GAC / Aion",
+      "canonical_model": "Aion Y",
+      "reason": "duplicate_alias_source_key",
+      "non_blocking": true,
+      "batch_id": "BATCH23",
+      "lineage_target": "IL|GAC / Aion|Aion Y"
+    },
+    {
       "market": "IL",
-      "make": "Daewoo",
-      "model": "Cielo",
-      "canonical_model": "Cielo",
-      "year_start": null,
-      "year_end": null,
-      "technical_variants_il": [],
-      "available_values_for_website": {
-        "version_or_trim": [],
-        "body_type": [],
-        "fuel_type": [],
-        "engine": [],
-        "horsepower_hp": [],
-        "transmission": [],
-        "drivetrain": []
-      },
-      "invalid_or_non_trim_labels": [],
-      "sources": [],
-      "profile_confidence": null,
-      "notes": [],
-      "error": "Extra data: line 298 column 1 (char 7500)",
-      "request_payload": {
-        "task": "build_israeli_model_technical_catalog",
-        "market": "IL",
-        "make": "Daewoo",
-        "model": "Cielo",
-        "raw_database_values": {
-          "years_seen": [
-            1995,
-            1998
+      "make": "Fiat",
+      "model": "500X",
+      "source_key": "IL|Fiat|500X",
+      "canonical_make": "Fiat",
+      "canonical_model": "500X",
+      "reason": "missing_required_field_grounding",
+      "non_blocking": true,
+      "batch_id": "BATCH23",
+      "lineage_target": null
+    },
+    {
+      "market": "IL",
+      "make": "Fiat",
+      "model": "Multipla",
+      "source_key": "IL|Fiat|Multipla",
+      "canonical_make": "Fiat",
+      "canonical_model": "Multipla",
+      "reason": "weak_or_insufficient_israeli_evidence",
+      "non_blocking": true,
+      "batch_id": "BATCH23",
+      "lineage_target": null
+    },
+    {
+      "market": "IL",
+      "make": "Fiat",
+      "model": "Stilo",
+      "source_key": "IL|Fiat|Stilo",
+      "canonical_make": "Fiat",
+      "canonical_model": "Stilo",
+      "reason": "weak_or_insufficient_israeli_evidence",
+      "non_blocking": true,
+      "batch_id": "BATCH23",
+      "lineage_target": null
+    },
+    {
+      "market": "IL",
+      "make": "Fiat",
+      "model": "Tempra",
+      "source_key": "IL|Fiat|Tempra",
+      "canonical_make": "Fiat",
+      "canonical_model": "Tempra",
+      "reason": "missing_required_field_grounding",
+      "non_blocking": true,
+      "batch_id": "BATCH23",
+      "lineage_target": null
+    },
+    {
+      "market": "IL",
+      "make": "Fiat",
+      "model": "Topolino",
+      "source_key": "IL|Fiat|Topolino",
+      "canonical_make": "Fiat",
+      "canonical_model": "Topolino",
+      "reason": "global_reference_only",
+      "non_blocking": true,
+      "batch_id": "BATCH23",
+      "lineage_target": null,
+      "preserved_technical_variants": [
+        {
+          "version_or_trim": null,
+          "body_type": "Coupe",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 8,
+          "transmission": "single_speed",
+          "drivetrain": "FWD",
+          "year_start": 2023,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
           ],
-          "trims_seen": [
-            "GL",
-            "GLX"
-          ],
-          "engines_seen": [
-            "1.5L"
-          ],
-          "horsepower_seen": [],
-          "transmissions_seen": [
-            "automatic",
-            "manual"
-          ],
-          "body_types_seen": [
-            "Hatchback",
-            "Sedan"
-          ],
-          "fuel_types_seen": [
-            "petrol"
-          ],
-          "drivetrains_seen": [
-            "FWD"
-          ]
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
         },
-        "sample_validation_ids": [
-          "VAL-000943",
-          "VAL-000944",
-          "VAL-000945",
-          "VAL-000946"
-        ],
-        "source_indexes": [
-          218,
-          219,
-          220,
-          221
-        ],
-        "metadata_hints": {
-          "priorities_seen": [
-            "medium"
+        {
+          "version_or_trim": "Dolcevita",
+          "body_type": "Convertible",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 8,
+          "transmission": "single_speed",
+          "drivetrain": "FWD",
+          "year_start": 2023,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
           ],
-          "validation_routes_seen": [
-            "cheap_model_structured_validation"
-          ],
-          "possible_duplicate_rows": 0,
-          "validation_id_count": 4
-        },
-        "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
-      },
-      "rebuild_required": true,
-      "validation_issues": [
-        "technical_variants_il is empty"
-      ],
-      "archive_reason": "horsepower is not source-grounded and required by website gate",
-      "archived_at": "2026-06-17T18:47:33Z",
-      "non_blocking": true
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        }
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Ford",
+      "model": "Fiesta",
+      "source_key": "IL|Ford|Fiesta",
+      "canonical_make": "Ford",
+      "canonical_model": "Fiesta",
+      "reason": "missing_required_field_grounding",
+      "non_blocking": true,
+      "batch_id": "BATCH23",
+      "lineage_target": null
+    },
+    {
+      "market": "IL",
+      "make": "Ford",
+      "model": "Maverick",
+      "source_key": "IL|Ford|Maverick",
+      "canonical_make": "Ford",
+      "canonical_model": "Maverick",
+      "reason": "parallel_import_only",
+      "non_blocking": true,
+      "batch_id": "BATCH23",
+      "lineage_target": null
+    },
+    {
+      "market": "IL",
+      "make": "GMC",
+      "model": "Hummer EV",
+      "source_key": "IL|GMC|Hummer EV",
+      "canonical_make": "GMC",
+      "canonical_model": "Hummer EV",
+      "reason": "weak_or_insufficient_israeli_evidence",
+      "non_blocking": true,
+      "batch_id": "BATCH23",
+      "lineage_target": null
+    },
+    {
+      "market": "IL",
+      "make": "GMC",
+      "model": "Sierra",
+      "source_key": "IL|GMC|Sierra",
+      "canonical_make": "GMC",
+      "canonical_model": "Sierra",
+      "reason": "weak_or_insufficient_israeli_evidence",
+      "non_blocking": true,
+      "batch_id": "BATCH23",
+      "lineage_target": null
+    },
+    {
+      "market": "IL",
+      "make": "GMC",
+      "model": "Yukon",
+      "source_key": "IL|GMC|Yukon",
+      "canonical_make": "GMC",
+      "canonical_model": "Yukon",
+      "reason": "weak_or_insufficient_israeli_evidence",
+      "non_blocking": true,
+      "batch_id": "BATCH23",
+      "lineage_target": null
+    },
+    {
+      "market": "IL",
+      "make": "Haval",
+      "model": "jolion",
+      "source_key": "IL|Haval|jolion",
+      "canonical_make": "Haval",
+      "canonical_model": "Jolion",
+      "reason": "weak_or_insufficient_israeli_evidence",
+      "non_blocking": true,
+      "batch_id": "BATCH23",
+      "lineage_target": "IL|Haval|Jolion"
     }
   ]
 }
