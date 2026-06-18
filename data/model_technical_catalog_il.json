@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T10:54:09Z",
+  "generated_at": "2026-06-18T10:54:32Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gpt-5.4",
@@ -114907,6 +114907,243 @@
         "No Israeli-market source was found here supporting a CVT CR-Z sold in Israel, so no CVT row was included.",
         "version_or_trim set to null because surfaced labels were engine/powertrain/transmission descriptors rather than a true trim name.",
         "engine normalized to '1.5L' because sourced Israeli pages grounded displacement and hybrid powertrain but did not clearly ground additional aspiration/config wording."
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Honda",
+      "model": "HR-V",
+      "canonical_model": "HR-V",
+      "year_start": 2016,
+      "year_end": null,
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Crossover",
+          "fuel_type": "petrol",
+          "engine": "1.5L",
+          "engine_displacement_l": 1.5,
+          "horsepower_hp": 130,
+          "transmission": "cvt",
+          "drivetrain": "FWD",
+          "year_start": 2016,
+          "year_end": null,
+          "support_level": "indirect",
+          "source_indexes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              0,
+              2
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              2
+            ],
+            "drivetrain": [
+              3
+            ],
+            "year_start": [
+              0,
+              2
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Crossover",
+          "fuel_type": "hybrid",
+          "engine": "1.5L",
+          "engine_displacement_l": 1.5,
+          "horsepower_hp": 131,
+          "transmission": "automatic",
+          "drivetrain": "FWD",
+          "year_start": 2024,
+          "year_end": null,
+          "support_level": "indirect",
+          "source_indexes": [
+            4,
+            5
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              5
+            ],
+            "fuel_type": [
+              4,
+              5
+            ],
+            "engine": [
+              4,
+              5
+            ],
+            "engine_displacement_l": [
+              4,
+              5
+            ],
+            "horsepower_hp": [
+              4,
+              5
+            ],
+            "transmission": [
+              5
+            ],
+            "drivetrain": [
+              4,
+              5
+            ],
+            "year_start": [
+              5
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Crossover"
+        ],
+        "fuel_type": [
+          "petrol",
+          "hybrid"
+        ],
+        "engine": [
+          "1.5L"
+        ],
+        "horsepower_hp": [
+          130,
+          131
+        ],
+        "transmission": [
+          "cvt",
+          "automatic"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        "Comfort - classification: trim label seen in sources/raw data but not used to split variants because no technical differentiation found",
+        "Elegance - classification: trim label seen in sources/raw data but not used to split variants because no technical differentiation found",
+        "Executive - classification: trim label seen in sources but not used to split variants because no technical differentiation found",
+        "Advance - classification: trim label seen in sources but not used to split variants because no technical differentiation found",
+        "Style Advance - classification: trim label seen in sources but not used to split variants because no technical differentiation found"
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "Honda HR-V brochure PDF",
+          "url": "https://honda.co.il/wp-content/uploads/2016/05/honda-HRV-brochure-1.pdf",
+          "source_name": "Honda Israel",
+          "source_type": "official_importer_pdf",
+          "supports": [
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "Honda HRV 2016",
+          "url": "https://www.autocom.co.il/%D7%94%D7%95%D7%A0%D7%93%D7%94-hrv-2016/",
+          "source_name": "Autocom",
+          "source_type": "israeli_catalog_editorial",
+          "supports": [
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "Honda HR-V 2016 יד שניה",
+          "url": "https://www.auto.co.il/cars/honda/hr-v/2016/",
+          "source_name": "Auto",
+          "source_type": "israeli_catalog_editorial",
+          "supports": [
+            "fuel_type",
+            "transmission",
+            "body_type",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "Honda HR-V 2016 1.5 Executive - יד שניה",
+          "url": "https://www.icar.co.il/%D7%94%D7%95%D7%A0%D7%93%D7%94/%D7%94%D7%95%D7%A0%D7%93%D7%94_HR-V/%D7%94%D7%95%D7%A0%D7%93%D7%94_HR-V_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%94_%D7%9311/version16408/",
+          "source_name": "iCar",
+          "source_type": "israeli_catalog_editorial",
+          "supports": [
+            "drivetrain",
+            "transmission"
+          ]
+        },
+        {
+          "source_index": 4,
+          "title": "HRV HYBRID e:HEV model page",
+          "url": "https://hondacars.co.il/model/hrv-hybrid-ehev/",
+          "source_name": "Honda Israel",
+          "source_type": "official_importer_page",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 5,
+          "title": "Honda HR-V e:HEV brochure PDF",
+          "url": "https://hondacars.co.il/wp-content/uploads/2025/12/honda-HRV-eHEV-brochure.pdf",
+          "source_name": "Honda Israel",
+          "source_type": "official_importer_pdf",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "body_type"
+          ]
+        }
+      ],
+      "profile_confidence": "medium",
+      "notes": [
+        "Petrol HR-V Israeli official 2016 brochure directly supports a 1.5L 130 hp configuration, but the brochure text exposed in search/open did not clearly ground body type, fuel_type, transmission base normalization, drivetrain, or end year; secondary Israeli sources were used for those fields, making support indirect.",
+        "For the petrol generation, trims Comfort/Elegance/Executive appeared across sources, but available technical evidence found here did not justify separate rows by core technical fields; one merged technical row was returned.",
+        "Hybrid HR-V is grounded from current Israeli importer page and brochure as a 1.5L e:HEV front-drive configuration with 131 hp electric motor output and automatic transmission wording. Transmission could not be grounded specifically as e-CVT/CVT from the official Israeli source text retrieved, so normalized value kept as automatic.",
+        "Year_end was not grounded for either configuration and remains null.",
+        "Body type was normalized to Crossover from Israeli editorial/official context describing the HR-V as a small SUV/crossover rather than directly stating one of the required schema labels."
       ]
     }
   ],
