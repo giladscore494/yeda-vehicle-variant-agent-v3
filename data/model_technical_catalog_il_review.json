@@ -1,5 +1,99 @@
 {
-  "generated_at": "2026-06-18T07:09:48Z",
+  "generated_at": "2026-06-18T07:10:41Z",
   "market": "IL",
-  "models": []
+  "models": [
+    {
+      "market": "IL",
+      "make": "DS Automobiles",
+      "model": "DS 3 Crossback",
+      "canonical_model": "DS 3 Crossback",
+      "year_start": null,
+      "year_end": null,
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [],
+      "profile_confidence": null,
+      "notes": [],
+      "error": "Extra data: line 211 column 1 (char 4223)",
+      "request_payload": {
+        "task": "build_israeli_model_technical_catalog",
+        "market": "IL",
+        "make": "DS Automobiles",
+        "model": "DS 3 Crossback",
+        "raw_database_values": {
+          "years_seen": [
+            2019,
+            2021,
+            2022,
+            2023,
+            2026
+          ],
+          "trims_seen": [
+            "Grand Chic",
+            "Grand Chic / Rivoli",
+            "Performance Line",
+            "Rivoli"
+          ],
+          "engines_seen": [
+            "1.2L PureTech 130 hp",
+            "1.2L PureTech 155 hp",
+            "Electric 136 hp 50 kWh",
+            "Electric 156 hp 54 kWh"
+          ],
+          "horsepower_seen": [],
+          "transmissions_seen": [
+            "automatic"
+          ],
+          "body_types_seen": [
+            "SUV"
+          ],
+          "fuel_types_seen": [
+            "electric",
+            "petrol"
+          ],
+          "drivetrains_seen": [
+            "FWD"
+          ]
+        },
+        "sample_validation_ids": [
+          "VAL-001039",
+          "VAL-001040",
+          "VAL-001041",
+          "VAL-001042"
+        ],
+        "source_indexes": [
+          164,
+          165,
+          166,
+          167
+        ],
+        "metadata_hints": {
+          "priorities_seen": [
+            "high",
+            "medium"
+          ],
+          "validation_routes_seen": [
+            "cheap_model_structured_validation",
+            "strong_model_or_manual_review"
+          ],
+          "possible_duplicate_rows": 0,
+          "validation_id_count": 4
+        },
+        "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
+      },
+      "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
+      ]
+    }
+  ]
 }
