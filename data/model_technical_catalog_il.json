@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T07:30:41Z",
+  "generated_at": "2026-06-18T07:31:23Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -91252,6 +91252,258 @@
       "profile_confidence": "medium",
       "year_start": 2022,
       "year_end": 2024
+    },
+    {
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "פרארי 458 (2011-2015) מפרט טכני ומחירון רכב",
+          "url": "https://www.auto.co.il/model/ferrari-458_g375",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "פרארי 458 ספיידר נוחתת בישראל - מחיר החל מ-1.9 מיליון שקל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/פרארי-458-ספיידר-נוחתת-בישראל",
+          "source_name": "Cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "version_or_trim",
+            "horsepower_hp",
+            "engine",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "פרארי 458 ספציאלה בישראל: החל מ-2.3 מיליון שקל",
+          "url": "https://cars.walla.co.il/item/2723725",
+          "source_name": "Walla! Cars",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "version_or_trim",
+            "horsepower_hp",
+            "engine",
+            "year_start",
+            "transmission",
+            "drivetrain"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "4.5L v8",
+          "engine_displacement_l": 4.5,
+          "horsepower_hp": 570,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "RWD",
+          "year_start": 2011,
+          "year_end": 2015,
+          "support_level": "direct",
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Spider",
+          "body_type": "Convertible",
+          "fuel_type": "petrol",
+          "engine": "4.5L v8",
+          "engine_displacement_l": 4.5,
+          "horsepower_hp": 570,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "RWD",
+          "year_start": 2012,
+          "year_end": 2015,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Speciale",
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "4.5L v8",
+          "engine_displacement_l": 4.5,
+          "horsepower_hp": 605,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "RWD",
+          "year_start": 2014,
+          "year_end": 2015,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              2
+            ],
+            "body_type": [
+              0,
+              2
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0,
+              2
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0,
+              2
+            ],
+            "transmission": [
+              0,
+              2
+            ],
+            "drivetrain": [
+              0,
+              2
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Base",
+          "classification": "standard_or_base_placeholder"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Spider",
+          "Speciale"
+        ],
+        "body_type": [
+          "Coupe",
+          "Convertible"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "4.5L v8"
+        ],
+        "horsepower_hp": [
+          570,
+          605
+        ],
+        "transmission": [
+          "7-speed dual_clutch"
+        ],
+        "drivetrain": [
+          "RWD"
+        ]
+      },
+      "market": "IL",
+      "make": "Ferrari",
+      "model": "458 Italia",
+      "canonical_model": "458 Italia",
+      "profile_confidence": "medium",
+      "year_start": 2011,
+      "year_end": 2015
     }
   ],
   "ready_for_website_upload": false
