@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T11:10:19Z",
+  "generated_at": "2026-06-18T11:10:43Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -119618,6 +119618,289 @@
       "profile_confidence": "medium",
       "year_start": 2006,
       "year_end": 2011
+    },
+    {
+      "task": "build_israeli_model_technical_catalog",
+      "market": "IL",
+      "make": "Hyundai",
+      "model": "H1",
+      "sources": [
+        {
+          "source_index": 678,
+          "title": "יונדאי H1 / i800 (1998-2021) - מחירון רכב, חוות דעת ותמונות | אוטו",
+          "url": "https://www.auto.co.il/model/hyundai-i800_g148",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 679,
+          "title": "יונדאי i800 (H1) חדשה - מחירון, מפרטים ותמונות - iCar",
+          "url": "https://www.icar.co.il/model/%D7%99%D7%95%D7%A0%D7%93%D7%90%D7%99_i800/",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 680,
+          "title": "מחירון רכב יונדאי H1 שנות ייצור 1998 - 2007 - מחירון רכב לוי יצחק",
+          "url": "https://www.yad2.co.il/vehicles/prices/hyundai/h1",
+          "source_name": "Yad2/Levi Yitzhak",
+          "source_type": "marketplace",
+          "supports": [
+            "year_start",
+            "year_end",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "Van",
+          "fuel_type": "diesel",
+          "engine": "2.5L turbo",
+          "engine_displacement_l": 2.5,
+          "horsepower_hp": 100,
+          "transmission": "manual",
+          "drivetrain": "RWD",
+          "year_start": 1998,
+          "year_end": 2007,
+          "version_or_trim": null,
+          "support_level": "direct",
+          "source_indexes": [
+            678,
+            680
+          ],
+          "field_sources": {
+            "body_type": [
+              678
+            ],
+            "fuel_type": [
+              678,
+              680
+            ],
+            "engine": [
+              678,
+              680
+            ],
+            "engine_displacement_l": [
+              678,
+              680
+            ],
+            "horsepower_hp": [
+              680
+            ],
+            "transmission": [
+              678
+            ],
+            "drivetrain": [
+              678
+            ],
+            "year_start": [
+              678,
+              680
+            ],
+            "year_end": [
+              678,
+              680
+            ],
+            "version_or_trim": []
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Van",
+          "fuel_type": "diesel",
+          "engine": "2.5L turbo",
+          "engine_displacement_l": 2.5,
+          "horsepower_hp": 136,
+          "transmission": "manual",
+          "drivetrain": "RWD",
+          "year_start": 2008,
+          "year_end": 2021,
+          "version_or_trim": "i800",
+          "support_level": "direct",
+          "source_indexes": [
+            678,
+            679
+          ],
+          "field_sources": {
+            "body_type": [
+              678,
+              679
+            ],
+            "fuel_type": [
+              678,
+              679
+            ],
+            "engine": [
+              678,
+              679
+            ],
+            "engine_displacement_l": [
+              678,
+              679
+            ],
+            "horsepower_hp": [
+              678,
+              679
+            ],
+            "transmission": [
+              678,
+              679
+            ],
+            "drivetrain": [
+              678,
+              679
+            ],
+            "year_start": [
+              678,
+              679
+            ],
+            "year_end": [
+              678,
+              679
+            ],
+            "version_or_trim": [
+              678,
+              679
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Van",
+          "fuel_type": "diesel",
+          "engine": "2.5L turbo",
+          "engine_displacement_l": 2.5,
+          "horsepower_hp": 170,
+          "transmission": "automatic",
+          "drivetrain": "RWD",
+          "year_start": 2008,
+          "year_end": 2021,
+          "version_or_trim": "i800",
+          "support_level": "direct",
+          "source_indexes": [
+            678,
+            679
+          ],
+          "field_sources": {
+            "body_type": [
+              678,
+              679
+            ],
+            "fuel_type": [
+              678,
+              679
+            ],
+            "engine": [
+              678,
+              679
+            ],
+            "engine_displacement_l": [
+              678,
+              679
+            ],
+            "horsepower_hp": [
+              678,
+              679
+            ],
+            "transmission": [
+              678,
+              679
+            ],
+            "drivetrain": [
+              678,
+              679
+            ],
+            "year_start": [
+              678,
+              679
+            ],
+            "year_end": [
+              678,
+              679
+            ],
+            "version_or_trim": [
+              678,
+              679
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "GL",
+          "classification": "standard_or_base_trim_rejected"
+        },
+        {
+          "label": "2.5L CRDi diesel, 136 hp",
+          "classification": "engine_label_rejected"
+        },
+        {
+          "label": "2.5L CRDi diesel, 140 hp",
+          "classification": "engine_label_rejected"
+        },
+        {
+          "label": "2.5L CRDi diesel, 170 hp",
+          "classification": "engine_label_rejected"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "i800"
+        ],
+        "body_type": [
+          "Van"
+        ],
+        "fuel_type": [
+          "diesel"
+        ],
+        "engine": [
+          "2.5L turbo"
+        ],
+        "horsepower_hp": [
+          100,
+          136,
+          170
+        ],
+        "transmission": [
+          "manual",
+          "automatic"
+        ],
+        "drivetrain": [
+          "RWD"
+        ]
+      },
+      "canonical_model": "H1",
+      "profile_confidence": "medium",
+      "year_start": 1998,
+      "year_end": 2021
     }
   ],
   "ready_for_website_upload": false
