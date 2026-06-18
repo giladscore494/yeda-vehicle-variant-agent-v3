@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T07:37:54Z",
+  "generated_at": "2026-06-18T07:38:43Z",
   "market": "IL",
   "models": [
     {
@@ -216,6 +216,289 @@
       "validation_issues": [
         "variant[0] has no source_indexes",
         "variant[0] support_level=direct but no source directly supports it"
+      ]
+    },
+    {
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "פיאט 500 החשמלית החדשה 2021 בישראל - מחיר החל מ- 99,900 שקל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/פיאט-500-החשמלית-החדשה-2021-בישראל-מחיר-החל-מ-99-900-שקל",
+          "source_name": "Cartube Israel",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "פיאט 500e - מחירון, מפרטים, אמינות וחוות דעת",
+          "url": "https://www.icar.co.il/פיאט/פיאט_500e/",
+          "source_name": "iCar Israel",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "מפרט טכני - פיאט 500 החשמלית",
+          "url": "https://fiat.co.il/models/500e/",
+          "source_name": "Fiat Israel Official",
+          "source_type": "official_importer",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Action",
+          "body_type": "Hatchback",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 95,
+          "transmission": "single_speed",
+          "drivetrain": "FWD",
+          "year_start": 2021,
+          "year_end": 2024,
+          "support_level": "direct",
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1,
+              2
+            ],
+            "body_type": [
+              0,
+              1,
+              2
+            ],
+            "fuel_type": [
+              0,
+              1,
+              2
+            ],
+            "engine": [
+              0,
+              1,
+              2
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1,
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              0,
+              1,
+              2
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Icon",
+          "body_type": "Hatchback",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 118,
+          "transmission": "single_speed",
+          "drivetrain": "FWD",
+          "year_start": 2021,
+          "year_end": 2024,
+          "support_level": "direct",
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1,
+              2
+            ],
+            "body_type": [
+              0,
+              1,
+              2
+            ],
+            "fuel_type": [
+              0,
+              1,
+              2
+            ],
+            "engine": [
+              0,
+              1,
+              2
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1,
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              0,
+              1,
+              2
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "La Prima",
+          "body_type": "Convertible",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 118,
+          "transmission": "single_speed",
+          "drivetrain": "FWD",
+          "year_start": 2021,
+          "year_end": 2024,
+          "support_level": "direct",
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1,
+              2
+            ],
+            "body_type": [
+              0,
+              1,
+              2
+            ],
+            "fuel_type": [
+              0,
+              1,
+              2
+            ],
+            "engine": [
+              0,
+              1,
+              2
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1,
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              0,
+              1,
+              2
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Action",
+          "Icon",
+          "La Prima"
+        ],
+        "body_type": [
+          "Hatchback",
+          "Convertible"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          95,
+          118
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "3+1",
+          "classification": "body_designation"
+        },
+        {
+          "label": "Cabriolet",
+          "classification": "body_designation"
+        },
+        {
+          "label": "118 hp Electric Motor",
+          "classification": "engine_designation"
+        },
+        {
+          "label": "95 hp Electric Motor",
+          "classification": "engine_designation"
+        }
+      ],
+      "market": "IL",
+      "make": "Fiat",
+      "model": "500e",
+      "canonical_model": "500e",
+      "profile_confidence": "medium",
+      "year_start": 2021,
+      "year_end": 2024,
+      "validation_issues": [
+        "variant[0] has no source_indexes",
+        "variant[0] support_level=direct but no source directly supports it",
+        "variant[1] has no source_indexes",
+        "variant[1] support_level=direct but no source directly supports it",
+        "variant[2] has no source_indexes",
+        "variant[2] support_level=direct but no source directly supports it"
       ]
     }
   ]
