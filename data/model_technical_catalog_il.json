@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T07:10:41Z",
+  "generated_at": "2026-06-18T07:11:24Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -90130,6 +90130,191 @@
       "canonical_model": "DS 3",
       "profile_confidence": "medium",
       "year_start": 2015,
+      "year_end": 2024
+    },
+    {
+      "make": "DS Automobiles",
+      "model": "DS 4",
+      "market": "IL",
+      "technical_variants_il": [
+        {
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "1.6L turbo",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 225,
+          "transmission": "8-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2022,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Hatchback",
+          "fuel_type": "plug_in_hybrid",
+          "engine": "1.6L turbo",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 225,
+          "transmission": "8-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2022,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Hatchback"
+        ],
+        "fuel_type": [
+          "petrol",
+          "plug_in_hybrid"
+        ],
+        "engine": [
+          "1.6L turbo"
+        ],
+        "horsepower_hp": [
+          225
+        ],
+        "transmission": [
+          "8-speed automatic"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "1.6L Turbo",
+          "classification": "engine_spec"
+        },
+        {
+          "label": "1.6L Turbo PHEV",
+          "classification": "engine_spec"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "DS4 החדשה בישראל - מחיר החל מ- 218,990 שקלים",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/ds4-%D7%94%D7%97%D7%93%D7%A9%D7%94-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-218990-%D7%A9%D7%A7%D7%9C%D7%99%D7%9D",
+          "source_name": "Cartube IL",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "DS 4 - מחירון, מפרטים, רמות גימור",
+          "url": "https://www.icar.co.il/DS/DS_4/DS_4_%D7%97%D7%93%D7%A9/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_end"
+          ]
+        }
+      ],
+      "canonical_model": "DS 4",
+      "profile_confidence": "medium",
+      "year_start": 2022,
       "year_end": 2024
     }
   ],
