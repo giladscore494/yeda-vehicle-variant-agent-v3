@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T12:31:34Z",
+  "generated_at": "2026-06-18T12:32:14Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -131191,6 +131191,194 @@
       "profile_confidence": "medium",
       "year_start": 1999,
       "year_end": 2007
+    },
+    {
+      "make": "Jaguar",
+      "model": "X-Type",
+      "technical_variants_il": [
+        {
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "2.1L v6",
+          "engine_displacement_l": 2.1,
+          "horsepower_hp": 156,
+          "transmission": "5-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2001,
+          "year_end": 2009,
+          "version_or_trim": null,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": [
+              1,
+              2
+            ],
+            "version_or_trim": []
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "2.5L v6",
+          "engine_displacement_l": 2.5,
+          "horsepower_hp": 194,
+          "transmission": "5-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2001,
+          "year_end": 2009,
+          "version_or_trim": null,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": [
+              1,
+              2
+            ],
+            "version_or_trim": []
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Sedan"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "2.1L v6",
+          "2.5L v6"
+        ],
+        "horsepower_hp": [
+          156,
+          194
+        ],
+        "transmission": [
+          "5-speed automatic"
+        ],
+        "drivetrain": [
+          "FWD",
+          "AWD"
+        ]
+      },
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "יגואר X-Type (2001-2009) - מפרט טכני",
+          "url": "https://www.auto.co.il/model/jaguar-x-type_g136",
+          "source_name": "Auto.co.il",
+          "source_type": "israeli_editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "יגואר X-טייפ 2001-2009 - צריכת דלק, מחירון, מפרטים",
+          "url": "https://www.kml.co.il/car/%D7%99%D7%92%D7%95%D7%90%D7%A8_X-%D7%98%D7%99%D7%99%D7%A4_2001-2009_548",
+          "source_name": "KML Israel",
+          "source_type": "israeli_catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "invalid_or_non_trim_labels": [],
+      "market": "IL-confirmed",
+      "canonical_model": "X-Type",
+      "profile_confidence": "medium",
+      "year_start": 2001,
+      "year_end": 2009
     }
   ],
   "ready_for_website_upload": false
