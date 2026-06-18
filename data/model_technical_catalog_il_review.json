@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T08:03:22Z",
+  "generated_at": "2026-06-18T08:04:26Z",
   "market": "IL",
   "models": [
     {
@@ -1102,6 +1102,269 @@
       "rebuild_required": true,
       "validation_issues": [
         "technical_variants_il is empty"
+      ]
+    },
+    {
+      "make": "Fiat",
+      "model": "Tempra",
+      "market": "IL",
+      "sources": [
+        {
+          "source_index": 440,
+          "title": "פיאט טמפרה – ויקיפדיה",
+          "url": "https://he.wikipedia.org/wiki/%D7%A4%D7%99%D7%90%D7%98_%D7%98%D7%9E%D7%A4%D7%A8%D7%94",
+          "source_name": "Wikipedia Hebrew",
+          "source_type": "encyclopedia",
+          "supports": [
+            "year_start",
+            "year_end",
+            "engine",
+            "engine_displacement_l",
+            "transmission",
+            "body_type",
+            "fuel_type",
+            "version_or_trim",
+            "drivetrain"
+          ]
+        }
+      ],
+      "invalid_or_non_trim_labels": {
+        "Base": "base_placeholder",
+        "S": "ungrounded_trim",
+        "Weekend": "body_designation"
+      },
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "1.4L",
+          "engine_displacement_l": 1.4,
+          "horsepower_hp": null,
+          "transmission": "manual",
+          "drivetrain": "FWD",
+          "year_start": 1991,
+          "year_end": 1996,
+          "support_level": "indirect",
+          "source_indexes": [
+            440
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              440
+            ],
+            "fuel_type": [
+              440
+            ],
+            "engine": [
+              440
+            ],
+            "engine_displacement_l": [
+              440
+            ],
+            "horsepower_hp": [],
+            "transmission": [
+              440
+            ],
+            "drivetrain": [
+              440
+            ],
+            "year_start": [
+              440
+            ],
+            "year_end": [
+              440
+            ]
+          },
+          "missing_grounded_fields": [
+            "horsepower_hp"
+          ]
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "1.6L",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": null,
+          "transmission": "manual",
+          "drivetrain": "FWD",
+          "year_start": 1991,
+          "year_end": 1996,
+          "support_level": "indirect",
+          "source_indexes": [
+            440
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              440
+            ],
+            "fuel_type": [
+              440
+            ],
+            "engine": [
+              440
+            ],
+            "engine_displacement_l": [
+              440
+            ],
+            "horsepower_hp": [],
+            "transmission": [
+              440
+            ],
+            "drivetrain": [
+              440
+            ],
+            "year_start": [
+              440
+            ],
+            "year_end": [
+              440
+            ]
+          },
+          "missing_grounded_fields": [
+            "horsepower_hp"
+          ]
+        },
+        {
+          "version_or_trim": "Selecta",
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "1.6L",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": null,
+          "transmission": "cvt",
+          "drivetrain": "FWD",
+          "year_start": 1991,
+          "year_end": 1996,
+          "support_level": "indirect",
+          "source_indexes": [
+            440
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              440
+            ],
+            "body_type": [
+              440
+            ],
+            "fuel_type": [
+              440
+            ],
+            "engine": [
+              440
+            ],
+            "engine_displacement_l": [
+              440
+            ],
+            "horsepower_hp": [],
+            "transmission": [
+              440
+            ],
+            "drivetrain": [
+              440
+            ],
+            "year_start": [
+              440
+            ],
+            "year_end": [
+              440
+            ]
+          },
+          "missing_grounded_fields": [
+            "horsepower_hp"
+          ]
+        },
+        {
+          "version_or_trim": "Weekend",
+          "body_type": "Estate",
+          "fuel_type": "petrol",
+          "engine": "1.6L",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": null,
+          "transmission": "manual",
+          "drivetrain": "FWD",
+          "year_start": 1991,
+          "year_end": 1996,
+          "support_level": "indirect",
+          "source_indexes": [
+            440
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              440
+            ],
+            "body_type": [
+              440
+            ],
+            "fuel_type": [
+              440
+            ],
+            "engine": [
+              440
+            ],
+            "engine_displacement_l": [
+              440
+            ],
+            "horsepower_hp": [],
+            "transmission": [
+              440
+            ],
+            "drivetrain": [
+              440
+            ],
+            "year_start": [
+              440
+            ],
+            "year_end": [
+              440
+            ]
+          },
+          "missing_grounded_fields": [
+            "horsepower_hp"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Selecta",
+          "Weekend"
+        ],
+        "body_type": [
+          "Sedan",
+          "Estate"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "1.4L",
+          "1.6L"
+        ],
+        "horsepower_hp": [],
+        "transmission": [
+          "manual",
+          "cvt"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "canonical_model": "Tempra",
+      "profile_confidence": "medium",
+      "year_start": 1991,
+      "year_end": 1996,
+      "validation_issues": [
+        "variant[0] required website field 'horsepower_hp' is null/empty",
+        "variant[0] required field 'horsepower_hp' listed in missing_grounded_fields",
+        "variant[1] required website field 'horsepower_hp' is null/empty",
+        "variant[1] required field 'horsepower_hp' listed in missing_grounded_fields",
+        "variant[2] required website field 'horsepower_hp' is null/empty",
+        "variant[2] required field 'horsepower_hp' listed in missing_grounded_fields",
+        "variant[3] required website field 'horsepower_hp' is null/empty",
+        "variant[3] required field 'horsepower_hp' listed in missing_grounded_fields"
       ]
     }
   ]
