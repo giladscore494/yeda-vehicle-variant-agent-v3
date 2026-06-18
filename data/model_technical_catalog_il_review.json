@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T11:58:04Z",
+  "generated_at": "2026-06-18T11:59:38Z",
   "market": "IL",
   "models": [
     {
@@ -1236,6 +1236,98 @@
           ],
           "possible_duplicate_rows": 0,
           "validation_id_count": 3
+        },
+        "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
+      },
+      "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Hyundai",
+      "model": "Kona",
+      "canonical_model": "Kona",
+      "year_start": null,
+      "year_end": null,
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [],
+      "profile_confidence": null,
+      "notes": [],
+      "error": "Gemini catalog client returned non-object JSON",
+      "request_payload": {
+        "task": "build_israeli_model_technical_catalog",
+        "market": "IL",
+        "make": "Hyundai",
+        "model": "Kona",
+        "raw_database_values": {
+          "years_seen": [
+            2017,
+            2020,
+            2021,
+            2023,
+            2026
+          ],
+          "trims_seen": [
+            "Premium",
+            "Prestige",
+            "Ultimate"
+          ],
+          "engines_seen": [
+            "1.0L Turbo Petrol",
+            "1.6L Hybrid",
+            "1.6L Turbo Petrol",
+            "Electric Motor"
+          ],
+          "horsepower_seen": [],
+          "transmissions_seen": [
+            "dual_clutch",
+            "single_speed_ev"
+          ],
+          "body_types_seen": [
+            "SUV"
+          ],
+          "fuel_types_seen": [
+            "electric",
+            "hybrid",
+            "petrol"
+          ],
+          "drivetrains_seen": [
+            "FWD"
+          ]
+        },
+        "sample_validation_ids": [
+          "VAL-001466",
+          "VAL-001467",
+          "VAL-001468",
+          "VAL-001469"
+        ],
+        "source_indexes": [
+          726,
+          727,
+          728,
+          729
+        ],
+        "metadata_hints": {
+          "priorities_seen": [
+            "medium"
+          ],
+          "validation_routes_seen": [
+            "cheap_model_structured_validation"
+          ],
+          "possible_duplicate_rows": 0,
+          "validation_id_count": 4
         },
         "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
       },
