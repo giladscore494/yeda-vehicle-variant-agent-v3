@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T08:11:06Z",
+  "generated_at": "2026-06-18T08:15:08Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -99754,6 +99754,327 @@
       "canonical_model": "Explorer",
       "profile_confidence": "medium",
       "year_start": 2020,
+      "year_end": 2024
+    },
+    {
+      "task": "build_israeli_model_technical_catalog",
+      "market": "IL",
+      "make": "Ford",
+      "model": "F-150",
+      "sources": [
+        {
+          "source_index": 80,
+          "title": "פורד F-150 ראפטור מפרט טכני - iCar",
+          "url": "https://www.icar.co.il/%D7%A4%D7%95%D7%A8%D7%93/%D7%A4%D7%95%D7%A8%D7%93_F-150/",
+          "source_name": "iCar",
+          "source_type": "israeli_catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 457,
+          "title": "מבחן דרכים: פורד F-150 פאוורבוסט (הייבריד) - cartube",
+          "url": "https://www.cartube.co.il/%D7%9E%D7%91%D7%97%D7%9F-%D7%93%D7%A8%D7%9B%D7%99%D7%9D-%D7%A4%D7%95%D7%A8%D7%93-f-150-%D7%A4%D7%90%D7%95%D7%95%D7%A8%D7%91%D7%95%D7%A1%D7%98-%D7%94%D7%99%D7%99%D7%91%D7%A8%D7%99%D7%93",
+          "source_name": "Cartube",
+          "source_type": "israeli_editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 458,
+          "title": "פורד F-150 2013 מפרט טכני - Gear",
+          "url": "https://gear.co.il/ford/f-150/2013",
+          "source_name": "Gear",
+          "source_type": "israeli_catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 459,
+          "title": "פורד F-150 Lariat 3.5L - AutoMax",
+          "url": "https://automax.co.il/ford-f-150/",
+          "source_name": "AutoMax",
+          "source_type": "israeli_official_importer",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Raptor",
+          "body_type": "Pickup",
+          "fuel_type": "petrol",
+          "engine": "3.5L v6 turbo",
+          "engine_displacement_l": 3.5,
+          "horsepower_hp": 450,
+          "transmission": "10-speed automatic",
+          "drivetrain": "4WD",
+          "year_start": 2017,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            80
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              80
+            ],
+            "body_type": [
+              80
+            ],
+            "fuel_type": [
+              80
+            ],
+            "engine": [
+              80
+            ],
+            "engine_displacement_l": [
+              80
+            ],
+            "horsepower_hp": [
+              80
+            ],
+            "transmission": [
+              80
+            ],
+            "drivetrain": [
+              80
+            ],
+            "year_start": [
+              80
+            ],
+            "year_end": [
+              80
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Pickup",
+          "fuel_type": "hybrid",
+          "engine": "3.5L v6 turbo",
+          "engine_displacement_l": 3.5,
+          "horsepower_hp": 430,
+          "transmission": "10-speed automatic",
+          "drivetrain": "4WD",
+          "year_start": 2021,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            457
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              457
+            ],
+            "body_type": [
+              457
+            ],
+            "fuel_type": [
+              457
+            ],
+            "engine": [
+              457
+            ],
+            "engine_displacement_l": [
+              457
+            ],
+            "horsepower_hp": [
+              457
+            ],
+            "transmission": [
+              457
+            ],
+            "drivetrain": [
+              457
+            ],
+            "year_start": [
+              457
+            ],
+            "year_end": [
+              457
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Lariat",
+          "body_type": "Pickup",
+          "fuel_type": "petrol",
+          "engine": "3.5L v6 turbo",
+          "engine_displacement_l": 3.5,
+          "horsepower_hp": 400,
+          "transmission": "10-speed automatic",
+          "drivetrain": "4WD",
+          "year_start": 2021,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            459
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              459
+            ],
+            "body_type": [
+              459
+            ],
+            "fuel_type": [
+              459
+            ],
+            "engine": [
+              459
+            ],
+            "engine_displacement_l": [
+              459
+            ],
+            "horsepower_hp": [
+              459
+            ],
+            "transmission": [
+              459
+            ],
+            "drivetrain": [
+              459
+            ],
+            "year_start": [
+              459
+            ],
+            "year_end": [
+              459
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Pickup",
+          "fuel_type": "petrol",
+          "engine": "3.7L v6",
+          "engine_displacement_l": 3.7,
+          "horsepower_hp": 302,
+          "transmission": "6-speed automatic",
+          "drivetrain": "4WD",
+          "year_start": 2013,
+          "year_end": 2014,
+          "support_level": "direct",
+          "source_indexes": [
+            458
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              458
+            ],
+            "body_type": [
+              458
+            ],
+            "fuel_type": [
+              458
+            ],
+            "engine": [
+              458
+            ],
+            "engine_displacement_l": [
+              458
+            ],
+            "horsepower_hp": [
+              458
+            ],
+            "transmission": [
+              458
+            ],
+            "drivetrain": [
+              458
+            ],
+            "year_start": [
+              458
+            ],
+            "year_end": [
+              458
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": {
+        "Hybrid": "powertrain_or_fuel_type",
+        "Lightning XLT": "belongs_to_separate_electric_model",
+        "SuperCab": "body_or_cab_style"
+      },
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Raptor",
+          "Lariat"
+        ],
+        "body_type": [
+          "Pickup"
+        ],
+        "fuel_type": [
+          "petrol",
+          "hybrid"
+        ],
+        "engine": [
+          "3.5L v6 turbo",
+          "3.7L v6"
+        ],
+        "horsepower_hp": [
+          450,
+          430,
+          400,
+          302
+        ],
+        "transmission": [
+          "10-speed automatic",
+          "6-speed automatic"
+        ],
+        "drivetrain": [
+          "4WD"
+        ]
+      },
+      "canonical_model": "F-150",
+      "profile_confidence": "medium",
+      "year_start": 2013,
       "year_end": 2024
     }
   ],
