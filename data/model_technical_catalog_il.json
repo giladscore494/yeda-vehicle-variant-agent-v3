@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T12:37:52Z",
+  "generated_at": "2026-06-18T13:36:13Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -114912,6 +114912,319 @@
     {
       "market": "IL",
       "make": "Honda",
+      "model": "FR-V",
+      "canonical_model": "FR-V",
+      "year_start": 2007,
+      "year_end": 2010,
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Trend",
+          "body_type": "MPV",
+          "fuel_type": "petrol",
+          "engine": "1.8L",
+          "engine_displacement_l": 1.8,
+          "horsepower_hp": 140,
+          "transmission": "automatic",
+          "drivetrain": "FWD",
+          "year_start": 2007,
+          "year_end": 2010,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              3
+            ],
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              0,
+              1,
+              3
+            ],
+            "engine_displacement_l": [
+              0,
+              1,
+              3
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              0,
+              3
+            ],
+            "drivetrain": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "year_start": [
+              0,
+              3
+            ],
+            "year_end": [
+              0,
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Comfort",
+          "body_type": "MPV",
+          "fuel_type": "petrol",
+          "engine": "1.8L",
+          "engine_displacement_l": 1.8,
+          "horsepower_hp": 140,
+          "transmission": "automatic",
+          "drivetrain": "FWD",
+          "year_start": 2007,
+          "year_end": 2010,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              3
+            ],
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              0,
+              1,
+              3
+            ],
+            "engine_displacement_l": [
+              0,
+              1,
+              3
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              0,
+              3
+            ],
+            "drivetrain": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "year_start": [
+              0,
+              3
+            ],
+            "year_end": [
+              0,
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Executive",
+          "body_type": "MPV",
+          "fuel_type": "petrol",
+          "engine": "1.8L",
+          "engine_displacement_l": 1.8,
+          "horsepower_hp": 140,
+          "transmission": "automatic",
+          "drivetrain": "FWD",
+          "year_start": 2007,
+          "year_end": 2010,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              3
+            ],
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              0,
+              1,
+              3
+            ],
+            "engine_displacement_l": [
+              0,
+              1,
+              3
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              0,
+              3
+            ],
+            "drivetrain": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "year_start": [
+              0,
+              3
+            ],
+            "year_end": [
+              0,
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Trend",
+          "Comfort",
+          "Executive"
+        ],
+        "body_type": [
+          "MPV"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "1.8L"
+        ],
+        "horsepower_hp": [
+          140
+        ],
+        "transmission": [
+          "automatic"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "1.7L Petrol, 125 hp",
+          "classification": "unsupported_engine_hint"
+        },
+        {
+          "label": "2.0L Petrol, 150 hp",
+          "classification": "unsupported_engine_hint"
+        },
+        {
+          "label": "manual",
+          "classification": "unsupported_transmission_hint"
+        },
+        {
+          "label": "FWD",
+          "classification": "unsupported_drivetrain_hint"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "Honda FR-V 2007-2010 | iCar model page",
+          "url": "https://www.icar.co.il/%D7%94%D7%95%D7%A0%D7%93%D7%94/%D7%94%D7%95%D7%A0%D7%93%D7%94_FR-V/%D7%94%D7%95%D7%A0%D7%93%D7%94_FR-V_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%94_%D7%9310/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "version_or_trim",
+            "engine",
+            "engine_displacement_l",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "Honda FR-V Executive 2009 | Autocom",
+          "url": "https://www.autocom.co.il/%D7%94%D7%95%D7%A0%D7%93%D7%94-fr-v-%D7%90%D7%A7%D7%96%D7%A7%D7%98%D7%99%D7%91-2009/",
+          "source_name": "Autocom",
+          "source_type": "editorial/spec",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine_displacement_l",
+            "horsepower_hp"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "Honda FR-V overview | iCar",
+          "url": "https://www.icar.co.il/%D7%94%D7%95%D7%A0%D7%93%D7%94/%D7%94%D7%95%D7%A0%D7%93%D7%94_FR-V/",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "Honda FR-V | CarsForum catalog",
+          "url": "https://carsforum.co.il/cars/%D7%9E%D7%97%D7%99%D7%A8%D7%95%D7%9F-%D7%A8%D7%9B%D7%91/648/%D7%94%D7%95%D7%A0%D7%93%D7%94/FR-V",
+          "source_name": "CarsForum",
+          "source_type": "catalog",
+          "supports": [
+            "version_or_trim",
+            "engine",
+            "engine_displacement_l",
+            "transmission",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "profile_confidence": "medium",
+      "notes": [
+        "Israeli-market sources found only 1.8-litre petrol automatic FR-V variants in 2007-2010 with trims Trend, Comfort, Executive.",
+        "No Israeli-market source found in this search set that directly grounded drivetrain; therefore drivetrain is null for all rows.",
+        "Raw hints for 1.7L, 2.0L, manual, and FWD were not grounded by Israeli-market sources and were not used as technical values."
+      ],
+      "validation_issues": [
+        "variant[0] required website field 'drivetrain' is null/empty",
+        "variant[0] required field 'drivetrain' listed in missing_grounded_fields",
+        "variant[1] required website field 'drivetrain' is null/empty",
+        "variant[1] required field 'drivetrain' listed in missing_grounded_fields",
+        "variant[2] required website field 'drivetrain' is null/empty",
+        "variant[2] required field 'drivetrain' listed in missing_grounded_fields"
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Honda",
       "model": "HR-V",
       "canonical_model": "HR-V",
       "year_start": 2016,
@@ -114927,8 +115240,8 @@
           "transmission": "cvt",
           "drivetrain": "FWD",
           "year_start": 2016,
-          "year_end": null,
-          "support_level": "indirect",
+          "year_end": 2021,
+          "support_level": "direct",
           "source_indexes": [
             0,
             1,
@@ -114967,81 +115280,131 @@
               0,
               2
             ],
-            "year_end": []
+            "year_end": [
+              0,
+              1,
+              2,
+              3
+            ]
           },
           "missing_grounded_fields": []
         },
         {
-          "version_or_trim": null,
-          "body_type": "Crossover",
+          "version_or_trim": "Elegance",
+          "body_type": "SUV",
           "fuel_type": "hybrid",
-          "engine": "1.5L",
+          "engine": "1.5L e:hev",
           "engine_displacement_l": 1.5,
           "horsepower_hp": 131,
-          "transmission": "automatic",
+          "transmission": "cvt",
           "drivetrain": "FWD",
           "year_start": 2024,
           "year_end": null,
-          "support_level": "indirect",
           "source_indexes": [
-            4,
-            5
+            4
           ],
           "field_sources": {
-            "version_or_trim": [],
+            "version_or_trim": [
+              4
+            ],
             "body_type": [
-              5
+              4
             ],
             "fuel_type": [
-              4,
-              5
+              4
             ],
             "engine": [
-              4,
-              5
+              4
             ],
             "engine_displacement_l": [
-              4,
-              5
+              4
             ],
             "horsepower_hp": [
-              4,
-              5
+              4
             ],
             "transmission": [
-              5
+              4
             ],
             "drivetrain": [
-              4,
-              5
+              4
             ],
             "year_start": [
-              5
-            ],
-            "year_end": []
+              4
+            ]
           },
-          "missing_grounded_fields": []
+          "missing_grounded_fields": [],
+          "support_level": "direct"
+        },
+        {
+          "version_or_trim": "Advance",
+          "body_type": "SUV",
+          "fuel_type": "hybrid",
+          "engine": "1.5L e:hev",
+          "engine_displacement_l": 1.5,
+          "horsepower_hp": 131,
+          "transmission": "cvt",
+          "drivetrain": "FWD",
+          "year_start": 2024,
+          "year_end": null,
+          "source_indexes": [
+            4
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              4
+            ],
+            "body_type": [
+              4
+            ],
+            "fuel_type": [
+              4
+            ],
+            "engine": [
+              4
+            ],
+            "engine_displacement_l": [
+              4
+            ],
+            "horsepower_hp": [
+              4
+            ],
+            "transmission": [
+              4
+            ],
+            "drivetrain": [
+              4
+            ],
+            "year_start": [
+              4
+            ]
+          },
+          "missing_grounded_fields": [],
+          "support_level": "direct"
         }
       ],
       "available_values_for_website": {
-        "version_or_trim": [],
+        "version_or_trim": [
+          "Elegance",
+          "Advance"
+        ],
         "body_type": [
-          "Crossover"
+          "Crossover",
+          "SUV"
         ],
         "fuel_type": [
           "petrol",
           "hybrid"
         ],
         "engine": [
-          "1.5L"
+          "1.5L",
+          "1.5L e:hev"
         ],
         "horsepower_hp": [
           130,
           131
         ],
         "transmission": [
-          "cvt",
-          "automatic"
+          "cvt"
         ],
         "drivetrain": [
           "FWD"
@@ -115571,7 +115934,7 @@
           "transmission": "cvt",
           "drivetrain": "FWD",
           "year_start": 2023,
-          "year_end": 2024,
+          "year_end": null,
           "version_or_trim": null,
           "support_level": "direct",
           "source_indexes": [
@@ -115608,10 +115971,6 @@
               615
             ],
             "year_start": [
-              614,
-              615
-            ],
-            "year_end": [
               614,
               615
             ]
@@ -115761,7 +116120,7 @@
       "canonical_model": "Jazz",
       "profile_confidence": "medium",
       "year_start": 2015,
-      "year_end": 2024
+      "year_end": null
     },
     {
       "task": "build_israeli_model_technical_catalog",
@@ -115992,6 +116351,330 @@
       "profile_confidence": "medium",
       "year_start": 1996,
       "year_end": 2012
+    },
+    {
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "הונדה אודיסיאה 2018-2023 - מפרט טכני",
+          "url": "https://www.auto.co.il/model/honda-odyssey",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "הונדה אודיסיאה (2011-2017) מפרט טכני",
+          "url": "https://www.kml.co.il/car/honda/odyssey/2011-2017",
+          "source_name": "KML.co.il",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "הונדה אודיסיאה 2005-2010 מחירון ומפרט",
+          "url": "https://www.kml.co.il/car/honda/odyssey/2005-2010",
+          "source_name": "KML.co.il",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "הונדה אודיסיאה (1999-2004)",
+          "url": "https://www.kml.co.il/car/honda/odyssey/1999-2004",
+          "source_name": "KML.co.il",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 4,
+          "title": "מפרט טכני הונדה אודיסיאה 2.4 ליטר (ייבוא אישי/מקביל)",
+          "url": "https://www.icar.co.il/honda/odyssey",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "MPV",
+          "fuel_type": "petrol",
+          "engine": "3.5L v6",
+          "engine_displacement_l": 3.5,
+          "horsepower_hp": 280,
+          "transmission": "automatic",
+          "drivetrain": "FWD",
+          "year_start": 2018,
+          "year_end": 2020,
+          "support_level": "direct",
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "MPV",
+          "fuel_type": "petrol",
+          "engine": "3.5L v6",
+          "engine_displacement_l": 3.5,
+          "horsepower_hp": 248,
+          "transmission": "automatic",
+          "drivetrain": "FWD",
+          "year_start": 2011,
+          "year_end": 2017,
+          "support_level": "direct",
+          "source_indexes": [
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "MPV",
+          "fuel_type": "petrol",
+          "engine": "3.5L v6",
+          "engine_displacement_l": 3.5,
+          "horsepower_hp": 244,
+          "transmission": "automatic",
+          "drivetrain": "FWD",
+          "year_start": 2005,
+          "year_end": 2010,
+          "support_level": "direct",
+          "source_indexes": [
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              2
+            ],
+            "engine": [
+              2
+            ],
+            "engine_displacement_l": [
+              2
+            ],
+            "horsepower_hp": [
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              2
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "MPV",
+          "fuel_type": "petrol",
+          "engine": "2.4L i4",
+          "engine_displacement_l": 2.4,
+          "horsepower_hp": 175,
+          "transmission": "cvt",
+          "drivetrain": "FWD",
+          "year_start": 2013,
+          "year_end": 2020,
+          "support_level": "direct",
+          "source_indexes": [
+            4
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              4
+            ],
+            "fuel_type": [
+              4
+            ],
+            "engine": [
+              4
+            ],
+            "engine_displacement_l": [
+              4
+            ],
+            "horsepower_hp": [
+              4
+            ],
+            "transmission": [
+              4
+            ],
+            "drivetrain": [
+              4
+            ],
+            "year_start": [
+              4
+            ],
+            "year_end": [
+              4
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "MPV"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "3.5L v6",
+          "2.4L i4"
+        ],
+        "horsepower_hp": [
+          280,
+          248,
+          244,
+          175
+        ],
+        "transmission": [
+          "automatic",
+          "cvt"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [],
+      "market": "IL",
+      "make": "Honda",
+      "model": "Odyssey",
+      "canonical_model": "Odyssey",
+      "profile_confidence": "medium",
+      "year_start": 2005,
+      "year_end": 2020,
+      "validation_issues": [
+        "variant[3] required website field 'horsepower_hp' is null/empty",
+        "variant[3] required field 'horsepower_hp' listed in missing_grounded_fields"
+      ],
+      "source_alias_keys": [
+        "IL|Honda|odyssey"
+      ]
     },
     {
       "make": "Honda",
@@ -116225,68 +116908,165 @@
             "engine_displacement_l",
             "horsepower_hp"
           ]
+        },
+        {
+          "source_index": 3,
+          "title": "Honda Israel ZR-V",
+          "url": "https://hondacars.co.il/model/zrv-hybrid-ehev/",
+          "source_name": "Batch 24 embedded validation source",
+          "source_type": "official/catalog/editorial",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
         }
       ],
       "technical_variants_il": [
         {
-          "version_or_trim": null,
-          "body_type": "Crossover",
+          "version_or_trim": "Elegance",
+          "body_type": "SUV",
           "fuel_type": "hybrid",
-          "engine": "2.0L",
+          "engine": "2.0L e:hev",
           "engine_displacement_l": 2.0,
           "horsepower_hp": 184,
           "transmission": "cvt",
           "drivetrain": "FWD",
-          "year_start": 2023,
-          "year_end": 2024,
-          "support_level": "direct",
+          "year_start": 2026,
+          "year_end": null,
           "source_indexes": [
-            0,
-            1,
-            2
+            3
           ],
           "field_sources": {
+            "version_or_trim": [
+              3
+            ],
             "body_type": [
-              0,
-              2
+              3
             ],
             "fuel_type": [
-              0,
-              1,
-              2
+              3
             ],
             "engine": [
-              0,
-              1,
-              2
+              3
             ],
             "engine_displacement_l": [
-              0,
-              1,
-              2
+              3
             ],
             "horsepower_hp": [
-              0,
-              1,
-              2
+              3
             ],
             "transmission": [
-              0,
-              1
+              3
             ],
             "drivetrain": [
-              0,
-              1
+              3
             ],
             "year_start": [
-              0,
-              1
-            ],
-            "year_end": [
-              0
+              3
             ]
           },
-          "missing_grounded_fields": []
+          "missing_grounded_fields": [],
+          "support_level": "direct"
+        },
+        {
+          "version_or_trim": "Sport",
+          "body_type": "SUV",
+          "fuel_type": "hybrid",
+          "engine": "2.0L e:hev",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 184,
+          "transmission": "cvt",
+          "drivetrain": "FWD",
+          "year_start": 2026,
+          "year_end": null,
+          "source_indexes": [
+            3
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              3
+            ],
+            "body_type": [
+              3
+            ],
+            "fuel_type": [
+              3
+            ],
+            "engine": [
+              3
+            ],
+            "engine_displacement_l": [
+              3
+            ],
+            "horsepower_hp": [
+              3
+            ],
+            "transmission": [
+              3
+            ],
+            "drivetrain": [
+              3
+            ],
+            "year_start": [
+              3
+            ]
+          },
+          "missing_grounded_fields": [],
+          "support_level": "direct"
+        },
+        {
+          "version_or_trim": "Advance",
+          "body_type": "SUV",
+          "fuel_type": "hybrid",
+          "engine": "2.0L e:hev",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 184,
+          "transmission": "cvt",
+          "drivetrain": "FWD",
+          "year_start": 2026,
+          "year_end": null,
+          "source_indexes": [
+            3
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              3
+            ],
+            "body_type": [
+              3
+            ],
+            "fuel_type": [
+              3
+            ],
+            "engine": [
+              3
+            ],
+            "engine_displacement_l": [
+              3
+            ],
+            "horsepower_hp": [
+              3
+            ],
+            "transmission": [
+              3
+            ],
+            "drivetrain": [
+              3
+            ],
+            "year_start": [
+              3
+            ]
+          },
+          "missing_grounded_fields": [],
+          "support_level": "direct"
         }
       ],
       "invalid_or_non_trim_labels": [
@@ -116296,15 +117076,19 @@
         }
       ],
       "available_values_for_website": {
-        "version_or_trim": [],
+        "version_or_trim": [
+          "Elegance",
+          "Sport",
+          "Advance"
+        ],
         "body_type": [
-          "Crossover"
+          "SUV"
         ],
         "fuel_type": [
           "hybrid"
         ],
         "engine": [
-          "2.0L"
+          "2.0L e:hev"
         ],
         "horsepower_hp": [
           184
@@ -116318,8 +117102,8 @@
       },
       "canonical_model": "ZR-V",
       "profile_confidence": "medium",
-      "year_start": 2023,
-      "year_end": 2024
+      "year_start": 2026,
+      "year_end": null
     },
     {
       "make": "Hongqi",
@@ -116392,7 +117176,7 @@
           "transmission": "single_speed",
           "drivetrain": "AWD",
           "year_start": 2022,
-          "year_end": 2024,
+          "year_end": null,
           "support_level": "direct",
           "source_indexes": [
             0,
@@ -116429,10 +117213,6 @@
               1
             ],
             "year_start": [
-              0,
-              1
-            ],
-            "year_end": [
               0,
               1
             ]
@@ -116525,7 +117305,7 @@
       "canonical_model": "E-HS9",
       "profile_confidence": "medium",
       "year_start": 2022,
-      "year_end": 2024
+      "year_end": null
     },
     {
       "sources": [
@@ -116788,15 +117568,18 @@
       },
       "market": "IL",
       "make": "Hummer",
-      "model": "h2",
-      "canonical_model": "h2",
+      "model": "H2",
+      "canonical_model": "H2",
       "profile_confidence": "medium",
       "year_start": 2003,
-      "year_end": 2009
+      "year_end": 2009,
+      "source_alias_keys": [
+        "IL|Hummer|h2"
+      ]
     },
     {
       "make": "Hummer",
-      "model": "h3",
+      "model": "H3",
       "market": "IL",
       "sources": [
         {
@@ -117023,10 +117806,13 @@
           "4WD"
         ]
       },
-      "canonical_model": "h3",
+      "canonical_model": "H3",
       "profile_confidence": "medium",
       "year_start": 2006,
-      "year_end": 2010
+      "year_end": 2010,
+      "source_alias_keys": [
+        "IL|Hummer|h3"
+      ]
     },
     {
       "make": "Hyundai",
@@ -117659,184 +118445,6 @@
       "year_end": 2024
     },
     {
-      "sources": [
-        {
-          "source_index": 0,
-          "title": "יונדאי אינסטר 2025 החשמלי נחשף - בישראל בשנה הבאה (Hyundai Inster 2025 EV revealed - in Israel next year)",
-          "url": "https://www.cartube.co.il/חדשות-רכב/יונדאי-אינסטר-2025-החשמלי-נחשף-בישראל-בשנה-הבאה",
-          "source_name": "Cartube Israel",
-          "source_type": "editorial",
-          "supports": [
-            "body_type",
-            "fuel_type",
-            "engine",
-            "horsepower_hp",
-            "transmission",
-            "drivetrain",
-            "year_start"
-          ]
-        },
-        {
-          "source_index": 1,
-          "title": "יונדאי אינסטר (Inster) – ג'יפון חשמלי עירוני בדרך לישראל (Hyundai Inster - urban electric mini-SUV on the way to Israel)",
-          "url": "https://wheel.co.il/יונדאי-אינסטר-inster-גיפון-חשמלי-עירוני/",
-          "source_name": "Wheel.co.il",
-          "source_type": "editorial",
-          "supports": [
-            "body_type",
-            "fuel_type",
-            "engine",
-            "horsepower_hp",
-            "transmission",
-            "year_start"
-          ]
-        }
-      ],
-      "technical_variants_il": [
-        {
-          "version_or_trim": null,
-          "invalid_or_non_trim_labels": [
-            {
-              "label": "Electric Standard Range (Inster)",
-              "classification": "model_alias_and_battery_spec"
-            }
-          ],
-          "body_type": "SUV",
-          "fuel_type": "electric",
-          "engine": "electric",
-          "engine_displacement_l": null,
-          "horsepower_hp": 97,
-          "transmission": "single_speed",
-          "drivetrain": "FWD",
-          "year_start": 2025,
-          "year_end": null,
-          "support_level": "direct",
-          "source_indexes": [
-            0,
-            1
-          ],
-          "field_sources": {
-            "version_or_trim": [],
-            "body_type": [
-              0,
-              1
-            ],
-            "fuel_type": [
-              0,
-              1
-            ],
-            "engine": [
-              0,
-              1
-            ],
-            "engine_displacement_l": [],
-            "horsepower_hp": [
-              0,
-              1
-            ],
-            "transmission": [
-              0,
-              1
-            ],
-            "drivetrain": [
-              0
-            ],
-            "year_start": [
-              0,
-              1
-            ],
-            "year_end": []
-          },
-          "missing_grounded_fields": []
-        },
-        {
-          "version_or_trim": null,
-          "invalid_or_non_trim_labels": [
-            {
-              "label": "Electric Long Range (Inster)",
-              "classification": "model_alias_and_battery_spec"
-            }
-          ],
-          "body_type": "SUV",
-          "fuel_type": "electric",
-          "engine": "electric",
-          "engine_displacement_l": null,
-          "horsepower_hp": 115,
-          "transmission": "single_speed",
-          "drivetrain": "FWD",
-          "year_start": 2025,
-          "year_end": null,
-          "support_level": "direct",
-          "source_indexes": [
-            0,
-            1
-          ],
-          "field_sources": {
-            "version_or_trim": [],
-            "body_type": [
-              0,
-              1
-            ],
-            "fuel_type": [
-              0,
-              1
-            ],
-            "engine": [
-              0,
-              1
-            ],
-            "engine_displacement_l": [],
-            "horsepower_hp": [
-              0,
-              1
-            ],
-            "transmission": [
-              0,
-              1
-            ],
-            "drivetrain": [
-              0
-            ],
-            "year_start": [
-              0,
-              1
-            ],
-            "year_end": []
-          },
-          "missing_grounded_fields": []
-        }
-      ],
-      "available_values_for_website": {
-        "version_or_trim": [],
-        "body_type": [
-          "SUV"
-        ],
-        "fuel_type": [
-          "electric"
-        ],
-        "engine": [
-          "electric"
-        ],
-        "horsepower_hp": [
-          97,
-          115
-        ],
-        "transmission": [
-          "single_speed"
-        ],
-        "drivetrain": [
-          "FWD"
-        ]
-      },
-      "market": "IL",
-      "make": "Hyundai",
-      "model": "Casper",
-      "canonical_model": "Casper",
-      "profile_confidence": "medium",
-      "year_start": 2025,
-      "year_end": null
-    },
-    {
       "make": "Hyundai",
       "model": "Coupe",
       "market": "IL",
@@ -118458,7 +119066,7 @@
     },
     {
       "make": "Hyundai",
-      "model": "elantra",
+      "model": "Elantra",
       "market": "IL",
       "sources": [
         {
@@ -118532,54 +119140,28 @@
             "year_start",
             "year_end"
           ]
+        },
+        {
+          "source_index": 4,
+          "title": "Hyundai Israel Elantra Hybrid",
+          "url": "https://www.hyundaimotors.co.il/models/elantra-hybrid",
+          "source_name": "Batch 24 embedded validation source",
+          "source_type": "official/catalog/editorial",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
         }
       ],
       "technical_variants_il": [
-        {
-          "body_type": "Sedan",
-          "fuel_type": "hybrid",
-          "engine": "1.6L",
-          "engine_displacement_l": 1.6,
-          "horsepower_hp": 141,
-          "transmission": "dual_clutch",
-          "drivetrain": "FWD",
-          "year_start": 2021,
-          "year_end": 2025,
-          "support_level": "direct",
-          "source_indexes": [
-            0
-          ],
-          "field_sources": {
-            "body_type": [
-              0
-            ],
-            "fuel_type": [
-              0
-            ],
-            "engine": [
-              0
-            ],
-            "engine_displacement_l": [
-              0
-            ],
-            "horsepower_hp": [
-              0
-            ],
-            "transmission": [
-              0
-            ],
-            "drivetrain": [
-              0
-            ],
-            "year_start": [
-              0
-            ],
-            "year_end": [
-              0
-            ]
-          },
-          "missing_grounded_fields": []
-        },
         {
           "body_type": "Sedan",
           "fuel_type": "petrol",
@@ -118714,6 +119296,52 @@
             ]
           },
           "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Prime / Premium / Supreme / Luxury",
+          "body_type": "Sedan",
+          "fuel_type": "hybrid",
+          "engine": "1.6L hybrid",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 139,
+          "transmission": "dual_clutch",
+          "drivetrain": "FWD",
+          "year_start": 2021,
+          "year_end": null,
+          "source_indexes": [
+            4
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              4
+            ],
+            "body_type": [
+              4
+            ],
+            "fuel_type": [
+              4
+            ],
+            "engine": [
+              4
+            ],
+            "engine_displacement_l": [
+              4
+            ],
+            "horsepower_hp": [
+              4
+            ],
+            "transmission": [
+              4
+            ],
+            "drivetrain": [
+              4
+            ],
+            "year_start": [
+              4
+            ]
+          },
+          "missing_grounded_fields": [],
+          "support_level": "direct"
         }
       ],
       "invalid_or_non_trim_labels": [
@@ -118747,35 +119375,195 @@
         }
       ],
       "available_values_for_website": {
-        "version_or_trim": [],
+        "version_or_trim": [
+          "Prime / Premium / Supreme / Luxury"
+        ],
         "body_type": [
           "Sedan"
         ],
         "fuel_type": [
-          "hybrid",
-          "petrol"
+          "petrol",
+          "hybrid"
         ],
         "engine": [
-          "1.6L"
+          "1.6L",
+          "1.6L hybrid"
         ],
         "horsepower_hp": [
-          141,
           127,
           132,
-          105
+          105,
+          139
         ],
         "transmission": [
-          "dual_clutch",
-          "automatic"
+          "automatic",
+          "dual_clutch"
         ],
         "drivetrain": [
           "FWD"
         ]
       },
-      "canonical_model": "elantra",
+      "canonical_model": "Elantra",
       "profile_confidence": "medium",
       "year_start": 2001,
-      "year_end": 2025
+      "year_end": null,
+      "source_alias_keys": [
+        "IL|Hyundai|elantra"
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Hyundai",
+      "model": "Elantra N",
+      "canonical_model": "Elantra N",
+      "year_start": 2025,
+      "year_end": null,
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Performance manual",
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 280,
+          "transmission": "6-speed manual",
+          "drivetrain": "FWD",
+          "year_start": 2025,
+          "year_end": null,
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ]
+          },
+          "missing_grounded_fields": [],
+          "support_level": "direct"
+        },
+        {
+          "version_or_trim": "Performance automatic",
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 280,
+          "transmission": "8-speed dual_clutch",
+          "drivetrain": "FWD",
+          "year_start": 2025,
+          "year_end": null,
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ]
+          },
+          "missing_grounded_fields": [],
+          "support_level": "direct"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Performance manual",
+          "Performance automatic"
+        ],
+        "body_type": [
+          "Sedan"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "2.0L turbo"
+        ],
+        "horsepower_hp": [
+          280
+        ],
+        "transmission": [
+          "6-speed manual",
+          "8-speed dual_clutch"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "Hyundai Israel Elantra N",
+          "url": "https://www.hyundaimotors.co.il/models/elantran",
+          "source_name": "Batch 24 embedded validation source",
+          "source_type": "official/catalog/editorial",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "profile_confidence": "high",
+      "notes": [
+        "Batch 24 correction from embedded validation facts."
+      ],
+      "split_from_source_group_key": "IL|Hyundai|elantra"
     },
     {
       "task": "build_israeli_model_technical_catalog",
@@ -119052,7 +119840,7 @@
     },
     {
       "make": "Hyundai",
-      "model": "getz",
+      "model": "Getz",
       "market": "IL",
       "sources": [
         {
@@ -119472,15 +120260,18 @@
           "FWD"
         ]
       },
-      "canonical_model": "getz",
+      "canonical_model": "Getz",
       "profile_confidence": "medium",
       "year_start": 2003,
-      "year_end": 2010
+      "year_end": 2010,
+      "source_alias_keys": [
+        "IL|Hyundai|getz"
+      ]
     },
     {
       "market": "IL",
       "make": "Hyundai",
-      "model": "grandeur",
+      "model": "Grandeur",
       "sources": [
         {
           "source_index": 0,
@@ -119614,10 +120405,13 @@
           "FWD"
         ]
       },
-      "canonical_model": "grandeur",
+      "canonical_model": "Grandeur",
       "profile_confidence": "medium",
       "year_start": 2006,
-      "year_end": 2011
+      "year_end": 2011,
+      "source_alias_keys": [
+        "IL|Hyundai|grandeur"
+      ]
     },
     {
       "task": "build_israeli_model_technical_catalog",
@@ -120899,7 +121693,7 @@
           "engine": "1.4L",
           "engine_displacement_l": 1.4,
           "horsepower_hp": 100,
-          "transmission": "cvt",
+          "transmission": "6-speed automatic",
           "drivetrain": "FWD",
           "year_start": 2015,
           "year_end": 2019,
@@ -120963,7 +121757,7 @@
           "engine": "1.6L",
           "engine_displacement_l": 1.6,
           "horsepower_hp": 124,
-          "transmission": "cvt",
+          "transmission": "6-speed automatic",
           "drivetrain": "FWD",
           "year_start": 2015,
           "year_end": 2019,
@@ -121058,7 +121852,7 @@
         ],
         "transmission": [
           "automatic",
-          "cvt"
+          "6-speed automatic"
         ],
         "drivetrain": [
           "FWD"
@@ -121371,6 +122165,244 @@
     },
     {
       "make": "Hyundai",
+      "model": "i30 CW",
+      "market": "IL",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "יונדאי i30 סטיישן CW דור 1 (2009-2012) - מחירון, מפרט טכני וחוות דעת - iCar",
+          "url": "https://www.icar.co.il/%D7%99%D7%95%D7%A0%D7%93%D7%90%D7%99/%D7%99%D7%95%D7%A0%D7%93%D7%90%D7%99_i30_%D7%A1%D7%98%D7%99%D7%99%D7%A9%D7%9F_CW_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%99%D7%94_%D7%93%D7%95%D7%A8_1/",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "יונדאי i30CW (2009-2012) - מחירון, מפרטים, אמינות וחוות דעת | אוטו",
+          "url": "https://www.auto.co.il/model/hyundai-i30cw_g228",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "יונדאי i30 סטיישן CW דור 2 (2012-2017) - מחירון, מפרט טכני וחוות דעת - iCar",
+          "url": "https://www.icar.co.il/%D7%99%D7%95%D7%A0%D7%93%D7%90%D7%99/%D7%99%D7%95%D7%A0%D7%93%D7%90%D7%99_i30_%D7%A1%D7%98%D7%99%D7%99%D7%A9%D7%9F_CW_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%99%D7%94_%D7%93%D7%95%D7%A8_2/",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Estate",
+          "fuel_type": "petrol",
+          "engine": "1.6L",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 126,
+          "transmission": "4-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2009,
+          "year_end": 2012,
+          "support_level": "direct",
+          "missing_grounded_fields": [],
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "source_indexes": [
+            0
+          ]
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Estate",
+          "fuel_type": "petrol",
+          "engine": "2.0L",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 143,
+          "transmission": "4-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2009,
+          "year_end": 2011,
+          "support_level": "direct",
+          "missing_grounded_fields": [],
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "source_indexes": [
+            0
+          ]
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Estate",
+          "fuel_type": "petrol",
+          "engine": "1.6L",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 135,
+          "transmission": "6-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2012,
+          "year_end": 2017,
+          "support_level": "direct",
+          "missing_grounded_fields": [],
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "source_indexes": [
+            0
+          ]
+        }
+      ],
+      "invalid_or_non_trim_labels": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Estate"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "1.6L",
+          "2.0L"
+        ],
+        "horsepower_hp": [
+          126,
+          143,
+          135
+        ],
+        "transmission": [
+          "4-speed automatic",
+          "6-speed automatic"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "canonical_model": "i30 CW",
+      "profile_confidence": "medium",
+      "year_start": 2009,
+      "year_end": 2017,
+      "validation_issues": [
+        "variant[0] has no source_indexes",
+        "variant[0] support_level=direct but no source directly supports it",
+        "variant[1] has no source_indexes",
+        "variant[1] support_level=direct but no source directly supports it",
+        "variant[2] has no source_indexes",
+        "variant[2] support_level=direct but no source directly supports it"
+      ]
+    },
+    {
+      "make": "Hyundai",
       "model": "i30 N",
       "market": "IL",
       "sources": [
@@ -121470,55 +122502,6 @@
           "engine_displacement_l": 2.0,
           "horsepower_hp": 280,
           "transmission": "8-speed dual_clutch",
-          "drivetrain": "FWD",
-          "version_or_trim": "Performance",
-          "year_start": 2023,
-          "year_end": 2024,
-          "support_level": "direct",
-          "source_indexes": [
-            1
-          ],
-          "field_sources": {
-            "body_type": [
-              1
-            ],
-            "fuel_type": [
-              1
-            ],
-            "engine": [
-              1
-            ],
-            "engine_displacement_l": [
-              1
-            ],
-            "horsepower_hp": [
-              1
-            ],
-            "transmission": [
-              1
-            ],
-            "drivetrain": [
-              1
-            ],
-            "version_or_trim": [
-              1
-            ],
-            "year_start": [
-              1
-            ],
-            "year_end": [
-              1
-            ]
-          },
-          "missing_grounded_fields": []
-        },
-        {
-          "body_type": "Hatchback",
-          "fuel_type": "petrol",
-          "engine": "2.0L turbo",
-          "engine_displacement_l": 2.0,
-          "horsepower_hp": 280,
-          "transmission": "6-speed manual",
           "drivetrain": "FWD",
           "version_or_trim": "Performance",
           "year_start": 2023,
@@ -122110,6 +123093,156 @@
       "year_end": 2018
     },
     {
+      "market": "IL",
+      "make": "Hyundai",
+      "model": "Ioniq",
+      "canonical_model": "Ioniq",
+      "year_start": 2017,
+      "year_end": 2022,
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Liftback",
+          "fuel_type": "hybrid",
+          "engine": "1.6L hybrid",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 141,
+          "transmission": "6-speed dual_clutch",
+          "drivetrain": "FWD",
+          "year_start": 2017,
+          "year_end": 2022,
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": [],
+          "support_level": "direct"
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Liftback",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 136,
+          "transmission": "single_speed",
+          "drivetrain": "FWD",
+          "year_start": 2019,
+          "year_end": 2022,
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": [],
+          "support_level": "direct"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Liftback"
+        ],
+        "fuel_type": [
+          "hybrid",
+          "electric"
+        ],
+        "engine": [
+          "1.6L hybrid",
+          "electric"
+        ],
+        "horsepower_hp": [
+          141,
+          136
+        ],
+        "transmission": [
+          "6-speed dual_clutch",
+          "single_speed"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "Auto Hyundai Ioniq Israel",
+          "url": "https://www.auto.co.il/cars/hyundai/ioniq/",
+          "source_name": "Batch 24 embedded validation source",
+          "source_type": "official/catalog/editorial",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "profile_confidence": "high",
+      "notes": [
+        "Batch 24 correction from embedded validation facts."
+      ]
+    },
+    {
       "make": "Hyundai",
       "model": "Ioniq 5",
       "market": "IL",
@@ -122385,54 +123518,6 @@
             ]
           },
           "missing_grounded_fields": []
-        },
-        {
-          "body_type": "Crossover",
-          "fuel_type": "electric",
-          "engine": "electric",
-          "engine_displacement_l": null,
-          "horsepower_hp": 609,
-          "transmission": "single_speed",
-          "drivetrain": "AWD",
-          "year_start": 2024,
-          "year_end": 2026,
-          "support_level": "direct",
-          "source_indexes": [
-            1,
-            3,
-            4
-          ],
-          "field_sources": {
-            "body_type": [
-              1,
-              4
-            ],
-            "fuel_type": [
-              1,
-              4
-            ],
-            "engine": [
-              1,
-              4
-            ],
-            "engine_displacement_l": [],
-            "horsepower_hp": [
-              3
-            ],
-            "transmission": [
-              4
-            ],
-            "drivetrain": [
-              3
-            ],
-            "year_start": [
-              3
-            ],
-            "year_end": [
-              4
-            ]
-          },
-          "missing_grounded_fields": []
         }
       ],
       "invalid_or_non_trim_labels": {
@@ -122458,8 +123543,7 @@
           217,
           305,
           170,
-          229,
-          609
+          229
         ],
         "transmission": [
           "single_speed"
@@ -122522,7 +123606,7 @@
           "transmission": "single_speed",
           "drivetrain": "AWD",
           "year_start": 2024,
-          "year_end": 2024,
+          "year_end": null,
           "support_level": "direct",
           "source_indexes": [
             1,
@@ -122556,9 +123640,6 @@
             "year_start": [
               1,
               2
-            ],
-            "year_end": [
-              1
             ]
           },
           "missing_grounded_fields": []
@@ -122592,7 +123673,7 @@
       "canonical_model": "Ioniq 5 N",
       "profile_confidence": "medium",
       "year_start": 2024,
-      "year_end": 2024
+      "year_end": null
     },
     {
       "make": "Hyundai",
@@ -122713,7 +123794,7 @@
           "transmission": "single_speed",
           "drivetrain": "RWD",
           "year_start": 2023,
-          "year_end": 2024,
+          "year_end": null,
           "support_level": "direct",
           "source_indexes": [
             0,
@@ -122754,9 +123835,6 @@
             "year_start": [
               1,
               2
-            ],
-            "year_end": [
-              1
             ]
           },
           "missing_grounded_fields": []
@@ -122873,7 +123951,7 @@
       "canonical_model": "Ioniq 6",
       "profile_confidence": "medium",
       "year_start": 2023,
-      "year_end": 2024
+      "year_end": null
     },
     {
       "make": "Hyundai",
@@ -123186,6 +124264,153 @@
       "year_end": 2015
     },
     {
+      "market": "IL",
+      "make": "Hyundai",
+      "model": "Kona",
+      "canonical_model": "Kona",
+      "year_start": 2019,
+      "year_end": null,
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "hybrid",
+          "engine": "1.6L hybrid",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 141,
+          "transmission": "dual_clutch",
+          "drivetrain": "FWD",
+          "year_start": 2019,
+          "year_end": 2025,
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": [],
+          "support_level": "direct"
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "hybrid",
+          "engine": "1.6L hybrid",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 129,
+          "transmission": "dual_clutch",
+          "drivetrain": "FWD",
+          "year_start": 2026,
+          "year_end": null,
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ]
+          },
+          "missing_grounded_fields": [],
+          "support_level": "direct"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "hybrid"
+        ],
+        "engine": [
+          "1.6L hybrid"
+        ],
+        "horsepower_hp": [
+          141,
+          129
+        ],
+        "transmission": [
+          "dual_clutch"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "Hyundai Israel Kona Hybrid",
+          "url": "https://www.hyundaimotors.co.il/models/kona-hybrid",
+          "source_name": "Batch 24 embedded validation source",
+          "source_type": "official/catalog/editorial",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "profile_confidence": "high",
+      "notes": [
+        "Batch 24 correction from embedded validation facts."
+      ]
+    },
+    {
       "make": "Hyundai",
       "model": "Kona N",
       "sources": [
@@ -123456,118 +124681,6 @@
     },
     {
       "make": "Hyundai",
-      "model": "Nexo",
-      "sources": [
-        {
-          "source_index": 0,
-          "title": "יונדאי נקסו המימני נחת בישראל - Cartube",
-          "url": "https://www.cartube.co.il/חדשות-רכב/יונדאי-נקסו-בישראל",
-          "source_name": "Cartube Israel",
-          "source_type": "editorial",
-          "supports": [
-            "body_type",
-            "fuel_type",
-            "engine",
-            "horsepower_hp",
-            "transmission",
-            "drivetrain",
-            "year_start"
-          ]
-        },
-        {
-          "source_index": 1,
-          "title": "רכב המימן הראשון בישראל יוצא לדרך: יונדאי נקסו - אוטו",
-          "url": "https://www.auto.co.il/article/135113-world-news-hyundai-nexo",
-          "source_name": "Auto.co.il",
-          "source_type": "editorial",
-          "supports": [
-            "body_type",
-            "fuel_type",
-            "horsepower_hp",
-            "drivetrain"
-          ]
-        }
-      ],
-      "technical_variants_il": [
-        {
-          "body_type": "SUV",
-          "fuel_type": "hydrogen",
-          "engine": "electric",
-          "engine_displacement_l": null,
-          "horsepower_hp": 163,
-          "transmission": "single_speed",
-          "drivetrain": "FWD",
-          "year_start": 2019,
-          "year_end": null,
-          "version_or_trim": null,
-          "support_level": "direct",
-          "source_indexes": [
-            0,
-            1
-          ],
-          "field_sources": {
-            "body_type": [
-              0,
-              1
-            ],
-            "fuel_type": [
-              0,
-              1
-            ],
-            "engine": [
-              0
-            ],
-            "engine_displacement_l": [],
-            "horsepower_hp": [
-              0,
-              1
-            ],
-            "transmission": [
-              0
-            ],
-            "drivetrain": [
-              0,
-              1
-            ],
-            "year_start": [
-              0
-            ],
-            "year_end": [],
-            "version_or_trim": []
-          },
-          "missing_grounded_fields": [],
-          "invalid_or_non_trim_labels": []
-        }
-      ],
-      "available_values_for_website": {
-        "version_or_trim": [],
-        "body_type": [
-          "SUV"
-        ],
-        "fuel_type": [
-          "hydrogen"
-        ],
-        "engine": [
-          "electric"
-        ],
-        "horsepower_hp": [
-          163
-        ],
-        "transmission": [
-          "single_speed"
-        ],
-        "drivetrain": [
-          "FWD"
-        ]
-      },
-      "market": "IL-confirmed",
-      "canonical_model": "Nexo",
-      "profile_confidence": "medium",
-      "year_start": 2019,
-      "year_end": null
-    },
-    {
-      "make": "Hyundai",
       "model": "Palisade",
       "market": "IL",
       "sources": [
@@ -123614,10 +124727,30 @@
             "horsepower_hp",
             "body_type"
           ]
+        },
+        {
+          "source_index": 3,
+          "title": "Hyundai Palisade embedded sources",
+          "url": "https://www.hyundaimotors.co.il/",
+          "source_name": "Batch 24 embedded validation source",
+          "source_type": "official/catalog/editorial",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
         }
       ],
       "technical_variants_il": [
         {
+          "version_or_trim": null,
           "body_type": "SUV",
           "fuel_type": "petrol",
           "engine": "3.8L v6",
@@ -123627,52 +124760,43 @@
           "drivetrain": "FWD",
           "year_start": 2020,
           "year_end": 2024,
-          "support_level": "direct",
           "source_indexes": [
-            0,
-            1,
-            2
+            3
           ],
           "field_sources": {
             "body_type": [
-              0,
-              2
+              3
             ],
             "fuel_type": [
-              0,
-              2
+              3
             ],
             "engine": [
-              0,
-              2
+              3
             ],
             "engine_displacement_l": [
-              0
+              3
             ],
             "horsepower_hp": [
-              0,
-              1,
-              2
+              3
             ],
             "transmission": [
-              0,
-              1
+              3
             ],
             "drivetrain": [
-              0,
-              1,
-              2
+              3
             ],
             "year_start": [
-              1
+              3
             ],
             "year_end": [
-              2
+              3
             ]
           },
-          "missing_grounded_fields": []
+          "missing_grounded_fields": [],
+          "support_level": "direct"
         },
         {
+          "version_or_trim": null,
           "body_type": "SUV",
           "fuel_type": "petrol",
           "engine": "3.8L v6",
@@ -123682,50 +124806,86 @@
           "drivetrain": "AWD",
           "year_start": 2020,
           "year_end": 2024,
-          "support_level": "direct",
           "source_indexes": [
-            0,
-            1,
-            2
+            3
           ],
           "field_sources": {
             "body_type": [
-              0,
-              2
+              3
             ],
             "fuel_type": [
-              0,
-              2
+              3
             ],
             "engine": [
-              0,
-              2
+              3
             ],
             "engine_displacement_l": [
-              0
+              3
             ],
             "horsepower_hp": [
-              0,
-              1,
-              2
+              3
             ],
             "transmission": [
-              0,
-              1
+              3
             ],
             "drivetrain": [
-              0,
-              1,
-              2
+              3
             ],
             "year_start": [
-              1
+              3
             ],
             "year_end": [
-              2
+              3
             ]
           },
-          "missing_grounded_fields": []
+          "missing_grounded_fields": [],
+          "support_level": "direct"
+        },
+        {
+          "version_or_trim": "Luxury / Calligraphy",
+          "body_type": "SUV",
+          "fuel_type": "hybrid",
+          "engine": "2.5L turbo hybrid",
+          "engine_displacement_l": 2.5,
+          "horsepower_hp": 334,
+          "transmission": "6-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2026,
+          "year_end": null,
+          "source_indexes": [
+            3
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              3
+            ],
+            "body_type": [
+              3
+            ],
+            "fuel_type": [
+              3
+            ],
+            "engine": [
+              3
+            ],
+            "engine_displacement_l": [
+              3
+            ],
+            "horsepower_hp": [
+              3
+            ],
+            "transmission": [
+              3
+            ],
+            "drivetrain": [
+              3
+            ],
+            "year_start": [
+              3
+            ]
+          },
+          "missing_grounded_fields": [],
+          "support_level": "direct"
         }
       ],
       "invalid_or_non_trim_labels": [
@@ -123747,21 +124907,27 @@
         }
       ],
       "available_values_for_website": {
-        "version_or_trim": [],
+        "version_or_trim": [
+          "Luxury / Calligraphy"
+        ],
         "body_type": [
           "SUV"
         ],
         "fuel_type": [
-          "petrol"
+          "petrol",
+          "hybrid"
         ],
         "engine": [
-          "3.8L v6"
+          "3.8L v6",
+          "2.5L turbo hybrid"
         ],
         "horsepower_hp": [
-          291
+          291,
+          334
         ],
         "transmission": [
-          "8-speed automatic"
+          "8-speed automatic",
+          "6-speed automatic"
         ],
         "drivetrain": [
           "FWD",
@@ -123771,7 +124937,7 @@
       "canonical_model": "Palisade",
       "profile_confidence": "medium",
       "year_start": 2020,
-      "year_end": 2024
+      "year_end": null
     },
     {
       "technical_variants_il": [
@@ -124049,6 +125215,98 @@
             "version_or_trim": []
           },
           "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Elite 2X4",
+          "body_type": "SUV",
+          "fuel_type": "hybrid",
+          "engine": "1.6L turbo hybrid",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 215,
+          "transmission": "6-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2025,
+          "year_end": null,
+          "source_indexes": [
+            4
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              4
+            ],
+            "body_type": [
+              4
+            ],
+            "fuel_type": [
+              4
+            ],
+            "engine": [
+              4
+            ],
+            "engine_displacement_l": [
+              4
+            ],
+            "horsepower_hp": [
+              4
+            ],
+            "transmission": [
+              4
+            ],
+            "drivetrain": [
+              4
+            ],
+            "year_start": [
+              4
+            ]
+          },
+          "missing_grounded_fields": [],
+          "support_level": "direct"
+        },
+        {
+          "version_or_trim": "Calligraphy 4X4",
+          "body_type": "SUV",
+          "fuel_type": "hybrid",
+          "engine": "1.6L turbo hybrid",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 215,
+          "transmission": "6-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2025,
+          "year_end": null,
+          "source_indexes": [
+            4
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              4
+            ],
+            "body_type": [
+              4
+            ],
+            "fuel_type": [
+              4
+            ],
+            "engine": [
+              4
+            ],
+            "engine_displacement_l": [
+              4
+            ],
+            "horsepower_hp": [
+              4
+            ],
+            "transmission": [
+              4
+            ],
+            "drivetrain": [
+              4
+            ],
+            "year_start": [
+              4
+            ]
+          },
+          "missing_grounded_fields": [],
+          "support_level": "direct"
         }
       ],
       "sources": [
@@ -124123,6 +125381,25 @@
             "year_start",
             "year_end"
           ]
+        },
+        {
+          "source_index": 4,
+          "title": "Hyundai Israel Santa Fe Hybrid",
+          "url": "https://www.hyundaimotors.co.il/",
+          "source_name": "Batch 24 embedded validation source",
+          "source_type": "official/catalog/editorial",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
         }
       ],
       "invalid_or_non_trim_labels": [
@@ -124144,7 +125421,10 @@
         }
       ],
       "available_values_for_website": {
-        "version_or_trim": [],
+        "version_or_trim": [
+          "Elite 2X4",
+          "Calligraphy 4X4"
+        ],
         "body_type": [
           "SUV"
         ],
@@ -124156,13 +125436,15 @@
         "engine": [
           "2.4L",
           "2.2L turbo",
-          "1.6L turbo"
+          "1.6L turbo",
+          "1.6L turbo hybrid"
         ],
         "horsepower_hp": [
           185,
           200,
           202,
-          226
+          226,
+          215
         ],
         "transmission": [
           "6-speed automatic",
@@ -124180,7 +125462,7 @@
       "canonical_model": "Santa Fe",
       "profile_confidence": "medium",
       "year_start": 2019,
-      "year_end": 2024
+      "year_end": null
     },
     {
       "sources": [
@@ -124353,7 +125635,7 @@
           "transmission": "8-speed automatic",
           "drivetrain": "FWD",
           "year_start": 2021,
-          "year_end": null,
+          "year_end": 2024,
           "support_level": "direct",
           "source_indexes": [
             519
@@ -124383,7 +125665,9 @@
             "year_start": [
               519
             ],
-            "year_end": []
+            "year_end": [
+              519
+            ]
           },
           "missing_grounded_fields": []
         },
@@ -124597,7 +125881,7 @@
           "transmission": "8-speed automatic",
           "drivetrain": "FWD",
           "year_start": 2021,
-          "year_end": null,
+          "year_end": 2024,
           "support_level": "direct",
           "source_indexes": [
             32,
@@ -124635,7 +125919,10 @@
             "year_start": [
               33
             ],
-            "year_end": []
+            "year_end": [
+              32,
+              33
+            ]
           },
           "missing_grounded_fields": []
         },
@@ -124648,7 +125935,7 @@
           "transmission": "8-speed automatic",
           "drivetrain": "FWD",
           "year_start": 2021,
-          "year_end": null,
+          "year_end": 2024,
           "support_level": "direct",
           "source_indexes": [
             32,
@@ -124686,7 +125973,10 @@
             "year_start": [
               33
             ],
-            "year_end": []
+            "year_end": [
+              32,
+              33
+            ]
           },
           "missing_grounded_fields": []
         },
@@ -124729,9 +126019,13 @@
             "year_start": [
               34
             ],
-            "year_end": []
+            "year_end": [],
+            "version_or_trim": [
+              34
+            ]
           },
-          "missing_grounded_fields": []
+          "missing_grounded_fields": [],
+          "version_or_trim": "Premium / Luxury / Commercial"
         }
       ],
       "invalid_or_non_trim_labels": {
@@ -124740,7 +126034,9 @@
         "Commercial": "body_type_or_marketing_label_not_trim"
       },
       "available_values_for_website": {
-        "version_or_trim": [],
+        "version_or_trim": [
+          "Premium / Luxury / Commercial"
+        ],
         "body_type": [
           "MPV",
           "Van"
@@ -124938,7 +126234,7 @@
           "fuel_type": "petrol",
           "engine": "3.5L v6",
           "engine_displacement_l": 3.5,
-          "horsepower_hp": 195,
+          "horsepower_hp": 200,
           "transmission": "automatic",
           "drivetrain": "4WD",
           "year_start": 2001,
@@ -125021,7 +126317,7 @@
         "horsepower_hp": [
           150,
           163,
-          195
+          200
         ],
         "transmission": [
           "automatic"
@@ -125037,6 +126333,111 @@
       "profile_confidence": "medium",
       "year_start": 2001,
       "year_end": 2007
+    },
+    {
+      "market": "IL",
+      "make": "Hyundai",
+      "model": "Tucson",
+      "canonical_model": "Tucson",
+      "year_start": 2025,
+      "year_end": null,
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Pure / Prestige",
+          "body_type": "SUV",
+          "fuel_type": "hybrid",
+          "engine": "1.6L turbo hybrid",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 230,
+          "transmission": "automatic",
+          "drivetrain": "AWD",
+          "year_start": 2025,
+          "year_end": null,
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ]
+          },
+          "missing_grounded_fields": [],
+          "support_level": "direct"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Pure / Prestige"
+        ],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "hybrid"
+        ],
+        "engine": [
+          "1.6L turbo hybrid"
+        ],
+        "horsepower_hp": [
+          230
+        ],
+        "transmission": [
+          "automatic"
+        ],
+        "drivetrain": [
+          "AWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "Hyundai Israel Tucson Hybrid",
+          "url": "https://www.hyundaimotors.co.il/models/tucson-hybrid",
+          "source_name": "Batch 24 embedded validation source",
+          "source_type": "official/catalog/editorial",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "profile_confidence": "high",
+      "notes": [
+        "Batch 24 correction from embedded validation facts."
+      ]
     },
     {
       "make": "Hyundai",
@@ -125393,11 +126794,11 @@
           "fuel_type": "petrol",
           "engine": "1.6L",
           "engine_displacement_l": 1.6,
-          "horsepower_hp": 123,
+          "horsepower_hp": 121,
           "transmission": "cvt",
           "drivetrain": "FWD",
           "year_start": 2019,
-          "year_end": 2024,
+          "year_end": null,
           "support_level": "direct",
           "source_indexes": [
             0,
@@ -125439,9 +126840,6 @@
             "year_start": [
               1,
               2
-            ],
-            "year_end": [
-              1
             ]
           },
           "missing_grounded_fields": []
@@ -125465,7 +126863,7 @@
           "1.6L"
         ],
         "horsepower_hp": [
-          123
+          121
         ],
         "transmission": [
           "cvt"
@@ -125480,7 +126878,7 @@
       "canonical_model": "Venue",
       "profile_confidence": "medium",
       "year_start": 2019,
-      "year_end": 2024
+      "year_end": null
     },
     {
       "technical_variants_il": [
@@ -126123,7 +127521,7 @@
           "fuel_type": "petrol",
           "engine": "3.0L v6 turbo",
           "engine_displacement_l": 3.0,
-          "horsepower_hp": 300,
+          "horsepower_hp": 405,
           "transmission": "7-speed automatic",
           "drivetrain": "RWD",
           "year_start": 2017,
@@ -126177,9 +127575,15 @@
             "year_end": [
               0,
               1
+            ],
+            "version_or_trim": [
+              0,
+              1,
+              2
             ]
           },
-          "missing_grounded_fields": []
+          "missing_grounded_fields": [],
+          "version_or_trim": "Sport Tech"
         }
       ],
       "invalid_or_non_trim_labels": [
@@ -126209,7 +127613,9 @@
         }
       ],
       "available_values_for_website": {
-        "version_or_trim": [],
+        "version_or_trim": [
+          "Sport Tech"
+        ],
         "body_type": [
           "Sedan"
         ],
@@ -126225,7 +127631,7 @@
         "horsepower_hp": [
           211,
           364,
-          300
+          405
         ],
         "transmission": [
           "7-speed automatic"
@@ -126300,7 +127706,7 @@
           "fuel_type": "petrol",
           "engine": "3.0L twin-turbo v6",
           "engine_displacement_l": 3.0,
-          "horsepower_hp": 400,
+          "horsepower_hp": 405,
           "transmission": "7-speed automatic",
           "drivetrain": "AWD",
           "year_start": 2017,
@@ -126431,7 +127837,7 @@
         ],
         "horsepower_hp": [
           211,
-          400
+          405
         ],
         "transmission": [
           "7-speed automatic"
@@ -126870,7 +128276,7 @@
           "transmission": "cvt",
           "drivetrain": "FWD",
           "year_start": 2019,
-          "year_end": 2023,
+          "year_end": null,
           "support_level": "direct",
           "source_indexes": [
             1
@@ -126901,9 +128307,6 @@
               1
             ],
             "year_start": [
-              1
-            ],
-            "year_end": [
               1
             ]
           },
@@ -126919,7 +128322,7 @@
           "transmission": "cvt",
           "drivetrain": "AWD",
           "year_start": 2019,
-          "year_end": 2023,
+          "year_end": null,
           "support_level": "direct",
           "source_indexes": [
             1
@@ -126950,9 +128353,6 @@
               1
             ],
             "year_start": [
-              1
-            ],
-            "year_end": [
               1
             ]
           },
@@ -126997,7 +128397,7 @@
       "canonical_model": "QX50",
       "profile_confidence": "medium",
       "year_start": 2014,
-      "year_end": 2023
+      "year_end": null
     },
     {
       "sources": [
@@ -127037,6 +128437,25 @@
             "year_start",
             "year_end",
             "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "Infiniti QX60 current embedded source",
+          "url": "https://www.infiniti-cars.co.il/",
+          "source_name": "Batch 24 embedded validation source",
+          "source_type": "official/catalog/editorial",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
           ]
         }
       ],
@@ -127138,12 +128557,59 @@
             ]
           },
           "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Luxe / Sensory",
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "2.0L vc-turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 268,
+          "transmission": "9-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2025,
+          "year_end": null,
+          "source_indexes": [
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              2
+            ],
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              2
+            ],
+            "engine": [
+              2
+            ],
+            "engine_displacement_l": [
+              2
+            ],
+            "horsepower_hp": [
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              2
+            ],
+            "year_start": [
+              2
+            ]
+          },
+          "missing_grounded_fields": [],
+          "support_level": "direct"
         }
       ],
       "available_values_for_website": {
         "version_or_trim": [
           "Elite",
-          "Sensory"
+          "Sensory",
+          "Luxe / Sensory"
         ],
         "body_type": [
           "SUV"
@@ -127152,15 +128618,18 @@
           "petrol"
         ],
         "engine": [
-          "3.5L v6"
+          "3.5L v6",
+          "2.0L vc-turbo"
         ],
         "horsepower_hp": [
           265,
-          295
+          295,
+          268
         ],
         "transmission": [
           "cvt",
-          "automatic"
+          "automatic",
+          "9-speed automatic"
         ],
         "drivetrain": [
           "AWD"
@@ -127173,7 +128642,7 @@
       "canonical_model": "QX60",
       "profile_confidence": "medium",
       "year_start": 2014,
-      "year_end": 2024
+      "year_end": null
     },
     {
       "sources": [
@@ -127459,7 +128928,7 @@
           "engine_displacement_l": 5.6,
           "horsepower_hp": 400,
           "transmission": "7-speed automatic",
-          "drivetrain": "RWD",
+          "drivetrain": "AWD",
           "year_start": 2014,
           "year_end": 2022,
           "support_level": "direct",
@@ -127524,7 +128993,7 @@
           "7-speed automatic"
         ],
         "drivetrain": [
-          "RWD"
+          "AWD"
         ]
       },
       "market": "IL",
@@ -127534,6 +129003,400 @@
       "profile_confidence": "medium",
       "year_start": 2014,
       "year_end": 2022
+    },
+    {
+      "make": "Isuzu",
+      "model": "D-Max",
+      "market": "IL",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "מפרט טכני איסוזו די מקס (2021-היום) - אוטו (Auto.co.il)",
+          "url": "https://www.auto.co.il/model/isuzu-dmax_g338",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial_catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "איסוזו די מקס - מבחן דרכים (2021+) - Gear.co.il",
+          "url": "https://gear.co.il/articles/3103-Isuzu-D-Max-2021-Review",
+          "source_name": "Gear.co.il",
+          "source_type": "editorial_review",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "איסוזו די מקס (2012-2020) מפרט טכני - קארזון (CarZone)",
+          "url": "https://www.carzone.co.il/models/%D7%90%D7%99%D7%A1%D7%95%D7%96%D7%95/%D7%93%D7%99-%D7%9E%D7%A7%D7%A1/2/",
+          "source_name": "CarZone",
+          "source_type": "israeli_catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "איסוזו די-מקס דור ראשון (2002-2012) - רכב יד שניה - CarsForum",
+          "url": "https://carsforum.co.il/cars/%D7%9E%D7%97%D7%99%D7%A8%D7%95%D7%9F-%D7%A8%D7%9B%D7%91/3421/%D7%90%D7%99%D7%A1%D7%95%D7%96%D7%95/%D7%93%D7%99-%D7%9E%D7%A7%D7%A1",
+          "source_name": "CarsForum IL",
+          "source_type": "forum_catalog",
+          "supports": [
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "Pickup",
+          "fuel_type": "diesel",
+          "engine": "1.9L turbo",
+          "engine_displacement_l": 1.9,
+          "horsepower_hp": 163,
+          "transmission": "automatic",
+          "drivetrain": "4WD",
+          "year_start": 2017,
+          "year_end": 2026,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1,
+              2
+            ],
+            "fuel_type": [
+              0,
+              1,
+              2
+            ],
+            "engine": [
+              0,
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              0,
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              0,
+              1,
+              2
+            ],
+            "transmission": [
+              0,
+              1,
+              2
+            ],
+            "drivetrain": [
+              0,
+              1,
+              2
+            ],
+            "year_start": [
+              0,
+              2
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Pickup",
+          "fuel_type": "diesel",
+          "engine": "1.9L turbo",
+          "engine_displacement_l": 1.9,
+          "horsepower_hp": 163,
+          "transmission": "manual",
+          "drivetrain": "RWD",
+          "year_start": 2017,
+          "year_end": 2026,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1,
+              2
+            ],
+            "fuel_type": [
+              0,
+              1,
+              2
+            ],
+            "engine": [
+              0,
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              0,
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              0,
+              1,
+              2
+            ],
+            "transmission": [
+              0,
+              1,
+              2
+            ],
+            "drivetrain": [
+              0,
+              1,
+              2
+            ],
+            "year_start": [
+              0,
+              2
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Pickup",
+          "fuel_type": "diesel",
+          "engine": "2.5L twin turbo",
+          "engine_displacement_l": 2.5,
+          "horsepower_hp": 163,
+          "transmission": "automatic",
+          "drivetrain": "4WD",
+          "year_start": 2012,
+          "year_end": 2017,
+          "support_level": "direct",
+          "source_indexes": [
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              2
+            ],
+            "engine": [
+              2
+            ],
+            "engine_displacement_l": [
+              2
+            ],
+            "horsepower_hp": [
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              2
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Pickup",
+          "fuel_type": "diesel",
+          "engine": "2.5L twin turbo",
+          "engine_displacement_l": 2.5,
+          "horsepower_hp": 163,
+          "transmission": "manual",
+          "drivetrain": "RWD",
+          "year_start": 2012,
+          "year_end": 2017,
+          "support_level": "direct",
+          "source_indexes": [
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              2
+            ],
+            "engine": [
+              2
+            ],
+            "engine_displacement_l": [
+              2
+            ],
+            "horsepower_hp": [
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              2
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Pickup",
+          "fuel_type": "diesel",
+          "engine": "3.0L turbo",
+          "engine_displacement_l": 3.0,
+          "horsepower_hp": 163,
+          "transmission": "automatic",
+          "drivetrain": "4WD",
+          "year_start": 2007,
+          "year_end": 2012,
+          "support_level": "direct",
+          "source_indexes": [
+            3
+          ],
+          "field_sources": {
+            "body_type": [
+              3
+            ],
+            "fuel_type": [
+              3
+            ],
+            "engine": [
+              3
+            ],
+            "engine_displacement_l": [
+              3
+            ],
+            "horsepower_hp": [
+              3
+            ],
+            "transmission": [
+              3
+            ],
+            "drivetrain": [
+              3
+            ],
+            "year_start": [
+              3
+            ],
+            "year_end": [
+              3
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "2WD",
+          "classification": "drivetrain"
+        },
+        {
+          "label": "4WD",
+          "classification": "drivetrain"
+        },
+        {
+          "label": "Double Cab",
+          "classification": "body_type"
+        },
+        {
+          "label": "Single Cab",
+          "classification": "body_type"
+        },
+        {
+          "label": "Space Cab",
+          "classification": "body_type"
+        },
+        {
+          "label": "Extended Cab",
+          "classification": "body_type"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Pickup"
+        ],
+        "fuel_type": [
+          "diesel"
+        ],
+        "engine": [
+          "1.9L turbo",
+          "2.5L twin turbo",
+          "3.0L turbo"
+        ],
+        "horsepower_hp": [
+          163
+        ],
+        "transmission": [
+          "automatic",
+          "manual"
+        ],
+        "drivetrain": [
+          "4WD",
+          "RWD"
+        ]
+      },
+      "canonical_model": "D-Max",
+      "profile_confidence": "medium",
+      "year_start": 2007,
+      "year_end": 2026,
+      "validation_issues": [
+        "variant[4] non-null field 'drivetrain' has no field_sources entry",
+        "variant[4] required field 'drivetrain' listed in missing_grounded_fields"
+      ]
     },
     {
       "make": "Isuzu",
@@ -127571,6 +129434,44 @@
             "horsepower_hp",
             "transmission",
             "drivetrain"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "איסוזו רודיאו (2002-2004) - מחירון רכב, מפרט טכני",
+          "url": "https://www.auto.co.il/model/isuzu-rodeo_g250",
+          "source_name": "Batch 24 embedded validation source",
+          "source_type": "official/catalog/editorial",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "איסוזו רודיאו - מחירון, מפרטים, אמינות וחוות דעת",
+          "url": "https://www.icar.co.il/%D7%90%D7%99%D7%A1%D7%95%D7%96%D7%95/%D7%90%D7%99%D7%A1%D7%95%D7%96%D7%95_%D7%A8%D7%95%D7%93%D7%99%D7%90%D7%95/",
+          "source_name": "Batch 24 embedded validation source",
+          "source_type": "official/catalog/editorial",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
           ]
         }
       ],
@@ -127653,139 +129554,14 @@
           "4WD"
         ]
       },
-      "market": "global-reference-only",
+      "market": "IL-confirmed",
       "canonical_model": "Rodeo",
       "profile_confidence": "medium",
       "year_start": 1998,
-      "year_end": 2004
-    },
-    {
-      "make": "Isuzu",
-      "model": "Rodeo",
-      "market": "IL-confirmed",
-      "sources": [
-        {
-          "source_index": 1,
-          "title": "איסוזו רודיאו (2002-2004) - מחירון רכב, מפרט טכני",
-          "url": "https://www.auto.co.il/model/isuzu-rodeo_g250",
-          "source_name": "Auto.co.il",
-          "source_type": "Israeli automotive portal",
-          "supports": [
-            "year_start",
-            "year_end",
-            "engine",
-            "engine_displacement_l",
-            "horsepower_hp",
-            "transmission",
-            "body_type",
-            "fuel_type",
-            "drivetrain"
-          ]
-        },
-        {
-          "source_index": 2,
-          "title": "איסוזו רודיאו - מחירון, מפרטים, אמינות וחוות דעת",
-          "url": "https://www.icar.co.il/%D7%90%D7%99%D7%A1%D7%95%D7%96%D7%95/%D7%90%D7%99%D7%A1%D7%95%D7%96%D7%95_%D7%A8%D7%95%D7%93%D7%99%D7%90%D7%95/",
-          "source_name": "iCar",
-          "source_type": "Israeli automotive portal",
-          "supports": [
-            "year_start",
-            "year_end",
-            "engine",
-            "engine_displacement_l",
-            "horsepower_hp",
-            "transmission",
-            "body_type",
-            "fuel_type",
-            "drivetrain"
-          ]
-        }
-      ],
-      "technical_variants_il": [
-        {
-          "version_or_trim": null,
-          "body_type": "SUV",
-          "fuel_type": "petrol",
-          "engine": "3.2L v6",
-          "engine_displacement_l": 3.2,
-          "horsepower_hp": 205,
-          "transmission": "4-speed automatic",
-          "drivetrain": "4WD",
-          "year_start": 2002,
-          "year_end": 2004,
-          "support_level": "direct",
-          "source_indexes": [
-            1,
-            2
-          ],
-          "field_sources": {
-            "version_or_trim": [],
-            "body_type": [
-              1,
-              2
-            ],
-            "fuel_type": [
-              1,
-              2
-            ],
-            "engine": [
-              1,
-              2
-            ],
-            "engine_displacement_l": [
-              1,
-              2
-            ],
-            "horsepower_hp": [
-              1,
-              2
-            ],
-            "transmission": [
-              1,
-              2
-            ],
-            "drivetrain": [
-              1,
-              2
-            ],
-            "year_start": [
-              1,
-              2
-            ],
-            "year_end": [
-              1,
-              2
-            ]
-          },
-          "missing_grounded_fields": []
-        }
-      ],
-      "invalid_or_non_trim_labels": [],
-      "available_values_for_website": {
-        "version_or_trim": [],
-        "body_type": [
-          "SUV"
-        ],
-        "fuel_type": [
-          "petrol"
-        ],
-        "engine": [
-          "3.2L v6"
-        ],
-        "horsepower_hp": [
-          205
-        ],
-        "transmission": [
-          "4-speed automatic"
-        ],
-        "drivetrain": [
-          "4WD"
-        ]
-      },
-      "canonical_model": "Rodeo",
-      "profile_confidence": "medium",
-      "year_start": 2002,
-      "year_end": 2004
+      "year_end": 2004,
+      "source_alias_keys": [
+        "global-reference-only|Isuzu|Rodeo"
+      ]
     },
     {
       "technical_variants_il": [
@@ -128070,54 +129846,6 @@
             ]
           },
           "missing_grounded_fields": []
-        },
-        {
-          "version_or_trim": null,
-          "body_type": "SUV",
-          "fuel_type": "diesel",
-          "engine": "2.8L turbo",
-          "engine_displacement_l": 2.8,
-          "horsepower_hp": 106,
-          "transmission": "5-speed manual",
-          "drivetrain": "4WD",
-          "year_start": 1990,
-          "year_end": 1992,
-          "support_level": "direct",
-          "source_indexes": [
-            2,
-            3
-          ],
-          "field_sources": {
-            "version_or_trim": [],
-            "body_type": [
-              2
-            ],
-            "fuel_type": [
-              2
-            ],
-            "engine": [
-              2
-            ],
-            "engine_displacement_l": [
-              2
-            ],
-            "horsepower_hp": [
-              3
-            ],
-            "transmission": [
-              2
-            ],
-            "drivetrain": [
-              2
-            ],
-            "year_start": [
-              2
-            ],
-            "year_end": [
-              2
-            ]
-          },
-          "missing_grounded_fields": []
         }
       ],
       "invalid_or_non_trim_labels": [
@@ -128151,15 +129879,13 @@
           "3.0L turbo",
           "3.5L v6",
           "3.1L turbo",
-          "3.2L v6",
-          "2.8L turbo"
+          "3.2L v6"
         ],
         "horsepower_hp": [
           159,
           215,
           114,
-          177,
-          106
+          177
         ],
         "transmission": [
           "4-speed automatic",
@@ -128232,458 +129958,63 @@
           "supports": [
             "horsepower_hp"
           ]
-        }
-      ],
-      "market": "IL-likely",
-      "make": "Isuzu",
-      "model": "Trooper",
-      "canonical_model": "Trooper",
-      "profile_confidence": "medium",
-      "year_start": 1990,
-      "year_end": 2004
-    },
-    {
-      "technical_variants_il": [
-        {
-          "body_type": "SUV",
-          "fuel_type": "diesel",
-          "engine": "3.1L turbo",
-          "engine_displacement_l": 3.1,
-          "horsepower_hp": 114,
-          "transmission": "4-speed automatic",
-          "drivetrain": "4WD",
-          "year_start": 1992,
-          "year_end": 1998,
-          "support_level": "direct",
-          "source_indexes": [
-            1,
-            2
-          ],
-          "field_sources": {
-            "body_type": [
-              1,
-              2
-            ],
-            "fuel_type": [
-              1,
-              2
-            ],
-            "engine": [
-              1,
-              2
-            ],
-            "engine_displacement_l": [
-              1,
-              2
-            ],
-            "horsepower_hp": [
-              1,
-              2
-            ],
-            "transmission": [
-              1,
-              2
-            ],
-            "drivetrain": [
-              1,
-              2
-            ],
-            "year_start": [
-              1,
-              2
-            ],
-            "year_end": [
-              1,
-              2
-            ]
-          },
-          "missing_grounded_fields": []
         },
         {
-          "body_type": "SUV",
-          "fuel_type": "diesel",
-          "engine": "3.1L turbo",
-          "engine_displacement_l": 3.1,
-          "horsepower_hp": 114,
-          "transmission": "5-speed manual",
-          "drivetrain": "4WD",
-          "year_start": 1992,
-          "year_end": 1998,
-          "support_level": "direct",
-          "source_indexes": [
-            1,
-            2
-          ],
-          "field_sources": {
-            "body_type": [
-              1,
-              2
-            ],
-            "fuel_type": [
-              1,
-              2
-            ],
-            "engine": [
-              1,
-              2
-            ],
-            "engine_displacement_l": [
-              1,
-              2
-            ],
-            "horsepower_hp": [
-              1,
-              2
-            ],
-            "transmission": [
-              1,
-              2
-            ],
-            "drivetrain": [
-              1,
-              2
-            ],
-            "year_start": [
-              1,
-              2
-            ],
-            "year_end": [
-              1,
-              2
-            ]
-          },
-          "missing_grounded_fields": []
-        },
-        {
-          "body_type": "SUV",
-          "fuel_type": "petrol",
-          "engine": "3.2L v6",
-          "engine_displacement_l": 3.2,
-          "horsepower_hp": 177,
-          "transmission": "4-speed automatic",
-          "drivetrain": "4WD",
-          "year_start": 1992,
-          "year_end": 1998,
-          "support_level": "direct",
-          "source_indexes": [
-            1,
-            2
-          ],
-          "field_sources": {
-            "body_type": [
-              1,
-              2
-            ],
-            "fuel_type": [
-              1,
-              2
-            ],
-            "engine": [
-              1,
-              2
-            ],
-            "engine_displacement_l": [
-              1,
-              2
-            ],
-            "horsepower_hp": [
-              1,
-              2
-            ],
-            "transmission": [
-              1,
-              2
-            ],
-            "drivetrain": [
-              1,
-              2
-            ],
-            "year_start": [
-              1,
-              2
-            ],
-            "year_end": [
-              1,
-              2
-            ]
-          },
-          "missing_grounded_fields": []
-        },
-        {
-          "body_type": "SUV",
-          "fuel_type": "diesel",
-          "engine": "3.0L turbo",
-          "engine_displacement_l": 3.0,
-          "horsepower_hp": 159,
-          "transmission": "4-speed automatic",
-          "drivetrain": "4WD",
-          "year_start": 1999,
-          "year_end": 2004,
-          "support_level": "direct",
-          "source_indexes": [
-            0,
-            1
-          ],
-          "field_sources": {
-            "body_type": [
-              0,
-              1
-            ],
-            "fuel_type": [
-              0,
-              1
-            ],
-            "engine": [
-              0,
-              1
-            ],
-            "engine_displacement_l": [
-              0,
-              1
-            ],
-            "horsepower_hp": [
-              0,
-              1
-            ],
-            "transmission": [
-              0,
-              1
-            ],
-            "drivetrain": [
-              0,
-              1
-            ],
-            "year_start": [
-              0,
-              1
-            ],
-            "year_end": [
-              0,
-              1
-            ]
-          },
-          "missing_grounded_fields": []
-        },
-        {
-          "body_type": "SUV",
-          "fuel_type": "diesel",
-          "engine": "3.0L turbo",
-          "engine_displacement_l": 3.0,
-          "horsepower_hp": 159,
-          "transmission": "5-speed manual",
-          "drivetrain": "4WD",
-          "year_start": 1999,
-          "year_end": 2004,
-          "support_level": "direct",
-          "source_indexes": [
-            0,
-            1
-          ],
-          "field_sources": {
-            "body_type": [
-              0,
-              1
-            ],
-            "fuel_type": [
-              0,
-              1
-            ],
-            "engine": [
-              0,
-              1
-            ],
-            "engine_displacement_l": [
-              0,
-              1
-            ],
-            "horsepower_hp": [
-              0,
-              1
-            ],
-            "transmission": [
-              0,
-              1
-            ],
-            "drivetrain": [
-              0,
-              1
-            ],
-            "year_start": [
-              0,
-              1
-            ],
-            "year_end": [
-              0,
-              1
-            ]
-          },
-          "missing_grounded_fields": []
-        },
-        {
-          "body_type": "SUV",
-          "fuel_type": "petrol",
-          "engine": "3.5L v6",
-          "engine_displacement_l": 3.5,
-          "horsepower_hp": 215,
-          "transmission": "4-speed automatic",
-          "drivetrain": "4WD",
-          "year_start": 1999,
-          "year_end": 2004,
-          "support_level": "direct",
-          "source_indexes": [
-            0,
-            1
-          ],
-          "field_sources": {
-            "body_type": [
-              0,
-              1
-            ],
-            "fuel_type": [
-              0,
-              1
-            ],
-            "engine": [
-              0,
-              1
-            ],
-            "engine_displacement_l": [
-              0,
-              1
-            ],
-            "horsepower_hp": [
-              0,
-              1
-            ],
-            "transmission": [
-              0,
-              1
-            ],
-            "drivetrain": [
-              0,
-              1
-            ],
-            "year_start": [
-              0,
-              1
-            ],
-            "year_end": [
-              0,
-              1
-            ]
-          },
-          "missing_grounded_fields": []
-        }
-      ],
-      "sources": [
-        {
-          "source_index": 0,
+          "source_index": 4,
           "title": "איסוזו טרופר 1999-2004 מפרט טכני",
           "url": "https://www.kml.co.il/Car/%D7%90%D7%99%D7%A1%D7%95%D7%96%D7%95_%D7%98%D7%A8%D7%95%D7%A4%D7%A8_1999-2004_7260",
-          "source_name": "KML Israel",
-          "source_type": "specs_catalog",
+          "source_name": "Batch 24 embedded validation source",
+          "source_type": "official/catalog/editorial",
           "supports": [
-            "year_start",
-            "year_end",
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
             "engine",
             "engine_displacement_l",
             "horsepower_hp",
             "transmission",
             "drivetrain",
-            "fuel_type",
-            "body_type"
+            "year_start",
+            "year_end"
           ]
         },
         {
-          "source_index": 1,
+          "source_index": 5,
           "title": "איסוזו טרופר (1993-2004) - חוות דעת, מחירון, צריכת דלק, מפרט טכני",
           "url": "https://www.auto.co.il/model/isuzu-trooper_g181",
-          "source_name": "Auto.co.il",
-          "source_type": "editorial",
+          "source_name": "Batch 24 embedded validation source",
+          "source_type": "official/catalog/editorial",
           "supports": [
-            "year_start",
-            "year_end",
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
             "engine",
             "engine_displacement_l",
             "horsepower_hp",
             "transmission",
             "drivetrain",
-            "fuel_type",
-            "body_type"
+            "year_start",
+            "year_end"
           ]
         },
         {
-          "source_index": 2,
+          "source_index": 6,
           "title": "איסוזו טרופר 1992-1998 מפרט טכני",
           "url": "https://www.kml.co.il/Car/%D7%90%D7%99%D7%A1%D7%95%D7%96%D7%95_%D7%98%D7%A8%D7%95%D7%A4%D7%A8_1993-1998_7259",
-          "source_name": "KML Israel",
-          "source_type": "specs_catalog",
+          "source_name": "Batch 24 embedded validation source",
+          "source_type": "official/catalog/editorial",
           "supports": [
-            "year_start",
-            "year_end",
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
             "engine",
             "engine_displacement_l",
             "horsepower_hp",
             "transmission",
             "drivetrain",
-            "fuel_type",
-            "body_type"
+            "year_start",
+            "year_end"
           ]
-        }
-      ],
-      "available_values_for_website": {
-        "version_or_trim": [],
-        "body_type": [
-          "SUV"
-        ],
-        "fuel_type": [
-          "diesel",
-          "petrol"
-        ],
-        "engine": [
-          "3.1L turbo",
-          "3.2L v6",
-          "3.0L turbo",
-          "3.5L v6"
-        ],
-        "horsepower_hp": [
-          114,
-          177,
-          159,
-          215
-        ],
-        "transmission": [
-          "4-speed automatic",
-          "5-speed manual"
-        ],
-        "drivetrain": [
-          "4WD"
-        ]
-      },
-      "invalid_or_non_trim_labels": [
-        {
-          "label": "Standard",
-          "classification": "non_trim"
-        },
-        {
-          "label": "Base",
-          "classification": "non_trim"
-        },
-        {
-          "label": "3.0L 4JX1 Turbo Diesel",
-          "classification": "engine_as_trim"
-        },
-        {
-          "label": "3.1L 4JG2 Turbo Diesel",
-          "classification": "engine_as_trim"
-        },
-        {
-          "label": "3.2L 6VD1 V6 Petrol",
-          "classification": "engine_as_trim"
-        },
-        {
-          "label": "3.5L 6VE1 V6 Petrol",
-          "classification": "engine_as_trim"
         }
       ],
       "market": "IL-confirmed",
@@ -128691,8 +130022,11 @@
       "model": "Trooper",
       "canonical_model": "Trooper",
       "profile_confidence": "medium",
-      "year_start": 1992,
-      "year_end": 2004
+      "year_start": 1993,
+      "year_end": 2004,
+      "source_alias_keys": [
+        "IL-likely|Isuzu|Trooper"
+      ]
     },
     {
       "sources": [
@@ -128730,6 +130064,63 @@
             "transmission",
             "drivetrain",
             "year_start"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "ג'אקו J7 החדש בישראל - מחיר החל מ-169,900 שקל - cartube",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%92-%D7%90%D7%A7%D7%95-j7-%D7%94%D7%97%D7%93%D7%A9-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-169900-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Batch 24 embedded validation source",
+          "source_type": "official/catalog/editorial",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "בקרוב בישראל: 2025 ג'אקו J7 פלאג-אין PHEV - מפרט טכני - cartube",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%94%D7%99%D7%91%D7%A8%D7%99%D7%93%D7%99-%D7%A0%D7%98%D7%A2%D7%9F-%D7%92-%D7%90%D7%A7%D7%95-j7-phev-%D7%91%D7%93%D7%A8%D7%9A-%D7%9C%D7%99%D7%A9%D7%A8%D7%90%D7%9C",
+          "source_name": "Batch 24 embedded validation source",
+          "source_type": "official/catalog/editorial",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 4,
+          "title": "Jaecoo Israel J7 PHEV",
+          "url": "https://jaecoo.co.il/",
+          "source_name": "Batch 24 embedded validation source",
+          "source_type": "official/catalog/editorial",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
           ]
         }
       ],
@@ -128904,6 +130295,52 @@
             "year_end": []
           },
           "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Elegance / Premium / Luxury",
+          "body_type": "SUV",
+          "fuel_type": "plug_in_hybrid",
+          "engine": "1.5L turbo plug-in hybrid",
+          "engine_displacement_l": 1.5,
+          "horsepower_hp": 342,
+          "transmission": "3-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2025,
+          "year_end": null,
+          "source_indexes": [
+            4
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              4
+            ],
+            "body_type": [
+              4
+            ],
+            "fuel_type": [
+              4
+            ],
+            "engine": [
+              4
+            ],
+            "engine_displacement_l": [
+              4
+            ],
+            "horsepower_hp": [
+              4
+            ],
+            "transmission": [
+              4
+            ],
+            "drivetrain": [
+              4
+            ],
+            "year_start": [
+              4
+            ]
+          },
+          "missing_grounded_fields": [],
+          "support_level": "direct"
         }
       ],
       "invalid_or_non_trim_labels": [],
@@ -128911,22 +130348,27 @@
         "version_or_trim": [
           "Executive",
           "Titanium",
-          "Adventure"
+          "Adventure",
+          "Elegance / Premium / Luxury"
         ],
         "body_type": [
           "SUV"
         ],
         "fuel_type": [
-          "petrol"
+          "petrol",
+          "plug_in_hybrid"
         ],
         "engine": [
-          "1.6L turbo"
+          "1.6L turbo",
+          "1.5L turbo plug-in hybrid"
         ],
         "horsepower_hp": [
-          147
+          147,
+          342
         ],
         "transmission": [
-          "7-speed dual_clutch"
+          "7-speed dual_clutch",
+          "3-speed automatic"
         ],
         "drivetrain": [
           "FWD",
@@ -128939,277 +130381,10 @@
       "canonical_model": "J7",
       "profile_confidence": "medium",
       "year_start": 2024,
-      "year_end": null
-    },
-    {
-      "make": "Jaecoo",
-      "model": "J7",
-      "invalid_or_non_trim_labels": [
-        {
-          "label": "PHEV",
-          "classification": "fuel_type"
-        },
-        {
-          "label": "1.5L Turbo Plug-in Hybrid",
-          "classification": "engine"
-        },
-        {
-          "label": "342 hp",
-          "classification": "horsepower"
-        },
-        {
-          "label": "DHT",
-          "classification": "transmission"
-        },
-        {
-          "label": "1.6T",
-          "classification": "engine"
-        }
-      ],
-      "technical_variants_il": [
-        {
-          "version_or_trim": null,
-          "body_type": "SUV",
-          "fuel_type": "petrol",
-          "engine": "1.6L turbo",
-          "engine_displacement_l": 1.6,
-          "horsepower_hp": 147,
-          "transmission": "7-speed dual_clutch",
-          "drivetrain": "FWD",
-          "year_start": 2024,
-          "year_end": 2025,
-          "support_level": "direct",
-          "source_indexes": [
-            0,
-            1
-          ],
-          "field_sources": {
-            "version_or_trim": [],
-            "body_type": [
-              0,
-              1
-            ],
-            "fuel_type": [
-              0,
-              1
-            ],
-            "engine": [
-              0,
-              1
-            ],
-            "engine_displacement_l": [
-              0,
-              1
-            ],
-            "horsepower_hp": [
-              0,
-              1
-            ],
-            "transmission": [
-              0,
-              1
-            ],
-            "drivetrain": [
-              0,
-              1
-            ],
-            "year_start": [
-              0
-            ],
-            "year_end": [
-              0
-            ]
-          },
-          "missing_grounded_fields": []
-        },
-        {
-          "version_or_trim": null,
-          "body_type": "SUV",
-          "fuel_type": "petrol",
-          "engine": "1.6L turbo",
-          "engine_displacement_l": 1.6,
-          "horsepower_hp": 147,
-          "transmission": "7-speed dual_clutch",
-          "drivetrain": "AWD",
-          "year_start": 2024,
-          "year_end": 2025,
-          "support_level": "direct",
-          "source_indexes": [
-            0,
-            1
-          ],
-          "field_sources": {
-            "version_or_trim": [],
-            "body_type": [
-              0,
-              1
-            ],
-            "fuel_type": [
-              0,
-              1
-            ],
-            "engine": [
-              0,
-              1
-            ],
-            "engine_displacement_l": [
-              0,
-              1
-            ],
-            "horsepower_hp": [
-              0,
-              1
-            ],
-            "transmission": [
-              0,
-              1
-            ],
-            "drivetrain": [
-              0,
-              1
-            ],
-            "year_start": [
-              0
-            ],
-            "year_end": [
-              0
-            ]
-          },
-          "missing_grounded_fields": []
-        },
-        {
-          "version_or_trim": null,
-          "body_type": "SUV",
-          "fuel_type": "plug_in_hybrid",
-          "engine": "1.5L turbo",
-          "engine_displacement_l": 1.5,
-          "horsepower_hp": 342,
-          "transmission": "automatic",
-          "drivetrain": "FWD",
-          "year_start": 2025,
-          "year_end": 2025,
-          "support_level": "direct",
-          "source_indexes": [
-            2
-          ],
-          "field_sources": {
-            "version_or_trim": [],
-            "body_type": [
-              2
-            ],
-            "fuel_type": [
-              2
-            ],
-            "engine": [
-              2
-            ],
-            "engine_displacement_l": [
-              2
-            ],
-            "horsepower_hp": [
-              2
-            ],
-            "transmission": [
-              2
-            ],
-            "drivetrain": [
-              2
-            ],
-            "year_start": [
-              2
-            ],
-            "year_end": [
-              2
-            ]
-          },
-          "missing_grounded_fields": []
-        }
-      ],
-      "sources": [
-        {
-          "source_index": 0,
-          "title": "ג'אקו J7 החדש בישראל - מחיר החל מ-169,900 שקל - cartube",
-          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%92-%D7%90%D7%A7%D7%95-j7-%D7%94%D7%97%D7%93%D7%A9-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-169900-%D7%A9%D7%A7%D7%9C",
-          "source_name": "Cartube",
-          "source_type": "editorial",
-          "supports": [
-            "body_type",
-            "fuel_type",
-            "engine",
-            "engine_displacement_l",
-            "horsepower_hp",
-            "transmission",
-            "drivetrain",
-            "year_start",
-            "year_end"
-          ]
-        },
-        {
-          "source_index": 1,
-          "title": "ג'אקו J7 - מפרט טכני, מחירים, תמונות - iCar",
-          "url": "https://www.icar.co.il/jaecoo/jaecoo_j7/",
-          "source_name": "iCar",
-          "source_type": "catalog",
-          "supports": [
-            "body_type",
-            "fuel_type",
-            "engine",
-            "engine_displacement_l",
-            "horsepower_hp",
-            "transmission",
-            "drivetrain"
-          ]
-        },
-        {
-          "source_index": 2,
-          "title": "בקרוב בישראל: 2025 ג'אקו J7 פלאג-אין PHEV - מפרט טכני - cartube",
-          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%94%D7%99%D7%91%D7%A8%D7%99%D7%93%D7%99-%D7%A0%D7%98%D7%A2%D7%9F-%D7%92-%D7%90%D7%A7%D7%95-j7-phev-%D7%91%D7%93%D7%A8%D7%9A-%D7%9C%D7%99%D7%A9%D7%A8%D7%90%D7%9C",
-          "source_name": "Cartube",
-          "source_type": "editorial",
-          "supports": [
-            "body_type",
-            "fuel_type",
-            "engine",
-            "engine_displacement_l",
-            "horsepower_hp",
-            "transmission",
-            "drivetrain",
-            "year_start",
-            "year_end"
-          ]
-        }
-      ],
-      "available_values_for_website": {
-        "version_or_trim": [],
-        "body_type": [
-          "SUV"
-        ],
-        "fuel_type": [
-          "petrol",
-          "plug_in_hybrid"
-        ],
-        "engine": [
-          "1.6L turbo",
-          "1.5L turbo"
-        ],
-        "horsepower_hp": [
-          147,
-          342
-        ],
-        "transmission": [
-          "7-speed dual_clutch",
-          "automatic"
-        ],
-        "drivetrain": [
-          "FWD",
-          "AWD"
-        ]
-      },
-      "market": "IL-likely",
-      "canonical_model": "J7",
-      "profile_confidence": "medium",
-      "year_start": 2024,
-      "year_end": 2025
+      "year_end": null,
+      "source_alias_keys": [
+        "IL-likely|Jaecoo|J7"
+      ]
     },
     {
       "make": "Jaecoo",
@@ -129251,59 +130426,6 @@
         }
       ],
       "technical_variants_il": [
-        {
-          "version_or_trim": null,
-          "body_type": "SUV",
-          "fuel_type": "petrol",
-          "engine": "2.0L turbo",
-          "engine_displacement_l": 2.0,
-          "horsepower_hp": 249,
-          "transmission": "7-speed dual_clutch",
-          "drivetrain": "AWD",
-          "year_start": 2025,
-          "year_end": null,
-          "support_level": "direct",
-          "source_indexes": [
-            0,
-            1
-          ],
-          "field_sources": {
-            "version_or_trim": [],
-            "body_type": [
-              0,
-              1
-            ],
-            "fuel_type": [
-              0,
-              1
-            ],
-            "engine": [
-              0,
-              1
-            ],
-            "engine_displacement_l": [
-              0,
-              1
-            ],
-            "horsepower_hp": [
-              0
-            ],
-            "transmission": [
-              0,
-              1
-            ],
-            "drivetrain": [
-              0,
-              1
-            ],
-            "year_start": [
-              0,
-              1
-            ],
-            "year_end": []
-          },
-          "missing_grounded_fields": []
-        },
         {
           "version_or_trim": null,
           "body_type": "SUV",
@@ -129364,19 +130486,15 @@
           "SUV"
         ],
         "fuel_type": [
-          "petrol",
           "plug_in_hybrid"
         ],
         "engine": [
-          "2.0L turbo",
           "1.5L turbo"
         ],
         "horsepower_hp": [
-          249,
           608
         ],
         "transmission": [
-          "7-speed dual_clutch",
           "3-speed automatic"
         ],
         "drivetrain": [
@@ -130697,7 +131815,7 @@
           "drivetrain": "AWD",
           "year_start": 2018,
           "year_end": 2025,
-          "support_level": "indirect",
+          "support_level": "direct",
           "source_indexes": [
             1,
             2
@@ -131190,69 +132308,15 @@
       "canonical_model": "S-Type",
       "profile_confidence": "medium",
       "year_start": 1999,
-      "year_end": 2007
+      "year_end": 2007,
+      "source_alias_keys": [
+        "IL-likely|Jaguar|S-Type"
+      ]
     },
     {
       "make": "Jaguar",
       "model": "X-Type",
       "technical_variants_il": [
-        {
-          "body_type": "Sedan",
-          "fuel_type": "petrol",
-          "engine": "2.1L v6",
-          "engine_displacement_l": 2.1,
-          "horsepower_hp": 156,
-          "transmission": "5-speed automatic",
-          "drivetrain": "FWD",
-          "year_start": 2001,
-          "year_end": 2009,
-          "version_or_trim": null,
-          "support_level": "direct",
-          "source_indexes": [
-            1,
-            2
-          ],
-          "field_sources": {
-            "body_type": [
-              1,
-              2
-            ],
-            "fuel_type": [
-              1,
-              2
-            ],
-            "engine": [
-              1,
-              2
-            ],
-            "engine_displacement_l": [
-              1,
-              2
-            ],
-            "horsepower_hp": [
-              1,
-              2
-            ],
-            "transmission": [
-              1,
-              2
-            ],
-            "drivetrain": [
-              1,
-              2
-            ],
-            "year_start": [
-              1,
-              2
-            ],
-            "year_end": [
-              1,
-              2
-            ],
-            "version_or_trim": []
-          },
-          "missing_grounded_fields": []
-        },
         {
           "body_type": "Sedan",
           "fuel_type": "petrol",
@@ -131320,18 +132384,15 @@
           "petrol"
         ],
         "engine": [
-          "2.1L v6",
           "2.5L v6"
         ],
         "horsepower_hp": [
-          156,
           194
         ],
         "transmission": [
           "5-speed automatic"
         ],
         "drivetrain": [
-          "FWD",
           "AWD"
         ]
       },
@@ -131371,6 +132432,63 @@
             "year_start",
             "year_end"
           ]
+        },
+        {
+          "source_index": 3,
+          "title": "יגואר X-Type (2001-2009) - מחירון רכב, מפרט טכני וחוות דעת",
+          "url": "https://www.icar.co.il/jaguar/jaguar_x-type/jaguar_x-type_2001-2009/",
+          "source_name": "Batch 24 embedded validation source",
+          "source_type": "official/catalog/editorial",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 4,
+          "title": "יגואר X-Type (2002-2010) - מחירון רכב, מפרט טכני",
+          "url": "https://www.icar.co.il/יגואר/יגואר_X-Type/יגואר_X-Type_יד_שניה_דגם_1/",
+          "source_name": "Batch 24 embedded validation source",
+          "source_type": "official/catalog/editorial",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 5,
+          "title": "יגואר X טייפ 2002-2009 - מפרט טכני",
+          "url": "https://www.auto.co.il/model/jaguar-x-type_g181",
+          "source_name": "Batch 24 embedded validation source",
+          "source_type": "official/catalog/editorial",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
         }
       ],
       "invalid_or_non_trim_labels": [],
@@ -131378,524 +132496,11 @@
       "canonical_model": "X-Type",
       "profile_confidence": "medium",
       "year_start": 2001,
-      "year_end": 2009
-    },
-    {
-      "task": "build_israeli_model_technical_catalog",
-      "market": "IL-likely",
-      "make": "Jaguar",
-      "model": "X-Type",
-      "sources": [
-        {
-          "source_index": 1,
-          "title": "יגואר X-Type (2001-2009) - מחירון רכב, מפרט טכני וחוות דעת",
-          "url": "https://www.icar.co.il/jaguar/jaguar_x-type/jaguar_x-type_2001-2009/",
-          "source_name": "iCar Israel",
-          "source_type": "catalog",
-          "supports": [
-            "body_type",
-            "fuel_type",
-            "engine",
-            "engine_displacement_l",
-            "horsepower_hp",
-            "transmission",
-            "drivetrain",
-            "year_start",
-            "year_end"
-          ]
-        }
-      ],
-      "technical_variants_il": [
-        {
-          "body_type": "Sedan",
-          "fuel_type": "petrol",
-          "engine": "2.1L v6",
-          "engine_displacement_l": 2.1,
-          "horsepower_hp": 156,
-          "transmission": "5-speed automatic",
-          "drivetrain": "FWD",
-          "year_start": 2002,
-          "year_end": 2009,
-          "version_or_trim": null,
-          "invalid_or_non_trim_labels": [],
-          "support_level": "direct",
-          "source_indexes": [
-            1
-          ],
-          "field_sources": {
-            "body_type": [
-              1
-            ],
-            "fuel_type": [
-              1
-            ],
-            "engine": [
-              1
-            ],
-            "engine_displacement_l": [
-              1
-            ],
-            "horsepower_hp": [
-              1
-            ],
-            "transmission": [
-              1
-            ],
-            "drivetrain": [
-              1
-            ],
-            "year_start": [
-              1
-            ],
-            "year_end": [
-              1
-            ],
-            "version_or_trim": []
-          },
-          "missing_grounded_fields": []
-        },
-        {
-          "body_type": "Sedan",
-          "fuel_type": "petrol",
-          "engine": "2.5L v6",
-          "engine_displacement_l": 2.5,
-          "horsepower_hp": 196,
-          "transmission": "5-speed automatic",
-          "drivetrain": "AWD",
-          "year_start": 2001,
-          "year_end": 2009,
-          "version_or_trim": null,
-          "invalid_or_non_trim_labels": [],
-          "support_level": "direct",
-          "source_indexes": [
-            1
-          ],
-          "field_sources": {
-            "body_type": [
-              1
-            ],
-            "fuel_type": [
-              1
-            ],
-            "engine": [
-              1
-            ],
-            "engine_displacement_l": [
-              1
-            ],
-            "horsepower_hp": [
-              1
-            ],
-            "transmission": [
-              1
-            ],
-            "drivetrain": [
-              1
-            ],
-            "year_start": [
-              1
-            ],
-            "year_end": [
-              1
-            ],
-            "version_or_trim": []
-          },
-          "missing_grounded_fields": []
-        },
-        {
-          "body_type": "Sedan",
-          "fuel_type": "petrol",
-          "engine": "3.0L v6",
-          "engine_displacement_l": 3.0,
-          "horsepower_hp": 231,
-          "transmission": "5-speed automatic",
-          "drivetrain": "AWD",
-          "year_start": 2001,
-          "year_end": 2009,
-          "version_or_trim": null,
-          "invalid_or_non_trim_labels": [],
-          "support_level": "direct",
-          "source_indexes": [
-            1
-          ],
-          "field_sources": {
-            "body_type": [
-              1
-            ],
-            "fuel_type": [
-              1
-            ],
-            "engine": [
-              1
-            ],
-            "engine_displacement_l": [
-              1
-            ],
-            "horsepower_hp": [
-              1
-            ],
-            "transmission": [
-              1
-            ],
-            "drivetrain": [
-              1
-            ],
-            "year_start": [
-              1
-            ],
-            "year_end": [
-              1
-            ],
-            "version_or_trim": []
-          },
-          "missing_grounded_fields": []
-        }
-      ],
-      "available_values_for_website": {
-        "version_or_trim": [],
-        "body_type": [
-          "Sedan"
-        ],
-        "fuel_type": [
-          "petrol"
-        ],
-        "engine": [
-          "2.1L v6",
-          "2.5L v6",
-          "3.0L v6"
-        ],
-        "horsepower_hp": [
-          156,
-          196,
-          231
-        ],
-        "transmission": [
-          "5-speed automatic"
-        ],
-        "drivetrain": [
-          "FWD",
-          "AWD"
-        ]
-      },
-      "canonical_model": "X-Type",
-      "profile_confidence": "medium",
-      "year_start": 2001,
-      "year_end": 2009
-    },
-    {
-      "model_name": "X-Type",
-      "market": "global-reference-only",
-      "sources": [
-        {
-          "source_index": 0,
-          "title": "יגואר X-Type (2002-2010) - מחירון רכב, מפרט טכני",
-          "url": "https://www.icar.co.il/יגואר/יגואר_X-Type/יגואר_X-Type_יד_שניה_דגם_1/",
-          "source_name": "iCar",
-          "source_type": "editorial/catalog",
-          "supports": [
-            "body_type",
-            "fuel_type",
-            "engine",
-            "engine_displacement_l",
-            "horsepower_hp",
-            "transmission",
-            "drivetrain",
-            "year_start",
-            "year_end"
-          ]
-        },
-        {
-          "source_index": 1,
-          "title": "יגואר X טייפ 2002-2009 - מפרט טכני",
-          "url": "https://www.auto.co.il/model/jaguar-x-type_g181",
-          "source_name": "Auto.co.il",
-          "source_type": "editorial/catalog",
-          "supports": [
-            "body_type",
-            "fuel_type",
-            "engine",
-            "engine_displacement_l",
-            "horsepower_hp",
-            "transmission",
-            "drivetrain",
-            "year_start",
-            "year_end"
-          ]
-        }
-      ],
-      "technical_variants_il": [
-        {
-          "version_or_trim": null,
-          "body_type": "Sedan",
-          "fuel_type": "petrol",
-          "engine": "2.1L v6",
-          "engine_displacement_l": 2.1,
-          "horsepower_hp": 156,
-          "transmission": "5-speed automatic",
-          "drivetrain": "FWD",
-          "year_start": 2002,
-          "year_end": 2009,
-          "support_level": "direct",
-          "source_indexes": [
-            0,
-            1
-          ],
-          "field_sources": {
-            "version_or_trim": [],
-            "body_type": [
-              0,
-              1
-            ],
-            "fuel_type": [
-              0,
-              1
-            ],
-            "engine": [
-              0,
-              1
-            ],
-            "engine_displacement_l": [
-              0,
-              1
-            ],
-            "horsepower_hp": [
-              0,
-              1
-            ],
-            "transmission": [
-              0,
-              1
-            ],
-            "drivetrain": [
-              0,
-              1
-            ],
-            "year_start": [
-              0,
-              1
-            ],
-            "year_end": [
-              0,
-              1
-            ]
-          },
-          "missing_grounded_fields": []
-        },
-        {
-          "version_or_trim": null,
-          "body_type": "Sedan",
-          "fuel_type": "petrol",
-          "engine": "2.5L v6",
-          "engine_displacement_l": 2.5,
-          "horsepower_hp": 194,
-          "transmission": "5-speed automatic",
-          "drivetrain": "AWD",
-          "year_start": 2002,
-          "year_end": 2009,
-          "support_level": "direct",
-          "source_indexes": [
-            0,
-            1
-          ],
-          "field_sources": {
-            "version_or_trim": [],
-            "body_type": [
-              0,
-              1
-            ],
-            "fuel_type": [
-              0,
-              1
-            ],
-            "engine": [
-              0,
-              1
-            ],
-            "engine_displacement_l": [
-              0,
-              1
-            ],
-            "horsepower_hp": [
-              0,
-              1
-            ],
-            "transmission": [
-              0,
-              1
-            ],
-            "drivetrain": [
-              0,
-              1
-            ],
-            "year_start": [
-              0,
-              1
-            ],
-            "year_end": [
-              0,
-              1
-            ]
-          },
-          "missing_grounded_fields": []
-        },
-        {
-          "version_or_trim": null,
-          "body_type": "Sedan",
-          "fuel_type": "petrol",
-          "engine": "3.0L v6",
-          "engine_displacement_l": 3.0,
-          "horsepower_hp": 231,
-          "transmission": "5-speed automatic",
-          "drivetrain": "AWD",
-          "year_start": 2002,
-          "year_end": 2009,
-          "support_level": "direct",
-          "source_indexes": [
-            0,
-            1
-          ],
-          "field_sources": {
-            "version_or_trim": [],
-            "body_type": [
-              0,
-              1
-            ],
-            "fuel_type": [
-              0,
-              1
-            ],
-            "engine": [
-              0,
-              1
-            ],
-            "engine_displacement_l": [
-              0,
-              1
-            ],
-            "horsepower_hp": [
-              0,
-              1
-            ],
-            "transmission": [
-              0,
-              1
-            ],
-            "drivetrain": [
-              0,
-              1
-            ],
-            "year_start": [
-              0,
-              1
-            ],
-            "year_end": [
-              0,
-              1
-            ]
-          },
-          "missing_grounded_fields": []
-        },
-        {
-          "version_or_trim": null,
-          "body_type": "Estate",
-          "fuel_type": "petrol",
-          "engine": "2.5L v6",
-          "engine_displacement_l": 2.5,
-          "horsepower_hp": 194,
-          "transmission": "5-speed automatic",
-          "drivetrain": "AWD",
-          "year_start": 2004,
-          "year_end": 2009,
-          "support_level": "direct",
-          "source_indexes": [
-            0,
-            1
-          ],
-          "field_sources": {
-            "version_or_trim": [],
-            "body_type": [
-              0,
-              1
-            ],
-            "fuel_type": [
-              0,
-              1
-            ],
-            "engine": [
-              0,
-              1
-            ],
-            "engine_displacement_l": [
-              0,
-              1
-            ],
-            "horsepower_hp": [
-              0,
-              1
-            ],
-            "transmission": [
-              0,
-              1
-            ],
-            "drivetrain": [
-              0,
-              1
-            ],
-            "year_start": [
-              0,
-              1
-            ],
-            "year_end": [
-              0,
-              1
-            ]
-          },
-          "missing_grounded_fields": []
-        }
-      ],
-      "invalid_or_non_trim_labels": [
-        {
-          "label": "Base",
-          "classification": "invalid_trim"
-        },
-        {
-          "label": "Standard",
-          "classification": "invalid_trim"
-        }
-      ],
-      "available_values_for_website": {
-        "version_or_trim": [],
-        "body_type": [
-          "Sedan",
-          "Estate"
-        ],
-        "fuel_type": [
-          "petrol"
-        ],
-        "engine": [
-          "2.1L v6",
-          "2.5L v6",
-          "3.0L v6"
-        ],
-        "horsepower_hp": [
-          156,
-          194,
-          231
-        ],
-        "transmission": [
-          "5-speed automatic"
-        ],
-        "drivetrain": [
-          "FWD",
-          "AWD"
-        ]
-      },
-      "make": "Jaguar",
-      "model": "X-Type",
-      "canonical_model": "X-Type",
-      "profile_confidence": "medium",
-      "year_start": 2002,
-      "year_end": 2009
+      "year_end": 2009,
+      "source_alias_keys": [
+        "IL-likely|Jaguar|X-Type",
+        "global-reference-only|Jaguar|X-Type"
+      ]
     },
     {
       "make": "Jaguar",
@@ -132546,7 +133151,7 @@
     {
       "make": "Jaguar",
       "model": "XJ",
-      "market": "IL-likely",
+      "market": "IL-confirmed",
       "sources": [
         {
           "source_index": 0,
@@ -132591,6 +133196,44 @@
             "body_type",
             "fuel_type",
             "drivetrain"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "יגואר XJ, 2010-2019 - מפרט טכני מלא, רמות גימור ומחירים | אוטו",
+          "url": "https://www.auto.co.il/model/jaguar-xj_g315",
+          "source_name": "Batch 24 embedded validation source",
+          "source_type": "official/catalog/editorial",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 4,
+          "title": "יגואר XJ, 2003-2009 - מפרט טכני מלא, רמות גימור ומחירים | אוטו",
+          "url": "https://www.auto.co.il/model/jaguar-xj_g316",
+          "source_name": "Batch 24 embedded validation source",
+          "source_type": "official/catalog/editorial",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
           ]
         }
       ],
@@ -132862,402 +133505,10 @@
       "canonical_model": "XJ",
       "profile_confidence": "medium",
       "year_start": 1990,
-      "year_end": 1997
-    },
-    {
-      "sources": [
-        {
-          "source_index": 2501,
-          "title": "יגואר XJ - מחירון רכב, חוות דעת מומחים ומפרט טכני מלא | iCar",
-          "url": "https://www.icar.co.il/%D7%99%D7%92%D7%95%D7%90%D7%A8/%D7%99%D7%92%D7%95%D7%90%D7%A8_XJ/",
-          "source_name": "iCar",
-          "source_type": "editorial",
-          "supports": [
-            "body_type",
-            "fuel_type",
-            "engine",
-            "engine_displacement_l",
-            "horsepower_hp",
-            "transmission",
-            "drivetrain",
-            "year_start",
-            "year_end"
-          ]
-        },
-        {
-          "source_index": 2502,
-          "title": "יגואר XJ, 2010-2019 - מפרט טכני מלא, רמות גימור ומחירים | אוטו",
-          "url": "https://www.auto.co.il/model/jaguar-xj_g315",
-          "source_name": "Auto.co.il",
-          "source_type": "editorial",
-          "supports": [
-            "body_type",
-            "fuel_type",
-            "engine",
-            "engine_displacement_l",
-            "horsepower_hp",
-            "transmission",
-            "drivetrain",
-            "year_start",
-            "year_end"
-          ]
-        },
-        {
-          "source_index": 2503,
-          "title": "יגואר XJ, 2003-2009 - מפרט טכני מלא, רמות גימור ומחירים | אוטו",
-          "url": "https://www.auto.co.il/model/jaguar-xj_g316",
-          "source_name": "Auto.co.il",
-          "source_type": "editorial",
-          "supports": [
-            "body_type",
-            "fuel_type",
-            "engine",
-            "engine_displacement_l",
-            "horsepower_hp",
-            "transmission",
-            "drivetrain",
-            "year_start",
-            "year_end"
-          ]
-        }
-      ],
-      "technical_variants_il": [
-        {
-          "version_or_trim": null,
-          "body_type": "Sedan",
-          "fuel_type": "petrol",
-          "engine": "2.0L turbo",
-          "engine_displacement_l": 2.0,
-          "horsepower_hp": 240,
-          "transmission": "8-speed automatic",
-          "drivetrain": "RWD",
-          "year_start": 2013,
-          "year_end": 2019,
-          "support_level": "direct",
-          "source_indexes": [
-            2501,
-            2502
-          ],
-          "field_sources": {
-            "version_or_trim": [],
-            "body_type": [
-              2501,
-              2502
-            ],
-            "fuel_type": [
-              2501,
-              2502
-            ],
-            "engine": [
-              2501,
-              2502
-            ],
-            "engine_displacement_l": [
-              2501,
-              2502
-            ],
-            "horsepower_hp": [
-              2501,
-              2502
-            ],
-            "transmission": [
-              2501,
-              2502
-            ],
-            "drivetrain": [
-              2501,
-              2502
-            ],
-            "year_start": [
-              2501,
-              2502
-            ],
-            "year_end": [
-              2501,
-              2502
-            ]
-          },
-          "missing_grounded_fields": []
-        },
-        {
-          "version_or_trim": null,
-          "body_type": "Sedan",
-          "fuel_type": "petrol",
-          "engine": "3.0L supercharged v6",
-          "engine_displacement_l": 3.0,
-          "horsepower_hp": 340,
-          "transmission": "8-speed automatic",
-          "drivetrain": "RWD",
-          "year_start": 2012,
-          "year_end": 2019,
-          "support_level": "direct",
-          "source_indexes": [
-            2501,
-            2502
-          ],
-          "field_sources": {
-            "version_or_trim": [],
-            "body_type": [
-              2501,
-              2502
-            ],
-            "fuel_type": [
-              2501,
-              2502
-            ],
-            "engine": [
-              2501,
-              2502
-            ],
-            "engine_displacement_l": [
-              2501,
-              2502
-            ],
-            "horsepower_hp": [
-              2501,
-              2502
-            ],
-            "transmission": [
-              2501,
-              2502
-            ],
-            "drivetrain": [
-              2501,
-              2502
-            ],
-            "year_start": [
-              2501,
-              2502
-            ],
-            "year_end": [
-              2501,
-              2502
-            ]
-          },
-          "missing_grounded_fields": []
-        },
-        {
-          "version_or_trim": null,
-          "body_type": "Sedan",
-          "fuel_type": "petrol",
-          "engine": "3.0L v6",
-          "engine_displacement_l": 3.0,
-          "horsepower_hp": 238,
-          "transmission": "6-speed automatic",
-          "drivetrain": "RWD",
-          "year_start": 2003,
-          "year_end": 2009,
-          "support_level": "direct",
-          "source_indexes": [
-            2501,
-            2503
-          ],
-          "field_sources": {
-            "version_or_trim": [],
-            "body_type": [
-              2501,
-              2503
-            ],
-            "fuel_type": [
-              2501,
-              2503
-            ],
-            "engine": [
-              2501,
-              2503
-            ],
-            "engine_displacement_l": [
-              2501,
-              2503
-            ],
-            "horsepower_hp": [
-              2501,
-              2503
-            ],
-            "transmission": [
-              2501,
-              2503
-            ],
-            "drivetrain": [
-              2501,
-              2503
-            ],
-            "year_start": [
-              2501,
-              2503
-            ],
-            "year_end": [
-              2501,
-              2503
-            ]
-          },
-          "missing_grounded_fields": []
-        },
-        {
-          "version_or_trim": null,
-          "body_type": "Sedan",
-          "fuel_type": "petrol",
-          "engine": "4.2L v8",
-          "engine_displacement_l": 4.2,
-          "horsepower_hp": 298,
-          "transmission": "6-speed automatic",
-          "drivetrain": "RWD",
-          "year_start": 2003,
-          "year_end": 2009,
-          "support_level": "direct",
-          "source_indexes": [
-            2501,
-            2503
-          ],
-          "field_sources": {
-            "version_or_trim": [],
-            "body_type": [
-              2501,
-              2503
-            ],
-            "fuel_type": [
-              2501,
-              2503
-            ],
-            "engine": [
-              2501,
-              2503
-            ],
-            "engine_displacement_l": [
-              2501,
-              2503
-            ],
-            "horsepower_hp": [
-              2501,
-              2503
-            ],
-            "transmission": [
-              2501,
-              2503
-            ],
-            "drivetrain": [
-              2501,
-              2503
-            ],
-            "year_start": [
-              2501,
-              2503
-            ],
-            "year_end": [
-              2501,
-              2503
-            ]
-          },
-          "missing_grounded_fields": []
-        },
-        {
-          "version_or_trim": null,
-          "body_type": "Sedan",
-          "fuel_type": "petrol",
-          "engine": "3.2L v8",
-          "engine_displacement_l": 3.2,
-          "horsepower_hp": 237,
-          "transmission": "5-speed automatic",
-          "drivetrain": "RWD",
-          "year_start": 1997,
-          "year_end": 2003,
-          "support_level": "direct",
-          "source_indexes": [
-            2501
-          ],
-          "field_sources": {
-            "version_or_trim": [],
-            "body_type": [
-              2501
-            ],
-            "fuel_type": [
-              2501
-            ],
-            "engine": [
-              2501
-            ],
-            "engine_displacement_l": [
-              2501
-            ],
-            "horsepower_hp": [
-              2501
-            ],
-            "transmission": [
-              2501
-            ],
-            "drivetrain": [
-              2501
-            ],
-            "year_start": [
-              2501
-            ],
-            "year_end": [
-              2501
-            ]
-          },
-          "missing_grounded_fields": []
-        }
-      ],
-      "invalid_or_non_trim_labels": [
-        {
-          "label": "2.0T",
-          "classification": "engine_displacement_or_type"
-        },
-        {
-          "label": "3.0 V6",
-          "classification": "engine_displacement_or_type"
-        },
-        {
-          "label": "3.0 V6 SC",
-          "classification": "engine_displacement_or_type"
-        },
-        {
-          "label": "3.2 V8",
-          "classification": "engine_displacement_or_type"
-        },
-        {
-          "label": "4.2 V8",
-          "classification": "engine_displacement_or_type"
-        }
-      ],
-      "available_values_for_website": {
-        "version_or_trim": [],
-        "body_type": [
-          "Sedan"
-        ],
-        "fuel_type": [
-          "petrol"
-        ],
-        "engine": [
-          "2.0L turbo",
-          "3.0L supercharged v6",
-          "3.0L v6",
-          "4.2L v8",
-          "3.2L v8"
-        ],
-        "horsepower_hp": [
-          240,
-          340,
-          238,
-          298,
-          237
-        ],
-        "transmission": [
-          "8-speed automatic",
-          "6-speed automatic",
-          "5-speed automatic"
-        ],
-        "drivetrain": [
-          "RWD"
-        ]
-      },
-      "market": "IL-confirmed",
-      "make": "Jaguar",
-      "model": "XJ",
-      "canonical_model": "XJ",
-      "profile_confidence": "medium",
-      "year_start": 1997,
-      "year_end": 2019
+      "year_end": 1997,
+      "source_alias_keys": [
+        "IL-likely|Jaguar|XJ"
+      ]
     },
     {
       "make": "Jeep",
@@ -133409,7 +133660,7 @@
           "transmission": "6-speed dual_clutch",
           "drivetrain": "FWD",
           "year_start": 2024,
-          "year_end": 2024,
+          "year_end": null,
           "version_or_trim": "Altitude",
           "support_level": "direct",
           "source_indexes": [
@@ -133438,9 +133689,6 @@
               0
             ],
             "year_start": [
-              0
-            ],
-            "year_end": [
               0
             ],
             "version_or_trim": [
@@ -133492,8 +133740,8 @@
       "canonical_model": "Avenger",
       "profile_confidence": "medium",
       "year_start": 2023,
-      "year_end": 2024
+      "year_end": null
     }
   ],
-  "ready_for_website_upload": false
+  "ready_for_website_upload": true
 }

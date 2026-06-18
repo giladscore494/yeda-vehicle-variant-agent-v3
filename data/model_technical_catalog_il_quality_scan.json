@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-06-18T10:30:17Z",
+  "generated_at": "2026-06-18T13:36:50Z",
   "totals": {
-    "models": 369,
-    "findings": 526,
-    "grounded_cells": 12033,
-    "total_cells": 12033,
-    "marketplace_citation_share": 0.04497907949790795,
-    "official_citations": 22691,
+    "models": 438,
+    "findings": 597,
+    "grounded_cells": 14099,
+    "total_cells": 14099,
+    "marketplace_citation_share": 0.039952501340687965,
+    "official_citations": 25853,
     "bug": 0,
-    "leak": 121,
+    "leak": 123,
     "normalization": 0,
-    "structure": 405
+    "structure": 474
   },
   "findings": [
     {
@@ -3694,12 +3694,509 @@
       "make": "Honda",
       "model": "CR-Z",
       "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Honda",
+      "model": "FR-V",
+      "detail": "30/30 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Honda",
+      "model": "HR-V",
+      "detail": "27/27 grounded cells (100.0%)"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Honda",
+      "model": "Insight",
+      "detail": "variant[0] year_end grounded only by marketplace/aggregator source(s): ['yad2.co.il']"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Honda",
+      "model": "Insight",
+      "detail": "10/10 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Honda",
+      "model": "Jazz",
+      "detail": "44/44 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Honda",
+      "model": "Legend",
+      "detail": "27/27 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Honda",
+      "model": "Odyssey",
+      "detail": "36/36 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Honda",
+      "model": "Prelude",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Honda",
+      "model": "ZR-V",
+      "detail": "27/27 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Hongqi",
+      "model": "E-HS9",
+      "detail": "17/17 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Hummer",
+      "model": "H2",
+      "detail": "36/36 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Hummer",
+      "model": "H3",
+      "detail": "27/27 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Hyundai",
+      "model": "Atos",
+      "detail": "40/40 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Hyundai",
+      "model": "Bayon",
+      "detail": "40/40 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Hyundai",
+      "model": "Coupe",
+      "detail": "63/63 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Hyundai",
+      "model": "Creta",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Hyundai",
+      "model": "Elantra",
+      "detail": "36/36 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Hyundai",
+      "model": "Elantra N",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Hyundai",
+      "model": "Excel",
+      "detail": "36/36 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Hyundai",
+      "model": "Getz",
+      "detail": "54/54 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Hyundai",
+      "model": "Grandeur",
+      "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Hyundai",
+      "model": "H1",
+      "detail": "29/29 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Hyundai",
+      "model": "i10",
+      "detail": "54/54 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Hyundai",
+      "model": "i20",
+      "detail": "50/50 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Hyundai",
+      "model": "i25",
+      "detail": "40/40 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Hyundai",
+      "model": "i30",
+      "detail": "36/36 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Hyundai",
+      "model": "i30 CW",
+      "detail": "27/27 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Hyundai",
+      "model": "i30 N",
+      "detail": "20/20 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Hyundai",
+      "model": "i40",
+      "detail": "80/80 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Hyundai",
+      "model": "Ioniq",
+      "detail": "17/17 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Hyundai",
+      "model": "Ioniq 5",
+      "detail": "32/32 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Hyundai",
+      "model": "Ioniq 5 N",
+      "detail": "7/7 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Hyundai",
+      "model": "Ioniq 6",
+      "detail": "23/23 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Hyundai",
+      "model": "ix35",
+      "detail": "36/36 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Hyundai",
+      "model": "Kona",
+      "detail": "17/17 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Hyundai",
+      "model": "Kona N",
+      "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Hyundai",
+      "model": "Matrix",
+      "detail": "10/10 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Hyundai",
+      "model": "Palisade",
+      "detail": "27/27 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Hyundai",
+      "model": "Santa Fe",
+      "detail": "63/63 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Hyundai",
+      "model": "Sonata",
+      "detail": "44/44 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Hyundai",
+      "model": "Staria",
+      "detail": "27/27 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Hyundai",
+      "model": "Terracan",
+      "detail": "30/30 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Hyundai",
+      "model": "Tucson",
+      "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Hyundai",
+      "model": "Veloster",
+      "detail": "40/40 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Hyundai",
+      "model": "Venue",
+      "detail": "8/8 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Infiniti",
+      "model": "G Series",
+      "detail": "36/36 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Infiniti",
+      "model": "Q30",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Infiniti",
+      "model": "Q50",
+      "detail": "28/28 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Infiniti",
+      "model": "Q60",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Infiniti",
+      "model": "Q70",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Infiniti",
+      "model": "QX30",
+      "detail": "10/10 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Infiniti",
+      "model": "QX50",
+      "detail": "28/28 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Infiniti",
+      "model": "QX60",
+      "detail": "29/29 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Infiniti",
+      "model": "QX70",
+      "detail": "27/27 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Infiniti",
+      "model": "QX80",
+      "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Isuzu",
+      "model": "D-Max",
+      "detail": "45/45 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Isuzu",
+      "model": "Rodeo",
+      "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "source_domain",
+      "severity": "leak",
+      "make": "Isuzu",
+      "model": "Trooper",
+      "detail": "non Israeli source host: automobile-catalog.com"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Isuzu",
+      "model": "Trooper",
+      "detail": "54/54 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Jaecoo",
+      "model": "J7",
+      "detail": "36/36 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Jaecoo",
+      "model": "J8",
+      "detail": "8/8 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Jaguar",
+      "model": "E-Pace",
+      "detail": "45/45 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Jaguar",
+      "model": "F-Pace",
+      "detail": "36/36 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Jaguar",
+      "model": "F-Type",
+      "detail": "72/72 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Jaguar",
+      "model": "I-Pace",
+      "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Jaguar",
+      "model": "S-Type",
+      "detail": "45/45 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Jaguar",
+      "model": "X-Type",
+      "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Jaguar",
+      "model": "XE",
+      "detail": "36/36 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Jaguar",
+      "model": "XF",
+      "detail": "38/38 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Jaguar",
+      "model": "XJ",
+      "detail": "36/36 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Jeep",
+      "model": "Avenger",
+      "detail": "19/19 grounded cells (100.0%)"
     }
   ],
   "counts_by_type": {
-    "grounding_completeness": 369,
+    "grounding_completeness": 438,
     "year_split_duplicates": 36,
-    "source_tier_inversion": 115,
-    "source_domain": 6
+    "source_tier_inversion": 116,
+    "source_domain": 7
   }
 }
