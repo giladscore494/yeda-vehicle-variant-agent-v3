@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T18:18:40Z",
+  "generated_at": "2026-06-18T18:18:55Z",
   "market": "IL",
   "models": [
     {
@@ -350,6 +350,264 @@
       "rebuild_required": true,
       "validation_issues": [
         "technical_variants_il is empty"
+      ]
+    },
+    {
+      "market": "IL-confirmed",
+      "make": "Kia",
+      "model": "EV9",
+      "canonical_model": "EV9",
+      "year_start": 2024,
+      "year_end": null,
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Executive",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 203,
+          "transmission": null,
+          "drivetrain": "RWD",
+          "year_start": 2024,
+          "year_end": null,
+          "support_level": "unknown",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1
+            ],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "transmission"
+          ]
+        },
+        {
+          "version_or_trim": "Premium",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 384,
+          "transmission": null,
+          "drivetrain": "AWD",
+          "year_start": 2024,
+          "year_end": null,
+          "support_level": "unknown",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "transmission"
+          ]
+        },
+        {
+          "version_or_trim": "GT-Line",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 384,
+          "transmission": null,
+          "drivetrain": "AWD",
+          "year_start": 2024,
+          "year_end": null,
+          "support_level": "unknown",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "transmission"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Executive",
+          "Premium",
+          "GT-Line"
+        ],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          203,
+          384
+        ],
+        "transmission": [],
+        "drivetrain": [
+          "RWD",
+          "AWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "value": "Single Electric Motor, 99.8 kWh, 204 hp",
+          "classification": "raw_database_engine_label_not_trim"
+        },
+        {
+          "value": "Dual Electric Motor, 99.8 kWh, 384 hp",
+          "classification": "raw_database_engine_label_not_trim"
+        },
+        {
+          "value": "Single-speed EV",
+          "classification": "raw_database_transmission_label_not_trim"
+        },
+        {
+          "value": "SUV",
+          "classification": "body_type_not_trim"
+        },
+        {
+          "value": "Electric",
+          "classification": "fuel_type_not_trim"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "השקה: קיה EV9 החשמלית עם 7 המקומות בישראל – החל מ-429 אלף ש\"ח",
+          "url": "https://kia-israel.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA/%D7%94%D7%A9%D7%A7%D7%94-%D7%A7%D7%99%D7%94-ev9-%D7%94%D7%97%D7%A9%D7%9E%D7%9C%D7%99%D7%AA-%D7%A2%D7%9D-7-%D7%94%D7%9E%D7%A7%D7%95%D7%9E%D7%95%D7%AA-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C",
+          "source_name": "Kia Israel",
+          "source_type": "official_importer_news",
+          "supports": [
+            "version_or_trim",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "קיה EV9 - אתר iCar",
+          "url": "https://www.icar.co.il/%D7%A7%D7%99%D7%94/%D7%A7%D7%99%D7%94_EV9/%D7%A7%D7%99%D7%94_EV9_%D7%97%D7%93%D7%A9/",
+          "source_name": "iCar",
+          "source_type": "israeli_catalog_editorial",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "drivetrain",
+            "year_start"
+          ]
+        }
+      ],
+      "profile_confidence": "medium",
+      "notes": [
+        "Israeli sources found confirming EV9 sales in Israel starting May 2024.",
+        "Official importer source confirms Premium and GT-Line; iCar additionally lists an Executive 203 hp RWD 7-seat version in Israel.",
+        "No grounded Israeli-market source found for transmission type, so transmission is null for all rows.",
+        "No grounded Israeli-market source found for year_end, so year_end is null for model and variants.",
+        "For electric model normalization, engine is set to 'electric'.",
+        "engine_displacement_l is null because electric vehicles do not have a displacement and no sourced displacement applies."
+      ],
+      "validation_issues": [
+        "variant[0] required website field 'transmission' is null/empty",
+        "variant[0] required field 'transmission' listed in missing_grounded_fields",
+        "variant[1] required website field 'transmission' is null/empty",
+        "variant[1] required field 'transmission' listed in missing_grounded_fields",
+        "variant[2] required website field 'transmission' is null/empty",
+        "variant[2] required field 'transmission' listed in missing_grounded_fields"
       ]
     }
   ]
