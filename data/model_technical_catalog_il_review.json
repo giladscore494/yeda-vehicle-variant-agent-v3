@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T18:20:32Z",
+  "generated_at": "2026-06-18T18:21:01Z",
   "market": "IL",
   "models": [
     {
@@ -900,6 +900,414 @@
       ],
       "validation_issues": [
         "technical_variants_il is empty"
+      ]
+    },
+    {
+      "market": "IL-confirmed",
+      "make": "Kia",
+      "model": "Niro",
+      "canonical_model": "Niro",
+      "year_start": 2016,
+      "year_end": 2026,
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Crossover",
+          "fuel_type": "hybrid",
+          "engine": "1.6L",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 141,
+          "transmission": "6-speed dual_clutch",
+          "drivetrain": "FWD",
+          "year_start": 2016,
+          "year_end": 2019,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              2
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Crossover",
+          "fuel_type": "hybrid",
+          "engine": "1.6L gdi",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 129,
+          "transmission": "6-speed dual_clutch",
+          "drivetrain": null,
+          "year_start": 2025,
+          "year_end": 2026,
+          "support_level": "direct",
+          "source_indexes": [
+            3,
+            4
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              4
+            ],
+            "fuel_type": [
+              3
+            ],
+            "engine": [
+              3
+            ],
+            "engine_displacement_l": [
+              3
+            ],
+            "horsepower_hp": [
+              3
+            ],
+            "transmission": [
+              3
+            ],
+            "drivetrain": [],
+            "year_start": [
+              3
+            ],
+            "year_end": [
+              4
+            ]
+          },
+          "missing_grounded_fields": [
+            "drivetrain"
+          ]
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Crossover",
+          "fuel_type": "plug_in_hybrid",
+          "engine": "1.6L gdi",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 141,
+          "transmission": "6-speed dual_clutch",
+          "drivetrain": "FWD",
+          "year_start": 2020,
+          "year_end": 2023,
+          "support_level": "direct",
+          "source_indexes": [
+            5,
+            6,
+            7
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              5
+            ],
+            "fuel_type": [
+              5
+            ],
+            "engine": [
+              6
+            ],
+            "engine_displacement_l": [
+              6
+            ],
+            "horsepower_hp": [
+              6
+            ],
+            "transmission": [
+              7
+            ],
+            "drivetrain": [
+              5
+            ],
+            "year_start": [
+              5
+            ],
+            "year_end": [
+              5
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Crossover",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 204,
+          "transmission": "single_speed",
+          "drivetrain": null,
+          "year_start": 2021,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            8,
+            9,
+            10
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              8,
+              10
+            ],
+            "fuel_type": [
+              9
+            ],
+            "engine": [
+              9,
+              10
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              9,
+              10
+            ],
+            "transmission": [
+              10
+            ],
+            "drivetrain": [],
+            "year_start": [
+              8
+            ],
+            "year_end": [
+              10
+            ]
+          },
+          "missing_grounded_fields": [
+            "drivetrain"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Crossover"
+        ],
+        "fuel_type": [
+          "hybrid",
+          "plug_in_hybrid",
+          "electric"
+        ],
+        "engine": [
+          "1.6L",
+          "1.6L gdi",
+          "electric"
+        ],
+        "horsepower_hp": [
+          141,
+          129,
+          204
+        ],
+        "transmission": [
+          "6-speed dual_clutch",
+          "single_speed"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "EX",
+          "classification": "trim_only_not_a_technical_variant"
+        },
+        {
+          "label": "LX",
+          "classification": "trim_only_not_a_technical_variant"
+        },
+        {
+          "label": "Premium",
+          "classification": "trim_only_not_a_technical_variant"
+        },
+        {
+          "label": "LX / EX",
+          "classification": "combined_trim_label_not_a_variant"
+        },
+        {
+          "label": "PLUS",
+          "classification": "body_or_submodel_label_not_trim"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "ארכיון נירו - autocom",
+          "url": "https://www.autocom.co.il/brands/%D7%A0%D7%99%D7%A8%D7%95/",
+          "source_name": "autocom",
+          "source_type": "catalog",
+          "supports": [
+            "fuel_type",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "The new Niro Hybrid crossover",
+          "url": "https://kia-israel.co.il/wp-content/uploads/2018/05/%D7%9E%D7%A4%D7%A8%D7%98-%D7%98%D7%9B%D7%A0%D7%99-%D7%A0%D7%99%D7%A8%D7%95-%D7%A0%D7%92%D7%99%D7%A9.pdf",
+          "source_name": "Kia Israel",
+          "source_type": "official_pdf",
+          "supports": [
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "The new Niro Hybrid crossover",
+          "url": "https://kia-israel.co.il/wp-content/uploads/2018/05/%D7%9E%D7%A4%D7%A8%D7%98-%D7%98%D7%9B%D7%A0%D7%99-%D7%A0%D7%99%D7%A8%D7%95-%D7%A0%D7%92%D7%99%D7%A9.pdf",
+          "source_name": "Kia Israel",
+          "source_type": "official_pdf",
+          "supports": [
+            "body_type",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "KIA*9920 :לפרטיםמערכות הבטיחות הינם אמצעי עזר וסיוע בלבד, הפעולות תחת תנאים ומגבלות שונים והן אינן מהוות תחליף לשמירה על כללי הנהיגה, זהירות ולהערנות",
+          "url": "https://kia-israel.co.il/catalog/mifrat_niro-hybrid.pdf",
+          "source_name": "Kia Israel",
+          "source_type": "official_pdf",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 4,
+          "title": "קיה נירו 2026 - NIRO - קיה ישראל | Kia Israel",
+          "url": "https://kia-israel.co.il/%D7%A8%D7%9B%D7%91/%D7%A0%D7%99%D7%A8%D7%95-%D7%94%D7%97%D7%93%D7%A9",
+          "source_name": "Kia Israel",
+          "source_type": "official_model_page",
+          "supports": [
+            "body_type",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 5,
+          "title": "www.kia.com",
+          "url": "https://kia-israel.co.il/catalog/mifrat-niro-plugin.pdf",
+          "source_name": "Kia Israel",
+          "source_type": "official_pdf",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 6,
+          "title": "www.kia.com",
+          "url": "https://kia-israel.co.il/catalog/mifrat-niro-plugin.pdf",
+          "source_name": "Kia Israel",
+          "source_type": "official_pdf",
+          "supports": [
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp"
+          ]
+        },
+        {
+          "source_index": 7,
+          "title": "www.kia.com",
+          "url": "https://kia-israel.co.il/catalog/mifrat-niro-plugin.pdf",
+          "source_name": "Kia Israel",
+          "source_type": "official_pdf",
+          "supports": [
+            "transmission"
+          ]
+        },
+        {
+          "source_index": 8,
+          "title": "ארכיון נירו - autocom",
+          "url": "https://www.autocom.co.il/brands/%D7%A0%D7%99%D7%A8%D7%95/",
+          "source_name": "autocom",
+          "source_type": "catalog",
+          "supports": [
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 9,
+          "title": "KIAniro Hybrid. Plug-in. Electric.www.kia.com*9920",
+          "url": "https://kia-israel.co.il/catalog/NiroEV.pdf",
+          "source_name": "Kia Israel",
+          "source_type": "official_pdf",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp"
+          ]
+        },
+        {
+          "source_index": 10,
+          "title": "קיה נירו EV 2024 - autocom",
+          "url": "https://www.autocom.co.il/%D7%A7%D7%99%D7%94-%D7%A0%D7%99%D7%A8%D7%95-ev-2024/",
+          "source_name": "autocom",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "year_end"
+          ]
+        }
+      ],
+      "profile_confidence": "medium",
+      "notes": [
+        "Electric Niro was treated as a separate technical variant within the Niro model family because Israeli sources show Niro EV sold in Israel, but EV-specific drivetrain was not directly grounded in the official brochure used here.",
+        "For the current hybrid generation, official Israeli PDF grounds engine, displacement, combined power and transmission; drivetrain was not found explicitly in the retrieved source, so it is null.",
+        "Hybrid rows were split because official Israeli sources show different combined power outputs between earlier Niro Hybrid (141 hp) and current Niro Hybrid (129 hp).",
+        "PHEV official Israeli source retrieved is for Niro Plus Plug-In Hybrid crossover; returned as Niro plug-in hybrid technical configuration sold in Israel because Israeli archive pages also list Niro plug-in entries across 2020-2023."
+      ],
+      "validation_issues": [
+        "variant[1] required website field 'drivetrain' is null/empty",
+        "variant[1] required field 'drivetrain' listed in missing_grounded_fields",
+        "variant[3] required website field 'drivetrain' is null/empty",
+        "variant[3] required field 'drivetrain' listed in missing_grounded_fields"
       ]
     }
   ]
