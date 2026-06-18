@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T08:07:15Z",
+  "generated_at": "2026-06-18T08:07:59Z",
   "market": "IL",
   "models": [
     {
@@ -1365,6 +1365,197 @@
         "variant[2] required field 'horsepower_hp' listed in missing_grounded_fields",
         "variant[3] required website field 'horsepower_hp' is null/empty",
         "variant[3] required field 'horsepower_hp' listed in missing_grounded_fields"
+      ]
+    },
+    {
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "פיאט אוליסה (2003-2007) - מפרט טכני וחוות דעת",
+          "url": "https://www.auto.co.il/model/fiat-ulysse_g128",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "פיאט אוליסה 2004-2007 מחירון רכב ומפרט טכני",
+          "url": "https://kml.co.il/car/Fiat_Ulysse_2004-2007",
+          "source_name": "KML.co.il",
+          "source_type": "price_list",
+          "supports": [
+            "version_or_trim",
+            "fuel_type",
+            "engine",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "JTD",
+          "body_type": "MPV",
+          "fuel_type": "diesel",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 109,
+          "transmission": "automatic",
+          "drivetrain": "FWD",
+          "year_start": 2004,
+          "year_end": 2007,
+          "support_level": "direct",
+          "field_sources": {
+            "version_or_trim": [
+              1
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": [],
+          "invalid_or_non_trim_labels": [
+            {
+              "label": "Minivan",
+              "classification": "body_type"
+            },
+            {
+              "label": "2.0L Turbo Diesel",
+              "classification": "engine"
+            }
+          ]
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "MPV",
+          "fuel_type": "petrol",
+          "engine": "3.0L v6",
+          "engine_displacement_l": 3.0,
+          "horsepower_hp": 204,
+          "transmission": "automatic",
+          "drivetrain": "FWD",
+          "year_start": 2004,
+          "year_end": 2007,
+          "support_level": "direct",
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": [],
+          "invalid_or_non_trim_labels": [
+            {
+              "label": "3.0L V6",
+              "classification": "engine"
+            },
+            {
+              "label": "automatic",
+              "classification": "transmission"
+            }
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "JTD"
+        ],
+        "body_type": [
+          "MPV"
+        ],
+        "fuel_type": [
+          "diesel",
+          "petrol"
+        ],
+        "engine": [
+          "2.0L turbo",
+          "3.0L v6"
+        ],
+        "horsepower_hp": [
+          109,
+          204
+        ],
+        "transmission": [
+          "automatic"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "market": "IL",
+      "make": "Fiat",
+      "model": "Ulysse",
+      "canonical_model": "Ulysse",
+      "profile_confidence": "medium",
+      "year_start": 2004,
+      "year_end": 2007,
+      "validation_issues": [
+        "variant[0] has no source_indexes",
+        "variant[0] support_level=direct but no source directly supports it",
+        "variant[1] has no source_indexes",
+        "variant[1] support_level=direct but no source directly supports it"
       ]
     }
   ]
