@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T08:39:55Z",
+  "generated_at": "2026-06-18T08:41:12Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -105775,6 +105775,147 @@
       "profile_confidence": "medium",
       "year_start": 2021,
       "year_end": 2024
+    },
+    {
+      "technical_variants_il": [
+        {
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "2.0L turbo 4-cylinder",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 218,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "FWD",
+          "year_start": 2021,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "2.0L turbo 4-cylinder",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 238,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2021,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "ג'ילי מונג'רו / Xingyue L - מפרט טכני וחדשות רכב",
+          "url": "https://www.auto.co.il/article/132145-world-news-geely",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "2.0L turbo 4-cylinder"
+        ],
+        "horsepower_hp": [
+          218,
+          238
+        ],
+        "transmission": [
+          "7-speed dual_clutch",
+          "8-speed automatic"
+        ],
+        "drivetrain": [
+          "FWD",
+          "AWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [],
+      "market": "IL",
+      "make": "Geely",
+      "model": "monjaro",
+      "canonical_model": "monjaro",
+      "profile_confidence": "medium",
+      "year_start": 2021,
+      "year_end": null
     }
   ],
   "ready_for_website_upload": false
