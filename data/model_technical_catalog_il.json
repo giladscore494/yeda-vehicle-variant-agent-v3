@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T07:34:31Z",
+  "generated_at": "2026-06-18T07:35:12Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -92149,6 +92149,194 @@
       "profile_confidence": "medium",
       "year_start": 2016,
       "year_end": 2020
+    },
+    {
+      "make": "Ferrari",
+      "model": "Portofino",
+      "market": "IL",
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Convertible",
+          "fuel_type": "petrol",
+          "engine": "3.9L v8 twin-turbo",
+          "engine_displacement_l": 3.9,
+          "horsepower_hp": 600,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "RWD",
+          "year_start": 2018,
+          "year_end": 2021,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "M",
+          "body_type": "Convertible",
+          "fuel_type": "petrol",
+          "engine": "3.9L v8 twin-turbo",
+          "engine_displacement_l": 3.9,
+          "horsepower_hp": 620,
+          "transmission": "8-speed dual_clutch",
+          "drivetrain": "RWD",
+          "year_start": 2021,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "פרארי פורטופינו M בישראל - מחיר החל מ- 1,650,000 שקל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%A4%D7%A8%D7%90%D7%A8%D7%99-%D7%A4%D7%95%D7%A8%D7%98%D7%95%D7%A4%D7%99%D7%A0%D7%95-m-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-1650000-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "פרארי פורטופינו נחתה בישראל",
+          "url": "https://www.icar.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA_%D7%A8%D7%9B%D7%91/%D7%A4%D7%A8%D7%90%D7%A8%D7%99_%D7%A4%D7%95%D7%A8%D7%98%D7%95%D7%A4%D7%99%D7%A0%D7%95_%D7%A0%D7%97%D7%AA%D7%94_%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C/",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "פרארי פורטופינו - מחירון מפרטים ורמות גימור",
+          "url": "https://www.auto.co.il/model/ferrari-portofino_g1369",
+          "source_name": "Auto.co.il",
+          "source_type": "catalog",
+          "supports": [
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "M"
+        ],
+        "body_type": [
+          "Convertible"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "3.9L v8 twin-turbo"
+        ],
+        "horsepower_hp": [
+          600,
+          620
+        ],
+        "transmission": [
+          "7-speed dual_clutch",
+          "8-speed dual_clutch"
+        ],
+        "drivetrain": [
+          "RWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Base",
+          "classification": "generic_standard"
+        }
+      ],
+      "canonical_model": "Portofino",
+      "profile_confidence": "medium",
+      "year_start": 2018,
+      "year_end": 2024
     }
   ],
   "ready_for_website_upload": false
