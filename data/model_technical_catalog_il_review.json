@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T11:16:48Z",
+  "generated_at": "2026-06-18T11:17:34Z",
   "market": "IL",
   "models": [
     {
@@ -1156,6 +1156,92 @@
         "variant[1] support_level=direct but no source directly supports it",
         "variant[2] has no source_indexes",
         "variant[2] support_level=direct but no source directly supports it"
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Hyundai",
+      "model": "Ioniq",
+      "canonical_model": "Ioniq",
+      "year_start": null,
+      "year_end": null,
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [],
+      "profile_confidence": null,
+      "notes": [],
+      "error": "Gemini catalog client returned non-object JSON",
+      "request_payload": {
+        "task": "build_israeli_model_technical_catalog",
+        "market": "IL",
+        "make": "Hyundai",
+        "model": "Ioniq",
+        "raw_database_values": {
+          "years_seen": [
+            2016,
+            2019,
+            2022
+          ],
+          "trims_seen": [
+            "Premium"
+          ],
+          "engines_seen": [
+            "1.6L hybrid petrol, 141 hp",
+            "Electric motor, 120 hp (28 kWh)",
+            "Electric motor, 136 hp (38.3 kWh)"
+          ],
+          "horsepower_seen": [],
+          "transmissions_seen": [
+            "dual_clutch",
+            "single_speed_ev"
+          ],
+          "body_types_seen": [
+            "Hatchback"
+          ],
+          "fuel_types_seen": [
+            "electric",
+            "hybrid"
+          ],
+          "drivetrains_seen": [
+            "FWD"
+          ]
+        },
+        "sample_validation_ids": [
+          "VAL-001450",
+          "VAL-001451",
+          "VAL-001452"
+        ],
+        "source_indexes": [
+          720,
+          721,
+          722
+        ],
+        "metadata_hints": {
+          "priorities_seen": [
+            "high",
+            "medium"
+          ],
+          "validation_routes_seen": [
+            "cheap_model_structured_validation",
+            "strong_model_or_manual_review"
+          ],
+          "possible_duplicate_rows": 0,
+          "validation_id_count": 3
+        },
+        "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
+      },
+      "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
       ]
     }
   ]
