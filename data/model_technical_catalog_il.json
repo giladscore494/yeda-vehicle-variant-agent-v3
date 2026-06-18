@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T07:38:43Z",
+  "generated_at": "2026-06-18T07:39:04Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -93357,6 +93357,217 @@
       "profile_confidence": "medium",
       "year_start": 2009,
       "year_end": 2021
+    },
+    {
+      "task": "build_israeli_model_technical_catalog",
+      "market": "IL",
+      "make": "Fiat",
+      "model": "500L",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "פיאט 500L - מחירון, מפרט טכני, חוות דעת - iCar",
+          "url": "https://www.icar.co.il/%D7%A4%D7%99%D7%90%D7%98/%D7%A4%D7%99%D7%90%D7%98_500L/%D7%A4%D7%99%D7%90%D7%98_500L_%D7%93%D7%95%D7%A8_1/",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "פיאט 500L בישראל: מחיר החל מ- 114,900 שקל - cartube",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%A4%D7%99%D7%90%D7%98-500l-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-114-900-%D7%A9%D7%A7%D7%9C",
+          "source_name": "cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "version_or_trim"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "MPV",
+          "fuel_type": "petrol",
+          "engine": "1.4L",
+          "engine_displacement_l": 1.4,
+          "horsepower_hp": 95,
+          "transmission": "6-speed manual",
+          "drivetrain": "FWD",
+          "year_start": 2013,
+          "year_end": 2017,
+          "version_or_trim": "Pop Star",
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0
+            ],
+            "version_or_trim": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "MPV",
+          "fuel_type": "diesel",
+          "engine": "1.3L turbo",
+          "engine_displacement_l": 1.3,
+          "horsepower_hp": 85,
+          "transmission": "5-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2013,
+          "year_end": 2017,
+          "version_or_trim": "Lounge",
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0
+            ],
+            "version_or_trim": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Pop Star",
+          "Lounge"
+        ],
+        "body_type": [
+          "MPV"
+        ],
+        "fuel_type": [
+          "petrol",
+          "diesel"
+        ],
+        "engine": [
+          "1.4L",
+          "1.3L turbo"
+        ],
+        "horsepower_hp": [
+          95,
+          85
+        ],
+        "transmission": [
+          "6-speed manual",
+          "5-speed automatic"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "1.3L Turbo Diesel",
+          "classification": "engine_configuration"
+        },
+        {
+          "label": "1.4L Petrol",
+          "classification": "engine_configuration"
+        },
+        {
+          "label": "Minivan",
+          "classification": "body_type_alternate"
+        }
+      ],
+      "canonical_model": "500L",
+      "profile_confidence": "medium",
+      "year_start": 2013,
+      "year_end": 2017
     }
   ],
   "ready_for_website_upload": false
