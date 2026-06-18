@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T08:06:24Z",
+  "generated_at": "2026-06-18T08:07:15Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -98612,6 +98612,178 @@
       "profile_confidence": "medium",
       "year_start": 1990,
       "year_end": 2023
+    },
+    {
+      "make": "Fiat",
+      "model": "Topolino",
+      "market": "IL",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "פיאט טופולינו נחשפת במלואה - האחות האיטלקית לסיטרואן אמי",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%A4%D7%99%D7%90%D7%98-%D7%98%D7%95%D7%A4%D7%95%D7%9C%D7%99%D7%A0%D7%95-%D7%A0%D7%97%D7%A9%D7%A4%D7%AA-%D7%91%D7%9E%D7%9C%D7%95%D7%90%D7%94-%D7%94%D7%90%D7%97%D7%95%D7%AA-%D7%94%D7%90%D7%99%D7%98%D7%9C%D7%A7%D7%99%D7%AA-%D7%9C%D7%A1%D7%99%D7%98%D7%A8%D7%95%D7%90%D7%9F-%D7%90%D7%9E%D7%99",
+          "source_name": "Cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "version_or_trim",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "הופעת בכורה לפיאט טופולינו החדשה",
+          "url": "https://wheel.co.il/%D7%94%D7%95%D7%A4%D7%A2%D7%AA-%D7%91%D7%9B%D7%95%D7%A8%D7%94-%D7%9C%D7%A4%D7%99%D7%90%D7%98-%D7%98%D7%95%D7%A4%D7%95%D7%9C%D7%99%D7%A0%D7%95-%D7%94%D7%97%D7%93%D7%A9%D7%94/",
+          "source_name": "Wheel.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "drivetrain",
+            "transmission"
+          ]
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Standard",
+          "classification": "Base/standard trim descriptor"
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Coupe",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 8,
+          "transmission": "single_speed",
+          "drivetrain": "FWD",
+          "year_start": 2023,
+          "year_end": null,
+          "support_level": "indirect",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Dolcevita",
+          "body_type": "Convertible",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 8,
+          "transmission": "single_speed",
+          "drivetrain": "FWD",
+          "year_start": 2023,
+          "year_end": null,
+          "support_level": "indirect",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Dolcevita"
+        ],
+        "body_type": [
+          "Coupe",
+          "Convertible"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          8
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "canonical_model": "Topolino",
+      "profile_confidence": "medium",
+      "year_start": 2023,
+      "year_end": null
     }
   ],
   "ready_for_website_upload": false
