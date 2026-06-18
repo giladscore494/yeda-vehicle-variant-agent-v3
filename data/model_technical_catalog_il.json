@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T08:37:13Z",
+  "generated_at": "2026-06-18T08:37:59Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -105290,6 +105290,125 @@
       "profile_confidence": "medium",
       "year_start": 2024,
       "year_end": 2025
+    },
+    {
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "2024 אייאון V החדש נחשף - ויגיע לישראל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/2024-אייאון-v-החדש-נחשף",
+          "source_name": "Cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "GAC אייאון V - מחירון, מפרט טכני",
+          "url": "https://www.auto.co.il/model/gac-aion-v",
+          "source_name": "Auto.co.il",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 204,
+          "transmission": "single_speed",
+          "drivetrain": "FWD",
+          "year_start": 2024,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              2
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Base",
+          "classification": "generic_or_invalid"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          204
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "market": "IL",
+      "make": "GAC / Aion",
+      "model": "Aion V",
+      "canonical_model": "Aion V",
+      "profile_confidence": "medium",
+      "year_start": 2024,
+      "year_end": null
     }
   ],
   "ready_for_website_upload": false
