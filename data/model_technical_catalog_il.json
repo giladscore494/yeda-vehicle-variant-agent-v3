@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T12:04:31Z",
+  "generated_at": "2026-06-18T12:05:29Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -124529,6 +124529,245 @@
       "canonical_model": "Sonata",
       "profile_confidence": "medium",
       "year_start": 2006,
+      "year_end": null
+    },
+    {
+      "make": "Hyundai",
+      "model": "Staria",
+      "market": "IL",
+      "sources": [
+        {
+          "source_index": 32,
+          "title": "יונדאי סטאריה - מפרט טכני | יונדאי ישראל",
+          "url": "https://www.hyundaimotors.co.il/models/staria/",
+          "source_name": "Hyundai Israel",
+          "source_type": "official_importer",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 33,
+          "title": "יונדאי סטאריה החדש 2021 בישראל - מחיר החל מ-236,900 שקלים",
+          "url": "https://www.cartube.co.il/חדשות-רכב/יונדאי-סטאריה-החדש-2021-בישראל",
+          "source_name": "Cartube Israel",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 34,
+          "title": "יונדאי סטאריה הייבריד 1.6 טורבו נחשף - בישראל בהמשך השנה",
+          "url": "https://www.cartube.co.il/חדשות-רכב/יונדאי-סטאריה-הייבריד-נחשף",
+          "source_name": "Cartube Israel",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "MPV",
+          "fuel_type": "diesel",
+          "engine": "2.2L turbo",
+          "engine_displacement_l": 2.2,
+          "horsepower_hp": 177,
+          "transmission": "8-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2021,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            32,
+            33
+          ],
+          "field_sources": {
+            "body_type": [
+              32,
+              33
+            ],
+            "fuel_type": [
+              32,
+              33
+            ],
+            "engine": [
+              32,
+              33
+            ],
+            "engine_displacement_l": [
+              32,
+              33
+            ],
+            "horsepower_hp": [
+              32,
+              33
+            ],
+            "transmission": [
+              32,
+              33
+            ],
+            "drivetrain": [
+              32,
+              33
+            ],
+            "year_start": [
+              33
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Van",
+          "fuel_type": "diesel",
+          "engine": "2.2L turbo",
+          "engine_displacement_l": 2.2,
+          "horsepower_hp": 177,
+          "transmission": "8-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2021,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            32,
+            33
+          ],
+          "field_sources": {
+            "body_type": [
+              32,
+              33
+            ],
+            "fuel_type": [
+              32,
+              33
+            ],
+            "engine": [
+              32,
+              33
+            ],
+            "engine_displacement_l": [
+              32,
+              33
+            ],
+            "horsepower_hp": [
+              32,
+              33
+            ],
+            "transmission": [
+              32,
+              33
+            ],
+            "drivetrain": [
+              32,
+              33
+            ],
+            "year_start": [
+              33
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "MPV",
+          "fuel_type": "hybrid",
+          "engine": "1.6L turbo",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 225,
+          "transmission": "6-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2024,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            34
+          ],
+          "field_sources": {
+            "body_type": [
+              34
+            ],
+            "fuel_type": [
+              34
+            ],
+            "engine": [
+              34
+            ],
+            "engine_displacement_l": [
+              34
+            ],
+            "horsepower_hp": [
+              34
+            ],
+            "transmission": [
+              34
+            ],
+            "drivetrain": [
+              34
+            ],
+            "year_start": [
+              34
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": {
+        "1.6L Turbo Hybrid": "engine_spec_not_trim",
+        "2.2L Turbo Diesel": "engine_spec_not_trim",
+        "Commercial": "body_type_or_marketing_label_not_trim"
+      },
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "MPV",
+          "Van"
+        ],
+        "fuel_type": [
+          "diesel",
+          "hybrid"
+        ],
+        "engine": [
+          "2.2L turbo",
+          "1.6L turbo"
+        ],
+        "horsepower_hp": [
+          177,
+          225
+        ],
+        "transmission": [
+          "8-speed automatic",
+          "6-speed automatic"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "canonical_model": "Staria",
+      "profile_confidence": "medium",
+      "year_start": 2021,
       "year_end": null
     }
   ],
