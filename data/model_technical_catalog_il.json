@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T17:37:01Z",
+  "generated_at": "2026-06-18T17:37:59Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -136938,6 +136938,132 @@
       "make": "KGM",
       "model": "Torres EVX",
       "canonical_model": "Torres EVX",
+      "profile_confidence": "medium",
+      "year_start": 2024,
+      "year_end": null
+    },
+    {
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "טנדר חדש בישראל: 2024 KGM מוסו - מחיר החל מ- 259,900 שקל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/טנדר-חדש-בישראל-2024-kgm-מוסו-מחיר-החל-מ-259900-שקל",
+          "source_name": "Cartube Israel",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "ק.ג.מ מוסו 2024 החדש בישראל - מפרט טכני",
+          "url": "https://www.gear.co.il/כתבות_רכב/2024-05-16-KGM-מוסו-ומוסו-גרנד-החדשים-בישראל",
+          "source_name": "Gear Israel",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "Pickup",
+          "fuel_type": "diesel",
+          "engine": "2.2L turbo",
+          "engine_displacement_l": 2.2,
+          "horsepower_hp": 202,
+          "transmission": "6-speed automatic",
+          "drivetrain": "4WD",
+          "year_start": 2024,
+          "year_end": null,
+          "version_or_trim": null,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": {
+        "e-XDi": "engine_technology",
+        "Grand": "body_variant",
+        "Sports": "body_variant"
+      },
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Pickup"
+        ],
+        "fuel_type": [
+          "diesel"
+        ],
+        "engine": [
+          "2.2L turbo"
+        ],
+        "horsepower_hp": [
+          202
+        ],
+        "transmission": [
+          "6-speed automatic"
+        ],
+        "drivetrain": [
+          "4WD"
+        ]
+      },
+      "market": "global-reference-only",
+      "make": "KGM / SsangYong",
+      "model": "Musso",
+      "canonical_model": "Musso",
       "profile_confidence": "medium",
       "year_start": 2024,
       "year_end": null
