@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T07:47:58Z",
+  "generated_at": "2026-06-18T07:48:37Z",
   "market": "IL",
   "models": [
     {
@@ -599,6 +599,235 @@
       "rebuild_required": true,
       "validation_issues": [
         "technical_variants_il is empty"
+      ]
+    },
+    {
+      "make": "Fiat",
+      "model": "Fullback",
+      "market": "IL",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "פיאט פולבק בישראל - מחיר החל מ-230,000 שקל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%A4%D7%99%D7%90%D7%98-%D7%A4%D7%95%D7%9C%D7%91%D7%A7-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-230000-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "פיאט פולבק - מחירון מפרטים ורכבים משומשים - אוטו",
+          "url": "https://www.auto.co.il/model/fiat-fullback_g1178",
+          "source_name": "Auto.co.il",
+          "source_type": "catalog",
+          "supports": [
+            "year_end",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Comfort",
+          "body_type": "Pickup",
+          "fuel_type": "diesel",
+          "engine": "2.4L turbo",
+          "engine_displacement_l": 2.4,
+          "horsepower_hp": 154,
+          "transmission": "6-speed manual",
+          "drivetrain": "4WD",
+          "year_start": 2016,
+          "year_end": 2019,
+          "support_level": "direct",
+          "missing_grounded_fields": [],
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              1
+            ]
+          }
+        },
+        {
+          "version_or_trim": "Comfort",
+          "body_type": "Pickup",
+          "fuel_type": "diesel",
+          "engine": "2.4L turbo",
+          "engine_displacement_l": 2.4,
+          "horsepower_hp": 154,
+          "transmission": "5-speed automatic",
+          "drivetrain": "4WD",
+          "year_start": 2016,
+          "year_end": 2019,
+          "support_level": "direct",
+          "missing_grounded_fields": [],
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              1
+            ]
+          }
+        },
+        {
+          "version_or_trim": "Premium",
+          "body_type": "Pickup",
+          "fuel_type": "diesel",
+          "engine": "2.4L turbo",
+          "engine_displacement_l": 2.4,
+          "horsepower_hp": 181,
+          "transmission": "5-speed automatic",
+          "drivetrain": "4WD",
+          "year_start": 2016,
+          "year_end": 2019,
+          "support_level": "direct",
+          "missing_grounded_fields": [],
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              1
+            ]
+          }
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Comfort",
+          "Premium"
+        ],
+        "body_type": [
+          "Pickup"
+        ],
+        "fuel_type": [
+          "diesel"
+        ],
+        "engine": [
+          "2.4L turbo"
+        ],
+        "horsepower_hp": [
+          154,
+          181
+        ],
+        "transmission": [
+          "6-speed manual",
+          "5-speed automatic"
+        ],
+        "drivetrain": [
+          "4WD"
+        ]
+      },
+      "invalid_or_non_trim_labels": {
+        "2.4L Turbo Diesel (154 hp)": "engine_and_horsepower",
+        "2.4L Turbo Diesel (180 hp)": "engine_and_horsepower"
+      },
+      "canonical_model": "Fullback",
+      "profile_confidence": "medium",
+      "year_start": 2016,
+      "year_end": 2019,
+      "validation_issues": [
+        "variant[0] has no source_indexes",
+        "variant[0] support_level=direct but no source directly supports it",
+        "variant[1] has no source_indexes",
+        "variant[1] support_level=direct but no source directly supports it",
+        "variant[2] has no source_indexes",
+        "variant[2] support_level=direct but no source directly supports it"
       ]
     }
   ]
