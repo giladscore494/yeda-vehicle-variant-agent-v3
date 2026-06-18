@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T11:06:09Z",
+  "generated_at": "2026-06-18T11:06:54Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -118266,6 +118266,195 @@
       "profile_confidence": "medium",
       "year_start": 1996,
       "year_end": 2009
+    },
+    {
+      "technical_variants_il": [
+        {
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "1.5L",
+          "engine_displacement_l": 1.5,
+          "horsepower_hp": 115,
+          "transmission": "cvt",
+          "drivetrain": "FWD",
+          "version_or_trim": null,
+          "year_start": 2020,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "1.4L turbo",
+          "engine_displacement_l": 1.4,
+          "horsepower_hp": 140,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "FWD",
+          "version_or_trim": null,
+          "year_start": 2020,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "1.5L",
+          "1.4L turbo"
+        ],
+        "horsepower_hp": [
+          115,
+          140
+        ],
+        "transmission": [
+          "cvt",
+          "7-speed dual_clutch"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "יונדאי קרטה (Creta) - רכב פנאי קומפקטי | אוטומקס",
+          "url": "https://automax.co.il/hyundai-creta/",
+          "source_name": "AutoMax Israel",
+          "source_type": "official_importer_parallel",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "יונדאי קרטה 2021 החדש בישראל (יבוא מקביל) - מחיר החל מ-134,900 שקל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/יונדאי-קרטה-2021-החדש-בישראל-יבוא-מקביל-מחיר-החל-מ-134900-שקל",
+          "source_name": "Cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "1.4L Kappa T-GDi petrol",
+          "classification": "engine_spec"
+        },
+        {
+          "label": "1.5L Smartstream MPi petrol",
+          "classification": "engine_spec"
+        }
+      ],
+      "market": "global-reference-only",
+      "make": "Hyundai",
+      "model": "Creta",
+      "canonical_model": "Creta",
+      "profile_confidence": "medium",
+      "year_start": 2020,
+      "year_end": 2024
     }
   ],
   "ready_for_website_upload": false
