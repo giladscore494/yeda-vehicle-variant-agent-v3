@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T08:37:59Z",
+  "generated_at": "2026-06-18T08:38:35Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -105406,6 +105406,136 @@
       "make": "GAC / Aion",
       "model": "Aion V",
       "canonical_model": "Aion V",
+      "profile_confidence": "medium",
+      "year_start": 2024,
+      "year_end": null
+    },
+    {
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "GAC איוון Y - מחירון, מפרטים, אבזור - iCar",
+          "url": "https://www.icar.co.il/GAC/%D7%90%D7%99%D7%95%D7%95%D7%9F_Y/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "גאק איוון Y פלוס בישראל - מחיר החל מ- 135,900 שקל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%92%D7%90%D7%A7-%D7%90%D7%99%D7%95%D7%95%D7%9F-y-%D7%A4%D7%9C%D7%95%D7%A1-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-135900-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "version_or_trim"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 204,
+          "transmission": "single_speed",
+          "drivetrain": "FWD",
+          "year_start": 2024,
+          "year_end": null,
+          "version_or_trim": "Sense",
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [],
+            "version_or_trim": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Sense"
+        ],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          204
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": {
+        "Single Electric Motor, 204 hp (150 kW), 61.8 kWh LFP Battery": "engine_and_battery_spec",
+        "Electric": "fuel_type",
+        "SUV/Crossover": "body_type",
+        "FWD": "drivetrain"
+      },
+      "market": "IL-confirmed",
+      "make": "GAC / Aion",
+      "model": "Aion Y",
+      "canonical_model": "Aion Y",
       "profile_confidence": "medium",
       "year_start": 2024,
       "year_end": null
