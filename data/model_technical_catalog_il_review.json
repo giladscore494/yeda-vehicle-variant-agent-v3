@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T07:33:12Z",
+  "generated_at": "2026-06-18T07:33:46Z",
   "market": "IL",
   "models": [
     {
@@ -93,6 +93,129 @@
       "rebuild_required": true,
       "validation_issues": [
         "technical_variants_il is empty"
+      ]
+    },
+    {
+      "make": "Ferrari",
+      "model": "F8 Tributo",
+      "market": "IL",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "פרארי F8 טריבוטו בישראל - מחיר החל מ- 2.04 מיליון שקלים",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%A4%D7%A8%D7%90%D7%A8%D7%99-f8-%D7%98%D7%A8%D7%99%D7%91%D7%95%D7%98%D7%95-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-2-04-%D7%9E%D7%99%D7%9C%D7%99%D7%95%D7%9F-%D7%A9%D7%A7%D7%9C%D7%99%D7%9D",
+          "source_name": "Cartube Israel",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "פרארי F8 טריבוטו 2020 - 2023 - מחירון, מפרטים, אמינות",
+          "url": "https://www.auto.co.il/model/ferrari-f8-tributo_g1363",
+          "source_name": "Auto.co.il",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "engine",
+            "horsepower_hp",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "3.9L twin-turbo v8",
+          "engine_displacement_l": 3.9,
+          "horsepower_hp": 720,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "RWD",
+          "year_start": 2019,
+          "year_end": 2023,
+          "version_or_trim": null,
+          "invalid_or_non_trim_labels": [
+            {
+              "label": "Tributo",
+              "classification": "model_name_part"
+            }
+          ],
+          "support_level": "direct",
+          "missing_grounded_fields": [],
+          "field_sources": {
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              1
+            ],
+            "version_or_trim": []
+          }
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Coupe"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "3.9L twin-turbo v8"
+        ],
+        "horsepower_hp": [
+          720
+        ],
+        "transmission": [
+          "7-speed dual_clutch"
+        ],
+        "drivetrain": [
+          "RWD"
+        ]
+      },
+      "canonical_model": "F8 Tributo",
+      "profile_confidence": "medium",
+      "year_start": 2019,
+      "year_end": 2023,
+      "validation_issues": [
+        "variant[0] has no source_indexes",
+        "variant[0] support_level=direct but no source directly supports it"
       ]
     }
   ]
