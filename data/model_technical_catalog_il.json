@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T17:54:57Z",
+  "generated_at": "2026-06-18T17:55:51Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -138884,6 +138884,128 @@
       "profile_confidence": "medium",
       "year_start": 2008,
       "year_end": 2024
+    },
+    {
+      "sources": [
+        {
+          "source_index": 1554,
+          "title": "קיה EV3 החדש בישראל - מפרט טכני",
+          "url": "https://www.icar.co.il/Kia/Kia_EV3/Kia_EV3_new/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1555,
+          "title": "קיה EV3 החשמלי נחשף בבכורה עולמית - בישראל בהמשך",
+          "url": "https://www.cartube.co.il/חדשות-רכב/קיה-ev3-החשמלי-נחשף-בבכורה-עולמית",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "drivetrain"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 204,
+          "transmission": "single_speed",
+          "drivetrain": "FWD",
+          "year_start": 2024,
+          "year_end": null,
+          "version_or_trim": null,
+          "invalid_or_non_trim_labels": [
+            {
+              "label": "Standard Range",
+              "classification": "battery_or_range_designator"
+            },
+            {
+              "label": "Long Range",
+              "classification": "battery_or_range_designator"
+            }
+          ],
+          "support_level": "direct",
+          "source_indexes": [
+            1554,
+            1555
+          ],
+          "field_sources": {
+            "body_type": [
+              1554,
+              1555
+            ],
+            "fuel_type": [
+              1554,
+              1555
+            ],
+            "engine": [
+              1554,
+              1555
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              1554,
+              1555
+            ],
+            "transmission": [
+              1554
+            ],
+            "drivetrain": [
+              1554,
+              1555
+            ],
+            "year_start": [
+              1554
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          204
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "market": "IL-confirmed",
+      "make": "Kia",
+      "model": "EV3",
+      "canonical_model": "EV3",
+      "profile_confidence": "medium",
+      "year_start": 2024,
+      "year_end": null
     }
   ],
   "ready_for_website_upload": false
