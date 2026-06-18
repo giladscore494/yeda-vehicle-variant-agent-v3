@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T18:25:02Z",
+  "generated_at": "2026-06-18T18:25:24Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gpt-5.4",
@@ -141174,6 +141174,216 @@
         "Israeli sources found indicate the model was marketed in Israel around 1998-2000 with a single 1.3L petrol engine and two transmissions: 5-speed manual or 3-speed automatic.",
         "Horsepower is conflicting between Israeli sources (73 hp in Wheel editorial vs 75 hp in Yad2 price-list pages). Rows use 75 hp because that value is explicitly tied to Israeli sub-model pages, but support_level remains indirect due to source conflict.",
         "Drivetrain FWD was not directly stated in the located Israeli model-page sources; it is included based on Israeli marketplace/spec context and therefore marked indirect."
+      ]
+    },
+    {
+      "market": "IL-confirmed",
+      "make": "Kia",
+      "model": "Seltos",
+      "canonical_model": "Seltos",
+      "year_start": 2020,
+      "year_end": null,
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "2.0L",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 149,
+          "transmission": "cvt",
+          "drivetrain": "FWD",
+          "year_start": 2020,
+          "year_end": null,
+          "support_level": "indirect",
+          "source_indexes": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "engine": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "engine_displacement_l": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "horsepower_hp": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "transmission": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "drivetrain": [
+              3,
+              4,
+              5
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "2.0L"
+        ],
+        "horsepower_hp": [
+          149
+        ],
+        "transmission": [
+          "cvt"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "EX",
+          "classification": "trim label seen in sources/raw data but does not represent a separate technical configuration"
+        },
+        {
+          "label": "LX Plus",
+          "classification": "trim label only, not a separate technical configuration"
+        },
+        {
+          "label": "Premium",
+          "classification": "trim label only, not a separate technical configuration"
+        },
+        {
+          "label": "2.0L NA Petrol, 149 hp",
+          "classification": "powertrain description, not a trim"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "SUV - רכבי פנאי שטח - גי'פונים - קיה ישראל",
+          "url": "https://kia-israel.co.il/%D7%A8%D7%9B%D7%91%D7%99-%D7%A4%D7%A0%D7%90%D7%99-%D7%A9%D7%98%D7%97",
+          "source_name": "Kia Israel",
+          "source_type": "official_importer_page",
+          "supports": [
+            "body_type",
+            "model_presence_in_il"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "קיה סלטוס - מחירון, חוות דעת ומידע טכני | אוטו",
+          "url": "https://www.auto.co.il/cars/kia/seltos/",
+          "source_name": "Auto",
+          "source_type": "editorial_model_page",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "קיה סלטוס - מחירון, חוות דעת ומידע טכני | אוטו",
+          "url": "https://www.auto.co.il/cars/kia/seltos/",
+          "source_name": "Auto",
+          "source_type": "editorial_model_page",
+          "supports": [
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "קיה סלטוס – מבחן דרכים (מתיחת פנים)",
+          "url": "https://www.auto.co.il/articles/test-drives/road-tests/136342/",
+          "source_name": "Auto",
+          "source_type": "editorial_test",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 4,
+          "title": "קיה סלטוס 2022 החדש - חוות דעת",
+          "url": "https://www.auto.co.il/articles/car-news/industry/134901/",
+          "source_name": "Auto",
+          "source_type": "editorial_news",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 5,
+          "title": "חדשות רכב - קיה סלטוס מתחדש ומתייקר",
+          "url": "https://www.icar.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA_%D7%A8%D7%9B%D7%91/%D7%A7%D7%99%D7%94_%D7%A1%D7%9C%D7%98%D7%95%D7%A1_%D7%9E%D7%AA%D7%97%D7%93%D7%A9_%D7%95%D7%9E%D7%AA%D7%99%D7%99%D7%A7%D7%A8/",
+          "source_name": "iCar",
+          "source_type": "editorial_news",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        }
+      ],
+      "profile_confidence": "high",
+      "notes": [
+        "Israeli-market sources found only one technical powertrain configuration for Kia Seltos.",
+        "Multiple trims/richness levels were mentioned in sources (including EX, LX Plus, Premium), but they do not represent separate technical variants because the engine, power, transmission and drivetrain remained the same.",
+        "Engine normalized to '2.0L' because naturally aspirated status was stated by sources, but aspiration is not required in the normalized engine string and no config descriptor was needed.",
+        "year_end left null because no Israeli source was found establishing an end-of-sale year for this technical configuration."
       ]
     }
   ],
