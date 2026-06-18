@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T12:28:33Z",
+  "generated_at": "2026-06-18T12:29:31Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -130680,6 +130680,137 @@
       "profile_confidence": "medium",
       "year_start": 2013,
       "year_end": 2024
+    },
+    {
+      "make": "Jaguar",
+      "model": "I-Pace",
+      "market": "IL-confirmed",
+      "technical_variants_il": [
+        {
+          "version_or_trim": "EV400",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 400,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2018,
+          "year_end": 2025,
+          "support_level": "indirect",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              2
+            ],
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "90 kWh",
+          "classification": "battery_capacity"
+        },
+        {
+          "label": "Dual Electric Motors",
+          "classification": "engine_description"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "יגואר I-Pace - מחירון, מפרטים, אמינות וחוות דעת - iCar",
+          "url": "https://www.icar.co.il/%D7%99%D7%92%D7%95%D7%90%D7%A8/%D7%99%D7%92%D7%95%D7%90%D7%A8_I-Pace/",
+          "source_name": "iCar Israel",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "drivetrain",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "יגואר I-PACE החשמלי בישראל - מחיר החל מ- 454,000 שקל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%99%D7%92%D7%95%D7%90%D7%A8-i-pace-%D7%94%D7%97%D7%A9%D7%9E%D7%9C%D7%99-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-454-000-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube Israel",
+          "source_type": "editorial",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "EV400"
+        ],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          400
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "AWD"
+        ]
+      },
+      "canonical_model": "I-Pace",
+      "profile_confidence": "medium",
+      "year_start": 2018,
+      "year_end": 2025
     }
   ],
   "ready_for_website_upload": false
