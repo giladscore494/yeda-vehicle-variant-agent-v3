@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T08:49:17Z",
+  "generated_at": "2026-06-18T08:50:07Z",
   "market": "IL",
   "models": [
     {
@@ -3117,6 +3117,94 @@
       "validation_issues": [
         "variant[0] required website field 'horsepower_hp' is null/empty",
         "variant[0] required field 'horsepower_hp' listed in missing_grounded_fields"
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Genesis",
+      "model": "G80",
+      "canonical_model": "G80",
+      "year_start": null,
+      "year_end": null,
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [],
+      "profile_confidence": null,
+      "notes": [],
+      "error": "Gemini catalog client returned non-object JSON",
+      "request_payload": {
+        "task": "build_israeli_model_technical_catalog",
+        "market": "IL",
+        "make": "Genesis",
+        "model": "G80",
+        "raw_database_values": {
+          "years_seen": [
+            2021,
+            2022,
+            2025,
+            2026
+          ],
+          "trims_seen": [
+            "Elegant / Luxury",
+            "Exclusive",
+            "Luxury"
+          ],
+          "engines_seen": [
+            "2.5L Turbo Petrol",
+            "Dual Electric Motor"
+          ],
+          "horsepower_seen": [],
+          "transmissions_seen": [
+            "automatic"
+          ],
+          "body_types_seen": [
+            "Sedan"
+          ],
+          "fuel_types_seen": [
+            "electric",
+            "petrol"
+          ],
+          "drivetrains_seen": [
+            "AWD",
+            "RWD"
+          ]
+        },
+        "sample_validation_ids": [
+          "VAL-001278",
+          "VAL-001279",
+          "VAL-001280"
+        ],
+        "source_indexes": [
+          48,
+          494,
+          495
+        ],
+        "metadata_hints": {
+          "priorities_seen": [
+            "high",
+            "medium"
+          ],
+          "validation_routes_seen": [
+            "cheap_model_structured_validation",
+            "strong_model_or_manual_review"
+          ],
+          "possible_duplicate_rows": 0,
+          "validation_id_count": 3
+        },
+        "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
+      },
+      "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
       ]
     }
   ]
