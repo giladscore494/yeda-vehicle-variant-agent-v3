@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T08:10:06Z",
+  "generated_at": "2026-06-18T08:11:06Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -99435,6 +99435,325 @@
       "canonical_model": "Bronco",
       "profile_confidence": "medium",
       "year_start": 2021,
+      "year_end": 2024
+    },
+    {
+      "make": "Ford",
+      "model": "Explorer",
+      "market": "IL",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "פורד אקספלורר דגמים, מחירון ומפרט טכני",
+          "url": "https://www.icar.co.il/פורד/פורד_אקספלורר/",
+          "source_name": "iCar",
+          "source_type": "editorial_and_specs",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "פורד אקספלורר 2020 החדש בישראל - מחיר החל מ- 350,000 שקל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/פורד-אקספלורר-2020-החדש-בישראל-מחיר-החל-מ-350-000-שקל",
+          "source_name": "Cartube",
+          "source_type": "editorial_and_specs",
+          "supports": [
+            "year_start",
+            "horsepower_hp",
+            "drivetrain",
+            "engine",
+            "transmission",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "יוקרה משפחתית: פורד אקספלורר פלטינום בישראל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/יוקרה-משפחתית-פורד-אקספלורר-פלטינום-בישראל",
+          "source_name": "Cartube",
+          "source_type": "editorial_and_specs",
+          "supports": [
+            "version_or_trim",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "drivetrain",
+            "year_start",
+            "fuel_type",
+            "transmission"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Limited",
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "2.3L turbo",
+          "engine_displacement_l": 2.3,
+          "horsepower_hp": 300,
+          "transmission": "10-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 2020,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Limited",
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "2.3L turbo",
+          "engine_displacement_l": 2.3,
+          "horsepower_hp": 300,
+          "transmission": "10-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2020,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "ST",
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "3.0L v6 turbo",
+          "engine_displacement_l": 3.0,
+          "horsepower_hp": 400,
+          "transmission": "10-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2020,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Platinum",
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "3.0L v6 turbo",
+          "engine_displacement_l": 3.0,
+          "horsepower_hp": 365,
+          "transmission": "10-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2021,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              2
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0,
+              2
+            ],
+            "engine": [
+              2
+            ],
+            "engine_displacement_l": [
+              0,
+              2
+            ],
+            "horsepower_hp": [
+              2
+            ],
+            "transmission": [
+              0,
+              2
+            ],
+            "drivetrain": [
+              2
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "2.3L EcoBoost",
+          "classification": "engine_spec_used_as_trim"
+        },
+        {
+          "label": "3.0L EcoBoost V6",
+          "classification": "engine_spec_used_as_trim"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Limited",
+          "ST",
+          "Platinum"
+        ],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "2.3L turbo",
+          "3.0L v6 turbo"
+        ],
+        "horsepower_hp": [
+          300,
+          400,
+          365
+        ],
+        "transmission": [
+          "10-speed automatic"
+        ],
+        "drivetrain": [
+          "RWD",
+          "AWD"
+        ]
+      },
+      "canonical_model": "Explorer",
+      "profile_confidence": "medium",
+      "year_start": 2020,
       "year_end": 2024
     }
   ],
