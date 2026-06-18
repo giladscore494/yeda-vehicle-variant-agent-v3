@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T08:25:07Z",
+  "generated_at": "2026-06-18T08:26:36Z",
   "market": "IL",
   "models": [
     {
@@ -1723,6 +1723,701 @@
       "rebuild_required": true,
       "validation_issues": [
         "technical_variants_il is empty"
+      ]
+    },
+    {
+      "task": "build_israeli_model_technical_catalog",
+      "market": "IL",
+      "make": "Ford",
+      "model": "Mustang",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "פורד מוסטנג (2015-2018) - מפרט טכני ומחירון",
+          "url": "https://www.icar.co.il/Ford/%D7%A4%D7%95%D7%A8%D7%93_%D7%9E%D7%95%D7%A1%D7%98%D7%A0%D7%92/",
+          "source_name": "iCar",
+          "source_type": "auto_catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "פורד מוסטנג 2018 החדשה בישראל - מחיר החל מ-299,900 שקל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%A4%D7%95%D7%A8%D7%93-%D7%9E%D7%95%D7%A1%D7%98%D7%A0%D7%92-2018-%D7%94%D7%97%D7%93%D7%A9%D7%94-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-299,900-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "הדור השביעי: 2024 פורד מוסטנג החדשה נחשפת",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%A4%D7%95%D7%A8%D7%93-%D7%9E%D7%95%D7%A1%D7%98%D7%A0%D7%92-2024-%D7%94%D7%97%D7%93%D7%A9%D7%94-%D7%9E%D7%97%D7%99%D7%A8",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "2.3L EcoBoost I4",
+          "classification": "engine"
+        },
+        {
+          "label": "5.0L V8",
+          "classification": "engine"
+        },
+        {
+          "label": "Coupe / Convertible",
+          "classification": "body_type_combination"
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "EcoBoost",
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "2.3L turbo",
+          "engine_displacement_l": 2.3,
+          "horsepower_hp": 317,
+          "transmission": "6-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 2015,
+          "year_end": 2018,
+          "support_level": "direct",
+          "missing_grounded_fields": [],
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          }
+        },
+        {
+          "version_or_trim": "EcoBoost",
+          "body_type": "Convertible",
+          "fuel_type": "petrol",
+          "engine": "2.3L turbo",
+          "engine_displacement_l": 2.3,
+          "horsepower_hp": 317,
+          "transmission": "6-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 2015,
+          "year_end": 2018,
+          "support_level": "direct",
+          "missing_grounded_fields": [],
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          }
+        },
+        {
+          "version_or_trim": "GT",
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "5.0L v8",
+          "engine_displacement_l": 5.0,
+          "horsepower_hp": 421,
+          "transmission": "6-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 2015,
+          "year_end": 2018,
+          "support_level": "direct",
+          "missing_grounded_fields": [],
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          }
+        },
+        {
+          "version_or_trim": "GT",
+          "body_type": "Convertible",
+          "fuel_type": "petrol",
+          "engine": "5.0L v8",
+          "engine_displacement_l": 5.0,
+          "horsepower_hp": 421,
+          "transmission": "6-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 2015,
+          "year_end": 2018,
+          "support_level": "direct",
+          "missing_grounded_fields": [],
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          }
+        },
+        {
+          "version_or_trim": "EcoBoost",
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "2.3L turbo",
+          "engine_displacement_l": 2.3,
+          "horsepower_hp": 290,
+          "transmission": "10-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 2018,
+          "year_end": 2023,
+          "support_level": "direct",
+          "missing_grounded_fields": [],
+          "field_sources": {
+            "version_or_trim": [
+              1
+            ],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          }
+        },
+        {
+          "version_or_trim": "EcoBoost",
+          "body_type": "Convertible",
+          "fuel_type": "petrol",
+          "engine": "2.3L turbo",
+          "engine_displacement_l": 2.3,
+          "horsepower_hp": 290,
+          "transmission": "10-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 2018,
+          "year_end": 2023,
+          "support_level": "direct",
+          "missing_grounded_fields": [],
+          "field_sources": {
+            "version_or_trim": [
+              1
+            ],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          }
+        },
+        {
+          "version_or_trim": "GT",
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "5.0L v8",
+          "engine_displacement_l": 5.0,
+          "horsepower_hp": 450,
+          "transmission": "10-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 2018,
+          "year_end": 2023,
+          "support_level": "direct",
+          "missing_grounded_fields": [],
+          "field_sources": {
+            "version_or_trim": [
+              1
+            ],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          }
+        },
+        {
+          "version_or_trim": "GT",
+          "body_type": "Convertible",
+          "fuel_type": "petrol",
+          "engine": "5.0L v8",
+          "engine_displacement_l": 5.0,
+          "horsepower_hp": 450,
+          "transmission": "10-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 2018,
+          "year_end": 2023,
+          "support_level": "direct",
+          "missing_grounded_fields": [],
+          "field_sources": {
+            "version_or_trim": [
+              1
+            ],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          }
+        },
+        {
+          "version_or_trim": "EcoBoost",
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "2.3L turbo",
+          "engine_displacement_l": 2.3,
+          "horsepower_hp": 315,
+          "transmission": "10-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 2024,
+          "year_end": 2026,
+          "support_level": "direct",
+          "missing_grounded_fields": [],
+          "field_sources": {
+            "version_or_trim": [
+              2
+            ],
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              2
+            ],
+            "engine": [
+              2
+            ],
+            "engine_displacement_l": [
+              2
+            ],
+            "horsepower_hp": [
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              2
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          }
+        },
+        {
+          "version_or_trim": "EcoBoost",
+          "body_type": "Convertible",
+          "fuel_type": "petrol",
+          "engine": "2.3L turbo",
+          "engine_displacement_l": 2.3,
+          "horsepower_hp": 315,
+          "transmission": "10-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 2024,
+          "year_end": 2026,
+          "support_level": "direct",
+          "missing_grounded_fields": [],
+          "field_sources": {
+            "version_or_trim": [
+              2
+            ],
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              2
+            ],
+            "engine": [
+              2
+            ],
+            "engine_displacement_l": [
+              2
+            ],
+            "horsepower_hp": [
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              2
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          }
+        },
+        {
+          "version_or_trim": "GT",
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "5.0L v8",
+          "engine_displacement_l": 5.0,
+          "horsepower_hp": 486,
+          "transmission": "10-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 2024,
+          "year_end": 2026,
+          "support_level": "direct",
+          "missing_grounded_fields": [],
+          "field_sources": {
+            "version_or_trim": [
+              2
+            ],
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              2
+            ],
+            "engine": [
+              2
+            ],
+            "engine_displacement_l": [
+              2
+            ],
+            "horsepower_hp": [
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              2
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          }
+        },
+        {
+          "version_or_trim": "GT",
+          "body_type": "Convertible",
+          "fuel_type": "petrol",
+          "engine": "5.0L v8",
+          "engine_displacement_l": 5.0,
+          "horsepower_hp": 486,
+          "transmission": "10-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 2024,
+          "year_end": 2026,
+          "support_level": "direct",
+          "missing_grounded_fields": [],
+          "field_sources": {
+            "version_or_trim": [
+              2
+            ],
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              2
+            ],
+            "engine": [
+              2
+            ],
+            "engine_displacement_l": [
+              2
+            ],
+            "horsepower_hp": [
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              2
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          }
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "EcoBoost",
+          "GT"
+        ],
+        "body_type": [
+          "Coupe",
+          "Convertible"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "2.3L turbo",
+          "5.0L v8"
+        ],
+        "horsepower_hp": [
+          317,
+          421,
+          290,
+          450,
+          315,
+          486
+        ],
+        "transmission": [
+          "6-speed automatic",
+          "10-speed automatic"
+        ],
+        "drivetrain": [
+          "RWD"
+        ]
+      },
+      "canonical_model": "Mustang",
+      "profile_confidence": "medium",
+      "year_start": 2015,
+      "year_end": 2026,
+      "validation_issues": [
+        "variant[0] has no source_indexes",
+        "variant[0] support_level=direct but no source directly supports it",
+        "variant[1] has no source_indexes",
+        "variant[1] support_level=direct but no source directly supports it",
+        "variant[2] has no source_indexes",
+        "variant[2] support_level=direct but no source directly supports it",
+        "variant[3] has no source_indexes",
+        "variant[3] support_level=direct but no source directly supports it",
+        "variant[4] has no source_indexes",
+        "variant[4] support_level=direct but no source directly supports it",
+        "variant[5] has no source_indexes",
+        "variant[5] support_level=direct but no source directly supports it",
+        "variant[6] has no source_indexes",
+        "variant[6] support_level=direct but no source directly supports it",
+        "variant[7] has no source_indexes",
+        "variant[7] support_level=direct but no source directly supports it",
+        "variant[8] has no source_indexes",
+        "variant[8] support_level=direct but no source directly supports it",
+        "variant[9] has no source_indexes",
+        "variant[9] support_level=direct but no source directly supports it",
+        "variant[10] has no source_indexes",
+        "variant[10] support_level=direct but no source directly supports it",
+        "variant[11] has no source_indexes",
+        "variant[11] support_level=direct but no source directly supports it"
       ]
     }
   ]
