@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T12:37:28Z",
+  "generated_at": "2026-06-18T12:37:52Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -133258,6 +133258,241 @@
       "profile_confidence": "medium",
       "year_start": 1997,
       "year_end": 2019
+    },
+    {
+      "make": "Jeep",
+      "model": "Avenger",
+      "market": "IL-confirmed",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "ג'יפ אוונג'ר (Jeep Avenger) - מפרט טכני, מחירים ואבזור - אוטו",
+          "url": "https://www.auto.co.il/model/jeep-avenger_g1589",
+          "source_name": "Auto.co.il",
+          "source_type": "israeli_catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "ג'יפ אוונג'ר 1.2 ל' טורבו (100 כ\"ס), ידני, Altitude - מפרט מלא",
+          "url": "https://www.auto.co.il/version/jeep-avenger_1-2-l-turbo_11202",
+          "source_name": "Auto.co.il",
+          "source_type": "israeli_catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "ג'יפ אוונג'ר בנזין בישראל – מחירון ומפרט טכני",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%A8%D7%A7-%D7%91%D7%92%D7%99%D7%A8%D7%A1%D7%94-%D7%99%D7%93%D7%A0%D7%99%D7%AA-%D7%92%D7%99%D7%A4-%D7%90%D7%95%D7%95%D7%A0%D7%92%D7%A8-%D7%91%D7%A0%D7%96%D7%99%D7%9F-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C",
+          "source_name": "Cartube",
+          "source_type": "israeli_editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "ג'יפ משיקה את האוונג'ר החשמלי בישראל",
+          "url": "https://www.icar.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA_%D7%A8%D7%9B%D7%91/%D7%92'%D7%99%D7%A4_%D7%90%D7%95%D7%95%D7%A0%D7%92'%D7%A8_%D7%94%D7%97%D7%A9%D7%9E%D7%9C%D7%99_%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C/",
+          "source_name": "iCar",
+          "source_type": "israeli_editorial",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "version_or_trim"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "1.2L turbo",
+          "engine_displacement_l": 1.2,
+          "horsepower_hp": 100,
+          "transmission": "6-speed manual",
+          "drivetrain": "FWD",
+          "year_start": 2023,
+          "year_end": 2024,
+          "version_or_trim": "Altitude",
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1,
+              2
+            ],
+            "fuel_type": [
+              0,
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              0,
+              1,
+              2
+            ],
+            "year_end": [
+              0,
+              1
+            ],
+            "version_or_trim": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "SUV",
+          "fuel_type": "mild_hybrid",
+          "engine": "1.2L turbo",
+          "engine_displacement_l": 1.2,
+          "horsepower_hp": 100,
+          "transmission": "6-speed dual_clutch",
+          "drivetrain": "FWD",
+          "year_start": 2024,
+          "year_end": 2024,
+          "version_or_trim": "Altitude",
+          "support_level": "direct",
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ],
+            "version_or_trim": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "1.2 ل' טורבו",
+          "classification": "engine_label"
+        },
+        {
+          "label": "100 כ\"ס",
+          "classification": "horsepower_label"
+        },
+        {
+          "label": "Avenger Electric",
+          "classification": "separate_model"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Altitude"
+        ],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "petrol",
+          "mild_hybrid"
+        ],
+        "engine": [
+          "1.2L turbo"
+        ],
+        "horsepower_hp": [
+          100
+        ],
+        "transmission": [
+          "6-speed manual",
+          "6-speed dual_clutch"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "canonical_model": "Avenger",
+      "profile_confidence": "medium",
+      "year_start": 2023,
+      "year_end": 2024
     }
   ],
   "ready_for_website_upload": false
