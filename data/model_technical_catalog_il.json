@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T08:35:40Z",
+  "generated_at": "2026-06-18T08:36:00Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -105161,6 +105161,135 @@
       "profile_confidence": "medium",
       "year_start": 2013,
       "year_end": null
+    },
+    {
+      "task": "build_israeli_model_technical_catalog",
+      "make": "GAC",
+      "model": "Aion V",
+      "market": "global-reference-only",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "GAC Aion V lands in Israel - Auto.co.il",
+          "url": "https://www.auto.co.il/article/135246-world-news-gac-aion-v",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "GAC Aion brand launch in Israel - Cartube",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/gac-aion-v-%D7%94%D7%97%D7%A9%D7%9E%D7%9C%D7%99%D7%AA-%D7%94%D7%97%D7%93%D7%A9%D7%94-%D7%A9%D7%9C-gac-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C",
+          "source_name": "Cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 204,
+          "transmission": "single_speed",
+          "drivetrain": "FWD",
+          "year_start": 2024,
+          "year_end": 2025,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          204
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "150 kW",
+          "classification": "engine_spec"
+        },
+        {
+          "label": "204 hp",
+          "classification": "horsepower_label"
+        }
+      ],
+      "canonical_model": "Aion V",
+      "profile_confidence": "medium",
+      "year_start": 2024,
+      "year_end": 2025
     }
   ],
   "ready_for_website_upload": false
