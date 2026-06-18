@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T09:08:42Z",
+  "generated_at": "2026-06-18T09:09:05Z",
   "market": "IL",
   "models": [
     {
@@ -4507,6 +4507,242 @@
         "variant[3] required field 'body_type' listed in missing_grounded_fields",
         "variant[4] non-null field 'body_type' has no field_sources entry",
         "variant[4] required field 'body_type' listed in missing_grounded_fields"
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "GMC",
+      "model": "Hummer EV",
+      "canonical_model": "Hummer EV",
+      "year_start": null,
+      "year_end": null,
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Pickup",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 1000,
+          "transmission": null,
+          "drivetrain": "AWD",
+          "year_start": null,
+          "year_end": null,
+          "support_level": "indirect",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "transmission",
+            "year_start"
+          ]
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 625,
+          "transmission": null,
+          "drivetrain": "AWD",
+          "year_start": null,
+          "year_end": null,
+          "support_level": "indirect",
+          "source_indexes": [
+            3
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              3
+            ],
+            "fuel_type": [
+              3
+            ],
+            "engine": [
+              3
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              3
+            ],
+            "transmission": [],
+            "drivetrain": [
+              3
+            ],
+            "year_start": [],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "transmission",
+            "year_start"
+          ]
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 830,
+          "transmission": null,
+          "drivetrain": "AWD",
+          "year_start": null,
+          "year_end": null,
+          "support_level": "indirect",
+          "source_indexes": [
+            3
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              3
+            ],
+            "fuel_type": [
+              3
+            ],
+            "engine": [
+              3
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              3
+            ],
+            "transmission": [],
+            "drivetrain": [
+              3
+            ],
+            "year_start": [],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "transmission",
+            "year_start"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Pickup",
+          "SUV"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          1000,
+          625,
+          830
+        ],
+        "transmission": [],
+        "drivetrain": [
+          "AWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        "2X - classification: trim label seen in hints/raw data but not grounded by an Israeli-market source",
+        "3X / Edition 1 - classification: trim label seen in hints/raw data but not grounded by an Israeli-market source"
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "GMC האמר EV נחשף 1000 סוסים חשמליים - cartube",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/gmc-%D7%94%D7%90%D7%9E%D7%A8-ev-%D7%97%D7%A9%D7%9E%D7%9C%D7%99-%D7%A0%D7%97%D7%A9%D7%A3-2021",
+          "source_name": "cartube",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "ההאמר חוזר: GMC האמר EV נחשף",
+          "url": "https://www.icar.co.il/%D7%A8%D7%9B%D7%91-%D7%97%D7%A9%D7%9E%D7%9C%D7%99/%D7%94%D7%94%D7%90%D7%9E%D7%A8_%D7%97%D7%95%D7%96%D7%A8%3A_GMC_%D7%94%D7%90%D7%9E%D7%A8_EV_%D7%A0%D7%97%D7%A9%D7%A3/",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "מציאה או נפילה? פרארי והאמר חשמלי יד 2 מהמשטרה - Wheel חדשות ומבצעי רכב",
+          "url": "https://wheel.co.il/%D7%9E%D7%A6%D7%99%D7%90%D7%94-%D7%90%D7%95-%D7%A0%D7%A4%D7%99%D7%9C%D7%94-%D7%A4%D7%A8%D7%90%D7%A8%D7%99-%D7%95%D7%94%D7%90%D7%9E%D7%A8-%D7%97%D7%A9%D7%9E%D7%9C%D7%99-%D7%99%D7%93-2-%D7%9E%D7%94/",
+          "source_name": "Wheel",
+          "source_type": "editorial",
+          "supports": [
+            "model_presence_il"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "שטח חשמלי: GMC האמר EV SUV החשמלי 2023 נחשף - cartube",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%A9%D7%98%D7%97-%D7%97%D7%A9%D7%9E%D7%9C%D7%99-gmc-%D7%94%D7%90%D7%9E%D7%A8-ev-suv-%D7%94%D7%97%D7%A9%D7%9E%D7%9C%D7%99-2023-%D7%A0%D7%97%D7%A9%D7%A3",
+          "source_name": "cartube",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "drivetrain"
+          ]
+        }
+      ],
+      "profile_confidence": "low",
+      "notes": [
+        "No Israeli official importer source for GMC Hummer EV in Israel was found in the retrieved results.",
+        "Israeli-market grounding found for the model's presence in Israel is weak/secondary; a Wheel article mentions confiscated Hummer EV vehicles in Israel, but this is not the same as official sale.",
+        "Technical rows are limited to configurations supported by Israeli Hebrew sources describing Hummer EV pickup and SUV configurations; transmission and Israel sale years could not be grounded from Israeli-market sources.",
+        "Drivetrain AWD is normalized from source wording describing dual-motor/three-motor four-wheel-drive/e4WD context; therefore support_level is indirect."
+      ],
+      "validation_issues": [
+        "variant[0] required website field 'transmission' is null/empty",
+        "variant[0] required field 'transmission' listed in missing_grounded_fields",
+        "variant[1] required website field 'transmission' is null/empty",
+        "variant[1] required field 'transmission' listed in missing_grounded_fields",
+        "variant[2] required website field 'transmission' is null/empty",
+        "variant[2] required field 'transmission' listed in missing_grounded_fields"
       ]
     }
   ]
