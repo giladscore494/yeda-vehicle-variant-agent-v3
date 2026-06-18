@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T18:19:54Z",
+  "generated_at": "2026-06-18T18:20:14Z",
   "market": "IL",
   "models": [
     {
@@ -608,6 +608,206 @@
         "variant[1] required field 'transmission' listed in missing_grounded_fields",
         "variant[2] required website field 'transmission' is null/empty",
         "variant[2] required field 'transmission' listed in missing_grounded_fields"
+      ]
+    },
+    {
+      "market": "IL-confirmed",
+      "make": "Kia",
+      "model": "Mohave",
+      "canonical_model": "Mohave",
+      "year_start": 2009,
+      "year_end": 2011,
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "diesel",
+          "engine": "3.0L turbo v6",
+          "engine_displacement_l": 3.0,
+          "horsepower_hp": 250.0,
+          "transmission": "automatic",
+          "drivetrain": "4WD",
+          "year_start": 2009,
+          "year_end": 2011,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              2
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "3.8L v6",
+          "engine_displacement_l": 3.8,
+          "horsepower_hp": null,
+          "transmission": null,
+          "drivetrain": "4WD",
+          "year_start": 2009,
+          "year_end": 2011,
+          "support_level": "indirect",
+          "source_indexes": [
+            0,
+            3
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              3
+            ],
+            "engine": [
+              3
+            ],
+            "engine_displacement_l": [
+              3
+            ],
+            "horsepower_hp": [],
+            "transmission": [],
+            "drivetrain": [
+              3
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": [
+            "horsepower_hp",
+            "transmission"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "diesel",
+          "petrol"
+        ],
+        "engine": [
+          "3.0L turbo v6",
+          "3.8L v6"
+        ],
+        "horsepower_hp": [
+          250.0
+        ],
+        "transmission": [
+          "automatic"
+        ],
+        "drivetrain": [
+          "4WD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "קיה מוהאבי בישראל 2014 - אוטובום",
+          "url": "https://autoboom.co.il/en/catalog/cars/kia/mohave/2014",
+          "source_name": "Autoboom Israel",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "Kia Mohave 2019 - diesel, gasoline - AUTOBOOM",
+          "url": "https://autoboom.co.il/en/catalog/cars/kia/mohave/2019",
+          "source_name": "Autoboom Israel",
+          "source_type": "catalog",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "Kia Mohave in Israel in Israel – Review, Prices, Comparisons and Rating on Autoboom",
+          "url": "https://autoboom.co.il/en/catalog/cars/kia/mohave/2014",
+          "source_name": "Autoboom Israel",
+          "source_type": "catalog",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "Kia Borrego",
+          "url": "https://pt.wikipedia.org/wiki/Kia_Borrego",
+          "source_name": "Wikipedia (Portuguese)",
+          "source_type": "reference",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "drivetrain"
+          ]
+        }
+      ],
+      "profile_confidence": "low",
+      "notes": [
+        "Israeli official importer sources for Mohave were not found in accessible search results.",
+        "Israeli-market grounding found mainly via Autoboom Israel; diesel configuration is better grounded than petrol.",
+        "Petrol Mohave sale in Israel remains weakly grounded; horsepower and transmission could not be confirmed from Israeli-market sources.",
+        "Year range 2009-2011 is grounded only at model level from Israeli-market catalog presence, not per-configuration launch/discontinuation evidence."
+      ],
+      "validation_issues": [
+        "variant[1] required website field 'horsepower_hp' is null/empty",
+        "variant[1] required website field 'transmission' is null/empty",
+        "variant[1] required field 'horsepower_hp' listed in missing_grounded_fields",
+        "variant[1] required field 'transmission' listed in missing_grounded_fields"
       ]
     }
   ]
