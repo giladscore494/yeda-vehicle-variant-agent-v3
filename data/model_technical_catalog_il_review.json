@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T07:55:57Z",
+  "generated_at": "2026-06-18T08:03:22Z",
   "market": "IL",
   "models": [
     {
@@ -908,6 +908,194 @@
           ],
           "possible_duplicate_rows": 0,
           "validation_id_count": 4
+        },
+        "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
+      },
+      "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Fiat",
+      "model": "Scudo",
+      "canonical_model": "Scudo",
+      "year_start": null,
+      "year_end": null,
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [],
+      "profile_confidence": null,
+      "notes": [],
+      "error": "Gemini catalog client returned non-object JSON",
+      "request_payload": {
+        "task": "build_israeli_model_technical_catalog",
+        "market": "IL",
+        "make": "Fiat",
+        "model": "Scudo",
+        "raw_database_values": {
+          "years_seen": [
+            2007,
+            2016,
+            2022,
+            2026
+          ],
+          "trims_seen": [
+            "Large",
+            "Standard"
+          ],
+          "engines_seen": [
+            "2.0L Turbo Diesel 120 hp",
+            "2.0L Turbo Diesel 136 hp",
+            "2.0L Turbo Diesel 177 hp"
+          ],
+          "horsepower_seen": [],
+          "transmissions_seen": [
+            "automatic",
+            "manual"
+          ],
+          "body_types_seen": [
+            "Minivan",
+            "Panel Van"
+          ],
+          "fuel_types_seen": [
+            "diesel"
+          ],
+          "drivetrains_seen": [
+            "FWD"
+          ]
+        },
+        "sample_validation_ids": [
+          "VAL-001152",
+          "VAL-001153",
+          "VAL-001154"
+        ],
+        "source_indexes": [
+          100,
+          438,
+          439
+        ],
+        "metadata_hints": {
+          "priorities_seen": [
+            "medium"
+          ],
+          "validation_routes_seen": [
+            "cheap_model_structured_validation"
+          ],
+          "possible_duplicate_rows": 0,
+          "validation_id_count": 3
+        },
+        "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
+      },
+      "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Fiat",
+      "model": "Stilo",
+      "canonical_model": "Stilo",
+      "year_start": null,
+      "year_end": null,
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [],
+      "profile_confidence": null,
+      "notes": [],
+      "error": "Expecting ',' delimiter: line 245 column 11 (char 4967)",
+      "request_payload": {
+        "task": "build_israeli_model_technical_catalog",
+        "market": "IL",
+        "make": "Fiat",
+        "model": "Stilo",
+        "raw_database_values": {
+          "years_seen": [
+            2001,
+            2003,
+            2004,
+            2007
+          ],
+          "trims_seen": [
+            "Abarth",
+            "MultiWagon"
+          ],
+          "engines_seen": [
+            "1.2 16V (80 Hp)",
+            "1.4 16V (95 Hp)",
+            "1.6 16V (103 Hp)",
+            "1.8 16V (133 Hp)",
+            "1.9 JTD (115 Hp)",
+            "1.9 Multijet (140 Hp)",
+            "2.4 20V (170 Hp)"
+          ],
+          "horsepower_seen": [],
+          "transmissions_seen": [
+            "manual"
+          ],
+          "body_types_seen": [
+            "Estate",
+            "Hatchback"
+          ],
+          "fuel_types_seen": [
+            "diesel",
+            "petrol"
+          ],
+          "drivetrains_seen": [
+            "FWD"
+          ]
+        },
+        "sample_validation_ids": [
+          "VAL-001155",
+          "VAL-001156",
+          "VAL-001157",
+          "VAL-001158",
+          "VAL-001159",
+          "VAL-001160",
+          "VAL-001161",
+          "VAL-001162"
+        ],
+        "source_indexes": [
+          92,
+          93,
+          94,
+          95,
+          96,
+          97,
+          98,
+          99
+        ],
+        "metadata_hints": {
+          "priorities_seen": [
+            "high",
+            "medium"
+          ],
+          "validation_routes_seen": [
+            "cheap_model_structured_validation",
+            "strong_model_or_manual_review"
+          ],
+          "possible_duplicate_rows": 0,
+          "validation_id_count": 8
         },
         "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
       },
