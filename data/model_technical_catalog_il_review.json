@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T18:22:29Z",
+  "generated_at": "2026-06-18T18:22:50Z",
   "market": "IL",
   "models": [
     {
@@ -1641,6 +1641,92 @@
         "variant[2] required website field 'drivetrain' is null/empty",
         "variant[2] required field 'transmission' listed in missing_grounded_fields",
         "variant[2] required field 'drivetrain' listed in missing_grounded_fields"
+      ]
+    },
+    {
+      "market": "IL-confirmed",
+      "make": "Kia",
+      "model": "Picanto",
+      "canonical_model": "Picanto",
+      "year_start": 2011,
+      "year_end": 2016,
+      "technical_variants_il": [
+        {
+          "version_or_trim": "EX",
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "1.25L",
+          "engine_displacement_l": 1.25,
+          "horsepower_hp": 85,
+          "transmission": "automatic",
+          "drivetrain": null,
+          "year_start": 2011,
+          "year_end": 2016,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1
+            ],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "profile_confidence": "medium",
+      "available_values_for_website": {
+        "version_or_trim": [
+          "EX"
+        ],
+        "body_type": [
+          "Hatchback"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "1.25L"
+        ],
+        "horsepower_hp": [
+          85
+        ],
+        "transmission": [
+          "automatic"
+        ],
+        "drivetrain": []
+      },
+      "validation_issues": [
+        "variant[0] field_sources/source_indexes reference 12 unknown source(s)",
+        "variant[0] required website field 'drivetrain' is null/empty",
+        "variant[1] is not an object"
       ]
     }
   ]
