@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T08:17:14Z",
+  "generated_at": "2026-06-18T08:18:11Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -100911,6 +100911,272 @@
       "profile_confidence": "medium",
       "year_start": 2005,
       "year_end": 2025
+    },
+    {
+      "make": "Ford",
+      "model": "Galaxy",
+      "market": "IL",
+      "sources": [
+        {
+          "source_index": 73,
+          "title": "פורד גלקסי (2006-2015) - מחירון רכב, מפרט טכני וחוות דעת",
+          "url": "https://www.icar.co.il/%D7%A4%D7%95%D7%A8%D7%93/%D7%A4%D7%95%D7%A8%D7%93_%D7%92%D7%9C%D7%A7%D7%A1%D7%99/%D7%A4%D7%95%D7%A8%D7%93_%D7%92%D7%9C%D7%A7%D7%A1%D7%99_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%94_%D7%93%D7%95%D7%A8_1/",
+          "source_name": "iCar Israel",
+          "source_type": "editorial",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 74,
+          "title": "פורד גלקסי החדש 2011 בישראל – החל מ-197,000 שקל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%A4%D7%95%D7%A8%D7%93-%D7%92%D7%9C%D7%A7%D7%A1%D7%99-%D7%94%D7%97%D7%93%D7%A9-2011-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%94%D7%97%D7%9C-%D7%9E-197000-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube Israel",
+          "source_type": "editorial",
+          "supports": [
+            "version_or_trim",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 468,
+          "title": "פורד גלקסי - חוות דעת, מחירון, מפרט טכני",
+          "url": "https://gear.co.il/%D7%93%D7%92%D7%9E%D7%99_%D7%A8%D7%9B%D7%91/%D7%A4%D7%95%D7%A8%D7%93-%D7%92%D7%9C%D7%A7%D7%A1%D7%99",
+          "source_name": "Gear Israel",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "drivetrain",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Trend / Ghia / Titanium",
+          "body_type": "MPV",
+          "fuel_type": "petrol",
+          "engine": "2.3L",
+          "engine_displacement_l": 2.3,
+          "horsepower_hp": 161,
+          "transmission": "6-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2007,
+          "year_end": 2010,
+          "support_level": "direct",
+          "source_indexes": [
+            73,
+            468
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              73
+            ],
+            "body_type": [
+              73,
+              468
+            ],
+            "fuel_type": [
+              73,
+              468
+            ],
+            "engine": [
+              73,
+              468
+            ],
+            "engine_displacement_l": [
+              73
+            ],
+            "horsepower_hp": [
+              73
+            ],
+            "transmission": [
+              73
+            ],
+            "drivetrain": [
+              73,
+              468
+            ],
+            "year_start": [
+              73
+            ],
+            "year_end": [
+              73
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Trend / Titanium",
+          "body_type": "MPV",
+          "fuel_type": "petrol",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 203,
+          "transmission": "6-speed dual_clutch",
+          "drivetrain": "FWD",
+          "year_start": 2011,
+          "year_end": 2015,
+          "support_level": "direct",
+          "source_indexes": [
+            73,
+            74,
+            468
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              73,
+              74
+            ],
+            "body_type": [
+              73,
+              468
+            ],
+            "fuel_type": [
+              73,
+              74,
+              468
+            ],
+            "engine": [
+              73,
+              74,
+              468
+            ],
+            "engine_displacement_l": [
+              73,
+              74
+            ],
+            "horsepower_hp": [
+              73,
+              74
+            ],
+            "transmission": [
+              73,
+              74
+            ],
+            "drivetrain": [
+              73,
+              468
+            ],
+            "year_start": [
+              74
+            ],
+            "year_end": [
+              73,
+              468
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Trend",
+          "body_type": "MPV",
+          "fuel_type": "diesel",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 140,
+          "transmission": "6-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2007,
+          "year_end": 2010,
+          "support_level": "direct",
+          "source_indexes": [
+            73
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              73
+            ],
+            "body_type": [
+              73
+            ],
+            "fuel_type": [
+              73
+            ],
+            "engine": [
+              73
+            ],
+            "engine_displacement_l": [
+              73
+            ],
+            "horsepower_hp": [
+              73
+            ],
+            "transmission": [
+              73
+            ],
+            "drivetrain": [
+              73
+            ],
+            "year_start": [
+              73
+            ],
+            "year_end": [
+              73
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Trend / Ghia / Titanium",
+          "Trend / Titanium",
+          "Trend"
+        ],
+        "body_type": [
+          "MPV"
+        ],
+        "fuel_type": [
+          "petrol",
+          "diesel"
+        ],
+        "engine": [
+          "2.3L",
+          "2.0L turbo"
+        ],
+        "horsepower_hp": [
+          161,
+          203,
+          140
+        ],
+        "transmission": [
+          "6-speed automatic",
+          "6-speed dual_clutch"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": {
+        "Minivan": "body_type",
+        "161hp": "horsepower_hp",
+        "140hp": "horsepower_hp",
+        "203hp": "horsepower_hp",
+        "2.0L Turbo": "engine",
+        "2.3L": "engine",
+        "automatic": "transmission"
+      },
+      "canonical_model": "Galaxy",
+      "profile_confidence": "medium",
+      "year_start": 2007,
+      "year_end": 2015
     }
   ],
   "ready_for_website_upload": false
