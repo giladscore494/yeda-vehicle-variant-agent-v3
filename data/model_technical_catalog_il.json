@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T12:00:46Z",
+  "generated_at": "2026-06-18T12:01:15Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -123453,6 +123453,118 @@
       "profile_confidence": "medium",
       "year_start": 2008,
       "year_end": 2010
+    },
+    {
+      "make": "Hyundai",
+      "model": "Nexo",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "יונדאי נקסו המימני נחת בישראל - Cartube",
+          "url": "https://www.cartube.co.il/חדשות-רכב/יונדאי-נקסו-בישראל",
+          "source_name": "Cartube Israel",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "רכב המימן הראשון בישראל יוצא לדרך: יונדאי נקסו - אוטו",
+          "url": "https://www.auto.co.il/article/135113-world-news-hyundai-nexo",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "horsepower_hp",
+            "drivetrain"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "SUV",
+          "fuel_type": "hydrogen",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 163,
+          "transmission": "single_speed",
+          "drivetrain": "FWD",
+          "year_start": 2019,
+          "year_end": null,
+          "version_or_trim": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [],
+            "version_or_trim": []
+          },
+          "missing_grounded_fields": [],
+          "invalid_or_non_trim_labels": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "hydrogen"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          163
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "market": "IL-confirmed",
+      "canonical_model": "Nexo",
+      "profile_confidence": "medium",
+      "year_start": 2019,
+      "year_end": null
     }
   ],
   "ready_for_website_upload": false
