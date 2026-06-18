@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T12:07:07Z",
+  "generated_at": "2026-06-18T12:08:20Z",
   "market": "IL",
   "models": [
     {
@@ -1411,6 +1411,104 @@
           ],
           "possible_duplicate_rows": 0,
           "validation_id_count": 4
+        },
+        "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
+      },
+      "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Hyundai",
+      "model": "Tucson",
+      "canonical_model": "Tucson",
+      "year_start": null,
+      "year_end": null,
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [],
+      "profile_confidence": null,
+      "notes": [],
+      "error": "Gemini catalog client returned non-object JSON",
+      "request_payload": {
+        "task": "build_israeli_model_technical_catalog",
+        "market": "IL",
+        "make": "Hyundai",
+        "model": "Tucson",
+        "raw_database_values": {
+          "years_seen": [
+            2004,
+            2009,
+            2015,
+            2020,
+            2021,
+            2026
+          ],
+          "trims_seen": [
+            "Arizona",
+            "Luxury",
+            "Open Sky",
+            "Texas",
+            "Ultimate"
+          ],
+          "engines_seen": [
+            "1.6L Turbo",
+            "1.6L Turbo Hybrid",
+            "2.0L",
+            "2.0L CRDi",
+            "2.7L V6"
+          ],
+          "horsepower_seen": [],
+          "transmissions_seen": [
+            "automatic"
+          ],
+          "body_types_seen": [
+            "SUV"
+          ],
+          "fuel_types_seen": [
+            "diesel",
+            "hybrid",
+            "petrol"
+          ],
+          "drivetrains_seen": [
+            "2WD",
+            "4WD"
+          ]
+        },
+        "sample_validation_ids": [
+          "VAL-001495",
+          "VAL-001496",
+          "VAL-001497",
+          "VAL-001498",
+          "VAL-001499"
+        ],
+        "source_indexes": [
+          26,
+          27,
+          28,
+          29,
+          30
+        ],
+        "metadata_hints": {
+          "priorities_seen": [
+            "medium"
+          ],
+          "validation_routes_seen": [
+            "cheap_model_structured_validation"
+          ],
+          "possible_duplicate_rows": 0,
+          "validation_id_count": 5
         },
         "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
       },
