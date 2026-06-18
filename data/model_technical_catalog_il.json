@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T13:36:13Z",
+  "generated_at": "2026-06-18T17:27:21Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -133740,6 +133740,165 @@
       "canonical_model": "Avenger",
       "profile_confidence": "medium",
       "year_start": 2023,
+      "year_end": null
+    },
+    {
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Altitude",
+          "body_type": "SUV",
+          "fuel_type": "mild_hybrid",
+          "engine": "1.2L turbo",
+          "engine_displacement_l": 1.2,
+          "horsepower_hp": 100,
+          "transmission": "6-speed dual_clutch",
+          "drivetrain": "FWD",
+          "year_start": 2024,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0,
+              1,
+              2
+            ],
+            "fuel_type": [
+              0,
+              1,
+              2
+            ],
+            "engine": [
+              0,
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              0,
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              0,
+              1,
+              2
+            ],
+            "transmission": [
+              0,
+              1,
+              2
+            ],
+            "drivetrain": [
+              0,
+              1,
+              2
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "1.2L Turbo e-Hybrid, 100 hp",
+          "classification": "engine_and_power_spec"
+        },
+        {
+          "label": "Mild Hybrid",
+          "classification": "fuel_type"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Altitude"
+        ],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "mild_hybrid"
+        ],
+        "engine": [
+          "1.2L turbo"
+        ],
+        "horsepower_hp": [
+          100
+        ],
+        "transmission": [
+          "6-speed dual_clutch"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "ג'יפ אוונג'ר הייבריד בישראל - מחיר החל מ- 139,900 שקל - cartube",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%92-%D7%99%D7%A4-%D7%90%D7%95%D7%95%D7%A0%D7%92-%D7%A8-%D7%94%D7%99%D7%99%D7%91%D7%A8%D7%99%D7%93-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-139900-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "ג'יפ אוונג'ר - מחירון, מפרטים, תמונות ועוד - iCars",
+          "url": "https://www.icars.co.il/jeep/jeep-avenger/",
+          "source_name": "iCars",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "Jeep Avenger | ג'יפ אוונג'ר החדש",
+          "url": "https://jeep.co.il/models/avenger/",
+          "source_name": "Jeep Israel",
+          "source_type": "official_importer",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        }
+      ],
+      "market": "IL-likely",
+      "make": "Jeep",
+      "model": "Avenger",
+      "canonical_model": "Avenger",
+      "profile_confidence": "medium",
+      "year_start": 2024,
       "year_end": null
     }
   ],
