@@ -1,5 +1,139 @@
 {
-  "generated_at": "2026-06-18T09:13:37Z",
+  "generated_at": "2026-06-18T10:53:51Z",
   "market": "IL",
-  "models": []
+  "models": [
+    {
+      "market": "IL",
+      "make": "Honda",
+      "model": "e:Ny1",
+      "canonical_model": "e:Ny1",
+      "year_start": 2024,
+      "year_end": 2024,
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Advance",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 204,
+          "transmission": "single_speed",
+          "drivetrain": "FWD",
+          "year_start": 2024,
+          "year_end": 2024,
+          "support_level": "indirect",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": [
+            "version_or_trim",
+            "transmission"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Advance"
+        ],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          204
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "יבוא מקביל: הונדה e:Ny1 החשמלית נחתה בישראל",
+          "url": "https://wheel.co.il/%D7%99%D7%91%D7%95%D7%90-%D7%9E%D7%A7%D7%91%D7%99%D7%9C-%D7%94%D7%95%D7%A0%D7%93%D7%94-eny1-%D7%94%D7%97%D7%A9%D7%9E%D7%9C%D7%99%D7%AA-%D7%A0%D7%97%D7%AA%D7%94-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C/",
+          "source_name": "Wheel",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "הונדה e:Ny1 - פנאי חשמלי ראשון לאירופה",
+          "url": "https://www.auto.co.il/articles/car-news/world-news/136188/",
+          "source_name": "Auto",
+          "source_type": "editorial",
+          "supports": [
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "עמוד הבית - הונדה רכבים",
+          "url": "https://hondacars.co.il/",
+          "source_name": "Honda Cars Israel",
+          "source_type": "official_importer",
+          "supports": [
+            "market_presence_context"
+          ]
+        }
+      ],
+      "profile_confidence": "medium",
+      "notes": [
+        "No official Israeli importer e:Ny1 model/spec page was found; Honda Cars Israel current site shows no e:Ny1 listing.",
+        "Israeli-market evidence found is parallel-import/editorial only, indicating market presence in Israel during 2024.",
+        "Trim label 'Advance' appears only in raw_database_values and was not grounded from Israeli-market sources, so version_or_trim is null in the technical row.",
+        "Transmission was not explicitly stated in the Israeli-market sources found; set to null.",
+        "Engine displacement is not applicable/grounded for this electric model and is set to null.",
+        "Year range is grounded only to 2024 based on dated Israeli-market arrival coverage; no grounded evidence found for continued Israeli sales in 2025-2026."
+      ],
+      "validation_issues": [
+        "variant[0] non-null field 'version_or_trim' has no field_sources entry",
+        "variant[0] non-null field 'transmission' has no field_sources entry",
+        "variant[0] required field 'transmission' listed in missing_grounded_fields"
+      ]
+    }
+  ]
 }
