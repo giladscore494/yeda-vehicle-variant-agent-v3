@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T09:11:51Z",
+  "generated_at": "2026-06-18T09:12:25Z",
   "market": "IL",
   "models": [
     {
@@ -5914,6 +5914,525 @@
         "variant[5] required field 'horsepower_hp' listed in missing_grounded_fields",
         "variant[5] required field 'transmission' listed in missing_grounded_fields",
         "variant[5] required field 'drivetrain' listed in missing_grounded_fields"
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Honda",
+      "model": "Civic",
+      "canonical_model": "Civic",
+      "year_start": 2012,
+      "year_end": null,
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "1.8L",
+          "engine_displacement_l": 1.8,
+          "horsepower_hp": 142,
+          "transmission": "5-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2012,
+          "year_end": 2016,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "1.0L turbo",
+          "engine_displacement_l": 1,
+          "horsepower_hp": 129,
+          "transmission": "manual",
+          "drivetrain": null,
+          "year_start": 2017,
+          "year_end": 2021,
+          "support_level": "indirect",
+          "source_indexes": [
+            2,
+            3
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              2
+            ],
+            "engine": [
+              2
+            ],
+            "engine_displacement_l": [
+              2
+            ],
+            "horsepower_hp": [
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": [
+            "drivetrain"
+          ]
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "1.0L turbo",
+          "engine_displacement_l": 1,
+          "horsepower_hp": 129,
+          "transmission": "cvt",
+          "drivetrain": null,
+          "year_start": 2017,
+          "year_end": 2021,
+          "support_level": "indirect",
+          "source_indexes": [
+            2,
+            3
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              2
+            ],
+            "engine": [
+              2
+            ],
+            "engine_displacement_l": [
+              2
+            ],
+            "horsepower_hp": [
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": [
+            "drivetrain"
+          ]
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "1.5L turbo",
+          "engine_displacement_l": 1.5,
+          "horsepower_hp": 182,
+          "transmission": "manual",
+          "drivetrain": null,
+          "year_start": 2017,
+          "year_end": 2021,
+          "support_level": "indirect",
+          "source_indexes": [
+            2,
+            3
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              2
+            ],
+            "engine": [
+              2
+            ],
+            "engine_displacement_l": [
+              2
+            ],
+            "horsepower_hp": [
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": [
+            "drivetrain"
+          ]
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "1.5L turbo",
+          "engine_displacement_l": 1.5,
+          "horsepower_hp": 182,
+          "transmission": "cvt",
+          "drivetrain": null,
+          "year_start": 2017,
+          "year_end": 2021,
+          "support_level": "indirect",
+          "source_indexes": [
+            2,
+            3
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              2
+            ],
+            "engine": [
+              2
+            ],
+            "engine_displacement_l": [
+              2
+            ],
+            "horsepower_hp": [
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": [
+            "drivetrain"
+          ]
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Hatchback",
+          "fuel_type": "hybrid",
+          "engine": "2.0L",
+          "engine_displacement_l": 2,
+          "horsepower_hp": 183,
+          "transmission": null,
+          "drivetrain": "FWD",
+          "year_start": 2023,
+          "year_end": 2025,
+          "support_level": "indirect",
+          "source_indexes": [
+            4,
+            5
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              4
+            ],
+            "fuel_type": [
+              4
+            ],
+            "engine": [
+              4
+            ],
+            "engine_displacement_l": [
+              4
+            ],
+            "horsepower_hp": [
+              4,
+              5
+            ],
+            "transmission": [],
+            "drivetrain": [
+              5
+            ],
+            "year_start": [
+              4
+            ],
+            "year_end": [
+              4
+            ]
+          },
+          "missing_grounded_fields": [
+            "transmission"
+          ]
+        },
+        {
+          "version_or_trim": "Type R",
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2,
+          "horsepower_hp": 319,
+          "transmission": "6-speed manual",
+          "drivetrain": "FWD",
+          "year_start": 2023,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            6
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              6
+            ],
+            "body_type": [
+              6
+            ],
+            "fuel_type": [
+              6
+            ],
+            "engine": [
+              6
+            ],
+            "engine_displacement_l": [
+              6
+            ],
+            "horsepower_hp": [
+              6
+            ],
+            "transmission": [
+              6
+            ],
+            "drivetrain": [
+              6
+            ],
+            "year_start": [
+              6
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Type R"
+        ],
+        "body_type": [
+          "Sedan",
+          "Hatchback"
+        ],
+        "fuel_type": [
+          "petrol",
+          "hybrid"
+        ],
+        "engine": [
+          "1.8L",
+          "1.0L turbo",
+          "1.5L turbo",
+          "2.0L",
+          "2.0L turbo"
+        ],
+        "horsepower_hp": [
+          142,
+          129,
+          182,
+          183,
+          319
+        ],
+        "transmission": [
+          "5-speed automatic",
+          "manual",
+          "cvt",
+          "6-speed manual"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        "Comfort - classification: trim level only, not a distinct technical variant",
+        "Elegance - classification: unsupported for Civic in gathered Israeli-market sources",
+        "LS - classification: unsupported/non-trim for Civic in gathered Israeli-market sources",
+        "Sport - classification: trim level only; technical rows merged where specs identical",
+        "Sport Plus - classification: trim level only; technical rows merged where specs identical",
+        "1.8 - classification: engine-size label, not a trim",
+        "145hp/165hp/180hp - classification: horsepower labels are not trims",
+        "500C-style body/model designation rule noted; not applicable here"
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "מידע מקיף ומקצועי על הונדה סיוויק סדאן 2012-2016 - אתר iCar",
+          "url": "https://www.icar.co.il/%D7%94%D7%95%D7%A0%D7%93%D7%94/%D7%94%D7%95%D7%A0%D7%93%D7%94_%D7%A1%D7%99%D7%95%D7%95%D7%99%D7%A7_%D7%A1%D7%93%D7%90%D7%9F/%D7%94%D7%95%D7%A0%D7%93%D7%94_%D7%A1%D7%99%D7%95%D7%95%D7%99%D7%A7_%D7%A1%D7%93%D7%90%D7%9F_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%94_%D7%9312/",
+          "source_name": "iCar",
+          "source_type": "catalog/editorial",
+          "supports": [
+            "body_type",
+            "engine",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "הונדה סיוויק סדאן 2016 1.8 Comfort - יד שניה",
+          "url": "https://www.icar.co.il/%D7%94%D7%95%D7%A0%D7%93%D7%94/%D7%94%D7%95%D7%A0%D7%93%D7%94_%D7%A1%D7%99%D7%95%D7%95%D7%99%D7%A7_%D7%A1%D7%93%D7%90%D7%9F/%D7%94%D7%95%D7%A0%D7%93%D7%94_%D7%A1%D7%99%D7%95%D7%95%D7%99%D7%A7_%D7%A1%D7%93%D7%90%D7%9F_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%94_%D7%9312/version15553/",
+          "source_name": "iCar",
+          "source_type": "catalog/spec",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "מידע מקיף ומקצועי על הונדה סיוויק הצ'בק 2017-2021 - אתר iCar",
+          "url": "https://www.icar.co.il/%D7%94%D7%95%D7%A0%D7%93%D7%94/%D7%94%D7%95%D7%A0%D7%93%D7%94_%D7%A1%D7%99%D7%95%D7%95%D7%99%D7%A7_%D7%94%D7%A6%27%D7%91%D7%A7/%D7%94%D7%95%D7%A0%D7%93%D7%94_%D7%A1%D7%99%D7%95%D7%95%D7%99%D7%A7_%D7%94%D7%A6%27%D7%91%D7%A7_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%94_%D7%9312/",
+          "source_name": "iCar",
+          "source_type": "catalog/editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "הונדה סיוויק הצ'בק - כל המידע והדגמים",
+          "url": "https://www.icar.co.il/%D7%94%D7%95%D7%A0%D7%93%D7%94/%D7%94%D7%95%D7%A0%D7%93%D7%94_%D7%A1%D7%99%D7%95%D7%95%D7%99%D7%A7_%D7%94%D7%A6%27%D7%91%D7%A7/",
+          "source_name": "iCar",
+          "source_type": "catalog/index",
+          "supports": [
+            "body_type",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 4,
+          "title": "הונדה סיוויק הצ'בק - iCar",
+          "url": "https://www.icar.co.il/%D7%94%D7%95%D7%A0%D7%93%D7%94/%D7%94%D7%95%D7%A0%D7%93%D7%94_%D7%A1%D7%99%D7%95%D7%95%D7%99%D7%A7_%D7%94%D7%A6%27%D7%91%D7%A7/%D7%94%D7%95%D7%A0%D7%93%D7%94_%D7%A1%D7%99%D7%95%D7%95%D7%99%D7%A7_%D7%94%D7%A6%27%D7%91%D7%A7_%D7%97%D7%93%D7%A9/",
+          "source_name": "iCar",
+          "source_type": "catalog/editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 5,
+          "title": "מידע מקיף ומקצועי על הונדה סיוויק הצ'בק 2023-2025 - אתר iCar",
+          "url": "https://www.icar.co.il/%D7%94%D7%95%D7%A0%D7%93%D7%94/%D7%94%D7%95%D7%A0%D7%93%D7%94_%D7%A1%D7%99%D7%95%D7%95%D7%99%D7%A7_%D7%94%D7%A6%27%D7%91%D7%A7/%D7%94%D7%95%D7%A0%D7%93%D7%94_%D7%A1%D7%99%D7%95%D7%95%D7%99%D7%A7_%D7%94%D7%A6%27%D7%91%D7%A7_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%94_%D7%9313/",
+          "source_name": "iCar",
+          "source_type": "catalog/editorial",
+          "supports": [
+            "horsepower_hp",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 6,
+          "title": "הונדה סיויק Type-R | מפרט טכני ואבזור",
+          "url": "https://honda.co.il/wp-content/uploads/2019/08/honda-TypeR-catalog.pdf",
+          "source_name": "Honda Israel",
+          "source_type": "official_importer_pdf",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        }
+      ],
+      "profile_confidence": "medium",
+      "notes": [
+        "Included only technical configurations grounded by Israeli-market sources found during web search.",
+        "Did not include 2006-2011 hatchback or 2012-2016 hatchback because sufficient grounded technical fields for distinct configurations were not established from the gathered sources.",
+        "Did not include 2007-2009 Type R under Civic main profile because it appears as a separate Civic TYPE-R model page and Type R is treated as a distinct performance variant row only where directly supported by official Israeli importer specification for the newer model.",
+        "For 2017-2021 hatchback, drivetrain was not directly grounded in gathered sources, so it is null.",
+        "For 2023-2025 hybrid hatchback, transmission was not directly grounded in gathered sources, so it is null.",
+        "Type R year_end was not grounded from gathered sources, so it is null."
+      ],
+      "validation_issues": [
+        "variant[1] required website field 'drivetrain' is null/empty",
+        "variant[1] required field 'drivetrain' listed in missing_grounded_fields",
+        "variant[2] required website field 'drivetrain' is null/empty",
+        "variant[2] required field 'drivetrain' listed in missing_grounded_fields",
+        "variant[3] required website field 'drivetrain' is null/empty",
+        "variant[3] required field 'drivetrain' listed in missing_grounded_fields",
+        "variant[4] required website field 'drivetrain' is null/empty",
+        "variant[4] required field 'drivetrain' listed in missing_grounded_fields",
+        "variant[5] required website field 'transmission' is null/empty",
+        "variant[5] required field 'transmission' listed in missing_grounded_fields"
       ]
     }
   ]
