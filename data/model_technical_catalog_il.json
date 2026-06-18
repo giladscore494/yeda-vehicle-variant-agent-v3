@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T07:32:30Z",
+  "generated_at": "2026-06-18T07:33:12Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -91762,6 +91762,183 @@
       "profile_confidence": "medium",
       "year_start": 2018,
       "year_end": 2024
+    },
+    {
+      "make": "Ferrari",
+      "model": "California",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "פרארי קליפורניה T 2014-2017 - מפרט טכני, חוות דעת, מחירון | אוטו",
+          "url": "https://www.auto.co.il/model/ferrari-california_g302",
+          "source_name": "Auto.co.il",
+          "source_type": "specs_catalog",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "פרארי קליפורניה - חוות דעת, מבחן דרכים, מפרטים - iCar",
+          "url": "https://www.icar.co.il/%D7%A4%D7%A8%D7%90%D7%A8%D7%99/%D7%A4%D7%A8%D7%90%D7%A8%D7%99_%D7%A7%D7%9C%D7%99%D7%A4%D7%95%D7%A8%D7%A0%D7%99%D7%94/",
+          "source_name": "iCar",
+          "source_type": "specs_catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Convertible",
+          "fuel_type": "petrol",
+          "engine": "4.3L v8",
+          "engine_displacement_l": 4.3,
+          "horsepower_hp": 490,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "RWD",
+          "year_start": 2012,
+          "year_end": 2014,
+          "support_level": "direct",
+          "source_indexes": [
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "T",
+          "body_type": "Convertible",
+          "fuel_type": "petrol",
+          "engine": "3.9L v8 twin-turbo",
+          "engine_displacement_l": 3.9,
+          "horsepower_hp": 560,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "RWD",
+          "year_start": 2014,
+          "year_end": 2017,
+          "support_level": "direct",
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Base",
+          "classification": "generic_standard_unbranded"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "T"
+        ],
+        "body_type": [
+          "Convertible"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "4.3L v8",
+          "3.9L v8 twin-turbo"
+        ],
+        "horsepower_hp": [
+          490,
+          560
+        ],
+        "transmission": [
+          "7-speed dual_clutch"
+        ],
+        "drivetrain": [
+          "RWD"
+        ]
+      },
+      "market": "IL",
+      "canonical_model": "California",
+      "profile_confidence": "medium",
+      "year_start": 2012,
+      "year_end": 2017
     }
   ],
   "ready_for_website_upload": false
