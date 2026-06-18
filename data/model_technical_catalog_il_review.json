@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T08:33:11Z",
+  "generated_at": "2026-06-18T08:34:32Z",
   "market": "IL",
   "models": [
     {
@@ -2418,6 +2418,454 @@
         "variant[10] support_level=direct but no source directly supports it",
         "variant[11] has no source_indexes",
         "variant[11] support_level=direct but no source directly supports it"
+      ]
+    },
+    {
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Base",
+          "classification": "generic_placeholder"
+        },
+        {
+          "label": "1.5L TDCi",
+          "classification": "engine_designation"
+        },
+        {
+          "label": "1.8L TDCi",
+          "classification": "engine_designation"
+        },
+        {
+          "label": "2.0L TD",
+          "classification": "engine_designation"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "פורד טרנזיט קונקט (2003-2013) - מחירון, מפרטים",
+          "url": "https://www.icar.co.il/%D7%A4%D7%95%D7%A8%D7%93/%D7%A4%D7%95%D7%A8%D7%93_%D7%98%D7%A8%D7%A0%D7%96%D7%99%D7%98_%D7%A7%D7%95%D7%A0%D7%A7%D7%98_%D7%93%D7%95%D7%A8_1/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "פורד טרנזיט קונקט דור 2 (2014-2022) - מחירון ומפרטים",
+          "url": "https://www.icar.co.il/%D7%A4%D7%95%D7%A8%D7%93/%D7%A4%D7%95%D7%A8%D7%93_%D7%98%D7%A8%D7%A0%D7%96%D7%99%D7%98_%D7%A7%D7%95%D7%A0%D7%A7%D7%98/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "פורד טרנזיט קונקט מפרט טכני",
+          "url": "https://www.auto.co.il/model/ford-transit-connect_g128",
+          "source_name": "Auto.co.il",
+          "source_type": "catalog",
+          "supports": [
+            "horsepower_hp",
+            "engine",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 4,
+          "title": "הדור השלישי: פורד טרנזיט קונקט חדש נחשף",
+          "url": "https://www.auto.co.il/article/133132-world-news-ford-transit-connect",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "drivetrain",
+            "year_start"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "Van",
+          "fuel_type": "diesel",
+          "engine": "1.8L turbo",
+          "engine_displacement_l": 1.8,
+          "horsepower_hp": 90,
+          "transmission": "manual",
+          "drivetrain": "FWD",
+          "year_start": 2003,
+          "year_end": 2013,
+          "version_or_trim": null,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            3
+          ],
+          "field_sources": {
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1,
+              3
+            ],
+            "engine_displacement_l": [
+              1,
+              3
+            ],
+            "horsepower_hp": [
+              1,
+              3
+            ],
+            "transmission": [
+              1,
+              3
+            ],
+            "drivetrain": [
+              1,
+              3
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ],
+            "version_or_trim": []
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Van",
+          "fuel_type": "diesel",
+          "engine": "1.8L turbo",
+          "engine_displacement_l": 1.8,
+          "horsepower_hp": 110,
+          "transmission": "manual",
+          "drivetrain": "FWD",
+          "year_start": 2003,
+          "year_end": 2013,
+          "version_or_trim": null,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            3
+          ],
+          "field_sources": {
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1,
+              3
+            ],
+            "engine_displacement_l": [
+              1,
+              3
+            ],
+            "horsepower_hp": [
+              1,
+              3
+            ],
+            "transmission": [
+              1,
+              3
+            ],
+            "drivetrain": [
+              1,
+              3
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ],
+            "version_or_trim": []
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Van",
+          "fuel_type": "diesel",
+          "engine": "1.6L turbo",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 95,
+          "transmission": "manual",
+          "drivetrain": "FWD",
+          "year_start": 2014,
+          "year_end": 2016,
+          "version_or_trim": "Trend",
+          "support_level": "direct",
+          "source_indexes": [
+            2,
+            3
+          ],
+          "field_sources": {
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              2
+            ],
+            "engine": [
+              2,
+              3
+            ],
+            "engine_displacement_l": [
+              2,
+              3
+            ],
+            "horsepower_hp": [
+              2,
+              3
+            ],
+            "transmission": [
+              2,
+              3
+            ],
+            "drivetrain": [
+              2,
+              3
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              2
+            ],
+            "version_or_trim": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Van",
+          "fuel_type": "diesel",
+          "engine": "1.5L turbo",
+          "engine_displacement_l": 1.5,
+          "horsepower_hp": 100,
+          "transmission": "manual",
+          "drivetrain": "FWD",
+          "year_start": 2016,
+          "year_end": 2022,
+          "version_or_trim": "Trend",
+          "support_level": "direct",
+          "source_indexes": [
+            2,
+            3
+          ],
+          "field_sources": {
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              2
+            ],
+            "engine": [
+              2,
+              3
+            ],
+            "engine_displacement_l": [
+              2,
+              3
+            ],
+            "horsepower_hp": [
+              2,
+              3
+            ],
+            "transmission": [
+              2,
+              3
+            ],
+            "drivetrain": [
+              2,
+              3
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              2
+            ],
+            "version_or_trim": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Van",
+          "fuel_type": "diesel",
+          "engine": "1.5L turbo",
+          "engine_displacement_l": 1.5,
+          "horsepower_hp": 120,
+          "transmission": "automatic",
+          "drivetrain": "FWD",
+          "year_start": 2016,
+          "year_end": 2022,
+          "version_or_trim": "Trend",
+          "support_level": "direct",
+          "source_indexes": [
+            2,
+            3
+          ],
+          "field_sources": {
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              2
+            ],
+            "engine": [
+              2,
+              3
+            ],
+            "engine_displacement_l": [
+              2,
+              3
+            ],
+            "horsepower_hp": [
+              2,
+              3
+            ],
+            "transmission": [
+              2,
+              3
+            ],
+            "drivetrain": [
+              2,
+              3
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              2
+            ],
+            "version_or_trim": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Van",
+          "fuel_type": "diesel",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": null,
+          "transmission": null,
+          "drivetrain": "FWD",
+          "year_start": 2023,
+          "year_end": null,
+          "version_or_trim": null,
+          "support_level": "indirect",
+          "source_indexes": [
+            4
+          ],
+          "field_sources": {
+            "body_type": [
+              4
+            ],
+            "fuel_type": [
+              4
+            ],
+            "engine": [
+              4
+            ],
+            "engine_displacement_l": [
+              4
+            ],
+            "horsepower_hp": [],
+            "transmission": [],
+            "drivetrain": [
+              4
+            ],
+            "year_start": [
+              4
+            ],
+            "year_end": [],
+            "version_or_trim": []
+          },
+          "missing_grounded_fields": [
+            "horsepower_hp",
+            "transmission"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Trend"
+        ],
+        "body_type": [
+          "Van"
+        ],
+        "fuel_type": [
+          "diesel"
+        ],
+        "engine": [
+          "1.8L turbo",
+          "1.6L turbo",
+          "1.5L turbo",
+          "2.0L turbo"
+        ],
+        "horsepower_hp": [
+          90,
+          110,
+          95,
+          100,
+          120
+        ],
+        "transmission": [
+          "manual",
+          "automatic"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "market": "IL",
+      "make": "Ford",
+      "model": "Transit Connect",
+      "canonical_model": "Transit Connect",
+      "profile_confidence": "medium",
+      "year_start": 2003,
+      "year_end": null,
+      "validation_issues": [
+        "variant[5] required website field 'horsepower_hp' is null/empty",
+        "variant[5] required website field 'transmission' is null/empty",
+        "variant[5] required field 'horsepower_hp' listed in missing_grounded_fields",
+        "variant[5] required field 'transmission' listed in missing_grounded_fields"
       ]
     }
   ]
