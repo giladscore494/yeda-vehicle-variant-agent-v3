@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T18:23:55Z",
+  "generated_at": "2026-06-18T18:24:16Z",
   "market": "IL",
   "models": [
     {
@@ -2249,6 +2249,227 @@
         "variant[1] required field 'drivetrain' listed in missing_grounded_fields",
         "variant[2] required website field 'drivetrain' is null/empty",
         "variant[2] required field 'drivetrain' listed in missing_grounded_fields"
+      ]
+    },
+    {
+      "market": "global-reference-only",
+      "make": "Kia",
+      "model": "ProCeed",
+      "canonical_model": "ProCeed",
+      "year_start": 2008,
+      "year_end": 2017,
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "2.0L",
+          "engine_displacement_l": 2,
+          "horsepower_hp": null,
+          "transmission": "manual",
+          "drivetrain": null,
+          "year_start": 2008,
+          "year_end": 2012,
+          "support_level": "unknown",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": [
+            "fuel_type",
+            "horsepower_hp",
+            "drivetrain"
+          ]
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "1.6L",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 135,
+          "transmission": "6-speed dual_clutch",
+          "drivetrain": null,
+          "year_start": 2013,
+          "year_end": 2017,
+          "support_level": "unknown",
+          "source_indexes": [
+            0,
+            2,
+            3
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              2
+            ],
+            "engine": [
+              2,
+              3
+            ],
+            "engine_displacement_l": [
+              2,
+              3
+            ],
+            "horsepower_hp": [
+              2,
+              3
+            ],
+            "transmission": [
+              2,
+              3
+            ],
+            "drivetrain": [],
+            "year_start": [
+              0,
+              2,
+              3
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": [
+            "drivetrain"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Coupe"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "2.0L",
+          "1.6L"
+        ],
+        "horsepower_hp": [
+          135
+        ],
+        "transmission": [
+          "manual",
+          "6-speed dual_clutch"
+        ],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "GT",
+          "classification": "not an Israeli-market sold ProCeed trim found for this model in sourced Israel pages; mentioned only as planned/aspirational for 2013 car and as overseas third-generation context, not grounded as sold in Israel"
+        },
+        {
+          "label": "Shooting Brake",
+          "classification": "body style label from global-reference/raw data; no Israeli-market sale source found for Kia ProCeed shooting-brake generation"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "קיה פרוסיד - כל המידע והדגמים",
+          "url": "https://www.icar.co.il/%D7%A7%D7%99%D7%94/%D7%A7%D7%99%D7%94_%D7%A4%D7%A8%D7%95%D7%A1%D7%99%D7%93/",
+          "source_name": "iCar",
+          "source_type": "model overview",
+          "supports": [
+            "year_start",
+            "year_end",
+            "model generations sold in Israel"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "קיה פרו סיד בישראל: 135,900 שקל",
+          "url": "https://www.icar.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA_%D7%A8%D7%9B%D7%91/%D7%A7%D7%99%D7%94_%D7%A4%D7%A8%D7%95_%D7%A1%D7%99%D7%93_%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C%3A_135%2C900_%D7%A9%D7%A7%D7%9C/",
+          "source_name": "iCar",
+          "source_type": "news",
+          "supports": [
+            "2008-2012 engine context sold in Israel",
+            "2008-2012 transmission context sold in Israel",
+            "2013 launch year",
+            "2013-2017 fuel_type",
+            "2013-2017 engine",
+            "2013-2017 engine_displacement_l",
+            "2013-2017 horsepower_hp",
+            "2013-2017 transmission"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "ועכשיו, קיה פרו-סיד",
+          "url": "https://www.auto.co.il/articles/car-news/114019/",
+          "source_name": "Auto",
+          "source_type": "news",
+          "supports": [
+            "2013-2017 body_type",
+            "2013-2017 year_start",
+            "2013-2017 fuel_type",
+            "2013-2017 engine",
+            "2013-2017 engine_displacement_l",
+            "2013-2017 horsepower_hp",
+            "2013-2017 transmission"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "קיה פרו-סיד - מחירון, חוות דעת ומידע טכני",
+          "url": "https://www.auto.co.il/cars/kia/pro-ceed/",
+          "source_name": "Auto",
+          "source_type": "model page",
+          "supports": [
+            "2013-2017 engine",
+            "2013-2017 engine_displacement_l",
+            "2013-2017 horsepower_hp",
+            "2013-2017 transmission",
+            "2013-2017 year_end"
+          ]
+        }
+      ],
+      "profile_confidence": "medium",
+      "notes": [
+        "Israeli-market sources found for ProCeed only for 2008-2012 and 2013-2017 generations.",
+        "No grounded Israeli-market source was found showing third-generation ProCeed (2018+ shooting brake) as actually sold in Israel.",
+        "For 2008-2012, Israeli sources confirm sale period plus 2.0L/manual context, but did not ground horsepower, drivetrain, or fuel type explicitly enough in the retrieved material, so those fields are null.",
+        "Body type normalized to Coupe for the Israeli 3-door ProCeed generations."
+      ],
+      "validation_issues": [
+        "variant[0] non-null field 'fuel_type' has no field_sources entry",
+        "variant[0] required website field 'horsepower_hp' is null/empty",
+        "variant[0] required website field 'drivetrain' is null/empty",
+        "variant[0] required field 'fuel_type' listed in missing_grounded_fields",
+        "variant[0] required field 'horsepower_hp' listed in missing_grounded_fields",
+        "variant[0] required field 'drivetrain' listed in missing_grounded_fields",
+        "variant[1] required website field 'drivetrain' is null/empty",
+        "variant[1] required field 'drivetrain' listed in missing_grounded_fields"
       ]
     }
   ]
