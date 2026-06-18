@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T09:09:56Z",
+  "generated_at": "2026-06-18T09:10:34Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gpt-5.4",
@@ -106105,6 +106105,323 @@
       "profile_confidence": "medium",
       "year_start": 2021,
       "year_end": null
+    },
+    {
+      "market": "IL",
+      "make": "Haval",
+      "model": "h6",
+      "canonical_model": "H6",
+      "year_start": 2014,
+      "year_end": 2025,
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "diesel",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2,
+          "horsepower_hp": 156,
+          "transmission": "6-speed manual",
+          "drivetrain": "FWD",
+          "year_start": 2014,
+          "year_end": 2020,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "diesel",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2,
+          "horsepower_hp": 156,
+          "transmission": "6-speed manual",
+          "drivetrain": "AWD",
+          "year_start": 2014,
+          "year_end": 2020,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2,
+          "horsepower_hp": 224,
+          "transmission": "dual_clutch",
+          "drivetrain": "FWD",
+          "year_start": 2021,
+          "year_end": 2025,
+          "support_level": "direct",
+          "source_indexes": [
+            3,
+            4
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              3
+            ],
+            "fuel_type": [
+              3
+            ],
+            "engine": [
+              3
+            ],
+            "engine_displacement_l": [
+              3
+            ],
+            "horsepower_hp": [
+              3
+            ],
+            "transmission": [
+              3
+            ],
+            "drivetrain": [
+              3
+            ],
+            "year_start": [
+              4
+            ],
+            "year_end": [
+              4
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2,
+          "horsepower_hp": 224,
+          "transmission": "dual_clutch",
+          "drivetrain": "AWD",
+          "year_start": 2021,
+          "year_end": 2025,
+          "support_level": "direct",
+          "source_indexes": [
+            3,
+            4
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              3
+            ],
+            "fuel_type": [
+              3
+            ],
+            "engine": [
+              3
+            ],
+            "engine_displacement_l": [
+              3
+            ],
+            "horsepower_hp": [
+              3
+            ],
+            "transmission": [
+              3
+            ],
+            "drivetrain": [
+              3
+            ],
+            "year_start": [
+              4
+            ],
+            "year_end": [
+              4
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "diesel",
+          "petrol"
+        ],
+        "engine": [
+          "2.0L turbo"
+        ],
+        "horsepower_hp": [
+          156,
+          224
+        ],
+        "transmission": [
+          "6-speed manual",
+          "dual_clutch"
+        ],
+        "drivetrain": [
+          "FWD",
+          "AWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "1.5T",
+          "classification": "bare_engine_size_not_trim"
+        },
+        {
+          "label": "2.0T",
+          "classification": "bare_engine_size_not_trim"
+        },
+        {
+          "label": "HEV",
+          "classification": "powertrain_label_not_trim"
+        },
+        {
+          "label": "PHEV",
+          "classification": "powertrain_label_not_trim"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "Haval H6 в Израиле — характеристики, двигатели, комплектации",
+          "url": "https://autoboom.co.il/ru/catalog/cars/haval/h6",
+          "source_name": "Autoboom Israel",
+          "source_type": "catalog",
+          "supports": [
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "חוואל H6 רכב פנאי 2.0 MT דיזל | 156 כ\"ס הנעה הנעה כפולה | 1 דור (2014 – 2020) בישראל - מפרטי רכב id 18057 - אוטובום",
+          "url": "https://autoboom.co.il/catalog/cars/haval/h6/1-generation/suv-5-doors/18057",
+          "source_name": "Autoboom Israel",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "Haval H6 in Israel, Models and Reviews on Autoboom",
+          "url": "https://autoboom.co.il/en/catalog/cars/haval",
+          "source_name": "Autoboom Israel",
+          "source_type": "catalog",
+          "supports": [
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "Haval H6 2023 - gasoline. Technical characteristics, fuel consumption, other parameters of the Haval H6 2023. Price list for Israel — AUTOBOOM.co.il",
+          "url": "https://autoboom.co.il/en/catalog/cars/haval/h6/2023",
+          "source_name": "Autoboom Israel",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 4,
+          "title": "חוואל H6 בישראל – חוות דעת, מחירים, השוואות ודירוג באוטובום",
+          "url": "https://autoboom.co.il/catalog/cars/haval/h6/2021",
+          "source_name": "Autoboom Israel",
+          "source_type": "catalog",
+          "supports": [
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "profile_confidence": "medium",
+      "notes": [
+        "Could not ground Israeli-market H6 HEV or H6 PHEV sales from reliable Israeli sources in the retrieved results, so they are not included.",
+        "For 2021+ petrol rows, transmission is normalized to 'dual_clutch' from Autoboom's generic 'Robotic' wording and known H6 DCT context; therefore support_level is 'indirect'.",
+        "For 2021+ petrol rows, Autoboom 2023 page lists 'For other countries' while presented under Israel price-list context; treated as indirect Israeli-market evidence only.",
+        "No Israeli official importer Haval source was found in retrieved results."
+      ]
     }
   ],
   "ready_for_website_upload": false
