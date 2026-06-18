@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T09:10:34Z",
+  "generated_at": "2026-06-18T09:10:55Z",
   "market": "IL",
   "models": [
     {
@@ -5108,6 +5108,56 @@
       "validation_issues": [
         "variant[0] required website field 'transmission' is null/empty",
         "variant[0] required field 'transmission' listed in missing_grounded_fields"
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Haval",
+      "model": "jolion",
+      "canonical_model": "Jolion",
+      "year_start": null,
+      "year_end": null,
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "עושים סדר: למי שייכים מותגי הרכב הפופולריים בישראל?",
+          "url": "https://www.auto.co.il/articles/guides/buying-new-car/ownership-of-car-brands-in-israel/",
+          "source_name": "auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "model_market_presence"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "אורה 5 החדש עושה צעד גדול קדימה - מבחן השקה בסין",
+          "url": "https://www.auto.co.il/articles/test-drives/first-drives/ora-5/",
+          "source_name": "auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "brand_context_not_sold_in_israel"
+          ]
+        }
+      ],
+      "profile_confidence": "high",
+      "notes": [
+        "No grounded Israeli-market sources were found showing that the Haval Jolion was actually sold in Israel.",
+        "Israeli editorial source auto.co.il states that Haval is not marketed in Israel, so no Israeli-market technical variants can be returned for this model profile.",
+        "Raw database hints mentioning petrol, hybrid, and plug-in hybrid configurations were not used as evidence because they were not grounded by Israeli-market sources."
+      ],
+      "validation_issues": [
+        "technical_variants_il is empty"
       ]
     }
   ]
