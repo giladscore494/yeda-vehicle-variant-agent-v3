@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T07:40:12Z",
+  "generated_at": "2026-06-18T07:41:16Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -93568,6 +93568,136 @@
       "profile_confidence": "medium",
       "year_start": 2013,
       "year_end": 2017
+    },
+    {
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "פיאט 600e החשמלי בישראל - מחיר החל מ- 169,990 שקל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%A4%D7%99%D7%90%D7%98-600e-%D7%94%D7%97%D7%A9%D7%9E%D7%9C%D7%99-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C",
+          "source_name": "Cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "version_or_trim",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "פיאט 600 החדש בישראל: 156 כ\"ס ב-170 אלף שקל",
+          "url": "https://www.icar.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA_%D7%A8%D7%9B%D7%91/%D7%A4%D7%99%D7%90%D7%98_600_%D7%94%D7%97%D7%93%D7%A9_%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C:_156_%D7%9B%D7%A1_%D7%91-170_%D7%90%D7%9C%D7%A3_%D7%A9%D7%A7%D7%9C/",
+          "source_name": "iCar.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "drivetrain",
+            "version_or_trim"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "Crossover",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 156,
+          "transmission": "single_speed",
+          "drivetrain": "FWD",
+          "year_start": 2023,
+          "year_end": null,
+          "version_or_trim": "La Prima",
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [],
+            "version_or_trim": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "La Prima"
+        ],
+        "body_type": [
+          "Crossover"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          156
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Electric 156 hp",
+          "classification": "engine_spec"
+        },
+        {
+          "label": "automatic",
+          "classification": "transmission_spec"
+        }
+      ],
+      "market": "IL",
+      "make": "Fiat",
+      "model": "600e",
+      "canonical_model": "600e",
+      "profile_confidence": "medium",
+      "year_start": 2023,
+      "year_end": null
     }
   ],
   "ready_for_website_upload": false
