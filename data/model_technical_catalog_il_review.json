@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T07:50:37Z",
+  "generated_at": "2026-06-18T07:51:59Z",
   "market": "IL",
   "models": [
     {
@@ -828,6 +828,92 @@
         "variant[1] support_level=direct but no source directly supports it",
         "variant[2] has no source_indexes",
         "variant[2] support_level=direct but no source directly supports it"
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Fiat",
+      "model": "Multipla",
+      "canonical_model": "Multipla",
+      "year_start": null,
+      "year_end": null,
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [],
+      "profile_confidence": null,
+      "notes": [],
+      "error": "Extra data: line 324 column 1 (char 5992)",
+      "request_payload": {
+        "task": "build_israeli_model_technical_catalog",
+        "market": "IL",
+        "make": "Fiat",
+        "model": "Multipla",
+        "raw_database_values": {
+          "years_seen": [
+            1998,
+            2003,
+            2004,
+            2010
+          ],
+          "trims_seen": [
+            "Dynamic",
+            "SX"
+          ],
+          "engines_seen": [
+            "1.6L",
+            "1.9L JTD"
+          ],
+          "horsepower_seen": [],
+          "transmissions_seen": [
+            "manual"
+          ],
+          "body_types_seen": [
+            "Minivan"
+          ],
+          "fuel_types_seen": [
+            "diesel",
+            "petrol"
+          ],
+          "drivetrains_seen": [
+            "FWD"
+          ]
+        },
+        "sample_validation_ids": [
+          "VAL-001133",
+          "VAL-001134",
+          "VAL-001135",
+          "VAL-001136"
+        ],
+        "source_indexes": [
+          110,
+          429,
+          430,
+          431
+        ],
+        "metadata_hints": {
+          "priorities_seen": [
+            "medium"
+          ],
+          "validation_routes_seen": [
+            "cheap_model_structured_validation"
+          ],
+          "possible_duplicate_rows": 0,
+          "validation_id_count": 4
+        },
+        "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
+      },
+      "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
       ]
     }
   ]
