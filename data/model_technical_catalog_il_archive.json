@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T09:13:37Z",
+  "generated_at": "2026-06-18T13:36:13Z",
   "market": "IL",
   "models": [
     {
@@ -506,6 +506,267 @@
       "non_blocking": true,
       "batch_id": "BATCH23",
       "lineage_target": "IL|Haval|Jolion"
+    },
+    {
+      "market": "IL",
+      "make": "Hyundai",
+      "model": "Casper",
+      "reason": "expected_arrival_only",
+      "non_blocking": true,
+      "batch_id": "BATCH24",
+      "lineage": [
+        "IL|Hyundai|Casper",
+        "IL|Hyundai|Inster"
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Hyundai",
+      "model": "i30 N",
+      "reason": "unsupported_transmission_for_israeli_period",
+      "non_blocking": true,
+      "batch_id": "BATCH24",
+      "lineage": [
+        "IL|Hyundai|i30 N"
+      ],
+      "technical_reference": {
+        "body_type": "Hatchback",
+        "fuel_type": "petrol",
+        "engine": "2.0L turbo",
+        "engine_displacement_l": 2.0,
+        "horsepower_hp": 280,
+        "transmission": "6-speed manual",
+        "drivetrain": "FWD",
+        "version_or_trim": "Performance",
+        "year_start": 2023,
+        "year_end": 2024,
+        "support_level": "direct",
+        "source_indexes": [
+          1
+        ],
+        "field_sources": {
+          "body_type": [
+            1
+          ],
+          "fuel_type": [
+            1
+          ],
+          "engine": [
+            1
+          ],
+          "engine_displacement_l": [
+            1
+          ],
+          "horsepower_hp": [
+            1
+          ],
+          "transmission": [
+            1
+          ],
+          "drivetrain": [
+            1
+          ],
+          "version_or_trim": [
+            1
+          ],
+          "year_start": [
+            1
+          ],
+          "year_end": [
+            1
+          ]
+        },
+        "missing_grounded_fields": []
+      }
+    },
+    {
+      "market": "IL-confirmed",
+      "make": "Hyundai",
+      "model": "Nexo",
+      "reason": "global_or_foreign_test_drive_only",
+      "non_blocking": true,
+      "batch_id": "BATCH24",
+      "lineage": [
+        "IL-confirmed|Hyundai|Nexo"
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Jaecoo",
+      "model": "J8",
+      "reason": "global_reference_only",
+      "non_blocking": true,
+      "batch_id": "BATCH24",
+      "lineage": [
+        "IL|Jaecoo|J8"
+      ],
+      "technical_reference": {
+        "version_or_trim": null,
+        "body_type": "SUV",
+        "fuel_type": "petrol",
+        "engine": "2.0L turbo",
+        "engine_displacement_l": 2.0,
+        "horsepower_hp": 249,
+        "transmission": "7-speed dual_clutch",
+        "drivetrain": "AWD",
+        "year_start": 2025,
+        "year_end": null,
+        "support_level": "direct",
+        "source_indexes": [
+          0,
+          1
+        ],
+        "field_sources": {
+          "version_or_trim": [],
+          "body_type": [
+            0,
+            1
+          ],
+          "fuel_type": [
+            0,
+            1
+          ],
+          "engine": [
+            0,
+            1
+          ],
+          "engine_displacement_l": [
+            0,
+            1
+          ],
+          "horsepower_hp": [
+            0
+          ],
+          "transmission": [
+            0,
+            1
+          ],
+          "drivetrain": [
+            0,
+            1
+          ],
+          "year_start": [
+            0,
+            1
+          ],
+          "year_end": []
+        },
+        "missing_grounded_fields": []
+      }
+    },
+    {
+      "market": "IL",
+      "make": "Honda",
+      "model": "e:Ny1",
+      "reason": "parallel_import_or_insufficient_official_israeli_evidence",
+      "non_blocking": true,
+      "batch_id": "BATCH24",
+      "lineage": [
+        "IL|Honda|e:Ny1"
+      ]
+    },
+    {
+      "market": "global-reference-only",
+      "make": "Isuzu",
+      "model": "MU-X",
+      "reason": "global_reference_only_no_israeli_market_evidence",
+      "non_blocking": true,
+      "batch_id": "BATCH24",
+      "lineage": [
+        "global-reference-only|Isuzu|MU-X"
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Hyundai",
+      "model": "Trajet",
+      "reason": "insufficient_confirmed_israeli_sales_evidence",
+      "non_blocking": true,
+      "batch_id": "BATCH24",
+      "lineage": [
+        "IL|Hyundai|Trajet"
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Honda",
+      "model": "Odyssey",
+      "reason": "missing_required_field_grounding",
+      "non_blocking": true,
+      "batch_id": "BATCH24",
+      "lineage": [
+        "IL|Honda|Odyssey"
+      ],
+      "technical_reference": {
+        "version_or_trim": null,
+        "body_type": "MPV",
+        "fuel_type": "petrol",
+        "engine": "3.5L v6",
+        "engine_displacement_l": 3.5,
+        "horsepower_hp": null,
+        "transmission": "automatic",
+        "drivetrain": "FWD",
+        "year_start": 1999,
+        "year_end": 2004,
+        "support_level": "direct",
+        "source_indexes": [
+          3
+        ],
+        "field_sources": {
+          "version_or_trim": [],
+          "body_type": [
+            3
+          ],
+          "fuel_type": [
+            3
+          ],
+          "engine": [
+            3
+          ],
+          "engine_displacement_l": [
+            3
+          ],
+          "horsepower_hp": [],
+          "transmission": [
+            3
+          ],
+          "drivetrain": [
+            3
+          ],
+          "year_start": [
+            3
+          ],
+          "year_end": [
+            3
+          ]
+        },
+        "missing_grounded_fields": [
+          "horsepower_hp"
+        ]
+      }
+    },
+    {
+      "market": "IL",
+      "make": "Jaguar",
+      "model": "S-Type",
+      "reason": "source_scope_duplicate",
+      "non_blocking": true,
+      "batch_id": "BATCH24",
+      "lineage": [
+        "IL-likely|Jaguar|S-Type",
+        "IL-confirmed|Jaguar|S-Type"
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "Honda",
+      "model": "Stream",
+      "reason": "insufficient_field_level_grounding",
+      "non_blocking": true,
+      "batch_id": "BATCH24",
+      "lineage": [
+        "IL|Honda|Stream"
+      ]
     }
   ]
 }
