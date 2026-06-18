@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-18T10:54:53Z",
+  "generated_at": "2026-06-18T10:56:35Z",
   "market": "IL",
   "mode": "online_selectable_provider",
-  "model_id": "gpt-5.4",
+  "model_id": "gemini-3.1-pro-preview",
   "source_files": [
     "data/validation_variants_data_v1.json",
     "data/validation_instructions_by_id_v1.json"
@@ -115354,6 +115354,414 @@
         "Conflicting marketplace horsepower labels (88 hp vs 102 hp) were found; 88 hp was retained because it is supported by multiple Israeli editorial sources, while 102 hp appeared only in secondary marketplace/listing contexts.",
         "No grounded Israeli evidence was found for an IL-sold 1.5L/151 hp Insight variant; third-generation global news exists but was not included as an actually sold Israeli-market technical row without stronger local technical grounding."
       ]
+    },
+    {
+      "technical_variants_il": [
+        {
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "1.3L",
+          "engine_displacement_l": 1.3,
+          "horsepower_hp": 102,
+          "transmission": "manual",
+          "drivetrain": "FWD",
+          "year_start": 2015,
+          "year_end": 2020,
+          "version_or_trim": null,
+          "support_level": "direct",
+          "source_indexes": [
+            613,
+            614
+          ],
+          "field_sources": {
+            "body_type": [
+              613,
+              614
+            ],
+            "fuel_type": [
+              613,
+              614
+            ],
+            "engine": [
+              613,
+              614
+            ],
+            "engine_displacement_l": [
+              613,
+              614
+            ],
+            "horsepower_hp": [
+              613,
+              614
+            ],
+            "transmission": [
+              613
+            ],
+            "drivetrain": [
+              613,
+              614
+            ],
+            "year_start": [
+              613,
+              614
+            ],
+            "year_end": [
+              614
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "1.3L",
+          "engine_displacement_l": 1.3,
+          "horsepower_hp": 102,
+          "transmission": "cvt",
+          "drivetrain": "FWD",
+          "year_start": 2015,
+          "year_end": 2020,
+          "version_or_trim": null,
+          "support_level": "direct",
+          "source_indexes": [
+            613,
+            614
+          ],
+          "field_sources": {
+            "body_type": [
+              613,
+              614
+            ],
+            "fuel_type": [
+              613,
+              614
+            ],
+            "engine": [
+              613,
+              614
+            ],
+            "engine_displacement_l": [
+              613,
+              614
+            ],
+            "horsepower_hp": [
+              613,
+              614
+            ],
+            "transmission": [
+              613,
+              614
+            ],
+            "drivetrain": [
+              613,
+              614
+            ],
+            "year_start": [
+              613,
+              614
+            ],
+            "year_end": [
+              614
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "1.5L",
+          "engine_displacement_l": 1.5,
+          "horsepower_hp": 130,
+          "transmission": "cvt",
+          "drivetrain": "FWD",
+          "year_start": 2018,
+          "year_end": 2020,
+          "version_or_trim": null,
+          "support_level": "direct",
+          "source_indexes": [
+            614,
+            617
+          ],
+          "field_sources": {
+            "body_type": [
+              617
+            ],
+            "fuel_type": [
+              617
+            ],
+            "engine": [
+              617
+            ],
+            "engine_displacement_l": [
+              617
+            ],
+            "horsepower_hp": [
+              617
+            ],
+            "transmission": [
+              617
+            ],
+            "drivetrain": [
+              617
+            ],
+            "year_start": [
+              617
+            ],
+            "year_end": [
+              614,
+              617
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Hatchback",
+          "fuel_type": "hybrid",
+          "engine": "1.5L",
+          "engine_displacement_l": 1.5,
+          "horsepower_hp": 109,
+          "transmission": "cvt",
+          "drivetrain": "FWD",
+          "year_start": 2020,
+          "year_end": 2023,
+          "version_or_trim": null,
+          "support_level": "direct",
+          "source_indexes": [
+            614,
+            616
+          ],
+          "field_sources": {
+            "body_type": [
+              616
+            ],
+            "fuel_type": [
+              616
+            ],
+            "engine": [
+              616
+            ],
+            "engine_displacement_l": [
+              616
+            ],
+            "horsepower_hp": [
+              616
+            ],
+            "transmission": [
+              616
+            ],
+            "drivetrain": [
+              616
+            ],
+            "year_start": [
+              616
+            ],
+            "year_end": [
+              614,
+              616
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Hatchback",
+          "fuel_type": "hybrid",
+          "engine": "1.5L",
+          "engine_displacement_l": 1.5,
+          "horsepower_hp": 122,
+          "transmission": "cvt",
+          "drivetrain": "FWD",
+          "year_start": 2023,
+          "year_end": 2024,
+          "version_or_trim": null,
+          "support_level": "direct",
+          "source_indexes": [
+            614,
+            615
+          ],
+          "field_sources": {
+            "body_type": [
+              614,
+              615
+            ],
+            "fuel_type": [
+              614,
+              615
+            ],
+            "engine": [
+              614,
+              615
+            ],
+            "engine_displacement_l": [
+              614,
+              615
+            ],
+            "horsepower_hp": [
+              614,
+              615
+            ],
+            "transmission": [
+              614,
+              615
+            ],
+            "drivetrain": [
+              614,
+              615
+            ],
+            "year_start": [
+              614,
+              615
+            ],
+            "year_end": [
+              614,
+              615
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 613,
+          "title": "הונדה ג'אז החדשה 2015 בישראל – מחיר החל מ- 89,900 שקל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/הונדה-ג-אז-החדשה-2015-בישראל-מחיר-החל-מ-89-900-שקל",
+          "source_name": "Cartube Israel",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 614,
+          "title": "הונדה ג'אז - מחירון רכב, מפרט טכני",
+          "url": "https://www.icar.co.il/הונדה/הונדה_ג'אז/",
+          "source_name": "iCar Israel",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 615,
+          "title": "הונדה ג'אז e:HEV מפרט טכני",
+          "url": "https://www.honda.co.il/models/jazz/",
+          "source_name": "Honda Israel Official Website",
+          "source_type": "official_importer",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 616,
+          "title": "הונדה ג'אז החדשה 2020 בישראל - מחיר החל מ-119,900 שקל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/הונדה-ג-אז-החדשה-2020-בישראל-מחיר-החל-מ-119900-שקל",
+          "source_name": "Cartube Israel",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 617,
+          "title": "הונדה ג'אז 2018 החדשה - מחירון ומפרט טכני",
+          "url": "https://www.cartube.co.il/חדשות-רכב/הונדה-ג-אז-2018-החדשה-מחירון-ומפרט-טכני",
+          "source_name": "Cartube Israel",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "1.3L i-VTEC DOHC, 102 hp",
+          "classification": "engine_spec"
+        },
+        {
+          "label": "1.5L i-MMD e:HEV",
+          "classification": "engine_spec"
+        },
+        {
+          "label": "1.5L i-MMD e:HEV (107 hp petrol / 122 hp electric)",
+          "classification": "engine_spec"
+        },
+        {
+          "label": "1.5L i-MMD e:HEV (98 hp petrol / 109 hp electric)",
+          "classification": "engine_spec"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Hatchback"
+        ],
+        "fuel_type": [
+          "petrol",
+          "hybrid"
+        ],
+        "engine": [
+          "1.3L",
+          "1.5L"
+        ],
+        "horsepower_hp": [
+          102,
+          130,
+          109,
+          122
+        ],
+        "transmission": [
+          "manual",
+          "cvt"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "market": "IL",
+      "make": "Honda",
+      "model": "Jazz",
+      "canonical_model": "Jazz",
+      "profile_confidence": "medium",
+      "year_start": 2015,
+      "year_end": 2024
     }
   ],
   "ready_for_website_upload": false
