@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T12:17:06Z",
+  "generated_at": "2026-06-18T12:17:36Z",
   "market": "IL",
   "models": [
     {
@@ -1515,6 +1515,400 @@
       "rebuild_required": true,
       "validation_issues": [
         "technical_variants_il is empty"
+      ]
+    },
+    {
+      "make": "Isuzu",
+      "model": "D-Max",
+      "market": "IL",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "מפרט טכני איסוזו די מקס (2021-היום) - אוטו (Auto.co.il)",
+          "url": "https://www.auto.co.il/model/isuzu-dmax_g338",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial_catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "איסוזו די מקס - מבחן דרכים (2021+) - Gear.co.il",
+          "url": "https://gear.co.il/articles/3103-Isuzu-D-Max-2021-Review",
+          "source_name": "Gear.co.il",
+          "source_type": "editorial_review",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "איסוזו די מקס (2012-2020) מפרט טכני - קארזון (CarZone)",
+          "url": "https://www.carzone.co.il/models/%D7%90%D7%99%D7%A1%D7%95%D7%96%D7%95/%D7%93%D7%99-%D7%9E%D7%A7%D7%A1/2/",
+          "source_name": "CarZone",
+          "source_type": "israeli_catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "איסוזו די-מקס דור ראשון (2002-2012) - רכב יד שניה - CarsForum",
+          "url": "https://carsforum.co.il/cars/%D7%9E%D7%97%D7%99%D7%A8%D7%95%D7%9F-%D7%A8%D7%9B%D7%91/3421/%D7%90%D7%99%D7%A1%D7%95%D7%96%D7%95/%D7%93%D7%99-%D7%9E%D7%A7%D7%A1",
+          "source_name": "CarsForum IL",
+          "source_type": "forum_catalog",
+          "supports": [
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "Pickup",
+          "fuel_type": "diesel",
+          "engine": "1.9L turbo",
+          "engine_displacement_l": 1.9,
+          "horsepower_hp": 163,
+          "transmission": "automatic",
+          "drivetrain": "4WD",
+          "year_start": 2017,
+          "year_end": 2026,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1,
+              2
+            ],
+            "fuel_type": [
+              0,
+              1,
+              2
+            ],
+            "engine": [
+              0,
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              0,
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              0,
+              1,
+              2
+            ],
+            "transmission": [
+              0,
+              1,
+              2
+            ],
+            "drivetrain": [
+              0,
+              1,
+              2
+            ],
+            "year_start": [
+              0,
+              2
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Pickup",
+          "fuel_type": "diesel",
+          "engine": "1.9L turbo",
+          "engine_displacement_l": 1.9,
+          "horsepower_hp": 163,
+          "transmission": "manual",
+          "drivetrain": "RWD",
+          "year_start": 2017,
+          "year_end": 2026,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1,
+              2
+            ],
+            "fuel_type": [
+              0,
+              1,
+              2
+            ],
+            "engine": [
+              0,
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              0,
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              0,
+              1,
+              2
+            ],
+            "transmission": [
+              0,
+              1,
+              2
+            ],
+            "drivetrain": [
+              0,
+              1,
+              2
+            ],
+            "year_start": [
+              0,
+              2
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Pickup",
+          "fuel_type": "diesel",
+          "engine": "2.5L twin turbo",
+          "engine_displacement_l": 2.5,
+          "horsepower_hp": 163,
+          "transmission": "automatic",
+          "drivetrain": "4WD",
+          "year_start": 2012,
+          "year_end": 2017,
+          "support_level": "direct",
+          "source_indexes": [
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              2
+            ],
+            "engine": [
+              2
+            ],
+            "engine_displacement_l": [
+              2
+            ],
+            "horsepower_hp": [
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              2
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Pickup",
+          "fuel_type": "diesel",
+          "engine": "2.5L twin turbo",
+          "engine_displacement_l": 2.5,
+          "horsepower_hp": 163,
+          "transmission": "manual",
+          "drivetrain": "RWD",
+          "year_start": 2012,
+          "year_end": 2017,
+          "support_level": "direct",
+          "source_indexes": [
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              2
+            ],
+            "engine": [
+              2
+            ],
+            "engine_displacement_l": [
+              2
+            ],
+            "horsepower_hp": [
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              2
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Pickup",
+          "fuel_type": "diesel",
+          "engine": "3.0L turbo",
+          "engine_displacement_l": 3.0,
+          "horsepower_hp": 163,
+          "transmission": "automatic",
+          "drivetrain": "4WD",
+          "year_start": 2007,
+          "year_end": 2012,
+          "support_level": "indirect",
+          "source_indexes": [
+            3
+          ],
+          "field_sources": {
+            "body_type": [
+              3
+            ],
+            "fuel_type": [
+              3
+            ],
+            "engine": [
+              3
+            ],
+            "engine_displacement_l": [
+              3
+            ],
+            "horsepower_hp": [
+              3
+            ],
+            "transmission": [
+              3
+            ],
+            "drivetrain": [],
+            "year_start": [
+              3
+            ],
+            "year_end": [
+              3
+            ]
+          },
+          "missing_grounded_fields": [
+            "drivetrain"
+          ]
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "2WD",
+          "classification": "drivetrain"
+        },
+        {
+          "label": "4WD",
+          "classification": "drivetrain"
+        },
+        {
+          "label": "Double Cab",
+          "classification": "body_type"
+        },
+        {
+          "label": "Single Cab",
+          "classification": "body_type"
+        },
+        {
+          "label": "Space Cab",
+          "classification": "body_type"
+        },
+        {
+          "label": "Extended Cab",
+          "classification": "body_type"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Pickup"
+        ],
+        "fuel_type": [
+          "diesel"
+        ],
+        "engine": [
+          "1.9L turbo",
+          "2.5L twin turbo",
+          "3.0L turbo"
+        ],
+        "horsepower_hp": [
+          163
+        ],
+        "transmission": [
+          "automatic",
+          "manual"
+        ],
+        "drivetrain": [
+          "4WD",
+          "RWD"
+        ]
+      },
+      "canonical_model": "D-Max",
+      "profile_confidence": "medium",
+      "year_start": 2007,
+      "year_end": 2026,
+      "validation_issues": [
+        "variant[4] non-null field 'drivetrain' has no field_sources entry",
+        "variant[4] required field 'drivetrain' listed in missing_grounded_fields"
       ]
     }
   ]
