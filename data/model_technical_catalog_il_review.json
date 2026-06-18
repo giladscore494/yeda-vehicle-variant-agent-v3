@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T17:35:55Z",
+  "generated_at": "2026-06-18T17:36:26Z",
   "market": "IL",
   "models": [
     {
@@ -126,6 +126,133 @@
       "canonical_model": "Gladiator",
       "profile_confidence": "medium",
       "year_start": 2020,
+      "year_end": null,
+      "validation_issues": [
+        "variant[0] has no source_indexes",
+        "variant[0] support_level=direct but no source directly supports it"
+      ]
+    },
+    {
+      "make": "KGM",
+      "model": "Tivoli",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "2024 ק.ג.מ (סאנגיונג) טיבולי החדש בישראל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/2024-ק-ג-מ-סאנגיונג-טיבולי-החדש-בישראל-מחיר-החל-מ-138900-שקל",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "year_start",
+            "make",
+            "model",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "body_type",
+            "fuel_type"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "KGM טיבולי - מפרט טכני",
+          "url": "https://www.icar.co.il/KGM/KGM_%D7%98%D7%99%D7%91%D7%95%D7%9C%D7%99/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "year_start",
+            "make",
+            "model",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "body_type",
+            "fuel_type"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Crossover",
+          "fuel_type": "petrol",
+          "engine": "1.5L turbo",
+          "engine_displacement_l": 1.5,
+          "horsepower_hp": 163,
+          "transmission": "6-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2024,
+          "year_end": null,
+          "support_level": "direct",
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Crossover"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "1.5L turbo"
+        ],
+        "horsepower_hp": [
+          163
+        ],
+        "transmission": [
+          "6-speed automatic"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "market": "IL-confirmed",
+      "canonical_model": "Tivoli",
+      "profile_confidence": "medium",
+      "year_start": 2024,
       "year_end": null,
       "validation_issues": [
         "variant[0] has no source_indexes",
