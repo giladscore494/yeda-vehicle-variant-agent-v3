@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-18T17:55:51Z",
+  "generated_at": "2026-06-18T18:18:40Z",
   "market": "IL",
   "mode": "online_selectable_provider",
-  "model_id": "gemini-3.1-pro-preview",
+  "model_id": "gpt-5.4",
   "source_files": [
     "data/validation_variants_data_v1.json",
     "data/validation_instructions_by_id_v1.json"
@@ -139006,6 +139006,264 @@
       "profile_confidence": "medium",
       "year_start": 2024,
       "year_end": null
+    },
+    {
+      "market": "IL-confirmed",
+      "make": "Kia",
+      "model": "EV6",
+      "canonical_model": "EV6",
+      "year_start": 2022,
+      "year_end": null,
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Premium",
+          "body_type": "Crossover",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 229,
+          "transmission": "single_speed",
+          "drivetrain": "RWD",
+          "year_start": 2022,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              2
+            ],
+            "body_type": [
+              3
+            ],
+            "fuel_type": [
+              0,
+              2
+            ],
+            "engine": [
+              0,
+              2
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Premium Top",
+          "body_type": "Crossover",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 229,
+          "transmission": "single_speed",
+          "drivetrain": "RWD",
+          "year_start": 2022,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              2
+            ],
+            "body_type": [
+              3
+            ],
+            "fuel_type": [
+              0,
+              2
+            ],
+            "engine": [
+              0,
+              2
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "GT-Line",
+          "body_type": "Crossover",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 325,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2022,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            3
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              3
+            ],
+            "body_type": [
+              3
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              1,
+              3
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0,
+              1,
+              3
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Premium",
+          "Premium Top",
+          "GT-Line"
+        ],
+        "body_type": [
+          "Crossover"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          229,
+          325
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "RWD",
+          "AWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "GT",
+          "classification": "not sold in Israel / foreign-market performance variant; not an Israeli-market sold trim for EV6 based on sourced Israeli references"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "Kia EV6 catalog PDF",
+          "url": "https://kia-israel.co.il/catalog/EV6_catalog_web.pdf",
+          "source_name": "Kia Israel",
+          "source_type": "official_importer_pdf",
+          "supports": [
+            "version_or_trim",
+            "fuel_type",
+            "engine",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "מידע מקיף ומקצועי על קיה EV6 - אתר iCar",
+          "url": "https://www.icar.co.il/%D7%A7%D7%99%D7%94/%D7%A7%D7%99%D7%94_EV6/%D7%A7%D7%99%D7%94_EV6_%D7%97%D7%93%D7%A9/",
+          "source_name": "iCar",
+          "source_type": "editorial_catalog",
+          "supports": [
+            "horsepower_hp",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "קיה EV6 2026 חשמלי, Premium Top , 2x4",
+          "url": "https://www.auto.co.il/cars/kia/ev6/2026/580026/",
+          "source_name": "Auto",
+          "source_type": "editorial_catalog",
+          "supports": [
+            "version_or_trim",
+            "fuel_type",
+            "engine",
+            "transmission"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "קיה EV6 - מחירון, חוות דעת ומידע טכני | אוטו",
+          "url": "https://www.auto.co.il/cars/kia/ev6/",
+          "source_name": "Auto",
+          "source_type": "editorial_catalog",
+          "supports": [
+            "body_type",
+            "version_or_trim",
+            "horsepower_hp",
+            "drivetrain"
+          ]
+        }
+      ],
+      "profile_confidence": "high",
+      "notes": [
+        "Israeli official importer catalog directly shows the sold Israeli configurations as EV6 Premium RWD, EV6 Premium Top RWD, and EV6 GT-Line AWD.",
+        "No grounded Israeli-market source was found confirming the EV6 GT 585 hp as actually sold in Israel; available Israeli editorial sources explicitly state GT was not offered in Israel.",
+        "engine_displacement_l is null for all rows because EV6 is an electric model and no displacement applies.",
+        "year_end is null for all rows because no Israeli-market source reviewed provided a grounded end-of-sale year."
+      ]
     }
   ],
   "ready_for_website_upload": false
