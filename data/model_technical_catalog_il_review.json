@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T12:17:36Z",
+  "generated_at": "2026-06-18T12:18:08Z",
   "market": "IL",
   "models": [
     {
@@ -1909,6 +1909,47 @@
       "validation_issues": [
         "variant[4] non-null field 'drivetrain' has no field_sources entry",
         "variant[4] required field 'drivetrain' listed in missing_grounded_fields"
+      ]
+    },
+    {
+      "make": "Isuzu",
+      "model": "MU-X",
+      "market": "global-reference-only",
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "איסוזו חושפת MU-X חדש - מתחרה ללנד קרוזר",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%90%D7%99%D7%A1%D7%95%D7%96%D7%95-%D7%97%D7%95%D7%A9%D7%A4%D7%AA-mu-x-%D7%97%D7%93%D7%A9-%D7%9E%D7%AA%D7%97%D7%A8%D7%94-%D7%9C%D7%9C%D7%A0%D7%93-%D7%A7%D7%A8%D7%95%D7%96%D7%A8",
+          "source_name": "Cartube.co.il",
+          "source_type": "editorial",
+          "supports": []
+        },
+        {
+          "source_index": 2,
+          "title": "איסוזו חושפת רכב פנאי חדש - איסוזו מיו-איקס (MU-X)",
+          "url": "https://www.auto.co.il/article/131758-world-news",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial",
+          "supports": []
+        }
+      ],
+      "technical_variants_il": [],
+      "invalid_or_non_trim_labels": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "canonical_model": "MU-X",
+      "profile_confidence": "medium",
+      "year_start": null,
+      "year_end": null,
+      "validation_issues": [
+        "technical_variants_il is empty"
       ]
     }
   ]
