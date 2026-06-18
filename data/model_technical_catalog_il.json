@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T08:38:35Z",
+  "generated_at": "2026-06-18T08:39:13Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -105533,6 +105533,122 @@
         "FWD": "drivetrain"
       },
       "market": "IL-confirmed",
+      "make": "GAC / Aion",
+      "model": "Aion Y",
+      "canonical_model": "Aion Y",
+      "profile_confidence": "medium",
+      "year_start": 2024,
+      "year_end": null
+    },
+    {
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Crossover",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 204,
+          "transmission": "single_speed",
+          "drivetrain": "FWD",
+          "year_start": 2024,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": [],
+          "invalid_or_non_trim_labels": {
+            "Standard": "generic_descriptor"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "החל מ- 179,900 שקל: GAC Aion Y Plus בישראל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/החל-מ-179900-שקל-gac-aion-y-plus-בישראל",
+          "source_name": "Cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "GAC אייון Y - מפרט טכני",
+          "url": "https://www.icar.co.il/gac/gac_אייון_y/gac_אייון_y_חדש/",
+          "source_name": "iCar.co.il",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Crossover"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          204
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "market": "IL",
       "make": "GAC / Aion",
       "model": "Aion Y",
       "canonical_model": "Aion Y",
