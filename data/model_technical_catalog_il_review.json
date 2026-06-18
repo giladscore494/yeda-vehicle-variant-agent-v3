@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T09:09:05Z",
+  "generated_at": "2026-06-18T09:09:31Z",
   "market": "IL",
   "models": [
     {
@@ -4743,6 +4743,185 @@
         "variant[1] required field 'transmission' listed in missing_grounded_fields",
         "variant[2] required website field 'transmission' is null/empty",
         "variant[2] required field 'transmission' listed in missing_grounded_fields"
+      ]
+    },
+    {
+      "market": "IL",
+      "make": "GMC",
+      "model": "Sierra",
+      "canonical_model": "Sierra EV",
+      "year_start": 2025,
+      "year_end": 2025,
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Denali EV",
+          "body_type": "Pickup",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": null,
+          "transmission": null,
+          "drivetrain": null,
+          "year_start": 2025,
+          "year_end": 2025,
+          "support_level": "unknown",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1
+            ],
+            "body_type": [],
+            "fuel_type": [],
+            "engine": [],
+            "engine_displacement_l": [],
+            "horsepower_hp": [],
+            "transmission": [],
+            "drivetrain": [],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Denali EV"
+        ],
+        "body_type": [
+          "Pickup"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Base / SLE / SLT / Denali",
+          "classification": "non_il_raw_hint_unverified"
+        },
+        {
+          "label": "Elevation / AT4 / Denali Edition 1",
+          "classification": "non_il_raw_hint_unverified"
+        },
+        {
+          "label": "Pro / SLE / Elevation / SLT / AT4 / AT4X / Denali / Denali Ultimate",
+          "classification": "non_il_raw_hint_unverified"
+        },
+        {
+          "label": "Work Truck / SLE / SLT / Denali",
+          "classification": "non_il_raw_hint_unverified"
+        },
+        {
+          "label": "Base",
+          "classification": "not_a_trim"
+        },
+        {
+          "label": "Standard",
+          "classification": "not_a_trim"
+        },
+        {
+          "label": "2.7L Turbo",
+          "classification": "engine_not_trim"
+        },
+        {
+          "label": "5.3L V8",
+          "classification": "engine_not_trim"
+        },
+        {
+          "label": "6.2L V8",
+          "classification": "engine_not_trim"
+        },
+        {
+          "label": "3.0L I6 Diesel",
+          "classification": "engine_not_trim"
+        },
+        {
+          "label": "6.6L V8",
+          "classification": "engine_not_trim"
+        },
+        {
+          "label": "6.6L V8 Diesel",
+          "classification": "engine_not_trim"
+        },
+        {
+          "label": "4.3L V6",
+          "classification": "engine_not_trim"
+        },
+        {
+          "label": "4.8L V8",
+          "classification": "engine_not_trim"
+        },
+        {
+          "label": "6.0L V8",
+          "classification": "engine_not_trim"
+        },
+        {
+          "label": "Dual Electric Motors",
+          "classification": "powertrain_not_trim"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "בשבוע הבא: יריד מכוניות מחושמלות בחוצות המפרץ - cartube",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%91%D7%A9%D7%91%D7%95%D7%A2-%D7%94%D7%91%D7%90-%D7%99%D7%A8%D7%99%D7%93-%D7%9E%D7%9B%D7%95%D7%A0%D7%99%D7%95%D7%AA-%D7%9E%D7%97%D7%95%D7%A9%D7%9E%D7%9C%D7%95%D7%AA-%D7%91%D7%97%D7%95%D7%A6%D7%95%D7%AA-%D7%94%D7%9E%D7%A4%D7%A8%D7%A5",
+          "source_name": "cartube",
+          "source_type": "editorial",
+          "supports": [
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "מבצע מכירות בשברולט, קאדילק, פורתינג ומקסוס - ספטמבר 2025 - cartube",
+          "url": "https://www.cartube.co.il/%D7%9E%D7%91%D7%A6%D7%A2%D7%99-%D7%A8%D7%9B%D7%91/%D7%9E%D7%91%D7%A6%D7%A2%D7%99-%D7%A8%D7%9B%D7%91-%D7%97%D7%93%D7%A9/%D7%9E%D7%91%D7%A6%D7%A2-%D7%9E%D7%9B%D7%99%D7%A8%D7%95%D7%AA-%D7%91%D7%A9%D7%91%D7%A8%D7%95%D7%9C%D7%98-%D7%A7%D7%90%D7%93%D7%99%D7%9C%D7%A7-%D7%A4%D7%95%D7%A8%D7%AA%D7%99%D7%A0%D7%92-%D7%95%D7%9E%D7%A7%D7%A1%D7%95%D7%A1-%D7%A1%D7%A4%D7%98%D7%9E%D7%91%D7%A8-2025",
+          "source_name": "cartube",
+          "source_type": "editorial",
+          "supports": [
+            "version_or_trim",
+            "year_end"
+          ]
+        }
+      ],
+      "profile_confidence": "low",
+      "notes": [
+        "Israeli-market web grounding found evidence for GMC Sierra sold in Israel only as the electric Sierra EV Denali during 2025; no grounded Israeli technical-spec source for non-EV GMC Sierra pickup configurations was found.",
+        "Per model-identity rules, EV Sierra is treated as a separate model from petrol/diesel Sierra; therefore ICE/HD Sierra evidence from Chevrolet Silverado or non-GMC sources was not mixed into this GMC Sierra catalog.",
+        "Several technical fields for Sierra EV Denali could not be grounded from Israeli-market sources located in this search pass, so they are returned as null."
+      ],
+      "validation_issues": [
+        "variant[0] non-null field 'body_type' has no field_sources entry",
+        "variant[0] non-null field 'fuel_type' has no field_sources entry",
+        "variant[0] non-null field 'engine' has no field_sources entry",
+        "variant[0] required website field 'horsepower_hp' is null/empty",
+        "variant[0] required website field 'transmission' is null/empty",
+        "variant[0] required website field 'drivetrain' is null/empty",
+        "variant[0] required field 'body_type' listed in missing_grounded_fields",
+        "variant[0] required field 'fuel_type' listed in missing_grounded_fields",
+        "variant[0] required field 'engine' listed in missing_grounded_fields",
+        "variant[0] required field 'horsepower_hp' listed in missing_grounded_fields",
+        "variant[0] required field 'transmission' listed in missing_grounded_fields",
+        "variant[0] required field 'drivetrain' listed in missing_grounded_fields"
       ]
     }
   ]
