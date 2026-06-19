@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-19T15:28:21Z",
+  "generated_at": "2026-06-19T15:29:12Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -154840,6 +154840,206 @@
       "profile_confidence": "medium",
       "year_start": 2011,
       "year_end": 2020
+    },
+    {
+      "make": "Lexus",
+      "model": "ES",
+      "market": "global-reference-only",
+      "sources": [
+        {
+          "source_index": 0,
+          "source_name": "iCar Israel",
+          "title": "לקסוס ES - מחירון רכב, מבחני דרכים ומפרטים טכניים",
+          "url": "https://www.icar.co.il/%D7%9C%D7%A7%D7%A1%D7%95%D7%A1/%D7%9C%D7%A7%D7%A1%D7%95%D7%A1_ES/",
+          "source_type": "israeli_catalog",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "source_name": "Cartube Israel",
+          "title": "לקסוס ES החדשה בישראל - מחיר החל מ- 289,000 שקל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%9C%D7%A7%D7%A1%D7%95%D7%A1-es-%D7%94%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-289-000-%D7%A9%D7%A7%D7%9C",
+          "source_type": "israeli_editorial",
+          "supports": [
+            "version_or_trim",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "fuel_type"
+          ]
+        },
+        {
+          "source_index": 2,
+          "source_name": "Lexus Israel Official",
+          "title": "מפרט טכני לקסוס ES 300h",
+          "url": "https://www.lexus.co.il/models/es",
+          "source_type": "official_importer",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "300h",
+          "body_type": "Sedan",
+          "fuel_type": "hybrid",
+          "engine": "2.5L inline-4",
+          "engine_displacement_l": 2.5,
+          "horsepower_hp": 218,
+          "transmission": "cvt",
+          "drivetrain": "FWD",
+          "year_start": 2018,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1,
+              2
+            ],
+            "body_type": [
+              0,
+              2
+            ],
+            "fuel_type": [
+              0,
+              1,
+              2
+            ],
+            "engine": [
+              0,
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              0,
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              0,
+              1,
+              2
+            ],
+            "transmission": [
+              0,
+              1,
+              2
+            ],
+            "drivetrain": [
+              0,
+              1,
+              2
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0,
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "ES 350",
+          "classification": "unsupported_market_trim"
+        },
+        {
+          "label": "2.5L 2AR-FXE inline-4 hybrid, 200 hp combined",
+          "classification": "engine_or_powertrain_spec"
+        },
+        {
+          "label": "3.5L 2GR-FE V6, 268 hp",
+          "classification": "engine_or_powertrain_spec"
+        },
+        {
+          "label": "3.5L 2GR-FE V6, 272 hp",
+          "classification": "engine_or_powertrain_spec"
+        },
+        {
+          "label": "6-speed automatic",
+          "classification": "transmission_spec"
+        },
+        {
+          "label": "e-CVT",
+          "classification": "transmission_spec"
+        },
+        {
+          "label": "Sedan",
+          "classification": "body_type_label"
+        },
+        {
+          "label": "Hybrid",
+          "classification": "fuel_type_label"
+        },
+        {
+          "label": "Petrol",
+          "classification": "fuel_type_label"
+        },
+        {
+          "label": "FWD",
+          "classification": "drivetrain_label"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "300h"
+        ],
+        "body_type": [
+          "Sedan"
+        ],
+        "fuel_type": [
+          "hybrid"
+        ],
+        "engine": [
+          "2.5L inline-4"
+        ],
+        "horsepower_hp": [
+          218
+        ],
+        "transmission": [
+          "cvt"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "canonical_model": "ES",
+      "profile_confidence": "medium",
+      "year_start": 2018,
+      "year_end": 2024
     }
   ],
   "ready_for_website_upload": false
