@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-19T15:32:29Z",
+  "generated_at": "2026-06-19T15:33:19Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -156269,6 +156269,164 @@
       "profile_confidence": "medium",
       "year_start": 2006,
       "year_end": 2021
+    },
+    {
+      "make": "Lexus",
+      "model": "LBX",
+      "market": "IL-confirmed",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "לקסוס LBX - פנאי שטח היברידי קומפקטי יוקרתי",
+          "url": "https://www.lexus.co.il/new-cars/lbx",
+          "source_name": "Lexus Israel",
+          "source_type": "official_importer",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "לקסוס LBX - מחירון, מפרטים, אמינות וחוות דעת",
+          "url": "https://www.icar.co.il/%D7%9C%D7%A7%D7%A1%D7%95%D7%A1/%D7%9C%D7%A7%D7%A1%D7%95%D7%A1_LBX/%D7%9C%D7%A7%D7%A1%D7%95%D7%A1_LBX_%D7%97%D7%93%D7%A9/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "לקסוס LBX החדש 2024 בישראל - מחיר החל מ-199,990 שקל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%9C%D7%A7%D7%A1%D7%95%D7%A1-lbx-%D7%94%D7%97%D7%93%D7%A9-2024-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-199,990-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Elegant, Elegant Plus, Emotion, Relax, Cool",
+          "body_type": "Crossover",
+          "fuel_type": "hybrid",
+          "engine": "1.5L 3-cylinder",
+          "engine_displacement_l": 1.5,
+          "horsepower_hp": 136,
+          "transmission": "cvt",
+          "drivetrain": "FWD",
+          "year_start": 2024,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              2
+            ],
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              0,
+              1,
+              2
+            ],
+            "engine": [
+              0,
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              0,
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              0,
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": [
+              1,
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "1.5L M15A-FXE 3-cylinder hybrid, 136 hp",
+          "classification": "engine_specifications"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Elegant, Elegant Plus, Emotion, Relax, Cool"
+        ],
+        "body_type": [
+          "Crossover"
+        ],
+        "fuel_type": [
+          "hybrid"
+        ],
+        "engine": [
+          "1.5L 3-cylinder"
+        ],
+        "horsepower_hp": [
+          136
+        ],
+        "transmission": [
+          "cvt"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "canonical_model": "LBX",
+      "profile_confidence": "medium",
+      "year_start": 2024,
+      "year_end": 2024
     }
   ],
   "ready_for_website_upload": false
