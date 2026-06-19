@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-19T15:06:06Z",
+  "generated_at": "2026-06-19T15:06:48Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -148215,6 +148215,146 @@
           "FWD"
         ]
       },
+      "canonical_model": "Lybra",
+      "profile_confidence": "medium",
+      "year_start": 1999,
+      "year_end": 2005
+    },
+    {
+      "model_make": "Lancia",
+      "model_name": "Lybra",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "לנצ'יה ליברה מחירון רכב, מפרט טכני - iCar",
+          "url": "https://www.icar.co.il/lancia/lancia_lybra/",
+          "source_name": "iCar",
+          "source_type": "Israeli car catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "לנצ'יה ליברה (1999-2005) - קטלוג רכב - אוטו",
+          "url": "https://www.auto.co.il/model/lancia-lybra_g1061",
+          "source_name": "Auto.co.il",
+          "source_type": "Israeli car catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "LX",
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "2.0L inline-5",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 154,
+          "transmission": "4-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 1999,
+          "year_end": 2005,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "LX"
+        ],
+        "body_type": [
+          "Sedan"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "2.0L inline-5"
+        ],
+        "horsepower_hp": [
+          154
+        ],
+        "transmission": [
+          "4-speed automatic"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "2.0L inline-5 petrol, 154 hp",
+          "classification": "engine_specification"
+        }
+      ],
+      "market": "IL-confirmed",
+      "make": "Lancia",
+      "model": "Lybra",
       "canonical_model": "Lybra",
       "profile_confidence": "medium",
       "year_start": 1999,
