@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-19T15:02:55Z",
+  "generated_at": "2026-06-19T15:03:47Z",
   "market": "IL",
   "models": [
     {
@@ -4158,6 +4158,86 @@
           ],
           "possible_duplicate_rows": 0,
           "validation_id_count": 1
+        },
+        "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
+      },
+      "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
+      ]
+    },
+    {
+      "market": "IL-confirmed",
+      "make": "Lancia",
+      "model": "Kappa",
+      "canonical_model": "Kappa",
+      "year_start": null,
+      "year_end": null,
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [],
+      "profile_confidence": null,
+      "notes": [],
+      "error": "Gemini catalog client returned non-object JSON",
+      "request_payload": {
+        "task": "build_israeli_model_technical_catalog",
+        "market": "IL-confirmed",
+        "make": "Lancia",
+        "model": "Kappa",
+        "raw_database_values": {
+          "years_seen": [
+            1994,
+            2001
+          ],
+          "trims_seen": [
+            "LS",
+            "LX"
+          ],
+          "engines_seen": [
+            "2.0L 20V inline-5 petrol, 145-155 hp",
+            "2.4L 20V inline-5 petrol, 175 hp"
+          ],
+          "horsepower_seen": [],
+          "transmissions_seen": [
+            "4-speed automatic",
+            "5-speed manual"
+          ],
+          "body_types_seen": [
+            "Sedan"
+          ],
+          "fuel_types_seen": [
+            "Petrol"
+          ],
+          "drivetrains_seen": [
+            "FWD"
+          ]
+        },
+        "sample_validation_ids": [
+          "VAL-001790",
+          "VAL-001791"
+        ],
+        "source_indexes": [
+          2372,
+          2373
+        ],
+        "metadata_hints": {
+          "priorities_seen": [
+            "medium"
+          ],
+          "validation_routes_seen": [
+            "cheap_model_structured_validation"
+          ],
+          "possible_duplicate_rows": 0,
+          "validation_id_count": 2
         },
         "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
       },
