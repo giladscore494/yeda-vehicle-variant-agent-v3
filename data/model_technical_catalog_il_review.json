@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-19T15:07:44Z",
+  "generated_at": "2026-06-19T15:08:31Z",
   "market": "IL",
   "models": [
     {
@@ -4339,6 +4339,87 @@
       "profile_confidence": "medium",
       "year_start": null,
       "year_end": null,
+      "validation_issues": [
+        "technical_variants_il is empty"
+      ]
+    },
+    {
+      "market": "global-reference-only",
+      "make": "Lancia",
+      "model": "Phedra",
+      "canonical_model": "Phedra",
+      "year_start": null,
+      "year_end": null,
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [],
+      "profile_confidence": null,
+      "notes": [],
+      "error": "Extra data: line 13 column 1 (char 236)",
+      "request_payload": {
+        "task": "build_israeli_model_technical_catalog",
+        "market": "global-reference-only",
+        "make": "Lancia",
+        "model": "Phedra",
+        "raw_database_values": {
+          "years_seen": [
+            2002,
+            2010
+          ],
+          "trims_seen": [],
+          "engines_seen": [
+            "2.0L 16V Petrol, 136 hp",
+            "2.2L JTD Turbo Diesel, 128 hp",
+            "3.0L V6 24V Petrol, 204 hp"
+          ],
+          "horsepower_seen": [],
+          "transmissions_seen": [
+            "4-speed automatic",
+            "5-speed manual"
+          ],
+          "body_types_seen": [
+            "Minivan"
+          ],
+          "fuel_types_seen": [
+            "Diesel",
+            "Petrol"
+          ],
+          "drivetrains_seen": [
+            "FWD"
+          ]
+        },
+        "sample_validation_ids": [
+          "VAL-001801",
+          "VAL-001802",
+          "VAL-001803"
+        ],
+        "source_indexes": [
+          2383,
+          2384,
+          2385
+        ],
+        "metadata_hints": {
+          "priorities_seen": [
+            "high"
+          ],
+          "validation_routes_seen": [
+            "strong_model_or_manual_review"
+          ],
+          "possible_duplicate_rows": 0,
+          "validation_id_count": 3
+        },
+        "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
+      },
+      "rebuild_required": true,
       "validation_issues": [
         "technical_variants_il is empty"
       ]
