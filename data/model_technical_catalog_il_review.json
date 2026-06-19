@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-19T14:57:15Z",
+  "generated_at": "2026-06-19T14:57:41Z",
   "market": "IL",
   "models": [
     {
@@ -3928,6 +3928,79 @@
           ],
           "possible_duplicate_rows": 0,
           "validation_id_count": 3
+        },
+        "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
+      },
+      "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
+      ]
+    },
+    {
+      "market": "IL-confirmed",
+      "make": "Lamborghini",
+      "model": "Revuelto",
+      "canonical_model": "Revuelto",
+      "year_start": null,
+      "year_end": null,
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [],
+      "profile_confidence": null,
+      "notes": [],
+      "error": "Extra data: line 120 column 1 (char 2514)",
+      "request_payload": {
+        "task": "build_israeli_model_technical_catalog",
+        "market": "IL-confirmed",
+        "make": "Lamborghini",
+        "model": "Revuelto",
+        "raw_database_values": {
+          "years_seen": [
+            2023,
+            2026
+          ],
+          "trims_seen": [],
+          "engines_seen": [
+            "6.5L V12 Plug-in Hybrid, 1015 hp"
+          ],
+          "horsepower_seen": [],
+          "transmissions_seen": [
+            "8-speed DCT"
+          ],
+          "body_types_seen": [
+            "Coupe"
+          ],
+          "fuel_types_seen": [
+            "Plug-in Hybrid"
+          ],
+          "drivetrains_seen": [
+            "AWD"
+          ]
+        },
+        "sample_validation_ids": [
+          "VAL-001779"
+        ],
+        "source_indexes": [
+          2439
+        ],
+        "metadata_hints": {
+          "priorities_seen": [
+            "high"
+          ],
+          "validation_routes_seen": [
+            "strong_model_or_manual_review"
+          ],
+          "possible_duplicate_rows": 0,
+          "validation_id_count": 1
         },
         "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
       },
