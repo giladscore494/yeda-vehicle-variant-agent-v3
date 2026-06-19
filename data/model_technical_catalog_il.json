@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-19T15:30:49Z",
+  "generated_at": "2026-06-19T15:31:59Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -155642,6 +155642,210 @@
       "profile_confidence": "medium",
       "year_start": 2006,
       "year_end": 2020
+    },
+    {
+      "make": "Lexus",
+      "model": "GX",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "לקסוס GX החדש 2024 נחשף - מגיע לישראל - קארטיוב",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%9C%D7%A7%D7%A1%D7%95%D7%A1-gx-%D7%94%D7%97%D7%93%D7%A9-2024-%D7%A0%D7%97%D7%A9%D7%A3-%D7%9E%D7%92%D7%99%D7%A2-%D7%9C%D7%99%D7%A9%D7%A8%D7%90%D7%9C",
+          "source_name": "Cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "לקסוס GX – רכב השטח הקשוח בדרך לישראל",
+          "url": "https://www.auto.co.il/article/135967-world-news-lexus-gx",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "לקסוס GX - מחירון ומפרטים",
+          "url": "https://www.yad2.co.il/vehicles/lexus/gx",
+          "source_name": "Yad2",
+          "source_type": "marketplace",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "version_or_trim": null,
+          "engine": "4.6L v8",
+          "engine_displacement_l": 4.6,
+          "horsepower_hp": 301,
+          "transmission": "6-speed automatic",
+          "drivetrain": "4WD",
+          "year_start": 2010,
+          "year_end": 2023,
+          "support_level": "direct",
+          "source_indexes": [
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              2
+            ],
+            "version_or_trim": [],
+            "engine": [
+              2
+            ],
+            "engine_displacement_l": [
+              2
+            ],
+            "horsepower_hp": [
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              2
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "version_or_trim": null,
+          "engine": "3.4L v6 twin-turbo",
+          "engine_displacement_l": 3.4,
+          "horsepower_hp": 354,
+          "transmission": "10-speed automatic",
+          "drivetrain": "4WD",
+          "year_start": 2024,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "version_or_trim": [],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "460",
+          "classification": "model_designation"
+        },
+        {
+          "label": "470",
+          "classification": "model_designation"
+        },
+        {
+          "label": "550",
+          "classification": "model_designation"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "4.6L v8",
+          "3.4L v6 twin-turbo"
+        ],
+        "horsepower_hp": [
+          301,
+          354
+        ],
+        "transmission": [
+          "6-speed automatic",
+          "10-speed automatic"
+        ],
+        "drivetrain": [
+          "4WD"
+        ]
+      },
+      "market": "global-reference-only",
+      "canonical_model": "GX",
+      "profile_confidence": "medium",
+      "year_start": 2010,
+      "year_end": null
     }
   ],
   "ready_for_website_upload": false
