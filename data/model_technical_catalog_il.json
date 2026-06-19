@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-19T15:01:57Z",
+  "generated_at": "2026-06-19T15:02:55Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -147294,6 +147294,250 @@
       "profile_confidence": "medium",
       "year_start": 2018,
       "year_end": 2024
+    },
+    {
+      "make": "Lancia",
+      "model": "Delta",
+      "market": "IL-confirmed",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "לנצ'יה דלתא - מפרט טכני",
+          "url": "https://www.icar.co.il/לנצ'יה/לנצ'יה_דלתא/",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "לנצ'יה דלתא החדשה בישראל",
+          "url": "https://www.auto.co.il/model/lancia-delta_g264",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "version_or_trim": null,
+          "engine": "1.4L turbo",
+          "engine_displacement_l": 1.4,
+          "horsepower_hp": 120,
+          "transmission": "6-speed manual",
+          "drivetrain": "FWD",
+          "year_start": 2010,
+          "year_end": 2014,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0
+            ],
+            "version_or_trim": []
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "version_or_trim": null,
+          "engine": "1.4L turbo",
+          "engine_displacement_l": 1.4,
+          "horsepower_hp": 120,
+          "transmission": "6-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2010,
+          "year_end": 2014,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0
+            ],
+            "version_or_trim": []
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "version_or_trim": null,
+          "engine": "1.8L turbo",
+          "engine_displacement_l": 1.8,
+          "horsepower_hp": 200,
+          "transmission": "6-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2010,
+          "year_end": 2014,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0
+            ],
+            "version_or_trim": []
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Hatchback"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "1.4L turbo",
+          "1.8L turbo"
+        ],
+        "horsepower_hp": [
+          120,
+          200
+        ],
+        "transmission": [
+          "6-speed manual",
+          "6-speed automatic"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": {
+        "1.4L T-Jet, 120 hp": "engine_and_horsepower",
+        "1.8L Di T-Jet, 200 hp": "engine_and_horsepower"
+      },
+      "canonical_model": "Delta",
+      "profile_confidence": "medium",
+      "year_start": 2010,
+      "year_end": 2014
     }
   ],
   "ready_for_website_upload": false
