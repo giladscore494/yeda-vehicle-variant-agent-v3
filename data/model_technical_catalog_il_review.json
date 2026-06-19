@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-19T15:00:12Z",
+  "generated_at": "2026-06-19T15:00:52Z",
   "market": "IL",
   "models": [
     {
@@ -4001,6 +4001,90 @@
           ],
           "possible_duplicate_rows": 0,
           "validation_id_count": 1
+        },
+        "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
+      },
+      "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
+      ]
+    },
+    {
+      "market": "IL-confirmed",
+      "make": "Lancia",
+      "model": "Dedra",
+      "canonical_model": "Dedra",
+      "year_start": null,
+      "year_end": null,
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [],
+      "profile_confidence": null,
+      "notes": [],
+      "error": "Extra data: line 136 column 1 (char 3500)",
+      "request_payload": {
+        "task": "build_israeli_model_technical_catalog",
+        "market": "IL-confirmed",
+        "make": "Lancia",
+        "model": "Dedra",
+        "raw_database_values": {
+          "years_seen": [
+            1990,
+            1999
+          ],
+          "trims_seen": [
+            "1.6 i.e.",
+            "1.8 i.e.",
+            "2.0 i.e."
+          ],
+          "engines_seen": [
+            "1.6L inline-4 petrol",
+            "1.8L inline-4 petrol",
+            "2.0L inline-4 petrol"
+          ],
+          "horsepower_seen": [],
+          "transmissions_seen": [
+            "4-speed automatic",
+            "5-speed manual"
+          ],
+          "body_types_seen": [
+            "Sedan"
+          ],
+          "fuel_types_seen": [
+            "Petrol"
+          ],
+          "drivetrains_seen": [
+            "FWD"
+          ]
+        },
+        "sample_validation_ids": [
+          "VAL-001784",
+          "VAL-001785",
+          "VAL-001786"
+        ],
+        "source_indexes": [
+          2369,
+          2370,
+          2371
+        ],
+        "metadata_hints": {
+          "priorities_seen": [
+            "medium"
+          ],
+          "validation_routes_seen": [
+            "cheap_model_structured_validation"
+          ],
+          "possible_duplicate_rows": 0,
+          "validation_id_count": 3
         },
         "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
       },
