@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-19T15:09:48Z",
+  "generated_at": "2026-06-19T15:11:14Z",
   "market": "IL",
   "models": [
     {
@@ -4422,6 +4422,156 @@
       "rebuild_required": true,
       "validation_issues": [
         "technical_variants_il is empty"
+      ]
+    },
+    {
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "לנצ'יה תמא 2011 - 2014, דור 2, סדאן – מפרט טכני",
+          "url": "https://autoboom.co.il/he/catalog/cars/lancia/thema/2-generation/sedan",
+          "source_name": "Autoboom Israel",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "Sedan",
+          "fuel_type": "diesel",
+          "engine": "3.0L v6 turbo",
+          "engine_displacement_l": 3.0,
+          "horsepower_hp": 190,
+          "transmission": "5-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 2011,
+          "year_end": 2014,
+          "version_or_trim": null,
+          "support_level": "direct",
+          "missing_grounded_fields": [],
+          "field_sources": {
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ],
+            "version_or_trim": []
+          }
+        },
+        {
+          "body_type": "Sedan",
+          "fuel_type": "diesel",
+          "engine": "3.0L v6 turbo",
+          "engine_displacement_l": 3.0,
+          "horsepower_hp": 239,
+          "transmission": "5-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 2011,
+          "year_end": 2014,
+          "version_or_trim": null,
+          "support_level": "direct",
+          "missing_grounded_fields": [],
+          "field_sources": {
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ],
+            "version_or_trim": []
+          }
+        }
+      ],
+      "invalid_or_non_trim_labels": {
+        "CRD": "engine_technology"
+      },
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Sedan"
+        ],
+        "fuel_type": [
+          "diesel"
+        ],
+        "engine": [
+          "3.0L v6 turbo"
+        ],
+        "horsepower_hp": [
+          190,
+          239
+        ],
+        "transmission": [
+          "5-speed automatic"
+        ],
+        "drivetrain": [
+          "RWD"
+        ]
+      },
+      "market": "global-reference-only",
+      "make": "Lancia",
+      "model": "Thema",
+      "canonical_model": "Thema",
+      "profile_confidence": "medium",
+      "year_start": 2011,
+      "year_end": 2014,
+      "validation_issues": [
+        "variant[0] has no source_indexes",
+        "variant[0] support_level=direct but no source directly supports it",
+        "variant[1] has no source_indexes",
+        "variant[1] support_level=direct but no source directly supports it"
       ]
     }
   ]
