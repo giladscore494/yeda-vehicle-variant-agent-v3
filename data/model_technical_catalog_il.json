@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-19T15:29:12Z",
+  "generated_at": "2026-06-19T15:29:48Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -155036,6 +155036,141 @@
           "FWD"
         ]
       },
+      "canonical_model": "ES",
+      "profile_confidence": "medium",
+      "year_start": 2018,
+      "year_end": 2024
+    },
+    {
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "לקסוס ES החדשה - רכב סדאן היברידי יוקרתי | לקסוס ישראל",
+          "url": "https://www.lexus.co.il/new-cars/es",
+          "source_name": "Lexus Israel Official",
+          "source_type": "official",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "לקסוס ES - מחירון, מפרטים, אמינות וחוות דעת - iCar",
+          "url": "https://www.icar.co.il/%D7%9C%D7%A7%D7%A1%D7%95%D7%A1/%D7%9C%D7%A7%D7%A1%D7%95%D7%A1_ES_%D7%97%D7%93%D7%A9/",
+          "source_name": "iCar Israel",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "Sedan",
+          "fuel_type": "hybrid",
+          "engine": "2.5L inline-4",
+          "engine_displacement_l": 2.5,
+          "horsepower_hp": 218,
+          "transmission": "cvt",
+          "drivetrain": "FWD",
+          "year_start": 2018,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "ES 300h",
+          "classification": "model/engine designation"
+        },
+        {
+          "label": "218 hp combined",
+          "classification": "horsepower label"
+        },
+        {
+          "label": "2.5L A25A-FXS",
+          "classification": "engine code/displacement"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Sedan"
+        ],
+        "fuel_type": [
+          "hybrid"
+        ],
+        "engine": [
+          "2.5L inline-4"
+        ],
+        "horsepower_hp": [
+          218
+        ],
+        "transmission": [
+          "cvt"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "market": "IL-confirmed",
+      "make": "Lexus",
+      "model": "ES",
       "canonical_model": "ES",
       "profile_confidence": "medium",
       "year_start": 2018,
