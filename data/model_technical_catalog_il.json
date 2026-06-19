@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-19T14:51:24Z",
+  "generated_at": "2026-06-19T14:51:53Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -144804,6 +144804,205 @@
       "profile_confidence": "medium",
       "year_start": 2010,
       "year_end": 2019
+    },
+    {
+      "make": "Kia",
+      "model": "Venga",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "קיה ונגה (2010-2015) - חוות דעת, מחירון ומפרט טכני",
+          "url": "https://www.icar.co.il/%קיה/%קיה_ונגה/%קיה_ונגה_יד_שניה_דגמ1/",
+          "source_name": "iCar",
+          "source_type": "specs/catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "קיה ונגה - מחירון, מפרט טכני וחוות דעת",
+          "url": "https://www.auto.co.il/model/kia-venga_g210",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "1.4L MPI petrol, 90 hp",
+          "classification": "engine_and_horsepower"
+        },
+        {
+          "label": "Mini MPV",
+          "classification": "body_type"
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "EX",
+          "body_type": "MPV",
+          "fuel_type": "petrol",
+          "engine": "1.6L",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 125,
+          "transmission": "4-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2010,
+          "year_end": 2015,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "LX",
+          "body_type": "MPV",
+          "fuel_type": "petrol",
+          "engine": "1.4L",
+          "engine_displacement_l": 1.4,
+          "horsepower_hp": 90,
+          "transmission": "5-speed manual",
+          "drivetrain": "FWD",
+          "year_start": 2010,
+          "year_end": 2015,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "EX",
+          "LX"
+        ],
+        "body_type": [
+          "MPV"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "1.6L",
+          "1.4L"
+        ],
+        "horsepower_hp": [
+          125,
+          90
+        ],
+        "transmission": [
+          "4-speed automatic",
+          "5-speed manual"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "market": "global-reference-only",
+      "canonical_model": "Venga",
+      "profile_confidence": "medium",
+      "year_start": 2010,
+      "year_end": 2015
     }
   ],
   "ready_for_website_upload": false
