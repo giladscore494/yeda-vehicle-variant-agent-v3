@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-19T15:28:03Z",
+  "generated_at": "2026-06-19T15:28:21Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -154705,6 +154705,141 @@
       "profile_confidence": "medium",
       "year_start": 2022,
       "year_end": 2024
+    },
+    {
+      "make": "Lexus",
+      "model": "CT 200h",
+      "market": "IL-confirmed",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "לקסוס CT200h - מפרט טכני - iCar",
+          "url": "https://www.icar.co.il/%D7%9C%D7%A7%D7%A1%D7%95%D7%A1/%D7%9C%D7%A7%D7%A1%D7%95%D7%A1_CT200h/%D7%9C%D7%A7%D7%A1%D7%95%D7%A1_CT200h_%D7%97%D7%93%D7%A9/",
+          "source_name": "iCar",
+          "source_type": "Israeli catalog/spec source",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "לקסוס CT200h בישראל: החל מ-172 אלף שקל - אוטו",
+          "url": "https://www.auto.co.il/article/111816-local-news-lexus-ct200h",
+          "source_name": "Auto.co.il",
+          "source_type": "Israeli editorial source",
+          "supports": [
+            "horsepower_hp",
+            "year_start",
+            "engine",
+            "transmission",
+            "drivetrain"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Hatchback",
+          "fuel_type": "hybrid",
+          "engine": "1.8L",
+          "engine_displacement_l": 1.8,
+          "horsepower_hp": 136,
+          "transmission": "cvt",
+          "drivetrain": "FWD",
+          "year_start": 2011,
+          "year_end": 2020,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Luxury",
+          "classification": "trim_but_not_technical_variant"
+        },
+        {
+          "label": "Premium",
+          "classification": "trim_but_not_technical_variant"
+        },
+        {
+          "label": "F-Sport",
+          "classification": "trim_but_not_technical_variant"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Hatchback"
+        ],
+        "fuel_type": [
+          "hybrid"
+        ],
+        "engine": [
+          "1.8L"
+        ],
+        "horsepower_hp": [
+          136
+        ],
+        "transmission": [
+          "cvt"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "canonical_model": "CT 200h",
+      "profile_confidence": "medium",
+      "year_start": 2011,
+      "year_end": 2020
     }
   ],
   "ready_for_website_upload": false
