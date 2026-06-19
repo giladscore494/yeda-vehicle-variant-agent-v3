@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-19T14:51:53Z",
+  "generated_at": "2026-06-19T14:52:46Z",
   "market": "IL",
   "models": [
     {
@@ -3847,6 +3847,93 @@
         "variant[7] required website field 'drivetrain' is null/empty",
         "variant[7] required field 'body_type' listed in missing_grounded_fields",
         "variant[7] required field 'drivetrain' listed in missing_grounded_fields"
+      ]
+    },
+    {
+      "market": "IL-confirmed",
+      "make": "Kia",
+      "model": "XCeed",
+      "canonical_model": "XCeed",
+      "year_start": null,
+      "year_end": null,
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [],
+      "profile_confidence": null,
+      "notes": [],
+      "error": "Gemini catalog client returned non-object JSON",
+      "request_payload": {
+        "task": "build_israeli_model_technical_catalog",
+        "market": "IL-confirmed",
+        "make": "Kia",
+        "model": "XCeed",
+        "raw_database_values": {
+          "years_seen": [
+            2019,
+            2021,
+            2026
+          ],
+          "trims_seen": [
+            "Premium"
+          ],
+          "engines_seen": [
+            "1.4L T-GDI petrol, 140 hp",
+            "1.5L T-GDI petrol, 160 hp",
+            "1.6L GDI PHEV, 141 hp"
+          ],
+          "horsepower_seen": [],
+          "transmissions_seen": [
+            "6-speed DCT",
+            "7-speed DCT"
+          ],
+          "body_types_seen": [
+            "Crossover"
+          ],
+          "fuel_types_seen": [
+            "Mild Hybrid",
+            "Petrol",
+            "Plug-in Hybrid"
+          ],
+          "drivetrains_seen": [
+            "FWD"
+          ]
+        },
+        "sample_validation_ids": [
+          "VAL-001756",
+          "VAL-001757",
+          "VAL-001758"
+        ],
+        "source_indexes": [
+          1487,
+          1488,
+          1489
+        ],
+        "metadata_hints": {
+          "priorities_seen": [
+            "high",
+            "low"
+          ],
+          "validation_routes_seen": [
+            "deterministic_or_skip_ai",
+            "strong_model_or_manual_review"
+          ],
+          "possible_duplicate_rows": 0,
+          "validation_id_count": 3
+        },
+        "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
+      },
+      "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
       ]
     }
   ]
