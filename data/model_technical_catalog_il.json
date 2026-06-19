@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-19T14:48:33Z",
+  "generated_at": "2026-06-19T14:49:17Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -143371,6 +143371,734 @@
       "profile_confidence": "medium",
       "year_start": 2010,
       "year_end": 2019
+    },
+    {
+      "task": "build_israeli_model_technical_catalog",
+      "market": "IL-confirmed",
+      "make": "Kia",
+      "model": "Sportage",
+      "sources": [
+        {
+          "source_index": 1503,
+          "title": "מפרט טכני קיה ספורטאז' - Kia Sportage (Official Specs)",
+          "url": "https://kia-israel.co.il/models/sportage",
+          "source_name": "Kia Israel Official",
+          "source_type": "official_importer",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "trim"
+          ]
+        },
+        {
+          "source_index": 1504,
+          "title": "קיה ספורטאז' החדש 2022 - מפרט טכני מלא",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%A7%D7%99%D7%94-%D7%A1%D7%A4%D7%95%D7%A8%D7%98%D7%90%D7%96-%D7%94%D7%97%D7%93%D7%A9-2022-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-164900-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1505,
+          "title": "קיה ספורטאז' 2016-2021 (דור 4) מפרט טכני",
+          "url": "https://www.auto.co.il/model/kia-sportage_g830",
+          "source_name": "Auto.co.il",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1506,
+          "title": "קיה ספורטאז' PHEV בישראל",
+          "url": "https://www.gear.co.il/%D7%9B%D7%AA%D7%91%D7%95%D7%AA_%D7%A8%D7%9B%D7%91/2023-01-23-N01-%D7%A7%D7%99%D7%94-%D7%A1%D7%A4%D7%95%D7%A8%D7%98%D7%90%D7%96-%D7%A4%D7%9C%D7%90%D7%92-%D7%90%D7%99%D7%9F-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C",
+          "source_name": "Gear.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1507,
+          "title": "מחירון רכב קיה ספורטאז' 2011-2015",
+          "url": "https://www.yad2.co.il/vehicles/prices/kia/sportage",
+          "source_name": "Yad2",
+          "source_type": "marketplace",
+          "supports": [
+            "year_start",
+            "year_end",
+            "horsepower_hp",
+            "engine",
+            "drivetrain"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "2.0L",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 163,
+          "transmission": "6-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2010,
+          "year_end": 2015,
+          "support_level": "direct",
+          "source_indexes": [
+            1507
+          ],
+          "field_sources": {
+            "body_type": [
+              1507
+            ],
+            "fuel_type": [
+              1507
+            ],
+            "engine": [
+              1507
+            ],
+            "engine_displacement_l": [
+              1507
+            ],
+            "horsepower_hp": [
+              1507
+            ],
+            "transmission": [
+              1507
+            ],
+            "drivetrain": [
+              1507
+            ],
+            "year_start": [
+              1507
+            ],
+            "year_end": [
+              1507
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "2.0L",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 166,
+          "transmission": "6-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2010,
+          "year_end": 2015,
+          "support_level": "direct",
+          "source_indexes": [
+            1507
+          ],
+          "field_sources": {
+            "body_type": [
+              1507
+            ],
+            "fuel_type": [
+              1507
+            ],
+            "engine": [
+              1507
+            ],
+            "engine_displacement_l": [
+              1507
+            ],
+            "horsepower_hp": [
+              1507
+            ],
+            "transmission": [
+              1507
+            ],
+            "drivetrain": [
+              1507
+            ],
+            "year_start": [
+              1507
+            ],
+            "year_end": [
+              1507
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "1.6L gdi",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 135,
+          "transmission": "6-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2015,
+          "year_end": 2016,
+          "support_level": "direct",
+          "source_indexes": [
+            1505,
+            1507
+          ],
+          "field_sources": {
+            "body_type": [
+              1505,
+              1507
+            ],
+            "fuel_type": [
+              1505,
+              1507
+            ],
+            "engine": [
+              1505,
+              1507
+            ],
+            "engine_displacement_l": [
+              1505,
+              1507
+            ],
+            "horsepower_hp": [
+              1505,
+              1507
+            ],
+            "transmission": [
+              1505,
+              1507
+            ],
+            "drivetrain": [
+              1505,
+              1507
+            ],
+            "year_start": [
+              1505,
+              1507
+            ],
+            "year_end": [
+              1505,
+              1507
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "1.6L gdi",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 132,
+          "transmission": "6-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2016,
+          "year_end": 2021,
+          "support_level": "direct",
+          "source_indexes": [
+            1505
+          ],
+          "field_sources": {
+            "body_type": [
+              1505
+            ],
+            "fuel_type": [
+              1505
+            ],
+            "engine": [
+              1505
+            ],
+            "engine_displacement_l": [
+              1505
+            ],
+            "horsepower_hp": [
+              1505
+            ],
+            "transmission": [
+              1505
+            ],
+            "drivetrain": [
+              1505
+            ],
+            "year_start": [
+              1505
+            ],
+            "year_end": [
+              1505
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "2.0L mpi",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 155,
+          "transmission": "6-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2016,
+          "year_end": 2021,
+          "support_level": "direct",
+          "source_indexes": [
+            1505
+          ],
+          "field_sources": {
+            "body_type": [
+              1505
+            ],
+            "fuel_type": [
+              1505
+            ],
+            "engine": [
+              1505
+            ],
+            "engine_displacement_l": [
+              1505
+            ],
+            "horsepower_hp": [
+              1505
+            ],
+            "transmission": [
+              1505
+            ],
+            "drivetrain": [
+              1505
+            ],
+            "year_start": [
+              1505
+            ],
+            "year_end": [
+              1505
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "1.6L turbo",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 177,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "FWD",
+          "year_start": 2016,
+          "year_end": 2021,
+          "support_level": "direct",
+          "source_indexes": [
+            1505
+          ],
+          "field_sources": {
+            "body_type": [
+              1505
+            ],
+            "fuel_type": [
+              1505
+            ],
+            "engine": [
+              1505
+            ],
+            "engine_displacement_l": [
+              1505
+            ],
+            "horsepower_hp": [
+              1505
+            ],
+            "transmission": [
+              1505
+            ],
+            "drivetrain": [
+              1505
+            ],
+            "year_start": [
+              1505
+            ],
+            "year_end": [
+              1505
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "1.6L turbo",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 150,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "FWD",
+          "year_start": 2022,
+          "year_end": 2023,
+          "support_level": "direct",
+          "source_indexes": [
+            1503,
+            1504
+          ],
+          "field_sources": {
+            "body_type": [
+              1503,
+              1504
+            ],
+            "fuel_type": [
+              1503,
+              1504
+            ],
+            "engine": [
+              1503,
+              1504
+            ],
+            "engine_displacement_l": [
+              1503,
+              1504
+            ],
+            "horsepower_hp": [
+              1503,
+              1504
+            ],
+            "transmission": [
+              1503,
+              1504
+            ],
+            "drivetrain": [
+              1503,
+              1504
+            ],
+            "year_start": [
+              1503,
+              1504
+            ],
+            "year_end": [
+              1503,
+              1504
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "SUV",
+          "fuel_type": "mild_hybrid",
+          "engine": "1.6L turbo",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 160,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "FWD",
+          "year_start": 2024,
+          "year_end": 2026,
+          "support_level": "direct",
+          "source_indexes": [
+            1503
+          ],
+          "field_sources": {
+            "body_type": [
+              1503
+            ],
+            "fuel_type": [
+              1503
+            ],
+            "engine": [
+              1503
+            ],
+            "engine_displacement_l": [
+              1503
+            ],
+            "horsepower_hp": [
+              1503
+            ],
+            "transmission": [
+              1503
+            ],
+            "drivetrain": [
+              1503
+            ],
+            "year_start": [
+              1503
+            ],
+            "year_end": [
+              1503
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "1.6L turbo",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 180,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "FWD",
+          "year_start": 2022,
+          "year_end": 2023,
+          "support_level": "direct",
+          "source_indexes": [
+            1504
+          ],
+          "field_sources": {
+            "body_type": [
+              1504
+            ],
+            "fuel_type": [
+              1504
+            ],
+            "engine": [
+              1504
+            ],
+            "engine_displacement_l": [
+              1504
+            ],
+            "horsepower_hp": [
+              1504
+            ],
+            "transmission": [
+              1504
+            ],
+            "drivetrain": [
+              1504
+            ],
+            "year_start": [
+              1504
+            ],
+            "year_end": [
+              1504
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "2.0L",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 156,
+          "transmission": "6-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2022,
+          "year_end": 2026,
+          "support_level": "direct",
+          "source_indexes": [
+            1503,
+            1504
+          ],
+          "field_sources": {
+            "body_type": [
+              1503,
+              1504
+            ],
+            "fuel_type": [
+              1503,
+              1504
+            ],
+            "engine": [
+              1503,
+              1504
+            ],
+            "engine_displacement_l": [
+              1503,
+              1504
+            ],
+            "horsepower_hp": [
+              1503,
+              1504
+            ],
+            "transmission": [
+              1503,
+              1504
+            ],
+            "drivetrain": [
+              1503,
+              1504
+            ],
+            "year_start": [
+              1503,
+              1504
+            ],
+            "year_end": [
+              1503,
+              1504
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "SUV",
+          "fuel_type": "hybrid",
+          "engine": "1.6L turbo",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 230,
+          "transmission": "6-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2022,
+          "year_end": 2026,
+          "support_level": "direct",
+          "source_indexes": [
+            1503,
+            1504
+          ],
+          "field_sources": {
+            "body_type": [
+              1503,
+              1504
+            ],
+            "fuel_type": [
+              1503,
+              1504
+            ],
+            "engine": [
+              1503,
+              1504
+            ],
+            "engine_displacement_l": [
+              1503,
+              1504
+            ],
+            "horsepower_hp": [
+              1503,
+              1504
+            ],
+            "transmission": [
+              1503,
+              1504
+            ],
+            "drivetrain": [
+              1503,
+              1504
+            ],
+            "year_start": [
+              1503,
+              1504
+            ],
+            "year_end": [
+              1503,
+              1504
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "SUV",
+          "fuel_type": "plug_in_hybrid",
+          "engine": "1.6L turbo",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 265,
+          "transmission": "6-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2023,
+          "year_end": 2026,
+          "support_level": "direct",
+          "source_indexes": [
+            1503,
+            1506
+          ],
+          "field_sources": {
+            "body_type": [
+              1503,
+              1506
+            ],
+            "fuel_type": [
+              1503,
+              1506
+            ],
+            "engine": [
+              1503,
+              1506
+            ],
+            "engine_displacement_l": [
+              1503,
+              1506
+            ],
+            "horsepower_hp": [
+              1503,
+              1506
+            ],
+            "transmission": [
+              1503,
+              1506
+            ],
+            "drivetrain": [
+              1503,
+              1506
+            ],
+            "year_start": [
+              1503,
+              1506
+            ],
+            "year_end": [
+              1503,
+              1506
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "petrol",
+          "mild_hybrid",
+          "hybrid",
+          "plug_in_hybrid"
+        ],
+        "engine": [
+          "2.0L",
+          "1.6L gdi",
+          "2.0L mpi",
+          "1.6L turbo"
+        ],
+        "horsepower_hp": [
+          163,
+          166,
+          135,
+          132,
+          155,
+          177,
+          150,
+          160,
+          180,
+          156,
+          230,
+          265
+        ],
+        "transmission": [
+          "6-speed automatic",
+          "7-speed dual_clutch"
+        ],
+        "drivetrain": [
+          "FWD",
+          "AWD"
+        ]
+      },
+      "canonical_model": "Sportage",
+      "profile_confidence": "medium",
+      "year_start": 2010,
+      "year_end": 2026
     }
   ],
   "ready_for_website_upload": false
