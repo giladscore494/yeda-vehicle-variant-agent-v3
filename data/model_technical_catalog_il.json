@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T21:09:06Z",
+  "generated_at": "2026-06-20T21:09:43Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -182882,6 +182882,142 @@
       "profile_confidence": "medium",
       "year_start": 2023,
       "year_end": 2024
+    },
+    {
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "סטיישן חשמלית ראשונה בישראל: 2023 MG5 בישראל - מחיר החל מ- 163,999 שקל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%A1%D7%98%D7%99%D7%99%D7%A9%D7%9F-%D7%97%D7%A9%D7%9E%D7%9C%D7%99%D7%AA-%D7%A8%D7%90%D7%A9%D7%95%D7%A0%D7%94-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-2023-mg5-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-163-999-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "year_start",
+            "body_type",
+            "horsepower_hp",
+            "drivetrain",
+            "fuel_type",
+            "transmission",
+            "engine",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "MG5 - רכב סטיישן חשמלי",
+          "url": "https://mg-israel.co.il/models/mg5/",
+          "source_name": "MG Israel (Lubinski)",
+          "source_type": "official_importer",
+          "supports": [
+            "body_type",
+            "horsepower_hp",
+            "fuel_type",
+            "transmission",
+            "engine",
+            "version_or_trim",
+            "drivetrain"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Luxury",
+          "body_type": "Estate",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 156,
+          "transmission": "single_speed",
+          "drivetrain": "FWD",
+          "year_start": 2023,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "156 hp single electric motor (61.1 kWh battery)",
+          "classification": "engine_or_spec_description"
+        },
+        {
+          "label": "Station Wagon",
+          "classification": "body_type_label"
+        },
+        {
+          "label": "Single-speed EV",
+          "classification": "transmission_label"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Luxury"
+        ],
+        "body_type": [
+          "Estate"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          156
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "market": "IL-confirmed",
+      "make": "MG",
+      "model": "MG5",
+      "canonical_model": "MG5",
+      "profile_confidence": "medium",
+      "year_start": 2023,
+      "year_end": null
     }
   ],
   "ready_for_website_upload": false
