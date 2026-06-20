@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T16:34:00Z",
+  "generated_at": "2026-06-20T16:34:44Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -161801,6 +161801,166 @@
       "canonical_model": "Quattroporte",
       "profile_confidence": "medium",
       "year_start": 2013,
+      "year_end": 2024
+    },
+    {
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "מקסוס איוניק 5 בישראל - מחיר החל מ- 198,194 שקלים",
+          "url": "https://www.cartube.co.il/%חדשות-רכב/מקסוס-איוניק-5-בישראל-מחיר-החל-מ-198194-שקלים",
+          "source_name": "Cartube Israel",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "מקסוס Euniq 5 - מחירון רכב, מבחני דרכים ומפרטים טכניים",
+          "url": "https://www.icar.co.il/%D7%9E%D7%A7%D7%A1%D7%95%D7%A1/%D7%9E%D7%A7%D7%A1%D7%95%D7%A1_Euniq_5/%D7%9E%D7%A7%D7%A1%D7%95%D7%A1_Euniq_5_%D7%97%D7%93%D7%A9/",
+          "source_name": "iCar Israel",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "Maxus Euniq 5 - Official Page",
+          "url": "https://www.maxus.co.il/models/euniq-5/",
+          "source_name": "Maxus Israel (China Motors)",
+          "source_type": "official_importer",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "MPV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 177,
+          "transmission": "single_speed",
+          "drivetrain": "FWD",
+          "year_start": 2021,
+          "year_end": 2024,
+          "version_or_trim": null,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2,
+            3
+          ],
+          "field_sources": {
+            "body_type": [
+              1,
+              2,
+              3
+            ],
+            "fuel_type": [
+              1,
+              2,
+              3
+            ],
+            "engine": [
+              1,
+              2,
+              3
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              1,
+              2,
+              3
+            ],
+            "transmission": [
+              1,
+              2,
+              3
+            ],
+            "drivetrain": [
+              1,
+              2,
+              3
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": [
+              2
+            ],
+            "version_or_trim": []
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "52.5 kWh battery",
+          "classification": "battery_capacity"
+        },
+        {
+          "label": "70 kWh battery",
+          "classification": "battery_capacity"
+        },
+        {
+          "label": "Electric Motor",
+          "classification": "engine_type"
+        },
+        {
+          "label": "single-speed EV",
+          "classification": "transmission_type"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "MPV"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          177
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "market": "IL-confirmed",
+      "make": "Maxus",
+      "model": "Euniq 5",
+      "canonical_model": "Euniq 5",
+      "profile_confidence": "medium",
+      "year_start": 2021,
       "year_end": 2024
     }
   ],
