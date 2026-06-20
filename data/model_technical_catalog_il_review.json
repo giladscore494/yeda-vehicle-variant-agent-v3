@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T20:37:46Z",
+  "generated_at": "2026-06-20T20:38:24Z",
   "market": "IL",
   "models": [
     {
@@ -2376,6 +2376,282 @@
         "variant[19] version_or_trim '280' is a engine_size, not a trim",
         "variant[20] version_or_trim '320' is a engine_size, not a trim",
         "variant[21] version_or_trim '350' is a engine_size, not a trim"
+      ]
+    },
+    {
+      "make": "Mercedes-Benz",
+      "model": "EQA",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "מרצדס EQA - מחירון, מפרטים, אבזור",
+          "url": "https://www.icar.co.il/mercedes-benz/mercedes-benz_eqa/",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "Mercedes-Benz EQA מפרט טכני",
+          "url": "https://www.mercedes-benz.co.il/models/eqa/",
+          "source_name": "Mercedes-Benz Israel",
+          "source_type": "official_importer",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "מרצדס EQA החשמלי בישראל - מחיר החל מ- 289,900 שקלים",
+          "url": "https://www.cartube.co.il/חדשות-רכב/מרצדס-eqa-החשמלי-בישראל-מחיר-החל-מ-299900-שקלים",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "version_or_trim",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "250",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 190,
+          "transmission": "single_speed",
+          "drivetrain": "FWD",
+          "year_start": 2021,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1,
+              2
+            ],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1,
+              2
+            ],
+            "transmission": [
+              0,
+              1,
+              2
+            ],
+            "drivetrain": [
+              0,
+              1,
+              2
+            ],
+            "year_start": [
+              0,
+              2
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "250+",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 190,
+          "transmission": "single_speed",
+          "drivetrain": "FWD",
+          "year_start": 2022,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "300 4MATIC",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 228,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2021,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Dual electric motors, 228 hp (168 kW), 66.5 kWh battery",
+          "classification": "engine_description"
+        },
+        {
+          "label": "Single electric motor, 190 hp (140 kW), 66.5 kWh battery",
+          "classification": "engine_description"
+        },
+        {
+          "label": "Single electric motor, 190 hp (140 kW), 70.5 kWh battery",
+          "classification": "engine_description"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "250",
+          "250+",
+          "300 4MATIC"
+        ],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          190,
+          228
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "FWD",
+          "AWD"
+        ]
+      },
+      "market": "IL-confirmed",
+      "canonical_model": "EQA",
+      "profile_confidence": "medium",
+      "year_start": 2021,
+      "year_end": 2024,
+      "validation_issues": [
+        "variant[0] version_or_trim '250' is a engine_size, not a trim"
       ]
     }
   ]
