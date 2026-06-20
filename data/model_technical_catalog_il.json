@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T21:12:05Z",
+  "generated_at": "2026-06-20T21:12:49Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -183467,6 +183467,190 @@
       "profile_confidence": "medium",
       "year_start": 2018,
       "year_end": 2021
+    },
+    {
+      "make": "MG",
+      "model": "ZS",
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "MG ZS מפרט טכני, מחירון, והנחות",
+          "url": "https://www.icar.co.il/mg/mg_zs/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "MG ZS החדש 2025 בישראל - מחירון החל מ-155,888 שקלים",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/mg-zs-%D7%94%D7%97%D7%93%D7%A9-2025-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Net Up",
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "1.0L turbo",
+          "engine_displacement_l": 1.0,
+          "horsepower_hp": 111,
+          "transmission": "6-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2018,
+          "year_end": 2023,
+          "support_level": "direct",
+          "source_indexes": [
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1
+            ],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "hybrid",
+          "engine": "1.5L hybrid",
+          "engine_displacement_l": 1.5,
+          "horsepower_hp": 196,
+          "transmission": "3-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2024,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              2
+            ],
+            "engine": [
+              2
+            ],
+            "engine_displacement_l": [
+              2
+            ],
+            "horsepower_hp": [
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              2
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "1.0",
+          "classification": "engine_displacement"
+        },
+        {
+          "label": "1.5L e:HEV hybrid",
+          "classification": "engine_info"
+        },
+        {
+          "label": "196 hp",
+          "classification": "horsepower"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Net Up"
+        ],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "petrol",
+          "hybrid"
+        ],
+        "engine": [
+          "1.0L turbo",
+          "1.5L hybrid"
+        ],
+        "horsepower_hp": [
+          111,
+          196
+        ],
+        "transmission": [
+          "6-speed automatic",
+          "3-speed automatic"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "market": "IL-likely",
+      "canonical_model": "ZS",
+      "profile_confidence": "medium",
+      "year_start": 2018,
+      "year_end": null
     }
   ],
   "ready_for_website_upload": false
