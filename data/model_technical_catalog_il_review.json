@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T20:42:05Z",
+  "generated_at": "2026-06-20T20:43:13Z",
   "market": "IL",
   "models": [
     {
@@ -2889,6 +2889,500 @@
         "variant[1] support_level=direct but no source directly supports it",
         "variant[2] has no source_indexes",
         "variant[2] support_level=direct but no source directly supports it"
+      ]
+    },
+    {
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "מרצדס EQE בישראל - מחיר החל מ- 499,900 שקל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/מרצדס-eqe-בישראל-מחיר-החל-מ-499-900-שקל",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "version_or_trim",
+            "horsepower_hp",
+            "drivetrain",
+            "year_start",
+            "fuel_type",
+            "body_type",
+            "engine"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "מרצדס EQE מקבלת גרסת בסיס חדשה - EQE 300 - מחיר מ-470 אלף שקל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/מרצדס-eqe-מקבלת-גרסת-בסיס-חדשה-eqe-300-מחיר-מ-470-אלף-שקל",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "version_or_trim",
+            "horsepower_hp",
+            "drivetrain",
+            "year_start",
+            "fuel_type",
+            "body_type",
+            "engine"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "מרצדס EQE SUV החדש 2023 בישראל - מחירים החל מ-869,900 שקל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/מרצדס-eqe-suv-החדש-2023-בישראל-מחירים-החל-מ-869-900-שקל",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "version_or_trim",
+            "horsepower_hp",
+            "drivetrain",
+            "year_start",
+            "fuel_type",
+            "body_type",
+            "engine"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "מרצדס EQE החדשה - מחירון, מפרטים, ואביזרים",
+          "url": "https://www.icar.co.il/מרצדס/מרצדס_EQE/",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "transmission",
+            "engine",
+            "fuel_type",
+            "horsepower_hp",
+            "drivetrain",
+            "body_type",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 4,
+          "title": "מרצדס EQE SUV החדש - מחירון, מפרטים, ואביזרים",
+          "url": "https://www.icar.co.il/מרצדס/מרצדס_EQE_SUV/",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "transmission",
+            "engine",
+            "fuel_type",
+            "horsepower_hp",
+            "drivetrain",
+            "body_type",
+            "version_or_trim"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "Sedan",
+          "version_or_trim": "300",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 245,
+          "transmission": "single_speed",
+          "drivetrain": "RWD",
+          "year_start": 2022,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            3
+          ],
+          "field_sources": {
+            "body_type": [
+              1,
+              3
+            ],
+            "version_or_trim": [
+              1,
+              3
+            ],
+            "fuel_type": [
+              1,
+              3
+            ],
+            "engine": [
+              1,
+              3
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              1,
+              3
+            ],
+            "transmission": [
+              3
+            ],
+            "drivetrain": [
+              1,
+              3
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Sedan",
+          "version_or_trim": "350+",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 292,
+          "transmission": "single_speed",
+          "drivetrain": "RWD",
+          "year_start": 2022,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            3
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              3
+            ],
+            "version_or_trim": [
+              0,
+              3
+            ],
+            "fuel_type": [
+              0,
+              3
+            ],
+            "engine": [
+              0,
+              3
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              3
+            ],
+            "transmission": [
+              3
+            ],
+            "drivetrain": [
+              0,
+              3
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Sedan",
+          "version_or_trim": "AMG 43 4MATIC",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 476,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2022,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            3
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              3
+            ],
+            "version_or_trim": [
+              0,
+              3
+            ],
+            "fuel_type": [
+              0,
+              3
+            ],
+            "engine": [
+              0,
+              3
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              3
+            ],
+            "transmission": [
+              3
+            ],
+            "drivetrain": [
+              0,
+              3
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "SUV",
+          "version_or_trim": "300",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 245,
+          "transmission": "single_speed",
+          "drivetrain": "RWD",
+          "year_start": 2023,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            2,
+            4
+          ],
+          "field_sources": {
+            "body_type": [
+              2,
+              4
+            ],
+            "version_or_trim": [
+              2,
+              4
+            ],
+            "fuel_type": [
+              2,
+              4
+            ],
+            "engine": [
+              2,
+              4
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              2,
+              4
+            ],
+            "transmission": [
+              4
+            ],
+            "drivetrain": [
+              2,
+              4
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "SUV",
+          "version_or_trim": "350 4MATIC",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 292,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2023,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            2,
+            4
+          ],
+          "field_sources": {
+            "body_type": [
+              2,
+              4
+            ],
+            "version_or_trim": [
+              2,
+              4
+            ],
+            "fuel_type": [
+              2,
+              4
+            ],
+            "engine": [
+              2,
+              4
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              2,
+              4
+            ],
+            "transmission": [
+              4
+            ],
+            "drivetrain": [
+              2,
+              4
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "SUV",
+          "version_or_trim": "500 4MATIC",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 408,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2023,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            2,
+            4
+          ],
+          "field_sources": {
+            "body_type": [
+              2,
+              4
+            ],
+            "version_or_trim": [
+              2,
+              4
+            ],
+            "fuel_type": [
+              2,
+              4
+            ],
+            "engine": [
+              2,
+              4
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              2,
+              4
+            ],
+            "transmission": [
+              4
+            ],
+            "drivetrain": [
+              2,
+              4
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "SUV",
+          "version_or_trim": "AMG 43 4MATIC",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 476,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2023,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            2,
+            4
+          ],
+          "field_sources": {
+            "body_type": [
+              2,
+              4
+            ],
+            "version_or_trim": [
+              2,
+              4
+            ],
+            "fuel_type": [
+              2,
+              4
+            ],
+            "engine": [
+              2,
+              4
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              2,
+              4
+            ],
+            "transmission": [
+              4
+            ],
+            "drivetrain": [
+              2,
+              4
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "300",
+          "350+",
+          "AMG 43 4MATIC",
+          "350 4MATIC",
+          "500 4MATIC"
+        ],
+        "body_type": [
+          "Sedan",
+          "SUV"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          245,
+          292,
+          476,
+          408
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "RWD",
+          "AWD"
+        ]
+      },
+      "market": "IL-confirmed",
+      "make": "Mercedes-Benz",
+      "model": "EQE",
+      "canonical_model": "EQE",
+      "profile_confidence": "medium",
+      "year_start": 2022,
+      "year_end": null,
+      "validation_issues": [
+        "variant[0] version_or_trim '300' is a engine_size, not a trim",
+        "variant[3] version_or_trim '300' is a engine_size, not a trim"
       ]
     }
   ]
