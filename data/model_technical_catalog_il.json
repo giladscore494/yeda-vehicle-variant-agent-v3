@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T21:35:14Z",
+  "generated_at": "2026-06-20T21:35:50Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -189521,6 +189521,126 @@
       "profile_confidence": "medium",
       "year_start": 1993,
       "year_end": 2008
+    },
+    {
+      "task": "build_israeli_model_technical_catalog",
+      "market": "IL-confirmed",
+      "make": "Mitsubishi",
+      "model": "i-MiEV",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "מיצובישי i-MiEV - מחירון רכב, מבחני דרכים, הנחות ומבצעים | אוטו",
+          "url": "https://www.auto.co.il/model/mitsubishi-i-miev",
+          "source_name": "Auto.co.il",
+          "source_type": "israeli_editorial_and_catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "מיצובישי i-MiEV בישראל במחיר של 140,000 שקל - קארטיוב",
+          "url": "https://www.cartube.co.il/חדשות-רכב/מיצובישי-i-miev-בישראל",
+          "source_name": "Cartube.co.il",
+          "source_type": "israeli_editorial_and_catalog",
+          "supports": [
+            "year_start",
+            "horsepower_hp",
+            "fuel_type",
+            "transmission",
+            "body_type",
+            "engine"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Hatchback",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 64,
+          "transmission": "single_speed",
+          "drivetrain": "RWD",
+          "year_start": 2011,
+          "year_end": 2015,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": {},
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Hatchback"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          64
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "RWD"
+        ]
+      },
+      "canonical_model": "i-MiEV",
+      "profile_confidence": "medium",
+      "year_start": 2011,
+      "year_end": 2015
     }
   ],
   "ready_for_website_upload": false
