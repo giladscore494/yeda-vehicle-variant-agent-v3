@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T20:38:24Z",
+  "generated_at": "2026-06-20T20:39:20Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -175041,6 +175041,210 @@
       "profile_confidence": "medium",
       "year_start": 2009,
       "year_end": 2024
+    },
+    {
+      "technical_variants_il": [
+        {
+          "version_or_trim": "250 / 250+",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 190,
+          "transmission": "single_speed",
+          "drivetrain": "FWD",
+          "year_start": 2021,
+          "year_end": 2025,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              0,
+              2
+            ],
+            "fuel_type": [
+              0,
+              1,
+              2
+            ],
+            "engine": [
+              2
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1,
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              0,
+              1,
+              2
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "350 4MATIC",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 292,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2022,
+          "year_end": 2025,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1,
+              2
+            ],
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              2
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "מרצדס EQA בישראל - מחיר החל מ-289,900 שקלים",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%9E%D7%A8%D7%A6%D7%93%D7%A1-eqa-%D7%94%D7%97%D7%A9%D7%9E%D7%9C%D7%99-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-289,900-%D7%A9%D7%A7%D7%9C%D7%99%D7%9D",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "horsepower_hp",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "2024 מרצדס EQA ו- EQB מתוחי פנים בישראל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/2024-%D7%9E%D7%A8%D7%A6%D7%93%D7%A1-eqa-%D7%95-eqb-%D7%94%D7%97%D7%93%D7%A9%D7%99%D7%9D-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-319,900-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "version_or_trim",
+            "fuel_type",
+            "horsepower_hp",
+            "drivetrain",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "מרצדס EQA - מחירון, מפרט טכני",
+          "url": "https://www.icar.co.il/%D7%9E%D7%A8%D7%A6%D7%93%D7%A1/%D7%9E%D7%A8%D7%A6%D7%93%D7%A1_EQA/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "transmission",
+            "horsepower_hp",
+            "drivetrain",
+            "year_start"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "250 / 250+",
+          "350 4MATIC"
+        ],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          190,
+          292
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "FWD",
+          "AWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Dual electric motors, 292 hp (215 kW), 66.5 kWh battery",
+          "classification": "engine_specification_string"
+        },
+        {
+          "label": "Electric",
+          "classification": "fuel_type"
+        }
+      ],
+      "market": "global-reference-only",
+      "make": "Mercedes-Benz",
+      "model": "EQA",
+      "canonical_model": "EQA",
+      "profile_confidence": "medium",
+      "year_start": 2021,
+      "year_end": 2025
     }
   ],
   "ready_for_website_upload": false
