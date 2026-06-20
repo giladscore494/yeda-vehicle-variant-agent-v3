@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T21:37:57Z",
+  "generated_at": "2026-06-20T21:38:53Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -190644,6 +190644,265 @@
       "profile_confidence": "medium",
       "year_start": 1993,
       "year_end": 2017
+    },
+    {
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "Mitsubishi Lancer Evolution X (2008-2016) Technical Specifications",
+          "url": "https://www.auto.co.il/model/mitsubishi-lancer-evolution_g302",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "Mitsubishi Lancer Evolution IX (2006-2007) Technical Specifications",
+          "url": "https://www.auto.co.il/model/mitsubishi-lancer-evolution_g301",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "Mitsubishi Lancer Evolution VIII (2003-2005) Technical Specifications",
+          "url": "https://www.auto.co.il/model/mitsubishi-lancer-evolution_g300",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 295,
+          "transmission": "6-speed dual_clutch",
+          "drivetrain": "AWD",
+          "year_start": 2008,
+          "year_end": 2016,
+          "support_level": "direct",
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 280,
+          "transmission": "6-speed manual",
+          "drivetrain": "AWD",
+          "year_start": 2006,
+          "year_end": 2007,
+          "support_level": "direct",
+          "source_indexes": [
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 265,
+          "transmission": "5-speed manual",
+          "drivetrain": "AWD",
+          "year_start": 2003,
+          "year_end": 2005,
+          "support_level": "direct",
+          "source_indexes": [
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              2
+            ],
+            "engine": [
+              2
+            ],
+            "engine_displacement_l": [
+              2
+            ],
+            "horsepower_hp": [
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              2
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Sedan"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "2.0L turbo"
+        ],
+        "horsepower_hp": [
+          295,
+          280,
+          265
+        ],
+        "transmission": [
+          "6-speed dual_clutch",
+          "6-speed manual",
+          "5-speed manual"
+        ],
+        "drivetrain": [
+          "AWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "VIII",
+          "classification": "model_generation"
+        },
+        {
+          "label": "IX",
+          "classification": "model_generation"
+        },
+        {
+          "label": "X",
+          "classification": "model_generation"
+        },
+        {
+          "label": "2.0L Turbo 4B11T",
+          "classification": "engine_code"
+        },
+        {
+          "label": "2.0L Turbo 4G63",
+          "classification": "engine_code"
+        },
+        {
+          "label": "2.0L Turbo MIVEC 4G63",
+          "classification": "engine_code"
+        }
+      ],
+      "market": "IL-confirmed",
+      "make": "Mitsubishi",
+      "model": "Lancer Evolution",
+      "canonical_model": "Lancer Evolution",
+      "profile_confidence": "medium",
+      "year_start": 2003,
+      "year_end": 2016
     }
   ],
   "ready_for_website_upload": false
