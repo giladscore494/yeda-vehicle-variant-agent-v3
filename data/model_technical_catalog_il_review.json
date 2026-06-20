@@ -1,5 +1,87 @@
 {
-  "generated_at": "2026-06-20T16:11:20Z",
+  "generated_at": "2026-06-20T16:12:17Z",
   "market": "IL",
-  "models": []
+  "models": [
+    {
+      "market": "IL-confirmed",
+      "make": "Lexus",
+      "model": "RZ",
+      "canonical_model": "RZ",
+      "year_start": null,
+      "year_end": null,
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [],
+      "profile_confidence": null,
+      "notes": [],
+      "error": "Extra data: line 211 column 1 (char 4666)",
+      "request_payload": {
+        "task": "build_israeli_model_technical_catalog",
+        "market": "IL-confirmed",
+        "make": "Lexus",
+        "model": "RZ",
+        "raw_database_values": {
+          "years_seen": [
+            2022,
+            2024,
+            2026
+          ],
+          "trims_seen": [
+            "300e",
+            "450e"
+          ],
+          "engines_seen": [
+            "Dual Electric Motors, 313 hp (230 kW)",
+            "Single Electric Motor, 204 hp (150 kW)"
+          ],
+          "horsepower_seen": [],
+          "transmissions_seen": [
+            "single-speed EV"
+          ],
+          "body_types_seen": [
+            "SUV"
+          ],
+          "fuel_types_seen": [
+            "Electric"
+          ],
+          "drivetrains_seen": [
+            "AWD",
+            "FWD"
+          ]
+        },
+        "sample_validation_ids": [
+          "VAL-001920",
+          "VAL-001921"
+        ],
+        "source_indexes": [
+          1045,
+          1046
+        ],
+        "metadata_hints": {
+          "priorities_seen": [
+            "low"
+          ],
+          "validation_routes_seen": [
+            "deterministic_or_skip_ai"
+          ],
+          "possible_duplicate_rows": 0,
+          "validation_id_count": 2
+        },
+        "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
+      },
+      "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
+      ]
+    }
+  ]
 }
