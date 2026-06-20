@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T16:34:44Z",
+  "generated_at": "2026-06-20T16:35:15Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -161961,6 +161961,136 @@
       "canonical_model": "Euniq 5",
       "profile_confidence": "medium",
       "year_start": 2021,
+      "year_end": 2024
+    },
+    {
+      "make": "Maxus",
+      "model": "Euniq 6",
+      "market": "IL-confirmed",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "מקסוס EUNIQ 6 החשמלי בישראל - מחיר החל מ-171,000 שקלים",
+          "url": "https://www.cartube.co.il/חדשות-רכב/מקסוס-euniq-6-החשמלי-בישראל-מחיר-החל-מ-171000-שקלים",
+          "source_name": "Cartube IL",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "מקסוס Euniq 6 - מחירון, מפרטים, אמינות וחוות דעת",
+          "url": "https://www.icar.co.il/מקסוס/מקסוס_אי-יוניק_6/",
+          "source_name": "iCar IL",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 174,
+          "transmission": "single_speed",
+          "drivetrain": "FWD",
+          "year_start": 2022,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          174
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "70 kWh battery",
+          "classification": "battery_capacity"
+        },
+        {
+          "label": "Electric motor, 174 hp",
+          "classification": "engine_spec_and_power"
+        }
+      ],
+      "canonical_model": "Euniq 6",
+      "profile_confidence": "medium",
+      "year_start": 2022,
       "year_end": 2024
     }
   ],
