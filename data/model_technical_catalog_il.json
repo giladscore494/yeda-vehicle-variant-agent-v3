@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T20:45:06Z",
+  "generated_at": "2026-06-20T20:45:40Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -176019,6 +176019,202 @@
       "canonical_model": "EQS",
       "profile_confidence": "medium",
       "year_start": 2021,
+      "year_end": 2024
+    },
+    {
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "מרצדס EQS SUV בישראל - מחיר החל מ- 990,000 שקל",
+          "url": "https://www.cartube.co.il/%חדשות-רכב/מרצדס-eqs-suv-בישראל-מחיר-החל-מ-990-000-שקל",
+          "source_name": "Cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "מרצדס EQS SUV - מחירון, מפרט טכני וחוות דעת",
+          "url": "https://www.auto.co.il/model/mercedes-eqs-suv_g1445",
+          "source_name": "Auto.co.il",
+          "source_type": "catalog",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "EQS 450 4MATIC",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 360,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2023,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "EQS 580 4MATIC",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 544,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2023,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Dual Electric Motors, 360 hp",
+          "classification": "engine_spec"
+        },
+        {
+          "label": "Dual Electric Motors, 544 hp",
+          "classification": "engine_spec"
+        },
+        {
+          "label": "Single-speed EV",
+          "classification": "transmission_spec"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "EQS 450 4MATIC",
+          "EQS 580 4MATIC"
+        ],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          360,
+          544
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "AWD"
+        ]
+      },
+      "market": "IL-confirmed",
+      "make": "Mercedes-Benz",
+      "model": "EQS SUV",
+      "canonical_model": "EQS SUV",
+      "profile_confidence": "medium",
+      "year_start": 2023,
       "year_end": 2024
     }
   ],
