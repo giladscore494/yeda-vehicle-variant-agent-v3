@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T21:06:35Z",
+  "generated_at": "2026-06-20T21:07:07Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -182043,6 +182043,199 @@
       "canonical_model": "HS",
       "profile_confidence": "medium",
       "year_start": 2021,
+      "year_end": 2024
+    },
+    {
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Luxury",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 180,
+          "transmission": "2-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 2023,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Performance",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 288,
+          "transmission": "2-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2023,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "MG Marvel R - הדגם החשמלי החדש של MG - לובינסקי",
+          "url": "https://mg-israel.co.il/mg-marvel-r/",
+          "source_name": "MG Israel Official",
+          "source_type": "official_importer",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "MG מארוול R החשמלי בישראל - מחיר החל מ- 205,888 שקלים",
+          "url": "https://www.cartube.co.il/חדשות-רכב/mg-מארוול-r-החשמלי-בישראל-מחיר-החל-מ-205888-שקלים",
+          "source_name": "Cartube Israel",
+          "source_type": "editorial",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Dual rear electric motors, 180 hp (132 kW)",
+          "classification": "engine_description"
+        },
+        {
+          "label": "Tri-motor electric setup, 288 hp (212 kW)",
+          "classification": "engine_description"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Luxury",
+          "Performance"
+        ],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          180,
+          288
+        ],
+        "transmission": [
+          "2-speed automatic"
+        ],
+        "drivetrain": [
+          "RWD",
+          "AWD"
+        ]
+      },
+      "market": "IL-confirmed",
+      "make": "MG",
+      "model": "Marvel R",
+      "canonical_model": "Marvel R",
+      "profile_confidence": "medium",
+      "year_start": 2023,
       "year_end": 2024
     }
   ],
