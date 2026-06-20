@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T16:42:22Z",
+  "generated_at": "2026-06-20T16:43:10Z",
   "market": "IL",
   "models": [
     {
@@ -769,6 +769,84 @@
         "variant[3] support_level=direct but no source directly supports it",
         "variant[4] has no source_indexes",
         "variant[4] support_level=direct but no source directly supports it"
+      ]
+    },
+    {
+      "market": "IL-confirmed",
+      "make": "Mazda",
+      "model": "CX-30",
+      "canonical_model": "CX-30",
+      "year_start": null,
+      "year_end": null,
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [],
+      "profile_confidence": null,
+      "notes": [],
+      "error": "Expecting ',' delimiter: line 26 column 40 (char 660)",
+      "request_payload": {
+        "task": "build_israeli_model_technical_catalog",
+        "market": "IL-confirmed",
+        "make": "Mazda",
+        "model": "CX-30",
+        "raw_database_values": {
+          "years_seen": [
+            2019,
+            2021,
+            2026
+          ],
+          "trims_seen": [],
+          "engines_seen": [
+            "2.0L Skyactiv-G, 165 hp",
+            "2.5L Skyactiv-G, 195 hp"
+          ],
+          "horsepower_seen": [],
+          "transmissions_seen": [
+            "6-speed automatic"
+          ],
+          "body_types_seen": [
+            "Crossover SUV"
+          ],
+          "fuel_types_seen": [
+            "Mild Hybrid",
+            "Petrol"
+          ],
+          "drivetrains_seen": [
+            "FWD"
+          ]
+        },
+        "sample_validation_ids": [
+          "VAL-002024",
+          "VAL-002025"
+        ],
+        "source_indexes": [
+          1204,
+          1205
+        ],
+        "metadata_hints": {
+          "priorities_seen": [
+            "high"
+          ],
+          "validation_routes_seen": [
+            "strong_model_or_manual_review"
+          ],
+          "possible_duplicate_rows": 0,
+          "validation_id_count": 2
+        },
+        "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
+      },
+      "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
       ]
     }
   ]
