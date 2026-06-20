@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T21:11:45Z",
+  "generated_at": "2026-06-20T21:12:05Z",
   "market": "IL",
   "models": [
     {
@@ -4894,6 +4894,96 @@
           ],
           "possible_duplicate_rows": 0,
           "validation_id_count": 6
+        },
+        "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
+      },
+      "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
+      ]
+    },
+    {
+      "market": "IL-confirmed",
+      "make": "MG",
+      "model": "ZS",
+      "canonical_model": "ZS",
+      "year_start": null,
+      "year_end": null,
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [],
+      "profile_confidence": null,
+      "notes": [],
+      "error": "Expecting ',' delimiter: line 159 column 4 (char 3346)",
+      "request_payload": {
+        "task": "build_israeli_model_technical_catalog",
+        "market": "IL-confirmed",
+        "make": "MG",
+        "model": "ZS",
+        "raw_database_values": {
+          "years_seen": [
+            2018,
+            2019,
+            2021,
+            2022,
+            2026
+          ],
+          "trims_seen": [
+            "Net Up",
+            "Net Up S"
+          ],
+          "engines_seen": [
+            "1.0L Turbo petrol, 111 hp",
+            "Single electric motor, 143 hp (105 kW)",
+            "Single electric motor, 156 hp (115 kW), Long Range (70 kWh)",
+            "Single electric motor, 177 hp (130 kW), Standard Range (50.3 kWh)"
+          ],
+          "horsepower_seen": [],
+          "transmissions_seen": [
+            "6-speed automatic",
+            "Single-speed EV"
+          ],
+          "body_types_seen": [
+            "SUV"
+          ],
+          "fuel_types_seen": [
+            "Electric",
+            "Petrol"
+          ],
+          "drivetrains_seen": [
+            "FWD"
+          ]
+        },
+        "sample_validation_ids": [
+          "VAL-002300",
+          "VAL-002301",
+          "VAL-002302",
+          "VAL-002303"
+        ],
+        "source_indexes": [
+          1614,
+          1615,
+          1616,
+          1617
+        ],
+        "metadata_hints": {
+          "priorities_seen": [
+            "low"
+          ],
+          "validation_routes_seen": [
+            "deterministic_or_skip_ai"
+          ],
+          "possible_duplicate_rows": 0,
+          "validation_id_count": 4
         },
         "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
       },
