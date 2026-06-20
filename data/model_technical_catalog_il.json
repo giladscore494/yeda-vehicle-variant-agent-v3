@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T20:41:29Z",
+  "generated_at": "2026-06-20T20:42:05Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -175453,6 +175453,142 @@
       "profile_confidence": "medium",
       "year_start": 2022,
       "year_end": 2026
+    },
+    {
+      "make": "Mercedes-Benz",
+      "model": "EQC",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "מרצדס EQC - מחירון, מפרט טכני, חוות דעת - iCar",
+          "url": "https://www.icar.co.il/%D7%9E%D7%A8%D7%A6%D7%93%D7%A1/%D7%9E%D7%A8%D7%A6%D7%93%D7%A1_EQC/",
+          "source_name": "iCar",
+          "source_type": "israeli_catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "מרצדס EQC בישראל – מחיר החל מ-499,900 שקל - Cartube",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%9E%D7%A8%D7%A6%D7%93%D7%A1-eqc-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-499,900-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube",
+          "source_type": "israeli_editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "version_or_trim"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "400 4MATIC",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 408,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2020,
+          "year_end": 2023,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Dual Electric Motors, 80 kWh, 408 hp",
+          "classification": "engine_spec_aggregation"
+        },
+        {
+          "label": "Single-speed EV",
+          "classification": "transmission"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "400 4MATIC"
+        ],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          408
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "AWD"
+        ]
+      },
+      "market": "IL-confirmed",
+      "canonical_model": "EQC",
+      "profile_confidence": "medium",
+      "year_start": 2020,
+      "year_end": 2023
     }
   ],
   "ready_for_website_upload": false
