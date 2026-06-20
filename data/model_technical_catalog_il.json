@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T16:17:53Z",
+  "generated_at": "2026-06-20T16:18:33Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -158059,6 +158059,107 @@
       "profile_confidence": "medium",
       "year_start": 1996,
       "year_end": 2011
+    },
+    {
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "לוטוס אליז - קטלוג רכבים ומפרט טכני",
+          "url": "https://www.auto.co.il/model/lotus-elise",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Roadster",
+          "fuel_type": "petrol",
+          "engine": "1.6L naturally aspirated",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 136,
+          "transmission": "6-speed manual",
+          "drivetrain": "RWD",
+          "year_start": null,
+          "year_end": null,
+          "support_level": "indirect",
+          "source_indexes": [
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "year_start"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Roadster"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "1.6L naturally aspirated"
+        ],
+        "horsepower_hp": [
+          136
+        ],
+        "transmission": [
+          "6-speed manual"
+        ],
+        "drivetrain": [
+          "RWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "1.6",
+          "classification": "engine_displacement"
+        }
+      ],
+      "market": "IL-confirmed",
+      "make": "Lotus",
+      "model": "Elise",
+      "canonical_model": "Elise",
+      "profile_confidence": "medium",
+      "year_start": null,
+      "year_end": null
     }
   ],
   "ready_for_website_upload": false
