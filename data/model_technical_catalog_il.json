@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T19:41:46Z",
+  "generated_at": "2026-06-20T19:42:04Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -169097,6 +169097,235 @@
       "profile_confidence": "medium",
       "year_start": 2004,
       "year_end": 2008
+    },
+    {
+      "make": "Mazda",
+      "model": "Tribute",
+      "market": "IL-confirmed",
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "מאזדה טריביוט (2001-2006) מפרט טכני - iCar",
+          "url": "https://www.icar.co.il/%D7%9E%D7%90%D7%96%D7%93%D7%94/%D7%9E%D7%90%D7%96%D7%93%D7%94_%D7%98%D7%A8%D7%99%D7%91%D7%99%D7%95%D7%98_%D7%99%D7%A9%D7%9F/%D7%9E%D7%90%D7%96%D7%93%D7%94_%D7%98%D7%A8%D7%99%D7%91%D7%99%D7%95%D7%98_%D7%99%D7%A9%D7%9F_%D7%93%D7%95%D7%A8_1/",
+          "source_name": "iCar",
+          "source_type": "Israeli automotive portal",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "מאזדה טריביוט - אוטו",
+          "url": "https://www.auto.co.il/model/mazda-tribute_g144",
+          "source_name": "Auto.co.il",
+          "source_type": "Israeli automotive portal",
+          "supports": [
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "2.0L",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 124,
+          "transmission": "4-speed automatic",
+          "drivetrain": "4WD",
+          "year_start": 2001,
+          "year_end": 2004,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "3.0L v6",
+          "engine_displacement_l": 3.0,
+          "horsepower_hp": 197,
+          "transmission": "4-speed automatic",
+          "drivetrain": "4WD",
+          "year_start": 2001,
+          "year_end": 2006,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "2.3L",
+          "engine_displacement_l": 2.3,
+          "horsepower_hp": 150,
+          "transmission": "4-speed automatic",
+          "drivetrain": "4WD",
+          "year_start": 2004,
+          "year_end": 2006,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "2.0L",
+          "3.0L v6",
+          "2.3L"
+        ],
+        "horsepower_hp": [
+          124,
+          197,
+          150
+        ],
+        "transmission": [
+          "4-speed automatic"
+        ],
+        "drivetrain": [
+          "4WD"
+        ]
+      },
+      "canonical_model": "Tribute",
+      "profile_confidence": "medium",
+      "year_start": 2001,
+      "year_end": 2006
     }
   ],
   "ready_for_website_upload": false
