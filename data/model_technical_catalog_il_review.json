@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T20:39:20Z",
+  "generated_at": "2026-06-20T20:40:04Z",
   "market": "IL",
   "models": [
     {
@@ -2652,6 +2652,243 @@
       "year_end": 2024,
       "validation_issues": [
         "variant[0] version_or_trim '250' is a engine_size, not a trim"
+      ]
+    },
+    {
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "מרצדס EQB - מחירון, מפרט טכני וחוות דעת",
+          "url": "https://www.icar.co.il/mercedes-benz/mercedes-benz_eqb/",
+          "source_name": "iCar",
+          "source_type": "israeli_car_catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "מרצדס EQB מפרט טכני מלא - קולמוביל",
+          "url": "https://www.mercedes-benz.co.il/models/eqb/",
+          "source_name": "Colmobil Mercedes-Benz Israel",
+          "source_type": "official_importer",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 190,
+          "transmission": "single_speed",
+          "drivetrain": "FWD",
+          "year_start": 2022,
+          "year_end": 2024,
+          "version_or_trim": null,
+          "support_level": "direct",
+          "missing_grounded_fields": [],
+          "field_sources": {
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ],
+            "version_or_trim": []
+          }
+        },
+        {
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 228,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2022,
+          "year_end": 2024,
+          "version_or_trim": null,
+          "support_level": "direct",
+          "missing_grounded_fields": [],
+          "field_sources": {
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ],
+            "version_or_trim": []
+          }
+        },
+        {
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 292,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2022,
+          "year_end": 2024,
+          "version_or_trim": null,
+          "support_level": "direct",
+          "missing_grounded_fields": [],
+          "field_sources": {
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ],
+            "version_or_trim": []
+          }
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "EQB 250",
+          "classification": "model_designation"
+        },
+        {
+          "label": "EQB 300 4MATIC",
+          "classification": "model_designation"
+        },
+        {
+          "label": "EQB 350 4MATIC",
+          "classification": "model_designation"
+        },
+        {
+          "label": "Electric Art",
+          "classification": "marketing_package"
+        },
+        {
+          "label": "AMG Line",
+          "classification": "styling_package"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          190,
+          228,
+          292
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "FWD",
+          "AWD"
+        ]
+      },
+      "market": "global-reference-only",
+      "make": "Mercedes-Benz",
+      "model": "EQB",
+      "canonical_model": "EQB",
+      "profile_confidence": "medium",
+      "year_start": 2022,
+      "year_end": 2024,
+      "validation_issues": [
+        "variant[0] has no source_indexes",
+        "variant[0] support_level=direct but no source directly supports it",
+        "variant[1] has no source_indexes",
+        "variant[1] support_level=direct but no source directly supports it",
+        "variant[2] has no source_indexes",
+        "variant[2] support_level=direct but no source directly supports it"
       ]
     }
   ]
