@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T20:51:14Z",
+  "generated_at": "2026-06-20T20:52:18Z",
   "market": "IL",
   "models": [
     {
@@ -4056,6 +4056,113 @@
         "variant[3] support_level=direct but no source directly supports it",
         "variant[4] has no source_indexes",
         "variant[4] support_level=direct but no source directly supports it"
+      ]
+    },
+    {
+      "market": "IL-confirmed",
+      "make": "Mercedes-Benz",
+      "model": "GLE",
+      "canonical_model": "GLE",
+      "year_start": null,
+      "year_end": null,
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [],
+      "profile_confidence": null,
+      "notes": [],
+      "error": "Gemini catalog client returned non-object JSON",
+      "request_payload": {
+        "task": "build_israeli_model_technical_catalog",
+        "market": "IL-confirmed",
+        "make": "Mercedes-Benz",
+        "model": "GLE",
+        "raw_database_values": {
+          "years_seen": [
+            2015,
+            2019,
+            2020,
+            2026
+          ],
+          "trims_seen": [
+            "AMG GLE 53 4MATIC+",
+            "AMG GLE 53 4MATIC+ Coupe",
+            "GLE 350 d 4MATIC",
+            "GLE 350 d 4MATIC Coupe",
+            "GLE 350 de 4MATIC",
+            "GLE 350 de 4MATIC Coupe",
+            "GLE 450 4MATIC",
+            "GLE 500 e 4MATIC"
+          ],
+          "engines_seen": [
+            "2.0L Inline-4 Turbo Diesel + Electric Motor (320 hp combined)",
+            "3.0L Inline-6 Turbo Petrol MHEV (367 hp)",
+            "3.0L Inline-6 Turbo Petrol MHEV (435 hp)",
+            "3.0L V6 Bi-Turbo Petrol + Electric Motor (442 hp combined)",
+            "3.0L V6 Turbo Diesel (258 hp)"
+          ],
+          "horsepower_seen": [],
+          "transmissions_seen": [
+            "7-speed automatic (7G-TRONIC PLUS)",
+            "9-speed automatic (9G-TRONIC)",
+            "9-speed automatic (AMG SPEEDSHIFT TCT 9G)"
+          ],
+          "body_types_seen": [
+            "Coupe",
+            "SUV"
+          ],
+          "fuel_types_seen": [
+            "Diesel",
+            "Mild Hybrid",
+            "Plug-in Hybrid"
+          ],
+          "drivetrains_seen": [
+            "AWD"
+          ]
+        },
+        "sample_validation_ids": [
+          "VAL-002214",
+          "VAL-002215",
+          "VAL-002216",
+          "VAL-002217",
+          "VAL-002218",
+          "VAL-002219",
+          "VAL-002220",
+          "VAL-002221"
+        ],
+        "source_indexes": [
+          1789,
+          1790,
+          1791,
+          1792,
+          1793,
+          1794,
+          1795,
+          1796
+        ],
+        "metadata_hints": {
+          "priorities_seen": [
+            "low"
+          ],
+          "validation_routes_seen": [
+            "deterministic_or_skip_ai"
+          ],
+          "possible_duplicate_rows": 0,
+          "validation_id_count": 8
+        },
+        "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
+      },
+      "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
       ]
     }
   ]
