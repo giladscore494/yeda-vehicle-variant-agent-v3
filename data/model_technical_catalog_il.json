@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T20:45:40Z",
+  "generated_at": "2026-06-20T20:46:21Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -176215,6 +176215,157 @@
       "canonical_model": "EQS SUV",
       "profile_confidence": "medium",
       "year_start": 2023,
+      "year_end": 2024
+    },
+    {
+      "make": "Mercedes-Benz",
+      "model": "EQV",
+      "market": "IL-confirmed",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "מרצדס EQV - מחירון, מפרט טכני",
+          "url": "https://www.icar.co.il/%D7%9E%D7%A8%D7%A6%D7%93%D7%A1/%D7%9E%D7%A8%D7%A6%D7%93%D7%A1_EQV/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "מרצדס EQV החשמלי בישראל - מחיר החל מ- 600,000 שקלים",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%9E%D7%A8%D7%A6%D7%93%D7%A1-eqv-%D7%94%D7%97%D7%A9%D7%9E%D7%9C%D7%99-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-600000-%D7%A9%D7%A7%D7%9C%D7%99%D7%9D",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "MERCEDES-BENZ-EQV-300",
+          "url": "https://mercedes-benz-vans.co.il/wp-content/uploads/2022/01/MERCEDES-BENZ-EQV-300-1-6-1.pdf",
+          "source_name": "Mercedes-Benz Vans Israel Official PDF",
+          "source_type": "official_importer_pdf",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "300 Avantgarde",
+          "body_type": "MPV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 204,
+          "transmission": "automatic",
+          "drivetrain": "FWD",
+          "year_start": 2021,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1,
+              2
+            ],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1,
+              2
+            ],
+            "engine": [
+              0,
+              1,
+              2
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1,
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              0,
+              1,
+              2
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Front electric motor, 90 kWh usable battery, 204 hp",
+          "classification": "engine_description"
+        },
+        {
+          "label": "Single-speed EV",
+          "classification": "transmission_description"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "300 Avantgarde"
+        ],
+        "body_type": [
+          "MPV"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          204
+        ],
+        "transmission": [
+          "automatic"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "canonical_model": "EQV",
+      "profile_confidence": "medium",
+      "year_start": 2021,
       "year_end": 2024
     }
   ],
