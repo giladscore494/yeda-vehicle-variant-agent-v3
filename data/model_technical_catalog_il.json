@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T16:52:10Z",
+  "generated_at": "2026-06-20T16:52:29Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -166466,6 +166466,227 @@
       "canonical_model": "Mazda2",
       "profile_confidence": "medium",
       "year_start": 2007,
+      "year_end": 2024
+    },
+    {
+      "make": "Mazda",
+      "model": "Mazda2",
+      "technical_variants_il": [
+        {
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "1.5L",
+          "engine_displacement_l": 1.5,
+          "horsepower_hp": 116,
+          "transmission": "6-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2015,
+          "year_end": 2024,
+          "version_or_trim": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0,
+              1
+            ],
+            "version_or_trim": []
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "1.5L",
+          "engine_displacement_l": 1.5,
+          "horsepower_hp": 116,
+          "transmission": "6-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2016,
+          "year_end": 2021,
+          "version_or_trim": null,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": [
+              1,
+              2
+            ],
+            "version_or_trim": []
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "מאזדה 2 - מפרט טכני",
+          "url": "https://www.mazda.co.il/models/mazda2",
+          "source_name": "Mazda Israel (Delek Motors)",
+          "source_type": "official_importer",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "מאזדה 2 מחירון רכב, מפרט טכני",
+          "url": "https://www.icar.co.il/mazda/mazda2/",
+          "source_name": "iCar Israel",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "מאזדה 2 דמיו (סדאן) מחירון ומפרט",
+          "url": "https://www.icar.co.il/mazda/mazda2-demio/",
+          "source_name": "iCar Israel",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Dynamic",
+          "classification": "trim_level_valid_but_omitted_for_aggregating"
+        },
+        {
+          "label": "Pure White",
+          "classification": "trim_level_valid_but_omitted_for_aggregating"
+        },
+        {
+          "label": "Sports",
+          "classification": "trim_level_valid_but_omitted_for_aggregating"
+        },
+        {
+          "label": "1.5L Hybrid (Toyota M15A-FXE)",
+          "classification": "engine_spec_not_a_trim_and_unverified_in_il"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Hatchback",
+          "Sedan"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "1.5L"
+        ],
+        "horsepower_hp": [
+          116
+        ],
+        "transmission": [
+          "6-speed automatic"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "market": "global-reference-only",
+      "canonical_model": "Mazda2",
+      "profile_confidence": "medium",
+      "year_start": 2015,
       "year_end": 2024
     }
   ],
