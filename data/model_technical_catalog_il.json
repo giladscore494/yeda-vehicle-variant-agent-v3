@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T21:28:43Z",
+  "generated_at": "2026-06-20T21:29:25Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -187803,6 +187803,135 @@
       "profile_confidence": "medium",
       "year_start": 2017,
       "year_end": 2024
+    },
+    {
+      "make": "Mitsubishi",
+      "model": "ASX",
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "2.0L",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 150,
+          "transmission": "cvt",
+          "drivetrain": "FWD",
+          "year_start": 2017,
+          "year_end": 2025,
+          "support_level": "direct",
+          "source_indexes": [
+            1273,
+            1274
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              1273,
+              1274
+            ],
+            "fuel_type": [
+              1273,
+              1274
+            ],
+            "engine": [
+              1273,
+              1274
+            ],
+            "engine_displacement_l": [
+              1273,
+              1274
+            ],
+            "horsepower_hp": [
+              1273,
+              1274
+            ],
+            "transmission": [
+              1273,
+              1274
+            ],
+            "drivetrain": [
+              1273,
+              1274
+            ],
+            "year_start": [
+              1274
+            ],
+            "year_end": [
+              1274
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "2.0L Petrol",
+          "classification": "engine_spec"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 1273,
+          "title": "מיצובישי ASX - מפרט טכני | כלמוביל",
+          "url": "https://www.mitsubishi-motors.co.il/models/asx/",
+          "source_name": "Mitsubishi Israel (Colmobil)",
+          "source_type": "official_importer",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 1274,
+          "title": "מיצובישי ASX - מחירון, מפרטים, אמינות",
+          "url": "https://www.icar.co.il/%D7%9E%D7%99%D7%A6%D7%95%D7%91%D7%99%D7%A9%D7%99/%D7%9E%D7%99%D7%A6%D7%95%D7%91%D7%99%D7%A9%D7%99_ASX/%D7%9E%D7%99%D7%A6%D7%95%D7%91%D7%99%D7%A9%D7%99_ASX_%D7%97%D7%93%D7%A9/",
+          "source_name": "iCar Israel",
+          "source_type": "specs_database",
+          "supports": [
+            "year_start",
+            "year_end",
+            "horsepower_hp",
+            "transmission",
+            "engine_displacement_l",
+            "engine",
+            "fuel_type",
+            "body_type",
+            "drivetrain"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "2.0L"
+        ],
+        "horsepower_hp": [
+          150
+        ],
+        "transmission": [
+          "cvt"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "market": "IL-confirmed",
+      "canonical_model": "ASX",
+      "profile_confidence": "medium",
+      "year_start": 2017,
+      "year_end": 2025
     }
   ],
   "ready_for_website_upload": false
