@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T16:49:34Z",
+  "generated_at": "2026-06-20T16:50:23Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -165936,6 +165936,134 @@
       "profile_confidence": "medium",
       "year_start": 2008,
       "year_end": 2023
+    },
+    {
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "מאזדה CX-90 החדש בישראל - מחירון ומפרט טכני",
+          "url": "https://www.icar.co.il/Mazda/Mazda_CX-90/",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "מאזדה CX-90 פלאג-אין בישראל: מפרט מלא",
+          "url": "https://www.cartube.co.il/חדשות-רכב/מאזדה-cx-90-פלאג-אין-327-כ-ס-בישראל",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "plug_in_hybrid",
+          "engine": "2.5L inline-4",
+          "engine_displacement_l": 2.5,
+          "horsepower_hp": 327,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2023,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "plug_in_hybrid"
+        ],
+        "engine": [
+          "2.5L inline-4"
+        ],
+        "horsepower_hp": [
+          327
+        ],
+        "transmission": [
+          "8-speed automatic"
+        ],
+        "drivetrain": [
+          "AWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "e-Skyactiv PHEV",
+          "classification": "engine_technology"
+        }
+      ],
+      "market": "global-reference-only",
+      "make": "Mazda",
+      "model": "CX-90",
+      "canonical_model": "CX-90",
+      "profile_confidence": "medium",
+      "year_start": 2023,
+      "year_end": null
     }
   ],
   "ready_for_website_upload": false
