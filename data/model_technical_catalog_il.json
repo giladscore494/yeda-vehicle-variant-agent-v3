@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T16:35:47Z",
+  "generated_at": "2026-06-20T16:36:30Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -162219,6 +162219,182 @@
       "profile_confidence": "medium",
       "year_start": 2023,
       "year_end": null
+    },
+    {
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "מאזדה 121 (1993-1997) מחירון רכב, מפרט טכני וחוות דעת - iCar",
+          "url": "https://www.icar.co.il/mazda/mazda_121/",
+          "source_name": "iCar Israel",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "year_start",
+            "year_end",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "מאזדה 121 - קטלוג רכבים מקיף - אוטו",
+          "url": "https://www.auto.co.il/catalog/mazda/121",
+          "source_name": "Auto.co.il",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "horsepower_hp",
+            "engine",
+            "drivetrain"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "1.3L",
+          "engine_displacement_l": 1.3,
+          "horsepower_hp": 72,
+          "transmission": "4-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 1993,
+          "year_end": 1997,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "1.3L",
+          "engine_displacement_l": 1.3,
+          "horsepower_hp": 72,
+          "transmission": "5-speed manual",
+          "drivetrain": "FWD",
+          "year_start": 1993,
+          "year_end": 1997,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "1.3L B3 16V petrol, 72 hp",
+          "classification": "engine_spec"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Sedan"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "1.3L"
+        ],
+        "horsepower_hp": [
+          72
+        ],
+        "transmission": [
+          "4-speed automatic",
+          "5-speed manual"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "market": "IL-confirmed",
+      "make": "Mazda",
+      "model": "121",
+      "canonical_model": "121",
+      "profile_confidence": "medium",
+      "year_start": 1993,
+      "year_end": 1997
     }
   ],
   "ready_for_website_upload": false
