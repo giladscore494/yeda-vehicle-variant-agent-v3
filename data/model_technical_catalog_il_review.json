@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T21:01:34Z",
+  "generated_at": "2026-06-20T21:03:34Z",
   "market": "IL",
   "models": [
     {
@@ -4794,6 +4794,112 @@
         "variant[0] required field 'drivetrain' listed in missing_grounded_fields",
         "variant[1] required website field 'drivetrain' is null/empty",
         "variant[1] required field 'drivetrain' listed in missing_grounded_fields"
+      ]
+    },
+    {
+      "market": "IL-confirmed",
+      "make": "Mercedes-Benz",
+      "model": "Sprinter",
+      "canonical_model": "Sprinter",
+      "year_start": null,
+      "year_end": null,
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [],
+      "profile_confidence": null,
+      "notes": [],
+      "error": "Gemini catalog client returned non-object JSON",
+      "request_payload": {
+        "task": "build_israeli_model_technical_catalog",
+        "market": "IL-confirmed",
+        "make": "Mercedes-Benz",
+        "model": "Sprinter",
+        "raw_database_values": {
+          "years_seen": [
+            2000,
+            2006,
+            2018,
+            2020,
+            2021,
+            2026
+          ],
+          "trims_seen": [
+            "313 CDI",
+            "315 CDI",
+            "316 CDI",
+            "516 CDI",
+            "519 CDI",
+            "eSprinter"
+          ],
+          "engines_seen": [
+            "2.0L OM654 Turbo Diesel",
+            "2.1L OM611 Turbo Diesel",
+            "2.1L OM651 Turbo Diesel",
+            "3.0L OM642 V6 Turbo Diesel",
+            "Electric Motor"
+          ],
+          "horsepower_seen": [],
+          "transmissions_seen": [
+            "5-speed manual",
+            "6-speed manual",
+            "7-speed automatic",
+            "9-speed automatic",
+            "single-speed EV"
+          ],
+          "body_types_seen": [
+            "Chassis Cab",
+            "Minibus",
+            "Panel Van"
+          ],
+          "fuel_types_seen": [
+            "Diesel",
+            "Electric"
+          ],
+          "drivetrains_seen": [
+            "FWD",
+            "RWD"
+          ]
+        },
+        "sample_validation_ids": [
+          "VAL-002266",
+          "VAL-002267",
+          "VAL-002268",
+          "VAL-002269",
+          "VAL-002270",
+          "VAL-002271"
+        ],
+        "source_indexes": [
+          1859,
+          1860,
+          1861,
+          1862,
+          1863,
+          1864
+        ],
+        "metadata_hints": {
+          "priorities_seen": [
+            "medium"
+          ],
+          "validation_routes_seen": [
+            "cheap_model_structured_validation"
+          ],
+          "possible_duplicate_rows": 0,
+          "validation_id_count": 6
+        },
+        "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
+      },
+      "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
       ]
     }
   ]
