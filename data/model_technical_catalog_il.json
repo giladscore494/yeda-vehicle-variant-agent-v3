@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T16:26:46Z",
+  "generated_at": "2026-06-20T16:28:03Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -159669,6 +159669,202 @@
       "profile_confidence": "medium",
       "year_start": 2014,
       "year_end": 2024
+    },
+    {
+      "make": "Maserati",
+      "model": "GranCabrio",
+      "market": "IL-confirmed",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "מזראטי גראן-קבריו (2010-2019) מחירון רכב חדש ומפרט רכב - קטלוג אוטו",
+          "url": "https://www.auto.co.il/model/maserati-grancabrio_g128",
+          "source_name": "Auto.co.il",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "מזראטי גראן קבריו - מחירון, חוות דעת, ומפרט טכני - iCar",
+          "url": "https://www.icar.co.il/Maserati/Maserati_GranCabrio/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Base",
+          "classification": "trim_level_placeholder"
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Convertible",
+          "fuel_type": "petrol",
+          "engine": "4.7L v8",
+          "engine_displacement_l": 4.7,
+          "horsepower_hp": 440,
+          "transmission": "6-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 2010,
+          "year_end": 2013,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Sport / MC",
+          "body_type": "Convertible",
+          "fuel_type": "petrol",
+          "engine": "4.7L v8",
+          "engine_displacement_l": 4.7,
+          "horsepower_hp": 460,
+          "transmission": "6-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 2012,
+          "year_end": 2019,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Sport / MC"
+        ],
+        "body_type": [
+          "Convertible"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "4.7L v8"
+        ],
+        "horsepower_hp": [
+          440,
+          460
+        ],
+        "transmission": [
+          "6-speed automatic"
+        ],
+        "drivetrain": [
+          "RWD"
+        ]
+      },
+      "canonical_model": "GranCabrio",
+      "profile_confidence": "medium",
+      "year_start": 2010,
+      "year_end": 2019
     }
   ],
   "ready_for_website_upload": false
