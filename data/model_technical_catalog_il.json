@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-19T15:40:36Z",
+  "generated_at": "2026-06-20T15:11:57Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -141195,7 +141195,7 @@
           "drivetrain": "FWD",
           "year_start": 2020,
           "year_end": null,
-          "support_level": "indirect",
+          "support_level": "direct",
           "source_indexes": [
             0,
             1,
@@ -142204,11 +142204,13 @@
           "transmission": "6-speed automatic",
           "drivetrain": "FWD",
           "year_start": 2021,
-          "year_end": 2024,
+          "year_end": 2026,
           "support_level": "direct",
           "version_or_trim": null,
           "source_indexes": [
-            1511
+            1511,
+            25101,
+            25101
           ],
           "field_sources": {
             "body_type": [
@@ -142236,7 +142238,9 @@
               1511
             ],
             "year_end": [
-              1511
+              1511,
+              25101,
+              25101
             ]
           },
           "missing_grounded_fields": []
@@ -142634,6 +142638,24 @@
             "year_start",
             "year_end"
           ]
+        },
+        {
+          "source_index": 25101,
+          "title": "Kia Israel Sorento 2026 official page",
+          "url": "https://kia-israel.co.il/רכב/קיה-סורנטו",
+          "source_name": "Kia Israel",
+          "source_type": "official",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
         }
       ],
       "available_values_for_website": {
@@ -142701,7 +142723,7 @@
       "canonical_model": "Sorento",
       "profile_confidence": "medium",
       "year_start": 2015,
-      "year_end": 2024
+      "year_end": 2026
     },
     {
       "sources": [
@@ -142959,417 +142981,6 @@
       "canonical_model": "Soul",
       "profile_confidence": "medium",
       "year_start": 2009,
-      "year_end": 2019
-    },
-    {
-      "sources": [
-        {
-          "source_index": 0,
-          "title": "קיה סול - מחירון, מפרט טכני וחוות דעת - icar",
-          "url": "https://www.icar.co.il/%D7%A7%D7%99%D7%94/%D7%A7%D7%99%D7%94_%D7%A1%D7%95%D7%9C/",
-          "source_name": "icar.co.il",
-          "source_type": "editorial",
-          "supports": [
-            "body_type",
-            "fuel_type",
-            "engine",
-            "engine_displacement_l",
-            "horsepower_hp",
-            "transmission",
-            "drivetrain",
-            "year_start",
-            "year_end"
-          ]
-        },
-        {
-          "source_index": 1,
-          "title": "קיה סול 1.6 טורבו 204 כ\"ס - בישראל",
-          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%A7%D7%99%D7%94-%D7%A1%D7%95%D7%9C-1-6-%D7%98%D7%95%D7%A8%D7%91%D7%95-204-%D7%9B-%D7%A1-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C",
-          "source_name": "cartube.co.il",
-          "source_type": "editorial",
-          "supports": [
-            "fuel_type",
-            "engine",
-            "engine_displacement_l",
-            "horsepower_hp",
-            "transmission",
-            "drivetrain",
-            "year_start",
-            "year_end"
-          ]
-        }
-      ],
-      "technical_variants_il": [
-        {
-          "body_type": "Crossover",
-          "fuel_type": "petrol",
-          "engine": "1.6L",
-          "engine_displacement_l": 1.6,
-          "horsepower_hp": 126,
-          "transmission": "automatic",
-          "drivetrain": "FWD",
-          "year_start": 2010,
-          "year_end": 2011,
-          "support_level": "direct",
-          "source_indexes": [
-            0
-          ],
-          "field_sources": {
-            "body_type": [
-              0
-            ],
-            "fuel_type": [
-              0
-            ],
-            "engine": [
-              0
-            ],
-            "engine_displacement_l": [
-              0
-            ],
-            "horsepower_hp": [
-              0
-            ],
-            "transmission": [
-              0
-            ],
-            "drivetrain": [
-              0
-            ],
-            "year_start": [
-              0
-            ],
-            "year_end": [
-              0
-            ]
-          },
-          "missing_grounded_fields": []
-        },
-        {
-          "body_type": "Crossover",
-          "fuel_type": "petrol",
-          "engine": "1.6L",
-          "engine_displacement_l": 1.6,
-          "horsepower_hp": 126,
-          "transmission": "manual",
-          "drivetrain": "FWD",
-          "year_start": 2010,
-          "year_end": 2011,
-          "support_level": "direct",
-          "source_indexes": [
-            0
-          ],
-          "field_sources": {
-            "body_type": [
-              0
-            ],
-            "fuel_type": [
-              0
-            ],
-            "engine": [
-              0
-            ],
-            "engine_displacement_l": [
-              0
-            ],
-            "horsepower_hp": [
-              0
-            ],
-            "transmission": [
-              0
-            ],
-            "drivetrain": [
-              0
-            ],
-            "year_start": [
-              0
-            ],
-            "year_end": [
-              0
-            ]
-          },
-          "missing_grounded_fields": []
-        },
-        {
-          "body_type": "Crossover",
-          "fuel_type": "petrol",
-          "engine": "1.6L",
-          "engine_displacement_l": 1.6,
-          "horsepower_hp": 140,
-          "transmission": "automatic",
-          "drivetrain": "FWD",
-          "year_start": 2012,
-          "year_end": 2013,
-          "support_level": "direct",
-          "source_indexes": [
-            0
-          ],
-          "field_sources": {
-            "body_type": [
-              0
-            ],
-            "fuel_type": [
-              0
-            ],
-            "engine": [
-              0
-            ],
-            "engine_displacement_l": [
-              0
-            ],
-            "horsepower_hp": [
-              0
-            ],
-            "transmission": [
-              0
-            ],
-            "drivetrain": [
-              0
-            ],
-            "year_start": [
-              0
-            ],
-            "year_end": [
-              0
-            ]
-          },
-          "missing_grounded_fields": []
-        },
-        {
-          "body_type": "Crossover",
-          "fuel_type": "petrol",
-          "engine": "1.6L",
-          "engine_displacement_l": 1.6,
-          "horsepower_hp": 140,
-          "transmission": "manual",
-          "drivetrain": "FWD",
-          "year_start": 2012,
-          "year_end": 2013,
-          "support_level": "direct",
-          "source_indexes": [
-            0
-          ],
-          "field_sources": {
-            "body_type": [
-              0
-            ],
-            "fuel_type": [
-              0
-            ],
-            "engine": [
-              0
-            ],
-            "engine_displacement_l": [
-              0
-            ],
-            "horsepower_hp": [
-              0
-            ],
-            "transmission": [
-              0
-            ],
-            "drivetrain": [
-              0
-            ],
-            "year_start": [
-              0
-            ],
-            "year_end": [
-              0
-            ]
-          },
-          "missing_grounded_fields": []
-        },
-        {
-          "body_type": "Crossover",
-          "fuel_type": "petrol",
-          "engine": "1.6L",
-          "engine_displacement_l": 1.6,
-          "horsepower_hp": 132,
-          "transmission": "automatic",
-          "drivetrain": "FWD",
-          "year_start": 2014,
-          "year_end": 2019,
-          "support_level": "direct",
-          "source_indexes": [
-            0
-          ],
-          "field_sources": {
-            "body_type": [
-              0
-            ],
-            "fuel_type": [
-              0
-            ],
-            "engine": [
-              0
-            ],
-            "engine_displacement_l": [
-              0
-            ],
-            "horsepower_hp": [
-              0
-            ],
-            "transmission": [
-              0
-            ],
-            "drivetrain": [
-              0
-            ],
-            "year_start": [
-              0
-            ],
-            "year_end": [
-              0
-            ]
-          },
-          "missing_grounded_fields": []
-        },
-        {
-          "body_type": "Crossover",
-          "fuel_type": "diesel",
-          "engine": "1.6L",
-          "engine_displacement_l": 1.6,
-          "horsepower_hp": 136,
-          "transmission": "dual_clutch",
-          "drivetrain": "FWD",
-          "year_start": 2016,
-          "year_end": 2019,
-          "support_level": "direct",
-          "source_indexes": [
-            0
-          ],
-          "field_sources": {
-            "body_type": [
-              0
-            ],
-            "fuel_type": [
-              0
-            ],
-            "engine": [
-              0
-            ],
-            "engine_displacement_l": [
-              0
-            ],
-            "horsepower_hp": [
-              0
-            ],
-            "transmission": [
-              0
-            ],
-            "drivetrain": [
-              0
-            ],
-            "year_start": [
-              0
-            ],
-            "year_end": [
-              0
-            ]
-          },
-          "missing_grounded_fields": []
-        },
-        {
-          "body_type": "Crossover",
-          "fuel_type": "petrol",
-          "engine": "1.6L turbo",
-          "engine_displacement_l": 1.6,
-          "horsepower_hp": 204,
-          "transmission": "dual_clutch",
-          "drivetrain": "FWD",
-          "year_start": 2017,
-          "year_end": 2019,
-          "support_level": "direct",
-          "source_indexes": [
-            0,
-            1
-          ],
-          "field_sources": {
-            "body_type": [
-              0
-            ],
-            "fuel_type": [
-              0,
-              1
-            ],
-            "engine": [
-              0,
-              1
-            ],
-            "engine_displacement_l": [
-              0,
-              1
-            ],
-            "horsepower_hp": [
-              0,
-              1
-            ],
-            "transmission": [
-              0,
-              1
-            ],
-            "drivetrain": [
-              0,
-              1
-            ],
-            "year_start": [
-              0,
-              1
-            ],
-            "year_end": [
-              0,
-              1
-            ]
-          },
-          "missing_grounded_fields": []
-        }
-      ],
-      "available_values_for_website": {
-        "version_or_trim": [],
-        "body_type": [
-          "Crossover"
-        ],
-        "fuel_type": [
-          "petrol",
-          "diesel"
-        ],
-        "engine": [
-          "1.6L",
-          "1.6L turbo"
-        ],
-        "horsepower_hp": [
-          126,
-          140,
-          132,
-          136,
-          204
-        ],
-        "transmission": [
-          "automatic",
-          "manual",
-          "dual_clutch"
-        ],
-        "drivetrain": [
-          "FWD"
-        ]
-      },
-      "invalid_or_non_trim_labels": [
-        {
-          "label": "Electric Motor, 204 hp",
-          "classification": "engine_spec_not_trim"
-        },
-        {
-          "label": "Single-speed EV",
-          "classification": "transmission_not_trim"
-        }
-      ],
-      "market": "global-reference-only",
-      "make": "Kia",
-      "model": "Soul",
-      "canonical_model": "Soul",
-      "profile_confidence": "medium",
-      "year_start": 2010,
       "year_end": 2019
     },
     {
@@ -144520,6 +144131,110 @@
             ]
           },
           "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Crossover",
+          "fuel_type": "petrol",
+          "engine": "1.0L turbo",
+          "engine_displacement_l": 1.0,
+          "horsepower_hp": 100,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "FWD",
+          "year_start": 2025,
+          "year_end": 2026,
+          "support_level": "direct",
+          "version_or_trim": "EX",
+          "source_indexes": [
+            25102
+          ],
+          "field_sources": {
+            "body_type": [
+              25102
+            ],
+            "fuel_type": [
+              25102
+            ],
+            "engine": [
+              25102
+            ],
+            "engine_displacement_l": [
+              25102
+            ],
+            "horsepower_hp": [
+              25102
+            ],
+            "transmission": [
+              25102
+            ],
+            "drivetrain": [
+              25102
+            ],
+            "year_start": [
+              25102
+            ],
+            "year_end": [
+              25102
+            ],
+            "support_level": [
+              25102
+            ],
+            "version_or_trim": [
+              25102
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Crossover",
+          "fuel_type": "petrol",
+          "engine": "1.0L turbo",
+          "engine_displacement_l": 1.0,
+          "horsepower_hp": 100,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "FWD",
+          "year_start": 2025,
+          "year_end": 2026,
+          "support_level": "direct",
+          "version_or_trim": "GT-Line",
+          "source_indexes": [
+            25102
+          ],
+          "field_sources": {
+            "body_type": [
+              25102
+            ],
+            "fuel_type": [
+              25102
+            ],
+            "engine": [
+              25102
+            ],
+            "engine_displacement_l": [
+              25102
+            ],
+            "horsepower_hp": [
+              25102
+            ],
+            "transmission": [
+              25102
+            ],
+            "drivetrain": [
+              25102
+            ],
+            "year_start": [
+              25102
+            ],
+            "year_end": [
+              25102
+            ],
+            "support_level": [
+              25102
+            ],
+            "version_or_trim": [
+              25102
+            ]
+          },
+          "missing_grounded_fields": []
         }
       ],
       "invalid_or_non_trim_labels": [
@@ -144545,7 +144260,10 @@
         }
       ],
       "available_values_for_website": {
-        "version_or_trim": [],
+        "version_or_trim": [
+          "EX",
+          "GT-Line"
+        ],
         "body_type": [
           "Crossover"
         ],
@@ -144622,6 +144340,24 @@
             "year_start",
             "year_end"
           ]
+        },
+        {
+          "source_index": 25102,
+          "title": "Kia Israel Stonic 2026 official page",
+          "url": "https://kia-israel.co.il/רכב/סטוניק",
+          "source_name": "Kia Israel",
+          "source_type": "official",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
         }
       ],
       "market": "IL-confirmed",
@@ -144630,7 +144366,7 @@
       "canonical_model": "Stonic",
       "profile_confidence": "medium",
       "year_start": 2018,
-      "year_end": 2024
+      "year_end": 2026
     },
     {
       "technical_variants_il": [
@@ -144804,205 +144540,6 @@
       "profile_confidence": "medium",
       "year_start": 2010,
       "year_end": 2019
-    },
-    {
-      "make": "Kia",
-      "model": "Venga",
-      "sources": [
-        {
-          "source_index": 0,
-          "title": "קיה ונגה (2010-2015) - חוות דעת, מחירון ומפרט טכני",
-          "url": "https://www.icar.co.il/%קיה/%קיה_ונגה/%קיה_ונגה_יד_שניה_דגמ1/",
-          "source_name": "iCar",
-          "source_type": "specs/catalog",
-          "supports": [
-            "body_type",
-            "fuel_type",
-            "engine",
-            "engine_displacement_l",
-            "horsepower_hp",
-            "transmission",
-            "drivetrain",
-            "year_start",
-            "year_end",
-            "version_or_trim"
-          ]
-        },
-        {
-          "source_index": 1,
-          "title": "קיה ונגה - מחירון, מפרט טכני וחוות דעת",
-          "url": "https://www.auto.co.il/model/kia-venga_g210",
-          "source_name": "Auto.co.il",
-          "source_type": "editorial",
-          "supports": [
-            "body_type",
-            "fuel_type",
-            "engine",
-            "horsepower_hp",
-            "transmission",
-            "year_start",
-            "year_end"
-          ]
-        }
-      ],
-      "invalid_or_non_trim_labels": [
-        {
-          "label": "1.4L MPI petrol, 90 hp",
-          "classification": "engine_and_horsepower"
-        },
-        {
-          "label": "Mini MPV",
-          "classification": "body_type"
-        }
-      ],
-      "technical_variants_il": [
-        {
-          "version_or_trim": "EX",
-          "body_type": "MPV",
-          "fuel_type": "petrol",
-          "engine": "1.6L",
-          "engine_displacement_l": 1.6,
-          "horsepower_hp": 125,
-          "transmission": "4-speed automatic",
-          "drivetrain": "FWD",
-          "year_start": 2010,
-          "year_end": 2015,
-          "support_level": "direct",
-          "source_indexes": [
-            0,
-            1
-          ],
-          "field_sources": {
-            "version_or_trim": [
-              0
-            ],
-            "body_type": [
-              0,
-              1
-            ],
-            "fuel_type": [
-              0,
-              1
-            ],
-            "engine": [
-              0,
-              1
-            ],
-            "engine_displacement_l": [
-              0
-            ],
-            "horsepower_hp": [
-              0,
-              1
-            ],
-            "transmission": [
-              0,
-              1
-            ],
-            "drivetrain": [
-              0
-            ],
-            "year_start": [
-              0,
-              1
-            ],
-            "year_end": [
-              0,
-              1
-            ]
-          },
-          "missing_grounded_fields": []
-        },
-        {
-          "version_or_trim": "LX",
-          "body_type": "MPV",
-          "fuel_type": "petrol",
-          "engine": "1.4L",
-          "engine_displacement_l": 1.4,
-          "horsepower_hp": 90,
-          "transmission": "5-speed manual",
-          "drivetrain": "FWD",
-          "year_start": 2010,
-          "year_end": 2015,
-          "support_level": "direct",
-          "source_indexes": [
-            0,
-            1
-          ],
-          "field_sources": {
-            "version_or_trim": [
-              0
-            ],
-            "body_type": [
-              0,
-              1
-            ],
-            "fuel_type": [
-              0,
-              1
-            ],
-            "engine": [
-              0,
-              1
-            ],
-            "engine_displacement_l": [
-              0
-            ],
-            "horsepower_hp": [
-              0,
-              1
-            ],
-            "transmission": [
-              0,
-              1
-            ],
-            "drivetrain": [
-              0
-            ],
-            "year_start": [
-              0,
-              1
-            ],
-            "year_end": [
-              0,
-              1
-            ]
-          },
-          "missing_grounded_fields": []
-        }
-      ],
-      "available_values_for_website": {
-        "version_or_trim": [
-          "EX",
-          "LX"
-        ],
-        "body_type": [
-          "MPV"
-        ],
-        "fuel_type": [
-          "petrol"
-        ],
-        "engine": [
-          "1.6L",
-          "1.4L"
-        ],
-        "horsepower_hp": [
-          125,
-          90
-        ],
-        "transmission": [
-          "4-speed automatic",
-          "5-speed manual"
-        ],
-        "drivetrain": [
-          "FWD"
-        ]
-      },
-      "market": "global-reference-only",
-      "canonical_model": "Venga",
-      "profile_confidence": "medium",
-      "year_start": 2010,
-      "year_end": 2015
     },
     {
       "technical_variants_il": [
@@ -145418,480 +144955,6 @@
       "profile_confidence": "medium",
       "year_start": 2017,
       "year_end": 2021
-    },
-    {
-      "make": "Lamborghini",
-      "model": "Aventador",
-      "market": "global-reference-only",
-      "sources": [
-        {
-          "source_index": 0,
-          "title": "למבורגיני אוונטדור LP780-4 אולטימה (Ultimae) נחשפת",
-          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%9C%D7%9E%D7%91%D7%95%D7%A8%D7%92%D7%99%D7%A0%D7%99-%D7%90%D7%95%D7%95%D7%A0%D7%98%D7%93%D7%95%D7%A8-%D7%90%D7%95%D7%9C%D7%98%D7%99%D7%9E%D7%94-ultimae-%D7%A0%D7%97%D7%A9%D7%A4%D7%AA",
-          "source_name": "Cartube",
-          "source_type": "editorial",
-          "supports": [
-            "version_or_trim",
-            "body_type",
-            "fuel_type",
-            "engine",
-            "engine_displacement_l",
-            "horsepower_hp",
-            "transmission",
-            "drivetrain",
-            "year_start",
-            "year_end"
-          ]
-        },
-        {
-          "source_index": 1,
-          "title": "למבורגיני אוונטדור - מחירון מפרטים ורמות גימור",
-          "url": "https://www.auto.co.il/model/lamborghini-aventador_g1438",
-          "source_name": "Auto.co.il",
-          "source_type": "catalog",
-          "supports": [
-            "version_or_trim",
-            "body_type",
-            "fuel_type",
-            "engine",
-            "engine_displacement_l",
-            "horsepower_hp",
-            "transmission",
-            "drivetrain"
-          ]
-        }
-      ],
-      "technical_variants_il": [
-        {
-          "version_or_trim": "Ultimae LP 780-4",
-          "body_type": "Coupe",
-          "fuel_type": "petrol",
-          "engine": "6.5L v12",
-          "engine_displacement_l": 6.5,
-          "horsepower_hp": 780,
-          "transmission": "7-speed automatic",
-          "drivetrain": "AWD",
-          "year_start": 2021,
-          "year_end": 2022,
-          "support_level": "direct",
-          "source_indexes": [
-            0,
-            1
-          ],
-          "field_sources": {
-            "version_or_trim": [
-              0,
-              1
-            ],
-            "body_type": [
-              0,
-              1
-            ],
-            "fuel_type": [
-              0,
-              1
-            ],
-            "engine": [
-              0,
-              1
-            ],
-            "engine_displacement_l": [
-              0,
-              1
-            ],
-            "horsepower_hp": [
-              0,
-              1
-            ],
-            "transmission": [
-              0,
-              1
-            ],
-            "drivetrain": [
-              0,
-              1
-            ],
-            "year_start": [
-              0
-            ],
-            "year_end": [
-              0
-            ]
-          },
-          "missing_grounded_fields": [],
-          "invalid_or_non_trim_labels": []
-        }
-      ],
-      "available_values_for_website": {
-        "version_or_trim": [
-          "Ultimae LP 780-4"
-        ],
-        "body_type": [
-          "Coupe"
-        ],
-        "fuel_type": [
-          "petrol"
-        ],
-        "engine": [
-          "6.5L v12"
-        ],
-        "horsepower_hp": [
-          780
-        ],
-        "transmission": [
-          "7-speed automatic"
-        ],
-        "drivetrain": [
-          "AWD"
-        ]
-      },
-      "canonical_model": "Aventador",
-      "profile_confidence": "medium",
-      "year_start": 2021,
-      "year_end": 2022
-    },
-    {
-      "sources": [
-        {
-          "source_index": 2440,
-          "title": "למבורגיני גייארדו - מחירון רכב, מפרט טכני וחוות דעת",
-          "url": "https://www.auto.co.il/model/lamborghini-gallardo_g813",
-          "source_name": "Auto.co.il",
-          "source_type": "editorial_catalog",
-          "supports": [
-            "body_type",
-            "fuel_type",
-            "engine",
-            "engine_displacement_l",
-            "horsepower_hp",
-            "transmission",
-            "drivetrain",
-            "year_start",
-            "year_end",
-            "version_or_trim"
-          ]
-        },
-        {
-          "source_index": 2441,
-          "title": "למבורגיני גלארדו LP560-4 - מפרט",
-          "url": "https://www.gear.co.il/lamborghini_gallardo",
-          "source_name": "Gear.co.il",
-          "source_type": "editorial_catalog",
-          "supports": [
-            "horsepower_hp",
-            "engine",
-            "drivetrain",
-            "transmission"
-          ]
-        }
-      ],
-      "technical_variants_il": [
-        {
-          "version_or_trim": "LP560-4",
-          "body_type": "Coupe",
-          "fuel_type": "petrol",
-          "engine": "5.2L v10",
-          "engine_displacement_l": 5.2,
-          "horsepower_hp": 560,
-          "transmission": "6-speed automatic",
-          "drivetrain": "AWD",
-          "year_start": 2008,
-          "year_end": 2013,
-          "support_level": "direct",
-          "source_indexes": [
-            2440,
-            2441
-          ],
-          "field_sources": {
-            "version_or_trim": [
-              2440
-            ],
-            "body_type": [
-              2440
-            ],
-            "fuel_type": [
-              2440
-            ],
-            "engine": [
-              2440,
-              2441
-            ],
-            "engine_displacement_l": [
-              2440
-            ],
-            "horsepower_hp": [
-              2440,
-              2441
-            ],
-            "transmission": [
-              2440,
-              2441
-            ],
-            "drivetrain": [
-              2440,
-              2441
-            ],
-            "year_start": [
-              2440
-            ],
-            "year_end": [
-              2440
-            ]
-          },
-          "missing_grounded_fields": []
-        },
-        {
-          "version_or_trim": "LP560-4",
-          "body_type": "Convertible",
-          "fuel_type": "petrol",
-          "engine": "5.2L v10",
-          "engine_displacement_l": 5.2,
-          "horsepower_hp": 560,
-          "transmission": "6-speed automatic",
-          "drivetrain": "AWD",
-          "year_start": 2008,
-          "year_end": 2013,
-          "support_level": "direct",
-          "source_indexes": [
-            2440,
-            2441
-          ],
-          "field_sources": {
-            "version_or_trim": [
-              2440
-            ],
-            "body_type": [
-              2440
-            ],
-            "fuel_type": [
-              2440
-            ],
-            "engine": [
-              2440,
-              2441
-            ],
-            "engine_displacement_l": [
-              2440
-            ],
-            "horsepower_hp": [
-              2440,
-              2441
-            ],
-            "transmission": [
-              2440,
-              2441
-            ],
-            "drivetrain": [
-              2440,
-              2441
-            ],
-            "year_start": [
-              2440
-            ],
-            "year_end": [
-              2440
-            ]
-          },
-          "missing_grounded_fields": []
-        },
-        {
-          "version_or_trim": "LP550-2",
-          "body_type": "Coupe",
-          "fuel_type": "petrol",
-          "engine": "5.2L v10",
-          "engine_displacement_l": 5.2,
-          "horsepower_hp": 550,
-          "transmission": "6-speed automatic",
-          "drivetrain": "RWD",
-          "year_start": 2009,
-          "year_end": 2013,
-          "support_level": "direct",
-          "source_indexes": [
-            2440
-          ],
-          "field_sources": {
-            "version_or_trim": [
-              2440
-            ],
-            "body_type": [
-              2440
-            ],
-            "fuel_type": [
-              2440
-            ],
-            "engine": [
-              2440
-            ],
-            "engine_displacement_l": [
-              2440
-            ],
-            "horsepower_hp": [
-              2440
-            ],
-            "transmission": [
-              2440
-            ],
-            "drivetrain": [
-              2440
-            ],
-            "year_start": [
-              2440
-            ],
-            "year_end": [
-              2440
-            ]
-          },
-          "missing_grounded_fields": []
-        },
-        {
-          "version_or_trim": "LP570-4 Superleggera",
-          "body_type": "Coupe",
-          "fuel_type": "petrol",
-          "engine": "5.2L v10",
-          "engine_displacement_l": 5.2,
-          "horsepower_hp": 570,
-          "transmission": "6-speed automatic",
-          "drivetrain": "AWD",
-          "year_start": 2010,
-          "year_end": 2013,
-          "support_level": "direct",
-          "source_indexes": [
-            2440
-          ],
-          "field_sources": {
-            "version_or_trim": [
-              2440
-            ],
-            "body_type": [
-              2440
-            ],
-            "fuel_type": [
-              2440
-            ],
-            "engine": [
-              2440
-            ],
-            "engine_displacement_l": [
-              2440
-            ],
-            "horsepower_hp": [
-              2440
-            ],
-            "transmission": [
-              2440
-            ],
-            "drivetrain": [
-              2440
-            ],
-            "year_start": [
-              2440
-            ],
-            "year_end": [
-              2440
-            ]
-          },
-          "missing_grounded_fields": []
-        },
-        {
-          "version_or_trim": null,
-          "body_type": "Coupe",
-          "fuel_type": "petrol",
-          "engine": "5.0L v10",
-          "engine_displacement_l": 5.0,
-          "horsepower_hp": 520,
-          "transmission": "6-speed automatic",
-          "drivetrain": "AWD",
-          "year_start": 2006,
-          "year_end": 2008,
-          "support_level": "direct",
-          "source_indexes": [
-            2440
-          ],
-          "field_sources": {
-            "version_or_trim": [],
-            "body_type": [
-              2440
-            ],
-            "fuel_type": [
-              2440
-            ],
-            "engine": [
-              2440
-            ],
-            "engine_displacement_l": [
-              2440
-            ],
-            "horsepower_hp": [
-              2440
-            ],
-            "transmission": [
-              2440
-            ],
-            "drivetrain": [
-              2440
-            ],
-            "year_start": [
-              2440
-            ],
-            "year_end": [
-              2440
-            ]
-          },
-          "missing_grounded_fields": []
-        }
-      ],
-      "available_values_for_website": {
-        "version_or_trim": [
-          "LP560-4",
-          "LP550-2",
-          "LP570-4 Superleggera"
-        ],
-        "body_type": [
-          "Coupe",
-          "Convertible"
-        ],
-        "fuel_type": [
-          "petrol"
-        ],
-        "engine": [
-          "5.2L v10",
-          "5.0L v10"
-        ],
-        "horsepower_hp": [
-          560,
-          550,
-          570,
-          520
-        ],
-        "transmission": [
-          "6-speed automatic"
-        ],
-        "drivetrain": [
-          "AWD",
-          "RWD"
-        ]
-      },
-      "invalid_or_non_trim_labels": [
-        {
-          "label": "Base",
-          "classification": "invalid_trim_placeholder"
-        },
-        {
-          "label": "Spyder",
-          "classification": "body_style_designation"
-        },
-        {
-          "label": "LP560-4 Spyder",
-          "classification": "trim_and_body_style_combination"
-        }
-      ],
-      "market": "global-reference-only",
-      "make": "Lamborghini",
-      "model": "Gallardo",
-      "canonical_model": "Gallardo",
-      "profile_confidence": "medium",
-      "year_start": 2006,
-      "year_end": 2013
     },
     {
       "make": "Lamborghini",
@@ -147015,287 +146078,6 @@
       "year_end": null
     },
     {
-      "make": "Lamborghini",
-      "model": "Urus",
-      "sources": [
-        {
-          "source_index": 0,
-          "title": "למבורגיני אורוס - מחירון, מבחנים ומפרטים | iCar",
-          "url": "https://www.icar.co.il/%D7%9C%D7%9E%D7%91%D7%95%D7%A8%D7%92%D7%99%D7%A0%D7%99/%D7%9C%D7%9E%D7%91%D7%95%D7%A8%D7%92%D7%99%D7%A0%D7%99_%D7%90%D7%95%D7%A8%D7%95%D7%A1/%D7%9C%D7%9E%D7%91%D7%95%D7%A8%D7%92%D7%99%D7%A0%D7%99_%D7%90%D7%95%D7%A8%D7%95%D7%A1_%D7%97%D7%93%D7%A9/",
-          "source_name": "iCar",
-          "source_type": "specs_catalog",
-          "supports": [
-            "body_type",
-            "fuel_type",
-            "engine",
-            "engine_displacement_l",
-            "horsepower_hp",
-            "transmission",
-            "drivetrain",
-            "year_start",
-            "year_end",
-            "version_or_trim"
-          ]
-        },
-        {
-          "source_index": 1,
-          "title": "למבורגיני אורוס SE נחשף - גרסת פלאג-אין עם 800 כ״ס - cartube",
-          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%9C%D7%9E%D7%91%D7%95%D7%A8%D7%92%D7%99%D7%A0%D7%99-%D7%90%D7%95%D7%A8%D7%95%D7%A1-se-%D7%A0%D7%97%D7%A9%D7%A3-%D7%92%D7%A8%D7%A1%D7%AA-%D7%A4%D7%9C%D7%90%D7%92-%D7%90%D7%99%D7%9F-%D7%A2%D7%9D-800-%D7%9B-%D7%A1",
-          "source_name": "Cartube",
-          "source_type": "editorial_catalog",
-          "supports": [
-            "body_type",
-            "fuel_type",
-            "engine",
-            "engine_displacement_l",
-            "horsepower_hp",
-            "transmission",
-            "drivetrain",
-            "year_start",
-            "year_end",
-            "version_or_trim"
-          ]
-        }
-      ],
-      "technical_variants_il": [
-        {
-          "body_type": "SUV",
-          "fuel_type": "petrol",
-          "engine": "4.0L v8 twin-turbo",
-          "engine_displacement_l": 4.0,
-          "horsepower_hp": 650,
-          "transmission": "8-speed automatic",
-          "drivetrain": "AWD",
-          "year_start": 2018,
-          "year_end": 2023,
-          "version_or_trim": null,
-          "support_level": "direct",
-          "source_indexes": [
-            0
-          ],
-          "field_sources": {
-            "body_type": [
-              0
-            ],
-            "fuel_type": [
-              0
-            ],
-            "engine": [
-              0
-            ],
-            "engine_displacement_l": [
-              0
-            ],
-            "horsepower_hp": [
-              0
-            ],
-            "transmission": [
-              0
-            ],
-            "drivetrain": [
-              0
-            ],
-            "year_start": [
-              0
-            ],
-            "year_end": [
-              0
-            ],
-            "version_or_trim": [
-              0
-            ]
-          },
-          "missing_grounded_fields": []
-        },
-        {
-          "body_type": "SUV",
-          "fuel_type": "petrol",
-          "engine": "4.0L v8 twin-turbo",
-          "engine_displacement_l": 4.0,
-          "horsepower_hp": 666,
-          "transmission": "8-speed automatic",
-          "drivetrain": "AWD",
-          "year_start": 2022,
-          "year_end": 2024,
-          "version_or_trim": "Performante",
-          "support_level": "direct",
-          "source_indexes": [
-            0
-          ],
-          "field_sources": {
-            "body_type": [
-              0
-            ],
-            "fuel_type": [
-              0
-            ],
-            "engine": [
-              0
-            ],
-            "engine_displacement_l": [
-              0
-            ],
-            "horsepower_hp": [
-              0
-            ],
-            "transmission": [
-              0
-            ],
-            "drivetrain": [
-              0
-            ],
-            "year_start": [
-              0
-            ],
-            "year_end": [
-              0
-            ],
-            "version_or_trim": [
-              0
-            ]
-          },
-          "missing_grounded_fields": []
-        },
-        {
-          "body_type": "SUV",
-          "fuel_type": "petrol",
-          "engine": "4.0L v8 twin-turbo",
-          "engine_displacement_l": 4.0,
-          "horsepower_hp": 666,
-          "transmission": "8-speed automatic",
-          "drivetrain": "AWD",
-          "year_start": 2023,
-          "year_end": 2024,
-          "version_or_trim": "S",
-          "support_level": "direct",
-          "source_indexes": [
-            0
-          ],
-          "field_sources": {
-            "body_type": [
-              0
-            ],
-            "fuel_type": [
-              0
-            ],
-            "engine": [
-              0
-            ],
-            "engine_displacement_l": [
-              0
-            ],
-            "horsepower_hp": [
-              0
-            ],
-            "transmission": [
-              0
-            ],
-            "drivetrain": [
-              0
-            ],
-            "year_start": [
-              0
-            ],
-            "year_end": [
-              0
-            ],
-            "version_or_trim": [
-              0
-            ]
-          },
-          "missing_grounded_fields": []
-        },
-        {
-          "body_type": "SUV",
-          "fuel_type": "plug_in_hybrid",
-          "engine": "4.0L v8 twin-turbo",
-          "engine_displacement_l": 4.0,
-          "horsepower_hp": 800,
-          "transmission": "8-speed automatic",
-          "drivetrain": "AWD",
-          "year_start": 2024,
-          "year_end": 2024,
-          "version_or_trim": "SE",
-          "support_level": "direct",
-          "source_indexes": [
-            1
-          ],
-          "field_sources": {
-            "body_type": [
-              1
-            ],
-            "fuel_type": [
-              1
-            ],
-            "engine": [
-              1
-            ],
-            "engine_displacement_l": [
-              1
-            ],
-            "horsepower_hp": [
-              1
-            ],
-            "transmission": [
-              1
-            ],
-            "drivetrain": [
-              1
-            ],
-            "year_start": [
-              1
-            ],
-            "year_end": [
-              1
-            ],
-            "version_or_trim": [
-              1
-            ]
-          },
-          "missing_grounded_fields": []
-        }
-      ],
-      "available_values_for_website": {
-        "version_or_trim": [
-          "Performante",
-          "S",
-          "SE"
-        ],
-        "body_type": [
-          "SUV"
-        ],
-        "fuel_type": [
-          "petrol",
-          "plug_in_hybrid"
-        ],
-        "engine": [
-          "4.0L v8 twin-turbo"
-        ],
-        "horsepower_hp": [
-          650,
-          666,
-          800
-        ],
-        "transmission": [
-          "8-speed automatic"
-        ],
-        "drivetrain": [
-          "AWD"
-        ]
-      },
-      "invalid_or_non_trim_labels": [
-        {
-          "label": "4.0L V8 Twin-Turbo + Electric Motor, 800 hp",
-          "classification": "engine_spec_with_hp"
-        }
-      ],
-      "market": "global-reference-only",
-      "canonical_model": "Urus",
-      "profile_confidence": "medium",
-      "year_start": 2018,
-      "year_end": 2024
-    },
-    {
       "make": "Lancia",
       "model": "Delta",
       "market": "IL-confirmed",
@@ -147538,687 +146320,6 @@
       "profile_confidence": "medium",
       "year_start": 2010,
       "year_end": 2014
-    },
-    {
-      "sources": [
-        {
-          "source_index": 1,
-          "title": "לנצ'יה קאפא (1995-2001) - מפרט טכני, מחירון ומידע - אוטו",
-          "url": "https://www.auto.co.il/model/lancia-kappa_g1116",
-          "source_name": "Auto.co.il",
-          "source_type": "editorial",
-          "supports": [
-            "body_type",
-            "fuel_type",
-            "engine",
-            "engine_displacement_l",
-            "horsepower_hp",
-            "transmission",
-            "drivetrain",
-            "year_start",
-            "year_end",
-            "version_or_trim"
-          ]
-        },
-        {
-          "source_index": 2,
-          "title": "לנצ'יה קאפא - מחירון, מפרטים, אמינות - iCar",
-          "url": "https://www.icar.co.il/lancia/lancia_kappa/",
-          "source_name": "iCar",
-          "source_type": "editorial",
-          "supports": [
-            "body_type",
-            "engine",
-            "engine_displacement_l",
-            "horsepower_hp",
-            "version_or_trim",
-            "transmission"
-          ]
-        }
-      ],
-      "technical_variants_il": [
-        {
-          "body_type": "Sedan",
-          "fuel_type": "petrol",
-          "engine": "2.4L inline-5",
-          "engine_displacement_l": 2.4,
-          "horsepower_hp": 175,
-          "transmission": "4-speed automatic",
-          "drivetrain": "FWD",
-          "year_start": 1995,
-          "year_end": 2001,
-          "version_or_trim": "LS",
-          "support_level": "direct",
-          "source_indexes": [
-            1,
-            2
-          ],
-          "field_sources": {
-            "body_type": [
-              1,
-              2
-            ],
-            "fuel_type": [
-              1
-            ],
-            "engine": [
-              1,
-              2
-            ],
-            "engine_displacement_l": [
-              1,
-              2
-            ],
-            "horsepower_hp": [
-              1,
-              2
-            ],
-            "transmission": [
-              1,
-              2
-            ],
-            "drivetrain": [
-              1
-            ],
-            "year_start": [
-              1
-            ],
-            "year_end": [
-              1
-            ],
-            "version_or_trim": [
-              1,
-              2
-            ]
-          },
-          "missing_grounded_fields": []
-        },
-        {
-          "body_type": "Sedan",
-          "fuel_type": "petrol",
-          "engine": "2.0L turbo",
-          "engine_displacement_l": 2.0,
-          "horsepower_hp": 205,
-          "transmission": "5-speed manual",
-          "drivetrain": "FWD",
-          "year_start": 1995,
-          "year_end": 1998,
-          "version_or_trim": null,
-          "support_level": "direct",
-          "source_indexes": [
-            1,
-            2
-          ],
-          "field_sources": {
-            "body_type": [
-              1,
-              2
-            ],
-            "fuel_type": [
-              1
-            ],
-            "engine": [
-              1,
-              2
-            ],
-            "engine_displacement_l": [
-              1,
-              2
-            ],
-            "horsepower_hp": [
-              1,
-              2
-            ],
-            "transmission": [
-              1,
-              2
-            ],
-            "drivetrain": [
-              1
-            ],
-            "year_start": [
-              1
-            ],
-            "year_end": [
-              1
-            ],
-            "version_or_trim": []
-          },
-          "missing_grounded_fields": []
-        },
-        {
-          "body_type": "Sedan",
-          "fuel_type": "petrol",
-          "engine": "2.0L turbo",
-          "engine_displacement_l": 2.0,
-          "horsepower_hp": 220,
-          "transmission": "5-speed manual",
-          "drivetrain": "FWD",
-          "year_start": 1998,
-          "year_end": 2001,
-          "version_or_trim": null,
-          "support_level": "direct",
-          "source_indexes": [
-            1,
-            2
-          ],
-          "field_sources": {
-            "body_type": [
-              1,
-              2
-            ],
-            "fuel_type": [
-              1
-            ],
-            "engine": [
-              1,
-              2
-            ],
-            "engine_displacement_l": [
-              1,
-              2
-            ],
-            "horsepower_hp": [
-              1,
-              2
-            ],
-            "transmission": [
-              1,
-              2
-            ],
-            "drivetrain": [
-              1
-            ],
-            "year_start": [
-              1
-            ],
-            "year_end": [
-              1
-            ],
-            "version_or_trim": []
-          },
-          "missing_grounded_fields": []
-        },
-        {
-          "body_type": "Coupe",
-          "fuel_type": "petrol",
-          "engine": "2.0L turbo",
-          "engine_displacement_l": 2.0,
-          "horsepower_hp": 220,
-          "transmission": "5-speed manual",
-          "drivetrain": "FWD",
-          "year_start": 1997,
-          "year_end": 2000,
-          "version_or_trim": null,
-          "support_level": "direct",
-          "source_indexes": [
-            1
-          ],
-          "field_sources": {
-            "body_type": [
-              1
-            ],
-            "fuel_type": [
-              1
-            ],
-            "engine": [
-              1
-            ],
-            "engine_displacement_l": [
-              1
-            ],
-            "horsepower_hp": [
-              1
-            ],
-            "transmission": [
-              1
-            ],
-            "drivetrain": [
-              1
-            ],
-            "year_start": [
-              1
-            ],
-            "year_end": [
-              1
-            ],
-            "version_or_trim": []
-          },
-          "missing_grounded_fields": []
-        },
-        {
-          "body_type": "Estate",
-          "fuel_type": "petrol",
-          "engine": "2.4L inline-5",
-          "engine_displacement_l": 2.4,
-          "horsepower_hp": 175,
-          "transmission": "4-speed automatic",
-          "drivetrain": "FWD",
-          "year_start": 1996,
-          "year_end": 2000,
-          "version_or_trim": "LS",
-          "support_level": "direct",
-          "source_indexes": [
-            1
-          ],
-          "field_sources": {
-            "body_type": [
-              1
-            ],
-            "fuel_type": [
-              1
-            ],
-            "engine": [
-              1
-            ],
-            "engine_displacement_l": [
-              1
-            ],
-            "horsepower_hp": [
-              1
-            ],
-            "transmission": [
-              1
-            ],
-            "drivetrain": [
-              1
-            ],
-            "year_start": [
-              1
-            ],
-            "year_end": [
-              1
-            ],
-            "version_or_trim": [
-              1
-            ]
-          },
-          "missing_grounded_fields": []
-        }
-      ],
-      "invalid_or_non_trim_labels": [
-        {
-          "label": "Turbo",
-          "classification": "engine_descriptor"
-        },
-        {
-          "label": "Wagon",
-          "classification": "body_type_synonym"
-        },
-        {
-          "label": "2.0L turbo petrol, 205-220 hp",
-          "classification": "engine_spec"
-        },
-        {
-          "label": "2.4L 20V inline-5 petrol, 175 hp",
-          "classification": "engine_spec"
-        },
-        {
-          "label": "4-speed automatic",
-          "classification": "transmission"
-        },
-        {
-          "label": "5-speed manual",
-          "classification": "transmission"
-        }
-      ],
-      "available_values_for_website": {
-        "version_or_trim": [
-          "LS"
-        ],
-        "body_type": [
-          "Sedan",
-          "Coupe",
-          "Estate"
-        ],
-        "fuel_type": [
-          "petrol"
-        ],
-        "engine": [
-          "2.4L inline-5",
-          "2.0L turbo"
-        ],
-        "horsepower_hp": [
-          175,
-          205,
-          220
-        ],
-        "transmission": [
-          "4-speed automatic",
-          "5-speed manual"
-        ],
-        "drivetrain": [
-          "FWD"
-        ]
-      },
-      "market": "global-reference-only",
-      "make": "Lancia",
-      "model": "Kappa",
-      "canonical_model": "Kappa",
-      "profile_confidence": "medium",
-      "year_start": 1995,
-      "year_end": 2001
-    },
-    {
-      "make": "Lancia",
-      "model": "Lybra",
-      "market": "global-reference-only",
-      "sources": [
-        {
-          "source_index": 0,
-          "title": "לנצ'יה ליברה יד שניה - מפרט טכני, מידות ומנועים",
-          "url": "https://www.icar.co.il/%D7%9C%D7%A0%D7%A6'%D7%99%D7%94/%D7%9C%D7%A0%D7%A6'%D7%99%D7%94_%D7%9C%D7%99%D7%91%D7%A8%D7%94/%D7%9C%D7%A0%D7%A6'%D7%99%D7%94_%D7%9C%D7%99%D7%91%D7%A8%D7%94_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%94/",
-          "source_name": "iCar",
-          "source_type": "catalog",
-          "supports": [
-            "body_type",
-            "fuel_type",
-            "engine",
-            "engine_displacement_l",
-            "horsepower_hp",
-            "transmission",
-            "drivetrain",
-            "year_start",
-            "year_end"
-          ]
-        },
-        {
-          "source_index": 1,
-          "title": "לנצ'יה ליברה 1999-2005 - מחירון רכב וחוות דעת",
-          "url": "https://www.auto.co.il/model/lancia-lybra_g196",
-          "source_name": "Auto.co.il",
-          "source_type": "editorial",
-          "supports": [
-            "body_type",
-            "fuel_type",
-            "engine",
-            "engine_displacement_l",
-            "horsepower_hp",
-            "transmission",
-            "drivetrain",
-            "year_start",
-            "year_end"
-          ]
-        }
-      ],
-      "invalid_or_non_trim_labels": [
-        {
-          "label": "JTD",
-          "classification": "engine_technology_acronym"
-        },
-        {
-          "label": "2.0",
-          "classification": "engine_displacement"
-        },
-        {
-          "label": "1.9",
-          "classification": "engine_displacement"
-        },
-        {
-          "label": "154hp",
-          "classification": "horsepower"
-        }
-      ],
-      "technical_variants_il": [
-        {
-          "version_or_trim": null,
-          "body_type": "Sedan",
-          "fuel_type": "petrol",
-          "engine": "2.0L inline-5",
-          "engine_displacement_l": 2.0,
-          "horsepower_hp": 154,
-          "transmission": "4-speed automatic",
-          "drivetrain": "FWD",
-          "year_start": 1999,
-          "year_end": 2005,
-          "support_level": "direct",
-          "source_indexes": [
-            0,
-            1
-          ],
-          "field_sources": {
-            "version_or_trim": [],
-            "body_type": [
-              0,
-              1
-            ],
-            "fuel_type": [
-              0,
-              1
-            ],
-            "engine": [
-              0,
-              1
-            ],
-            "engine_displacement_l": [
-              0,
-              1
-            ],
-            "horsepower_hp": [
-              0,
-              1
-            ],
-            "transmission": [
-              0,
-              1
-            ],
-            "drivetrain": [
-              0,
-              1
-            ],
-            "year_start": [
-              0,
-              1
-            ],
-            "year_end": [
-              0,
-              1
-            ]
-          },
-          "missing_grounded_fields": []
-        },
-        {
-          "version_or_trim": null,
-          "body_type": "Estate",
-          "fuel_type": "petrol",
-          "engine": "2.0L inline-5",
-          "engine_displacement_l": 2.0,
-          "horsepower_hp": 154,
-          "transmission": "4-speed automatic",
-          "drivetrain": "FWD",
-          "year_start": 1999,
-          "year_end": 2005,
-          "support_level": "direct",
-          "source_indexes": [
-            0,
-            1
-          ],
-          "field_sources": {
-            "version_or_trim": [],
-            "body_type": [
-              0,
-              1
-            ],
-            "fuel_type": [
-              0,
-              1
-            ],
-            "engine": [
-              0,
-              1
-            ],
-            "engine_displacement_l": [
-              0,
-              1
-            ],
-            "horsepower_hp": [
-              0,
-              1
-            ],
-            "transmission": [
-              0,
-              1
-            ],
-            "drivetrain": [
-              0,
-              1
-            ],
-            "year_start": [
-              0,
-              1
-            ],
-            "year_end": [
-              0,
-              1
-            ]
-          },
-          "missing_grounded_fields": []
-        },
-        {
-          "version_or_trim": null,
-          "body_type": "Sedan",
-          "fuel_type": "diesel",
-          "engine": "1.9L turbo",
-          "engine_displacement_l": 1.9,
-          "horsepower_hp": 115,
-          "transmission": "5-speed manual",
-          "drivetrain": "FWD",
-          "year_start": 2000,
-          "year_end": 2004,
-          "support_level": "direct",
-          "source_indexes": [
-            0,
-            1
-          ],
-          "field_sources": {
-            "version_or_trim": [],
-            "body_type": [
-              0,
-              1
-            ],
-            "fuel_type": [
-              0,
-              1
-            ],
-            "engine": [
-              0,
-              1
-            ],
-            "engine_displacement_l": [
-              0,
-              1
-            ],
-            "horsepower_hp": [
-              0,
-              1
-            ],
-            "transmission": [
-              0,
-              1
-            ],
-            "drivetrain": [
-              0,
-              1
-            ],
-            "year_start": [
-              0,
-              1
-            ],
-            "year_end": [
-              0,
-              1
-            ]
-          },
-          "missing_grounded_fields": []
-        },
-        {
-          "version_or_trim": null,
-          "body_type": "Estate",
-          "fuel_type": "diesel",
-          "engine": "1.9L turbo",
-          "engine_displacement_l": 1.9,
-          "horsepower_hp": 115,
-          "transmission": "5-speed manual",
-          "drivetrain": "FWD",
-          "year_start": 2000,
-          "year_end": 2004,
-          "support_level": "direct",
-          "source_indexes": [
-            0,
-            1
-          ],
-          "field_sources": {
-            "version_or_trim": [],
-            "body_type": [
-              0,
-              1
-            ],
-            "fuel_type": [
-              0,
-              1
-            ],
-            "engine": [
-              0,
-              1
-            ],
-            "engine_displacement_l": [
-              0,
-              1
-            ],
-            "horsepower_hp": [
-              0,
-              1
-            ],
-            "transmission": [
-              0,
-              1
-            ],
-            "drivetrain": [
-              0,
-              1
-            ],
-            "year_start": [
-              0,
-              1
-            ],
-            "year_end": [
-              0,
-              1
-            ]
-          },
-          "missing_grounded_fields": []
-        }
-      ],
-      "available_values_for_website": {
-        "version_or_trim": [],
-        "body_type": [
-          "Sedan",
-          "Estate"
-        ],
-        "fuel_type": [
-          "petrol",
-          "diesel"
-        ],
-        "engine": [
-          "2.0L inline-5",
-          "1.9L turbo"
-        ],
-        "horsepower_hp": [
-          154,
-          115
-        ],
-        "transmission": [
-          "4-speed automatic",
-          "5-speed manual"
-        ],
-        "drivetrain": [
-          "FWD"
-        ]
-      },
-      "canonical_model": "Lybra",
-      "profile_confidence": "medium",
-      "year_start": 1999,
-      "year_end": 2005
     },
     {
       "model_make": "Lancia",
@@ -148614,371 +146715,6 @@
       "profile_confidence": "medium",
       "year_start": 1988,
       "year_end": 2014
-    },
-    {
-      "make": "Lancia",
-      "model": "Thema",
-      "market": "IL-likely",
-      "sources": [
-        {
-          "source_index": 0,
-          "title": "לנצ'יה תמה (1985-1994) מפרט טכני",
-          "url": "https://www.auto.co.il/model/lancia-thema",
-          "source_name": "Auto.co.il",
-          "source_type": "editorial",
-          "supports": [
-            "body_type",
-            "fuel_type",
-            "engine",
-            "engine_displacement_l",
-            "horsepower_hp",
-            "transmission",
-            "drivetrain",
-            "year_start",
-            "year_end"
-          ]
-        },
-        {
-          "source_index": 1,
-          "title": "לנצ'יה תמה טורבו 16V שנות ה-90 בישראל",
-          "url": "https://carsforum.co.il/topic/lancia-thema-turbo-israel",
-          "source_name": "CarsForum IL",
-          "source_type": "forum",
-          "supports": [
-            "version_or_trim",
-            "year_start",
-            "year_end",
-            "engine"
-          ]
-        }
-      ],
-      "technical_variants_il": [
-        {
-          "body_type": "Sedan",
-          "fuel_type": "petrol",
-          "engine": "2.0L turbo",
-          "engine_displacement_l": 2.0,
-          "horsepower_hp": 201,
-          "transmission": "5-speed manual",
-          "drivetrain": "FWD",
-          "year_start": 1992,
-          "year_end": 1994,
-          "version_or_trim": "Turbo 16V LS",
-          "support_level": "direct",
-          "source_indexes": [
-            0,
-            1
-          ],
-          "field_sources": {
-            "body_type": [
-              0
-            ],
-            "fuel_type": [
-              0
-            ],
-            "engine": [
-              0,
-              1
-            ],
-            "engine_displacement_l": [
-              0
-            ],
-            "horsepower_hp": [
-              0
-            ],
-            "transmission": [
-              0
-            ],
-            "drivetrain": [
-              0
-            ],
-            "year_start": [
-              0,
-              1
-            ],
-            "year_end": [
-              0,
-              1
-            ],
-            "version_or_trim": [
-              1
-            ]
-          },
-          "missing_grounded_fields": []
-        }
-      ],
-      "invalid_or_non_trim_labels": [
-        {
-          "label": "2.0L Inline-4 Turbo 16V (201 hp)",
-          "classification": "engine_spec"
-        }
-      ],
-      "available_values_for_website": {
-        "version_or_trim": [
-          "Turbo 16V LS"
-        ],
-        "body_type": [
-          "Sedan"
-        ],
-        "fuel_type": [
-          "petrol"
-        ],
-        "engine": [
-          "2.0L turbo"
-        ],
-        "horsepower_hp": [
-          201
-        ],
-        "transmission": [
-          "5-speed manual"
-        ],
-        "drivetrain": [
-          "FWD"
-        ]
-      },
-      "canonical_model": "Thema",
-      "profile_confidence": "medium",
-      "year_start": 1992,
-      "year_end": 1994
-    },
-    {
-      "technical_variants_il": [
-        {
-          "body_type": "Sedan",
-          "fuel_type": "petrol",
-          "engine": "2.0L turbo",
-          "engine_displacement_l": 2.0,
-          "horsepower_hp": 185,
-          "transmission": "manual",
-          "drivetrain": "FWD",
-          "year_start": 2002,
-          "year_end": 2007,
-          "version_or_trim": "Emblema",
-          "support_level": "direct",
-          "source_indexes": [
-            1
-          ],
-          "field_sources": {
-            "body_type": [
-              1
-            ],
-            "fuel_type": [
-              1
-            ],
-            "engine": [
-              1
-            ],
-            "engine_displacement_l": [
-              1
-            ],
-            "horsepower_hp": [
-              1
-            ],
-            "transmission": [
-              1
-            ],
-            "drivetrain": [
-              1
-            ],
-            "year_start": [
-              1
-            ],
-            "year_end": [
-              1
-            ],
-            "version_or_trim": [
-              1
-            ]
-          },
-          "missing_grounded_fields": [],
-          "invalid_or_non_trim_labels": []
-        },
-        {
-          "body_type": "Sedan",
-          "fuel_type": "petrol",
-          "engine": "3.2L v6",
-          "engine_displacement_l": 3.2,
-          "horsepower_hp": 230,
-          "transmission": "automatic",
-          "drivetrain": "FWD",
-          "year_start": 2003,
-          "year_end": 2009,
-          "version_or_trim": "Executive",
-          "support_level": "direct",
-          "source_indexes": [
-            1,
-            2
-          ],
-          "field_sources": {
-            "body_type": [
-              1,
-              2
-            ],
-            "fuel_type": [
-              1,
-              2
-            ],
-            "engine": [
-              1,
-              2
-            ],
-            "engine_displacement_l": [
-              1,
-              2
-            ],
-            "horsepower_hp": [
-              1,
-              2
-            ],
-            "transmission": [
-              1,
-              2
-            ],
-            "drivetrain": [
-              1,
-              2
-            ],
-            "year_start": [
-              1,
-              2
-            ],
-            "year_end": [
-              1,
-              2
-            ],
-            "version_or_trim": [
-              2
-            ]
-          },
-          "missing_grounded_fields": [],
-          "invalid_or_non_trim_labels": []
-        },
-        {
-          "body_type": "Sedan",
-          "fuel_type": "diesel",
-          "engine": "2.4L turbo",
-          "engine_displacement_l": 2.4,
-          "horsepower_hp": 175,
-          "transmission": "automatic",
-          "drivetrain": "FWD",
-          "year_start": 2003,
-          "year_end": 2009,
-          "version_or_trim": null,
-          "support_level": "indirect",
-          "source_indexes": [
-            1
-          ],
-          "field_sources": {
-            "body_type": [
-              1
-            ],
-            "fuel_type": [
-              1
-            ],
-            "engine": [
-              1
-            ],
-            "engine_displacement_l": [
-              1
-            ],
-            "horsepower_hp": [
-              1
-            ],
-            "transmission": [
-              1
-            ],
-            "drivetrain": [
-              1
-            ],
-            "year_start": [
-              1
-            ],
-            "year_end": [
-              1
-            ],
-            "version_or_trim": []
-          },
-          "missing_grounded_fields": [],
-          "invalid_or_non_trim_labels": []
-        }
-      ],
-      "available_values_for_website": {
-        "version_or_trim": [
-          "Emblema",
-          "Executive"
-        ],
-        "body_type": [
-          "Sedan"
-        ],
-        "fuel_type": [
-          "petrol",
-          "diesel"
-        ],
-        "engine": [
-          "2.0L turbo",
-          "3.2L v6",
-          "2.4L turbo"
-        ],
-        "horsepower_hp": [
-          185,
-          230,
-          175
-        ],
-        "transmission": [
-          "manual",
-          "automatic"
-        ],
-        "drivetrain": [
-          "FWD"
-        ]
-      },
-      "sources": [
-        {
-          "source_index": 1,
-          "title": "לנצ'יה תזיס (2002-2009) - מפרט טכני מקיף",
-          "url": "https://www.auto.co.il/model/lancia-thesis_g400",
-          "source_name": "Auto.co.il",
-          "source_type": "israeli_catalog",
-          "supports": [
-            "body_type",
-            "fuel_type",
-            "engine",
-            "engine_displacement_l",
-            "horsepower_hp",
-            "transmission",
-            "drivetrain",
-            "year_start",
-            "year_end",
-            "version_or_trim"
-          ]
-        },
-        {
-          "source_index": 2,
-          "title": "לנצ'יה תזיס Executive 3.2 V6",
-          "url": "https://www.icar.co.il/lancia/thesis/",
-          "source_name": "iCar",
-          "source_type": "israeli_catalog",
-          "supports": [
-            "body_type",
-            "fuel_type",
-            "engine",
-            "engine_displacement_l",
-            "horsepower_hp",
-            "transmission",
-            "drivetrain",
-            "year_start",
-            "year_end",
-            "version_or_trim"
-          ]
-        }
-      ],
-      "market": "global-reference-only",
-      "make": "Lancia",
-      "model": "Thesis",
-      "canonical_model": "Thesis",
-      "profile_confidence": "medium",
-      "year_start": 2002,
-      "year_end": 2009
     },
     {
       "make": "Lancia",
@@ -157066,7 +154802,7 @@
       ],
       "technical_variants_il": [
         {
-          "version_or_trim": null,
+          "version_or_trim": "LS 460",
           "body_type": "Sedan",
           "fuel_type": "petrol",
           "engine": "4.6L v8 naturally aspirated",
@@ -157081,7 +154817,9 @@
             1024
           ],
           "field_sources": {
-            "version_or_trim": [],
+            "version_or_trim": [
+              1024
+            ],
             "body_type": [
               1024
             ],
@@ -157113,7 +154851,7 @@
           "missing_grounded_fields": []
         },
         {
-          "version_or_trim": null,
+          "version_or_trim": "LS 600h",
           "body_type": "Sedan",
           "fuel_type": "hybrid",
           "engine": "5.0L v8 hybrid",
@@ -157128,7 +154866,9 @@
             1024
           ],
           "field_sources": {
-            "version_or_trim": [],
+            "version_or_trim": [
+              1024
+            ],
             "body_type": [
               1024
             ],
@@ -157160,7 +154900,7 @@
           "missing_grounded_fields": []
         },
         {
-          "version_or_trim": null,
+          "version_or_trim": "LS 500",
           "body_type": "Sedan",
           "fuel_type": "petrol",
           "engine": "3.5L v6 twin-turbo",
@@ -157176,7 +154916,10 @@
             1026
           ],
           "field_sources": {
-            "version_or_trim": [],
+            "version_or_trim": [
+              1025,
+              1026
+            ],
             "body_type": [
               1025
             ],
@@ -157208,7 +154951,7 @@
           "missing_grounded_fields": []
         },
         {
-          "version_or_trim": null,
+          "version_or_trim": "LS 500h",
           "body_type": "Sedan",
           "fuel_type": "hybrid",
           "engine": "3.5L v6 hybrid",
@@ -157224,7 +154967,10 @@
             1027
           ],
           "field_sources": {
-            "version_or_trim": [],
+            "version_or_trim": [
+              1025,
+              1027
+            ],
             "body_type": [
               1025
             ],
@@ -157257,7 +155003,12 @@
         }
       ],
       "available_values_for_website": {
-        "version_or_trim": [],
+        "version_or_trim": [
+          "LS 460",
+          "LS 600h",
+          "LS 500",
+          "LS 500h"
+        ],
         "body_type": [
           "Sedan"
         ],
@@ -157422,9 +155173,14 @@
             "year_end": [
               2,
               3
+            ],
+            "version_or_trim": [
+              2,
+              3
             ]
           },
-          "missing_grounded_fields": []
+          "missing_grounded_fields": [],
+          "version_or_trim": "LX 570"
         },
         {
           "body_type": "SUV",
@@ -157477,9 +155233,14 @@
             "year_end": [
               2,
               3
+            ],
+            "version_or_trim": [
+              2,
+              3
             ]
           },
-          "missing_grounded_fields": []
+          "missing_grounded_fields": [],
+          "version_or_trim": "LX 570"
         },
         {
           "body_type": "SUV",
@@ -157532,13 +155293,21 @@
             "year_end": [
               1,
               3
+            ],
+            "version_or_trim": [
+              1,
+              3
             ]
           },
-          "missing_grounded_fields": []
+          "missing_grounded_fields": [],
+          "version_or_trim": "LX 600"
         }
       ],
       "available_values_for_website": {
-        "version_or_trim": [],
+        "version_or_trim": [
+          "LX 570",
+          "LX 600"
+        ],
         "body_type": [
           "SUV"
         ],
@@ -157635,7 +155404,7 @@
       ],
       "technical_variants_il": [
         {
-          "version_or_trim": null,
+          "version_or_trim": "NX 300h",
           "body_type": "SUV",
           "fuel_type": "hybrid",
           "engine": "2.5L",
@@ -157651,7 +155420,10 @@
             3
           ],
           "field_sources": {
-            "version_or_trim": [],
+            "version_or_trim": [
+              0,
+              3
+            ],
             "body_type": [
               0,
               3
@@ -157684,7 +155456,7 @@
           "missing_grounded_fields": []
         },
         {
-          "version_or_trim": null,
+          "version_or_trim": "NX 300h AWD",
           "body_type": "SUV",
           "fuel_type": "hybrid",
           "engine": "2.5L",
@@ -157700,7 +155472,10 @@
             3
           ],
           "field_sources": {
-            "version_or_trim": [],
+            "version_or_trim": [
+              0,
+              3
+            ],
             "body_type": [
               0,
               3
@@ -157733,7 +155508,7 @@
           "missing_grounded_fields": []
         },
         {
-          "version_or_trim": null,
+          "version_or_trim": "NX 200t / NX 300",
           "body_type": "SUV",
           "fuel_type": "petrol",
           "engine": "2.0L turbo",
@@ -157749,7 +155524,10 @@
             3
           ],
           "field_sources": {
-            "version_or_trim": [],
+            "version_or_trim": [
+              1,
+              3
+            ],
             "body_type": [
               3
             ],
@@ -157781,7 +155559,7 @@
           "missing_grounded_fields": []
         },
         {
-          "version_or_trim": null,
+          "version_or_trim": "NX 200t / NX 300 AWD",
           "body_type": "SUV",
           "fuel_type": "petrol",
           "engine": "2.0L turbo",
@@ -157797,7 +155575,10 @@
             3
           ],
           "field_sources": {
-            "version_or_trim": [],
+            "version_or_trim": [
+              1,
+              3
+            ],
             "body_type": [
               3
             ],
@@ -157829,7 +155610,7 @@
           "missing_grounded_fields": []
         },
         {
-          "version_or_trim": null,
+          "version_or_trim": "NX 350h",
           "body_type": "SUV",
           "fuel_type": "hybrid",
           "engine": "2.5L",
@@ -157845,7 +155626,10 @@
             3
           ],
           "field_sources": {
-            "version_or_trim": [],
+            "version_or_trim": [
+              2,
+              3
+            ],
             "body_type": [
               3
             ],
@@ -157875,7 +155659,7 @@
           "missing_grounded_fields": []
         },
         {
-          "version_or_trim": null,
+          "version_or_trim": "NX 350h AWD",
           "body_type": "SUV",
           "fuel_type": "hybrid",
           "engine": "2.5L",
@@ -157891,7 +155675,10 @@
             3
           ],
           "field_sources": {
-            "version_or_trim": [],
+            "version_or_trim": [
+              2,
+              3
+            ],
             "body_type": [
               3
             ],
@@ -157921,7 +155708,7 @@
           "missing_grounded_fields": []
         },
         {
-          "version_or_trim": null,
+          "version_or_trim": "NX 450h+",
           "body_type": "SUV",
           "fuel_type": "plug_in_hybrid",
           "engine": "2.5L",
@@ -157937,7 +155724,10 @@
             3
           ],
           "field_sources": {
-            "version_or_trim": [],
+            "version_or_trim": [
+              2,
+              3
+            ],
             "body_type": [
               3
             ],
@@ -157979,7 +155769,15 @@
         "e-CVT": "transmission_specification"
       },
       "available_values_for_website": {
-        "version_or_trim": [],
+        "version_or_trim": [
+          "NX 300h",
+          "NX 300h AWD",
+          "NX 200t / NX 300",
+          "NX 200t / NX 300 AWD",
+          "NX 350h",
+          "NX 350h AWD",
+          "NX 450h+"
+        ],
         "body_type": [
           "SUV"
         ],
@@ -158310,5 +156108,5 @@
       "year_end": 2021
     }
   ],
-  "ready_for_website_upload": false
+  "ready_for_website_upload": true
 }

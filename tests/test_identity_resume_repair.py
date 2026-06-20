@@ -594,20 +594,20 @@ def test_resume_state_readiness_models_blocked_overrides_review_only_count(tmp_p
     assert state["blocked"] == 3
 
 
-def test_current_catalog_resume_state_advances_through_batch24_window():
+def test_current_catalog_resume_state_advances_through_batch25_window():
     state = cb.compute_resume_state()
 
-    assert state["clean_count"] == 438
+    assert state["clean_count"] == 506
     assert state["review_entries_count"] == 0
     assert state["review_overlap_count"] == 0
     assert state["review_only_blocked_count"] == 0
     assert state["active_blocked_count"] == 0
     assert state["blocked"] == 0
-    assert state["resume_after_key"] == "IL-confirmed|Jeep|Avenger"
-    assert state["next_key_to_process"] == "IL-likely|Jeep|Avenger"
-    assert state["next_key"] == "IL-likely|Jeep|Avenger"
-    assert state["next_make"] == "Jeep"
-    assert state["next_model"] == "Avenger"
+    assert state["resume_after_key"] == "IL-confirmed|Lexus|RC"
+    assert state["next_key_to_process"] == "IL-confirmed|Lexus|RX"
+    assert state["next_key"] == "IL-confirmed|Lexus|RX"
+    assert state["next_make"] == "Lexus"
+    assert state["next_model"] == "RX"
     assert state["unmatched_output_keys_count"] == 0
     assert state["unmatched_output_keys_sample"] == []
     assert state["split_profile_alias_count"] >= 29

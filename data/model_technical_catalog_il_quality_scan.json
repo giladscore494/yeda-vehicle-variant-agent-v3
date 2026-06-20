@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-06-18T13:36:50Z",
+  "generated_at": "2026-06-20T15:12:23Z",
   "totals": {
-    "models": 438,
-    "findings": 597,
-    "grounded_cells": 14099,
-    "total_cells": 14099,
-    "marketplace_citation_share": 0.039952501340687965,
-    "official_citations": 25853,
+    "models": 506,
+    "findings": 734,
+    "grounded_cells": 16714,
+    "total_cells": 16714,
+    "marketplace_citation_share": 0.04408352668213457,
+    "official_citations": 29480,
     "bug": 0,
-    "leak": 123,
+    "leak": 185,
     "normalization": 0,
-    "structure": 474
+    "structure": 549
   },
   "findings": [
     {
@@ -4191,12 +4191,971 @@
       "make": "Jeep",
       "model": "Avenger",
       "detail": "19/19 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Jeep",
+      "model": "Avenger",
+      "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Jeep",
+      "model": "Cherokee",
+      "detail": "54/54 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Jeep",
+      "model": "Commander",
+      "detail": "27/27 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Jeep",
+      "model": "Commander",
+      "detail": "30/30 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Jeep",
+      "model": "Compass",
+      "detail": "72/72 grounded cells (100.0%)"
+    },
+    {
+      "type": "year_split_duplicates",
+      "severity": "structure",
+      "make": "Jeep",
+      "model": "Grand Cherokee",
+      "detail": "merge candidate signature=('SUV', 'petrol', '4.0L i6', 190, '4-speed automatic', '4WD') rows=[(0, 1993, 1998), (1, 1999, 2004)]"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Jeep",
+      "model": "Grand Cherokee",
+      "detail": "53/53 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Jeep",
+      "model": "Renegade",
+      "detail": "45/45 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Jeep",
+      "model": "Wrangler",
+      "detail": "63/63 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "KGM",
+      "model": "Rexton",
+      "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "KGM",
+      "model": "Torres EVX",
+      "detail": "8/8 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "KGM / SsangYong",
+      "model": "Musso",
+      "detail": "8/8 grounded cells (100.0%)"
+    },
+    {
+      "type": "year_split_duplicates",
+      "severity": "structure",
+      "make": "Kia",
+      "model": "Carnival",
+      "detail": "merge candidate signature=('MPV', 'diesel', '2.2L turbo', 202, '8-speed automatic', 'FWD') rows=[(3, 2018, 2021), (5, 2021, 2024)]"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Kia",
+      "model": "Carnival",
+      "detail": "63/63 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Kia",
+      "model": "Ceed",
+      "detail": "144/144 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Kia",
+      "model": "Ceed SW",
+      "detail": "54/54 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Kia",
+      "model": "EV3",
+      "detail": "7/7 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Kia",
+      "model": "EV6",
+      "detail": "24/24 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Kia",
+      "model": "Forte",
+      "detail": "60/60 grounded cells (100.0%)"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Kia",
+      "model": "Magentis",
+      "detail": "variant[0] year_start grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Kia",
+      "model": "Magentis",
+      "detail": "variant[0] year_end grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Kia",
+      "model": "Magentis",
+      "detail": "variant[1] version_or_trim grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Kia",
+      "model": "Magentis",
+      "detail": "variant[1] year_start grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Kia",
+      "model": "Magentis",
+      "detail": "variant[1] year_end grounded only by marketplace/aggregator source(s): ['autoboom.co.il', 'autoboom.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Kia",
+      "model": "Magentis",
+      "detail": "variant[2] version_or_trim grounded only by marketplace/aggregator source(s): ['yad2.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Kia",
+      "model": "Magentis",
+      "detail": "variant[2] year_start grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Kia",
+      "model": "Magentis",
+      "detail": "variant[2] year_end grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Kia",
+      "model": "Magentis",
+      "detail": "variant[3] version_or_trim grounded only by marketplace/aggregator source(s): ['yad2.co.il', 'autoboom.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Kia",
+      "model": "Magentis",
+      "detail": "variant[3] year_end grounded only by marketplace/aggregator source(s): ['yad2.co.il', 'autoboom.co.il']"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Kia",
+      "model": "Magentis",
+      "detail": "40/40 grounded cells (100.0%)"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Kia",
+      "model": "Magentis",
+      "detail": "marketplace citation share 92.4%"
+    },
+    {
+      "type": "source_domain",
+      "severity": "leak",
+      "make": "Kia",
+      "model": "Opirus",
+      "detail": "non Israeli source host: autocatalogarchive.com"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Kia",
+      "model": "Opirus",
+      "detail": "variant[0] version_or_trim grounded only by marketplace/aggregator source(s): ['yad2.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Kia",
+      "model": "Opirus",
+      "detail": "variant[0] year_start grounded only by marketplace/aggregator source(s): ['yad2.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Kia",
+      "model": "Opirus",
+      "detail": "variant[0] year_end grounded only by marketplace/aggregator source(s): ['yad2.co.il']"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Kia",
+      "model": "Opirus",
+      "detail": "19/19 grounded cells (100.0%)"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Kia",
+      "model": "Opirus",
+      "detail": "marketplace citation share 56.0%"
+    },
+    {
+      "type": "year_split_duplicates",
+      "severity": "structure",
+      "make": "Kia",
+      "model": "Optima",
+      "detail": "merge candidate signature=('Sedan', 'diesel', '1.6L turbo', 136, '7-speed dual_clutch', 'FWD') rows=[(2, 2016, 2020), (3, 2016, 2019)]"
+    },
+    {
+      "type": "year_split_duplicates",
+      "severity": "structure",
+      "make": "Kia",
+      "model": "Optima",
+      "detail": "merge candidate signature=('Sedan', 'hybrid', '2.0L', 192, '6-speed automatic', 'FWD') rows=[(4, 2017, 2020), (5, 2017, 2018)]"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Kia",
+      "model": "Optima",
+      "detail": "58/58 grounded cells (100.0%)"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Kia",
+      "model": "Pride",
+      "detail": "variant[0] version_or_trim grounded only by marketplace/aggregator source(s): ['yad2.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Kia",
+      "model": "Pride",
+      "detail": "variant[1] version_or_trim grounded only by marketplace/aggregator source(s): ['yad2.co.il', 'yad2.co.il']"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Kia",
+      "model": "Pride",
+      "detail": "20/20 grounded cells (100.0%)"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Kia",
+      "model": "Pride",
+      "detail": "marketplace citation share 53.8%"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Kia",
+      "model": "Seltos",
+      "detail": "8/8 grounded cells (100.0%)"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Kia",
+      "model": "Shuma",
+      "detail": "variant[0] year_start grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Kia",
+      "model": "Shuma",
+      "detail": "variant[0] year_end grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Kia",
+      "model": "Shuma",
+      "detail": "variant[1] year_start grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Kia",
+      "model": "Shuma",
+      "detail": "variant[1] year_end grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Kia",
+      "model": "Shuma",
+      "detail": "variant[2] year_start grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Kia",
+      "model": "Shuma",
+      "detail": "variant[2] year_end grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Kia",
+      "model": "Shuma",
+      "detail": "variant[3] year_start grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Kia",
+      "model": "Shuma",
+      "detail": "variant[3] year_end grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Kia",
+      "model": "Shuma",
+      "detail": "variant[4] year_start grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Kia",
+      "model": "Shuma",
+      "detail": "variant[4] year_end grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Kia",
+      "model": "Shuma",
+      "detail": "variant[5] year_start grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Kia",
+      "model": "Shuma",
+      "detail": "variant[5] year_end grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Kia",
+      "model": "Shuma",
+      "detail": "variant[6] year_start grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Kia",
+      "model": "Shuma",
+      "detail": "variant[6] year_end grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Kia",
+      "model": "Shuma",
+      "detail": "variant[7] year_start grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Kia",
+      "model": "Shuma",
+      "detail": "variant[7] year_end grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Kia",
+      "model": "Shuma",
+      "detail": "variant[8] year_start grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Kia",
+      "model": "Shuma",
+      "detail": "variant[8] year_end grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Kia",
+      "model": "Shuma",
+      "detail": "81/81 grounded cells (100.0%)"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Kia",
+      "model": "Shuma",
+      "detail": "marketplace citation share 100.0%"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Kia",
+      "model": "Sorento",
+      "detail": "99/99 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Kia",
+      "model": "Soul",
+      "detail": "27/27 grounded cells (100.0%)"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Kia",
+      "model": "Sportage",
+      "detail": "variant[0] year_start grounded only by marketplace/aggregator source(s): ['yad2.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Kia",
+      "model": "Sportage",
+      "detail": "variant[0] year_end grounded only by marketplace/aggregator source(s): ['yad2.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Kia",
+      "model": "Sportage",
+      "detail": "variant[1] year_start grounded only by marketplace/aggregator source(s): ['yad2.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Kia",
+      "model": "Sportage",
+      "detail": "variant[1] year_end grounded only by marketplace/aggregator source(s): ['yad2.co.il']"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Kia",
+      "model": "Sportage",
+      "detail": "108/108 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Kia",
+      "model": "Stinger",
+      "detail": "20/20 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Kia",
+      "model": "Stonic",
+      "detail": "56/56 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Kia",
+      "model": "Venga",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Lamborghini",
+      "model": "Aventador",
+      "detail": "30/30 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Lamborghini",
+      "model": "Aventador",
+      "detail": "20/20 grounded cells (100.0%)"
+    },
+    {
+      "type": "year_split_duplicates",
+      "severity": "structure",
+      "make": "Lamborghini",
+      "model": "Huracan",
+      "detail": "merge candidate signature=('Coupe', 'petrol', '5.2L v10', 640, '7-speed dual_clutch', 'AWD') rows=[(1, 2017, 2019), (2, 2019, 2024)]"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Lamborghini",
+      "model": "Huracan",
+      "detail": "30/30 grounded cells (100.0%)"
+    },
+    {
+      "type": "year_split_duplicates",
+      "severity": "structure",
+      "make": "Lamborghini",
+      "model": "Huracan",
+      "detail": "merge candidate signature=('Coupe', 'petrol', '5.2L v10', 640, '7-speed dual_clutch', 'RWD') rows=[(4, 2021, 2024), (5, 2022, 2024)]"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Lamborghini",
+      "model": "Huracan",
+      "detail": "70/70 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Lamborghini",
+      "model": "Urus",
+      "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "year_split_duplicates",
+      "severity": "structure",
+      "make": "Lamborghini",
+      "model": "Urus",
+      "detail": "merge candidate signature=('SUV', 'petrol', '4.0L v8 twin-turbo', 666, '8-speed automatic', 'AWD') rows=[(1, 2023, None), (2, 2022, None)]"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Lamborghini",
+      "model": "Urus",
+      "detail": "26/26 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Lancia",
+      "model": "Delta",
+      "detail": "27/27 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Lancia",
+      "model": "Lybra",
+      "detail": "10/10 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Lancia",
+      "model": "Thema",
+      "detail": "29/29 grounded cells (100.0%)"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Lancia",
+      "model": "Y",
+      "detail": "variant[0] version_or_trim grounded only by marketplace/aggregator source(s): ['yad2.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Lancia",
+      "model": "Y",
+      "detail": "variant[0] year_start grounded only by marketplace/aggregator source(s): ['yad2.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Lancia",
+      "model": "Y",
+      "detail": "variant[0] year_end grounded only by marketplace/aggregator source(s): ['yad2.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Lancia",
+      "model": "Y",
+      "detail": "variant[1] version_or_trim grounded only by marketplace/aggregator source(s): ['yad2.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Lancia",
+      "model": "Y",
+      "detail": "variant[1] year_start grounded only by marketplace/aggregator source(s): ['yad2.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Lancia",
+      "model": "Y",
+      "detail": "variant[1] year_end grounded only by marketplace/aggregator source(s): ['yad2.co.il']"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Lancia",
+      "model": "Y",
+      "detail": "40/40 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Lancia",
+      "model": "Ypsilon",
+      "detail": "36/36 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Land Rover",
+      "model": "Defender",
+      "detail": "90/90 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Land Rover",
+      "model": "Discovery",
+      "detail": "54/54 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Land Rover",
+      "model": "Discovery Sport",
+      "detail": "45/45 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Land Rover",
+      "model": "Freelander",
+      "detail": "63/63 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Land Rover",
+      "model": "Freelander 2",
+      "detail": "45/45 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Land Rover",
+      "model": "Range Rover",
+      "detail": "63/63 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Land Rover",
+      "model": "Range Rover Evoque",
+      "detail": "36/36 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Land Rover",
+      "model": "Range Rover Evoque",
+      "detail": "54/54 grounded cells (100.0%)"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Land Rover",
+      "model": "Range Rover Sport",
+      "detail": "variant[0] year_start grounded only by marketplace/aggregator source(s): ['il.autoboom.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Land Rover",
+      "model": "Range Rover Sport",
+      "detail": "variant[0] year_end grounded only by marketplace/aggregator source(s): ['il.autoboom.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Land Rover",
+      "model": "Range Rover Sport",
+      "detail": "variant[1] year_start grounded only by marketplace/aggregator source(s): ['il.autoboom.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Land Rover",
+      "model": "Range Rover Sport",
+      "detail": "variant[1] year_end grounded only by marketplace/aggregator source(s): ['il.autoboom.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Land Rover",
+      "model": "Range Rover Sport",
+      "detail": "variant[2] year_start grounded only by marketplace/aggregator source(s): ['il.autoboom.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Land Rover",
+      "model": "Range Rover Sport",
+      "detail": "variant[2] year_end grounded only by marketplace/aggregator source(s): ['il.autoboom.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Land Rover",
+      "model": "Range Rover Sport",
+      "detail": "variant[3] year_start grounded only by marketplace/aggregator source(s): ['il.autoboom.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Land Rover",
+      "model": "Range Rover Sport",
+      "detail": "variant[3] year_end grounded only by marketplace/aggregator source(s): ['il.autoboom.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Land Rover",
+      "model": "Range Rover Sport",
+      "detail": "variant[4] year_start grounded only by marketplace/aggregator source(s): ['il.autoboom.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Land Rover",
+      "model": "Range Rover Sport",
+      "detail": "variant[4] year_end grounded only by marketplace/aggregator source(s): ['il.autoboom.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Land Rover",
+      "model": "Range Rover Sport",
+      "detail": "variant[5] year_start grounded only by marketplace/aggregator source(s): ['il.autoboom.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Land Rover",
+      "model": "Range Rover Sport",
+      "detail": "variant[5] year_end grounded only by marketplace/aggregator source(s): ['il.autoboom.co.il']"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Land Rover",
+      "model": "Range Rover Sport",
+      "detail": "54/54 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Land Rover",
+      "model": "Range Rover Velar",
+      "detail": "63/63 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Land Rover",
+      "model": "Range Rover Velar",
+      "detail": "40/40 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Leapmotor",
+      "model": "C10",
+      "detail": "7/7 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Leapmotor",
+      "model": "C10",
+      "detail": "7/7 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Leapmotor",
+      "model": "T03",
+      "detail": "8/8 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Lexus",
+      "model": "CT 200h",
+      "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Lexus",
+      "model": "ES",
+      "detail": "10/10 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Lexus",
+      "model": "ES",
+      "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Lexus",
+      "model": "GS",
+      "detail": "54/54 grounded cells (100.0%)"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Lexus",
+      "model": "GX",
+      "detail": "variant[0] year_start grounded only by marketplace/aggregator source(s): ['yad2.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Lexus",
+      "model": "GX",
+      "detail": "variant[0] year_end grounded only by marketplace/aggregator source(s): ['yad2.co.il']"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Lexus",
+      "model": "GX",
+      "detail": "17/17 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Lexus",
+      "model": "IS",
+      "detail": "45/45 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Lexus",
+      "model": "LBX",
+      "detail": "10/10 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Lexus",
+      "model": "LC",
+      "detail": "36/36 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Lexus",
+      "model": "LM",
+      "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Lexus",
+      "model": "LM",
+      "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Lexus",
+      "model": "LS",
+      "detail": "40/40 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Lexus",
+      "model": "LX",
+      "detail": "30/30 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Lexus",
+      "model": "NX",
+      "detail": "67/67 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Lexus",
+      "model": "RC",
+      "detail": "30/30 grounded cells (100.0%)"
     }
   ],
   "counts_by_type": {
-    "grounding_completeness": 438,
-    "year_split_duplicates": 36,
-    "source_tier_inversion": 116,
-    "source_domain": 7
+    "grounding_completeness": 506,
+    "year_split_duplicates": 43,
+    "source_tier_inversion": 177,
+    "source_domain": 8
   }
 }
