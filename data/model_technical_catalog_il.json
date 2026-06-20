@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T19:44:35Z",
+  "generated_at": "2026-06-20T19:45:10Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -169769,6 +169769,132 @@
       "profile_confidence": "medium",
       "year_start": 2022,
       "year_end": 2025
+    },
+    {
+      "make": "McLaren",
+      "model": "GT",
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "מקלארן GT החדשה בישראל - מחיר החל מ- 1.6 מיליון שקל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%9E%D7%A7%D7%9C%D7%90%D7%A8%D7%9F-gt-%D7%94%D7%97%D7%93%D7%A9%D7%94-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-1-6-%D7%9E%D7%99%D7%9C%D7%99%D7%95%D7%9F-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "מקלארן GT - מחירון, קטלוג רכב, מפרט טכני, מבחני דרכים",
+          "url": "https://www.auto.co.il/model/mclaren-gt_g1369",
+          "source_name": "Auto.co.il",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "4.0L v8 twin-turbo",
+          "engine_displacement_l": 4.0,
+          "horsepower_hp": 620,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "RWD",
+          "year_start": 2020,
+          "year_end": 2023,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Coupe"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "4.0L v8 twin-turbo"
+        ],
+        "horsepower_hp": [
+          620
+        ],
+        "transmission": [
+          "7-speed dual_clutch"
+        ],
+        "drivetrain": [
+          "RWD"
+        ]
+      },
+      "market": "IL-confirmed",
+      "canonical_model": "GT",
+      "profile_confidence": "medium",
+      "year_start": 2020,
+      "year_end": 2023
     }
   ],
   "ready_for_website_upload": false
