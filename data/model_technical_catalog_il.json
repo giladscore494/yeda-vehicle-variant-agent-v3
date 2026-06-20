@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T21:25:11Z",
+  "generated_at": "2026-06-20T21:25:39Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -187269,6 +187269,214 @@
       "profile_confidence": "medium",
       "year_start": 2010,
       "year_end": 2024
+    },
+    {
+      "make": "Mini",
+      "model": "Paceman",
+      "market": "IL-confirmed",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "מיני פייסמן - מחירון, צריכת דלק, חוות דעת - iCar",
+          "url": "https://www.icar.co.il/mini/mini_paceman/",
+          "source_name": "iCar",
+          "source_type": "catalog/spec",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "מיני פייסמן - מפרט טכני, מידות - אוטו",
+          "url": "https://www.auto.co.il/model/mini-paceman_g117",
+          "source_name": "Auto.co.il",
+          "source_type": "catalog/spec",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Cooper",
+          "body_type": "Crossover",
+          "fuel_type": "petrol",
+          "engine": "1.6L",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 122,
+          "transmission": "6-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2013,
+          "year_end": 2016,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Cooper S",
+          "body_type": "Crossover",
+          "fuel_type": "petrol",
+          "engine": "1.6L turbo",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 184,
+          "transmission": "6-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2013,
+          "year_end": 2016,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Crossover Coupe",
+          "classification": "body_type"
+        },
+        {
+          "label": "1.6L 4-cylinder naturally aspirated petrol, 122 hp",
+          "classification": "engine_spec_and_horsepower"
+        },
+        {
+          "label": "1.6L 4-cylinder turbocharged petrol, 184 hp",
+          "classification": "engine_spec_and_horsepower"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Cooper",
+          "Cooper S"
+        ],
+        "body_type": [
+          "Crossover"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "1.6L",
+          "1.6L turbo"
+        ],
+        "horsepower_hp": [
+          122,
+          184
+        ],
+        "transmission": [
+          "6-speed automatic"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "canonical_model": "Paceman",
+      "profile_confidence": "medium",
+      "year_start": 2013,
+      "year_end": 2016
     }
   ],
   "ready_for_website_upload": false
