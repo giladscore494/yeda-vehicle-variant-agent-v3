@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T16:45:36Z",
+  "generated_at": "2026-06-20T16:46:43Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -165036,6 +165036,188 @@
       "canonical_model": "CX-50",
       "profile_confidence": "medium",
       "year_start": null,
+      "year_end": null
+    },
+    {
+      "make": "Mazda",
+      "model": "CX-60",
+      "market": "global-reference-only",
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "מאזדה CX-60 - מפרט טכני",
+          "url": "https://www.mazda.co.il/uploads/cx-60-specs.pdf",
+          "source_name": "Mazda Israel",
+          "source_type": "official_importer",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "מאזדה CX-60 - מחירון רכב, מבחני דרכים ומפרטים טכניים",
+          "url": "https://www.icar.co.il/מאזדה/מאזדה_CX-60/מאזדה_CX-60_חדש/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "SUV",
+          "fuel_type": "plug_in_hybrid",
+          "engine": "2.5L",
+          "engine_displacement_l": 2.5,
+          "horsepower_hp": 327,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2023,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "SUV",
+          "fuel_type": "mild_hybrid",
+          "engine": "3.3L turbo",
+          "engine_displacement_l": 3.3,
+          "horsepower_hp": 284,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2023,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": {
+        "Base": "non_trim_placeholder",
+        "Standard": "non_trim_placeholder",
+        "188 hp": "horsepower_label",
+        "200/254 hp": "horsepower_label",
+        "284 hp": "horsepower_label",
+        "2.5L e-Skyactiv G petrol": "engine_label",
+        "3.3L e-Skyactiv D turbo diesel MHEV": "engine_label",
+        "3.3L e-Skyactiv G turbo petrol MHEV": "engine_label"
+      },
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "plug_in_hybrid",
+          "mild_hybrid"
+        ],
+        "engine": [
+          "2.5L",
+          "3.3L turbo"
+        ],
+        "horsepower_hp": [
+          327,
+          284
+        ],
+        "transmission": [
+          "8-speed automatic"
+        ],
+        "drivetrain": [
+          "AWD"
+        ]
+      },
+      "canonical_model": "CX-60",
+      "profile_confidence": "medium",
+      "year_start": 2023,
       "year_end": null
     }
   ],
