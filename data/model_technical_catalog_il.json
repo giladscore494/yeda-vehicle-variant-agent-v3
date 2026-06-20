@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T19:38:23Z",
+  "generated_at": "2026-06-20T19:39:12Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -168007,6 +168007,123 @@
       "profile_confidence": "medium",
       "year_start": 1996,
       "year_end": 2006
+    },
+    {
+      "make": "Mazda",
+      "model": "MX-30",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "מאזדה MX-30 החשמלי נוחת בישראל בייבוא מקביל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/מאזדה-mx-30-החשמלי-נוחת-בישראל-בייבוא-מקביל",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "מאזדה MX-30 - מפרט טכני, ממדים",
+          "url": "https://www.auto.co.il/catalog/mazda/mx-30",
+          "source_name": "Auto.co.il",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "horsepower_hp",
+            "drivetrain"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "version_or_trim": null,
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 145,
+          "transmission": "single_speed",
+          "drivetrain": "FWD",
+          "year_start": 2022,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "version_or_trim": [],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          145
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "e-Skyactiv EV (105 kW / 145 hp, 35.5 kWh battery)",
+          "classification": "engine_spec"
+        }
+      ],
+      "market": "IL-confirmed",
+      "canonical_model": "MX-30",
+      "profile_confidence": "medium",
+      "year_start": 2022,
+      "year_end": null
     }
   ],
   "ready_for_website_upload": false
