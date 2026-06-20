@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T16:43:10Z",
+  "generated_at": "2026-06-20T16:44:16Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -164440,6 +164440,382 @@
       "canonical_model": "CX-3",
       "profile_confidence": "medium",
       "year_start": 2017,
+      "year_end": 2024
+    },
+    {
+      "make": "Mazda",
+      "model": "CX-5",
+      "market": "IL-confirmed",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "מאזדה CX-5 מפרט טכני - iCar",
+          "url": "https://www.icar.co.il/%D7%9E%D7%90%D7%96%D7%93%D7%94/%D7%9E%D7%90%D7%96%D7%93%D7%94_CX-5/",
+          "source_name": "iCar",
+          "source_type": "specs",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "transmission",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "מאזדה CX-5 החדש 2022 בישראל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%9E%D7%90%D7%96%D7%93%D7%94-cx-5-%D7%94%D7%97%D7%93%D7%A9-2022-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-170900-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "horsepower_hp",
+            "drivetrain",
+            "engine",
+            "engine_displacement_l",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "מאזדה CX-5 בישראל – מחירים ומפרט טכני (2012)",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%9E%D7%90%D7%96%D7%93%D7%94-CX-5-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%E2%80%93-%D7%9E%D7%97%D7%99%D7%A8%D7%99%D7%9D-%D7%95%D7%9E%D7%A4%D7%A8%D7%98-%D7%98%D7%9B%D7%A0%D7%99",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "horsepower_hp",
+            "drivetrain",
+            "engine",
+            "engine_displacement_l",
+            "year_start",
+            "year_end",
+            "transmission"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "מאזדה CX-5 החדש 2017 בישראל - מחיר החל מ- 167,000 שקל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%9E%D7%90%D7%96%D7%93%D7%94-cx-5-%D7%94%D7%97%D7%93%D7%A9-2017-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-167-000-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "horsepower_hp",
+            "drivetrain",
+            "engine",
+            "engine_displacement_l",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "2.0L",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 155,
+          "transmission": "6-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2012,
+          "year_end": 2015,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0,
+              2
+            ],
+            "engine_displacement_l": [
+              0,
+              2
+            ],
+            "horsepower_hp": [
+              0,
+              2
+            ],
+            "transmission": [
+              0,
+              2
+            ],
+            "drivetrain": [
+              0,
+              2
+            ],
+            "year_start": [
+              0,
+              2
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "2.0L",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 165,
+          "transmission": "6-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2015,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            3
+          ],
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0,
+              1,
+              3
+            ],
+            "engine_displacement_l": [
+              0,
+              1,
+              3
+            ],
+            "horsepower_hp": [
+              0,
+              1,
+              3
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0,
+              1,
+              3
+            ],
+            "year_start": [
+              0,
+              3
+            ],
+            "year_end": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "2.5L",
+          "engine_displacement_l": 2.5,
+          "horsepower_hp": 192,
+          "transmission": "6-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2013,
+          "year_end": 2017,
+          "support_level": "direct",
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "2.5L",
+          "engine_displacement_l": 2.5,
+          "horsepower_hp": 195,
+          "transmission": "6-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2017,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            3
+          ],
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0,
+              1,
+              3
+            ],
+            "engine_displacement_l": [
+              0,
+              1,
+              3
+            ],
+            "horsepower_hp": [
+              0,
+              1,
+              3
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0,
+              1,
+              3
+            ],
+            "year_start": [
+              0,
+              3
+            ],
+            "year_end": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "2.5L",
+          "engine_displacement_l": 2.5,
+          "horsepower_hp": 195,
+          "transmission": "6-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2021,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "2.0L Skyactiv-G",
+          "classification": "engine_designation"
+        },
+        {
+          "label": "2.5L Skyactiv-G",
+          "classification": "engine_designation"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "2.0L",
+          "2.5L"
+        ],
+        "horsepower_hp": [
+          155,
+          165,
+          192,
+          195
+        ],
+        "transmission": [
+          "6-speed automatic"
+        ],
+        "drivetrain": [
+          "FWD",
+          "AWD"
+        ]
+      },
+      "canonical_model": "CX-5",
+      "profile_confidence": "medium",
+      "year_start": 2012,
       "year_end": 2024
     }
   ],
