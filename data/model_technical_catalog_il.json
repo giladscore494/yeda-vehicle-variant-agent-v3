@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T21:08:08Z",
+  "generated_at": "2026-06-20T21:09:06Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -182569,6 +182569,319 @@
       "profile_confidence": "medium",
       "year_start": 2024,
       "year_end": null
+    },
+    {
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Hatchback",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 170,
+          "transmission": "single_speed",
+          "drivetrain": "RWD",
+          "year_start": 2023,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Luxury",
+          "body_type": "Hatchback",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 204,
+          "transmission": "single_speed",
+          "drivetrain": "RWD",
+          "year_start": 2023,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Extended Range",
+          "body_type": "Hatchback",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 245,
+          "transmission": "single_speed",
+          "drivetrain": "RWD",
+          "year_start": 2024,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              2
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0,
+              2
+            ],
+            "engine": [
+              0,
+              2
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              2
+            ],
+            "transmission": [
+              0,
+              2
+            ],
+            "drivetrain": [
+              0,
+              2
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              0,
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "X-Power",
+          "body_type": "Hatchback",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 435,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2024,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              2
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0,
+              2
+            ],
+            "engine": [
+              0,
+              2
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              2
+            ],
+            "transmission": [
+              0,
+              2
+            ],
+            "drivetrain": [
+              0,
+              2
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              0,
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "MG4 - המשפחתית החשמלית של ישראל - MG Israel",
+          "url": "https://mg-israel.co.il/mg4/",
+          "source_name": "MG Israel Official",
+          "source_type": "official_importer",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "MG4 החשמלית בישראל - מחיר החל מ-144,888 שקל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/mg4-החשמלית-בישראל-מחיר-החל-מ-144888-שקל",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "year_start",
+            "horsepower_hp",
+            "drivetrain",
+            "version_or_trim",
+            "transmission",
+            "fuel_type",
+            "engine"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "ביצועים לחשמל: MG4 אקס-פאוור (435 כ\"ס) ו- Extended Range בישראל - מחיר מ- 163,888 שקל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/mg4-אקס-פאוור-עם-435-כס-בישראל-מחיר-173888-שקל",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "year_start",
+            "year_end",
+            "horsepower_hp",
+            "drivetrain",
+            "version_or_trim",
+            "transmission",
+            "fuel_type",
+            "engine"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Luxury",
+          "Extended Range",
+          "X-Power"
+        ],
+        "body_type": [
+          "Hatchback"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          170,
+          204,
+          245,
+          435
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "RWD",
+          "AWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Standard",
+          "classification": "base_or_standard_designation"
+        }
+      ],
+      "market": "IL-confirmed",
+      "make": "MG",
+      "model": "MG4",
+      "canonical_model": "MG4",
+      "profile_confidence": "medium",
+      "year_start": 2023,
+      "year_end": 2024
     }
   ],
   "ready_for_website_upload": false
