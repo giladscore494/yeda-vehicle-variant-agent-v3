@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T16:15:29Z",
+  "generated_at": "2026-06-20T16:16:15Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -157672,6 +157672,216 @@
       "profile_confidence": "medium",
       "year_start": 2007,
       "year_end": 2018
+    },
+    {
+      "make": "Lincoln",
+      "model": "Navigator",
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "Lincoln Navigator - Catalog Autoboom Israel",
+          "url": "https://autoboom.co.il/he/catalog/cars/lincoln/navigator",
+          "source_name": "Autoboom Israel",
+          "source_type": "Israeli Catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "Lincoln Navigator 2nd Generation (2003-2006) - Catalog Autoboom Israel",
+          "url": "https://autoboom.co.il/he/catalog/cars/lincoln/navigator/2-generation",
+          "source_name": "Autoboom Israel",
+          "source_type": "Israeli Catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "3.5L v6 turbo",
+          "engine_displacement_l": 3.5,
+          "horsepower_hp": 450,
+          "transmission": "10-speed automatic",
+          "drivetrain": "4WD",
+          "year_start": 2018,
+          "year_end": 2026,
+          "support_level": "direct",
+          "source_indexes": [
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "5.4L v8",
+          "engine_displacement_l": 5.4,
+          "horsepower_hp": 300,
+          "transmission": "6-speed automatic",
+          "drivetrain": "4WD",
+          "year_start": 2005,
+          "year_end": 2006,
+          "support_level": "direct",
+          "source_indexes": [
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              2
+            ],
+            "engine": [
+              2
+            ],
+            "engine_displacement_l": [
+              2
+            ],
+            "horsepower_hp": [
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              2
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "5.4L v8",
+          "engine_displacement_l": 5.4,
+          "horsepower_hp": 300,
+          "transmission": "4-speed automatic",
+          "drivetrain": "4WD",
+          "year_start": 2003,
+          "year_end": 2004,
+          "support_level": "direct",
+          "source_indexes": [
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              2
+            ],
+            "engine": [
+              2
+            ],
+            "engine_displacement_l": [
+              2
+            ],
+            "horsepower_hp": [
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              2
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "3.5L v6 turbo",
+          "5.4L v8"
+        ],
+        "horsepower_hp": [
+          450,
+          300
+        ],
+        "transmission": [
+          "10-speed automatic",
+          "6-speed automatic",
+          "4-speed automatic"
+        ],
+        "drivetrain": [
+          "4WD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [],
+      "market": "IL-likely",
+      "canonical_model": "Navigator",
+      "profile_confidence": "medium",
+      "year_start": 2003,
+      "year_end": 2026
     }
   ],
   "ready_for_website_upload": false
