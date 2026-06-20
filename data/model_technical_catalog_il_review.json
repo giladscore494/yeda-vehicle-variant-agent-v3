@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T21:25:39Z",
+  "generated_at": "2026-06-20T21:26:24Z",
   "market": "IL",
   "models": [
     {
@@ -5298,6 +5298,85 @@
         "variant[1] support_level=direct but no source directly supports it",
         "variant[2] has no source_indexes",
         "variant[2] support_level=direct but no source directly supports it"
+      ]
+    },
+    {
+      "market": "IL-confirmed",
+      "make": "Mini",
+      "model": "Roadster",
+      "canonical_model": "Roadster",
+      "year_start": null,
+      "year_end": null,
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [],
+      "profile_confidence": null,
+      "notes": [],
+      "error": "Extra data: line 261 column 1 (char 5392)",
+      "request_payload": {
+        "task": "build_israeli_model_technical_catalog",
+        "market": "IL-confirmed",
+        "make": "Mini",
+        "model": "Roadster",
+        "raw_database_values": {
+          "years_seen": [
+            2012,
+            2015
+          ],
+          "trims_seen": [
+            "Cooper",
+            "Cooper S"
+          ],
+          "engines_seen": [
+            "1.6L naturally aspirated petrol, 122 hp",
+            "1.6L turbo petrol, 184 hp"
+          ],
+          "horsepower_seen": [],
+          "transmissions_seen": [
+            "6-speed automatic"
+          ],
+          "body_types_seen": [
+            "Roadster"
+          ],
+          "fuel_types_seen": [
+            "Petrol"
+          ],
+          "drivetrains_seen": [
+            "FWD"
+          ]
+        },
+        "sample_validation_ids": [
+          "VAL-002353",
+          "VAL-002354"
+        ],
+        "source_indexes": [
+          2092,
+          2093
+        ],
+        "metadata_hints": {
+          "priorities_seen": [
+            "low"
+          ],
+          "validation_routes_seen": [
+            "deterministic_or_skip_ai"
+          ],
+          "possible_duplicate_rows": 0,
+          "validation_id_count": 2
+        },
+        "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
+      },
+      "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
       ]
     }
   ]
