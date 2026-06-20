@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T21:42:10Z",
+  "generated_at": "2026-06-20T21:42:22Z",
   "market": "IL",
   "models": [
     {
@@ -5525,6 +5525,48 @@
         "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
       },
       "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
+      ]
+    },
+    {
+      "make": "Mitsubishi",
+      "model": "Pajero Sport",
+      "technical_variants_il": [],
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "iCar - Mitsubishi Pajero Sport Israel",
+          "url": "https://www.icar.co.il/%D7%9E%D7%99%D7%A6%D7%95%D7%91%D7%99%D7%A9%D7%99_%D7%A4%D7%90%D7%92'%D7%A8%D7%95_%D7%A1%D7%A4%D7%95%D7%A8%D7%98/",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "market": "global-reference-only",
+      "canonical_model": "Pajero Sport",
+      "profile_confidence": "medium",
+      "year_start": null,
+      "year_end": null,
       "validation_issues": [
         "technical_variants_il is empty"
       ]
