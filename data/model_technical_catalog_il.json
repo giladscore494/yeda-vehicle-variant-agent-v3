@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T21:14:46Z",
+  "generated_at": "2026-06-20T21:15:26Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -183908,6 +183908,195 @@
       "profile_confidence": "medium",
       "year_start": 2020,
       "year_end": 2024
+    },
+    {
+      "technical_variants_il": [
+        {
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "2.5L v6",
+          "engine_displacement_l": 2.5,
+          "horsepower_hp": 177,
+          "transmission": "5-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2001,
+          "year_end": 2005,
+          "version_or_trim": null,
+          "invalid_or_non_trim_labels": [
+            {
+              "label": "180",
+              "classification": "horsepower_label"
+            }
+          ],
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ],
+            "version_or_trim": []
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "2.5L v6",
+          "engine_displacement_l": 2.5,
+          "horsepower_hp": 190,
+          "transmission": "5-speed manual",
+          "drivetrain": "FWD",
+          "year_start": 2001,
+          "year_end": 2005,
+          "version_or_trim": null,
+          "invalid_or_non_trim_labels": [
+            {
+              "label": "190",
+              "classification": "horsepower_label"
+            }
+          ],
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ],
+            "version_or_trim": []
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "MG ZT (2001-2005) - מחירון, מפרטים ותמונות - אוטו",
+          "url": "https://www.auto.co.il/model/mg-zt",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "מפרט טכני MG ZT 2.5 V6 2001-2005 - קמ\"ל",
+          "url": "https://www.kml.co.il/car/MG/ZT_2001-2005",
+          "source_name": "KML.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Sedan"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "2.5L v6"
+        ],
+        "horsepower_hp": [
+          177,
+          190
+        ],
+        "transmission": [
+          "5-speed automatic",
+          "5-speed manual"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "market": "IL-confirmed",
+      "make": "MG (British era)",
+      "model": "ZT",
+      "canonical_model": "ZT",
+      "profile_confidence": "medium",
+      "year_start": 2001,
+      "year_end": 2005
     }
   ],
   "ready_for_website_upload": false
