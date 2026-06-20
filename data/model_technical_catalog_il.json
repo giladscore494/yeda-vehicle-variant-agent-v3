@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T21:07:54Z",
+  "generated_at": "2026-06-20T21:08:08Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -182441,6 +182441,133 @@
       "canonical_model": "MG3",
       "profile_confidence": "medium",
       "year_start": 2015,
+      "year_end": null
+    },
+    {
+      "make": "MG",
+      "model": "MG3 Hybrid+",
+      "market": "IL-confirmed",
+      "technical_variants_il": [
+        {
+          "body_type": "Hatchback",
+          "fuel_type": "hybrid",
+          "engine": "1.5L",
+          "engine_displacement_l": 1.5,
+          "horsepower_hp": 194,
+          "transmission": "3-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2024,
+          "year_end": null,
+          "version_or_trim": null,
+          "invalid_or_non_trim_labels": [
+            {
+              "label": "Standard",
+              "reason": "Not a valid trim name"
+            }
+          ],
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "MG3 Hybrid+ - Cartube",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/mg3-%D7%94%D7%99%D7%99%D7%91%D7%A8%D7%99%D7%93-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-118888-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "MG3 - Lubinski",
+          "url": "https://mg-israel.co.il/mg3-hybrid/",
+          "source_name": "MG Israel",
+          "source_type": "official_importer",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Hatchback"
+        ],
+        "fuel_type": [
+          "hybrid"
+        ],
+        "engine": [
+          "1.5L"
+        ],
+        "horsepower_hp": [
+          194
+        ],
+        "transmission": [
+          "3-speed automatic"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "canonical_model": "MG3 Hybrid+",
+      "profile_confidence": "medium",
+      "year_start": 2024,
       "year_end": null
     }
   ],
