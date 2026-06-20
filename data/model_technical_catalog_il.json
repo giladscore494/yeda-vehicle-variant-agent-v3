@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T16:48:04Z",
+  "generated_at": "2026-06-20T16:48:51Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -165551,6 +165551,195 @@
       "profile_confidence": "medium",
       "year_start": 2007,
       "year_end": 2012
+    },
+    {
+      "make": "Mazda",
+      "model": "CX-80",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "מאזדה CX-80 החדש 2024 נחשף - 7 מושבים - קארטיוב",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%9E%D7%90%D7%96%D7%93%D7%94-cx-80-%D7%94%D7%97%D7%93%D7%A9-2024-%D7%A0%D7%97%D7%A9%D7%A3",
+          "source_name": "Cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "מאזדה CX-80 מפרט טכני וחדשות - iCar",
+          "url": "https://www.icar.co.il/%D7%9E%D7%90%D7%96%D7%93%D7%94/%D7%9E%D7%90%D7%96%D7%93%D7%94_CX-80/",
+          "source_name": "iCar.co.il",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "SUV",
+          "fuel_type": "plug_in_hybrid",
+          "engine": "2.5L",
+          "engine_displacement_l": 2.5,
+          "horsepower_hp": 327,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2024,
+          "year_end": null,
+          "version_or_trim": null,
+          "support_level": "indirect",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [],
+            "version_or_trim": []
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "SUV",
+          "fuel_type": "mild_hybrid",
+          "engine": "3.3L turbo",
+          "engine_displacement_l": 3.3,
+          "horsepower_hp": 254,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2024,
+          "year_end": null,
+          "version_or_trim": null,
+          "support_level": "indirect",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [],
+            "version_or_trim": []
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "plug_in_hybrid",
+          "mild_hybrid"
+        ],
+        "engine": [
+          "2.5L",
+          "3.3L turbo"
+        ],
+        "horsepower_hp": [
+          327,
+          254
+        ],
+        "transmission": [
+          "8-speed automatic"
+        ],
+        "drivetrain": [
+          "AWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "2.5L e-Skyactiv PHEV",
+          "classification": "engine_and_technology_designation"
+        },
+        {
+          "label": "3.3L e-Skyactiv D MHEV (Diesel)",
+          "classification": "engine_and_technology_designation"
+        }
+      ],
+      "market": "IL-likely",
+      "canonical_model": "CX-80",
+      "profile_confidence": "medium",
+      "year_start": 2024,
+      "year_end": null
     }
   ],
   "ready_for_website_upload": false
