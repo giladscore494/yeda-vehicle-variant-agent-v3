@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T12:48:21Z",
+  "generated_at": "2026-06-21T12:48:53Z",
   "market": "IL",
   "models": [
     {
@@ -892,6 +892,81 @@
           ],
           "possible_duplicate_rows": 0,
           "validation_id_count": 6
+        },
+        "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
+      },
+      "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
+      ]
+    },
+    {
+      "market": "IL-confirmed",
+      "make": "Peugeot",
+      "model": "408",
+      "canonical_model": "408",
+      "year_start": null,
+      "year_end": null,
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [],
+      "profile_confidence": null,
+      "notes": [],
+      "error": "Extra data: line 133 column 1 (char 2638)",
+      "request_payload": {
+        "task": "build_israeli_model_technical_catalog",
+        "market": "IL-confirmed",
+        "make": "Peugeot",
+        "model": "408",
+        "raw_database_values": {
+          "years_seen": [
+            2022,
+            2026
+          ],
+          "trims_seen": [
+            "Allure Pack"
+          ],
+          "engines_seen": [
+            "1.2L PureTech turbo petrol, 130 hp"
+          ],
+          "horsepower_seen": [],
+          "transmissions_seen": [
+            "8-speed automatic"
+          ],
+          "body_types_seen": [
+            "Fastback"
+          ],
+          "fuel_types_seen": [
+            "Petrol"
+          ],
+          "drivetrains_seen": [
+            "FWD"
+          ]
+        },
+        "sample_validation_ids": [
+          "VAL-002664"
+        ],
+        "source_indexes": [
+          2180
+        ],
+        "metadata_hints": {
+          "priorities_seen": [
+            "low"
+          ],
+          "validation_routes_seen": [
+            "deterministic_or_skip_ai"
+          ],
+          "possible_duplicate_rows": 0,
+          "validation_id_count": 1
         },
         "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
       },
