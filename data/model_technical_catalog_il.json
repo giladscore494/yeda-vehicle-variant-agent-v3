@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T19:22:38Z",
+  "generated_at": "2026-06-21T19:23:33Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -228849,6 +228849,144 @@
       "profile_confidence": "medium",
       "year_start": 1999,
       "year_end": 2022
+    },
+    {
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "2024 רנו סניק E-Tech החשמלי בישראל - מחיר החל מ-219,990 שקל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/2024-%D7%A8%D7%A0%D7%95-%D7%A1%D7%A0%D7%99%D7%A7-e-tech-%D7%94%D7%97%D7%A9%D7%9E%D7%9C%D7%99-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "רנו סניק E-Tech חשמלי מפרט טכני",
+          "url": "https://www.icar.co.il/%D7%A8%D7%A0%D7%95/%D7%A8%D7%A0%D7%95_%D7%A1%D7%A0%D7%99%D7%A7_E-Tech_%D7%97%D7%A9%D7%9E%D7%9C%D7%99/",
+          "source_name": "Icar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "Crossover",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 220,
+          "transmission": "single_speed",
+          "drivetrain": "FWD",
+          "year_start": 2024,
+          "year_end": 2025,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "60 kWh",
+          "classification": "battery_size"
+        },
+        {
+          "label": "87 kWh Long Range",
+          "classification": "battery_size_and_marketing_range"
+        },
+        {
+          "label": "125 kW (170 hp) electric motor, 60 kWh battery",
+          "classification": "powertrain_description"
+        },
+        {
+          "label": "160 kW (220 hp) electric motor, 87 kWh battery",
+          "classification": "powertrain_description"
+        },
+        {
+          "label": "single-speed EV",
+          "classification": "transmission_description"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Crossover"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          220
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "market": "IL-likely",
+      "make": "Renault",
+      "model": "Scenic E-Tech",
+      "canonical_model": "Scenic E-Tech",
+      "profile_confidence": "medium",
+      "year_start": 2024,
+      "year_end": 2025
     }
   ],
   "ready_for_website_upload": false
