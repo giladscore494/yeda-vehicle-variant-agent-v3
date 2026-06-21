@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T05:09:46Z",
+  "generated_at": "2026-06-21T05:10:22Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -192553,6 +192553,183 @@
       "profile_confidence": "medium",
       "year_start": 2024,
       "year_end": 2024
+    },
+    {
+      "make": "NIO",
+      "model": "EL7",
+      "market": "IL-confirmed",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "מותג היוקרה ניאו (NIO) בישראל - דגמי ET5, ET7 ו-EL7",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%9E%D7%95%D7%AA%D7%92-%D7%94%D7%99%D7%95%D7%A7%D7%A8%D7%94-%D7%A0%D7%99%D7%90%D7%95-nio-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%93%D7%92%D7%9E%D7%99-et5-et7-%D7%95-el7-%D7%94%D7%97%D7%9C-%D7%9E-344000-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "drivetrain",
+            "year_start",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "ניאו EL7 - מחירון, מפרט טכני",
+          "url": "https://www.icar.co.il/%D7%A0%D7%99%D7%90%D7%95/%D7%A0%D7%99%D7%90%D7%95_EL7/%D7%A0%D7%99%D7%90%D7%95_EL7_%D7%97%D7%93%D7%A9/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "version_or_trim"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "75kWh",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 653,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2023,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "100kWh",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 653,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2023,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "75kWh",
+          "100kWh"
+        ],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          653
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "AWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": {
+        "Dual Electric Motors, 480 kW (653 hp), 100 kWh Battery": "engine/battery_spec",
+        "Dual Electric Motors, 480 kW (653 hp), 75 kWh Battery": "engine/battery_spec"
+      },
+      "canonical_model": "EL7",
+      "profile_confidence": "medium",
+      "year_start": 2023,
+      "year_end": null
     }
   ],
   "ready_for_website_upload": true
