@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T13:29:42Z",
+  "generated_at": "2026-06-21T13:30:29Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -217919,6 +217919,186 @@
         ]
       },
       "canonical_model": "3",
+      "profile_confidence": "medium",
+      "year_start": 2024,
+      "year_end": null
+    },
+    {
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "פולסטאר 4 בישראל - מחיר החל מ-349,900 שקל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%A4%D7%95%D7%9C%D7%A1%D7%98%D7%90%D7%A8-4-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-349,900-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "Polestar 4 Specifications",
+          "url": "https://www.polestar.com/il/polestar-4/specifications/",
+          "source_name": "Polestar IL Official",
+          "source_type": "official",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Long Range Single Motor",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 272,
+          "transmission": "single_speed",
+          "drivetrain": "RWD",
+          "year_start": 2024,
+          "year_end": null,
+          "support_level": "indirect",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1,
+              2
+            ],
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Long Range Dual Motor",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 544,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2024,
+          "year_end": null,
+          "support_level": "indirect",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1,
+              2
+            ],
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": {
+        "Electric motor, 272 hp (200 kW), 100 kWh battery": "technical_description",
+        "Dual electric motors, 544 hp (400 kW), 100 kWh battery": "technical_description",
+        "SUV Coupe": "body_style_label"
+      },
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Long Range Single Motor",
+          "Long Range Dual Motor"
+        ],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          272,
+          544
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "RWD",
+          "AWD"
+        ]
+      },
+      "market": "IL-confirmed",
+      "make": "Polestar",
+      "model": "4",
+      "canonical_model": "4",
       "profile_confidence": "medium",
       "year_start": 2024,
       "year_end": null
