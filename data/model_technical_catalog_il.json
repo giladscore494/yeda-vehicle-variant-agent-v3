@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T13:25:45Z",
+  "generated_at": "2026-06-21T13:26:18Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -217000,6 +217000,192 @@
         "No grounded Israeli-market source was found here for a 2016–2022 diesel third-generation Expert row; therefore none was added.",
         "For the electric row, year_end 2024 is grounded by the Carzone year selector showing 2023 and 2024 for this model page, rather than inferred from the current year."
       ]
+    },
+    {
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "פיג'ו RCZ - מחירון, מפרטים, אמינות וחוות דעת - iCar",
+          "url": "https://www.icar.co.il/%D7%A4%D7%99%D7%92'%D7%95/%D7%A4%D7%99%D7%92'%D7%95_RCZ/",
+          "source_name": "iCar Israel",
+          "source_type": "israeli_catalog_spec",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "פיג'ו RCZ (2010-2015) מפרט טכני - אוטו",
+          "url": "https://www.auto.co.il/model/peugeot-rcz_g290",
+          "source_name": "Auto.co.il",
+          "source_type": "israeli_catalog_spec",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "1.6L turbo",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 156,
+          "transmission": "6-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2010,
+          "year_end": 2015,
+          "version_or_trim": null,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": [],
+          "invalid_or_non_trim_labels": {
+            "1.6L THP": "engine_label",
+            "156 hp": "horsepower_label"
+          }
+        },
+        {
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "1.6L turbo",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 200,
+          "transmission": "6-speed manual",
+          "drivetrain": "FWD",
+          "year_start": 2010,
+          "year_end": 2015,
+          "version_or_trim": null,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": [],
+          "invalid_or_non_trim_labels": {
+            "1.6L THP": "engine_label",
+            "200 hp": "horsepower_label"
+          }
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Coupe"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "1.6L turbo"
+        ],
+        "horsepower_hp": [
+          156,
+          200
+        ],
+        "transmission": [
+          "6-speed automatic",
+          "6-speed manual"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "market": "IL-confirmed",
+      "make": "Peugeot",
+      "model": "RCZ",
+      "canonical_model": "RCZ",
+      "profile_confidence": "medium",
+      "year_start": 2010,
+      "year_end": 2015
     }
   ],
   "ready_for_website_upload": false
