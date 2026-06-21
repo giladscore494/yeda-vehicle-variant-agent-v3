@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T07:47:39Z",
+  "generated_at": "2026-06-21T07:48:17Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -201317,6 +201317,129 @@
       "profile_confidence": "medium",
       "year_start": 2022,
       "year_end": 2024
+    },
+    {
+      "make": "Omoda",
+      "model": "C5",
+      "market": "IL-confirmed",
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "Omoda C5 / Chery FX 1.6 Turbo Specifications Israel",
+          "url": "https://www.icar.co.il/omoda/c5/",
+          "source_name": "iCar IL",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "Omoda C5 2023 Models and Trims - Comfort",
+          "url": "https://www.cartube.co.il/omoda-c5-israel-launch",
+          "source_name": "Cartube IL",
+          "source_type": "editorial",
+          "supports": [
+            "version_or_trim",
+            "engine",
+            "horsepower_hp",
+            "transmission"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Comfort",
+          "body_type": "Crossover",
+          "fuel_type": "petrol",
+          "engine": "1.6L turbo",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 186,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "FWD",
+          "year_start": 2023,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              2
+            ],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "1.6L Turbo petrol, 186 hp",
+          "classification": "engine_spec"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Comfort"
+        ],
+        "body_type": [
+          "Crossover"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "1.6L turbo"
+        ],
+        "horsepower_hp": [
+          186
+        ],
+        "transmission": [
+          "7-speed dual_clutch"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "canonical_model": "C5",
+      "profile_confidence": "medium",
+      "year_start": 2023,
+      "year_end": null
     }
   ],
   "ready_for_website_upload": false
