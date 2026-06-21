@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T19:27:16Z",
+  "generated_at": "2026-06-21T19:27:45Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -229749,6 +229749,106 @@
       "profile_confidence": "medium",
       "year_start": 2017,
       "year_end": 2020
+    },
+    {
+      "make": "Renault",
+      "model": "Trafic",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "רנו טראפיק מסחרי (1990-2001) - מחירון ומפרט טכני",
+          "url": "https://www.yad2.co.il/vehicles/catalog/renault/trafic/years-1990-2001",
+          "source_name": "Yad2 Catalog",
+          "source_type": "marketplace",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Van",
+          "fuel_type": "diesel",
+          "engine": "2.1L",
+          "engine_displacement_l": 2.1,
+          "horsepower_hp": 60,
+          "transmission": "5-speed manual",
+          "drivetrain": "FWD",
+          "year_start": 1990,
+          "year_end": 2001,
+          "support_level": "direct",
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Van"
+        ],
+        "fuel_type": [
+          "diesel"
+        ],
+        "engine": [
+          "2.1L"
+        ],
+        "horsepower_hp": [
+          60
+        ],
+        "transmission": [
+          "5-speed manual"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "market": "IL-likely",
+      "canonical_model": "Trafic",
+      "profile_confidence": "medium",
+      "year_start": 1990,
+      "year_end": 2001
     }
   ],
   "ready_for_website_upload": false
