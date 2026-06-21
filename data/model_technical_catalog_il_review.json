@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T18:45:29Z",
+  "generated_at": "2026-06-21T18:46:35Z",
   "market": "IL",
   "models": [
     {
@@ -1875,6 +1875,324 @@
       "rebuild_required": true,
       "validation_issues": [
         "technical_variants_il is empty"
+      ]
+    },
+    {
+      "make": "Porsche",
+      "model": "Macan Electric",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "פורשה מקאן 2024 החשמלי נחשף - מחירון החל מ- 665,000 שקל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/פורשה-מקאן-2024-החשמלי-נחשף-מחירון-החל-מ-665-000-שקל",
+          "source_name": "Cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "model",
+            "year_start",
+            "year_end",
+            "body_type",
+            "version_or_trim",
+            "engine",
+            "horsepower_hp",
+            "drivetrain",
+            "fuel_type"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "פורשה מקאן EV מקבל גרסת בסיס - מחיר החל מ-519,000 שקל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/פורשה-מקאן-ev-מקבל-גרסת-בסיס-מחיר-החל-מ-519-000-שקל",
+          "source_name": "Cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "version_or_trim",
+            "horsepower_hp",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "Porsche Israel Official Website - Macan Electric Models",
+          "url": "https://www.porsche.com/middle-east/_israel_/models/macan/macan-electric-models/macan-4/",
+          "source_name": "Porsche Israel Official",
+          "source_type": "official_importer",
+          "supports": [
+            "body_type",
+            "transmission",
+            "fuel_type",
+            "engine",
+            "drivetrain",
+            "horsepower_hp"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 360,
+          "transmission": "single_speed",
+          "drivetrain": "RWD",
+          "year_start": 2024,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "4",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 408,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2024,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              2
+            ],
+            "body_type": [
+              0,
+              2
+            ],
+            "fuel_type": [
+              0,
+              2
+            ],
+            "engine": [
+              0,
+              2
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              0,
+              2
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "4S",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 516,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2024,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1,
+              2
+            ],
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Turbo",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 639,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2024,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              2
+            ],
+            "body_type": [
+              0,
+              2
+            ],
+            "fuel_type": [
+              0,
+              2
+            ],
+            "engine": [
+              0,
+              2
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              0,
+              2
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Base",
+          "classification": "non_trim_placeholder"
+        },
+        {
+          "label": "Macan",
+          "classification": "model_name_used_as_trim"
+        },
+        {
+          "label": "EV",
+          "classification": "fuel_type_label"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "4",
+          "4S",
+          "Turbo"
+        ],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          360,
+          408,
+          516,
+          639
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "RWD",
+          "AWD"
+        ]
+      },
+      "market": "IL-confirmed",
+      "canonical_model": "Macan Electric",
+      "profile_confidence": "medium",
+      "year_start": 2024,
+      "year_end": 2024,
+      "validation_issues": [
+        "variant[1] version_or_trim '4' is a engine_size, not a trim"
       ]
     }
   ]
