@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T19:37:25Z",
+  "generated_at": "2026-06-21T19:38:03Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -231818,6 +231818,260 @@
       "canonical_model": "200",
       "profile_confidence": "medium",
       "year_start": 1990,
+      "year_end": 1999
+    },
+    {
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "1.4L",
+          "engine_displacement_l": 1.4,
+          "horsepower_hp": 103,
+          "transmission": "5-speed manual",
+          "drivetrain": "FWD",
+          "year_start": 1995,
+          "year_end": 1999,
+          "support_level": "direct",
+          "source_indexes": [
+            2910
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              2910
+            ],
+            "fuel_type": [
+              2910
+            ],
+            "engine": [
+              2910
+            ],
+            "engine_displacement_l": [
+              2910
+            ],
+            "horsepower_hp": [
+              2910
+            ],
+            "transmission": [
+              2910
+            ],
+            "drivetrain": [
+              2910
+            ],
+            "year_start": [
+              2910
+            ],
+            "year_end": [
+              2910
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "1.4L",
+          "engine_displacement_l": 1.4,
+          "horsepower_hp": 103,
+          "transmission": "5-speed manual",
+          "drivetrain": "FWD",
+          "year_start": 1995,
+          "year_end": 1999,
+          "support_level": "direct",
+          "source_indexes": [
+            2910
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              2910
+            ],
+            "fuel_type": [
+              2910
+            ],
+            "engine": [
+              2910
+            ],
+            "engine_displacement_l": [
+              2910
+            ],
+            "horsepower_hp": [
+              2910
+            ],
+            "transmission": [
+              2910
+            ],
+            "drivetrain": [
+              2910
+            ],
+            "year_start": [
+              2910
+            ],
+            "year_end": [
+              2910
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "1.6L",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 113,
+          "transmission": "4-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 1995,
+          "year_end": 1999,
+          "support_level": "direct",
+          "source_indexes": [
+            2910
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              2910
+            ],
+            "fuel_type": [
+              2910
+            ],
+            "engine": [
+              2910
+            ],
+            "engine_displacement_l": [
+              2910
+            ],
+            "horsepower_hp": [
+              2910
+            ],
+            "transmission": [
+              2910
+            ],
+            "drivetrain": [
+              2910
+            ],
+            "year_start": [
+              2910
+            ],
+            "year_end": [
+              2910
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "1.6L",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 113,
+          "transmission": "4-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 1995,
+          "year_end": 1999,
+          "support_level": "direct",
+          "source_indexes": [
+            2910
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              2910
+            ],
+            "fuel_type": [
+              2910
+            ],
+            "engine": [
+              2910
+            ],
+            "engine_displacement_l": [
+              2910
+            ],
+            "horsepower_hp": [
+              2910
+            ],
+            "transmission": [
+              2910
+            ],
+            "drivetrain": [
+              2910
+            ],
+            "year_start": [
+              2910
+            ],
+            "year_end": [
+              2910
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "414",
+          "classification": "model_engine_designation"
+        },
+        {
+          "label": "416",
+          "classification": "model_engine_designation"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Hatchback",
+          "Sedan"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "1.4L",
+          "1.6L"
+        ],
+        "horsepower_hp": [
+          103,
+          113
+        ],
+        "transmission": [
+          "5-speed manual",
+          "4-speed automatic"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "sources": [
+        {
+          "source_index": 2910,
+          "title": "רובר 400 (1995-2000) מפרט טכני - אוטו",
+          "url": "https://www.auto.co.il/model/rover-400_g210",
+          "source_name": "Auto.co.il",
+          "source_type": "israeli_catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "market": "IL-confirmed",
+      "make": "Rover",
+      "model": "400",
+      "canonical_model": "400",
+      "profile_confidence": "medium",
+      "year_start": 1995,
       "year_end": 1999
     },
     {
