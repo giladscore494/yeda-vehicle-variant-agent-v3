@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T18:51:17Z",
+  "generated_at": "2026-06-21T18:51:46Z",
   "market": "IL",
   "models": [
     {
@@ -3556,6 +3556,29 @@
         "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
       },
       "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
+      ]
+    },
+    {
+      "make": "Proton",
+      "model": "Wira",
+      "market": "global-reference-only",
+      "sources": [],
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "canonical_model": "Wira",
+      "profile_confidence": "medium",
+      "year_start": null,
+      "year_end": null,
       "validation_issues": [
         "technical_variants_il is empty"
       ]
