@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T08:05:36Z",
+  "generated_at": "2026-06-21T08:06:47Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -206100,6 +206100,412 @@
       "profile_confidence": "medium",
       "year_start": 2013,
       "year_end": 2024
+    },
+    {
+      "task": "build_israeli_model_technical_catalog",
+      "market": "IL-confirmed",
+      "make": "Opel",
+      "model": "Omega",
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "2.0L 16V inline-4 Ecotec",
+          "classification": "engine_specification"
+        },
+        {
+          "label": "2.0L inline-4 petrol",
+          "classification": "engine_specification"
+        },
+        {
+          "label": "2.2L 16V inline-4 Ecotec",
+          "classification": "engine_specification"
+        },
+        {
+          "label": "2.5L V6 Ecotec",
+          "classification": "engine_specification"
+        },
+        {
+          "label": "2.6L V6 Ecotec",
+          "classification": "engine_specification"
+        },
+        {
+          "label": "4-speed automatic",
+          "classification": "transmission_specification"
+        },
+        {
+          "label": "Petrol",
+          "classification": "fuel_type"
+        },
+        {
+          "label": "Sedan",
+          "classification": "body_type"
+        },
+        {
+          "label": "RWD",
+          "classification": "drivetrain"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "אופל אומגה (1994-2003) - מחירון, מפרטים, אמינות וחוות דעת | אוטו",
+          "url": "https://www.auto.co.il/catalog/opel/omega",
+          "source_name": "Auto.co.il",
+          "source_type": "israeli_catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "transmission",
+            "drivetrain",
+            "engine",
+            "horsepower_hp",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "אופל אומגה - מפרט טכני, מידות, צריכת דלק - קטלוג רכבים",
+          "url": "https://kml.co.il/car/Opel/Omega",
+          "source_name": "KML",
+          "source_type": "israeli_catalog",
+          "supports": [
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "year_start",
+            "year_end",
+            "fuel_type"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "אופל אומגה דור 1 (1987-1993) - קטלוג ומפרט",
+          "url": "https://www.carsforum.co.il/cars/m/opel/omega/dor-1",
+          "source_name": "CarsForum Israel",
+          "source_type": "israeli_editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "2.0L inline-4",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 115,
+          "transmission": "4-speed automatic",
+          "drivetrain": "RWD",
+          "version_or_trim": "CD",
+          "year_start": 1990,
+          "year_end": 1993,
+          "support_level": "direct",
+          "source_indexes": [
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              2
+            ],
+            "engine": [
+              2
+            ],
+            "engine_displacement_l": [
+              2
+            ],
+            "horsepower_hp": [
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              2
+            ],
+            "version_or_trim": [
+              2
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "2.0L inline-4",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 136,
+          "transmission": "4-speed automatic",
+          "drivetrain": "RWD",
+          "version_or_trim": "CD",
+          "year_start": 1994,
+          "year_end": 1999,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "version_or_trim": [
+              0
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "2.5L v6",
+          "engine_displacement_l": 2.5,
+          "horsepower_hp": 170,
+          "transmission": "4-speed automatic",
+          "drivetrain": "RWD",
+          "version_or_trim": "CDX",
+          "year_start": 1994,
+          "year_end": 1999,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "version_or_trim": [
+              0
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "2.2L inline-4",
+          "engine_displacement_l": 2.2,
+          "horsepower_hp": 144,
+          "transmission": "4-speed automatic",
+          "drivetrain": "RWD",
+          "version_or_trim": "Elegance",
+          "year_start": 2000,
+          "year_end": 2003,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "version_or_trim": [
+              0
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "2.6L v6",
+          "engine_displacement_l": 2.6,
+          "horsepower_hp": 180,
+          "transmission": "4-speed automatic",
+          "drivetrain": "RWD",
+          "version_or_trim": "Executive",
+          "year_start": 2000,
+          "year_end": 2003,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "version_or_trim": [
+              0
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "CD",
+          "CDX",
+          "Elegance",
+          "Executive"
+        ],
+        "body_type": [
+          "Sedan"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "2.0L inline-4",
+          "2.5L v6",
+          "2.2L inline-4",
+          "2.6L v6"
+        ],
+        "horsepower_hp": [
+          115,
+          136,
+          170,
+          144,
+          180
+        ],
+        "transmission": [
+          "4-speed automatic"
+        ],
+        "drivetrain": [
+          "RWD"
+        ]
+      },
+      "canonical_model": "Omega",
+      "profile_confidence": "medium",
+      "year_start": 1990,
+      "year_end": 2003
     }
   ],
   "ready_for_website_upload": false
