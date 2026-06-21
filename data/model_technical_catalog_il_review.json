@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T13:22:57Z",
+  "generated_at": "2026-06-21T13:25:45Z",
   "market": "IL",
   "models": [
     {
@@ -4718,6 +4718,99 @@
       "validation_issues": [
         "variant[0] required website field 'transmission' is null/empty",
         "variant[0] required field 'transmission' listed in missing_grounded_fields"
+      ]
+    },
+    {
+      "market": "IL-confirmed",
+      "make": "Peugeot",
+      "model": "Partner",
+      "canonical_model": "Partner",
+      "year_start": null,
+      "year_end": null,
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [],
+      "profile_confidence": null,
+      "notes": [],
+      "error": "Extra data: line 444 column 1 (char 10231)",
+      "request_payload": {
+        "task": "build_israeli_model_technical_catalog",
+        "market": "IL-confirmed",
+        "make": "Peugeot",
+        "model": "Partner",
+        "raw_database_values": {
+          "years_seen": [
+            1996,
+            2002,
+            2008,
+            2018,
+            2019,
+            2021,
+            2026
+          ],
+          "trims_seen": [],
+          "engines_seen": [
+            "1.5L BlueHDi Turbo Diesel, 130 hp",
+            "1.6L HDi / BlueHDi Turbo Diesel",
+            "1.9L Diesel (Naturally Aspirated)",
+            "136 hp Electric Motor (50 kWh)",
+            "2.0L HDi Turbo Diesel"
+          ],
+          "horsepower_seen": [],
+          "transmissions_seen": [
+            "5-speed manual",
+            "8-speed automatic (EAT8)",
+            "Single-speed EV"
+          ],
+          "body_types_seen": [
+            "Panel Van"
+          ],
+          "fuel_types_seen": [
+            "Diesel",
+            "Electric"
+          ],
+          "drivetrains_seen": [
+            "FWD"
+          ]
+        },
+        "sample_validation_ids": [
+          "VAL-002724",
+          "VAL-002725",
+          "VAL-002726",
+          "VAL-002727",
+          "VAL-002728"
+        ],
+        "source_indexes": [
+          2222,
+          2223,
+          2224,
+          2225,
+          2226
+        ],
+        "metadata_hints": {
+          "priorities_seen": [
+            "high"
+          ],
+          "validation_routes_seen": [
+            "strong_model_or_manual_review"
+          ],
+          "possible_duplicate_rows": 0,
+          "validation_id_count": 5
+        },
+        "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
+      },
+      "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
       ]
     }
   ]
