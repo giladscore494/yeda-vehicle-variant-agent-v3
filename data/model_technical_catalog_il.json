@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T19:16:17Z",
+  "generated_at": "2026-06-21T19:16:58Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -227560,6 +227560,141 @@
       "canonical_model": "Megane",
       "profile_confidence": "medium",
       "year_start": 2016,
+      "year_end": 2024
+    },
+    {
+      "make": "Renault",
+      "model": "Megane E-Tech",
+      "market": "IL-confirmed",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "רנו מגאן E-Tech החשמלית 2023 בישראל - מחיר החל מ- 199,990 שקל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%A8%D7%A0%D7%95-%D7%9E%D7%92%D7%90%D7%9F-e-tech-%D7%94%D7%97%D7%A9%D7%9E%D7%9C%D7%99%D7%AA-2023-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-199-990-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube Israel",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "רנו מגאן E-TECH 100% electric",
+          "url": "https://www.renault.co.il/cars/megane-e-tech/index.html",
+          "source_name": "Renault Israel / Freesbe",
+          "source_type": "official_importer",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_end",
+            "version_or_trim"
+          ]
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Single electric motor, 220 hp, 60 kWh battery",
+          "classification": "engine_spec"
+        },
+        {
+          "label": "Electric",
+          "classification": "fuel_type"
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Techno",
+          "body_type": "Hatchback",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 220,
+          "transmission": "single_speed",
+          "drivetrain": "FWD",
+          "year_start": 2022,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Techno"
+        ],
+        "body_type": [
+          "Hatchback"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          220
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "canonical_model": "Megane E-Tech",
+      "profile_confidence": "medium",
+      "year_start": 2022,
       "year_end": 2024
     }
   ],
