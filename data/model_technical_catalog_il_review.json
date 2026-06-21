@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T06:15:58Z",
+  "generated_at": "2026-06-21T06:16:41Z",
   "market": "IL",
   "models": [
     {
@@ -309,6 +309,30 @@
         "variant[2] support_level=direct but no source directly supports it",
         "variant[3] has no source_indexes",
         "variant[3] support_level=direct but no source directly supports it"
+      ]
+    },
+    {
+      "make": "Nissan",
+      "model": "Kicks",
+      "market": "global-reference-only",
+      "sources": [],
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "canonical_model": "Kicks",
+      "profile_confidence": "medium",
+      "year_start": null,
+      "year_end": null,
+      "validation_issues": [
+        "technical_variants_il is empty"
       ]
     }
   ]
