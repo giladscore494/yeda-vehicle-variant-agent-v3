@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T18:54:14Z",
+  "generated_at": "2026-06-21T18:55:11Z",
   "market": "IL",
   "models": [
     {
@@ -3843,6 +3843,171 @@
       "year_end": null,
       "validation_issues": [
         "technical_variants_il is empty"
+      ]
+    },
+    {
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "רנו 5 החשמלית 2024 נחשפת בבכורה עולמית (Renault 5 E-Tech)",
+          "url": "https://www.cartube.co.il/חדשות-רכב/רנו-5-החשמלית-2024-נחשפת-בבכורה-עולמית",
+          "source_name": "Cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "רנו 5 החשמלית E-Tech בדרך לישראל",
+          "url": "https://www.gear.co.il/חדשות_רכב/2024-10-15-רנו-5-e-tech-בדרך-לישראל",
+          "source_name": "Gear.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "year_start"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Hatchback",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 150,
+          "transmission": null,
+          "drivetrain": "FWD",
+          "year_start": 2025,
+          "year_end": null,
+          "support_level": "indirect",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [],
+            "transmission": [],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "transmission"
+          ]
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Hatchback",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 120,
+          "transmission": null,
+          "drivetrain": "FWD",
+          "year_start": 2025,
+          "year_end": null,
+          "support_level": "indirect",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [],
+            "transmission": [],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "transmission"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Hatchback"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          150,
+          120
+        ],
+        "transmission": [],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": {
+        "110 kW (150 hp) electric motor, 52 kWh battery": "powertrain_spec",
+        "90 kW (120 hp) electric motor, 40 kWh battery": "powertrain_spec"
+      },
+      "market": "IL-likely",
+      "make": "Renault",
+      "model": "5",
+      "canonical_model": "5",
+      "profile_confidence": "medium",
+      "year_start": 2025,
+      "year_end": null,
+      "validation_issues": [
+        "variant[0] required website field 'transmission' is null/empty",
+        "variant[0] required field 'transmission' listed in missing_grounded_fields",
+        "variant[1] required website field 'transmission' is null/empty",
+        "variant[1] required field 'transmission' listed in missing_grounded_fields"
       ]
     }
   ]
