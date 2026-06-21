@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T21:22:46Z",
+  "generated_at": "2026-06-21T21:23:16Z",
   "market": "IL",
   "models": [
     {
@@ -6733,6 +6733,369 @@
         "variant[2] version_or_trim '85' is a engine_size, not a trim",
         "variant[3] version_or_trim '80' is a engine_size, not a trim",
         "variant[4] version_or_trim '85' is a engine_size, not a trim"
+      ]
+    },
+    {
+      "make": "Skoda",
+      "model": "Enyaq Coupe",
+      "technical_variants_il": [
+        {
+          "version_or_trim": "80",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 204,
+          "transmission": "single_speed",
+          "drivetrain": "RWD",
+          "year_start": 2022,
+          "year_end": 2023,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              1,
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "85",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 285,
+          "transmission": "single_speed",
+          "drivetrain": "RWD",
+          "year_start": 2024,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            2,
+            3
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              2,
+              3
+            ],
+            "body_type": [
+              2,
+              3
+            ],
+            "fuel_type": [
+              2,
+              3
+            ],
+            "engine": [
+              2,
+              3
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              2,
+              3
+            ],
+            "transmission": [
+              2,
+              3
+            ],
+            "drivetrain": [
+              2,
+              3
+            ],
+            "year_start": [
+              2,
+              3
+            ],
+            "year_end": [
+              2,
+              3
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "vRS",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 299,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2022,
+          "year_end": 2023,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              1,
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "vRS",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 340,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2024,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            2,
+            3
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              2,
+              3
+            ],
+            "body_type": [
+              2,
+              3
+            ],
+            "fuel_type": [
+              2,
+              3
+            ],
+            "engine": [
+              2,
+              3
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              2,
+              3
+            ],
+            "transmission": [
+              2,
+              3
+            ],
+            "drivetrain": [
+              2,
+              3
+            ],
+            "year_start": [
+              2,
+              3
+            ],
+            "year_end": [
+              2,
+              3
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Dual electric motors",
+          "classification": "engine_description"
+        },
+        {
+          "label": "Single electric motor",
+          "classification": "engine_description"
+        },
+        {
+          "label": "204 hp",
+          "classification": "horsepower"
+        },
+        {
+          "label": "Coupe SUV",
+          "classification": "body_type"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "80",
+          "85",
+          "vRS"
+        ],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          204,
+          285,
+          299,
+          340
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "RWD",
+          "AWD"
+        ]
+      },
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "סקודה אניאק קופה בישראל - מחיר החל מ-236,400 שקלים",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%A1%D7%A7%D7%95%D7%93%D7%94-%D7%90%D7%A0%D7%99%D7%90%D7%A7-%D7%A7%D7%95%D7%A4%D7%94-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-236-400-%D7%A9%D7%A7%D7%9C%D7%99%D7%9D",
+          "source_name": "Cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "סקודה אניאק קופה - מחירון רכב, מבחן דרכים, מפרט טכני",
+          "url": "https://www.icar.co.il/%D7%A1%D7%A7%D7%95%D7%93%D7%94/%D7%A1%D7%A7%D7%95%D7%93%D7%94_%D7%90%D7%A0%D7%99%D7%90%D7%A7_%D7%A7%D7%95%D7%A4%D7%94/",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "סקודה אניאק 2024 החדש (דגמי 85) בישראל - מחיר החל מ-214,900 שקל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%A1%D7%A7%D7%95%D7%93%D7%94-%D7%90%D7%A0%D7%99%D7%90%D7%A7-2024-%D7%94%D7%97%D7%93%D7%A9-%D7%93%D7%92%D7%9E%D7%99-85-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-214-900-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "מפרט טכני Enyaq Coupe - סקודה ישראל",
+          "url": "https://www.skoda.co.il/models/enyaq-coupe/enyaq-coupe/",
+          "source_name": "Skoda Israel Official",
+          "source_type": "official_importer",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "market": "IL-confirmed",
+      "canonical_model": "Enyaq Coupe",
+      "profile_confidence": "medium",
+      "year_start": 2022,
+      "year_end": 2024,
+      "validation_issues": [
+        "variant[0] version_or_trim '80' is a engine_size, not a trim",
+        "variant[1] version_or_trim '85' is a engine_size, not a trim"
       ]
     }
   ]
