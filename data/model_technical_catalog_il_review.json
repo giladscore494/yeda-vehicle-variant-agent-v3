@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T18:53:40Z",
+  "generated_at": "2026-06-21T18:54:14Z",
   "market": "IL",
   "models": [
     {
@@ -3781,6 +3781,68 @@
       "year_end": 2024,
       "validation_issues": [
         "variant[1] non-null field 'version_or_trim' has no field_sources entry"
+      ]
+    },
+    {
+      "technical_variants_il": [],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Base",
+          "classification": "generic_placeholder"
+        },
+        {
+          "label": "3.0L EcoDiesel I4, 174 hp",
+          "classification": "engine_specification"
+        },
+        {
+          "label": "3.6L Pentastar V6 petrol, 276 hp",
+          "classification": "engine_specification"
+        },
+        {
+          "label": "3.6L Pentastar V6 petrol, 280 hp",
+          "classification": "engine_specification"
+        },
+        {
+          "label": "Electric motor, 200 kW (268 hp)",
+          "classification": "engine_specification"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "Ram Israel Official Website - Models (Absence of ProMaster)",
+          "url": "https://ramisrael.co.il/",
+          "source_name": "Ram Israel (Samelet)",
+          "source_type": "official_importer",
+          "supports": []
+        },
+        {
+          "source_index": 1,
+          "title": "iCar - RAM Models in Israel (Absence of ProMaster)",
+          "url": "https://www.icar.co.il/ראם/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": []
+        }
+      ],
+      "market": "global-reference-only",
+      "make": "RAM",
+      "model": "ProMaster",
+      "canonical_model": "ProMaster",
+      "profile_confidence": "medium",
+      "year_start": null,
+      "year_end": null,
+      "validation_issues": [
+        "technical_variants_il is empty"
       ]
     }
   ]
