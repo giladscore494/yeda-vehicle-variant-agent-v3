@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T07:23:22Z",
+  "generated_at": "2026-06-21T07:24:03Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -197319,6 +197319,226 @@
       "profile_confidence": "medium",
       "year_start": 2005,
       "year_end": 2022
+    },
+    {
+      "technical_variants_il": [
+        {
+          "body_type": "MPV",
+          "fuel_type": "petrol",
+          "engine": "1.6L",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 110,
+          "transmission": "4-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2006,
+          "year_end": 2013,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0,
+              2
+            ],
+            "engine": [
+              0,
+              2
+            ],
+            "engine_displacement_l": [
+              0,
+              2
+            ],
+            "horsepower_hp": [
+              0,
+              2
+            ],
+            "transmission": [
+              0,
+              2
+            ],
+            "drivetrain": [
+              0,
+              2
+            ],
+            "year_start": [
+              0,
+              2
+            ],
+            "year_end": [
+              0,
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "MPV",
+          "fuel_type": "petrol",
+          "engine": "1.2L supercharged",
+          "engine_displacement_l": 1.2,
+          "horsepower_hp": 98,
+          "transmission": "cvt",
+          "drivetrain": "FWD",
+          "year_start": 2014,
+          "year_end": 2018,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": [
+              1,
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "ניסאן נוט (2006-2013) - מחירון, מפרטים, ואבזור | iCar",
+          "url": "https://www.icar.co.il/nissan/nissan_note/nissan_note_d1/",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "ניסאן נוט (2014-2018) - מחירון, מפרטים, ואבזור | iCar",
+          "url": "https://www.icar.co.il/nissan/nissan_note/nissan_note_d2/",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "ניסאן נוט - מפרט טכני | קארזון",
+          "url": "https://www.carzone.co.il/nissan/note/",
+          "source_name": "CarZone",
+          "source_type": "catalog",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "MPV"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "1.6L",
+          "1.2L supercharged"
+        ],
+        "horsepower_hp": [
+          110,
+          98
+        ],
+        "transmission": [
+          "4-speed automatic",
+          "cvt"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "1.2L HR12DDR DIG-S supercharged, 98 hp",
+          "classification": "engine_and_performance_spec"
+        },
+        {
+          "label": "1.6L HR16DE naturally aspirated, 110 hp",
+          "classification": "engine_and_performance_spec"
+        },
+        {
+          "label": "Mini MPV",
+          "classification": "body_type_spec"
+        },
+        {
+          "label": "4-speed automatic",
+          "classification": "transmission_spec"
+        },
+        {
+          "label": "CVT",
+          "classification": "transmission_spec"
+        }
+      ],
+      "market": "IL-confirmed",
+      "make": "Nissan",
+      "model": "Note",
+      "canonical_model": "Note",
+      "profile_confidence": "medium",
+      "year_start": 2006,
+      "year_end": 2018
     }
   ],
   "ready_for_website_upload": false
