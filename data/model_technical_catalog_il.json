@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T19:28:41Z",
+  "generated_at": "2026-06-21T19:29:26Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -230190,6 +230190,270 @@
       "profile_confidence": "medium",
       "year_start": 2007,
       "year_end": 2024
+    },
+    {
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "רנו טווינגו החדשה בישראל - מחיר החל מ- 64,990 שקל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/רנו-טווינגו-החדשה-בישראל-מחיר-החל-מ-64990-שקל",
+          "source_name": "Cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "year_start",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "body_type",
+            "fuel_type",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "רנו טווינגו - מחירון רכב, מפרט טכני",
+          "url": "https://www.icar.co.il/רנו/רנו_טווינגו/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "year_start",
+            "year_end",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "body_type",
+            "fuel_type"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Life",
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "1.0L",
+          "engine_displacement_l": 1.0,
+          "horsepower_hp": 70,
+          "transmission": "5-speed manual",
+          "drivetrain": "RWD",
+          "year_start": 2017,
+          "year_end": 2020,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Intense",
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "0.9L turbo",
+          "engine_displacement_l": 0.9,
+          "horsepower_hp": 90,
+          "transmission": "6-speed dual_clutch",
+          "drivetrain": "RWD",
+          "year_start": 2017,
+          "year_end": 2020,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "1.2L",
+          "engine_displacement_l": 1.2,
+          "horsepower_hp": 55,
+          "transmission": "5-speed manual",
+          "drivetrain": "FWD",
+          "year_start": 1994,
+          "year_end": 1998,
+          "support_level": "direct",
+          "source_indexes": [
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "0.9L TCe Turbo petrol",
+          "classification": "engine_spec"
+        },
+        {
+          "label": "1.0L SCe naturally aspirated petrol",
+          "classification": "engine_spec"
+        },
+        {
+          "label": "1.2L petrol",
+          "classification": "engine_spec"
+        },
+        {
+          "label": "5-speed manual",
+          "classification": "transmission"
+        },
+        {
+          "label": "6-speed EDC",
+          "classification": "transmission"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Life",
+          "Intense"
+        ],
+        "body_type": [
+          "Hatchback"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "1.0L",
+          "0.9L turbo",
+          "1.2L"
+        ],
+        "horsepower_hp": [
+          70,
+          90,
+          55
+        ],
+        "transmission": [
+          "5-speed manual",
+          "6-speed dual_clutch"
+        ],
+        "drivetrain": [
+          "RWD",
+          "FWD"
+        ]
+      },
+      "market": "IL-confirmed",
+      "make": "Renault",
+      "model": "Twingo",
+      "canonical_model": "Twingo",
+      "profile_confidence": "medium",
+      "year_start": 1994,
+      "year_end": 2020
     }
   ],
   "ready_for_website_upload": false
