@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T13:30:29Z",
+  "generated_at": "2026-06-21T13:31:40Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -218101,6 +218101,565 @@
       "canonical_model": "4",
       "profile_confidence": "medium",
       "year_start": 2024,
+      "year_end": null
+    },
+    {
+      "sources": [
+        {
+          "source_index": 1903,
+          "title": "פורשה 911 (2019 - יד חדשה) - מפרט טכני",
+          "url": "https://www.icar.co.il/פורשה/פורשה_911/פורשה_911_חדש/",
+          "source_name": "Icar Israel",
+          "source_type": "specs_database",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1904,
+          "title": "פורשה 911 החדשה 2019 בישראל - מחיר החל מ- 1,065,000 שקל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/פורשה-911-החדשה-2019-בישראל-מחיר-החל-מ-1065000-שקל",
+          "source_name": "Cartube Israel",
+          "source_type": "editorial",
+          "supports": [
+            "version_or_trim",
+            "horsepower_hp",
+            "engine",
+            "engine_displacement_l",
+            "transmission",
+            "year_start",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 1905,
+          "title": "פורשה 911 טורבו S החדשה בישראל - מחיר החל מ- 1.77 מיליון שקל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/פורשה-911-טורבו-s-החדשה-בישראל-מחיר-החל-מ-1-77-מיליון-שקל",
+          "source_name": "Cartube Israel",
+          "source_type": "editorial",
+          "supports": [
+            "version_or_trim",
+            "horsepower_hp",
+            "engine",
+            "engine_displacement_l",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1906,
+          "title": "גרסת כניסה חדשה: פורשה 911 קאררה",
+          "url": "https://www.cartube.co.il/חדשות-רכב/גרסת-כניסה-חדשה-פורשה-911-קאררה",
+          "source_name": "Cartube Israel",
+          "source_type": "editorial",
+          "supports": [
+            "version_or_trim",
+            "horsepower_hp",
+            "engine",
+            "engine_displacement_l",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1907,
+          "title": "פורשה 911 (2012-2019) מפרט טכני",
+          "url": "https://www.icar.co.il/פורשה/פורשה_911/פורשה_911_יד_שניה_דגם_3/",
+          "source_name": "Icar Israel",
+          "source_type": "specs_database",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1908,
+          "title": "פורשה 911 GT3 החדשה 2021 בישראל - מחיר החל מ- 1,195,000 שקל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/פורשה-911-gt3-החדשה-2021-בישראל-מחיר-החל-מ-1195000-שקל",
+          "source_name": "Cartube Israel",
+          "source_type": "editorial",
+          "supports": [
+            "version_or_trim",
+            "horsepower_hp",
+            "engine",
+            "engine_displacement_l",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Carrera",
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "3.0L turbo flat-6",
+          "engine_displacement_l": 3.0,
+          "horsepower_hp": 385,
+          "transmission": "8-speed dual_clutch",
+          "drivetrain": "RWD",
+          "year_start": 2019,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            1903,
+            1906
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1906
+            ],
+            "body_type": [
+              1903
+            ],
+            "fuel_type": [
+              1903
+            ],
+            "engine": [
+              1903,
+              1906
+            ],
+            "engine_displacement_l": [
+              1903,
+              1906
+            ],
+            "horsepower_hp": [
+              1903,
+              1906
+            ],
+            "transmission": [
+              1903
+            ],
+            "drivetrain": [
+              1903
+            ],
+            "year_start": [
+              1903,
+              1906
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Carrera S",
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "3.0L turbo flat-6",
+          "engine_displacement_l": 3.0,
+          "horsepower_hp": 450,
+          "transmission": "8-speed dual_clutch",
+          "drivetrain": "RWD",
+          "year_start": 2019,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            1903,
+            1904
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1904
+            ],
+            "body_type": [
+              1903
+            ],
+            "fuel_type": [
+              1903
+            ],
+            "engine": [
+              1903,
+              1904
+            ],
+            "engine_displacement_l": [
+              1903,
+              1904
+            ],
+            "horsepower_hp": [
+              1903,
+              1904
+            ],
+            "transmission": [
+              1903,
+              1904
+            ],
+            "drivetrain": [
+              1903,
+              1904
+            ],
+            "year_start": [
+              1903,
+              1904
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Turbo S",
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "3.8L turbo flat-6",
+          "engine_displacement_l": 3.8,
+          "horsepower_hp": 650,
+          "transmission": "8-speed dual_clutch",
+          "drivetrain": "AWD",
+          "year_start": 2020,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            1903,
+            1905
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1905
+            ],
+            "body_type": [
+              1903
+            ],
+            "fuel_type": [
+              1903
+            ],
+            "engine": [
+              1903,
+              1905
+            ],
+            "engine_displacement_l": [
+              1903,
+              1905
+            ],
+            "horsepower_hp": [
+              1903,
+              1905
+            ],
+            "transmission": [
+              1903,
+              1905
+            ],
+            "drivetrain": [
+              1903,
+              1905
+            ],
+            "year_start": [
+              1903,
+              1905
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "GT3",
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "4.0L flat-6",
+          "engine_displacement_l": 4.0,
+          "horsepower_hp": 510,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "RWD",
+          "year_start": 2021,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            1903,
+            1908
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1908
+            ],
+            "body_type": [
+              1903
+            ],
+            "fuel_type": [
+              1903
+            ],
+            "engine": [
+              1908
+            ],
+            "engine_displacement_l": [
+              1908
+            ],
+            "horsepower_hp": [
+              1908
+            ],
+            "transmission": [
+              1908
+            ],
+            "drivetrain": [
+              1908
+            ],
+            "year_start": [
+              1908
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Carrera",
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "3.0L turbo flat-6",
+          "engine_displacement_l": 3.0,
+          "horsepower_hp": 370,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "RWD",
+          "year_start": 2016,
+          "year_end": 2019,
+          "support_level": "direct",
+          "source_indexes": [
+            1907
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1907
+            ],
+            "body_type": [
+              1907
+            ],
+            "fuel_type": [
+              1907
+            ],
+            "engine": [
+              1907
+            ],
+            "engine_displacement_l": [
+              1907
+            ],
+            "horsepower_hp": [
+              1907
+            ],
+            "transmission": [
+              1907
+            ],
+            "drivetrain": [
+              1907
+            ],
+            "year_start": [
+              1907
+            ],
+            "year_end": [
+              1907
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Carrera S",
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "3.0L turbo flat-6",
+          "engine_displacement_l": 3.0,
+          "horsepower_hp": 420,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "RWD",
+          "year_start": 2016,
+          "year_end": 2019,
+          "support_level": "direct",
+          "source_indexes": [
+            1907
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1907
+            ],
+            "body_type": [
+              1907
+            ],
+            "fuel_type": [
+              1907
+            ],
+            "engine": [
+              1907
+            ],
+            "engine_displacement_l": [
+              1907
+            ],
+            "horsepower_hp": [
+              1907
+            ],
+            "transmission": [
+              1907
+            ],
+            "drivetrain": [
+              1907
+            ],
+            "year_start": [
+              1907
+            ],
+            "year_end": [
+              1907
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Carrera",
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "3.4L flat-6",
+          "engine_displacement_l": 3.4,
+          "horsepower_hp": 350,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "RWD",
+          "year_start": 2012,
+          "year_end": 2015,
+          "support_level": "direct",
+          "source_indexes": [
+            1907
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1907
+            ],
+            "body_type": [
+              1907
+            ],
+            "fuel_type": [
+              1907
+            ],
+            "engine": [
+              1907
+            ],
+            "engine_displacement_l": [
+              1907
+            ],
+            "horsepower_hp": [
+              1907
+            ],
+            "transmission": [
+              1907
+            ],
+            "drivetrain": [
+              1907
+            ],
+            "year_start": [
+              1907
+            ],
+            "year_end": [
+              1907
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Carrera S",
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "3.8L flat-6",
+          "engine_displacement_l": 3.8,
+          "horsepower_hp": 400,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "RWD",
+          "year_start": 2012,
+          "year_end": 2015,
+          "support_level": "direct",
+          "source_indexes": [
+            1907
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1907
+            ],
+            "body_type": [
+              1907
+            ],
+            "fuel_type": [
+              1907
+            ],
+            "engine": [
+              1907
+            ],
+            "engine_displacement_l": [
+              1907
+            ],
+            "horsepower_hp": [
+              1907
+            ],
+            "transmission": [
+              1907
+            ],
+            "drivetrain": [
+              1907
+            ],
+            "year_start": [
+              1907
+            ],
+            "year_end": [
+              1907
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": {
+        "1.4": "engine_size",
+        "Base": "non_trim_label",
+        "Standard": "non_trim_label",
+        "145hp": "horsepower_label"
+      },
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Carrera",
+          "Carrera S",
+          "Turbo S",
+          "GT3"
+        ],
+        "body_type": [
+          "Coupe"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "3.0L turbo flat-6",
+          "3.8L turbo flat-6",
+          "4.0L flat-6",
+          "3.4L flat-6",
+          "3.8L flat-6"
+        ],
+        "horsepower_hp": [
+          385,
+          450,
+          650,
+          510,
+          370,
+          420,
+          350,
+          400
+        ],
+        "transmission": [
+          "8-speed dual_clutch",
+          "7-speed dual_clutch"
+        ],
+        "drivetrain": [
+          "RWD",
+          "AWD"
+        ]
+      },
+      "market": "IL-confirmed",
+      "make": "Porsche",
+      "model": "911",
+      "canonical_model": "911",
+      "profile_confidence": "medium",
+      "year_start": 2012,
       "year_end": null
     }
   ],
