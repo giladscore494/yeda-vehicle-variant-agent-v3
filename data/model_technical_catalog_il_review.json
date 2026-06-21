@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T18:47:14Z",
+  "generated_at": "2026-06-21T18:48:22Z",
   "market": "IL",
   "models": [
     {
@@ -2475,6 +2475,471 @@
       "year_end": null,
       "validation_issues": [
         "variant[1] version_or_trim '4' is a engine_size, not a trim"
+      ]
+    },
+    {
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "פורשה פנמרה (2024) החדשה בישראל - מחיר החל מ-985,000 שקל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%A4%D7%95%D7%A8%D7%A9%D7%94-%D7%A4%D7%A0%D7%9E%D7%A8%D7%94-%D7%94%D7%97%D7%93%D7%A9%D7%94-2024-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C",
+          "source_name": "Cartube Israel",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "פורשה פנמרה - מחירון, צריכת דלק, חוות דעת",
+          "url": "https://www.icar.co.il/%D7%A4%D7%95%D7%A8%D7%A9%D7%94/%D7%A4%D7%95%D7%A8%D7%A9%D7%94_%D7%A4%D7%A0%D7%9E%D7%A8%D7%94/",
+          "source_name": "iCar Israel",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "Porsche Panamera Models - Porsche Israel",
+          "url": "https://www.porsche.com/middle-east/_israel_/models/panamera/",
+          "source_name": "Porsche Israel Official",
+          "source_type": "official",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "version_or_trim"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "Liftback",
+          "fuel_type": "petrol",
+          "version_or_trim": "4",
+          "engine": "2.9L v6 twin-turbo",
+          "engine_displacement_l": 2.9,
+          "horsepower_hp": 353,
+          "transmission": "8-speed dual_clutch",
+          "drivetrain": "AWD",
+          "year_start": 2024,
+          "year_end": 2026,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              2
+            ],
+            "fuel_type": [
+              0,
+              2
+            ],
+            "version_or_trim": [
+              0,
+              2
+            ],
+            "engine": [
+              0,
+              2
+            ],
+            "engine_displacement_l": [
+              0,
+              2
+            ],
+            "horsepower_hp": [
+              0,
+              2
+            ],
+            "transmission": [
+              0,
+              2
+            ],
+            "drivetrain": [
+              0,
+              2
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Liftback",
+          "fuel_type": "plug_in_hybrid",
+          "version_or_trim": "Turbo E-Hybrid",
+          "engine": "4.0L v8 twin-turbo",
+          "engine_displacement_l": 4.0,
+          "horsepower_hp": 680,
+          "transmission": "8-speed dual_clutch",
+          "drivetrain": "AWD",
+          "year_start": 2024,
+          "year_end": 2026,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              2
+            ],
+            "fuel_type": [
+              0,
+              2
+            ],
+            "version_or_trim": [
+              0,
+              2
+            ],
+            "engine": [
+              0,
+              2
+            ],
+            "engine_displacement_l": [
+              0,
+              2
+            ],
+            "horsepower_hp": [
+              0,
+              2
+            ],
+            "transmission": [
+              0,
+              2
+            ],
+            "drivetrain": [
+              0,
+              2
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Liftback",
+          "fuel_type": "plug_in_hybrid",
+          "version_or_trim": "4 E-Hybrid",
+          "engine": "2.9L v6 twin-turbo",
+          "engine_displacement_l": 2.9,
+          "horsepower_hp": 462,
+          "transmission": "8-speed dual_clutch",
+          "drivetrain": "AWD",
+          "year_start": 2017,
+          "year_end": 2023,
+          "support_level": "direct",
+          "source_indexes": [
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "version_or_trim": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Liftback",
+          "fuel_type": "petrol",
+          "version_or_trim": "GTS",
+          "engine": "4.0L v8 twin-turbo",
+          "engine_displacement_l": 4.0,
+          "horsepower_hp": 480,
+          "transmission": "8-speed dual_clutch",
+          "drivetrain": "AWD",
+          "year_start": 2019,
+          "year_end": 2023,
+          "support_level": "direct",
+          "source_indexes": [
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "version_or_trim": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Liftback",
+          "fuel_type": "plug_in_hybrid",
+          "version_or_trim": "S E-Hybrid",
+          "engine": "3.0L v6 supercharged",
+          "engine_displacement_l": 3.0,
+          "horsepower_hp": 416,
+          "transmission": "8-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 2013,
+          "year_end": 2016,
+          "support_level": "direct",
+          "source_indexes": [
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "version_or_trim": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Liftback",
+          "fuel_type": "petrol",
+          "version_or_trim": "4S",
+          "engine": "4.8L v8 naturally aspirated",
+          "engine_displacement_l": 4.8,
+          "horsepower_hp": 400,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "AWD",
+          "year_start": 2009,
+          "year_end": 2013,
+          "support_level": "direct",
+          "source_indexes": [
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "version_or_trim": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "4",
+          "Turbo E-Hybrid",
+          "4 E-Hybrid",
+          "GTS",
+          "S E-Hybrid",
+          "4S"
+        ],
+        "body_type": [
+          "Liftback"
+        ],
+        "fuel_type": [
+          "petrol",
+          "plug_in_hybrid"
+        ],
+        "engine": [
+          "2.9L v6 twin-turbo",
+          "4.0L v8 twin-turbo",
+          "3.0L v6 supercharged",
+          "4.8L v8 naturally aspirated"
+        ],
+        "horsepower_hp": [
+          353,
+          680,
+          462,
+          480,
+          416,
+          400
+        ],
+        "transmission": [
+          "8-speed dual_clutch",
+          "8-speed automatic",
+          "7-speed dual_clutch"
+        ],
+        "drivetrain": [
+          "AWD",
+          "RWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "2.9L V6 Twin-Turbo + Electric Motor, 462 hp",
+          "classification": "engine_spec"
+        },
+        {
+          "label": "2.9L V6 Twin-Turbo, 353 hp",
+          "classification": "engine_spec"
+        },
+        {
+          "label": "3.0L Supercharged V6 + Electric Motor, 416 hp",
+          "classification": "engine_spec"
+        },
+        {
+          "label": "4.0L V8 Twin-Turbo + Electric Motor, 680 hp",
+          "classification": "engine_spec"
+        },
+        {
+          "label": "4.0L V8 Twin-Turbo, 460-480 hp",
+          "classification": "engine_spec"
+        },
+        {
+          "label": "4.8L V8 Naturally Aspirated, 400 hp",
+          "classification": "engine_spec"
+        },
+        {
+          "label": "7-speed PDK",
+          "classification": "transmission_spec"
+        },
+        {
+          "label": "8-speed Automatic (Tiptronic S)",
+          "classification": "transmission_spec"
+        },
+        {
+          "label": "8-speed PDK",
+          "classification": "transmission_spec"
+        },
+        {
+          "label": "Fastback",
+          "classification": "body_type"
+        }
+      ],
+      "market": "IL-confirmed",
+      "make": "Porsche",
+      "model": "Panamera",
+      "canonical_model": "Panamera",
+      "profile_confidence": "medium",
+      "year_start": 2009,
+      "year_end": 2026,
+      "validation_issues": [
+        "variant[0] version_or_trim '4' is a engine_size, not a trim"
       ]
     }
   ]
