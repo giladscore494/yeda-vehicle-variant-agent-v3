@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-06-20T15:12:23Z",
+  "generated_at": "2026-06-21T04:26:40Z",
   "totals": {
-    "models": 506,
-    "findings": 734,
-    "grounded_cells": 16714,
-    "total_cells": 16714,
-    "marketplace_citation_share": 0.04408352668213457,
-    "official_citations": 29480,
+    "models": 629,
+    "findings": 872,
+    "grounded_cells": 20997,
+    "total_cells": 20997,
+    "marketplace_citation_share": 0.03859767402663071,
+    "official_citations": 35339,
     "bug": 0,
-    "leak": 185,
+    "leak": 195,
     "normalization": 0,
-    "structure": 549
+    "structure": 677
   },
   "findings": [
     {
@@ -5150,12 +5150,978 @@
       "make": "Lexus",
       "model": "RC",
       "detail": "30/30 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Lexus",
+      "model": "RX",
+      "detail": "77/77 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Lexus",
+      "model": "SC 430",
+      "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Lexus",
+      "model": "UX",
+      "detail": "29/29 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Lincoln",
+      "model": "MKC",
+      "detail": "40/40 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Lincoln",
+      "model": "MKX",
+      "detail": "29/29 grounded cells (100.0%)"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Lincoln",
+      "model": "Navigator",
+      "detail": "variant[0] year_start grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Lincoln",
+      "model": "Navigator",
+      "detail": "variant[0] year_end grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Lincoln",
+      "model": "Navigator",
+      "detail": "variant[1] year_start grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Lincoln",
+      "model": "Navigator",
+      "detail": "variant[1] year_end grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Lincoln",
+      "model": "Navigator",
+      "detail": "variant[2] year_start grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Lincoln",
+      "model": "Navigator",
+      "detail": "variant[2] year_end grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Lincoln",
+      "model": "Navigator",
+      "detail": "27/27 grounded cells (100.0%)"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Lincoln",
+      "model": "Navigator",
+      "detail": "marketplace citation share 100.0%"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Lotus",
+      "model": "Elise",
+      "detail": "19/19 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Lotus",
+      "model": "Elise",
+      "detail": "7/7 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Lotus",
+      "model": "Elise",
+      "detail": "19/19 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Lotus",
+      "model": "Emira",
+      "detail": "27/27 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Lotus",
+      "model": "Evora",
+      "detail": "38/38 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Lynk & Co",
+      "model": "01",
+      "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Maserati",
+      "model": "Ghibli",
+      "detail": "86/86 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Maserati",
+      "model": "GranCabrio",
+      "detail": "19/19 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Maserati",
+      "model": "GranCabrio",
+      "detail": "29/29 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Maserati",
+      "model": "GranTurismo",
+      "detail": "37/37 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Maserati",
+      "model": "Grecale",
+      "detail": "30/30 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Maserati",
+      "model": "MC20",
+      "detail": "17/17 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Maserati",
+      "model": "Quattroporte",
+      "detail": "78/78 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Maserati",
+      "model": "Quattroporte",
+      "detail": "67/67 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Maxus",
+      "model": "Euniq 5",
+      "detail": "8/8 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Maxus",
+      "model": "Euniq 6",
+      "detail": "8/8 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Maxus",
+      "model": "T90",
+      "detail": "7/7 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mazda",
+      "model": "121",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mazda",
+      "model": "121",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "year_split_duplicates",
+      "severity": "structure",
+      "make": "Mazda",
+      "model": "323",
+      "detail": "merge candidate signature=('Sedan', 'petrol', '1.8L', 114, '4-speed automatic', 'FWD') rows=[(2, 1995, 1998), (7, 1998, 2001)]"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mazda",
+      "model": "323",
+      "detail": "81/81 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mazda",
+      "model": "626",
+      "detail": "50/50 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mazda",
+      "model": "BT-50",
+      "detail": "36/36 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mazda",
+      "model": "BT-50",
+      "detail": "36/36 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mazda",
+      "model": "CX-3",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mazda",
+      "model": "CX-3",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mazda",
+      "model": "CX-5",
+      "detail": "45/45 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mazda",
+      "model": "CX-60",
+      "detail": "16/16 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mazda",
+      "model": "CX-60",
+      "detail": "8/8 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mazda",
+      "model": "CX-7",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mazda",
+      "model": "CX-80",
+      "detail": "16/16 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mazda",
+      "model": "CX-9",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mazda",
+      "model": "CX-90",
+      "detail": "8/8 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mazda",
+      "model": "Mazda2",
+      "detail": "54/54 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mazda",
+      "model": "Mazda2",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mazda",
+      "model": "Mazda3",
+      "detail": "90/90 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mazda",
+      "model": "Mazda5",
+      "detail": "27/27 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mazda",
+      "model": "MPV",
+      "detail": "29/29 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mazda",
+      "model": "MPV",
+      "detail": "27/27 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mazda",
+      "model": "MX-30",
+      "detail": "7/7 grounded cells (100.0%)"
+    },
+    {
+      "type": "year_split_duplicates",
+      "severity": "structure",
+      "make": "Mazda",
+      "model": "MX-5",
+      "detail": "merge candidate signature=('Roadster', 'petrol', '2.0L', 160, '6-speed manual', 'RWD') rows=[(1, 2006, 2015), (3, 2015, 2018)]"
+    },
+    {
+      "type": "year_split_duplicates",
+      "severity": "structure",
+      "make": "Mazda",
+      "model": "MX-5",
+      "detail": "merge candidate signature=('Roadster', 'petrol', '2.0L', 160, '6-speed automatic', 'RWD') rows=[(2, 2006, 2015), (4, 2015, 2018)]"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mazda",
+      "model": "MX-5",
+      "detail": "67/67 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mazda",
+      "model": "Premacy",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mazda",
+      "model": "RX-8",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mazda",
+      "model": "RX-8",
+      "detail": "10/10 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mazda",
+      "model": "Tribute",
+      "detail": "27/27 grounded cells (100.0%)"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Mazda",
+      "model": "Tribute",
+      "detail": "variant[0] year_start grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Mazda",
+      "model": "Tribute",
+      "detail": "variant[0] year_end grounded only by marketplace/aggregator source(s): ['autoboom.co.il']"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mazda",
+      "model": "Tribute",
+      "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "source_tier_inversion",
+      "severity": "leak",
+      "make": "Mazda",
+      "model": "Tribute",
+      "detail": "marketplace citation share 100.0%"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "McLaren",
+      "model": "540C",
+      "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "McLaren",
+      "model": "Artura",
+      "detail": "27/27 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "McLaren",
+      "model": "GT",
+      "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "McLaren",
+      "model": "GT",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mercedes-Benz",
+      "model": "190 (W201)",
+      "detail": "36/36 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mercedes-Benz",
+      "model": "A-Class",
+      "detail": "110/110 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mercedes-Benz",
+      "model": "AMG GT",
+      "detail": "70/70 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mercedes-Benz",
+      "model": "B-Class",
+      "detail": "40/40 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mercedes-Benz",
+      "model": "C-Class",
+      "detail": "70/70 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mercedes-Benz",
+      "model": "Citan",
+      "detail": "50/50 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mercedes-Benz",
+      "model": "Citan",
+      "detail": "42/42 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mercedes-Benz",
+      "model": "CLA",
+      "detail": "72/72 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mercedes-Benz",
+      "model": "CLE",
+      "detail": "36/36 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mercedes-Benz",
+      "model": "CLS",
+      "detail": "54/54 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mercedes-Benz",
+      "model": "E-Class",
+      "detail": "80/80 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mercedes-Benz",
+      "model": "EQA",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mercedes-Benz",
+      "model": "EQB",
+      "detail": "16/16 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mercedes-Benz",
+      "model": "EQC",
+      "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mercedes-Benz",
+      "model": "EQS",
+      "detail": "45/45 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mercedes-Benz",
+      "model": "EQS SUV",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mercedes-Benz",
+      "model": "EQV",
+      "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mercedes-Benz",
+      "model": "G-Class",
+      "detail": "30/30 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mercedes-Benz",
+      "model": "GLA",
+      "detail": "54/54 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mercedes-Benz",
+      "model": "GLB",
+      "detail": "60/60 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mercedes-Benz",
+      "model": "GLC",
+      "detail": "90/90 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mercedes-Benz",
+      "model": "GLK",
+      "detail": "50/50 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mercedes-Benz",
+      "model": "GLS",
+      "detail": "45/45 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mercedes-Benz",
+      "model": "Maybach GLS",
+      "detail": "10/10 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mercedes-Benz",
+      "model": "R-Class",
+      "detail": "40/40 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mercedes-Benz",
+      "model": "S-Class",
+      "detail": "60/60 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mercedes-Benz",
+      "model": "SL",
+      "detail": "70/70 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mercedes-Benz",
+      "model": "SLK",
+      "detail": "50/50 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mercedes-Benz",
+      "model": "V-Class",
+      "detail": "30/30 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mercedes-Benz",
+      "model": "Vito",
+      "detail": "108/108 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "MG",
+      "model": "Cyberster",
+      "detail": "16/16 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "MG",
+      "model": "HS",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "MG",
+      "model": "Marvel R",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "MG",
+      "model": "MG3",
+      "detail": "19/19 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "MG",
+      "model": "MG3 Hybrid+",
+      "detail": "8/8 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "MG",
+      "model": "MG4",
+      "detail": "35/35 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "MG",
+      "model": "MG5",
+      "detail": "8/8 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "MG",
+      "model": "ZR",
+      "detail": "27/27 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "MG",
+      "model": "ZS",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "MG",
+      "model": "ZS",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "MG",
+      "model": "ZS EV",
+      "detail": "27/27 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "MG (British era)",
+      "model": "ZT",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mini",
+      "model": "Aceman",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mini",
+      "model": "Cabrio",
+      "detail": "90/90 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mini",
+      "model": "Clubman",
+      "detail": "50/50 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mini",
+      "model": "Cooper",
+      "detail": "65/65 grounded cells (100.0%)"
+    },
+    {
+      "type": "year_split_duplicates",
+      "severity": "structure",
+      "make": "Mini",
+      "model": "Cooper",
+      "detail": "merge candidate signature=('Hatchback', 'electric', 'electric', 184, 'single_speed', 'FWD') rows=[(0, 2020, 2023), (1, 2020, 2023), (2, 2024, None), (3, 2024, None)]"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mini",
+      "model": "Cooper",
+      "detail": "50/50 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mini",
+      "model": "Cooper S",
+      "detail": "72/72 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mini",
+      "model": "Cooper SE",
+      "detail": "15/15 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mini",
+      "model": "Countryman",
+      "detail": "60/60 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mini",
+      "model": "Paceman",
+      "detail": "20/20 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mitsubishi",
+      "model": "3000GT",
+      "detail": "20/20 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mitsubishi",
+      "model": "ASX",
+      "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mitsubishi",
+      "model": "ASX",
+      "detail": "9/9 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mitsubishi",
+      "model": "Attrage",
+      "detail": "20/20 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mitsubishi",
+      "model": "Carisma",
+      "detail": "27/27 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mitsubishi",
+      "model": "Colt",
+      "detail": "20/20 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mitsubishi",
+      "model": "Colt",
+      "detail": "10/10 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mitsubishi",
+      "model": "Colt",
+      "detail": "36/36 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mitsubishi",
+      "model": "Eclipse Cross",
+      "detail": "36/36 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mitsubishi",
+      "model": "Galant",
+      "detail": "36/36 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mitsubishi",
+      "model": "i-MiEV",
+      "detail": "8/8 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mitsubishi",
+      "model": "L200",
+      "detail": "81/81 grounded cells (100.0%)"
+    },
+    {
+      "type": "year_split_duplicates",
+      "severity": "structure",
+      "make": "Mitsubishi",
+      "model": "Lancer",
+      "detail": "merge candidate signature=('Sedan', 'petrol', '1.6L', 98, '4-speed automatic', 'FWD') rows=[(1, 1998, 2003), (2, 2004, 2008)]"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mitsubishi",
+      "model": "Lancer",
+      "detail": "72/72 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mitsubishi",
+      "model": "Lancer Evolution",
+      "detail": "27/27 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mitsubishi",
+      "model": "Outlander",
+      "detail": "81/81 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mitsubishi",
+      "model": "Pajero",
+      "detail": "45/45 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Mitsubishi",
+      "model": "Pajero Sport",
+      "detail": "20/20 grounded cells (100.0%)"
     }
   ],
   "counts_by_type": {
-    "grounding_completeness": 506,
-    "year_split_duplicates": 43,
-    "source_tier_inversion": 177,
+    "grounding_completeness": 629,
+    "year_split_duplicates": 48,
+    "source_tier_inversion": 187,
     "source_domain": 8
   }
 }
