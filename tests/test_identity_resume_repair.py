@@ -597,17 +597,17 @@ def test_resume_state_readiness_models_blocked_overrides_review_only_count(tmp_p
 def test_current_catalog_resume_state_advances_through_batch26_window():
     state = cb.compute_resume_state()
 
-    assert state["clean_count"] == 629
+    assert state["clean_count"] == 726
     assert state["review_entries_count"] == 0
     assert state["review_overlap_count"] == 0
     assert state["review_only_blocked_count"] == 0
     assert state["active_blocked_count"] == 0
     assert state["blocked"] == 0
-    assert state["resume_after_key"] == "global-reference-only|Mitsubishi|Pajero Sport"
-    assert state["next_key_to_process"] == "IL-confirmed|Mitsubishi|Space Star"
-    assert state["next_key"] == "IL-confirmed|Mitsubishi|Space Star"
-    assert state["next_make"] == "Mitsubishi"
-    assert state["next_model"] == "Space Star"
+    assert state["resume_after_key"] == "IL-confirmed|Porsche|718 Boxster"
+    assert state["next_key_to_process"] == "IL-confirmed|Porsche|718 Cayman"
+    assert state["next_key"] == "IL-confirmed|Porsche|718 Cayman"
+    assert state["next_make"] == "Porsche"
+    assert state["next_model"] == "718 Cayman"
     assert state["unmatched_output_keys_count"] == 0
     assert state["unmatched_output_keys_sample"] == []
     assert state["split_profile_alias_count"] >= 29
