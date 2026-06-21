@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T07:22:16Z",
+  "generated_at": "2026-06-21T07:22:33Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -196856,6 +196856,185 @@
       "canonical_model": "Murano",
       "profile_confidence": "medium",
       "year_start": 2005,
+      "year_end": 2014
+    },
+    {
+      "make": "Nissan",
+      "model": "Murano",
+      "technical_variants_il": [
+        {
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "3.5L v6",
+          "engine_displacement_l": 3.5,
+          "horsepower_hp": 260,
+          "transmission": "cvt",
+          "drivetrain": "AWD",
+          "year_start": 2008,
+          "year_end": 2014,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": [],
+          "invalid_or_non_trim_labels": [
+            {
+              "label": "3.5",
+              "classification": "engine_size"
+            }
+          ]
+        },
+        {
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "3.5L v6",
+          "engine_displacement_l": 3.5,
+          "horsepower_hp": 234,
+          "transmission": "cvt",
+          "drivetrain": "AWD",
+          "year_start": 2004,
+          "year_end": 2008,
+          "support_level": "direct",
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": [],
+          "invalid_or_non_trim_labels": [
+            {
+              "label": "3.5",
+              "classification": "engine_size"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "ניסאן מוראנו - מחירון מחירון רכב קארזון",
+          "url": "https://www.carzone.co.il/prices/%D7%A0%D7%99%D7%A1%D7%90%D7%9F/%D7%9E%D7%95%D7%A8%D7%90%D7%A0%D7%95/",
+          "source_name": "Carzone IL",
+          "source_type": "catalog",
+          "supports": [
+            "year_start",
+            "year_end",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "ניסאן מוראנו 3.5, אוט', 4x4 - מפרט טכני",
+          "url": "https://www.icar.co.il/%D7%A0%D7%99%D7%A1%D7%90%D7%9F/%D7%A0%D7%99%D7%A1%D7%90%D7%9F_%D7%9E%D7%95%D7%A8%D7%90%D7%A0%D7%95/%D7%A0%D7%99%D7%A1%D7%90%D7%9F_%D7%9E%D7%95%D7%A8%D7%90%D7%A0%D7%95_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%99%D7%94_d1808/",
+          "source_name": "iCar IL",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "3.5L v6"
+        ],
+        "horsepower_hp": [
+          260,
+          234
+        ],
+        "transmission": [
+          "cvt"
+        ],
+        "drivetrain": [
+          "AWD"
+        ]
+      },
+      "market": "global-reference-only",
+      "canonical_model": "Murano",
+      "profile_confidence": "medium",
+      "year_start": 2004,
       "year_end": 2014
     }
   ],
