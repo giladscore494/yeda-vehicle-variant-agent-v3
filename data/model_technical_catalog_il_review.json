@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T18:50:41Z",
+  "generated_at": "2026-06-21T18:51:17Z",
   "market": "IL",
   "models": [
     {
@@ -3475,6 +3475,89 @@
       "year_end": null,
       "validation_issues": [
         "variant[5] version_or_trim '4' is a engine_size, not a trim"
+      ]
+    },
+    {
+      "market": "global-reference-only",
+      "make": "Proton",
+      "model": "Gen-2",
+      "canonical_model": "Gen-2",
+      "year_start": null,
+      "year_end": null,
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [],
+      "profile_confidence": null,
+      "notes": [],
+      "error": "Extra data: line 13 column 1 (char 236)",
+      "request_payload": {
+        "task": "build_israeli_model_technical_catalog",
+        "market": "global-reference-only",
+        "make": "Proton",
+        "model": "Gen-2",
+        "raw_database_values": {
+          "years_seen": [
+            2004,
+            2012
+          ],
+          "trims_seen": [
+            "1.3",
+            "1.6 AT",
+            "1.6 MT"
+          ],
+          "engines_seen": [
+            "1.3L CamPro petrol, 94 hp",
+            "1.6L CamPro petrol, 110 hp"
+          ],
+          "horsepower_seen": [],
+          "transmissions_seen": [
+            "4-speed automatic",
+            "5-speed manual"
+          ],
+          "body_types_seen": [
+            "Hatchback"
+          ],
+          "fuel_types_seen": [
+            "Petrol"
+          ],
+          "drivetrains_seen": [
+            "FWD"
+          ]
+        },
+        "sample_validation_ids": [
+          "VAL-002809",
+          "VAL-002810",
+          "VAL-002811"
+        ],
+        "source_indexes": [
+          2895,
+          2896,
+          2897
+        ],
+        "metadata_hints": {
+          "priorities_seen": [
+            "medium"
+          ],
+          "validation_routes_seen": [
+            "cheap_model_structured_validation"
+          ],
+          "possible_duplicate_rows": 0,
+          "validation_id_count": 3
+        },
+        "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
+      },
+      "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
       ]
     }
   ]
