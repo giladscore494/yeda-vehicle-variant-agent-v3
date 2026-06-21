@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T21:19:25Z",
+  "generated_at": "2026-06-21T21:20:32Z",
   "market": "IL",
   "models": [
     {
@@ -5698,6 +5698,257 @@
       "rebuild_required": true,
       "validation_issues": [
         "technical_variants_il is empty"
+      ]
+    },
+    {
+      "technical_variants_il": [
+        {
+          "version_or_trim": "85x",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 299,
+          "transmission": null,
+          "drivetrain": "AWD",
+          "year_start": 2025,
+          "year_end": null,
+          "support_level": "indirect",
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "transmission": [],
+            "engine_displacement_l": [],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "transmission"
+          ]
+        },
+        {
+          "version_or_trim": "85",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 286,
+          "transmission": null,
+          "drivetrain": "RWD",
+          "year_start": 2025,
+          "year_end": null,
+          "support_level": "indirect",
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "transmission": [],
+            "engine_displacement_l": [],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "transmission"
+          ]
+        },
+        {
+          "version_or_trim": "60",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 204,
+          "transmission": null,
+          "drivetrain": "RWD",
+          "year_start": 2025,
+          "year_end": null,
+          "support_level": "indirect",
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "transmission": [],
+            "engine_displacement_l": [],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "transmission"
+          ]
+        },
+        {
+          "version_or_trim": "50",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 170,
+          "transmission": null,
+          "drivetrain": "RWD",
+          "year_start": 2025,
+          "year_end": null,
+          "support_level": "indirect",
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "transmission": [],
+            "engine_displacement_l": [],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "transmission"
+          ]
+        }
+      ],
+      "invalid_or_non_trim_labels": [],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "סקודה אלרוק (Elroq) החשמלי נחשף - בישראל בתחילת 2025",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%A1%D7%A7%D7%95%D7%93%D7%94-%D7%90%D7%9C%D7%A8%D7%95%D7%A7-elroq-%D7%94%D7%97%D7%A9%D7%9E%D7%9C%D7%99-%D7%A0%D7%97%D7%A9%D7%A3-%D7%91%D7%A9%D7%95%D7%A7-%D7%94%D7%99%D7%A9%D7%A8%D7%90%D7%9C%D7%99",
+          "source_name": "Cartube Israel",
+          "source_type": "editorial",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "drivetrain",
+            "year_start"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "85x",
+          "85",
+          "60",
+          "50"
+        ],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          299,
+          286,
+          204,
+          170
+        ],
+        "transmission": [],
+        "drivetrain": [
+          "AWD",
+          "RWD"
+        ]
+      },
+      "market": "global-reference-only",
+      "make": "Skoda",
+      "model": "Elroq",
+      "canonical_model": "Elroq",
+      "profile_confidence": "medium",
+      "year_start": 2025,
+      "year_end": null,
+      "validation_issues": [
+        "variant[0] required website field 'transmission' is null/empty",
+        "variant[0] required field 'transmission' listed in missing_grounded_fields",
+        "variant[1] required website field 'transmission' is null/empty",
+        "variant[1] required field 'transmission' listed in missing_grounded_fields",
+        "variant[1] version_or_trim '85' is a engine_size, not a trim",
+        "variant[2] required website field 'transmission' is null/empty",
+        "variant[2] required field 'transmission' listed in missing_grounded_fields",
+        "variant[2] version_or_trim '60' is a engine_size, not a trim",
+        "variant[3] required website field 'transmission' is null/empty",
+        "variant[3] required field 'transmission' listed in missing_grounded_fields",
+        "variant[3] version_or_trim '50' is a engine_size, not a trim"
       ]
     }
   ]
