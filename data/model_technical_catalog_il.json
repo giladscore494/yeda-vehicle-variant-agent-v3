@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T09:55:12Z",
+  "generated_at": "2026-06-21T09:55:53Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -208716,6 +208716,129 @@
       "profile_confidence": "medium",
       "year_start": 2024,
       "year_end": null
+    },
+    {
+      "task": "build_israeli_model_technical_catalog",
+      "market": "IL-confirmed",
+      "make": "Ora",
+      "model": "Funky Cat",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "אורה פאנקי קאט בישראל - מחיר החל מ- 137,900 שקל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%90%D7%95%D7%A8%D7%94-%D7%A4%D7%90%D7%A0%D7%A7%D7%99-%D7%A7%D7%90%D7%98-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-137-900-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube Israel",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "אורה פאנקי קאט - מחירון, מפרטים, ואביזרים",
+          "url": "https://www.icar.co.il/%D7%90%D7%95%D7%A8%D7%94/%D7%90%D7%95%D7%A8%D7%94_%D7%A4%D7%90%D7%A0%D7%A7%D7%99_%D7%A7%D7%90%D7%98/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Hatchback",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 171,
+          "transmission": "single_speed",
+          "drivetrain": "FWD",
+          "year_start": 2023,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": {
+        "171 hp (126 kW) electric motor, 47.78 kWh LFP battery": "engine_and_battery_spec",
+        "171 hp (126 kW) electric motor, 63.13 kWh NMC battery": "engine_and_battery_spec",
+        "single-speed EV": "transmission_spec"
+      },
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Hatchback"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          171
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "canonical_model": "Funky Cat",
+      "profile_confidence": "medium",
+      "year_start": 2023,
+      "year_end": 2024
     }
   ],
   "ready_for_website_upload": false
