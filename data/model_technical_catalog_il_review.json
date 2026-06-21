@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T21:21:38Z",
+  "generated_at": "2026-06-21T21:22:46Z",
   "market": "IL",
   "models": [
     {
@@ -6204,6 +6204,535 @@
         "variant[0] version_or_trim '50' is a engine_size, not a trim",
         "variant[1] version_or_trim '60' is a engine_size, not a trim",
         "variant[2] version_or_trim '85' is a engine_size, not a trim"
+      ]
+    },
+    {
+      "task": "build_israeli_model_technical_catalog",
+      "market": "IL-confirmed",
+      "make": "Skoda",
+      "model": "Enyaq",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "סקודה אניאק 2021 בישראל - מחיר החל מ-189,900 שקל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%A1%D7%A7%D7%95%D7%93%D7%94-%D7%90%D7%A0%D7%99%D7%90%D7%A7-2021-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-189900-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "סקודה אניאק קופה 2023 בישראל - מחיר החל מ-236,900 שקל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%A1%D7%A7%D7%95%D7%93%D7%94-%D7%90%D7%A0%D7%99%D7%90%D7%A7-%D7%A7%D7%95%D7%A4%D7%94-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-236,900-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "סקודה אניאק 2024 החדש: דגמי 85 ו- RS בישראל - מחיר החל מ-214,900 שקל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%A1%D7%A7%D7%95%D7%93%D7%94-%D7%90%D7%A0%D7%99%D7%90%D7%A7-2024-%D7%94%D7%97%D7%93%D7%A9-%D7%93%D7%92%D7%9E%D7%99-85-%D7%95-rs-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-214900-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "סקודה אניאק - מפרט טכני",
+          "url": "https://www.icar.co.il/%D7%A1%D7%A7%D7%95%D7%93%D7%94/%D7%A1%D7%A7%D7%95%D7%93%D7%94_%D7%90%D7%A0%D7%99%D7%90%D7%A7/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 4,
+          "title": "סקודה אניאק קופה - מפרט טכני",
+          "url": "https://www.icar.co.il/%D7%A1%D7%A7%D7%95%D7%93%D7%94/%D7%A1%D7%A7%D7%95%D7%93%D7%94_%D7%90%D7%A0%D7%99%D7%90%D7%A7_%D7%A7%D7%95%D7%A4%D7%94/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "60",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 180,
+          "transmission": "single_speed",
+          "drivetrain": "RWD",
+          "year_start": 2021,
+          "year_end": 2023,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            2,
+            3
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              3
+            ],
+            "body_type": [
+              0,
+              3
+            ],
+            "fuel_type": [
+              0,
+              3
+            ],
+            "engine": [
+              0,
+              3
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              3
+            ],
+            "transmission": [
+              0,
+              3
+            ],
+            "drivetrain": [
+              0,
+              3
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "80",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 204,
+          "transmission": "single_speed",
+          "drivetrain": "RWD",
+          "year_start": 2021,
+          "year_end": 2023,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            2,
+            3
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              3
+            ],
+            "body_type": [
+              0,
+              3
+            ],
+            "fuel_type": [
+              0,
+              3
+            ],
+            "engine": [
+              0,
+              3
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              3
+            ],
+            "transmission": [
+              0,
+              3
+            ],
+            "drivetrain": [
+              0,
+              3
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "85",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 285,
+          "transmission": "single_speed",
+          "drivetrain": "RWD",
+          "year_start": 2024,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            2,
+            3
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              2,
+              3
+            ],
+            "body_type": [
+              2,
+              3
+            ],
+            "fuel_type": [
+              2,
+              3
+            ],
+            "engine": [
+              2,
+              3
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              2,
+              3
+            ],
+            "transmission": [
+              2,
+              3
+            ],
+            "drivetrain": [
+              2,
+              3
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "80",
+          "body_type": "Coupe",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 204,
+          "transmission": "single_speed",
+          "drivetrain": "RWD",
+          "year_start": 2023,
+          "year_end": 2023,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2,
+            4
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1,
+              4
+            ],
+            "body_type": [
+              1,
+              4
+            ],
+            "fuel_type": [
+              1,
+              4
+            ],
+            "engine": [
+              1,
+              4
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              1,
+              4
+            ],
+            "transmission": [
+              1,
+              4
+            ],
+            "drivetrain": [
+              1,
+              4
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "85",
+          "body_type": "Coupe",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 285,
+          "transmission": "single_speed",
+          "drivetrain": "RWD",
+          "year_start": 2024,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            2,
+            4
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              2,
+              4
+            ],
+            "body_type": [
+              2,
+              4
+            ],
+            "fuel_type": [
+              2,
+              4
+            ],
+            "engine": [
+              2,
+              4
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              2,
+              4
+            ],
+            "transmission": [
+              2,
+              4
+            ],
+            "drivetrain": [
+              2,
+              4
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "RS",
+          "body_type": "Coupe",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 299,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2023,
+          "year_end": 2023,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2,
+            4
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1,
+              4
+            ],
+            "body_type": [
+              1,
+              4
+            ],
+            "fuel_type": [
+              1,
+              4
+            ],
+            "engine": [
+              1,
+              4
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              1,
+              4
+            ],
+            "transmission": [
+              1,
+              4
+            ],
+            "drivetrain": [
+              1,
+              4
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "RS",
+          "body_type": "Coupe",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 340,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2024,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            2,
+            4
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              2,
+              4
+            ],
+            "body_type": [
+              2,
+              4
+            ],
+            "fuel_type": [
+              2,
+              4
+            ],
+            "engine": [
+              2,
+              4
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              2,
+              4
+            ],
+            "transmission": [
+              2,
+              4
+            ],
+            "drivetrain": [
+              2,
+              4
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "60",
+          "80",
+          "85",
+          "RS"
+        ],
+        "body_type": [
+          "SUV",
+          "Coupe"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          180,
+          204,
+          285,
+          299,
+          340
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "RWD",
+          "AWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": {
+        "Dual electric motors, 299 hp (82 kWh gross / 77 kWh net)": "engine_spec",
+        "Dual electric motors, 340 hp (82 kWh gross / 77 kWh net)": "engine_spec",
+        "Single electric motor (APP550), 285 hp (82 kWh gross / 77 kWh net)": "engine_spec",
+        "Single electric motor, 180 hp (62 kWh gross / 58 kWh net)": "engine_spec",
+        "Single electric motor, 204 hp (82 kWh gross / 77 kWh net)": "engine_spec",
+        "Single-speed EV": "transmission_label"
+      },
+      "canonical_model": "Enyaq",
+      "profile_confidence": "medium",
+      "year_start": 2021,
+      "year_end": 2024,
+      "validation_issues": [
+        "variant[0] version_or_trim '60' is a engine_size, not a trim",
+        "variant[1] version_or_trim '80' is a engine_size, not a trim",
+        "variant[2] version_or_trim '85' is a engine_size, not a trim",
+        "variant[3] version_or_trim '80' is a engine_size, not a trim",
+        "variant[4] version_or_trim '85' is a engine_size, not a trim"
       ]
     }
   ]
