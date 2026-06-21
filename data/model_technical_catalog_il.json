@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T13:26:18Z",
+  "generated_at": "2026-06-21T13:27:03Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -217186,6 +217186,137 @@
       "profile_confidence": "medium",
       "year_start": 2010,
       "year_end": 2015
+    },
+    {
+      "make": "Peugeot",
+      "model": "Rifter",
+      "market": "IL-confirmed",
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "פיג'ו ריפטר בישראל - מחיר החל מ-149,990 שקל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%A4%D7%99%D7%92-%D7%95-%D7%A8%D7%99%D7%A4%D7%98%D7%A8-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-149-990-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube Israel",
+          "source_type": "editorial",
+          "supports": [
+            "year_start",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "body_type",
+            "fuel_type"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "פיג'ו ריפטר - מחירון, מפרטים, ואבזור",
+          "url": "https://www.icar.co.il/%D7%A4%D7%99%D7%92%27%D7%95/%D7%A4%D7%99%D7%92%27%D7%95_%D7%A8%D7%99%D7%A4%D7%98%D7%A8/",
+          "source_name": "iCar Israel",
+          "source_type": "catalog",
+          "supports": [
+            "year_end",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "body_type",
+            "fuel_type"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "MPV",
+          "fuel_type": "diesel",
+          "engine": "1.5L turbo",
+          "engine_displacement_l": 1.5,
+          "horsepower_hp": 130,
+          "transmission": "8-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2019,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "MPV"
+        ],
+        "fuel_type": [
+          "diesel"
+        ],
+        "engine": [
+          "1.5L turbo"
+        ],
+        "horsepower_hp": [
+          130
+        ],
+        "transmission": [
+          "8-speed automatic"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "1.5L BlueHDi turbodiesel, 130 hp",
+          "classification": "engine_spec"
+        },
+        {
+          "label": "Electric motor, 136 hp (100 kW)",
+          "classification": "engine_spec"
+        }
+      ],
+      "canonical_model": "Rifter",
+      "profile_confidence": "medium",
+      "year_start": 2019,
+      "year_end": 2024
     }
   ],
   "ready_for_website_upload": false
