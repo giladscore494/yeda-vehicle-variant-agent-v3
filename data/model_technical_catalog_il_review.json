@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T08:01:53Z",
+  "generated_at": "2026-06-21T08:02:37Z",
   "market": "IL",
   "models": [
     {
@@ -437,6 +437,107 @@
       "year_end": null,
       "validation_issues": [
         "technical_variants_il is empty"
+      ]
+    },
+    {
+      "make": "Opel",
+      "model": "Kadett",
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "1.6L",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": null,
+          "transmission": "3-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 1990,
+          "year_end": 1991,
+          "support_level": "direct",
+          "source_indexes": [
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": [
+            "horsepower_hp"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Sedan"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "1.6L"
+        ],
+        "horsepower_hp": [],
+        "transmission": [
+          "3-speed automatic"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "אופל קדט (1985-1991) מחירון, מפרט טכני - KML",
+          "url": "https://www.kml.co.il/car/%D7%90%D7%95%D7%A4%D7%9C_%D7%A7%D7%93%D7%98_1985-1991",
+          "source_name": "KML",
+          "source_type": "catalogue",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "invalid_or_non_trim_labels": [],
+      "market": "IL-confirmed",
+      "canonical_model": "Kadett",
+      "profile_confidence": "medium",
+      "year_start": 1990,
+      "year_end": 1991,
+      "validation_issues": [
+        "variant[0] required website field 'horsepower_hp' is null/empty",
+        "variant[0] required field 'horsepower_hp' listed in missing_grounded_fields"
       ]
     }
   ]
