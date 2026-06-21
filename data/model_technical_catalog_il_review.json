@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T12:29:59Z",
+  "generated_at": "2026-06-21T12:48:21Z",
   "market": "IL",
   "models": [
     {
@@ -791,6 +791,107 @@
           ],
           "possible_duplicate_rows": 0,
           "validation_id_count": 3
+        },
+        "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
+      },
+      "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
+      ]
+    },
+    {
+      "market": "IL-confirmed",
+      "make": "Peugeot",
+      "model": "407",
+      "canonical_model": "407",
+      "year_start": null,
+      "year_end": null,
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [],
+      "profile_confidence": null,
+      "notes": [],
+      "error": "Gemini catalog client returned non-object JSON",
+      "request_payload": {
+        "task": "build_israeli_model_technical_catalog",
+        "market": "IL-confirmed",
+        "make": "Peugeot",
+        "model": "407",
+        "raw_database_values": {
+          "years_seen": [
+            2004,
+            2006,
+            2008,
+            2009,
+            2010,
+            2011
+          ],
+          "trims_seen": [
+            "Executive",
+            "SR",
+            "ST",
+            "SV"
+          ],
+          "engines_seen": [
+            "2.0L HDi diesel, 136 hp",
+            "2.0L petrol, 140 hp",
+            "2.2L petrol, 163 hp",
+            "3.0L V6 petrol, 211 hp"
+          ],
+          "horsepower_seen": [],
+          "transmissions_seen": [
+            "4-speed automatic",
+            "6-speed automatic"
+          ],
+          "body_types_seen": [
+            "Coupe",
+            "Sedan",
+            "Wagon"
+          ],
+          "fuel_types_seen": [
+            "Diesel",
+            "Petrol"
+          ],
+          "drivetrains_seen": [
+            "FWD"
+          ]
+        },
+        "sample_validation_ids": [
+          "VAL-002658",
+          "VAL-002659",
+          "VAL-002660",
+          "VAL-002661",
+          "VAL-002662",
+          "VAL-002663"
+        ],
+        "source_indexes": [
+          2183,
+          2184,
+          2185,
+          2186,
+          2187,
+          2188
+        ],
+        "metadata_hints": {
+          "priorities_seen": [
+            "high",
+            "low"
+          ],
+          "validation_routes_seen": [
+            "deterministic_or_skip_ai",
+            "strong_model_or_manual_review"
+          ],
+          "possible_duplicate_rows": 0,
+          "validation_id_count": 6
         },
         "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
       },
