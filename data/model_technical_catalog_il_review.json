@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T13:21:25Z",
+  "generated_at": "2026-06-21T13:21:49Z",
   "market": "IL",
   "models": [
     {
@@ -4536,6 +4536,188 @@
         "variant[1] required field 'horsepower_hp' listed in missing_grounded_fields",
         "variant[1] required field 'transmission' listed in missing_grounded_fields",
         "variant[1] required field 'drivetrain' listed in missing_grounded_fields"
+      ]
+    },
+    {
+      "market": "IL-likely",
+      "make": "Peugeot",
+      "model": "e-3008",
+      "canonical_model": "e-3008",
+      "year_start": 2024,
+      "year_end": 2026,
+      "technical_variants_il": [
+        {
+          "version_or_trim": "GT",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 210,
+          "transmission": null,
+          "drivetrain": "FWD",
+          "year_start": 2024,
+          "year_end": 2026,
+          "support_level": "unknown",
+          "source_indexes": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              2,
+              4
+            ],
+            "body_type": [
+              4
+            ],
+            "fuel_type": [
+              0,
+              1,
+              3
+            ],
+            "engine": [
+              0,
+              1,
+              3
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1,
+              3
+            ],
+            "transmission": [],
+            "drivetrain": [
+              0,
+              1,
+              3
+            ],
+            "year_start": [
+              2,
+              3
+            ],
+            "year_end": [
+              4
+            ]
+          },
+          "missing_grounded_fields": [
+            "transmission"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "GT"
+        ],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          210
+        ],
+        "transmission": [],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Single Electric Motor, 210 hp (73 kWh)",
+          "classification": "powertrain description, not trim"
+        },
+        {
+          "label": "Single Electric Motor, 230 hp (98 kWh)",
+          "classification": "powertrain description, not trim"
+        },
+        {
+          "label": "Dual Electric Motor, 320 hp (73 kWh)",
+          "classification": "powertrain description, not trim"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "מבחני רכב - פיג'ו E-3008 (נהיגה ראשונה) - האריה התחשמל",
+          "url": "https://www.icar.co.il/test_drive/ryvj200wap/",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "פיג'ו 3008 החדש בארץ – המחיר החל מ-187,000 שקלים",
+          "url": "https://www.auto.co.il/articles/car-news/local-news/137732/",
+          "source_name": "Auto",
+          "source_type": "editorial",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "פיג'ו 3008 2026 (דור חדש) חשמלי, GT",
+          "url": "https://www.auto.co.il/cars/peugeot/3008/2026/580834/",
+          "source_name": "Auto",
+          "source_type": "catalog",
+          "supports": [
+            "version_or_trim",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "Peugeot E-3008 ⭐ יוקרה מעולם אחר | פיג'ו ישראל | Peugeot Online",
+          "url": "https://online.peugeot.co.il/model/new-e-3008/",
+          "source_name": "Peugeot Online Israel",
+          "source_type": "official_importer_page",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "horsepower_hp"
+          ]
+        },
+        {
+          "source_index": 4,
+          "title": "פיג'ו 3008 - מחירון, חוות דעת ומידע טכני | אוטו",
+          "url": "https://www.auto.co.il/cars/peugeot/3008/",
+          "source_name": "Auto",
+          "source_type": "catalog",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "year_end"
+          ]
+        }
+      ],
+      "profile_confidence": "medium",
+      "notes": [
+        "Israeli-market web sources found clear evidence for one sold e-3008 technical configuration in Israel: a single-motor 210 hp front-wheel-drive electric SUV.",
+        "Raw database hints for 230 hp long-range and 320 hp dual-motor AWD variants were not grounded as actually sold in Israel from the located Israeli-market sources, so they were not returned as technical_variants_il.",
+        "Official importer page was search-grounded but direct page opening returned 403 in tool fetch; support was limited to searchable snippet evidence for the 210 hp electric configuration.",
+        "Transmission was not stated in the located Israeli-market sources used here, so it is left null.",
+        "Engine displacement is not applicable to an EV and is left null per schema."
+      ],
+      "validation_issues": [
+        "variant[0] required website field 'transmission' is null/empty",
+        "variant[0] required field 'transmission' listed in missing_grounded_fields"
       ]
     }
   ]
