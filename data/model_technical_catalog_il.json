@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T12:48:53Z",
+  "generated_at": "2026-06-21T12:49:50Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -214863,6 +214863,149 @@
       "profile_confidence": "medium",
       "year_start": 1995,
       "year_end": 2004
+    },
+    {
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "פיג'ו 408 - מחירון, מפרטים, ואבזור",
+          "url": "https://www.icar.co.il/%D7%A4%D7%99%D7%92'%D7%95/%D7%A4%D7%99%D7%92'%D7%95_408/",
+          "source_name": "iCar Israel",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "פיג'ו 408 החדשה 2023 בישראל - מחיר החל מ-168,990 שקל",
+          "url": "https://www.cartube.co.il/%D7%חדשות-רכב/פיג-ו-408-החדשה-2023-בישראל-מחיר-החל-מ-168-990-שקל",
+          "source_name": "Cartube Israel",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "version_or_trim"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "Liftback",
+          "fuel_type": "petrol",
+          "engine": "1.2L turbo",
+          "engine_displacement_l": 1.2,
+          "horsepower_hp": 130,
+          "transmission": "8-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2023,
+          "year_end": null,
+          "version_or_trim": "Allure Pack",
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": [],
+            "version_or_trim": [
+              1,
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "1.6L turbo Plug-in Hybrid, 180 hp",
+          "classification": "engine_and_horsepower"
+        },
+        {
+          "label": "Plug-in Hybrid",
+          "classification": "fuel_type"
+        },
+        {
+          "label": "Fastback",
+          "classification": "body_type"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Allure Pack"
+        ],
+        "body_type": [
+          "Liftback"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "1.2L turbo"
+        ],
+        "horsepower_hp": [
+          130
+        ],
+        "transmission": [
+          "8-speed automatic"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "market": "global-reference-only",
+      "make": "Peugeot",
+      "model": "408",
+      "canonical_model": "408",
+      "profile_confidence": "medium",
+      "year_start": 2023,
+      "year_end": null
     }
   ],
   "ready_for_website_upload": false
