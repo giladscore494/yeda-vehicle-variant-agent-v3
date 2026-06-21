@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T19:18:25Z",
+  "generated_at": "2026-06-21T19:19:04Z",
   "market": "IL",
   "models": [
     {
@@ -5058,6 +5058,190 @@
       "rebuild_required": true,
       "validation_issues": [
         "technical_variants_il is empty"
+      ]
+    },
+    {
+      "task": "build_israeli_model_technical_catalog",
+      "market": "global-reference-only",
+      "make": "Renault",
+      "model": "Modus",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "רנו מודוס (2008-2012) - חוות דעת, מחירון, שנתונים",
+          "url": "https://www.auto.co.il/model/renault-modus_g172",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "רנו מודוס - מחירון, חוות דעת ומפרט טכני",
+          "url": "https://www.icar.co.il/renault/renault_modus/",
+          "source_name": "iCar.co.il",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "MPV",
+          "fuel_type": "petrol",
+          "engine": "1.2L turbo",
+          "engine_displacement_l": 1.2,
+          "horsepower_hp": 100,
+          "transmission": "5-speed manual",
+          "drivetrain": "FWD",
+          "year_start": 2008,
+          "year_end": 2012,
+          "support_level": "direct",
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "MPV",
+          "fuel_type": "petrol",
+          "engine": "1.6L",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 112,
+          "transmission": "4-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2008,
+          "year_end": 2012,
+          "support_level": "direct",
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "MPV"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "1.2L turbo",
+          "1.6L"
+        ],
+        "horsepower_hp": [
+          100,
+          112
+        ],
+        "transmission": [
+          "5-speed manual",
+          "4-speed automatic"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "canonical_model": "Modus",
+      "profile_confidence": "medium",
+      "year_start": 2008,
+      "year_end": 2012,
+      "validation_issues": [
+        "variant[0] has no source_indexes",
+        "variant[0] support_level=direct but no source directly supports it",
+        "variant[1] has no source_indexes",
+        "variant[1] support_level=direct but no source directly supports it"
       ]
     }
   ]
