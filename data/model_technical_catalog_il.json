@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T19:19:41Z",
+  "generated_at": "2026-06-21T19:20:40Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -228353,6 +228353,190 @@
       "market": "IL-likely",
       "make": "Renault",
       "model": "Rafale",
+      "canonical_model": "Rafale",
+      "profile_confidence": "medium",
+      "year_start": 2024,
+      "year_end": null
+    },
+    {
+      "make": "Renault",
+      "model": "Rafale",
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "רנו רפאל E-Tech פלאג-אין 300 כ״ס נחשף - חזק וספורטיבי",
+          "url": "https://www.cartube.co.il/חדשות-רכב/רנו-רפאל-e-tech-פלאג-אין-300-כ״ס-נחשף",
+          "source_name": "Cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "version_or_trim",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "רנו רפאל נחשף - רכב הפנאי קופה החדש של רנו",
+          "url": "https://www.cartube.co.il/חדשות-רכב/רנו-רפאל-רכב-הפנאי-קופה-החדש-של-רנו",
+          "source_name": "Cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "version_or_trim",
+            "year_start"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Atelier Alpine",
+          "body_type": "SUV",
+          "fuel_type": "plug_in_hybrid",
+          "engine": "1.2L turbo",
+          "engine_displacement_l": 1.2,
+          "horsepower_hp": 300,
+          "transmission": "automatic",
+          "drivetrain": "AWD",
+          "year_start": 2024,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1
+            ],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Esprit Alpine",
+          "body_type": "SUV",
+          "fuel_type": "hybrid",
+          "engine": "1.2L turbo",
+          "engine_displacement_l": 1.2,
+          "horsepower_hp": 200,
+          "transmission": "automatic",
+          "drivetrain": "FWD",
+          "year_start": 2024,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              2
+            ],
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              2
+            ],
+            "engine": [
+              2
+            ],
+            "engine_displacement_l": [
+              2
+            ],
+            "horsepower_hp": [
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              2
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Atelier Alpine",
+          "Esprit Alpine"
+        ],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "plug_in_hybrid",
+          "hybrid"
+        ],
+        "engine": [
+          "1.2L turbo"
+        ],
+        "horsepower_hp": [
+          300,
+          200
+        ],
+        "transmission": [
+          "automatic"
+        ],
+        "drivetrain": [
+          "AWD",
+          "FWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "1.2L Turbo E-Tech Plug-in Hybrid, 300 hp",
+          "classification": "engine_and_power_spec"
+        },
+        {
+          "label": "Coupe SUV",
+          "classification": "body_type"
+        },
+        {
+          "label": "Plug-in Hybrid",
+          "classification": "fuel_type"
+        }
+      ],
+      "market": "global-reference-only",
       "canonical_model": "Rafale",
       "profile_confidence": "medium",
       "year_start": 2024,
