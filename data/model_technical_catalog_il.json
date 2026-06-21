@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T07:55:59Z",
+  "generated_at": "2026-06-21T07:56:35Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -203854,6 +203854,235 @@
       "canonical_model": "Corsa",
       "profile_confidence": "medium",
       "year_start": 2010,
+      "year_end": 2024
+    },
+    {
+      "make": "Opel",
+      "model": "Crossland",
+      "market": "IL-confirmed",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "אופל קרוסלנד X בישראל - מחיר החל מ- 114,900 שקל",
+          "url": "https://www.cartube.co.il/%חדשות-רכב/אופל-קרוסלנד-x-בישראל-מחיר-החל-מ-114900-שקל",
+          "source_name": "Cartube Israel",
+          "source_type": "editorial",
+          "supports": [
+            "year_start",
+            "year_end",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "אופל קרוסלנד החדש 2021 בישראל - מחיר החל מ- 121,990 שקל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/אופל-קרוסלנד-החדש-2021-בישראל-מחיר-החל-מ-121990-שקל",
+          "source_name": "Cartube Israel",
+          "source_type": "editorial",
+          "supports": [
+            "year_start",
+            "year_end",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "אופל קרוסלנד - מפרט טכני",
+          "url": "https://www.icar.co.il/אופל/אופל_קרוסלנד/",
+          "source_name": "iCar Israel",
+          "source_type": "catalog",
+          "supports": [
+            "year_start",
+            "year_end",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "version_or_trim"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "1.2L turbo",
+          "engine_displacement_l": 1.2,
+          "horsepower_hp": 110,
+          "transmission": "6-speed automatic",
+          "drivetrain": "FWD",
+          "version_or_trim": "Enjoy",
+          "year_start": 2017,
+          "year_end": 2020,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              2
+            ],
+            "fuel_type": [
+              0,
+              2
+            ],
+            "engine": [
+              0,
+              2
+            ],
+            "engine_displacement_l": [
+              0,
+              2
+            ],
+            "horsepower_hp": [
+              0,
+              2
+            ],
+            "transmission": [
+              0,
+              2
+            ],
+            "drivetrain": [
+              0,
+              2
+            ],
+            "version_or_trim": [
+              0,
+              2
+            ],
+            "year_start": [
+              0,
+              2
+            ],
+            "year_end": [
+              0,
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "1.2L turbo",
+          "engine_displacement_l": 1.2,
+          "horsepower_hp": 130,
+          "transmission": "6-speed automatic",
+          "drivetrain": "FWD",
+          "version_or_trim": "Elegance",
+          "year_start": 2020,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "version_or_trim": [
+              1,
+              2
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": [
+              1,
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "1.2L Turbo Petrol, 110 hp",
+          "classification": "engine_spec"
+        },
+        {
+          "label": "1.2L Turbo Petrol, 130 hp",
+          "classification": "engine_spec"
+        },
+        {
+          "label": "6-speed automatic",
+          "classification": "transmission_spec"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Enjoy",
+          "Elegance"
+        ],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "1.2L turbo"
+        ],
+        "horsepower_hp": [
+          110,
+          130
+        ],
+        "transmission": [
+          "6-speed automatic"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "canonical_model": "Crossland",
+      "profile_confidence": "medium",
+      "year_start": 2017,
       "year_end": 2024
     }
   ],
