@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T19:38:03Z",
+  "generated_at": "2026-06-21T19:39:06Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -232929,6 +232929,276 @@
       "profile_confidence": "medium",
       "year_start": 1999,
       "year_end": 2005
+    },
+    {
+      "technical_variants_il": [
+        {
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 160,
+          "transmission": "3-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 1990,
+          "year_end": 1993,
+          "support_level": "direct",
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "2.0L",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 130,
+          "transmission": "4-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 1994,
+          "year_end": 1998,
+          "support_level": "direct",
+          "source_indexes": [
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "2.3L",
+          "engine_displacement_l": 2.3,
+          "horsepower_hp": 150,
+          "transmission": "4-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 1994,
+          "year_end": 1998,
+          "support_level": "direct",
+          "source_indexes": [
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 185,
+          "transmission": "4-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 1994,
+          "year_end": 1998,
+          "support_level": "direct",
+          "source_indexes": [
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Turbo",
+          "classification": "engine_designation"
+        },
+        {
+          "label": "Base",
+          "classification": "non_trim"
+        },
+        {
+          "label": "16V",
+          "classification": "engine_designation"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Hatchback"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "2.0L turbo",
+          "2.0L",
+          "2.3L"
+        ],
+        "horsepower_hp": [
+          160,
+          130,
+          150,
+          185
+        ],
+        "transmission": [
+          "3-speed automatic",
+          "4-speed automatic"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "סאאב 900 (1990-1993) - מפרט ונתונים",
+          "url": "https://www.auto.co.il/model/saab-900_g1990",
+          "source_name": "Auto.co.il",
+          "source_type": "specs_database",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "מחירון רכב קמ\"ל - סאאב 900 1994-1998",
+          "url": "https://kml.co.il/car/Saab/900/1994-1998",
+          "source_name": "KML Israel",
+          "source_type": "specs_database",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "market": "IL-likely",
+      "make": "Saab",
+      "model": "900",
+      "canonical_model": "900",
+      "profile_confidence": "medium",
+      "year_start": 1990,
+      "year_end": 1998
     }
   ],
   "ready_for_website_upload": false
