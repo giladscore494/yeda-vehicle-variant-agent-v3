@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T07:30:49Z",
+  "generated_at": "2026-06-21T07:42:34Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -199665,6 +199665,159 @@
       "profile_confidence": "medium",
       "year_start": 2016,
       "year_end": null
+    },
+    {
+      "make": "Nissan",
+      "model": "Sunny",
+      "technical_variants_il": [
+        {
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "1.6L",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 90,
+          "transmission": "automatic",
+          "drivetrain": "FWD",
+          "year_start": 1991,
+          "year_end": 1995,
+          "support_level": "direct",
+          "source_indexes": [
+            1143
+          ],
+          "field_sources": {
+            "body_type": [
+              1143
+            ],
+            "fuel_type": [
+              1143
+            ],
+            "engine": [
+              1143
+            ],
+            "engine_displacement_l": [
+              1143
+            ],
+            "horsepower_hp": [
+              1143
+            ],
+            "transmission": [
+              1143
+            ],
+            "drivetrain": [
+              1143
+            ],
+            "year_start": [
+              1143
+            ],
+            "year_end": [
+              1143
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "1.6L",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 90,
+          "transmission": "manual",
+          "drivetrain": "FWD",
+          "year_start": 1991,
+          "year_end": 1995,
+          "support_level": "direct",
+          "source_indexes": [
+            1143
+          ],
+          "field_sources": {
+            "body_type": [
+              1143
+            ],
+            "fuel_type": [
+              1143
+            ],
+            "engine": [
+              1143
+            ],
+            "engine_displacement_l": [
+              1143
+            ],
+            "horsepower_hp": [
+              1143
+            ],
+            "transmission": [
+              1143
+            ],
+            "drivetrain": [
+              1143
+            ],
+            "year_start": [
+              1143
+            ],
+            "year_end": [
+              1143
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 1143,
+          "title": "Nissan Sunny N14 (1991-1995) Technical Specs - Israel Market",
+          "url": "https://www.auto.co.il/model/nissan-sunny_g144",
+          "source_name": "Auto.co.il",
+          "source_type": "Israeli automotive catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Sedan"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "1.6L"
+        ],
+        "horsepower_hp": [
+          90
+        ],
+        "transmission": [
+          "automatic",
+          "manual"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Perfect",
+          "classification": "trim_associated_with_later_almera_models"
+        },
+        {
+          "label": "SLX",
+          "classification": "trim_level"
+        }
+      ],
+      "market": "IL-confirmed",
+      "canonical_model": "Sunny",
+      "profile_confidence": "medium",
+      "year_start": 1991,
+      "year_end": 1995
     }
   ],
   "ready_for_website_upload": false
