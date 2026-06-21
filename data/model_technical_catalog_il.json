@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T08:11:11Z",
+  "generated_at": "2026-06-21T09:02:03Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -208075,6 +208075,456 @@
       "profile_confidence": "medium",
       "year_start": 1996,
       "year_end": 2008
+    },
+    {
+      "make": "Opel",
+      "model": "Vivaro",
+      "technical_variants_il": [
+        {
+          "body_type": "Van",
+          "fuel_type": "diesel",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 177,
+          "transmission": "8-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2020,
+          "year_end": 2024,
+          "version_or_trim": "Edition",
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1,
+              2
+            ],
+            "engine": [
+              0,
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              0,
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              0,
+              1,
+              2
+            ],
+            "transmission": [
+              0,
+              1,
+              2
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0
+            ],
+            "version_or_trim": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Van",
+          "fuel_type": "diesel",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 114,
+          "transmission": "6-speed manual",
+          "drivetrain": "FWD",
+          "year_start": 2008,
+          "year_end": 2014,
+          "version_or_trim": null,
+          "support_level": "direct",
+          "source_indexes": [
+            3,
+            4
+          ],
+          "field_sources": {
+            "body_type": [
+              3,
+              4
+            ],
+            "fuel_type": [
+              3,
+              4
+            ],
+            "engine": [
+              3,
+              4
+            ],
+            "engine_displacement_l": [
+              3,
+              4
+            ],
+            "horsepower_hp": [
+              3,
+              4
+            ],
+            "transmission": [
+              3,
+              4
+            ],
+            "drivetrain": [
+              3,
+              4
+            ],
+            "year_start": [
+              3,
+              4
+            ],
+            "year_end": [
+              3,
+              4
+            ],
+            "version_or_trim": []
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Van",
+          "fuel_type": "diesel",
+          "engine": "1.6L turbo",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 115,
+          "transmission": "6-speed manual",
+          "drivetrain": "FWD",
+          "year_start": 2015,
+          "year_end": 2019,
+          "version_or_trim": null,
+          "support_level": "direct",
+          "source_indexes": [
+            5,
+            6
+          ],
+          "field_sources": {
+            "body_type": [
+              5,
+              6
+            ],
+            "fuel_type": [
+              5,
+              6
+            ],
+            "engine": [
+              5,
+              6
+            ],
+            "engine_displacement_l": [
+              5,
+              6
+            ],
+            "horsepower_hp": [
+              5,
+              6
+            ],
+            "transmission": [
+              5,
+              6
+            ],
+            "drivetrain": [
+              5,
+              6
+            ],
+            "year_start": [
+              5,
+              6
+            ],
+            "year_end": [
+              5,
+              6
+            ],
+            "version_or_trim": []
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Van",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 136,
+          "transmission": "single_speed",
+          "drivetrain": "FWD",
+          "year_start": 2022,
+          "year_end": 2024,
+          "version_or_trim": null,
+          "support_level": "direct",
+          "source_indexes": [
+            7,
+            8
+          ],
+          "field_sources": {
+            "body_type": [
+              7,
+              8
+            ],
+            "fuel_type": [
+              7,
+              8
+            ],
+            "engine": [
+              7,
+              8
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              7,
+              8
+            ],
+            "transmission": [
+              7,
+              8
+            ],
+            "drivetrain": [
+              7,
+              8
+            ],
+            "year_start": [
+              7,
+              8
+            ],
+            "year_end": [
+              7
+            ],
+            "version_or_trim": []
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "2.0",
+          "classification": "bare_engine_size"
+        },
+        {
+          "label": "2.0 CDTI",
+          "classification": "engine_designation"
+        },
+        {
+          "label": "1.6 CDTI",
+          "classification": "engine_designation"
+        },
+        {
+          "label": "Vivaro-e",
+          "classification": "model_designation"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Edition"
+        ],
+        "body_type": [
+          "Van"
+        ],
+        "fuel_type": [
+          "diesel",
+          "electric"
+        ],
+        "engine": [
+          "2.0L turbo",
+          "1.6L turbo",
+          "electric"
+        ],
+        "horsepower_hp": [
+          177,
+          114,
+          115,
+          136
+        ],
+        "transmission": [
+          "8-speed automatic",
+          "6-speed manual",
+          "single_speed"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "Opel Vivaro - Cartube.co.il",
+          "url": "https://www.cartube.co.il/%D7%A7%D7%98%D7%9C%D7%95%D7%92-%D7%A8%D7%9B%D7%91/%D7%90%D7%95%D7%A4%D7%9C/%D7%95%D7%99%D7%95%D7%90%D7%A8%D7%95",
+          "source_name": "Cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "אופל ויוארו 2.0 ל' דיזל, אוט', Edition, קצר - מפרט טכני",
+          "url": "https://www.auto.co.il/model/opel-vivaro_g338_2020",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "מחירון אופל ויוארו - קטלוג רכבים",
+          "url": "https://www.icar.co.il/opel/%D7%90%D7%95%D7%A4%D7%9C_%D7%95%D7%99%D7%95%D7%90%D7%A8%D7%95/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "אופל ויוארו (2008-2014) מפרט טכני - Auto",
+          "url": "https://www.auto.co.il/model/opel-vivaro_g338_2008",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 4,
+          "title": "אופל ויוארו יד שניה (2008-2014)",
+          "url": "https://www.icar.co.il/opel/%D7%90%D7%95%D7%A4%D7%9C_%D7%95%D7%99%D7%95%D7%90%D7%A8%D7%95/%D7%90%D7%95%D7%A4%D7%9C_%D7%95%D7%99%D7%95%D7%90%D7%A8%D7%95_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%94_d1872/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 5,
+          "title": "אופל ויוארו 2015",
+          "url": "https://www.auto.co.il/model/opel-vivaro_g338_2015",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 6,
+          "title": "מבחן דרכים: אופל ויוארו 1.6 - iCar",
+          "url": "https://www.icar.co.il/opel/%D7%90%D7%95%D7%A4%D7%9C_%D7%95%D7%99%D7%95%D7%90%D7%A8%D7%95/%D7%90%D7%95%D7%A4%D7%9C_%D7%95%D7%99%D7%95%D7%90%D7%A8%D7%95_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%94_d3372/",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 7,
+          "title": "אופל ויוארו-e החשמלית בישראל - מחיר החל מ- 234,990 שקלים",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%90%D7%95%D7%A4%D7%9C-%D7%95%D7%99%D7%95%D7%90%D7%A8%D7%95-e-%D7%94%D7%97%D7%A9%D7%9E%D7%9C%D7%99%D7%AA-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-234-990-%D7%A9%D7%A7%D7%9C%D7%99%D7%9D",
+          "source_name": "Cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 8,
+          "title": "אופל ויוארו חשמלי 2022 בישראל",
+          "url": "https://www.auto.co.il/model/opel-vivaro_g338_2022",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        }
+      ],
+      "market": "IL-likely",
+      "canonical_model": "Vivaro",
+      "profile_confidence": "medium",
+      "year_start": 2008,
+      "year_end": 2024
     }
   ],
   "ready_for_website_upload": false
