@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T19:54:48Z",
+  "generated_at": "2026-06-21T19:55:33Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -238455,6 +238455,248 @@
       "profile_confidence": "medium",
       "year_start": 2012,
       "year_end": 2019
+    },
+    {
+      "task": "build_israeli_model_technical_catalog",
+      "market": "IL-confirmed",
+      "make": "Seat",
+      "model": "Tarraco",
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "1.5L TSI turbo petrol, 150 hp",
+          "classification": "engine_spec"
+        },
+        {
+          "label": "2.0L TSI turbo petrol, 190 hp",
+          "classification": "engine_spec"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "סיאט טראקו מחירון, מפרט טכני",
+          "url": "https://www.icar.co.il/%D7%A1%D7%99%D7%90%D7%98/%D7%A1%D7%99%D7%90%D7%98_%D7%98%D7%A8%D7%90%D7%A7%D7%95/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "trims"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "סיאט טראקו בישראל – מחיר החל מ- 184,900 שקל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%A1%D7%99%D7%90%D7%98-%D7%98%D7%A8%D7%90%D7%A7%D7%95-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-184900-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "מפרט טכני סיאט טראקו",
+          "url": "https://www.seat.co.il/wp-content/uploads/2021/04/Tarraco-Pricelist.pdf",
+          "source_name": "Seat Israel Official",
+          "source_type": "official_importer",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "trims"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "1.5L turbo",
+          "engine_displacement_l": 1.5,
+          "horsepower_hp": 150,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "FWD",
+          "year_start": 2019,
+          "year_end": 2024,
+          "trims": [
+            "Style",
+            "Xcellence",
+            "FR"
+          ],
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1,
+              2
+            ],
+            "fuel_type": [
+              0,
+              1,
+              2
+            ],
+            "engine": [
+              0,
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              0,
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              0,
+              1,
+              2
+            ],
+            "transmission": [
+              0,
+              1,
+              2
+            ],
+            "drivetrain": [
+              0,
+              1,
+              2
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0
+            ],
+            "trims": [
+              0,
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 190,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "AWD",
+          "year_start": 2019,
+          "year_end": 2024,
+          "trims": [
+            "Xcellence",
+            "FR"
+          ],
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1,
+              2
+            ],
+            "fuel_type": [
+              0,
+              1,
+              2
+            ],
+            "engine": [
+              0,
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              0,
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              0,
+              1,
+              2
+            ],
+            "transmission": [
+              0,
+              1,
+              2
+            ],
+            "drivetrain": [
+              0,
+              1,
+              2
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0
+            ],
+            "trims": [
+              0,
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "1.5L turbo",
+          "2.0L turbo"
+        ],
+        "horsepower_hp": [
+          150,
+          190
+        ],
+        "transmission": [
+          "7-speed dual_clutch"
+        ],
+        "drivetrain": [
+          "FWD",
+          "AWD"
+        ]
+      },
+      "canonical_model": "Tarraco",
+      "profile_confidence": "medium",
+      "year_start": 2019,
+      "year_end": 2024
     }
   ],
   "ready_for_website_upload": false
