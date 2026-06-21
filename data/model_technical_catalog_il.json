@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T08:03:11Z",
+  "generated_at": "2026-06-21T08:04:08Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -205685,6 +205685,197 @@
       "profile_confidence": "medium",
       "year_start": 1990,
       "year_end": 1993
+    },
+    {
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "MPV",
+          "fuel_type": "petrol",
+          "engine": "1.6L",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 105,
+          "transmission": "5-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2003,
+          "year_end": 2010,
+          "support_level": "direct",
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "MPV",
+          "fuel_type": "petrol",
+          "engine": "1.4L turbo",
+          "engine_displacement_l": 1.4,
+          "horsepower_hp": 120,
+          "transmission": "6-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2011,
+          "year_end": 2017,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "MPV"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "1.6L",
+          "1.4L turbo"
+        ],
+        "horsepower_hp": [
+          105,
+          120
+        ],
+        "transmission": [
+          "5-speed automatic",
+          "6-speed automatic"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": {
+        "1.4L Turbo petrol": "engine",
+        "1.6L petrol": "engine",
+        "5-speed automated manual": "transmission",
+        "Easytronic": "transmission"
+      },
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "אופל מריבה דור 1 (2003-2010) - מפרט טכני",
+          "url": "https://www.icar.co.il/%D7%90%D7%95%D7%A4%D7%9C/%D7%90%D7%95%D7%A4%D7%9C_%D7%9E%D7%A8%D7%99%D7%91%D7%94/%D7%90%D7%95%D7%A4%D7%9C_%D7%9E%D7%A8%D7%99%D7%91%D7%94_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%94_%D7%93%D7%95%D7%A8_1/",
+          "source_name": "iCar",
+          "source_type": "israeli_catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "אופל מריבה (2011-2017) - קטלוג רכב",
+          "url": "https://www.auto.co.il/model/opel-meriva_g157",
+          "source_name": "Auto.co.il",
+          "source_type": "israeli_catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "מבחן רכב: אופל מריבה 1.4 טורבו",
+          "url": "https://www.cartube.co.il/%D7%9E%D7%91%D7%97%D7%A0%D7%99-%D7%A8%D7%9B%D7%91/%D7%9E%D7%91%D7%A8%D7%99%D7%A7%D7%94-%D7%90%D7%95%D7%A4%D7%9C-%D7%9E%D7%A8%D7%99%D7%91%D7%94-1-4-%D7%98%D7%95%D7%A8%D7%91%D7%95-%D7%91%D7%9E%D7%91%D7%A7%D7%9F",
+          "source_name": "Cartube.co.il",
+          "source_type": "editorial_source",
+          "supports": [
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission"
+          ]
+        }
+      ],
+      "market": "IL-confirmed",
+      "make": "Opel",
+      "model": "Meriva",
+      "canonical_model": "Meriva",
+      "profile_confidence": "medium",
+      "year_start": 2003,
+      "year_end": 2017
     }
   ],
   "ready_for_website_upload": false
