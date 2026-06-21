@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T21:20:32Z",
+  "generated_at": "2026-06-21T21:21:38Z",
   "market": "IL",
   "models": [
     {
@@ -5949,6 +5949,261 @@
         "variant[3] required website field 'transmission' is null/empty",
         "variant[3] required field 'transmission' listed in missing_grounded_fields",
         "variant[3] version_or_trim '50' is a engine_size, not a trim"
+      ]
+    },
+    {
+      "make": "Skoda",
+      "model": "Elroq",
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "סקודה אלרוק 2025 החשמלי נחשף - בישראל במחצית השנייה של 2025",
+          "url": "https://www.cartube.co.il/חדשות-רכב/סקודה-אלרוק-2025-החשמלי-נחשף-בישראל-במחצית-השנייה-של-2025",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "drivetrain",
+            "year_start",
+            "version_or_trim",
+            "transmission"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "סקודה אלרוק נחשף: יגיע לישראל ב-2025",
+          "url": "https://www.icar.co.il/חדשות_רכב/סקודה_אלרוק_נחשף:_יגיע_לישראל_ב-2025/",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "version_or_trim",
+            "horsepower_hp",
+            "drivetrain",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "year_start",
+            "transmission"
+          ]
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Single Rear Electric Motor, 170 hp (125 kW), 55 kWh Battery",
+          "classification": "engine_specification"
+        },
+        {
+          "label": "Single Rear Electric Motor, 204 hp (150 kW), 63 kWh Battery",
+          "classification": "engine_specification"
+        },
+        {
+          "label": "Single Rear Electric Motor, 286 hp (210 kW), 82 kWh Battery",
+          "classification": "engine_specification"
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "50",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 170,
+          "transmission": "single_speed",
+          "drivetrain": "RWD",
+          "year_start": 2025,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1,
+              2
+            ],
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "60",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 204,
+          "transmission": "single_speed",
+          "drivetrain": "RWD",
+          "year_start": 2025,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1,
+              2
+            ],
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "85",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 286,
+          "transmission": "single_speed",
+          "drivetrain": "RWD",
+          "year_start": 2025,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1,
+              2
+            ],
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "50",
+          "60",
+          "85"
+        ],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          170,
+          204,
+          286
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "RWD"
+        ]
+      },
+      "market": "IL-likely",
+      "canonical_model": "Elroq",
+      "profile_confidence": "medium",
+      "year_start": 2025,
+      "year_end": null,
+      "validation_issues": [
+        "variant[0] version_or_trim '50' is a engine_size, not a trim",
+        "variant[1] version_or_trim '60' is a engine_size, not a trim",
+        "variant[2] version_or_trim '85' is a engine_size, not a trim"
       ]
     }
   ]
