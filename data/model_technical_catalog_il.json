@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T13:19:42Z",
+  "generated_at": "2026-06-21T13:20:09Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gpt-5.4",
@@ -215957,6 +215957,464 @@
         "Body type and fuel type are grounded indirectly from the Israeli article's description of launch versions and market positioning; support_level is therefore indirect rather than direct.",
         "Transmission is grounded only to 'automatic' from the Israeli source; speed count was not retained because the source discussed a 4-speed automatic generally and no importer spec sheet was found.",
         "Year range 2000-2008 follows the Israeli source's statement that the 607 was marketed in Israel in those years."
+      ]
+    },
+    {
+      "market": "IL-confirmed",
+      "make": "Peugeot",
+      "model": "Boxer",
+      "canonical_model": "Boxer",
+      "year_start": 2021,
+      "year_end": 2026,
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Van",
+          "fuel_type": "diesel",
+          "engine": "2.2L turbo",
+          "engine_displacement_l": 2.2,
+          "horsepower_hp": 140,
+          "transmission": "6-speed manual",
+          "drivetrain": "FWD",
+          "year_start": 2021,
+          "year_end": 2026,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              2,
+              3
+            ],
+            "fuel_type": [
+              2,
+              3
+            ],
+            "engine": [
+              2,
+              3
+            ],
+            "engine_displacement_l": [
+              2,
+              3
+            ],
+            "horsepower_hp": [
+              0,
+              2
+            ],
+            "transmission": [
+              0,
+              2,
+              3
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Van",
+          "fuel_type": "diesel",
+          "engine": "2.2L turbo",
+          "engine_displacement_l": 2.2,
+          "horsepower_hp": 180,
+          "transmission": "8-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2025,
+          "year_end": 2026,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            4,
+            5
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0,
+              1,
+              5
+            ],
+            "fuel_type": [
+              4,
+              5
+            ],
+            "engine": [
+              4,
+              5
+            ],
+            "engine_displacement_l": [
+              4,
+              5
+            ],
+            "horsepower_hp": [
+              0,
+              4
+            ],
+            "transmission": [
+              0,
+              4
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              4
+            ],
+            "year_end": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Pickup",
+          "fuel_type": "diesel",
+          "engine": "2.2L turbo",
+          "engine_displacement_l": 2.2,
+          "horsepower_hp": 140,
+          "transmission": "6-speed manual",
+          "drivetrain": "FWD",
+          "year_start": 2022,
+          "year_end": 2026,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            6,
+            7,
+            8
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              6,
+              7,
+              8
+            ],
+            "engine": [
+              6,
+              7,
+              8
+            ],
+            "engine_displacement_l": [
+              6,
+              7,
+              8
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              6,
+              7
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              6
+            ],
+            "year_end": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Pickup",
+          "fuel_type": "diesel",
+          "engine": "2.2L turbo",
+          "engine_displacement_l": 2.2,
+          "horsepower_hp": 180,
+          "transmission": "8-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2025,
+          "year_end": 2026,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            8,
+            9
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              8,
+              9
+            ],
+            "engine": [
+              8,
+              9
+            ],
+            "engine_displacement_l": [
+              8,
+              9
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              9
+            ],
+            "year_end": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Van",
+          "Pickup"
+        ],
+        "fuel_type": [
+          "diesel"
+        ],
+        "engine": [
+          "2.2L turbo"
+        ],
+        "horsepower_hp": [
+          140,
+          180
+        ],
+        "transmission": [
+          "6-speed manual",
+          "8-speed automatic"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "F335",
+          "classification": "body/load designation, not a trim"
+        },
+        {
+          "label": "F440",
+          "classification": "body/load designation, not a trim"
+        },
+        {
+          "label": "L1H1",
+          "classification": "size/body designation, not a trim"
+        },
+        {
+          "label": "L2H1",
+          "classification": "size/body designation, not a trim"
+        },
+        {
+          "label": "L2H2",
+          "classification": "size/body designation, not a trim"
+        },
+        {
+          "label": "L3H2",
+          "classification": "size/body designation, not a trim"
+        },
+        {
+          "label": "L4H3",
+          "classification": "size/body designation, not a trim"
+        },
+        {
+          "label": "140hp",
+          "classification": "horsepower label, not a trim"
+        },
+        {
+          "label": "180hp",
+          "classification": "horsepower label, not a trim"
+        },
+        {
+          "label": "Single Cab",
+          "classification": "body configuration, not a trim"
+        },
+        {
+          "label": "Double Cab",
+          "classification": "body configuration, not a trim"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "פיג’ו בוקסר – רכב מסחרי חזק ומרווח לעסק שלך | פיג'ו Online ישראל",
+          "url": "https://online.peugeot.co.il/model/boxer/",
+          "source_name": "Peugeot Online Israel",
+          "source_type": "official importer model page",
+          "supports": [
+            "body_type",
+            "horsepower_hp",
+            "transmission",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "פיג'ו בוקסר - מחירון, חוות דעת ומידע טכני | אוטו",
+          "url": "https://www.auto.co.il/cars/peugeot/boxer/",
+          "source_name": "Auto",
+          "source_type": "Israeli editorial/catalog",
+          "supports": [
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "body_type",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "פיג'ו בוקסר 2021 - מחירון ומפרט | Carzone",
+          "url": "https://www.carzone.co.il/Peugeot/Boxer/2021?trim=F335_L3_H2-diesel-2.2L-MT-4X2-3seats",
+          "source_name": "Carzone",
+          "source_type": "Israeli catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "transmission",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "השוואת גרסאות פיג'ו בוקסר 2021 | Carzone",
+          "url": "https://www.carzone.co.il/Peugeot/Boxer/2021/compare",
+          "source_name": "Carzone",
+          "source_type": "Israeli catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "transmission"
+          ]
+        },
+        {
+          "source_index": 4,
+          "title": "פיג'ו בוקסר 2026 חוות דעת | אוטו",
+          "url": "https://www.auto.co.il/cars/peugeot/boxer/",
+          "source_name": "Auto",
+          "source_type": "Israeli editorial/catalog",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 5,
+          "title": "פיג'ו בוקסר 2026 - מחירון ומפרט | Carzone",
+          "url": "https://www.carzone.co.il/Peugeot/Boxer",
+          "source_name": "Carzone",
+          "source_type": "Israeli catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 6,
+          "title": "פיג'ו בוקסר בוקסר דאבל קבינה 2022 - מחירון ומפרט | Carzone",
+          "url": "https://www.carzone.co.il/Peugeot/Boxer/Double-cab/2022",
+          "source_name": "Carzone",
+          "source_type": "Israeli catalog",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "transmission",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 7,
+          "title": "פיג'ו בוקסר בוקסר חד קבינה 2022 - מחירון ומפרט | Carzone",
+          "url": "https://www.carzone.co.il/Peugeot/Boxer/Single-cab/2022/",
+          "source_name": "Carzone",
+          "source_type": "Israeli catalog",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "transmission",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 8,
+          "title": "פיג'ו בוקסר בוקסר דאבל קבינה 2026 - מחירון ומפרט | Carzone",
+          "url": "https://www.carzone.co.il/Peugeot/Boxer/Double-cab/",
+          "source_name": "Carzone",
+          "source_type": "Israeli catalog",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 9,
+          "title": "פיג'ו בוקסר 2025 - מחירון ומפרט | Carzone",
+          "url": "https://www.carzone.co.il/Peugeot/Boxer/2025/",
+          "source_name": "Carzone",
+          "source_type": "Israeli catalog",
+          "supports": [
+            "year_start"
+          ]
+        }
+      ],
+      "profile_confidence": "medium",
+      "notes": [
+        "Israeli official importer page and Israeli catalog/editorial sources confirm current Boxer sale in Israel as van plus single-cab/double-cab workbody configurations.",
+        "Drivetrain is grounded as FWD via Israeli source notation '4X2' and Boxer platform context on Israeli editorial page; because not every row states drivetrain explicitly, rows are marked indirect.",
+        "Body type was normalized to 'Pickup' for single-cab/double-cab open-bed workbody configurations because allowed schema values do not include chassis cab.",
+        "Could not securely ground older pre-2021 Israeli technical rows from accessible primary Israeli sources in this run, so catalog starts at 2021.",
+        "Current official page snippet shows automatic availability and two power outputs; Auto and Carzone were used to ground the 140 hp manual and 180 hp automatic split by Israeli-market sale period."
       ]
     }
   ],
