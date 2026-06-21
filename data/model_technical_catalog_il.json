@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T07:48:17Z",
+  "generated_at": "2026-06-21T07:48:49Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -201439,6 +201439,120 @@
       "canonical_model": "C5",
       "profile_confidence": "medium",
       "year_start": 2023,
+      "year_end": null
+    },
+    {
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "אומודה E5 החשמלי בדרך לישראל - מפרט טכני",
+          "url": "https://www.cartube.co.il/חדשות-רכב/אומודה-e5-החשמלי-בדרך-לישראל",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "אומודה E5 - מחירון רכב, מבחני דרכים ומפרט טכני",
+          "url": "https://www.icar.co.il/אומודה/אומודה_E5/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "horsepower_hp",
+            "drivetrain",
+            "transmission"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 204,
+          "transmission": "single_speed",
+          "drivetrain": "FWD",
+          "year_start": 2024,
+          "year_end": null,
+          "support_level": "direct",
+          "version_or_trim": null,
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [],
+            "version_or_trim": []
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          204
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "market": "IL-likely",
+      "make": "Omoda",
+      "model": "E5",
+      "canonical_model": "E5",
+      "profile_confidence": "medium",
+      "year_start": 2024,
       "year_end": null
     }
   ],
