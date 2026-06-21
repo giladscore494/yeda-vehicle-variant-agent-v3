@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T07:49:38Z",
+  "generated_at": "2026-06-21T07:50:17Z",
   "market": "IL",
   "models": [
     {
@@ -411,6 +411,30 @@
         "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
       },
       "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
+      ]
+    },
+    {
+      "technical_variants_il": [],
+      "invalid_or_non_trim_labels": [],
+      "sources": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "market": "global-reference-only",
+      "make": "Opel",
+      "model": "Agila",
+      "canonical_model": "Agila",
+      "profile_confidence": "medium",
+      "year_start": null,
+      "year_end": null,
       "validation_issues": [
         "technical_variants_il is empty"
       ]
