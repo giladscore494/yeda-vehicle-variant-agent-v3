@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T18:51:46Z",
+  "generated_at": "2026-06-21T18:52:37Z",
   "market": "IL",
   "models": [
     {
@@ -3581,6 +3581,206 @@
       "year_end": null,
       "validation_issues": [
         "technical_variants_il is empty"
+      ]
+    },
+    {
+      "make": "RAM",
+      "model": "1500",
+      "market": "global-reference-only",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "ראם 1500 חדש - מחירון, מפרט טכני, חוות דעת - iCar",
+          "url": "https://www.icar.co.il/%D7%A8%D7%90%D7%9D/%D7%A8%D7%90%D7%9D_1500/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "ראם TRX בישראל - מחיר החל מ- 800,000 שקל - cartube",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%A8%D7%90%D7%9D-trx-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-800,000-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "ראם 1500 - מחירון, מפרטים, אמינות וחוות דעת - אוטו",
+          "url": "https://www.auto.co.il/model/ram-1500_g1369",
+          "source_name": "Auto.co.il",
+          "source_type": "catalog",
+          "supports": [
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "Pickup",
+          "fuel_type": "petrol",
+          "engine": "5.7L v8",
+          "engine_displacement_l": 5.7,
+          "horsepower_hp": 395,
+          "transmission": "8-speed automatic",
+          "drivetrain": "4WD",
+          "year_start": 2011,
+          "year_end": 2024,
+          "version_or_trim": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0,
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Pickup",
+          "fuel_type": "petrol",
+          "engine": "6.2L supercharged v8",
+          "engine_displacement_l": 6.2,
+          "horsepower_hp": 702,
+          "transmission": "8-speed automatic",
+          "drivetrain": "4WD",
+          "year_start": 2021,
+          "year_end": 2024,
+          "version_or_trim": "TRX",
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "TRX"
+        ],
+        "body_type": [
+          "Pickup"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "5.7L v8",
+          "6.2L supercharged v8"
+        ],
+        "horsepower_hp": [
+          395,
+          702
+        ],
+        "transmission": [
+          "8-speed automatic"
+        ],
+        "drivetrain": [
+          "4WD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "5.7L",
+          "classification": "engine_displacement"
+        },
+        {
+          "label": "HEMI",
+          "classification": "engine_technology"
+        },
+        {
+          "label": "395 hp",
+          "classification": "horsepower"
+        },
+        {
+          "label": "Classic",
+          "classification": "generation_identifier"
+        }
+      ],
+      "canonical_model": "1500",
+      "profile_confidence": "medium",
+      "year_start": 2011,
+      "year_end": 2024,
+      "validation_issues": [
+        "variant[1] non-null field 'version_or_trim' has no field_sources entry"
       ]
     }
   ]
