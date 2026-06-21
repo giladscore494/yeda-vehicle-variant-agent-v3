@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T05:11:34Z",
+  "generated_at": "2026-06-21T05:12:01Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -192730,6 +192730,180 @@
       "profile_confidence": "medium",
       "year_start": 2023,
       "year_end": null
+    },
+    {
+      "make": "Nissan",
+      "model": "200SX",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "ניסאן 200SX (1994-1999) קופה - מחירון רכב, מפרט טכני וחוות דעת",
+          "url": "https://www.auto.co.il/catalog/nissan/200sx/1994-1999",
+          "source_name": "Auto.co.il",
+          "source_type": "israeli_catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "ניסאן 200SX 2.0 טורבו קופה אוטומטי (1994-1999) - מפרט טכני",
+          "url": "https://www.kml.co.il/car/nissan/200sx/1994-1999/automatic",
+          "source_name": "KML.co.il",
+          "source_type": "israeli_catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 200,
+          "transmission": "5-speed manual",
+          "drivetrain": "RWD",
+          "year_start": 1994,
+          "year_end": 1999,
+          "support_level": "direct",
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 200,
+          "transmission": "4-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 1994,
+          "year_end": 1999,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Coupe"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "2.0L turbo"
+        ],
+        "horsepower_hp": [
+          200
+        ],
+        "transmission": [
+          "5-speed manual",
+          "4-speed automatic"
+        ],
+        "drivetrain": [
+          "RWD"
+        ]
+      },
+      "market": "IL-confirmed",
+      "canonical_model": "200SX",
+      "profile_confidence": "medium",
+      "year_start": 1994,
+      "year_end": 1999
     }
   ],
   "ready_for_website_upload": false
