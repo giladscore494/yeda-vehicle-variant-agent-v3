@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T09:03:15Z",
+  "generated_at": "2026-06-21T09:03:56Z",
   "market": "IL",
   "models": [
     {
@@ -700,6 +700,93 @@
             "high"
           ],
           "validation_routes_seen": [
+            "strong_model_or_manual_review"
+          ],
+          "possible_duplicate_rows": 0,
+          "validation_id_count": 3
+        },
+        "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
+      },
+      "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
+      ]
+    },
+    {
+      "market": "IL-confirmed",
+      "make": "Opel",
+      "model": "Zafira",
+      "canonical_model": "Zafira",
+      "year_start": null,
+      "year_end": null,
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [],
+      "profile_confidence": null,
+      "notes": [],
+      "error": "Extra data: line 208 column 1 (char 5050)",
+      "request_payload": {
+        "task": "build_israeli_model_technical_catalog",
+        "market": "IL-confirmed",
+        "make": "Opel",
+        "model": "Zafira",
+        "raw_database_values": {
+          "years_seen": [
+            1999,
+            2005,
+            2006,
+            2012,
+            2019
+          ],
+          "trims_seen": [
+            "Enjoy"
+          ],
+          "engines_seen": [
+            "1.4L Turbo petrol, 140 hp",
+            "2.2L direct injection petrol, 150 hp",
+            "2.2L petrol, 147 hp"
+          ],
+          "horsepower_seen": [],
+          "transmissions_seen": [
+            "4-speed automatic",
+            "6-speed automatic"
+          ],
+          "body_types_seen": [
+            "MPV"
+          ],
+          "fuel_types_seen": [
+            "Petrol"
+          ],
+          "drivetrains_seen": [
+            "FWD"
+          ]
+        },
+        "sample_validation_ids": [
+          "VAL-002593",
+          "VAL-002594",
+          "VAL-002595"
+        ],
+        "source_indexes": [
+          2002,
+          2003,
+          2004
+        ],
+        "metadata_hints": {
+          "priorities_seen": [
+            "high",
+            "medium"
+          ],
+          "validation_routes_seen": [
+            "cheap_model_structured_validation",
             "strong_model_or_manual_review"
           ],
           "possible_duplicate_rows": 0,
