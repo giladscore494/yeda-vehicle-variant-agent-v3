@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T07:50:17Z",
+  "generated_at": "2026-06-21T07:50:52Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -201843,6 +201843,130 @@
       "profile_confidence": "medium",
       "year_start": 2014,
       "year_end": 2019
+    },
+    {
+      "make": "Opel",
+      "model": "Ampera",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "אופל אמפרה 2012-2015: מחירון, מפרטים, תמונות - אוטו",
+          "url": "https://www.auto.co.il/model/opel-ampera_g236",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial_catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "אופל אמפרה - מחירון, מפרטים, אמינות וחוות דעת - iCar",
+          "url": "https://www.icar.co.il/אופל/אופל_אמפרה/",
+          "source_name": "iCar.co.il",
+          "source_type": "editorial_catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Hatchback",
+          "fuel_type": "plug_in_hybrid",
+          "engine": "1.4L",
+          "engine_displacement_l": 1.4,
+          "horsepower_hp": 150,
+          "transmission": "cvt",
+          "drivetrain": "FWD",
+          "year_start": 2012,
+          "year_end": 2015,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Hatchback"
+        ],
+        "fuel_type": [
+          "plug_in_hybrid"
+        ],
+        "engine": [
+          "1.4L"
+        ],
+        "horsepower_hp": [
+          150
+        ],
+        "transmission": [
+          "cvt"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "market": "IL-confirmed",
+      "canonical_model": "Ampera",
+      "profile_confidence": "medium",
+      "year_start": 2012,
+      "year_end": 2015
     }
   ],
   "ready_for_website_upload": false
