@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T05:16:16Z",
+  "generated_at": "2026-06-21T05:16:52Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -194259,6 +194259,227 @@
       "profile_confidence": "medium",
       "year_start": 1995,
       "year_end": 2006
+    },
+    {
+      "make": "Nissan",
+      "model": "Altima",
+      "market": "IL-confirmed",
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "ניסאן אלטימה - מחירון, מפרטים, וסקירות",
+          "url": "https://www.icar.co.il/ניסאן/ניסאן_אלטימה/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "ניסאן אלטימה החדשה 2019 בישראל - מחיר החל מ- 164,990 שקל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/ניסאן-אלטימה-החדשה-בישראל-מחיר-החל-מ-164990-שקל",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "ניסאן אלטימה בישראל - מחיר החל מ-175,000 שקל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/ניסאן-אלטימה-בישראל-מחיר-החל-מ-175000-שקל",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "version_or_trim"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "SV",
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "2.5L naturally aspirated",
+          "engine_displacement_l": 2.5,
+          "horsepower_hp": 182,
+          "transmission": "cvt",
+          "drivetrain": "FWD",
+          "year_start": 2013,
+          "year_end": 2018,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            3
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1,
+              3
+            ],
+            "body_type": [
+              1,
+              3
+            ],
+            "fuel_type": [
+              1,
+              3
+            ],
+            "engine": [
+              1,
+              3
+            ],
+            "engine_displacement_l": [
+              1,
+              3
+            ],
+            "horsepower_hp": [
+              1,
+              3
+            ],
+            "transmission": [
+              1,
+              3
+            ],
+            "drivetrain": [
+              1,
+              3
+            ],
+            "year_start": [
+              1,
+              3
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "SV",
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "2.5L direct injection",
+          "engine_displacement_l": 2.5,
+          "horsepower_hp": 188,
+          "transmission": "cvt",
+          "drivetrain": "FWD",
+          "year_start": 2019,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1,
+              2
+            ],
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "2.5L direct-injection petrol 4-cylinder (PR25DD), 188 hp",
+          "classification": "engine_spec"
+        },
+        {
+          "label": "2.5L naturally aspirated petrol 4-cylinder (QR25DE), 182 hp",
+          "classification": "engine_spec"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "SV"
+        ],
+        "body_type": [
+          "Sedan"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "2.5L naturally aspirated",
+          "2.5L direct injection"
+        ],
+        "horsepower_hp": [
+          182,
+          188
+        ],
+        "transmission": [
+          "cvt"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "canonical_model": "Altima",
+      "profile_confidence": "medium",
+      "year_start": 2013,
+      "year_end": 2024
     }
   ],
   "ready_for_website_upload": false
