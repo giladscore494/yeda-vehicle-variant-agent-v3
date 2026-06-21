@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T07:42:34Z",
+  "generated_at": "2026-06-21T07:43:13Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -199817,6 +199817,129 @@
       "canonical_model": "Sunny",
       "profile_confidence": "medium",
       "year_start": 1991,
+      "year_end": 1995
+    },
+    {
+      "make": "Nissan",
+      "model": "Terrano",
+      "market": "IL-likely",
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "מחירון רכב ניסאן טראנו 1990-1995 - לוי יצחק (Levi Yitzhak Pricing & Specs)",
+          "url": "https://www.levi-itzhak.co.il/",
+          "source_name": "Levi Yitzhak",
+          "source_type": "israeli_catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "ניסאן טראנו דור 1 - מפרט טכני וסקירה",
+          "url": "https://www.auto.co.il/model/nissan-terrano_g210",
+          "source_name": "Auto.co.il",
+          "source_type": "israeli_catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "invalid_or_non_trim_labels": [],
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "2.4L",
+          "engine_displacement_l": 2.4,
+          "horsepower_hp": 125,
+          "transmission": "5-speed manual",
+          "drivetrain": "4WD",
+          "year_start": 1990,
+          "year_end": 1995,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "2.4L"
+        ],
+        "horsepower_hp": [
+          125
+        ],
+        "transmission": [
+          "5-speed manual"
+        ],
+        "drivetrain": [
+          "4WD"
+        ]
+      },
+      "canonical_model": "Terrano",
+      "profile_confidence": "medium",
+      "year_start": 1990,
       "year_end": 1995
     }
   ],
