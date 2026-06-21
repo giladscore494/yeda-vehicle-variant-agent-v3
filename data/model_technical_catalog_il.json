@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T13:16:15Z",
+  "generated_at": "2026-06-21T13:16:34Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gpt-5.4",
@@ -215208,6 +215208,141 @@
       "profile_confidence": "medium",
       "year_start": 2023,
       "year_end": 2024
+    },
+    {
+      "market": "IL-confirmed",
+      "make": "Peugeot",
+      "model": "607",
+      "canonical_model": "607",
+      "year_start": 2001,
+      "year_end": 2008,
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "3.0L v6",
+          "engine_displacement_l": 2.946,
+          "horsepower_hp": 211,
+          "transmission": "6-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2001,
+          "year_end": 2008,
+          "support_level": "indirect",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Sedan"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "3.0L v6"
+        ],
+        "horsepower_hp": [
+          211
+        ],
+        "transmission": [
+          "6-speed automatic"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "PACK",
+          "classification": "equipment_trim_not_technical_version"
+        },
+        {
+          "label": "3.0",
+          "classification": "engine_size_label_not_trim"
+        },
+        {
+          "label": "2.2 Auto",
+          "classification": "unsupported_by_israeli_sources_found"
+        },
+        {
+          "label": "3.0 V6 Auto",
+          "classification": "powertrain_description_not_trim"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "פיג'ו 607 - אתר iCar",
+          "url": "https://www.icar.co.il/%D7%A4%D7%99%D7%92%27%D7%95/%D7%A4%D7%99%D7%92%27%D7%95_607/%D7%A4%D7%99%D7%92%27%D7%95_607_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%94_%D7%9310/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "year_start",
+            "year_end",
+            "body_type",
+            "available_israeli_versions"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "פיג'ו 607 2008 3.0 - יד שניה",
+          "url": "https://www.icar.co.il/%D7%A4%D7%99%D7%92%27%D7%95/%D7%A4%D7%99%D7%92%27%D7%95_607/%D7%A4%D7%99%D7%92%D7%95_607_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%94_%D7%9310/version2971/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        }
+      ],
+      "profile_confidence": "medium",
+      "notes": [
+        "Israeli sources found via iCar list only 3.0 and 3.0 PACK versions across 2001-2008; no grounded Israeli source was found for a 2.2 version.",
+        "PACK appears as an equipment/appearance designation on the Israeli catalog page, not a distinct technical configuration based on sourced technical fields.",
+        "Body type was normalized to Sedan from the model page context (4-door luxury passenger car); this is indirect because the page does not explicitly print the normalized body-type label alongside the technical version.",
+        "The sourced engine displacement is 2946 cc, normalized to 2.946L.",
+        "No grounded Israeli source was found in this search set to support a separate 207 hp variant; sourced Israeli spec page supports 211 hp."
+      ]
     }
   ],
   "ready_for_website_upload": false
