@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T19:39:06Z",
+  "generated_at": "2026-06-21T19:40:04Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -233198,6 +233198,246 @@
       "canonical_model": "900",
       "profile_confidence": "medium",
       "year_start": 1990,
+      "year_end": 1998
+    },
+    {
+      "make": "Saab",
+      "model": "9000",
+      "market": "IL-likely",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "סאאב 9000 (1988-1998) - מפרט טכני, מחירון וחוות דעת",
+          "url": "https://www.auto.co.il/model/saab-9000",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "year_start",
+            "year_end",
+            "body_type"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "סאאב 9000 2.0 טורבו CS אוטומט - מחירון רכב, מפרט טכני",
+          "url": "https://kml.co.il/car/saab/9000/2-0-turbo-cs",
+          "source_name": "KML Israel",
+          "source_type": "specs",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "סאאב 9000 2.3 טורבו CS אוטומט - מחירון רכב, מפרט טכני",
+          "url": "https://kml.co.il/car/saab/9000/2-3-turbo-cs",
+          "source_name": "KML Israel",
+          "source_type": "specs",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "סאאב 9000 3.0 V6 סדאן CDE אוטומט - מחירון רכב, מפרט טכני",
+          "url": "https://kml.co.il/car/saab/9000/3-0-v6-cde",
+          "source_name": "KML Israel",
+          "source_type": "specs",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 150,
+          "transmission": "4-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 1988,
+          "year_end": 1998,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "2.3L turbo",
+          "engine_displacement_l": 2.3,
+          "horsepower_hp": 170,
+          "transmission": "4-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 1991,
+          "year_end": 1998,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              2
+            ],
+            "engine": [
+              2
+            ],
+            "engine_displacement_l": [
+              2
+            ],
+            "horsepower_hp": [
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              2
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "3.0L v6",
+          "engine_displacement_l": 3.0,
+          "horsepower_hp": 210,
+          "transmission": "4-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 1995,
+          "year_end": 1998,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            3
+          ],
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              3
+            ],
+            "engine": [
+              3
+            ],
+            "engine_displacement_l": [
+              3
+            ],
+            "horsepower_hp": [
+              3
+            ],
+            "transmission": [
+              3
+            ],
+            "drivetrain": [
+              3
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": {
+        "CD 2.0t": "body_designation_and_engine",
+        "CDE 3.0 V6": "trim_and_engine_combo",
+        "CS 2.0t": "trim_and_engine_combo",
+        "CS 2.3t": "trim_and_engine_combo"
+      },
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Hatchback",
+          "Sedan"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "2.0L turbo",
+          "2.3L turbo",
+          "3.0L v6"
+        ],
+        "horsepower_hp": [
+          150,
+          170,
+          210
+        ],
+        "transmission": [
+          "4-speed automatic"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "canonical_model": "9000",
+      "profile_confidence": "medium",
+      "year_start": 1988,
       "year_end": 1998
     }
   ],
