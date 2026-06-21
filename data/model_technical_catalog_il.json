@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T18:58:06Z",
+  "generated_at": "2026-06-21T18:58:50Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -221560,6 +221560,293 @@
       "profile_confidence": "medium",
       "year_start": 1990,
       "year_end": 1995
+    },
+    {
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "1.3L Turbo Petrol, 140 hp",
+          "classification": "engine_and_horsepower"
+        },
+        {
+          "label": "1.3L Turbo Petrol, 158 hp",
+          "classification": "engine_and_horsepower"
+        },
+        {
+          "label": "1.6L E-Tech, 145 hp",
+          "classification": "engine_and_horsepower"
+        },
+        {
+          "label": "7-speed EDC",
+          "classification": "transmission"
+        },
+        {
+          "label": "Multi-mode automatic",
+          "classification": "transmission"
+        },
+        {
+          "label": "Hybrid",
+          "classification": "fuel_type"
+        },
+        {
+          "label": "Mild Hybrid",
+          "classification": "fuel_type"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "רנו ארקנה בישראל - מחיר החל מ- 149,990 שקל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/רנו-ארקנה-החדש-2021-בישראל-מחיר-החל-מ-149-990-שקל",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "רנו ארקנה - מפרט טכני",
+          "url": "https://www.icar.co.il/רנו/רנו_ארקנה/רנו_ארקנה_חדש/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "רנו ארקנה - אולם תצוגה מקוון",
+          "url": "https://renault.freesbe.com/models/arkana/",
+          "source_name": "Renault Israel (Freesbe)",
+          "source_type": "official_importer",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "SUV",
+          "fuel_type": "mild_hybrid",
+          "engine": "1.3L turbo",
+          "engine_displacement_l": 1.33,
+          "horsepower_hp": 140,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "FWD",
+          "year_start": 2021,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1,
+              2
+            ],
+            "fuel_type": [
+              0,
+              1,
+              2
+            ],
+            "engine": [
+              0,
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              0,
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              0,
+              1,
+              2
+            ],
+            "transmission": [
+              0,
+              1,
+              2
+            ],
+            "drivetrain": [
+              0,
+              1,
+              2
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "SUV",
+          "fuel_type": "mild_hybrid",
+          "engine": "1.3L turbo",
+          "engine_displacement_l": 1.33,
+          "horsepower_hp": 158,
+          "transmission": "7-speed dual_clutch",
+          "drivetrain": "FWD",
+          "year_start": 2022,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "SUV",
+          "fuel_type": "hybrid",
+          "engine": "1.6L",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 145,
+          "transmission": "automatic",
+          "drivetrain": "FWD",
+          "year_start": 2022,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "mild_hybrid",
+          "hybrid"
+        ],
+        "engine": [
+          "1.3L turbo",
+          "1.6L"
+        ],
+        "horsepower_hp": [
+          140,
+          158,
+          145
+        ],
+        "transmission": [
+          "7-speed dual_clutch",
+          "automatic"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "market": "IL-confirmed",
+      "make": "Renault",
+      "model": "Arkana",
+      "canonical_model": "Arkana",
+      "profile_confidence": "medium",
+      "year_start": 2021,
+      "year_end": 2024
     }
   ],
   "ready_for_website_upload": false
