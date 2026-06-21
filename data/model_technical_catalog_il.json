@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T19:03:39Z",
+  "generated_at": "2026-06-21T19:04:05Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -223799,6 +223799,372 @@
       "profile_confidence": "medium",
       "year_start": 2017,
       "year_end": 2022
+    },
+    {
+      "make": "Renault",
+      "model": "Fluence",
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Authentique",
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "1.6L",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 110,
+          "transmission": "4-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2009,
+          "year_end": 2012,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Expression",
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "1.6L",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 115,
+          "transmission": "cvt",
+          "drivetrain": "FWD",
+          "year_start": 2013,
+          "year_end": 2017,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              2
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0,
+              1,
+              2
+            ],
+            "engine": [
+              0,
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              0,
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              0,
+              1,
+              2
+            ],
+            "transmission": [
+              0,
+              1,
+              2
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0,
+              2
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Privilege",
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "2.0L",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 143,
+          "transmission": "cvt",
+          "drivetrain": "FWD",
+          "year_start": 2010,
+          "year_end": 2015,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Authentique",
+          "body_type": "Sedan",
+          "fuel_type": "diesel",
+          "engine": "1.5L turbo",
+          "engine_displacement_l": 1.5,
+          "horsepower_hp": 110,
+          "transmission": "6-speed dual_clutch",
+          "drivetrain": "FWD",
+          "year_start": 2011,
+          "year_end": 2017,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              2
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0,
+              1,
+              2
+            ],
+            "engine": [
+              0,
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              0,
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              0,
+              1,
+              2
+            ],
+            "transmission": [
+              0,
+              1,
+              2
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0,
+              1,
+              2
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "1.5L Turbo Diesel (dCi), 110 hp",
+          "classification": "engine_with_horsepower"
+        },
+        {
+          "label": "1.6L Petrol, 110 hp",
+          "classification": "engine_with_horsepower"
+        },
+        {
+          "label": "1.6L Petrol, 115 hp",
+          "classification": "engine_with_horsepower"
+        },
+        {
+          "label": "2.0L Petrol, 143 hp",
+          "classification": "engine_with_horsepower"
+        },
+        {
+          "label": "Electric Motor, 95 hp",
+          "classification": "engine_with_horsepower"
+        },
+        {
+          "label": "ZE",
+          "classification": "separate_electric_model"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "רנו פלואנס - מחירון רכב, מפרט טכני - iCar",
+          "url": "https://www.icar.co.il/renault/renault_fluence",
+          "source_name": "iCar Israel",
+          "source_type": "israeli_catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "סקירה מקיפה: רנו פלואנס (2009-2017)",
+          "url": "https://www.cartube.co.il/%D7%9E%D7%93%D7%A8%D7%99%D7%9A-%D7%A7%D7%A0%D7%99%D7%99%D7%94/%D7%A8%D7%A0%D7%95-%D7%A4%D7%9C%D7%95%D7%90%D7%A0%D7%A1-2009-2017-%D7%9E%D7%91%D7%97%D7%9F-%D7%93%D7%A8%D7%9B%D7%99%D7%9D-%D7%9E%D7%A9%D7%95%D7%9E%D7%A9%D7%AA",
+          "source_name": "Cartube Israel",
+          "source_type": "editorial",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "מבחן דרכים: רנו פלואנס החדשה 1.6 CVT ו- 1.5 dCi",
+          "url": "https://www.gear.co.il/%D7%9B%D7%AA%D7%91%D7%95%D7%AA_%D7%A8%D7%9B%D7%91/2013-05-15-N01-%D7%9E%D7%91%D7%97%D7%9F-%D7%93%D7%A8%D7%9B%D7%99%D7%9D-%D7%A8%D7%A0%D7%95-%D7%A4%D7%9C%D7%95%D7%90%D7%A0%D7%A1-2013",
+          "source_name": "Gear Israel",
+          "source_type": "editorial",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "year_start",
+            "version_or_trim"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Authentique",
+          "Expression",
+          "Privilege"
+        ],
+        "body_type": [
+          "Sedan"
+        ],
+        "fuel_type": [
+          "petrol",
+          "diesel"
+        ],
+        "engine": [
+          "1.6L",
+          "2.0L",
+          "1.5L turbo"
+        ],
+        "horsepower_hp": [
+          110,
+          115,
+          143
+        ],
+        "transmission": [
+          "4-speed automatic",
+          "cvt",
+          "6-speed dual_clutch"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "market": "IL-confirmed",
+      "canonical_model": "Fluence",
+      "profile_confidence": "medium",
+      "year_start": 2009,
+      "year_end": 2017
     }
   ],
   "ready_for_website_upload": false
