@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T07:48:49Z",
+  "generated_at": "2026-06-21T07:49:38Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -201554,6 +201554,295 @@
       "profile_confidence": "medium",
       "year_start": 2024,
       "year_end": null
+    },
+    {
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Jam",
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "1.4L",
+          "engine_displacement_l": 1.4,
+          "horsepower_hp": 87,
+          "transmission": "5-speed manual",
+          "drivetrain": "FWD",
+          "year_start": 2014,
+          "year_end": 2019,
+          "support_level": "direct",
+          "source_indexes": [
+            2005,
+            2008
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              2008
+            ],
+            "body_type": [
+              2005,
+              2008
+            ],
+            "fuel_type": [
+              2005,
+              2008
+            ],
+            "engine": [
+              2005,
+              2008
+            ],
+            "engine_displacement_l": [
+              2005,
+              2008
+            ],
+            "horsepower_hp": [
+              2005,
+              2008
+            ],
+            "transmission": [
+              2005,
+              2008
+            ],
+            "drivetrain": [
+              2005
+            ],
+            "year_start": [
+              2008
+            ],
+            "year_end": [
+              2005
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Unlimited",
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "1.4L",
+          "engine_displacement_l": 1.4,
+          "horsepower_hp": 87,
+          "transmission": "5-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2015,
+          "year_end": 2019,
+          "support_level": "direct",
+          "source_indexes": [
+            2005,
+            2007
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              2005
+            ],
+            "body_type": [
+              2005,
+              2007
+            ],
+            "fuel_type": [
+              2005,
+              2007
+            ],
+            "engine": [
+              2005,
+              2007
+            ],
+            "engine_displacement_l": [
+              2005,
+              2007
+            ],
+            "horsepower_hp": [
+              2005,
+              2007
+            ],
+            "transmission": [
+              2005,
+              2007
+            ],
+            "drivetrain": [
+              2005
+            ],
+            "year_start": [
+              2007
+            ],
+            "year_end": [
+              2005
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "S",
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "1.4L turbo",
+          "engine_displacement_l": 1.4,
+          "horsepower_hp": 150,
+          "transmission": "6-speed manual",
+          "drivetrain": "FWD",
+          "year_start": 2016,
+          "year_end": 2019,
+          "support_level": "direct",
+          "source_indexes": [
+            2005,
+            2006
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              2006
+            ],
+            "body_type": [
+              2005,
+              2006
+            ],
+            "fuel_type": [
+              2005,
+              2006
+            ],
+            "engine": [
+              2005,
+              2006
+            ],
+            "engine_displacement_l": [
+              2005,
+              2006
+            ],
+            "horsepower_hp": [
+              2005,
+              2006
+            ],
+            "transmission": [
+              2005,
+              2006
+            ],
+            "drivetrain": [
+              2005
+            ],
+            "year_start": [
+              2006
+            ],
+            "year_end": [
+              2005
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 2005,
+          "title": "אופל אדם - מחירון, מפרטים, ואבזור | iCar",
+          "url": "https://www.icar.co.il/אופל/אופל_אדם/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 2006,
+          "title": "אופל אדם S בישראל – מחיר החל מ-119,900 שקל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/אופל-אדם-s-בישראל-מחיר-החל-מ-119,900-שקל",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 2007,
+          "title": "אופל אדם רובוטית בישראל – מחיר החל מ-91,990 שקל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/אופל-אדם-אוטומטית-רובוטית-בישראל-מחיר-החל-מ-91,990-שקל",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 2008,
+          "title": "אופל אדם בישראל – מחיר החל מ-89,990 שקל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/אופל-אדם-בישראל-מחיר-החל-מ-89,990-שקל",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "year_start"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Jam",
+          "Unlimited",
+          "S"
+        ],
+        "body_type": [
+          "Hatchback"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "1.4L",
+          "1.4L turbo"
+        ],
+        "horsepower_hp": [
+          87,
+          150
+        ],
+        "transmission": [
+          "5-speed manual",
+          "5-speed automatic",
+          "6-speed manual"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "1.4L naturally aspirated petrol, 87 hp",
+          "classification": "bare_engine_or_performance"
+        },
+        {
+          "label": "1.4L turbo petrol, 150 hp",
+          "classification": "bare_engine_or_performance"
+        }
+      ],
+      "market": "IL-confirmed",
+      "make": "Opel",
+      "model": "Adam",
+      "canonical_model": "Adam",
+      "profile_confidence": "medium",
+      "year_start": 2014,
+      "year_end": 2019
     }
   ],
   "ready_for_website_upload": false
