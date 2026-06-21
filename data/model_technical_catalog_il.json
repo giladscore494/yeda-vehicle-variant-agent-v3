@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T04:24:59Z",
+  "generated_at": "2026-06-21T05:08:47Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -191909,6 +191909,263 @@
       "profile_confidence": "medium",
       "year_start": 2000,
       "year_end": 2008
+    },
+    {
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "1.0L",
+          "engine_displacement_l": 1.0,
+          "horsepower_hp": 71,
+          "transmission": "5-speed manual",
+          "drivetrain": "FWD",
+          "year_start": 2013,
+          "year_end": 2014,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "1.2L",
+          "engine_displacement_l": 1.2,
+          "horsepower_hp": 80,
+          "transmission": "cvt",
+          "drivetrain": "FWD",
+          "year_start": 2013,
+          "year_end": 2020,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "1.2L",
+          "engine_displacement_l": 1.2,
+          "horsepower_hp": 71,
+          "transmission": "cvt",
+          "drivetrain": "FWD",
+          "year_start": 2021,
+          "year_end": 2025,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "1.0L petrol, 71 hp",
+          "classification": "engine_spec_not_trim"
+        },
+        {
+          "label": "1.2L petrol, 80 hp",
+          "classification": "engine_spec_not_trim"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "מיצובישי ספייס סטאר 2013 החדשה בישראל – מחיר החל מ-69,900 שקל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/מיצובישי-ספייס-סטאר-בישראל-מחיר-החל-מ-69900-שקל",
+          "source_name": "Cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "מיצובישי ספייס סטאר - מחירון, צריכת דלק, חוות דעת",
+          "url": "https://www.icar.co.il/מיצובישי/מיצובישי_ספייס_סטאר/",
+          "source_name": "iCar Israel",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "מיצובישי ספייס סטאר מתעדכנת: מקבלת מנוע 1.2 ליטר עם 71 כ\"ס",
+          "url": "https://www.auto.co.il/article/135084-local-news-mitsubishi-spacestar",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "year_start"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Hatchback"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "1.0L",
+          "1.2L"
+        ],
+        "horsepower_hp": [
+          71,
+          80
+        ],
+        "transmission": [
+          "5-speed manual",
+          "cvt"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "market": "IL-confirmed",
+      "make": "Mitsubishi",
+      "model": "Space Star",
+      "canonical_model": "Space Star",
+      "profile_confidence": "medium",
+      "year_start": 2013,
+      "year_end": 2025
     }
   ],
   "ready_for_website_upload": true
