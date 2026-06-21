@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T19:32:53Z",
+  "generated_at": "2026-06-21T19:33:25Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -231414,6 +231414,126 @@
       "canonical_model": "Phantom",
       "profile_confidence": "medium",
       "year_start": 2017,
+      "year_end": null
+    },
+    {
+      "make": "Rolls-Royce",
+      "model": "Spectre",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "רולס רויס ספקטר נחשפת - רולס רויס החשמלית הראשונה",
+          "url": "https://www.cartube.co.il/חדשות-רכב/רולס-רויס-ספקטר-נחשפת-רולס-רויס-החשמלית-הראשונה",
+          "source_name": "Cartube IL",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "רולס רויס ספקטר 2023 - מחירון, מפרטים, תמונות",
+          "url": "https://www.auto.co.il/model/rolls-royce-spectre",
+          "source_name": "Auto.co.il",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "drivetrain",
+            "year_start"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Coupe",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 585,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2023,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": [],
+          "invalid_or_non_trim_labels": {
+            "Dual Electric Motors": "engine_description",
+            "430 kW": "horsepower_label",
+            "584 PS": "horsepower_label"
+          }
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Coupe"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          585
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "AWD"
+        ]
+      },
+      "market": "IL-confirmed",
+      "canonical_model": "Spectre",
+      "profile_confidence": "medium",
+      "year_start": 2023,
       "year_end": null
     }
   ],
