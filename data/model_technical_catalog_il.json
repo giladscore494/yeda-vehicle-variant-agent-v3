@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T13:21:49Z",
+  "generated_at": "2026-06-21T13:22:05Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gpt-5.4",
@@ -216415,6 +216415,115 @@
         "Body type was normalized to 'Pickup' for single-cab/double-cab open-bed workbody configurations because allowed schema values do not include chassis cab.",
         "Could not securely ground older pre-2021 Israeli technical rows from accessible primary Israeli sources in this run, so catalog starts at 2021.",
         "Current official page snippet shows automatic availability and two power outputs; Auto and Carzone were used to ground the 140 hp manual and 180 hp automatic split by Israeli-market sale period."
+      ]
+    },
+    {
+      "market": "IL-likely",
+      "make": "Peugeot",
+      "model": "e-308",
+      "canonical_model": "e-308",
+      "year_start": 2021,
+      "year_end": null,
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Hatchback",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 156,
+          "transmission": "single_speed",
+          "drivetrain": "FWD",
+          "year_start": 2021,
+          "year_end": null,
+          "support_level": "indirect",
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Hatchback"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          156
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "AT",
+          "classification": "transmission_label_not_trim"
+        },
+        {
+          "label": "156 כ\"ס",
+          "classification": "horsepower_label_not_trim"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "פיג'ו 308 האצ'בק 5 דלתות AT חשמלי | 156 כ\"ס הנעה הנעה קדמית | דור 3 (2021 – כעת) בישראל - מפרטי רכב id 67190 - אוטובום",
+          "url": "https://autoboom.co.il/catalog/cars/peugeot/308/3-generation/hatchback-5-doors/67190",
+          "source_name": "Autoboom",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        }
+      ],
+      "profile_confidence": "medium",
+      "notes": [
+        "Found grounded Israeli-market evidence for Peugeot e-308 hatchback only.",
+        "No grounded Israeli-market source was found for an e-308 estate/SW version actually sold in Israel.",
+        "Transmission normalized to 'single_speed' from sourced EV automatic with 1 gear, so support_level is indirect.",
+        "Model-level year_start/year_end reflect sourced generation page timing only where available; no sourced Israeli end year was found."
       ]
     }
   ],
