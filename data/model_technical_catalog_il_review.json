@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T12:50:28Z",
+  "generated_at": "2026-06-21T13:16:15Z",
   "market": "IL",
   "models": [
     {
@@ -973,6 +973,478 @@
       "rebuild_required": true,
       "validation_issues": [
         "technical_variants_il is empty"
+      ]
+    },
+    {
+      "market": "IL-confirmed",
+      "make": "Peugeot",
+      "model": "508",
+      "canonical_model": "508",
+      "year_start": 2011,
+      "year_end": 2020,
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Active",
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "1.6L turbo",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 156,
+          "transmission": "6-speed automatic",
+          "drivetrain": null,
+          "year_start": 2011,
+          "year_end": 2015,
+          "support_level": "indirect",
+          "source_indexes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              2
+            ],
+            "engine_displacement_l": [
+              0,
+              2
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": [
+            "drivetrain"
+          ]
+        },
+        {
+          "version_or_trim": "Active",
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "1.6L turbo",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 165,
+          "transmission": "automatic",
+          "drivetrain": null,
+          "year_start": 2015,
+          "year_end": 2016,
+          "support_level": "indirect",
+          "source_indexes": [
+            4,
+            5,
+            6
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              4
+            ],
+            "body_type": [
+              5
+            ],
+            "fuel_type": [
+              6
+            ],
+            "engine": [
+              4
+            ],
+            "engine_displacement_l": [
+              4
+            ],
+            "horsepower_hp": [
+              4
+            ],
+            "transmission": [
+              6
+            ],
+            "drivetrain": [],
+            "year_start": [
+              5
+            ],
+            "year_end": [
+              4
+            ]
+          },
+          "missing_grounded_fields": [
+            "drivetrain"
+          ]
+        },
+        {
+          "version_or_trim": "Premium",
+          "body_type": "Liftback",
+          "fuel_type": "petrol",
+          "engine": "1.6L turbo",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 180,
+          "transmission": "8-speed automatic",
+          "drivetrain": null,
+          "year_start": 2018,
+          "year_end": 2020,
+          "support_level": "indirect",
+          "source_indexes": [
+            7,
+            8,
+            9
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              7
+            ],
+            "body_type": [
+              8
+            ],
+            "fuel_type": [
+              7
+            ],
+            "engine": [
+              7
+            ],
+            "engine_displacement_l": [
+              7
+            ],
+            "horsepower_hp": [
+              7
+            ],
+            "transmission": [
+              7
+            ],
+            "drivetrain": [],
+            "year_start": [
+              8
+            ],
+            "year_end": [
+              9
+            ]
+          },
+          "missing_grounded_fields": [
+            "drivetrain"
+          ]
+        },
+        {
+          "version_or_trim": "GT",
+          "body_type": "Liftback",
+          "fuel_type": "petrol",
+          "engine": "1.6L turbo",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 225,
+          "transmission": "8-speed automatic",
+          "drivetrain": null,
+          "year_start": 2018,
+          "year_end": 2020,
+          "support_level": "indirect",
+          "source_indexes": [
+            7,
+            8,
+            9
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              7
+            ],
+            "body_type": [
+              8
+            ],
+            "fuel_type": [
+              8
+            ],
+            "engine": [
+              7
+            ],
+            "engine_displacement_l": [
+              7
+            ],
+            "horsepower_hp": [
+              7
+            ],
+            "transmission": [
+              7
+            ],
+            "drivetrain": [],
+            "year_start": [
+              8
+            ],
+            "year_end": [
+              9
+            ]
+          },
+          "missing_grounded_fields": [
+            "drivetrain"
+          ]
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Liftback",
+          "fuel_type": "plug_in_hybrid",
+          "engine": "1.6L turbo",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 225,
+          "transmission": "8-speed automatic",
+          "drivetrain": null,
+          "year_start": 2020,
+          "year_end": 2020,
+          "support_level": "indirect",
+          "source_indexes": [
+            8,
+            9
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              8
+            ],
+            "fuel_type": [
+              8
+            ],
+            "engine": [
+              8
+            ],
+            "engine_displacement_l": [
+              8
+            ],
+            "horsepower_hp": [
+              8
+            ],
+            "transmission": [
+              8
+            ],
+            "drivetrain": [],
+            "year_start": [
+              9
+            ],
+            "year_end": [
+              9
+            ]
+          },
+          "missing_grounded_fields": [
+            "drivetrain"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Active",
+          "Premium",
+          "GT"
+        ],
+        "body_type": [
+          "Sedan",
+          "Liftback"
+        ],
+        "fuel_type": [
+          "petrol",
+          "plug_in_hybrid"
+        ],
+        "engine": [
+          "1.6L turbo"
+        ],
+        "horsepower_hp": [
+          156,
+          165,
+          180,
+          225
+        ],
+        "transmission": [
+          "6-speed automatic",
+          "automatic",
+          "8-speed automatic"
+        ],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Base",
+          "classification": "generic_non_trim"
+        },
+        {
+          "label": "Standard",
+          "classification": "generic_non_trim"
+        },
+        {
+          "label": "1.4",
+          "classification": "engine_size_not_trim"
+        },
+        {
+          "label": "145hp",
+          "classification": "horsepower_label_not_trim"
+        },
+        {
+          "label": "165hp",
+          "classification": "horsepower_label_not_trim"
+        },
+        {
+          "label": "180hp",
+          "classification": "horsepower_label_not_trim"
+        },
+        {
+          "label": "500C",
+          "classification": "body_model_designation_not_trim"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "פיג'ו 508 2014 Active אוט׳ סדאן 4 דל 1.6 (156 כ״ס) | מחירון יד2",
+          "url": "https://www.yad2.co.il/price-list/sub-model/110199/2014",
+          "source_name": "יד2",
+          "source_type": "marketplace_catalog",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "engine_displacement_l",
+            "horsepower_hp"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "מחירון של פיג'ו שנתון 2015 | מחירון יד2",
+          "url": "https://www.yad2.co.il/price-list/feed?manufacturer=46&max-year=2015&min-year=2015",
+          "source_name": "יד2",
+          "source_type": "marketplace_catalog",
+          "supports": [
+            "fuel_type",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "פיג'ו 508: מבחן דרכים",
+          "url": "https://www.auto.co.il/articles/test-drives/115884/",
+          "source_name": "אוטו",
+          "source_type": "editorial",
+          "supports": [
+            "engine",
+            "engine_displacement_l",
+            "transmission",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "מחירון רכב שנתון 2016 | מחירון יד2",
+          "url": "https://www.yad2.co.il/price-list/feed?max-year=2016&min-year=2016&page=22",
+          "source_name": "יד2",
+          "source_type": "marketplace_catalog",
+          "supports": [
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 4,
+          "title": "פיג'ו 508 2016 Active אוט׳ 1.6 (165 כ״ס) | מחירון יד2",
+          "url": "https://www.yad2.co.il/price-list/sub-model/110192/2016",
+          "source_name": "יד2",
+          "source_type": "marketplace_catalog",
+          "supports": [
+            "version_or_trim",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 5,
+          "title": "פיג'ו 508: מבחן דרכים (מתיחת פנים)",
+          "url": "https://www.auto.co.il/articles/test-drives/111628/",
+          "source_name": "אוטו",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 6,
+          "title": "מחירון רכבי מנהלים שנתון 2016 | מחירון יד2",
+          "url": "https://www.yad2.co.il/price-list/feed?carFamilyType=3&max-year=2016&min-year=2016&page=4",
+          "source_name": "יד2",
+          "source_type": "marketplace_catalog",
+          "supports": [
+            "fuel_type",
+            "transmission"
+          ]
+        },
+        {
+          "source_index": 7,
+          "title": "פיג'ו 508 - מבחן דרכים (225 כ\"ס, GT)",
+          "url": "https://www.auto.co.il/articles/test-drives/road-tests/132364/",
+          "source_name": "אוטו",
+          "source_type": "editorial",
+          "supports": [
+            "version_or_trim",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission"
+          ]
+        },
+        {
+          "source_index": 8,
+          "title": "508 FASTBACK",
+          "url": "https://www.auto.co.il/attachment/catalog/pdf/311%2C.pdf",
+          "source_name": "אוטו",
+          "source_type": "catalog_pdf",
+          "supports": [
+            "body_type",
+            "year_start",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission"
+          ]
+        },
+        {
+          "source_index": 9,
+          "title": "תקנון מבצע PEUGEOT אוקטובר 2020",
+          "url": "https://online.peugeot.co.il/wp-content/uploads/2020/10/2020-%D7%AA%D7%A7%D7%A0%D7%95%D7%9F-%D7%9E%D7%91%D7%A6%D7%A2-%D7%A4%D7%99%D7%92%D7%95-%D7%90%D7%95%D7%A7%D7%98%D7%95%D7%91%D7%A8.pdf",
+          "source_name": "Peugeot Israel",
+          "source_type": "official_pdf",
+          "supports": [
+            "version_or_trim",
+            "horsepower_hp",
+            "year_end"
+          ]
+        }
+      ],
+      "profile_confidence": "medium",
+      "notes": [
+        "Israeli sources found for first-generation petrol sedan 1.6 turbo 156hp automatic and facelift 165hp automatic, plus second-generation Fastback 180hp, 225hp petrol, and 225hp plug-in hybrid.",
+        "Drivetrain was not directly grounded from Israeli-market sources located, so set to null for all rows.",
+        "Second-generation body style normalized to Liftback from Israeli source label 'FASTBACK' / hatchback-style listings.",
+        "PHEV trim name was not reliably grounded from the located Israeli sources, so version_or_trim is null.",
+        "Year ranges are bounded only by sourced evidence; absence after 2020 is not treated as proof of non-sale, but no later grounded Israeli technical source was established in this run."
+      ],
+      "validation_issues": [
+        "variant[0] required website field 'drivetrain' is null/empty",
+        "variant[0] required field 'drivetrain' listed in missing_grounded_fields",
+        "variant[1] required website field 'drivetrain' is null/empty",
+        "variant[1] required field 'drivetrain' listed in missing_grounded_fields",
+        "variant[2] required website field 'drivetrain' is null/empty",
+        "variant[2] required field 'drivetrain' listed in missing_grounded_fields",
+        "variant[3] required website field 'drivetrain' is null/empty",
+        "variant[3] required field 'drivetrain' listed in missing_grounded_fields",
+        "variant[4] required website field 'drivetrain' is null/empty",
+        "variant[4] required field 'drivetrain' listed in missing_grounded_fields"
       ]
     }
   ]
