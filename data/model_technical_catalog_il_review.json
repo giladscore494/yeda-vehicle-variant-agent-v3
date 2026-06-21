@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T13:18:21Z",
+  "generated_at": "2026-06-21T13:18:43Z",
   "market": "IL",
   "models": [
     {
@@ -2125,6 +2125,125 @@
         "variant[7] required field 'transmission' listed in missing_grounded_fields",
         "variant[9] required website field 'transmission' is null/empty",
         "variant[9] required field 'transmission' listed in missing_grounded_fields"
+      ]
+    },
+    {
+      "market": "global-reference-only",
+      "make": "Peugeot",
+      "model": "4008",
+      "canonical_model": "4008",
+      "year_start": 2012,
+      "year_end": null,
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "2.0L",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 150,
+          "transmission": "manual",
+          "drivetrain": null,
+          "year_start": 2012,
+          "year_end": null,
+          "support_level": "unknown",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [],
+            "fuel_type": [],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [],
+            "year_start": [
+              0
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "body_type",
+            "fuel_type",
+            "drivetrain"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "2.0L"
+        ],
+        "horsepower_hp": [
+          150
+        ],
+        "transmission": [
+          "manual"
+        ],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "מכוניות 2012 הדגמים החדשים",
+          "url": "https://www.autocom.co.il/%D7%9E%D7%9B%D7%95%D7%A0%D7%99%D7%95%D7%AA-2012-%D7%94%D7%93%D7%92%D7%9E%D7%99%D7%9D-%D7%94%D7%97%D7%93%D7%A9%D7%99%D7%9D/",
+          "source_name": "Autocom",
+          "source_type": "Israeli editorial/catalog",
+          "supports": [
+            "engine",
+            "engine_displacement_l",
+            "transmission",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "פיג'ו 4008 תגיע לישראל לפני מיצובישי ASX?",
+          "url": "https://www.auto.co.il/articles/car-news/115902/",
+          "source_name": "Auto",
+          "source_type": "Israeli editorial/news",
+          "supports": [
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission"
+          ]
+        }
+      ],
+      "profile_confidence": "medium",
+      "notes": [
+        "Israeli-market sources found evidence of intended/announced Israeli sale for a 2.0L 150 hp manual configuration starting in 2012.",
+        "Could not ground drivetrain, body_type, fuel_type, trim, or end year from Israeli-market sources located.",
+        "Found conflicting market-context signals about whether the 4008 was ultimately marketed broadly in Israel; however Israeli sources did describe a local offering/launch plan for the manual 2.0L version, so one technical row is retained with support_level='unknown'."
+      ],
+      "validation_issues": [
+        "variant[0] non-null field 'body_type' has no field_sources entry",
+        "variant[0] non-null field 'fuel_type' has no field_sources entry",
+        "variant[0] required website field 'drivetrain' is null/empty",
+        "variant[0] required field 'body_type' listed in missing_grounded_fields",
+        "variant[0] required field 'fuel_type' listed in missing_grounded_fields",
+        "variant[0] required field 'drivetrain' listed in missing_grounded_fields"
       ]
     },
     {
