@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T06:16:41Z",
+  "generated_at": "2026-06-21T06:17:02Z",
   "market": "IL",
   "models": [
     {
@@ -331,6 +331,86 @@
       "profile_confidence": "medium",
       "year_start": null,
       "year_end": null,
+      "validation_issues": [
+        "technical_variants_il is empty"
+      ]
+    },
+    {
+      "market": "IL-confirmed",
+      "make": "Nissan",
+      "model": "Leaf",
+      "canonical_model": "Leaf",
+      "year_start": null,
+      "year_end": null,
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [],
+      "profile_confidence": null,
+      "notes": [],
+      "error": "Expecting ',' delimiter: line 198 column 1 (char 4465)",
+      "request_payload": {
+        "task": "build_israeli_model_technical_catalog",
+        "market": "IL-confirmed",
+        "make": "Nissan",
+        "model": "Leaf",
+        "raw_database_values": {
+          "years_seen": [
+            2011,
+            2017,
+            2018,
+            2024
+          ],
+          "trims_seen": [
+            "Acenta"
+          ],
+          "engines_seen": [
+            "Electric motor, 109 hp (80 kW)",
+            "Electric motor, 150 hp (110 kW) / 40 kWh battery"
+          ],
+          "horsepower_seen": [],
+          "transmissions_seen": [
+            "Single-speed EV"
+          ],
+          "body_types_seen": [
+            "Hatchback"
+          ],
+          "fuel_types_seen": [
+            "Electric"
+          ],
+          "drivetrains_seen": [
+            "FWD"
+          ]
+        },
+        "sample_validation_ids": [
+          "VAL-002450",
+          "VAL-002451"
+        ],
+        "source_indexes": [
+          1088,
+          1089
+        ],
+        "metadata_hints": {
+          "priorities_seen": [
+            "low"
+          ],
+          "validation_routes_seen": [
+            "deterministic_or_skip_ai"
+          ],
+          "possible_duplicate_rows": 0,
+          "validation_id_count": 2
+        },
+        "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
+      },
+      "rebuild_required": true,
       "validation_issues": [
         "technical_variants_il is empty"
       ]
