@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-22T06:26:44Z",
+  "generated_at": "2026-06-22T06:26:55Z",
   "market": "IL",
   "models": [
     {
@@ -7393,6 +7393,29 @@
         "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
       },
       "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
+      ]
+    },
+    {
+      "sources": [],
+      "technical_variants_il": [],
+      "market": "IL-confirmed",
+      "make": "Subaru",
+      "model": "Forester",
+      "canonical_model": "Forester",
+      "profile_confidence": "medium",
+      "year_start": null,
+      "year_end": null,
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
       "validation_issues": [
         "technical_variants_il is empty"
       ]
