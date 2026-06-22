@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-22T06:31:23Z",
+  "generated_at": "2026-06-22T09:57:57Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -250109,6 +250109,149 @@
       "canonical_model": "Legacy",
       "profile_confidence": "medium",
       "year_start": 1990,
+      "year_end": 2019
+    },
+    {
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "1.6 GT",
+          "classification": "trim_with_engine"
+        },
+        {
+          "label": "1.8 GT",
+          "classification": "trim_with_engine"
+        },
+        {
+          "label": "2.0 GT",
+          "classification": "trim_with_engine"
+        },
+        {
+          "label": "2.4 STI Sport R",
+          "classification": "trim_with_engine"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "סובארו לבורג - מחירון רכב, מפרט טכני, חוות דעת - iCar",
+          "url": "https://www.icar.co.il/%D7%A1%D7%95%D7%91%D7%90%D7%A8%D7%95/%D7%A1%D7%95%D7%91%D7%90%D7%A8%D7%95_%D7%9C%D7%91%D7%95%D7%A8%D7%92/%D7%A1%D7%95%D7%91%D7%90%D7%A8%D7%95_%D7%9C%D7%91%D7%95%D7%A8%D7%92_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%94_%D7%931/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "סובארו לבורג בישראל - מחיר החל מ- 174,990 שקל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%A1%D7%95%D7%91%D7%90%D7%A8%D7%95-%D7%9C%D7%91%D7%95%D7%A8%D7%92-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-174-990-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Estate",
+          "fuel_type": "petrol",
+          "engine": "1.6L flat-4 turbo",
+          "engine_displacement_l": 1.6,
+          "horsepower_hp": 170,
+          "transmission": "cvt",
+          "drivetrain": "AWD",
+          "year_start": 2016,
+          "year_end": 2019,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Estate"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "1.6L flat-4 turbo"
+        ],
+        "horsepower_hp": [
+          170
+        ],
+        "transmission": [
+          "cvt"
+        ],
+        "drivetrain": [
+          "AWD"
+        ]
+      },
+      "market": "global-reference-only",
+      "make": "Subaru",
+      "model": "Levorg",
+      "canonical_model": "Levorg",
+      "profile_confidence": "medium",
+      "year_start": 2016,
       "year_end": 2019
     }
   ],
