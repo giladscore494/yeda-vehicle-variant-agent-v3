@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-22T06:30:25Z",
+  "generated_at": "2026-06-22T06:31:23Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -249838,6 +249838,278 @@
       "profile_confidence": "medium",
       "year_start": 1984,
       "year_end": 1994
+    },
+    {
+      "technical_variants_il": [
+        {
+          "version_or_trim": "GL",
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "1.8L",
+          "engine_displacement_l": 1.8,
+          "horsepower_hp": 103,
+          "transmission": "automatic",
+          "drivetrain": "FWD",
+          "year_start": 1990,
+          "year_end": 1999,
+          "support_level": "direct",
+          "source_indexes": [
+            1419
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1419
+            ],
+            "body_type": [
+              1419
+            ],
+            "fuel_type": [
+              1419
+            ],
+            "engine": [
+              1419
+            ],
+            "engine_displacement_l": [
+              1419
+            ],
+            "horsepower_hp": [
+              1419
+            ],
+            "transmission": [
+              1419
+            ],
+            "drivetrain": [
+              1419
+            ],
+            "year_start": [
+              1419
+            ],
+            "year_end": [
+              1419
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "2.0L",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 150,
+          "transmission": "cvt",
+          "drivetrain": "AWD",
+          "year_start": 2009,
+          "year_end": 2014,
+          "support_level": "direct",
+          "source_indexes": [
+            1420
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              1420
+            ],
+            "fuel_type": [
+              1420
+            ],
+            "engine": [
+              1420
+            ],
+            "engine_displacement_l": [
+              1420
+            ],
+            "horsepower_hp": [
+              1420
+            ],
+            "transmission": [
+              1420
+            ],
+            "drivetrain": [
+              1420
+            ],
+            "year_start": [
+              1420
+            ],
+            "year_end": [
+              1420
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Premium",
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "2.5L",
+          "engine_displacement_l": 2.5,
+          "horsepower_hp": 175,
+          "transmission": "cvt",
+          "drivetrain": "AWD",
+          "year_start": 2015,
+          "year_end": 2019,
+          "support_level": "direct",
+          "source_indexes": [
+            1421,
+            1422
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1421
+            ],
+            "body_type": [
+              1421
+            ],
+            "fuel_type": [
+              1421
+            ],
+            "engine": [
+              1421,
+              1422
+            ],
+            "engine_displacement_l": [
+              1421
+            ],
+            "horsepower_hp": [
+              1421,
+              1422
+            ],
+            "transmission": [
+              1421
+            ],
+            "drivetrain": [
+              1421
+            ],
+            "year_start": [
+              1421
+            ],
+            "year_end": [
+              1421
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 1419,
+          "title": "Subaru Legacy (1990-1999) Technical Specifications",
+          "url": "https://www.auto.co.il/catalog/subaru/legacy",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1420,
+          "title": "Subaru B4 (2009-2014) Specs and Versions",
+          "url": "https://www.icar.co.il/%D7%A1%D7%95%D7%91%D7%90%D7%A8%D7%95/%D7%A1%D7%95%D7%91%D7%90%D7%A8%D7%95_B4_%D7%99%D7%A9%D7%9F/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1421,
+          "title": "Subaru B4 (2015-2020) Technical Specs",
+          "url": "https://www.icar.co.il/%D7%A1%D7%95%D7%91%D7%90%D7%A8%D7%95/%D7%A1%D7%95%D7%91%D7%90%D7%A8%D7%95_B4/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1422,
+          "title": "Subaru B4 2.5 Premium Review",
+          "url": "https://www.cartube.co.il/%D7%A7%D7%98%D7%9C%D7%95%D7%92-%D7%A8%D7%9B%D7%91/%D7%A1%D7%95%D7%91%D7%90%D7%A8%D7%95/%D7%91%D7%99-4",
+          "source_name": "Cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "engine",
+            "horsepower_hp"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "GL",
+          "Premium"
+        ],
+        "body_type": [
+          "Sedan"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "1.8L",
+          "2.0L",
+          "2.5L"
+        ],
+        "horsepower_hp": [
+          103,
+          150,
+          175
+        ],
+        "transmission": [
+          "automatic",
+          "cvt"
+        ],
+        "drivetrain": [
+          "FWD",
+          "AWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "1.8L Petrol",
+          "classification": "engine_as_trim"
+        },
+        {
+          "label": "2.0L Petrol",
+          "classification": "engine_as_trim"
+        },
+        {
+          "label": "2.5L Petrol",
+          "classification": "engine_as_trim"
+        }
+      ],
+      "market": "IL-confirmed",
+      "make": "Subaru",
+      "model": "Legacy",
+      "canonical_model": "Legacy",
+      "profile_confidence": "medium",
+      "year_start": 1990,
+      "year_end": 2019
     }
   ],
   "ready_for_website_upload": false
