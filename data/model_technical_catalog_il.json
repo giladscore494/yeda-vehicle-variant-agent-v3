@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-22T05:54:21Z",
+  "generated_at": "2026-06-22T05:54:57Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -245094,6 +245094,214 @@
       "profile_confidence": "medium",
       "year_start": 2010,
       "year_end": 2017
+    },
+    {
+      "make": "Skywell",
+      "model": "ET5",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "סקייוול ET5 דף הבית",
+          "url": "https://skywell.co.il/",
+          "source_name": "Skywell Israel (Official Importer)",
+          "source_type": "official",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "סקייוול ET5 - מחירון, מפרטים, ואבזור",
+          "url": "https://www.icar.co.il/%D7%A1%D7%A7%D7%99%D7%99%D7%95%D7%95%D7%9C/%D7%A1%D7%A7%D7%99%D7%99%D7%95%D7%95%D7%9C_ET5/",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "סקייוול מרחיבה את היצע דגמי ה- ET5 בישראל - דגם XR86",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%A1%D7%A7%D7%99%D7%99%D7%95%D7%95%D7%9C-%D7%9E%D7%A8%D7%97%D7%99%D7%91%D7%94-%D7%90%D7%AA-%D7%94%D7%99%D7%A6%D7%A2-%D7%93%D7%92%D7%9E%D7%99-%D7%94-et5-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%A2%D7%9D-%D7%A1%D7%95%D7%9C%D7%9C%D7%AA-86kwh",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "year_start",
+            "horsepower_hp",
+            "fuel_type",
+            "body_type"
+          ]
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Electric Motor, 204 hp, 72 kWh battery",
+          "classification": "engine_description_with_trim"
+        },
+        {
+          "label": "Electric Motor, 204 hp, 86 kWh battery",
+          "classification": "engine_description_with_trim"
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "72 kWh",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 204,
+          "transmission": "single_speed",
+          "drivetrain": "FWD",
+          "year_start": 2021,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "86 kWh",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 204,
+          "transmission": "single_speed",
+          "drivetrain": "FWD",
+          "year_start": 2023,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1,
+              2
+            ],
+            "body_type": [
+              0,
+              1,
+              2
+            ],
+            "fuel_type": [
+              0,
+              1,
+              2
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1,
+              2
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "72 kWh",
+          "86 kWh"
+        ],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          204
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "market": "IL-confirmed",
+      "canonical_model": "ET5",
+      "profile_confidence": "medium",
+      "year_start": 2021,
+      "year_end": 2024
     }
   ],
   "ready_for_website_upload": false
