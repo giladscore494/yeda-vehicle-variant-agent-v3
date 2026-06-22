@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-22T06:05:40Z",
+  "generated_at": "2026-06-22T06:06:18Z",
   "market": "IL",
   "models": [
     {
@@ -7177,6 +7177,139 @@
       "rebuild_required": true,
       "validation_issues": [
         "technical_variants_il is empty"
+      ]
+    },
+    {
+      "make": "SsangYong",
+      "model": "Kyron",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "סאנגיונג קיירון (2006-2011) - מחירון רכב, מפרט טכני וחוות דעת | iCar",
+          "url": "https://www.icar.co.il/ssangyong/%D7%A1%D7%90%D7%A0%D7%92%D7%99%D7%95%D7%A0%D7%92_%D7%A7%D7%99%D7%99%D7%A8%D7%95%D7%9F/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "סאנגיונג קיירון - חוות דעת, מבחני דרכים, מחירונים ותחרות - אוטו",
+          "url": "https://www.auto.co.il/model/ssangyong-kyron_g281",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "SUV",
+          "fuel_type": "diesel",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 141,
+          "transmission": "5-speed automatic",
+          "drivetrain": "4WD",
+          "year_start": 2006,
+          "year_end": 2011,
+          "version_or_trim": "EX",
+          "support_level": "direct",
+          "missing_grounded_fields": [],
+          "field_sources": {
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0,
+              1
+            ],
+            "version_or_trim": [
+              0
+            ]
+          }
+        }
+      ],
+      "invalid_or_non_trim_labels": [],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "EX"
+        ],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "diesel"
+        ],
+        "engine": [
+          "2.0L turbo"
+        ],
+        "horsepower_hp": [
+          141
+        ],
+        "transmission": [
+          "5-speed automatic"
+        ],
+        "drivetrain": [
+          "4WD"
+        ]
+      },
+      "market": "IL-confirmed",
+      "canonical_model": "Kyron",
+      "profile_confidence": "medium",
+      "year_start": 2006,
+      "year_end": 2011,
+      "validation_issues": [
+        "variant[0] has no source_indexes",
+        "variant[0] support_level=direct but no source directly supports it"
       ]
     }
   ]
