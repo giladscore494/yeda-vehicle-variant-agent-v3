@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-22T06:06:18Z",
+  "generated_at": "2026-06-22T06:07:19Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -247136,6 +247136,248 @@
       "profile_confidence": "medium",
       "year_start": 2002,
       "year_end": 2023
+    },
+    {
+      "make": "SsangYong",
+      "model": "Kyron",
+      "market": "global-reference-only",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "סאנגיונג קיירון 2006-2012 מחירון, מפרטים טכניים - iCar",
+          "url": "https://www.icar.co.il/ssangyong/kyron/",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "סאנגיונג קיירון - סקירה, מפרט טכני - אוטו",
+          "url": "https://www.auto.co.il/model/ssangyong-kyron_g283",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "diesel",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 141,
+          "transmission": "5-speed automatic",
+          "drivetrain": "4WD",
+          "year_start": 2006,
+          "year_end": 2012,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "2.3L",
+          "engine_displacement_l": 2.3,
+          "horsepower_hp": 150,
+          "transmission": "5-speed automatic",
+          "drivetrain": "4WD",
+          "year_start": 2006,
+          "year_end": 2012,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "diesel",
+          "engine": "2.7L turbo",
+          "engine_displacement_l": 2.7,
+          "horsepower_hp": 165,
+          "transmission": "5-speed automatic",
+          "drivetrain": "4WD",
+          "year_start": 2006,
+          "year_end": 2010,
+          "support_level": "direct",
+          "source_indexes": [
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "diesel",
+          "petrol"
+        ],
+        "engine": [
+          "2.0L turbo",
+          "2.3L",
+          "2.7L turbo"
+        ],
+        "horsepower_hp": [
+          141,
+          150,
+          165
+        ],
+        "transmission": [
+          "5-speed automatic"
+        ],
+        "drivetrain": [
+          "4WD"
+        ]
+      },
+      "invalid_or_non_trim_labels": {
+        "XDi": "engine_technology",
+        "2.0": "engine_displacement",
+        "2.3": "engine_displacement",
+        "2.7": "engine_displacement"
+      },
+      "canonical_model": "Kyron",
+      "profile_confidence": "medium",
+      "year_start": 2006,
+      "year_end": 2012
     }
   ],
   "ready_for_website_upload": false
