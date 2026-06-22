@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-22T06:07:19Z",
+  "generated_at": "2026-06-22T06:23:08Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -247378,6 +247378,321 @@
       "profile_confidence": "medium",
       "year_start": 2006,
       "year_end": 2012
+    },
+    {
+      "make": "SsangYong",
+      "model": "Rexton",
+      "market": "IL-confirmed",
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Base / EX",
+          "classification": "compound_and_non_trim"
+        },
+        {
+          "label": "EX / Premium",
+          "classification": "compound_trim"
+        },
+        {
+          "label": "Base",
+          "classification": "non_trim"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "סאנגיונג רקסטון החדש 2021 בישראל - מחיר החל מ-249,900 שקל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/סאנגיונג-רקסטון-החדש-2021-בישראל-מחיר-החל-מ-249900-שקל",
+          "source_name": "Cartube Israel",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "סאנגיונג רקסטון החדש 2018 בישראל - מחיר החל מ-226,900 שקל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/סאנגיונג-רקסטון-החדש-2018-בישראל-מחיר-החל-מ-226900-שקל",
+          "source_name": "Cartube Israel",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "סאנגיונג רקסטון (2013-2017) - מפרט טכני",
+          "url": "https://www.auto.co.il/model/ssangyong-rexton_g327",
+          "source_name": "Auto.co.il",
+          "source_type": "specs",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "סאנגיונג רקסטון 2002-2012 מפרט טכני",
+          "url": "https://www.icar.co.il/סאנגיונג/סאנגיונג_רקסטון/סאנגיונג_רקסטון_יד_שניה_דיי1/",
+          "source_name": "iCar Israel",
+          "source_type": "specs",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "SUV",
+          "fuel_type": "diesel",
+          "engine": "2.2L turbo",
+          "engine_displacement_l": 2.2,
+          "horsepower_hp": 202,
+          "transmission": "8-speed automatic",
+          "drivetrain": "4WD",
+          "year_start": 2021,
+          "year_end": 2023,
+          "version_or_trim": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ],
+            "version_or_trim": []
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "SUV",
+          "fuel_type": "diesel",
+          "engine": "2.2L turbo",
+          "engine_displacement_l": 2.2,
+          "horsepower_hp": 181,
+          "transmission": "7-speed automatic",
+          "drivetrain": "4WD",
+          "year_start": 2018,
+          "year_end": 2020,
+          "version_or_trim": null,
+          "support_level": "direct",
+          "source_indexes": [
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ],
+            "version_or_trim": []
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "SUV",
+          "fuel_type": "diesel",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 155,
+          "transmission": "5-speed automatic",
+          "drivetrain": "4WD",
+          "year_start": 2013,
+          "year_end": 2017,
+          "version_or_trim": null,
+          "support_level": "direct",
+          "source_indexes": [
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              2
+            ],
+            "engine": [
+              2
+            ],
+            "engine_displacement_l": [
+              2
+            ],
+            "horsepower_hp": [
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              2
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              2
+            ],
+            "version_or_trim": []
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "SUV",
+          "fuel_type": "diesel",
+          "engine": "2.7L turbo",
+          "engine_displacement_l": 2.7,
+          "horsepower_hp": 165,
+          "transmission": "5-speed automatic",
+          "drivetrain": "4WD",
+          "year_start": 2002,
+          "year_end": 2012,
+          "version_or_trim": null,
+          "support_level": "direct",
+          "source_indexes": [
+            3
+          ],
+          "field_sources": {
+            "body_type": [
+              3
+            ],
+            "fuel_type": [
+              3
+            ],
+            "engine": [
+              3
+            ],
+            "engine_displacement_l": [
+              3
+            ],
+            "horsepower_hp": [
+              3
+            ],
+            "transmission": [
+              3
+            ],
+            "drivetrain": [
+              3
+            ],
+            "year_start": [
+              3
+            ],
+            "year_end": [
+              3
+            ],
+            "version_or_trim": []
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "diesel"
+        ],
+        "engine": [
+          "2.2L turbo",
+          "2.0L turbo",
+          "2.7L turbo"
+        ],
+        "horsepower_hp": [
+          202,
+          181,
+          155,
+          165
+        ],
+        "transmission": [
+          "8-speed automatic",
+          "7-speed automatic",
+          "5-speed automatic"
+        ],
+        "drivetrain": [
+          "4WD"
+        ]
+      },
+      "canonical_model": "Rexton",
+      "profile_confidence": "medium",
+      "year_start": 2002,
+      "year_end": 2023
     }
   ],
   "ready_for_website_upload": false
