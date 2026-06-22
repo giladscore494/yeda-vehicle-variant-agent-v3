@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-22T09:58:42Z",
+  "generated_at": "2026-06-22T09:59:28Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -250563,6 +250563,187 @@
       "profile_confidence": "medium",
       "year_start": 2003,
       "year_end": 2024
+    },
+    {
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "סובארו סולטרה - מחירון רכב, מפרט טכני וחדשות",
+          "url": "https://www.icar.co.il/%D7%A1%D7%95%D7%91%D7%90%D7%A8%D7%95/%D7%A1%D7%95%D7%91%D7%90%D7%A8%D7%95_%D7%A1%D7%95%D7%9C%D7%98%D7%A8%D7%94/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "סובארו סולטרה החשמלי במחירון ומפרט",
+          "url": "https://www.cartube.co.il/catalog/subaru/solterra",
+          "source_name": "Cartube",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 215,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2022,
+          "year_end": null,
+          "version_or_trim": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [],
+            "version_or_trim": []
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 201,
+          "transmission": "single_speed",
+          "drivetrain": "FWD",
+          "year_start": 2022,
+          "year_end": null,
+          "version_or_trim": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [],
+            "version_or_trim": []
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Dual electric motors, 215 hp (160 kW)",
+          "classification": "engine_and_horsepower_spec"
+        },
+        {
+          "label": "Single electric motor, 201 hp (150 kW)",
+          "classification": "engine_and_horsepower_spec"
+        },
+        {
+          "label": "Single-speed EV",
+          "classification": "transmission_spec"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          215,
+          201
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "AWD",
+          "FWD"
+        ]
+      },
+      "market": "global-reference-only",
+      "make": "Subaru",
+      "model": "Solterra",
+      "canonical_model": "Solterra",
+      "profile_confidence": "medium",
+      "year_start": 2022,
+      "year_end": null
     }
   ],
   "ready_for_website_upload": false
