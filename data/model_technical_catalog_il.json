@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T15:55:22Z",
+  "generated_at": "2026-06-23T15:56:03Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -255325,6 +255325,191 @@
       "profile_confidence": "medium",
       "year_start": 2013,
       "year_end": 2026
+    },
+    {
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "סוזוקי סמוראי (1984-1998) מפרט טכני",
+          "url": "https://www.auto.co.il/model/suzuki-samurai",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine_displacement_l",
+            "engine",
+            "transmission",
+            "drivetrain",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "מדריך קנייה: סוזוקי סמוראי משומש",
+          "url": "https://www.jeepolog.com/forums/content.php/2012",
+          "source_name": "Jeepolog.com",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "horsepower_hp",
+            "engine",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "1.3L",
+          "engine_displacement_l": 1.3,
+          "horsepower_hp": 69,
+          "transmission": "5-speed manual",
+          "drivetrain": "4WD",
+          "year_start": 1990,
+          "year_end": 1998,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": [],
+          "invalid_or_non_trim_labels": {
+            "Base": "base_or_standard",
+            "Standard": "base_or_standard",
+            "1.3": "engine_displacement",
+            "69hp": "horsepower"
+          }
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Convertible",
+          "fuel_type": "petrol",
+          "engine": "1.3L",
+          "engine_displacement_l": 1.3,
+          "horsepower_hp": 69,
+          "transmission": "5-speed manual",
+          "drivetrain": "4WD",
+          "year_start": 1990,
+          "year_end": 1998,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": [],
+          "invalid_or_non_trim_labels": {
+            "Base": "base_or_standard",
+            "Standard": "base_or_standard",
+            "1.3": "engine_displacement",
+            "69hp": "horsepower",
+            "Open": "body_type",
+            "Soft-top": "body_type"
+          }
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "SUV",
+          "Convertible"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "1.3L"
+        ],
+        "horsepower_hp": [
+          69
+        ],
+        "transmission": [
+          "5-speed manual"
+        ],
+        "drivetrain": [
+          "4WD"
+        ]
+      },
+      "market": "IL-confirmed",
+      "make": "Suzuki",
+      "model": "Samurai",
+      "canonical_model": "Samurai",
+      "profile_confidence": "medium",
+      "year_start": 1990,
+      "year_end": 1998
     }
   ],
   "ready_for_website_upload": false
