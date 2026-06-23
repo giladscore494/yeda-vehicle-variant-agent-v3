@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T16:43:26Z",
+  "generated_at": "2026-06-23T16:43:54Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -264104,6 +264104,307 @@
       "profile_confidence": "medium",
       "year_start": 2020,
       "year_end": 2024
+    },
+    {
+      "make": "Toyota",
+      "model": "Proace City",
+      "technical_variants_il": [
+        {
+          "body_type": "Van",
+          "fuel_type": "diesel",
+          "engine": "1.5L turbo",
+          "engine_displacement_l": 1.5,
+          "horsepower_hp": 130,
+          "transmission": "8-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2020,
+          "year_end": 2025,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Van",
+          "fuel_type": "diesel",
+          "engine": "1.5L turbo",
+          "engine_displacement_l": 1.5,
+          "horsepower_hp": 100,
+          "transmission": "manual",
+          "drivetrain": "FWD",
+          "year_start": 2020,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Van",
+          "fuel_type": "diesel",
+          "engine": "1.5L turbo",
+          "engine_displacement_l": 1.5,
+          "horsepower_hp": 75,
+          "transmission": "manual",
+          "drivetrain": "FWD",
+          "year_start": 2020,
+          "year_end": 2021,
+          "support_level": "direct",
+          "source_indexes": [
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Van",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 136,
+          "transmission": "single_speed",
+          "drivetrain": "FWD",
+          "year_start": 2023,
+          "year_end": 2025,
+          "support_level": "direct",
+          "source_indexes": [
+            2,
+            3
+          ],
+          "field_sources": {
+            "body_type": [
+              2,
+              3
+            ],
+            "fuel_type": [
+              2,
+              3
+            ],
+            "engine": [
+              2,
+              3
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              2,
+              3
+            ],
+            "transmission": [
+              3
+            ],
+            "drivetrain": [
+              3
+            ],
+            "year_start": [
+              3
+            ],
+            "year_end": [
+              3
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "מפרט טכני טויוטה PROACE CITY - Toyota Israel",
+          "url": "https://www.toyota.co.il/new-cars/proace-city/specs",
+          "source_name": "Toyota Israel Official",
+          "source_type": "official",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "טויוטה פרואייס סיטי מפרט טכני - iCar",
+          "url": "https://www.icar.co.il/models/%D7%98%D7%95%D7%99%D7%95%D7%98%D7%94_%D7%A4%D7%A8%D7%95%D7%90%D7%99%D7%99%D7%A1_%D7%A1%D7%99%D7%98%D7%99/%D7%9E%D7%A4%D7%A8%D7%98_%D7%98%D7%9B%D7%A0%D7%99",
+          "source_name": "iCar Israel",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "טויוטה מסחריות חשמליות - Toyota Israel",
+          "url": "https://www.toyota.co.il/new-cars/proace-city-electric",
+          "source_name": "Toyota Israel Official",
+          "source_type": "official",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "טויוטה פרואייס סיטי חשמלית מפרט טכני - iCar",
+          "url": "https://www.icar.co.il/models/%D7%98%D7%95%D7%99%D7%95%D7%98%D7%94_%D7%A4%D7%A8%D7%95%D7%90%D7%99%D7%99%D7%A1_%D7%A1%D7%99%D7%98%D7%99_EV/%D7%9E%D7%A4%D7%A8%D7%98_%D7%98%D7%9B%D7%A0%D7%99",
+          "source_name": "iCar Israel",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Van"
+        ],
+        "fuel_type": [
+          "diesel",
+          "electric"
+        ],
+        "engine": [
+          "1.5L turbo",
+          "electric"
+        ],
+        "horsepower_hp": [
+          130,
+          100,
+          75,
+          136
+        ],
+        "transmission": [
+          "8-speed automatic",
+          "manual",
+          "single_speed"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "market": "IL-likely",
+      "canonical_model": "Proace City",
+      "profile_confidence": "medium",
+      "year_start": 2020,
+      "year_end": 2025
     }
   ],
   "ready_for_website_upload": false
