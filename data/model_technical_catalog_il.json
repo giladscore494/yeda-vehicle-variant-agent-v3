@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T16:46:31Z",
+  "generated_at": "2026-06-23T16:47:04Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -265273,6 +265273,193 @@
       "profile_confidence": "medium",
       "year_start": 2021,
       "year_end": 2024
+    },
+    {
+      "make": "Toyota",
+      "model": "Starlet",
+      "market": "IL-confirmed",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "טויוטה סטארלט (1996-1999) - מחירון, מפרטים, אמינות",
+          "url": "https://www.auto.co.il/model/toyota-starlet_g172",
+          "source_name": "Auto.co.il (KML)",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "מחירון רכב יד שנייה - טויוטה סטארלט XLi",
+          "url": "https://www.yad2.co.il/vehicles/prices",
+          "source_name": "Yad2 Levi Yitzhak",
+          "source_type": "marketplace",
+          "supports": [
+            "version_or_trim",
+            "year_start",
+            "year_end",
+            "transmission"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "XLi",
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "1.3L",
+          "engine_displacement_l": 1.3,
+          "horsepower_hp": 75,
+          "transmission": "5-speed manual",
+          "drivetrain": "FWD",
+          "year_start": 1996,
+          "year_end": 1999,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "XLi",
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "1.3L",
+          "engine_displacement_l": 1.3,
+          "horsepower_hp": 75,
+          "transmission": "3-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 1996,
+          "year_end": 1999,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "1.3",
+          "classification": "engine_displacement"
+        },
+        {
+          "label": "75 hp",
+          "classification": "horsepower"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "XLi"
+        ],
+        "body_type": [
+          "Hatchback"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "1.3L"
+        ],
+        "horsepower_hp": [
+          75
+        ],
+        "transmission": [
+          "5-speed manual",
+          "3-speed automatic"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "canonical_model": "Starlet",
+      "profile_confidence": "medium",
+      "year_start": 1996,
+      "year_end": 1999
     }
   ],
   "ready_for_website_upload": false
