@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T17:01:33Z",
+  "generated_at": "2026-06-23T17:02:13Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -268695,6 +268695,127 @@
       "canonical_model": "Corrado",
       "profile_confidence": "medium",
       "year_start": 1988,
+      "year_end": 1995
+    },
+    {
+      "make": "Volkswagen",
+      "model": "Corrado",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "פולקסווגן קוראדו (1989-1995) - מפרט טכני מחירון",
+          "url": "https://www.auto.co.il/model/volkswagen-corrado",
+          "source_name": "Auto.co.il",
+          "source_type": "israeli_editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "פולקסווגן קוראדו שנות ה-90 בישראל - קלאסיות",
+          "url": "https://carsforum.co.il/topic/volkswagen-corrado-specs-il/",
+          "source_name": "CarsForum Israel",
+          "source_type": "israeli_forum",
+          "supports": [
+            "transmission",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "2.0L",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 136,
+          "transmission": "5-speed manual",
+          "drivetrain": "FWD",
+          "year_start": 1992,
+          "year_end": 1995,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "16V",
+          "classification": "engine_configuration"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Coupe"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "2.0L"
+        ],
+        "horsepower_hp": [
+          136
+        ],
+        "transmission": [
+          "5-speed manual"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "market": "global-reference-only",
+      "canonical_model": "Corrado",
+      "profile_confidence": "medium",
+      "year_start": 1992,
       "year_end": 1995
     }
   ],
