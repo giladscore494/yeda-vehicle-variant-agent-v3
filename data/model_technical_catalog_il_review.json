@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T16:01:04Z",
+  "generated_at": "2026-06-23T16:01:54Z",
   "market": "IL",
   "models": [
     {
@@ -8379,6 +8379,94 @@
           ],
           "possible_duplicate_rows": 0,
           "validation_id_count": 7
+        },
+        "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
+      },
+      "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
+      ]
+    },
+    {
+      "market": "IL-confirmed",
+      "make": "Suzuki",
+      "model": "Wagon R+",
+      "canonical_model": "Wagon R+",
+      "year_start": null,
+      "year_end": null,
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [],
+      "profile_confidence": null,
+      "notes": [],
+      "error": "Extra data: line 243 column 1 (char 5755)",
+      "request_payload": {
+        "task": "build_israeli_model_technical_catalog",
+        "market": "IL-confirmed",
+        "make": "Suzuki",
+        "model": "Wagon R+",
+        "raw_database_values": {
+          "years_seen": [
+            1998,
+            2000,
+            2003,
+            2006
+          ],
+          "trims_seen": [
+            "GL",
+            "GLX"
+          ],
+          "engines_seen": [
+            "1.0L K10A I4 petrol, 65 hp",
+            "1.2L K12A I4 petrol, 69 hp",
+            "1.3L G13BB I4 petrol, 76 hp",
+            "1.3L M13A I4 petrol, 94 hp"
+          ],
+          "horsepower_seen": [],
+          "transmissions_seen": [
+            "4-speed automatic",
+            "5-speed manual"
+          ],
+          "body_types_seen": [
+            "Hatchback"
+          ],
+          "fuel_types_seen": [
+            "Petrol"
+          ],
+          "drivetrains_seen": [
+            "FWD"
+          ]
+        },
+        "sample_validation_ids": [
+          "VAL-003282",
+          "VAL-003283",
+          "VAL-003284",
+          "VAL-003285"
+        ],
+        "source_indexes": [
+          1382,
+          1383,
+          1384,
+          1385
+        ],
+        "metadata_hints": {
+          "priorities_seen": [
+            "low"
+          ],
+          "validation_routes_seen": [
+            "deterministic_or_skip_ai"
+          ],
+          "possible_duplicate_rows": 0,
+          "validation_id_count": 4
         },
         "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
       },
