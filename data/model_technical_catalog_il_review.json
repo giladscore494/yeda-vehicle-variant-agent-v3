@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T17:27:03Z",
+  "generated_at": "2026-06-23T17:28:15Z",
   "market": "IL",
   "models": [
     {
@@ -10720,6 +10720,147 @@
         "variant[0] support_level=direct but no source directly supports it",
         "variant[1] has no source_indexes",
         "variant[1] support_level=direct but no source directly supports it"
+      ]
+    },
+    {
+      "make": "Volkswagen",
+      "model": "ID.7",
+      "market": "IL-confirmed",
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "פולקסווגן ID.7 נחתה בישראל לבדיקות ראשונות (Volkswagen ID.7 landed in Israel for initial tests)",
+          "url": "https://cars.walla.co.il/item/3616641",
+          "source_name": "Walla Auto",
+          "source_type": "editorial",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "פולקסווגן ID7 נחשפת - החשמלית הבכירה של פולקסווגן (Volkswagen ID7 revealed - VW's flagship EV)",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%A4%D7%95%D7%9C%D7%A7%D7%A1%D7%95%D7%95%D7%92%D7%9F-id7-%D7%A0%D7%97%D7%A9%D7%A4%D7%AA-%D7%94%D7%97%D7%A9%D7%9E%D7%9C%D7%99%D7%AA-%D7%94%D7%91%D7%9B%D7%99%D7%A8%D7%94-%D7%A9%D7%9C-%D7%A4%D7%95%D7%9C%D7%A7%D7%A1%D7%95%D7%95%D7%92%D7%9F",
+          "source_name": "Cartube Israel",
+          "source_type": "editorial",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "drivetrain",
+            "year_start"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Pro",
+          "body_type": "Liftback",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 286,
+          "transmission": null,
+          "drivetrain": "RWD",
+          "year_start": 2024,
+          "year_end": null,
+          "support_level": "indirect",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1,
+              2
+            ],
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "transmission"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Pro"
+        ],
+        "body_type": [
+          "Liftback"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          286
+        ],
+        "transmission": [],
+        "drivetrain": [
+          "RWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Electric motor, 286 hp (210 kW), 77 kWh net battery",
+          "classification": "engine_specification"
+        },
+        {
+          "label": "Single-speed EV",
+          "classification": "transmission"
+        },
+        {
+          "label": "Fastback",
+          "classification": "body_type"
+        },
+        {
+          "label": "Electric",
+          "classification": "fuel_type"
+        }
+      ],
+      "canonical_model": "ID.7",
+      "profile_confidence": "medium",
+      "year_start": 2024,
+      "year_end": null,
+      "validation_issues": [
+        "variant[0] required website field 'transmission' is null/empty",
+        "variant[0] required field 'transmission' listed in missing_grounded_fields"
       ]
     }
   ]
