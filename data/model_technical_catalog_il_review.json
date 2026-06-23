@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T16:04:14Z",
+  "generated_at": "2026-06-23T16:04:56Z",
   "market": "IL",
   "models": [
     {
@@ -8603,6 +8603,60 @@
         "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
       },
       "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
+      ]
+    },
+    {
+      "make": "Tesla",
+      "model": "Cybertruck",
+      "market": "global-reference-only",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "הסייברטראק של טסלה נחת בישראל. אל תצפו לראות אותו בכביש",
+          "url": "https://www.calcalist.co.il/local_news/car/article/syb7aezxc",
+          "source_name": "Calcalist",
+          "source_type": "editorial",
+          "supports": []
+        },
+        {
+          "source_index": 1,
+          "title": "טסלה סייברטראק בישראל - לתצוגה בלבד",
+          "url": "https://www.cartube.co.il/חדשות-רכב/טסלה-סייברטראק-בישראל-לתצוגה-בלבד",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": []
+        }
+      ],
+      "technical_variants_il": [],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "All-Wheel Drive",
+          "classification": "drivetrain_label"
+        },
+        {
+          "label": "Cyberbeast",
+          "classification": "trim_not_sold_in_market"
+        },
+        {
+          "label": "Rear-Wheel Drive",
+          "classification": "drivetrain_label"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "canonical_model": "Cybertruck",
+      "profile_confidence": "medium",
+      "year_start": null,
+      "year_end": null,
       "validation_issues": [
         "technical_variants_il is empty"
       ]
