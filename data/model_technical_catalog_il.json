@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T16:29:46Z",
+  "generated_at": "2026-06-23T16:30:31Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -261241,6 +261241,142 @@
       "profile_confidence": "medium",
       "year_start": 2021,
       "year_end": 2024
+    },
+    {
+      "make": "Toyota",
+      "model": "Highlander",
+      "technical_variants_il": [
+        {
+          "body_type": "SUV",
+          "fuel_type": "hybrid",
+          "engine": "2.5L",
+          "engine_displacement_l": 2.5,
+          "horsepower_hp": 248,
+          "transmission": "cvt",
+          "drivetrain": "AWD",
+          "year_start": 2021,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "טויוטה היילנדר - רכב שטח 7 מקומות יוקרתי | Toyota Israel",
+          "url": "https://www.toyota.co.il/models/highlander",
+          "source_name": "Toyota Israel Official",
+          "source_type": "official_importer",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "טויוטה היילנדר מחירון, מפרט טכני וחוות דעת - iCar",
+          "url": "https://www.icar.co.il/טויוטה/טויוטה_היילנדר/טויוטה_היילנדר_חדש/",
+          "source_name": "iCar Israel",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "hybrid"
+        ],
+        "engine": [
+          "2.5L"
+        ],
+        "horsepower_hp": [
+          248
+        ],
+        "transmission": [
+          "cvt"
+        ],
+        "drivetrain": [
+          "AWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "2.5L Hybrid",
+          "classification": "engine_spec"
+        },
+        {
+          "label": "248 hp",
+          "classification": "horsepower"
+        },
+        {
+          "label": "A25A-FXS",
+          "classification": "engine_code"
+        },
+        {
+          "label": "e-CVT",
+          "classification": "transmission_spec"
+        }
+      ],
+      "market": "IL-confirmed",
+      "canonical_model": "Highlander",
+      "profile_confidence": "medium",
+      "year_start": 2021,
+      "year_end": null
     }
   ],
   "ready_for_website_upload": false
