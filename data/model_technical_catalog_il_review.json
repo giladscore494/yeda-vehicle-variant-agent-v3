@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T17:58:39Z",
+  "generated_at": "2026-06-23T17:59:32Z",
   "market": "IL",
   "models": [
     {
@@ -11544,6 +11544,266 @@
       "validation_issues": [
         "variant[0] required website field 'transmission' is null/empty",
         "variant[0] required field 'transmission' listed in missing_grounded_fields"
+      ]
+    },
+    {
+      "make": "Volvo",
+      "model": "EX90",
+      "market": "global-reference-only",
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "וולוו EX90 החדש - מפרט ורמות גימור",
+          "url": "https://www.icar.co.il/וולוו/וולוו_EX90/וולוו_EX90_חדש/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "וולוו EX90 - רכב פנאי שטח חשמלי 7 מקומות",
+          "url": "https://volvocars.meir.co.il/models/ex90/",
+          "source_name": "Volvo Cars Israel (Meir Group)",
+          "source_type": "official_importer",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "וולוו EX90 החשמלי נחשף - היורש של ה-XC90",
+          "url": "https://www.cartube.co.il/חדשות-רכב/וולוו-ex90-החשמלי-נחשף-היורש-של-ה-xc90",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 4,
+          "title": "גרסת בסיס חדשה לוולוו EX90 עם הנעה אחורית ומנוע יחיד",
+          "url": "https://www.cartube.co.il/חדשות-רכב/גרסת-בסיס-חדשה-לוולוו-ex90-עם-הנעה-אחורית",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "drivetrain",
+            "year_start"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 279,
+          "transmission": "single_speed",
+          "drivetrain": "RWD",
+          "year_start": 2024,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2,
+            4
+          ],
+          "field_sources": {
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2,
+              4
+            ],
+            "engine": [
+              1,
+              2,
+              4
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              1,
+              4
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1,
+              4
+            ],
+            "year_start": [
+              1,
+              4
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 408,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2024,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2,
+            3
+          ],
+          "field_sources": {
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2,
+              3
+            ],
+            "engine": [
+              1,
+              2,
+              3
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              1,
+              3
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1,
+              3
+            ],
+            "year_start": [
+              1,
+              3
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Performance",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 517,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2024,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2,
+            3
+          ],
+          "field_sources": {
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2,
+              3
+            ],
+            "engine": [
+              1,
+              2,
+              3
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              1,
+              3
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1,
+              3
+            ],
+            "year_start": [
+              1,
+              3
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": {
+        "Single Motor": "powertrain_designation_not_trim",
+        "Twin Motor": "powertrain_designation_not_trim",
+        "Single Electric Motor, 279 hp": "engine_and_power_description",
+        "single-speed EV": "transmission_description"
+      },
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Performance"
+        ],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          279,
+          408,
+          517
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "RWD",
+          "AWD"
+        ]
+      },
+      "canonical_model": "EX90",
+      "profile_confidence": "medium",
+      "year_start": 2024,
+      "year_end": null,
+      "validation_issues": [
+        "variant[2] non-null field 'version_or_trim' has no field_sources entry"
       ]
     }
   ]
