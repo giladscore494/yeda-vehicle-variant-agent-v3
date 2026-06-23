@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T17:03:39Z",
+  "generated_at": "2026-06-23T17:04:26Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -269339,6 +269339,112 @@
       "profile_confidence": "medium",
       "year_start": 2006,
       "year_end": 2024
+    },
+    {
+      "make": "Volkswagen",
+      "model": "e-up!",
+      "market": "IL",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "פולקסווגן e-Up החשמלית בישראל - מחיר החל מ-114,900 שקל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%A4%D7%95%D7%9C%D7%A7%D7%A1%D7%95%D7%95%D7%92%D7%9F-e-up-%D7%94%D7%97%D7%A9%D7%9E%D7%9C%D7%99%D7%AA-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-114-900-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "פולקסווגן e-up! - מחירון, מפרטים, אמינות וחוות דעת",
+          "url": "https://www.icar.co.il/%D7%A4%D7%95%D7%9C%D7%A7%D7%A1%D7%95%D7%95%D7%92%D7%9F/e-up!/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "drivetrain",
+            "transmission"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "invalid_or_non_trim_labels": [
+            {
+              "label": "Electric",
+              "classification": "fuel_type_not_trim"
+            }
+          ],
+          "body_type": "Hatchback",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 83,
+          "transmission": "single_speed",
+          "drivetrain": "FWD",
+          "year_start": 2020,
+          "year_end": null,
+          "support_level": "indirect",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Hatchback"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          83
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "canonical_model": "e-up!",
+      "profile_confidence": "medium",
+      "year_start": 2020,
+      "year_end": null
     }
   ],
   "ready_for_website_upload": false
