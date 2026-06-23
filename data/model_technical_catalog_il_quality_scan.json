@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-06-23T19:07:53Z",
+  "generated_at": "2026-06-23T19:59:13Z",
   "totals": {
-    "models": 997,
-    "findings": 1277,
-    "grounded_cells": 32857,
-    "total_cells": 32889,
-    "marketplace_citation_share": 0.03042730519910041,
-    "official_citations": 52223,
+    "models": 994,
+    "findings": 1280,
+    "grounded_cells": 32839,
+    "total_cells": 32871,
+    "marketplace_citation_share": 0.03044399062098177,
+    "official_citations": 52177,
     "bug": 26,
-    "leak": 234,
+    "leak": 239,
     "normalization": 0,
-    "structure": 1017
+    "structure": 1015
   },
   "findings": [
     {
@@ -8533,13 +8533,6 @@
       "detail": "candidate designation wrongly rejected: V60190hp"
     },
     {
-      "type": "grounding_completeness",
-      "severity": "structure",
-      "make": "Volvo",
-      "model": "V70",
-      "detail": "18/18 grounded cells (100.0%)"
-    },
-    {
       "type": "source_domain",
       "severity": "leak",
       "make": "Volvo",
@@ -8601,13 +8594,6 @@
       "make": "Voyah",
       "model": "Dream",
       "detail": "15/15 grounded cells (100.0%)"
-    },
-    {
-      "type": "grounding_completeness",
-      "severity": "structure",
-      "make": "Voyah",
-      "model": "Free",
-      "detail": "8/8 grounded cells (100.0%)"
     },
     {
       "type": "grounding_completeness",
@@ -8678,6 +8664,76 @@
       "make": "Zeekr",
       "model": "001",
       "detail": "27/27 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Volvo",
+      "model": "V70",
+      "detail": "46/46 grounded cells (100.0%)"
+    },
+    {
+      "type": "source_domain",
+      "severity": "leak",
+      "make": "Volvo",
+      "model": "XC90",
+      "detail": "non Israeli source host: volvocars.com"
+    },
+    {
+      "type": "source_domain",
+      "severity": "leak",
+      "make": "Volvo",
+      "model": "XC90",
+      "detail": "non Israeli source host: volvocars.com"
+    },
+    {
+      "type": "source_domain",
+      "severity": "leak",
+      "make": "Volvo",
+      "model": "XC90",
+      "detail": "non Israeli source host: volvocars.com"
+    },
+    {
+      "type": "source_domain",
+      "severity": "leak",
+      "make": "Volvo",
+      "model": "XC90",
+      "detail": "non Israeli source host: volvocars.com"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Volvo",
+      "model": "XC90",
+      "detail": "69/69 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Voyah",
+      "model": "Free",
+      "detail": "8/8 grounded cells (100.0%)"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "XPeng",
+      "model": "P7",
+      "detail": "18/18 grounded cells (100.0%)"
+    },
+    {
+      "type": "source_domain",
+      "severity": "leak",
+      "make": "Zeekr",
+      "model": "X",
+      "detail": "non Israeli source host: zeekrlife.com"
+    },
+    {
+      "type": "grounding_completeness",
+      "severity": "structure",
+      "make": "Zeekr",
+      "model": "X",
+      "detail": "18/18 grounded cells (100.0%)"
     },
     {
       "type": "source_domain",
@@ -8892,41 +8948,6 @@
     {
       "type": "grounding_completeness",
       "severity": "structure",
-      "make": "Volvo",
-      "model": "V70",
-      "detail": "46/46 grounded cells (100.0%)"
-    },
-    {
-      "type": "grounding_completeness",
-      "severity": "structure",
-      "make": "Volvo",
-      "model": "XC90",
-      "detail": "70/70 grounded cells (100.0%)"
-    },
-    {
-      "type": "grounding_completeness",
-      "severity": "structure",
-      "make": "Voyah",
-      "model": "Free",
-      "detail": "7/7 grounded cells (100.0%)"
-    },
-    {
-      "type": "grounding_completeness",
-      "severity": "structure",
-      "make": "XPeng",
-      "model": "P7",
-      "detail": "14/14 grounded cells (100.0%)"
-    },
-    {
-      "type": "grounding_completeness",
-      "severity": "structure",
-      "make": "Zeekr",
-      "model": "X",
-      "detail": "14/14 grounded cells (100.0%)"
-    },
-    {
-      "type": "grounding_completeness",
-      "severity": "structure",
       "make": "Suzuki",
       "model": "Fronx",
       "detail": "8/8 grounded cells (100.0%)"
@@ -8954,10 +8975,10 @@
     }
   ],
   "counts_by_type": {
-    "grounding_completeness": 960,
+    "grounding_completeness": 958,
     "year_split_duplicates": 57,
     "source_tier_inversion": 207,
-    "source_domain": 27,
+    "source_domain": 32,
     "false_rejection_scan": 18,
     "support_level_invariant": 8
   }
