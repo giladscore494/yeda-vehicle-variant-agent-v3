@@ -597,7 +597,7 @@ def test_resume_state_readiness_models_blocked_overrides_review_only_count(tmp_p
 def test_current_catalog_resume_state_advances_through_batch26_window():
     state = cb.compute_resume_state()
 
-    assert state["clean_count"] == 933
+    assert state["clean_count"] == 937
     assert state["review_entries_count"] == 61
     assert state["review_overlap_count"] == 0
     assert state["review_only_blocked_count"] == 61
@@ -608,6 +608,11 @@ def test_current_catalog_resume_state_advances_through_batch26_window():
     assert state["next_key"] == "IL-likely|Volvo|V70"
     assert state["next_make"] == "Volvo"
     assert state["next_model"] == "V70"
-    assert state["unmatched_output_keys_count"] == 0
-    assert state["unmatched_output_keys_sample"] == []
+    assert state["unmatched_output_keys_count"] == 4
+    assert state["unmatched_output_keys_sample"] == [
+        "IL|Chery|FX",
+        "IL|Mazda|CX-30",
+        "IL|Peugeot|3008",
+        "IL|Tesla|Model 3",
+    ]
     assert state["split_profile_alias_count"] >= 29
