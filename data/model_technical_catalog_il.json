@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T16:28:35Z",
+  "generated_at": "2026-06-23T16:29:46Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -260936,6 +260936,311 @@
       "profile_confidence": "medium",
       "year_start": 2012,
       "year_end": 2020
+    },
+    {
+      "technical_variants_il": [
+        {
+          "body_type": "SUV",
+          "fuel_type": "hybrid",
+          "engine": "2.5L",
+          "engine_displacement_l": 2.5,
+          "horsepower_hp": 244,
+          "transmission": "cvt",
+          "drivetrain": "AWD",
+          "year_start": 2021,
+          "year_end": 2022,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": [
+              1,
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "SUV",
+          "fuel_type": "hybrid",
+          "engine": "2.5L",
+          "engine_displacement_l": 2.5,
+          "horsepower_hp": 248,
+          "transmission": "cvt",
+          "drivetrain": "AWD",
+          "year_start": 2023,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              2
+            ],
+            "fuel_type": [
+              0,
+              2
+            ],
+            "engine": [
+              0,
+              2
+            ],
+            "engine_displacement_l": [
+              0,
+              2
+            ],
+            "horsepower_hp": [
+              0,
+              2
+            ],
+            "transmission": [
+              0,
+              2
+            ],
+            "drivetrain": [
+              0,
+              2
+            ],
+            "year_start": [
+              0,
+              2
+            ],
+            "year_end": [
+              0,
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "3.5L v6",
+          "engine_displacement_l": 3.5,
+          "horsepower_hp": 295,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2021,
+          "year_end": 2022,
+          "support_level": "direct",
+          "source_indexes": [
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              2
+            ],
+            "engine": [
+              2
+            ],
+            "engine_displacement_l": [
+              2
+            ],
+            "horsepower_hp": [
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              2
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "2.4L turbo",
+          "engine_displacement_l": 2.4,
+          "horsepower_hp": 265,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2023,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              2
+            ],
+            "fuel_type": [
+              2
+            ],
+            "engine": [
+              2
+            ],
+            "engine_displacement_l": [
+              2
+            ],
+            "horsepower_hp": [
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              2
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "2.4L Turbo Petrol (T24A-FTS), 265 hp",
+          "classification": "engine_spec"
+        },
+        {
+          "label": "3.5L V6 Petrol (2GR-FKS), 295 hp",
+          "classification": "engine_spec"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "hybrid",
+          "petrol"
+        ],
+        "engine": [
+          "2.5L",
+          "3.5L v6",
+          "2.4L turbo"
+        ],
+        "horsepower_hp": [
+          244,
+          248,
+          295,
+          265
+        ],
+        "transmission": [
+          "cvt",
+          "8-speed automatic"
+        ],
+        "drivetrain": [
+          "AWD"
+        ]
+      },
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "טויוטה היילנדר - מפרט טכני",
+          "url": "https://www.toyota.co.il/models/highlander",
+          "source_name": "Toyota Israel Official",
+          "source_type": "official_importer",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "טויוטה היילנדר החדש 2021 בישראל - מחיר החל מ- 289,900 שקלים",
+          "url": "https://www.cartube.co.il/",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "טויוטה היילנדר מחירון, מפרטים, ואבזור (כולל יבוא מקביל)",
+          "url": "https://www.icar.co.il/%D7%98%D7%95%D7%99%D7%95%D7%98%D7%94/%D7%98%D7%95%D7%99%D7%95%D7%98%D7%94_%D7%94%D7%99%D7%99%D7%9C%D7%A0%D7%93%D7%A8/",
+          "source_name": "iCar Israel",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "market": "global-reference-only",
+      "make": "Toyota",
+      "model": "Highlander",
+      "canonical_model": "Highlander",
+      "profile_confidence": "medium",
+      "year_start": 2021,
+      "year_end": 2024
     }
   ],
   "ready_for_website_upload": false
