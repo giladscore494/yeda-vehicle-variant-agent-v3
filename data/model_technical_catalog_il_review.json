@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T17:03:09Z",
+  "generated_at": "2026-06-23T17:03:39Z",
   "market": "IL",
   "models": [
     {
@@ -10293,6 +10293,81 @@
           ],
           "possible_duplicate_rows": 0,
           "validation_id_count": 4
+        },
+        "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
+      },
+      "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
+      ]
+    },
+    {
+      "market": "IL-likely",
+      "make": "Volkswagen",
+      "model": "Crafter",
+      "canonical_model": "Crafter",
+      "year_start": null,
+      "year_end": null,
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [],
+      "profile_confidence": null,
+      "notes": [],
+      "error": "Expecting ',' delimiter: line 411 column 6 (char 7724)",
+      "request_payload": {
+        "task": "build_israeli_model_technical_catalog",
+        "market": "IL-likely",
+        "make": "Volkswagen",
+        "model": "Crafter",
+        "raw_database_values": {
+          "years_seen": [
+            2021,
+            2026
+          ],
+          "trims_seen": [
+            "e-Crafter"
+          ],
+          "engines_seen": [
+            "136 hp electric motor"
+          ],
+          "horsepower_seen": [],
+          "transmissions_seen": [
+            "Single-speed EV"
+          ],
+          "body_types_seen": [
+            "Van"
+          ],
+          "fuel_types_seen": [
+            "Electric"
+          ],
+          "drivetrains_seen": [
+            "FWD"
+          ]
+        },
+        "sample_validation_ids": [
+          "VAL-003475"
+        ],
+        "source_indexes": [
+          1711
+        ],
+        "metadata_hints": {
+          "priorities_seen": [
+            "medium"
+          ],
+          "validation_routes_seen": [
+            "cheap_model_structured_validation"
+          ],
+          "possible_duplicate_rows": 0,
+          "validation_id_count": 1
         },
         "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
       },
