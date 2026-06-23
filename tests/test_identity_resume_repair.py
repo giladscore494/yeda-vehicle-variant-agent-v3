@@ -597,17 +597,17 @@ def test_resume_state_readiness_models_blocked_overrides_review_only_count(tmp_p
 def test_current_catalog_resume_state_advances_through_batch26_window():
     state = cb.compute_resume_state()
 
-    assert state["clean_count"] == 930
-    assert state["review_entries_count"] == 67
+    assert state["clean_count"] == 933
+    assert state["review_entries_count"] == 61
     assert state["review_overlap_count"] == 0
-    assert state["review_only_blocked_count"] == 67
-    assert state["active_blocked_count"] == 66
-    assert state["blocked"] == 66
-    assert state["resume_after_key"] == "IL-confirmed|Zeekr|X"
-    assert state["next_key_to_process"] is None
-    assert state["next_key"] is None
-    assert state["next_make"] is None
-    assert state["next_model"] is None
+    assert state["review_only_blocked_count"] == 61
+    assert state["active_blocked_count"] == 63
+    assert state["blocked"] == 63
+    assert state["resume_after_key"] == "IL-confirmed|Volvo|V60"
+    assert state["next_key_to_process"] == "IL-likely|Volvo|V70"
+    assert state["next_key"] == "IL-likely|Volvo|V70"
+    assert state["next_make"] == "Volvo"
+    assert state["next_model"] == "V70"
     assert state["unmatched_output_keys_count"] == 0
     assert state["unmatched_output_keys_sample"] == []
     assert state["split_profile_alias_count"] >= 29
