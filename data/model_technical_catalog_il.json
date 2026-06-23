@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T16:27:56Z",
+  "generated_at": "2026-06-23T16:28:35Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -260732,6 +260732,210 @@
       "profile_confidence": "medium",
       "year_start": 2022,
       "year_end": 2024
+    },
+    {
+      "make": "Toyota",
+      "model": "GT86",
+      "market": "IL-confirmed",
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Base",
+          "classification": "non_trim"
+        },
+        {
+          "label": "Standard",
+          "classification": "non_trim"
+        },
+        {
+          "label": "2.0",
+          "classification": "engine_displacement"
+        },
+        {
+          "label": "Manual",
+          "classification": "transmission"
+        },
+        {
+          "label": "Automatic",
+          "classification": "transmission"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "טויוטה GT86 (2012-2020) יד שניה - מחירון, מפרטים, אמינות | iCar",
+          "url": "https://www.icar.co.il/toyota/gt86/toyota_gt86_1/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "טויוטה GT86 בישראל: מחיר החל מ-229,000 שקל - קארטיוב",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%98%D7%95%D7%99%D7%95%D7%98%D7%94-gt86-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-229000-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "2.0L flat-4",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 200,
+          "transmission": "6-speed manual",
+          "drivetrain": "RWD",
+          "year_start": 2012,
+          "year_end": 2020,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "2.0L flat-4",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 200,
+          "transmission": "6-speed automatic",
+          "drivetrain": "RWD",
+          "year_start": 2012,
+          "year_end": 2020,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Coupe"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "2.0L flat-4"
+        ],
+        "horsepower_hp": [
+          200
+        ],
+        "transmission": [
+          "6-speed manual",
+          "6-speed automatic"
+        ],
+        "drivetrain": [
+          "RWD"
+        ]
+      },
+      "canonical_model": "GT86",
+      "profile_confidence": "medium",
+      "year_start": 2012,
+      "year_end": 2020
     }
   ],
   "ready_for_website_upload": false
