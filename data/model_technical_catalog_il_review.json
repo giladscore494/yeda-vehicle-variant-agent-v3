@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T17:48:04Z",
+  "generated_at": "2026-06-23T17:49:08Z",
   "market": "IL",
   "models": [
     {
@@ -11242,6 +11242,93 @@
           ],
           "possible_duplicate_rows": 0,
           "validation_id_count": 1
+        },
+        "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
+      },
+      "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
+      ]
+    },
+    {
+      "market": "IL-confirmed",
+      "make": "Volkswagen",
+      "model": "Tiguan Allspace",
+      "canonical_model": "Tiguan Allspace",
+      "year_start": null,
+      "year_end": null,
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [],
+      "profile_confidence": null,
+      "notes": [],
+      "error": "Extra data: line 171 column 1 (char 4764)",
+      "request_payload": {
+        "task": "build_israeli_model_technical_catalog",
+        "market": "IL-confirmed",
+        "make": "Volkswagen",
+        "model": "Tiguan Allspace",
+        "raw_database_values": {
+          "years_seen": [
+            2019,
+            2021,
+            2022,
+            2024
+          ],
+          "trims_seen": [
+            "Elegance",
+            "Elegance Premium",
+            "R-Line"
+          ],
+          "engines_seen": [
+            "1.5L turbo petrol, 150 hp",
+            "2.0L turbo petrol, 190 hp"
+          ],
+          "horsepower_seen": [],
+          "transmissions_seen": [
+            "7-speed DCT"
+          ],
+          "body_types_seen": [
+            "SUV"
+          ],
+          "fuel_types_seen": [
+            "Petrol"
+          ],
+          "drivetrains_seen": [
+            "AWD",
+            "FWD"
+          ]
+        },
+        "sample_validation_ids": [
+          "VAL-003584",
+          "VAL-003585",
+          "VAL-003586",
+          "VAL-003587"
+        ],
+        "source_indexes": [
+          836,
+          837,
+          838,
+          839
+        ],
+        "metadata_hints": {
+          "priorities_seen": [
+            "low"
+          ],
+          "validation_routes_seen": [
+            "deterministic_or_skip_ai"
+          ],
+          "possible_duplicate_rows": 0,
+          "validation_id_count": 4
         },
         "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
       },
