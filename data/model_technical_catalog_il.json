@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T18:12:53Z",
+  "generated_at": "2026-06-23T18:13:39Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -283873,6 +283873,310 @@
       "canonical_model": "XC40",
       "profile_confidence": "medium",
       "year_start": 2018,
+      "year_end": 2024
+    },
+    {
+      "make": "Volvo",
+      "model": "XC60",
+      "market": "IL-confirmed",
+      "invalid_or_non_trim_labels": {
+        "T5": "engine_designation",
+        "T6": "engine_designation",
+        "T8 Recharge": "powertrain_designation",
+        "B5": "powertrain_designation",
+        "2.0L Mild Hybrid": "engine_designation",
+        "2.0L Plug-in Hybrid": "engine_designation",
+        "3.0L Turbo Inline-6 Petrol": "engine_designation"
+      },
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "וולוו XC60 - מחירון, מפרטים, אמינות",
+          "url": "https://www.icar.co.il/%D7%95%D7%95%D7%9C%D7%95%D7%95/XC60/",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "וולוו XC60 היברידי נטען",
+          "url": "https://www.volvocars.com/il/cars/xc60-hybrid/",
+          "source_name": "Volvo Cars Israel Official",
+          "source_type": "official_importer",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "הושק בישראל: וולוו XC60 החדש - מחיר החל מ-329,900 שקל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%94%D7%95%D7%A9%D7%A7-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%95%D7%95%D7%9C%D7%95%D7%95-xc60-%D7%94%D7%97%D7%93%D7%A9-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-329-900-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "3.0L turbo",
+          "engine_displacement_l": 3.0,
+          "horsepower_hp": 304,
+          "transmission": "6-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2008,
+          "year_end": 2015,
+          "support_level": "direct",
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "SUV",
+          "fuel_type": "petrol",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 254,
+          "transmission": "8-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2017,
+          "year_end": 2020,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0,
+              2
+            ],
+            "transmission": [
+              0,
+              2
+            ],
+            "drivetrain": [
+              0,
+              2
+            ],
+            "year_start": [
+              0,
+              2
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "SUV",
+          "fuel_type": "plug_in_hybrid",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 390,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2017,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1,
+              2
+            ],
+            "transmission": [
+              0,
+              1,
+              2
+            ],
+            "drivetrain": [
+              0,
+              1,
+              2
+            ],
+            "year_start": [
+              0,
+              2
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "SUV",
+          "fuel_type": "mild_hybrid",
+          "engine": "2.0L turbo",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 250,
+          "transmission": "8-speed automatic",
+          "drivetrain": "AWD",
+          "year_start": 2020,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "petrol",
+          "plug_in_hybrid",
+          "mild_hybrid"
+        ],
+        "engine": [
+          "3.0L turbo",
+          "2.0L turbo"
+        ],
+        "horsepower_hp": [
+          304,
+          254,
+          390,
+          250
+        ],
+        "transmission": [
+          "6-speed automatic",
+          "8-speed automatic"
+        ],
+        "drivetrain": [
+          "AWD",
+          "FWD"
+        ]
+      },
+      "canonical_model": "XC60",
+      "profile_confidence": "medium",
+      "year_start": 2008,
       "year_end": 2024
     }
   ],
