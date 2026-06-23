@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T17:00:44Z",
+  "generated_at": "2026-06-23T17:01:33Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -268519,6 +268519,183 @@
       "profile_confidence": "medium",
       "year_start": 2011,
       "year_end": 2024
+    },
+    {
+      "make": "Volkswagen",
+      "model": "Corrado",
+      "market": "IL-likely",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "קלאסיקה: פולקסווגן קוראדו (1988-1995)",
+          "url": "https://www.auto.co.il/article/11345-classic-cars-vw-corrado",
+          "source_name": "Auto.co.il (Classic Cars Section)",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "היסטוריית מנועי ה-VR6 וה-G60 בישראל - פולקסווגן קוראדו",
+          "url": "https://carsforum.co.il/topic/vw-corrado-israel-history/",
+          "source_name": "CarsForum IL",
+          "source_type": "forum_community_knowledge",
+          "supports": [
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "G60",
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "1.8L supercharged",
+          "engine_displacement_l": 1.8,
+          "horsepower_hp": 160,
+          "transmission": "5-speed manual",
+          "drivetrain": "FWD",
+          "year_start": 1988,
+          "year_end": 1992,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "VR6",
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "2.9L vr6",
+          "engine_displacement_l": 2.9,
+          "horsepower_hp": 190,
+          "transmission": "5-speed manual",
+          "drivetrain": "FWD",
+          "year_start": 1992,
+          "year_end": 1995,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "1.8L G60 supercharged inline-4, 160 hp",
+          "classification": "engine_spec"
+        },
+        {
+          "label": "2.9L VR6 naturally aspirated, 190 hp",
+          "classification": "engine_spec"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "G60",
+          "VR6"
+        ],
+        "body_type": [
+          "Coupe"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "1.8L supercharged",
+          "2.9L vr6"
+        ],
+        "horsepower_hp": [
+          160,
+          190
+        ],
+        "transmission": [
+          "5-speed manual"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "canonical_model": "Corrado",
+      "profile_confidence": "medium",
+      "year_start": 1988,
+      "year_end": 1995
     }
   ],
   "ready_for_website_upload": false
