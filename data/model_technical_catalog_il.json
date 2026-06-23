@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T18:17:30Z",
+  "generated_at": "2026-06-23T18:18:03Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gpt-5.4",
@@ -285194,6 +285194,358 @@
         "Israeli-market launch in July 2024 is supported by the Israeli catalog/editorial source context; no grounded Israeli source was found for a model-wide end year, so top-level year_end is null.",
         "Electric models use engine='electric' per normalization; engine_displacement_l is null because no displacement applies and no such field is sourceable for EVs.",
         "Body type normalized to SUV from Israeli source context describing G6 as a פנאי/קרוסאובר; no separate sourced technical body-style split was found within the Israeli market for these variants."
+      ]
+    },
+    {
+      "market": "IL-confirmed",
+      "make": "XPeng",
+      "model": "G9",
+      "canonical_model": "G9",
+      "year_start": 2024,
+      "year_end": 2026,
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Standard Range",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 313,
+          "transmission": "single_speed",
+          "drivetrain": "RWD",
+          "year_start": 2024,
+          "year_end": 2026,
+          "support_level": "indirect",
+          "source_indexes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              2
+            ],
+            "engine": [
+              2
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              2
+            ],
+            "transmission": [
+              2
+            ],
+            "drivetrain": [
+              2,
+              3
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Long Range",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 313,
+          "transmission": "single_speed",
+          "drivetrain": "RWD",
+          "year_start": 2024,
+          "year_end": 2026,
+          "support_level": "indirect",
+          "source_indexes": [
+            0,
+            1,
+            4,
+            5
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              4
+            ],
+            "engine": [
+              4
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              4
+            ],
+            "transmission": [
+              4
+            ],
+            "drivetrain": [
+              4,
+              5
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Performance",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 551,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2024,
+          "year_end": 2026,
+          "support_level": "indirect",
+          "source_indexes": [
+            0,
+            1,
+            6,
+            7
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              6
+            ],
+            "engine": [
+              6
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              6
+            ],
+            "transmission": [
+              6
+            ],
+            "drivetrain": [
+              6,
+              7
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Standard Range",
+          "Long Range",
+          "Performance"
+        ],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          313,
+          551
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "RWD",
+          "AWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "DiamondX 09",
+          "classification": "equipment_grade_not_distinct_technical_variant"
+        },
+        {
+          "label": "Core SR",
+          "classification": "different_facelift_generation_label_outside_2024-2025/2026 sourced set for returned variants"
+        },
+        {
+          "label": "Core+ SR",
+          "classification": "equipment_grade_not_distinct_technical_variant"
+        },
+        {
+          "label": "Core Performance",
+          "classification": "equipment_grade_not_distinct_technical_variant"
+        },
+        {
+          "label": "Black Edition",
+          "classification": "equipment_grade_not_distinct_technical_variant"
+        },
+        {
+          "label": "2X4",
+          "classification": "drivetrain_label_not_trim"
+        },
+        {
+          "label": "4X4",
+          "classification": "drivetrain_label_not_trim"
+        },
+        {
+          "label": "313 כ\"ס",
+          "classification": "horsepower_label_not_trim"
+        },
+        {
+          "label": "551 כ\"ס",
+          "classification": "horsepower_label_not_trim"
+        },
+        {
+          "label": "460 ק\"מ",
+          "classification": "range_label_not_trim"
+        },
+        {
+          "label": "570 ק\"מ",
+          "classification": "range_label_not_trim"
+        },
+        {
+          "label": "520 ק\"מ",
+          "classification": "range_label_not_trim"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "אקספנג G9 - אתר iCar",
+          "url": "https://www.icar.co.il/%D7%90%D7%A7%D7%A1%D7%A4%D7%A0%D7%92/%D7%90%D7%A7%D7%A1%D7%A4%D7%A0%D7%92_G9/%D7%90%D7%A7%D7%A1%D7%A4%D7%A0%D7%92_G9_%D7%A8%D7%9B%D7%91_%D7%97%D7%93%D7%A9/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "version_or_trim",
+            "horsepower_hp",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "אקספנג G9 - אתר iCar יד שניה 2024-2025",
+          "url": "https://www.icar.co.il/%D7%90%D7%A7%D7%A1%D7%A4%D7%A0%D7%92/%D7%90%D7%A7%D7%A1%D7%A4%D7%A0%D7%92_G9/%D7%90%D7%A7%D7%A1%D7%A4%D7%A0%D7%92_G9_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%94_%D7%9310/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "אקספנג G9 2026 313 כ\"ס 460 ק\"מ Standard Range 2X4 - רכב חדש",
+          "url": "https://www.icar.co.il/%D7%90%D7%A7%D7%A1%D7%A4%D7%A0%D7%92/%D7%90%D7%A7%D7%A1%D7%A4%D7%A0%D7%92_G9/%D7%90%D7%A7%D7%A1%D7%A4%D7%A0%D7%92_G9_%D7%97%D7%93%D7%A9/version26424/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 3,
+          "title": "חדשות רכב - אקספנג נחתה בישראל. המטרה: תחרות בטסלה",
+          "url": "https://www.icar.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA_%D7%A8%D7%9B%D7%91/%D7%90%D7%A7%D7%A1%D7%A4%D7%A0%D7%92_%D7%A0%D7%97%D7%AA%D7%94_%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C._%D7%94%D7%9E%D7%98%D7%A8%D7%94%3A_%D7%AA%D7%97%D7%A8%D7%95%D7%AA_%D7%91%D7%98%D7%A1%D7%9C%D7%94/",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 4,
+          "title": "אקספנג G9 2026 313 כ\"ס 570 ק\"מ Long Range DiamondX 09 2X4 - רכב חדש",
+          "url": "https://www.icar.co.il/%D7%90%D7%A7%D7%A1%D7%A4%D7%A0%D7%92/%D7%90%D7%A7%D7%A1%D7%A4%D7%A0%D7%92_G9/%D7%90%D7%A7%D7%A1%D7%A4%D7%A0%D7%92_G9_%D7%97%D7%93%D7%A9/version26431/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 5,
+          "title": "אקספנג G9 2026 313 כ\"ס 570 ק\"מ Long Range 2X4 - רכב חדש",
+          "url": "https://www.icar.co.il/%D7%90%D7%A7%D7%A1%D7%A4%D7%A0%D7%92/%D7%90%D7%A7%D7%A1%D7%A4%D7%A0%D7%92_G9/%D7%90%D7%A7%D7%A1%D7%A4%D7%A0%D7%92_G9_%D7%97%D7%93%D7%A9/version26430/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 6,
+          "title": "אקספנג G9 2026 551 כ\"ס 520 ק\"מ Performance 4X4 - רכב חדש",
+          "url": "https://www.icar.co.il/%D7%90%D7%A7%D7%A1%D7%A4%D7%A0%D7%92/%D7%90%D7%A7%D7%A1%D7%A4%D7%A0%D7%92_G9/%D7%90%D7%A7%D7%A1%D7%A4%D7%A0%D7%92_G9_%D7%97%D7%93%D7%A9/version26432/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 7,
+          "title": "אקספנג G9 - אתר iCar יד שניה 2024-2025",
+          "url": "https://www.icar.co.il/%D7%90%D7%A7%D7%A1%D7%A4%D7%A0%D7%92/%D7%90%D7%A7%D7%A1%D7%A4%D7%A0%D7%92_G9/%D7%90%D7%A7%D7%A1%D7%A4%D7%A0%D7%92_G9_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%94_%D7%9310/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "drivetrain"
+          ]
+        }
+      ],
+      "profile_confidence": "medium",
+      "notes": [
+        "Israeli-market grounding found primarily on iCar model and version pages for 2024-2026 listings.",
+        "No Israeli source found in retrieved material for engine_displacement_l; for EV rows it is therefore null.",
+        "Transmission normalized to single_speed from iCar's 'תמסורת ישירה' (direct drive) wording for EV versions.",
+        "Body type normalized to SUV from iCar category 'רכב שטח' / crossover context.",
+        "Rows were merged across 2024-2026 where sourced technical fields remained identical."
       ]
     }
   ],
