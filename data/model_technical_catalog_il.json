@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T16:56:31Z",
+  "generated_at": "2026-06-23T16:57:25Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -267116,6 +267116,141 @@
       "profile_confidence": "medium",
       "year_start": 2020,
       "year_end": 2024
+    },
+    {
+      "make": "Volkswagen",
+      "model": "Arteon",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "פולקסווגן ארטאון שוטינג ברייק eHybrid פלאג-אין בישראל - מחיר החל מ- 298,900 שקל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/פולקסווגן-ארטאון-שוטינג-ברייק-ehybrid-פלאג-אין-בישראל-מחיר-החל-מ-298900-שקל",
+          "source_name": "Cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "פולקסווגן ארטאון שוטינג ברייק - מחירון, מפרט טכני",
+          "url": "https://www.icar.co.il/volkswagen/arteon_shooting_brake/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "Estate",
+          "fuel_type": "plug_in_hybrid",
+          "engine": "1.4L turbo",
+          "engine_displacement_l": 1.4,
+          "horsepower_hp": 218,
+          "transmission": "6-speed dual_clutch",
+          "drivetrain": "FWD",
+          "version_or_trim": "R-Line",
+          "year_start": 2021,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "version_or_trim": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Shooting Brake",
+          "classification": "body_type"
+        },
+        {
+          "label": "eHybrid",
+          "classification": "powertrain_identifier"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "R-Line"
+        ],
+        "body_type": [
+          "Estate"
+        ],
+        "fuel_type": [
+          "plug_in_hybrid"
+        ],
+        "engine": [
+          "1.4L turbo"
+        ],
+        "horsepower_hp": [
+          218
+        ],
+        "transmission": [
+          "6-speed dual_clutch"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "market": "IL-likely",
+      "canonical_model": "Arteon",
+      "profile_confidence": "medium",
+      "year_start": 2021,
+      "year_end": null
     }
   ],
   "ready_for_website_upload": false
