@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T17:26:06Z",
+  "generated_at": "2026-06-23T17:27:03Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -272113,6 +272113,342 @@
       "make": "Volkswagen",
       "model": "ID.4",
       "canonical_model": "ID.4",
+      "profile_confidence": "medium",
+      "year_start": 2022,
+      "year_end": 2024
+    },
+    {
+      "task": "build_israeli_model_technical_catalog",
+      "market": "IL-confirmed",
+      "make": "Volkswagen",
+      "model": "ID.5",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "מפרט טכני פולקסווגן ID.5",
+          "url": "https://www.vw.co.il/he/models/id5.html",
+          "source_name": "Champion Motors VW Israel",
+          "source_type": "official_importer",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "פולקסווגן משיקה את ה-ID.4 וה-ID.5 בישראל",
+          "url": "https://www.icar.co.il/news/5m2t4q1/",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "פולקסווגן ID.4 ו- ID.5 המחודשים 2024 בישראל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/פולקסווגן-id-4-ו-id-5-המחודשים-2024-בישראל-מחירון-ומפרט-טכני",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Pro",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 204,
+          "transmission": "single_speed",
+          "drivetrain": "RWD",
+          "year_start": 2022,
+          "year_end": 2023,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "GTX",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 299,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2022,
+          "year_end": 2023,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Pro",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 286,
+          "transmission": "single_speed",
+          "drivetrain": "RWD",
+          "year_start": 2024,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              2
+            ],
+            "body_type": [
+              0,
+              2
+            ],
+            "fuel_type": [
+              0,
+              2
+            ],
+            "engine": [
+              0,
+              2
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              2
+            ],
+            "transmission": [
+              0,
+              2
+            ],
+            "drivetrain": [
+              0,
+              2
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "GTX",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 340,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2024,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              2
+            ],
+            "body_type": [
+              0,
+              2
+            ],
+            "fuel_type": [
+              0,
+              2
+            ],
+            "engine": [
+              0,
+              2
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              2
+            ],
+            "transmission": [
+              0,
+              2
+            ],
+            "drivetrain": [
+              0,
+              2
+            ],
+            "year_start": [
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Pro",
+          "GTX"
+        ],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          204,
+          299,
+          286,
+          340
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "RWD",
+          "AWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Dual electric motors, 77kWh battery, 299 hp",
+          "classification": "engine_spec_not_trim"
+        },
+        {
+          "label": "Dual electric motors, 77kWh battery, 340 hp",
+          "classification": "engine_spec_not_trim"
+        },
+        {
+          "label": "Single electric motor (APP550), 77kWh battery, 286 hp",
+          "classification": "engine_spec_not_trim"
+        },
+        {
+          "label": "Single electric motor, 77kWh battery, 204 hp",
+          "classification": "engine_spec_not_trim"
+        },
+        {
+          "label": "SUV Coupe",
+          "classification": "body_type_not_trim"
+        }
+      ],
+      "canonical_model": "ID.5",
       "profile_confidence": "medium",
       "year_start": 2022,
       "year_end": 2024
