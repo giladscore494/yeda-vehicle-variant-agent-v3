@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T16:36:39Z",
+  "generated_at": "2026-06-23T16:37:27Z",
   "market": "IL",
   "models": [
     {
@@ -9672,6 +9672,434 @@
         "variant[3] support_level=direct but no source directly supports it",
         "variant[4] has no source_indexes",
         "variant[4] support_level=direct but no source directly supports it"
+      ]
+    },
+    {
+      "task": "build_israeli_model_technical_catalog",
+      "market": "IL-confirmed",
+      "make": "Toyota",
+      "model": "Prius",
+      "sources": [
+        {
+          "source_index": 907,
+          "title": "טויוטה פריוס (2004-2009) - מפרט טכני - iCar",
+          "url": "https://www.icar.co.il/%D7%98%D7%95%D7%99%D7%95%D7%98%D7%94/%D7%98%D7%95%D7%99%D7%95%D7%98%D7%94_%D7%A4%D7%A8%D7%99%D7%95%D7%A1/%D7%98%D7%95%D7%99%D7%95%D7%98%D7%94_%D7%A4%D7%A8%D7%99%D7%95%D7%A1_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%99%D7%94_1/version7352",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 908,
+          "title": "טויוטה פריוס (2009-2015) - מפרט טכני - iCar",
+          "url": "https://www.icar.co.il/%D7%98%D7%95%D7%99%D7%95%D7%98%D7%94/%D7%98%D7%95%D7%99%D7%95%D7%98%D7%94_%D7%A4%D7%A8%D7%99%D7%95%D7%A1/%D7%98%D7%95%D7%99%D7%95%D7%98%D7%94_%D7%A4%D7%A8%D7%99%D7%95%D7%A1_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%99%D7%94_2/version7353",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 909,
+          "title": "טויוטה פריוס (2016-2022) - מפרט טכני - iCar",
+          "url": "https://www.icar.co.il/%D7%98%D7%95%D7%99%D7%95%D7%98%D7%94/%D7%98%D7%95%D7%99%D7%95%D7%98%D7%94_%D7%A4%D7%A8%D7%99%D7%95%D7%A1/%D7%98%D7%95%D7%99%D7%95%D7%98%D7%94_%D7%A4%D7%A8%D7%99%D7%95%D7%A1_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%99%D7%94_3/version15167",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 910,
+          "title": "טויוטה פריוס פלוס (2012-2021) - מפרט טכני - iCar",
+          "url": "https://www.icar.co.il/%D7%98%D7%95%D7%99%D7%95%D7%98%D7%94/%D7%98%D7%95%D7%99%D7%95%D7%98%D7%94_%D7%A4%D7%A8%D7%99%D7%95%D7%A1_%D7%A4%D7%9C%D7%95%D7%A1/%D7%98%D7%95%D7%99%D7%95%D7%98%D7%94_%D7%A4%D7%A8%D7%99%D7%95%D7%A1_%D7%A4%D7%9C%D7%95%D7%A1_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%99%D7%94_1/version7355",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 911,
+          "title": "טויוטה פריוס פלאג-אין (2017-2022) - מפרט טכני - iCar",
+          "url": "https://www.icar.co.il/%D7%98%D7%95%D7%99%D7%95%D7%98%D7%94/%D7%98%D7%95%D7%99%D7%95%D7%98%D7%94_%D7%A4%D7%A8%D7%99%D7%95%D7%A1_%D7%A4%D7%9C%D7%90%D7%92-%D7%90%D7%99%D7%9F/%D7%98%D7%95%D7%99%D7%95%D7%98%D7%94_%D7%A4%D7%A8%D7%99%D7%95%D7%A1_%D7%A4%D7%9C%D7%90%D7%92-%D7%90%D7%99%D7%9F_%D7%99%D7%93_%D7%A9%D7%A0%D7%99%D7%99%D7%94_1/version16666",
+          "source_name": "iCar",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 912,
+          "title": "חדש בישראל: 2023 טויוטה פריוס החדשה - מחיר החל מ- 219,990 שקלים",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%97%D7%93%D7%A9-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-2023-%D7%98%D7%95%D7%99%D7%95%D7%98%D7%94-%D7%A4%D7%A8%D7%99%D7%95%D7%A1-%D7%94%D7%97%D7%93%D7%A9%D7%94-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-219-990-%D7%A9%D7%A7%D7%9C%D7%99%D7%9D",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "Hatchback",
+          "fuel_type": "hybrid",
+          "engine": "1.5L",
+          "engine_displacement_l": 1.5,
+          "horsepower_hp": 113,
+          "transmission": "cvt",
+          "drivetrain": "FWD",
+          "year_start": 2004,
+          "year_end": 2009,
+          "support_level": "direct",
+          "source_indexes": [
+            907
+          ],
+          "field_sources": {
+            "body_type": [
+              907
+            ],
+            "fuel_type": [
+              907
+            ],
+            "engine": [
+              907
+            ],
+            "engine_displacement_l": [
+              907
+            ],
+            "horsepower_hp": [
+              907
+            ],
+            "transmission": [
+              907
+            ],
+            "drivetrain": [
+              907
+            ],
+            "year_start": [
+              907
+            ],
+            "year_end": [
+              907
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Hatchback",
+          "fuel_type": "hybrid",
+          "engine": "1.8L",
+          "engine_displacement_l": 1.8,
+          "horsepower_hp": 136,
+          "transmission": "cvt",
+          "drivetrain": "FWD",
+          "year_start": 2009,
+          "year_end": 2015,
+          "support_level": "direct",
+          "source_indexes": [
+            908
+          ],
+          "field_sources": {
+            "body_type": [
+              908
+            ],
+            "fuel_type": [
+              908
+            ],
+            "engine": [
+              908
+            ],
+            "engine_displacement_l": [
+              908
+            ],
+            "horsepower_hp": [
+              908
+            ],
+            "transmission": [
+              908
+            ],
+            "drivetrain": [
+              908
+            ],
+            "year_start": [
+              908
+            ],
+            "year_end": [
+              908
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "MPV",
+          "fuel_type": "hybrid",
+          "engine": "1.8L",
+          "engine_displacement_l": 1.8,
+          "horsepower_hp": 136,
+          "transmission": "cvt",
+          "drivetrain": "FWD",
+          "year_start": 2012,
+          "year_end": 2021,
+          "support_level": "direct",
+          "source_indexes": [
+            910
+          ],
+          "field_sources": {
+            "body_type": [
+              910
+            ],
+            "fuel_type": [
+              910
+            ],
+            "engine": [
+              910
+            ],
+            "engine_displacement_l": [
+              910
+            ],
+            "horsepower_hp": [
+              910
+            ],
+            "transmission": [
+              910
+            ],
+            "drivetrain": [
+              910
+            ],
+            "year_start": [
+              910
+            ],
+            "year_end": [
+              910
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Hatchback",
+          "fuel_type": "hybrid",
+          "engine": "1.8L",
+          "engine_displacement_l": 1.8,
+          "horsepower_hp": 122,
+          "transmission": "cvt",
+          "drivetrain": "FWD",
+          "year_start": 2016,
+          "year_end": 2022,
+          "support_level": "direct",
+          "source_indexes": [
+            909
+          ],
+          "field_sources": {
+            "body_type": [
+              909
+            ],
+            "fuel_type": [
+              909
+            ],
+            "engine": [
+              909
+            ],
+            "engine_displacement_l": [
+              909
+            ],
+            "horsepower_hp": [
+              909
+            ],
+            "transmission": [
+              909
+            ],
+            "drivetrain": [
+              909
+            ],
+            "year_start": [
+              909
+            ],
+            "year_end": [
+              909
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Hatchback",
+          "fuel_type": "plug_in_hybrid",
+          "engine": "1.8L",
+          "engine_displacement_l": 1.8,
+          "horsepower_hp": 122,
+          "transmission": "cvt",
+          "drivetrain": "FWD",
+          "year_start": 2017,
+          "year_end": 2022,
+          "support_level": "direct",
+          "source_indexes": [
+            911
+          ],
+          "field_sources": {
+            "body_type": [
+              911
+            ],
+            "fuel_type": [
+              911
+            ],
+            "engine": [
+              911
+            ],
+            "engine_displacement_l": [
+              911
+            ],
+            "horsepower_hp": [
+              911
+            ],
+            "transmission": [
+              911
+            ],
+            "drivetrain": [
+              911
+            ],
+            "year_start": [
+              911
+            ],
+            "year_end": [
+              911
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Hatchback",
+          "fuel_type": "plug_in_hybrid",
+          "engine": "2.0L",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 223,
+          "transmission": "cvt",
+          "drivetrain": "FWD",
+          "year_start": 2023,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            912
+          ],
+          "field_sources": {
+            "body_type": [
+              912
+            ],
+            "fuel_type": [
+              912
+            ],
+            "engine": [
+              912
+            ],
+            "engine_displacement_l": [
+              912
+            ],
+            "horsepower_hp": [
+              912
+            ],
+            "transmission": [
+              912
+            ],
+            "drivetrain": [
+              912
+            ],
+            "year_start": [
+              912
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": [
+            "year_end"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Hatchback",
+          "MPV"
+        ],
+        "fuel_type": [
+          "hybrid",
+          "plug_in_hybrid"
+        ],
+        "engine": [
+          "1.5L",
+          "1.8L",
+          "2.0L"
+        ],
+        "horsepower_hp": [
+          113,
+          136,
+          122,
+          223
+        ],
+        "transmission": [
+          "cvt"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": {
+        "1.5L Hybrid": "engine_spec",
+        "1.8L Hybrid": "engine_spec",
+        "1.8L Plug-in Hybrid": "engine_spec",
+        "2.0L Plug-in Hybrid": "engine_spec"
+      },
+      "canonical_model": "Prius",
+      "profile_confidence": "medium",
+      "year_start": 2004,
+      "year_end": 2024,
+      "validation_issues": [
+        "variant[5] non-null field 'year_end' has no field_sources entry"
       ]
     }
   ]
