@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T18:18:48Z",
+  "generated_at": "2026-06-23T18:19:05Z",
   "market": "IL",
   "models": [
     {
@@ -13055,6 +13055,75 @@
         "variant[0] required field 'transmission' listed in missing_grounded_fields",
         "variant[1] required website field 'transmission' is null/empty",
         "variant[1] required field 'transmission' listed in missing_grounded_fields"
+      ]
+    },
+    {
+      "market": "IL-likely",
+      "make": "Zeekr",
+      "model": "007",
+      "canonical_model": "007",
+      "year_start": null,
+      "year_end": null,
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "AWD",
+          "classification": "drivetrain_not_trim"
+        },
+        {
+          "label": "RWD",
+          "classification": "drivetrain_not_trim"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "Zeekr 007 in Israel – Review, Prices, Comparisons and Rating on Autoboom",
+          "url": "https://autoboom.co.il/en/catalog/cars/zeekr/007",
+          "source_name": "Autoboom",
+          "source_type": "catalog",
+          "supports": [
+            "market_availability"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "זיקר 007 בישראל – חוות דעת, מחירים, השוואות ודירוג באוטובום",
+          "url": "https://autoboom.co.il/catalog/cars/zeekr/007/2025",
+          "source_name": "Autoboom",
+          "source_type": "catalog",
+          "supports": [
+            "market_availability"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "זיקר 007 סדאן AT חשמלי | 204 כ\"ס הנעה הנעה אחורית | דור 1 (2023 – כעת) בישראל - מפרטי רכב id 69739 - אוטובום",
+          "url": "https://autoboom.co.il/catalog/cars/zeekr/007/1-generation/sedan/69739",
+          "source_name": "Autoboom",
+          "source_type": "catalog",
+          "supports": [
+            "market_availability"
+          ]
+        }
+      ],
+      "profile_confidence": "high",
+      "notes": [
+        "Israeli-market sources found indicate the Zeekr 007 is not available in Israel ('לא זמין בישראל').",
+        "No grounded Israeli-market evidence was found for any Zeekr 007 technical variant actually sold in Israel, so no technical rows are returned.",
+        "Top-level year_start/year_end left null because no sold-in-Israel period could be grounded."
+      ],
+      "validation_issues": [
+        "technical_variants_il is empty"
       ]
     }
   ]
