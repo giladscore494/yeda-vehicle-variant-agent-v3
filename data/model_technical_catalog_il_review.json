@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T16:49:46Z",
+  "generated_at": "2026-06-23T16:50:20Z",
   "market": "IL",
   "models": [
     {
@@ -10173,6 +10173,41 @@
         "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
       },
       "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
+      ]
+    },
+    {
+      "make": "Toyota",
+      "model": "Urban Cruiser",
+      "technical_variants_il": [],
+      "missing_grounded_fields": [
+        "body_type",
+        "fuel_type",
+        "engine",
+        "engine_displacement_l",
+        "horsepower_hp",
+        "transmission",
+        "drivetrain",
+        "year_start",
+        "year_end"
+      ],
+      "sources": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "market": "global-reference-only",
+      "canonical_model": "Urban Cruiser",
+      "profile_confidence": "medium",
+      "year_start": null,
+      "year_end": null,
       "validation_issues": [
         "technical_variants_il is empty"
       ]
