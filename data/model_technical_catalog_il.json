@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T17:23:01Z",
+  "generated_at": "2026-06-23T17:23:38Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -271413,6 +271413,132 @@
       "profile_confidence": "medium",
       "year_start": 2009,
       "year_end": 2026
+    },
+    {
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "פולקסווגן ID.3 חדש - מחירון, מבחני דרכים, ופרטים - iCar",
+          "url": "https://www.icar.co.il/%D7%A4%D7%95%D7%9C%D7%A7%D7%A1%D7%95%D7%95%D7%92%D7%9F/%D7%A4%D7%95%D7%9C%D7%A7%D7%A1%D7%95%D7%95%D7%92%D7%9F_ID.3/%D7%A4%D7%95%D7%9C%D7%A7%D7%A1%D7%95%D7%95%D7%92%D7%9F_ID.3_%D7%97%D7%93%D7%A9/",
+          "source_name": "iCar",
+          "source_type": "Israeli catalog/spec/editorial sources",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "פולקסווגן ID.3 - קטלוג רכב - אוטו",
+          "url": "https://www.auto.co.il/model/volkswagen-id-3_g1447",
+          "source_name": "Auto.co.il",
+          "source_type": "Israeli catalog/spec/editorial sources",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Pro",
+          "body_type": "Hatchback",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 204,
+          "transmission": "single_speed",
+          "drivetrain": "RWD",
+          "year_start": 2020,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0
+            ],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": {
+        "Single Electric Motor (58 kWh), 204 hp": "engine_spec_and_horsepower"
+      },
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Pro"
+        ],
+        "body_type": [
+          "Hatchback"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          204
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "RWD"
+        ]
+      },
+      "market": "IL-confirmed",
+      "make": "Volkswagen",
+      "model": "ID.3",
+      "canonical_model": "ID.3",
+      "profile_confidence": "medium",
+      "year_start": 2020,
+      "year_end": 2024
     }
   ],
   "ready_for_website_upload": false
