@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T17:28:15Z",
+  "generated_at": "2026-06-23T17:28:49Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -272452,6 +272452,138 @@
       "profile_confidence": "medium",
       "year_start": 2022,
       "year_end": 2024
+    },
+    {
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Pro",
+          "body_type": "Liftback",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 286,
+          "transmission": "single_speed",
+          "drivetrain": "RWD",
+          "year_start": 2024,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "פולקסווגן ID7 החדשה 2024 בישראל - מחיר החל מ-319,900 שקל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%A4%D7%95%D7%9C%D7%A7%D7%A1%D7%95%D7%95%D7%92%D7%9F-id7-%D7%94%D7%97%D7%93%D7%A9%D7%94-2024-%D7%91%D7%9A%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-319900-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "מפרט טכני פולקסווגן ID.7 - צ'מפיון מוטורס",
+          "url": "https://www.vw.co.il/models/id7/",
+          "source_name": "Volkswagen Israel (Champion Motors)",
+          "source_type": "official_importer_page",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Pro"
+        ],
+        "body_type": [
+          "Liftback"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          286
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "RWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": {
+        "GTX": "not_sold_in_israel",
+        "Pro S": "not_sold_in_israel",
+        "Estate": "not_sold_in_israel",
+        "Fastback": "body_type_label_or_alias",
+        "Dual electric motors, 340 hp (250 kW), 86 kWh net battery": "engine_description",
+        "Electric motor, 286 hp (210 kW), 77 kWh net battery": "engine_description",
+        "Electric motor, 286 hp (210 kW), 86 kWh net battery": "engine_description",
+        "Single-speed EV": "transmission_description"
+      },
+      "market": "global-reference-only",
+      "make": "Volkswagen",
+      "model": "ID.7",
+      "canonical_model": "ID.7",
+      "profile_confidence": "medium",
+      "year_start": 2024,
+      "year_end": null
     }
   ],
   "ready_for_website_upload": false
