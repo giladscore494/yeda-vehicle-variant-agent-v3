@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T16:24:31Z",
+  "generated_at": "2026-06-23T16:25:06Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -260065,6 +260065,145 @@
       "canonical_model": "Corolla",
       "profile_confidence": "medium",
       "year_start": 1992,
+      "year_end": 2024
+    },
+    {
+      "make": "Toyota",
+      "model": "Corolla Cross",
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "טויוטה קורולה קרוס - מחירון, מפרטים, אמינות וחוות דעת - iCar",
+          "url": "https://www.icar.co.il/טויוטה/טויוטה_קורולה_קרוס/",
+          "source_name": "iCar",
+          "source_type": "israeli_editorial_spec_source",
+          "supports": [
+            "year_start",
+            "year_end",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "body_type"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "טויוטה קורולה קרוס: מחירון, מפרטים, תמונות - קארזון",
+          "url": "https://www.carzone.co.il/models/טויוטה/קורולה_קרוס/",
+          "source_name": "CarZone",
+          "source_type": "israeli_catalog_spec_source",
+          "supports": [
+            "year_start",
+            "year_end",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "body_type"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "SUV",
+          "fuel_type": "hybrid",
+          "engine": "1.8L",
+          "engine_displacement_l": 1.8,
+          "horsepower_hp": 140,
+          "transmission": "cvt",
+          "drivetrain": "FWD",
+          "year_start": 2022,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1,
+              2
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": [
+              1,
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "1.8L Hybrid",
+          "classification": "engine_and_fuel_specification"
+        },
+        {
+          "label": "140 hp",
+          "classification": "horsepower_specification"
+        },
+        {
+          "label": "e-CVT",
+          "classification": "transmission_specification"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "hybrid"
+        ],
+        "engine": [
+          "1.8L"
+        ],
+        "horsepower_hp": [
+          140
+        ],
+        "transmission": [
+          "cvt"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "market": "IL-confirmed",
+      "canonical_model": "Corolla Cross",
+      "profile_confidence": "medium",
+      "year_start": 2022,
       "year_end": 2024
     }
   ],
