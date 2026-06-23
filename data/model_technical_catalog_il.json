@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T16:21:57Z",
+  "generated_at": "2026-06-23T16:22:36Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -259162,6 +259162,179 @@
       "canonical_model": "Celica",
       "profile_confidence": "medium",
       "year_start": 1993,
+      "year_end": 2006
+    },
+    {
+      "make": "Toyota",
+      "model": "Celica",
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "טויוטה סליקה (1999-2006) - מחירון רכב, מפרט טכני",
+          "url": "https://www.auto.co.il/model/toyota-celica_g279",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "מחירון טויוטה סליקה קופה 1.8 אוט' (143 כ''ס)",
+          "url": "https://kml.co.il/car/%D7%98%D7%95%D7%99%D7%95%D7%98%D7%94_%D7%A1%D7%9C%D7%99%D7%A7%D7%94",
+          "source_name": "KML.co.il",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "1.8L",
+          "engine_displacement_l": 1.8,
+          "horsepower_hp": 143,
+          "transmission": "4-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 1999,
+          "year_end": 2006,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              1,
+              2
+            ],
+            "fuel_type": [
+              1,
+              2
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1,
+              2
+            ],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Coupe",
+          "fuel_type": "petrol",
+          "engine": "1.8L",
+          "engine_displacement_l": 1.8,
+          "horsepower_hp": 143,
+          "transmission": "6-speed manual",
+          "drivetrain": "FWD",
+          "year_start": 1999,
+          "year_end": 2006,
+          "support_level": "direct",
+          "source_indexes": [
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "VVT-i",
+          "classification": "engine_technology"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Coupe"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "1.8L"
+        ],
+        "horsepower_hp": [
+          143
+        ],
+        "transmission": [
+          "4-speed automatic",
+          "6-speed manual"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "market": "IL-confirmed",
+      "canonical_model": "Celica",
+      "profile_confidence": "medium",
+      "year_start": 1999,
       "year_end": 2006
     }
   ],
