@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T17:55:10Z",
+  "generated_at": "2026-06-23T17:55:49Z",
   "market": "IL",
   "models": [
     {
@@ -11329,6 +11329,91 @@
           ],
           "possible_duplicate_rows": 0,
           "validation_id_count": 4
+        },
+        "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
+      },
+      "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
+      ]
+    },
+    {
+      "market": "IL-confirmed",
+      "make": "Volvo",
+      "model": "C30",
+      "canonical_model": "C30",
+      "year_start": null,
+      "year_end": null,
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [],
+      "profile_confidence": null,
+      "notes": [],
+      "error": "Gemini catalog client returned non-object JSON",
+      "request_payload": {
+        "task": "build_israeli_model_technical_catalog",
+        "market": "IL-confirmed",
+        "make": "Volvo",
+        "model": "C30",
+        "raw_database_values": {
+          "years_seen": [
+            2006,
+            2010,
+            2013
+          ],
+          "trims_seen": [
+            "2.0 Powershift",
+            "2.4i",
+            "T5"
+          ],
+          "engines_seen": [
+            "2.0L 4-cylinder petrol, 145 hp",
+            "2.4L 5-cylinder petrol, 170 hp",
+            "2.5L 5-cylinder turbo petrol, 220-230 hp"
+          ],
+          "horsepower_seen": [],
+          "transmissions_seen": [
+            "5-speed automatic",
+            "6-speed DCT"
+          ],
+          "body_types_seen": [
+            "Hatchback"
+          ],
+          "fuel_types_seen": [
+            "Petrol"
+          ],
+          "drivetrains_seen": [
+            "FWD"
+          ]
+        },
+        "sample_validation_ids": [
+          "VAL-003615",
+          "VAL-003616",
+          "VAL-003617"
+        ],
+        "source_indexes": [
+          2761,
+          2762,
+          2763
+        ],
+        "metadata_hints": {
+          "priorities_seen": [
+            "medium"
+          ],
+          "validation_routes_seen": [
+            "cheap_model_structured_validation"
+          ],
+          "possible_duplicate_rows": 0,
+          "validation_id_count": 3
         },
         "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
       },
