@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T17:52:22Z",
+  "generated_at": "2026-06-23T17:53:03Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -278035,6 +278035,184 @@
       "profile_confidence": "medium",
       "year_start": 2003,
       "year_end": 2024
+    },
+    {
+      "task_status": "success",
+      "market": "IL",
+      "make": "Volkswagen",
+      "model": "up!",
+      "sources": [
+        {
+          "source_index": 1,
+          "title": "פולקסווגן אפ! (UP) בישראל – מחיר החל מ- 69,900 שקל",
+          "url": "https://www.cartube.co.il/חדשות-רכב/פולקסווגן-אפ-up-בישראל-מחיר-החל-מ-69,900-שקל",
+          "source_name": "Cartube",
+          "source_type": "editorial",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "פולקסווגן up! - מחירון, מפרטים, ואביזרים",
+          "url": "https://www.icar.co.il/פולקסווגן/פולקסווגן_up!/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "year_start",
+            "year_end",
+            "transmission"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Move up!",
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "1.0L",
+          "engine_displacement_l": 1.0,
+          "horsepower_hp": 75,
+          "transmission": "5-speed manual",
+          "drivetrain": "FWD",
+          "year_start": 2014,
+          "year_end": 2018,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1
+            ],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Move up!",
+          "body_type": "Hatchback",
+          "fuel_type": "petrol",
+          "engine": "1.0L",
+          "engine_displacement_l": 1.0,
+          "horsepower_hp": 75,
+          "transmission": "5-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2014,
+          "year_end": 2018,
+          "support_level": "direct",
+          "source_indexes": [
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1
+            ],
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1,
+              2
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1,
+              2
+            ],
+            "year_end": [
+              2
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "e-up!",
+          "classification": "separate_model"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Move up!"
+        ],
+        "body_type": [
+          "Hatchback"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "1.0L"
+        ],
+        "horsepower_hp": [
+          75
+        ],
+        "transmission": [
+          "5-speed manual",
+          "5-speed automatic"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "canonical_model": "up!",
+      "profile_confidence": "medium",
+      "year_start": 2014,
+      "year_end": 2018
     }
   ],
   "ready_for_website_upload": false
