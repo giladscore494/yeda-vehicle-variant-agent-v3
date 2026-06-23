@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T18:16:14Z",
+  "generated_at": "2026-06-23T18:16:33Z",
   "market": "IL",
   "models": [
     {
@@ -12689,6 +12689,135 @@
       "year_end": 2024,
       "validation_issues": [
         "variant[2] version_or_trim '3.2' is a engine_size, not a trim"
+      ]
+    },
+    {
+      "market": "IL-confirmed",
+      "make": "Voyah",
+      "model": "Free",
+      "canonical_model": "Free",
+      "year_start": 2023,
+      "year_end": 2025,
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 489,
+          "transmission": null,
+          "drivetrain": "AWD",
+          "year_start": 2023,
+          "year_end": 2025,
+          "support_level": "indirect",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [],
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              0,
+              2
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": [
+            "transmission"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          489
+        ],
+        "transmission": [],
+        "drivetrain": [
+          "AWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "וויה: חוות דעת מומחים על וויה פרי - אתר iCar",
+          "url": "https://www.icar.co.il/%D7%95%D7%95%D7%99%D7%94/%D7%95%D7%95%D7%99%D7%94_%D7%A4%D7%A8%D7%99/%D7%95%D7%95%D7%99%D7%94_%D7%A4%D7%A8%D7%99_%D7%97%D7%93%D7%A9/",
+          "source_name": "iCar",
+          "source_type": "editorial/model page",
+          "supports": [
+            "body_type",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "וויה פרי - מחירון, חוות דעת ומידע טכני | אוטו",
+          "url": "https://www.auto.co.il/cars/voyah/free/",
+          "source_name": "Auto",
+          "source_type": "editorial/model page",
+          "supports": [
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "drivetrain"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "וויה פרי - מבחן דרכים (חשמלי)",
+          "url": "https://www.auto.co.il/articles/test-drives/road-tests/136093/",
+          "source_name": "Auto",
+          "source_type": "editorial/road test",
+          "supports": [
+            "horsepower_hp",
+            "year_start"
+          ]
+        }
+      ],
+      "profile_confidence": "medium",
+      "notes": [
+        "Israeli-market sources found for one sold EV configuration only.",
+        "Body type normalized to SUV from Israeli source category text ('רכב שטח').",
+        "Engine_displacement_l is null because this is an EV and no displacement applies.",
+        "Transmission was not grounded from the Israeli sources reviewed, so it is null.",
+        "year_end set to 2025 based on iCar page showing model years 2023-2025 and stating the model is no longer marketed as new."
+      ],
+      "validation_issues": [
+        "variant[0] required website field 'transmission' is null/empty",
+        "variant[0] required field 'transmission' listed in missing_grounded_fields"
       ]
     }
   ]
