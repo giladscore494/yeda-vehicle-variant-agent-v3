@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T16:12:31Z",
+  "generated_at": "2026-06-23T16:13:13Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -257580,6 +257580,266 @@
       "canonical_model": "Avensis",
       "profile_confidence": "medium",
       "year_start": 1998,
+      "year_end": 2018
+    },
+    {
+      "market": "IL-confirmed",
+      "make": "Toyota",
+      "model": "Avensis",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "Toyota Avensis (2009-2018) specs, dimensions and engines",
+          "url": "https://www.icar.co.il/toyota/toyota_avensis/",
+          "source_name": "iCar",
+          "source_type": "israeli_catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "Toyota Avensis 2003-2008 - Specs, Trims, and Pricing",
+          "url": "https://www.auto.co.il/model/toyota-avensis_g162",
+          "source_name": "Auto.co.il",
+          "source_type": "israeli_catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "Toyota Avensis Station Wagon 2009-2018 Specifications",
+          "url": "https://gear.co.il/toyota_avensis_station",
+          "source_name": "Gear.co.il",
+          "source_type": "israeli_catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "2.0L",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 147,
+          "transmission": "4-speed automatic",
+          "drivetrain": "FWD",
+          "year_start": 2004,
+          "year_end": 2008,
+          "version_or_trim": null,
+          "support_level": "direct",
+          "source_indexes": [
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              1
+            ],
+            "fuel_type": [
+              1
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [
+              1
+            ],
+            "horsepower_hp": [
+              1
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              1
+            ],
+            "version_or_trim": []
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Sedan",
+          "fuel_type": "petrol",
+          "engine": "2.0L",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 152,
+          "transmission": "cvt",
+          "drivetrain": "FWD",
+          "year_start": 2009,
+          "year_end": 2018,
+          "version_or_trim": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0
+          ],
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [
+              0
+            ],
+            "horsepower_hp": [
+              0
+            ],
+            "transmission": [
+              0
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ],
+            "version_or_trim": []
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "body_type": "Estate",
+          "fuel_type": "petrol",
+          "engine": "2.0L",
+          "engine_displacement_l": 2.0,
+          "horsepower_hp": 152,
+          "transmission": "cvt",
+          "drivetrain": "FWD",
+          "year_start": 2009,
+          "year_end": 2018,
+          "version_or_trim": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            2
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              2
+            ],
+            "fuel_type": [
+              0,
+              2
+            ],
+            "engine": [
+              0,
+              2
+            ],
+            "engine_displacement_l": [
+              0,
+              2
+            ],
+            "horsepower_hp": [
+              0,
+              2
+            ],
+            "transmission": [
+              0,
+              2
+            ],
+            "drivetrain": [
+              0,
+              2
+            ],
+            "year_start": [
+              0,
+              2
+            ],
+            "year_end": [
+              0,
+              2
+            ],
+            "version_or_trim": []
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Sedan",
+          "Estate"
+        ],
+        "fuel_type": [
+          "petrol"
+        ],
+        "engine": [
+          "2.0L"
+        ],
+        "horsepower_hp": [
+          147,
+          152
+        ],
+        "transmission": [
+          "4-speed automatic",
+          "cvt"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "2.0L 1AZ-FSE 4-cylinder petrol",
+          "classification": "engine_spec"
+        },
+        {
+          "label": "2.0L 3ZR-FAE 4-cylinder petrol",
+          "classification": "engine_spec"
+        },
+        {
+          "label": "147 hp",
+          "classification": "horsepower"
+        },
+        {
+          "label": "152 hp",
+          "classification": "horsepower"
+        }
+      ],
+      "canonical_model": "Avensis",
+      "profile_confidence": "medium",
+      "year_start": 2004,
       "year_end": 2018
     }
   ],
