@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T17:24:21Z",
+  "generated_at": "2026-06-23T17:25:09Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -271666,6 +271666,197 @@
       "profile_confidence": "medium",
       "year_start": 2021,
       "year_end": 2024
+    },
+    {
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "פולקסווגן ID.3 - מחירון, מפרט טכני וחוות דעת - iCar",
+          "url": "https://www.icar.co.il/%D7%A4%D7%95%D7%9C%D7%A7%D7%A1%D7%95%D7%95%D7%92%D7%9F/%D7%A4%D7%95%D7%9C%D7%A7%D7%A1%D7%95%D7%95%D7%92%D7%9F_ID.3/%D7%A4%D7%95%D7%9C%D7%A7%D7%A1%D7%95%D7%95%D7%92%D7%9F_ID.3_%D7%97%D7%93%D7%A9/",
+          "source_name": "iCar",
+          "source_type": "israeli_catalog_and_editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "פולקסווגן ID3 בישראל (יבוא מקביל)",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%A4%D7%95%D7%9C%D7%A7%D7%A1%D7%95%D7%95%D7%92%D7%9F-id3-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%99%D7%91%D7%95%D7%A2-%D7%9E%D7%A7%D7%91%D7%99%D7%9C",
+          "source_name": "Cartube",
+          "source_type": "israeli_catalog_and_editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "version_or_trim"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Pure",
+          "body_type": "Hatchback",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 150,
+          "transmission": "single_speed",
+          "drivetrain": "RWD",
+          "year_start": 2021,
+          "year_end": 2023,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Pro Performance",
+          "body_type": "Hatchback",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 204,
+          "transmission": "single_speed",
+          "drivetrain": "RWD",
+          "year_start": 2021,
+          "year_end": 2023,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Single Electric Motor (45 kWh), 150 hp",
+          "classification": "powertrain_spec"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Pure",
+          "Pro Performance"
+        ],
+        "body_type": [
+          "Hatchback"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          150,
+          204
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "RWD"
+        ]
+      },
+      "market": "global-reference-only",
+      "make": "Volkswagen",
+      "model": "ID.3",
+      "canonical_model": "ID.3",
+      "profile_confidence": "medium",
+      "year_start": 2021,
+      "year_end": 2023
     }
   ],
   "ready_for_website_upload": false
