@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T17:59:32Z",
+  "generated_at": "2026-06-23T18:00:14Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -279573,6 +279573,201 @@
         ]
       },
       "canonical_model": "EX30",
+      "profile_confidence": "medium",
+      "year_start": 2024,
+      "year_end": null
+    },
+    {
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "Volvo EX90 | Volvo Cars Israel",
+          "url": "https://www.volvocars.com/il/cars/ex90/",
+          "source_name": "Volvo Cars Israel",
+          "source_type": "official_importer",
+          "supports": [
+            "body_type",
+            "fuel_type"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "וולוו EX90 החשמלי נחשף - בישראל ב-2024",
+          "url": "https://www.cartube.co.il/%חדשות-רכב/המחליף-של-ה-xc90-וולוו-ex90-החשמלי-נחשף",
+          "source_name": "Cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "וולוו EX90 - מחירון רכב, מבצעים והנחות",
+          "url": "https://www.icar.co.il/וולוו/וולוו_EX90/",
+          "source_name": "Icar",
+          "source_type": "auto_catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "horsepower_hp",
+            "drivetrain"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Twin Motor",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 408,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2024,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1
+            ],
+            "body_type": [
+              0,
+              1,
+              2
+            ],
+            "fuel_type": [
+              0,
+              1,
+              2
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Twin Motor Performance",
+          "body_type": "SUV",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 517,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2024,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              1
+            ],
+            "body_type": [
+              0,
+              1,
+              2
+            ],
+            "fuel_type": [
+              0,
+              1,
+              2
+            ],
+            "engine": [
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              1,
+              2
+            ],
+            "transmission": [
+              1
+            ],
+            "drivetrain": [
+              1,
+              2
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Twin Motor",
+          "Twin Motor Performance"
+        ],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          408,
+          517
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "AWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Twin Electric Motors, 408 hp",
+          "classification": "engine_description_with_horsepower"
+        },
+        {
+          "label": "Twin Electric Motors, 517 hp",
+          "classification": "engine_description_with_horsepower"
+        }
+      ],
+      "market": "IL-likely",
+      "make": "Volvo",
+      "model": "EX90",
+      "canonical_model": "EX90",
       "profile_confidence": "medium",
       "year_start": 2024,
       "year_end": null
