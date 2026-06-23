@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T17:23:38Z",
+  "generated_at": "2026-06-23T17:24:21Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -271538,6 +271538,133 @@
       "canonical_model": "ID.3",
       "profile_confidence": "medium",
       "year_start": 2020,
+      "year_end": 2024
+    },
+    {
+      "make": "Volkswagen",
+      "model": "ID.3",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "פולקסווגן ID.3 - מחירון, מפרט טכני - iCar",
+          "url": "https://www.icar.co.il/%D7%A8%D7%9B%D7%91_%D7%97%D7%93%D7%A9/%D7%A4%D7%95%D7%9C%D7%A7%D7%A1%D7%95%D7%95%D7%92%D7%9F/%D7%A4%D7%95%D7%9C%D7%A7%D7%A1%D7%95%D7%95%D7%92%D7%9F_ID.3/",
+          "source_name": "iCar",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "מבחן דרכים: פולקסווגן ID3 (יבוא מקביל) - אוטו",
+          "url": "https://www.auto.co.il/article/133519-road-tests-volkswagen-id-3",
+          "source_name": "Auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "horsepower_hp",
+            "drivetrain",
+            "transmission",
+            "engine"
+          ]
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "body_type": "Hatchback",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 204,
+          "transmission": "single_speed",
+          "drivetrain": "RWD",
+          "year_start": 2021,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "year_start": [
+              0
+            ],
+            "year_end": [
+              0
+            ],
+            "version_or_trim": [
+              0
+            ]
+          },
+          "missing_grounded_fields": [],
+          "version_or_trim": "Pro S"
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Pro S"
+        ],
+        "body_type": [
+          "Hatchback"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          204
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "RWD"
+        ]
+      },
+      "invalid_or_non_trim_labels": {
+        "Single Electric Motor (77 kWh), 204 hp": "engine_and_horsepower_spec",
+        "Single-speed EV": "transmission_spec"
+      },
+      "market": "IL-likely",
+      "canonical_model": "ID.3",
+      "profile_confidence": "medium",
+      "year_start": 2021,
       "year_end": 2024
     }
   ],
