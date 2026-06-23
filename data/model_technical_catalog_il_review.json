@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T16:01:54Z",
+  "generated_at": "2026-06-23T16:02:24Z",
   "market": "IL",
   "models": [
     {
@@ -8471,6 +8471,29 @@
         "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
       },
       "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
+      ]
+    },
+    {
+      "make": "Tata",
+      "model": "Indica",
+      "market": "global-reference-only",
+      "sources": [],
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "canonical_model": "Indica",
+      "profile_confidence": "medium",
+      "year_start": null,
+      "year_end": null,
       "validation_issues": [
         "technical_variants_il is empty"
       ]
