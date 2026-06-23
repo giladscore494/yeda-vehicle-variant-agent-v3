@@ -132,3 +132,16 @@ def scan_quality(catalog: Dict[str, Any], review: Dict[str, Any], *, output_path
     report = {"generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), "totals": {"models": len(all_models), "findings": len(findings), "grounded_cells": grounded_cells, "total_cells": total_cells, "marketplace_citation_share": (marketplace_cites / all_cites if all_cites else 0), "official_citations": official_cites, "bug": sev_counts.get("bug", 0), "leak": sev_counts.get("leak", 0), "normalization": sev_counts.get("normalization", 0), "structure": sev_counts.get("structure", 0)}, "findings": findings, "counts_by_type": counts_by_type}
     _atomic_write_json(output_path, report)
     return report
+
+
+def main() -> None:
+    """Run the quality scan against the default catalog and review files."""
+    with open(CATALOG_OUTPUT_PATH, encoding="utf-8") as f:
+        catalog = json.load(f)
+    with open(REVIEW_OUTPUT_PATH, encoding="utf-8") as f:
+        review = json.load(f)
+    scan_quality(catalog, review)
+
+
+if __name__ == "__main__":
+    main()

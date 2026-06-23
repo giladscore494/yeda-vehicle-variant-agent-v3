@@ -13349,6 +13349,157 @@
         "variant[1] required website field 'transmission' is null/empty",
         "variant[1] required field 'transmission' listed in missing_grounded_fields"
       ]
+    },
+    {
+      "technical_variants_il": [
+        {
+          "body_type": "SUV",
+          "fuel_type": "mild_hybrid",
+          "engine": "1.5L",
+          "engine_displacement_l": 1.5,
+          "horsepower_hp": 103,
+          "transmission": "6-speed automatic",
+          "drivetrain": "FWD",
+          "version_or_trim": null,
+          "year_start": 2023,
+          "year_end": null,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0,
+              1
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0,
+              1
+            ],
+            "version_or_trim": [],
+            "year_start": [
+              0
+            ],
+            "year_end": []
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "1.5L K15C",
+          "classification": "engine_code"
+        },
+        {
+          "label": "1.0L Boosterjet Turbo",
+          "classification": "engine_code"
+        },
+        {
+          "label": "1.2L K12N Dualjet",
+          "classification": "engine_code"
+        },
+        {
+          "label": "100 hp",
+          "classification": "horsepower"
+        },
+        {
+          "label": "90 hp",
+          "classification": "horsepower"
+        },
+        {
+          "label": "103 hp",
+          "classification": "horsepower"
+        }
+      ],
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "סוזוקי פרונקס - מחירון, מפרט טכני וחוות דעת",
+          "url": "https://www.icar.co.il/Suzuki/Suzuki_Fronx/",
+          "source_name": "iCar Israel",
+          "source_type": "auto_magazine",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "סוזוקי חושפת שני רכבי פנאי חדשים: ג'ימני 5 דלתות וסוזוקי פרונקס",
+          "url": "https://www.cartube.co.il/חדשות-רכב/סוזוקי-פרונקס-בישראל",
+          "source_name": "Cartube",
+          "source_type": "auto_magazine",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain"
+          ]
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "SUV"
+        ],
+        "fuel_type": [
+          "mild_hybrid"
+        ],
+        "engine": [
+          "1.5L"
+        ],
+        "horsepower_hp": [
+          103
+        ],
+        "transmission": [
+          "6-speed automatic"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "market": "global-reference-only",
+      "make": "Suzuki",
+      "model": "Fronx",
+      "canonical_model": "Fronx",
+      "profile_confidence": "medium",
+      "year_start": 2023,
+      "year_end": null,
+      "non_blocking": true,
+      "batch28_reason": "BATCH28 RUN6: Fronx current Israeli sale/importer evidence insufficient; moved to non_blocking review.",
+      "notes": [
+        "BATCH28 RUN6: Fronx current Israeli sale/importer evidence insufficient; moved to non_blocking review."
+      ]
     }
   ]
 }
