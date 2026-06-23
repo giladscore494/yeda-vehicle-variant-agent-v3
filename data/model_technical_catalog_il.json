@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T16:05:36Z",
+  "generated_at": "2026-06-23T16:06:15Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -256284,6 +256284,207 @@
       "profile_confidence": "medium",
       "year_start": 2008,
       "year_end": 2011
+    },
+    {
+      "task": "build_israeli_model_technical_catalog",
+      "market": "IL-confirmed",
+      "make": "Tesla",
+      "model": "Model S",
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "Tesla Israel Official Website - Model S Configurator",
+          "url": "https://www.tesla.com/he_il/models",
+          "source_name": "Tesla IL Official",
+          "source_type": "official_importer",
+          "supports": [
+            "version_or_trim",
+            "body_type",
+            "fuel_type",
+            "engine",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "Tesla Model S and Model X pricing and trims in Israel",
+          "url": "https://www.cartube.co.il/חדשות-רכב/טסלה-מודל-s-ומודל-x-החדשים-בישראל-מחירון-מורחב",
+          "source_name": "Cartube IL",
+          "source_type": "editorial_spec",
+          "supports": [
+            "year_start",
+            "horsepower_hp",
+            "version_or_trim"
+          ]
+        },
+        {
+          "source_index": 2,
+          "title": "טסלה מודל S - מפרט טכני",
+          "url": "https://www.icar.co.il/טסלה/טסלה_מודל_S/טסלה_מודל_S_חדש/",
+          "source_name": "iCar Israel",
+          "source_type": "catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "drivetrain",
+            "transmission"
+          ]
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "Dual Electric Motors, 670 hp",
+          "classification": "engine_and_horsepower_spec"
+        },
+        {
+          "label": "Tri Electric Motors, 1020 hp",
+          "classification": "engine_and_horsepower_spec"
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": "Dual Motor AWD",
+          "body_type": "Liftback",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 670,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2021,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              0,
+              2
+            ],
+            "fuel_type": [
+              0,
+              2
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              2
+            ],
+            "drivetrain": [
+              0,
+              2
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": "Plaid",
+          "body_type": "Liftback",
+          "fuel_type": "electric",
+          "engine": "electric",
+          "engine_displacement_l": null,
+          "horsepower_hp": 1020,
+          "transmission": "single_speed",
+          "drivetrain": "AWD",
+          "year_start": 2021,
+          "year_end": 2024,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1,
+            2
+          ],
+          "field_sources": {
+            "version_or_trim": [
+              0,
+              1
+            ],
+            "body_type": [
+              0,
+              2
+            ],
+            "fuel_type": [
+              0,
+              2
+            ],
+            "engine": [
+              0
+            ],
+            "engine_displacement_l": [],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              2
+            ],
+            "drivetrain": [
+              0,
+              2
+            ],
+            "year_start": [
+              1
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [
+          "Dual Motor AWD",
+          "Plaid"
+        ],
+        "body_type": [
+          "Liftback"
+        ],
+        "fuel_type": [
+          "electric"
+        ],
+        "engine": [
+          "electric"
+        ],
+        "horsepower_hp": [
+          670,
+          1020
+        ],
+        "transmission": [
+          "single_speed"
+        ],
+        "drivetrain": [
+          "AWD"
+        ]
+      },
+      "canonical_model": "Model S",
+      "profile_confidence": "medium",
+      "year_start": 2021,
+      "year_end": 2024
     }
   ],
   "ready_for_website_upload": false
