@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T16:17:54Z",
+  "generated_at": "2026-06-23T16:18:50Z",
   "market": "IL",
   "mode": "online_selectable_provider",
   "model_id": "gemini-3.1-pro-preview",
@@ -258378,6 +258378,200 @@
       "profile_confidence": "medium",
       "year_start": 2022,
       "year_end": 2024
+    },
+    {
+      "sources": [
+        {
+          "source_index": 0,
+          "title": "טויוטה C-HR - מחירון, מפרט טכני וחוות דעת - iCar",
+          "url": "https://www.icar.co.il/%D7%98%D7%95%D7%99%D7%95%D7%98%D7%94/%D7%98%D7%95%D7%99%D7%95%D7%98%D7%94_C-HR/%D7%98%D7%95%D7%99%D7%95%D7%98%D7%94_C-HR_%D7%93%D7%95%D7%A8_1/",
+          "source_name": "iCar",
+          "source_type": "editorial_catalog",
+          "supports": [
+            "body_type",
+            "fuel_type",
+            "engine",
+            "engine_displacement_l",
+            "horsepower_hp",
+            "transmission",
+            "drivetrain",
+            "year_start",
+            "year_end"
+          ]
+        },
+        {
+          "source_index": 1,
+          "title": "טויוטה C-HR בישראל – מחיר החל מ- 137,900 שקל",
+          "url": "https://www.cartube.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA-%D7%A8%D7%9B%D7%91/%D7%98%D7%95%D7%99%D7%95%D7%98%D7%94-c-hr-%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%9E%D7%97%D7%99%D7%A8-%D7%94%D7%97%D7%9C-%D7%9E-137900-%D7%A9%D7%A7%D7%9C",
+          "source_name": "Cartube",
+          "source_type": "editorial_article",
+          "supports": [
+            "horsepower_hp",
+            "engine",
+            "engine_displacement_l",
+            "transmission",
+            "fuel_type",
+            "year_start"
+          ]
+        }
+      ],
+      "invalid_or_non_trim_labels": [
+        {
+          "label": "1.2",
+          "classification": "engine_displacement"
+        },
+        {
+          "label": "1.8",
+          "classification": "engine_displacement"
+        },
+        {
+          "label": "2.0",
+          "classification": "unverified_or_not_officially_imported_engine"
+        },
+        {
+          "label": "ev",
+          "classification": "unverified_or_not_officially_imported_fuel_type"
+        }
+      ],
+      "technical_variants_il": [
+        {
+          "version_or_trim": null,
+          "body_type": "Crossover",
+          "fuel_type": "hybrid",
+          "engine": "1.8L",
+          "engine_displacement_l": 1.8,
+          "horsepower_hp": 122,
+          "transmission": "cvt",
+          "drivetrain": "FWD",
+          "year_start": 2017,
+          "year_end": 2023,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        },
+        {
+          "version_or_trim": null,
+          "body_type": "Crossover",
+          "fuel_type": "petrol",
+          "engine": "1.2L turbo",
+          "engine_displacement_l": 1.2,
+          "horsepower_hp": 116,
+          "transmission": "cvt",
+          "drivetrain": "FWD",
+          "year_start": 2017,
+          "year_end": 2019,
+          "support_level": "direct",
+          "source_indexes": [
+            0,
+            1
+          ],
+          "field_sources": {
+            "body_type": [
+              0
+            ],
+            "fuel_type": [
+              0,
+              1
+            ],
+            "engine": [
+              0,
+              1
+            ],
+            "engine_displacement_l": [
+              0,
+              1
+            ],
+            "horsepower_hp": [
+              0,
+              1
+            ],
+            "transmission": [
+              0,
+              1
+            ],
+            "drivetrain": [
+              0
+            ],
+            "year_start": [
+              0,
+              1
+            ],
+            "year_end": [
+              0
+            ]
+          },
+          "missing_grounded_fields": []
+        }
+      ],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [
+          "Crossover"
+        ],
+        "fuel_type": [
+          "hybrid",
+          "petrol"
+        ],
+        "engine": [
+          "1.8L",
+          "1.2L turbo"
+        ],
+        "horsepower_hp": [
+          122,
+          116
+        ],
+        "transmission": [
+          "cvt"
+        ],
+        "drivetrain": [
+          "FWD"
+        ]
+      },
+      "market": "IL",
+      "make": "Toyota",
+      "model": "C-HR",
+      "canonical_model": "C-HR",
+      "profile_confidence": "medium",
+      "year_start": 2017,
+      "year_end": 2023
     }
   ],
   "ready_for_website_upload": false
