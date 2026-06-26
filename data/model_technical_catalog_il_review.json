@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-26T00:54:39Z",
+  "generated_at": "2026-06-26T00:54:46Z",
   "market": "IL",
   "models": [
     {
@@ -12482,6 +12482,112 @@
           ],
           "possible_duplicate_rows": 0,
           "validation_id_count": 5
+        },
+        "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
+      },
+      "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
+      ]
+    },
+    {
+      "market": "IL-confirmed",
+      "make": "Volvo",
+      "model": "XC90",
+      "canonical_model": "XC90",
+      "year_start": null,
+      "year_end": null,
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [],
+      "profile_confidence": null,
+      "notes": [],
+      "error": "Gemini catalog API call failed: 400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'API key expired. Please renew the API key.', 'status': 'INVALID_ARGUMENT', 'details': [{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'API_KEY_INVALID', 'domain': 'googleapis.com', 'metadata': {'service': 'generativelanguage.googleapis.com'}}, {'@type': 'type.googleapis.com/google.rpc.LocalizedMessage', 'locale': 'en-US', 'message': 'API key expired. Please renew the API key.'}]}}",
+      "request_payload": {
+        "task": "build_israeli_model_technical_catalog",
+        "market": "IL-confirmed",
+        "make": "Volvo",
+        "model": "XC90",
+        "raw_database_values": {
+          "years_seen": [
+            2002,
+            2003,
+            2007,
+            2014,
+            2015,
+            2020,
+            2026
+          ],
+          "trims_seen": [
+            "2.5T",
+            "3.2",
+            "B5",
+            "D5",
+            "T5",
+            "T8 Recharge"
+          ],
+          "engines_seen": [
+            "2.0L turbo petrol mild hybrid, 250 hp",
+            "2.0L turbo petrol, 250 hp",
+            "2.0L twin-charged petrol + electric motor, 390-455 hp",
+            "2.4L 5-cylinder turbo diesel, 163-200 hp",
+            "2.5L 5-cylinder turbo petrol, 210 hp",
+            "3.2L inline-6 petrol, 238 hp"
+          ],
+          "horsepower_seen": [],
+          "transmissions_seen": [
+            "5-speed automatic",
+            "5-speed automatic / 6-speed automatic",
+            "6-speed automatic",
+            "8-speed automatic"
+          ],
+          "body_types_seen": [
+            "SUV"
+          ],
+          "fuel_types_seen": [
+            "Diesel",
+            "Mild Hybrid",
+            "Petrol",
+            "Plug-in Hybrid"
+          ],
+          "drivetrains_seen": [
+            "AWD"
+          ]
+        },
+        "sample_validation_ids": [
+          "VAL-003686",
+          "VAL-003687",
+          "VAL-003688",
+          "VAL-003689",
+          "VAL-003690",
+          "VAL-003691"
+        ],
+        "source_indexes": [
+          2755,
+          2756,
+          2757,
+          2758,
+          2759,
+          2760
+        ],
+        "metadata_hints": {
+          "priorities_seen": [
+            "medium"
+          ],
+          "validation_routes_seen": [
+            "cheap_model_structured_validation"
+          ],
+          "possible_duplicate_rows": 0,
+          "validation_id_count": 6
         },
         "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
       },
