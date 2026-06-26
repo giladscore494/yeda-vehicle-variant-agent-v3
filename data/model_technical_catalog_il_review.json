@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-26T00:54:13Z",
+  "generated_at": "2026-06-26T00:54:29Z",
   "market": "IL",
   "models": [
     {
@@ -12024,6 +12024,254 @@
           ],
           "possible_duplicate_rows": 0,
           "validation_id_count": 1
+        },
+        "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
+      },
+      "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
+      ]
+    },
+    {
+      "market": "IL-confirmed",
+      "make": "Volvo",
+      "model": "V70",
+      "canonical_model": "V70",
+      "year_start": null,
+      "year_end": null,
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [],
+      "profile_confidence": null,
+      "notes": [],
+      "error": "Gemini catalog API call failed: 400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'API key expired. Please renew the API key.', 'status': 'INVALID_ARGUMENT', 'details': [{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'API_KEY_INVALID', 'domain': 'googleapis.com', 'metadata': {'service': 'generativelanguage.googleapis.com'}}, {'@type': 'type.googleapis.com/google.rpc.LocalizedMessage', 'locale': 'en-US', 'message': 'API key expired. Please renew the API key.'}]}}",
+      "request_payload": {
+        "task": "build_israeli_model_technical_catalog",
+        "market": "IL-confirmed",
+        "make": "Volvo",
+        "model": "V70",
+        "raw_database_values": {
+          "years_seen": [
+            2000,
+            2007,
+            2016
+          ],
+          "trims_seen": [
+            "2.4",
+            "2.5T",
+            "T5"
+          ],
+          "engines_seen": [
+            "2.3L T5 turbocharged petrol",
+            "2.4L naturally aspirated petrol",
+            "2.5L Turbo Petrol (2.5T)"
+          ],
+          "horsepower_seen": [],
+          "transmissions_seen": [
+            "5-speed automatic",
+            "6-speed automatic"
+          ],
+          "body_types_seen": [
+            "Wagon"
+          ],
+          "fuel_types_seen": [
+            "Petrol"
+          ],
+          "drivetrains_seen": [
+            "FWD"
+          ]
+        },
+        "sample_validation_ids": [
+          "VAL-003667",
+          "VAL-003668",
+          "VAL-003669"
+        ],
+        "source_indexes": [
+          2736,
+          2737,
+          2738
+        ],
+        "metadata_hints": {
+          "priorities_seen": [
+            "low"
+          ],
+          "validation_routes_seen": [
+            "deterministic_or_skip_ai"
+          ],
+          "possible_duplicate_rows": 0,
+          "validation_id_count": 3
+        },
+        "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
+      },
+      "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
+      ]
+    },
+    {
+      "market": "global-reference-only",
+      "make": "Volvo",
+      "model": "V90",
+      "canonical_model": "V90",
+      "year_start": null,
+      "year_end": null,
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [],
+      "profile_confidence": null,
+      "notes": [],
+      "error": "Gemini catalog API call failed: 400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'API key expired. Please renew the API key.', 'status': 'INVALID_ARGUMENT', 'details': [{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'API_KEY_INVALID', 'domain': 'googleapis.com', 'metadata': {'service': 'generativelanguage.googleapis.com'}}, {'@type': 'type.googleapis.com/google.rpc.LocalizedMessage', 'locale': 'en-US', 'message': 'API key expired. Please renew the API key.'}]}}",
+      "request_payload": {
+        "task": "build_israeli_model_technical_catalog",
+        "market": "global-reference-only",
+        "make": "Volvo",
+        "model": "V90",
+        "raw_database_values": {
+          "years_seen": [
+            2016,
+            2020,
+            2026
+          ],
+          "trims_seen": [
+            "B4",
+            "T8 Recharge"
+          ],
+          "engines_seen": [
+            "2.0L turbocharged petrol, 197 hp",
+            "2.0L twincharged petrol PHEV, 390-455 hp"
+          ],
+          "horsepower_seen": [],
+          "transmissions_seen": [
+            "8-speed automatic"
+          ],
+          "body_types_seen": [
+            "Station Wagon"
+          ],
+          "fuel_types_seen": [
+            "Mild Hybrid",
+            "Plug-in Hybrid"
+          ],
+          "drivetrains_seen": [
+            "AWD",
+            "FWD"
+          ]
+        },
+        "sample_validation_ids": [
+          "VAL-003670",
+          "VAL-003672"
+        ],
+        "source_indexes": [
+          2741,
+          2742
+        ],
+        "metadata_hints": {
+          "priorities_seen": [
+            "medium"
+          ],
+          "validation_routes_seen": [
+            "cheap_model_structured_validation"
+          ],
+          "possible_duplicate_rows": 0,
+          "validation_id_count": 2
+        },
+        "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
+      },
+      "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
+      ]
+    },
+    {
+      "market": "IL-confirmed",
+      "make": "Volvo",
+      "model": "V90",
+      "canonical_model": "V90",
+      "year_start": null,
+      "year_end": null,
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [],
+      "profile_confidence": null,
+      "notes": [],
+      "error": "Gemini catalog API call failed: 400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'API key expired. Please renew the API key.', 'status': 'INVALID_ARGUMENT', 'details': [{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'API_KEY_INVALID', 'domain': 'googleapis.com', 'metadata': {'service': 'generativelanguage.googleapis.com'}}, {'@type': 'type.googleapis.com/google.rpc.LocalizedMessage', 'locale': 'en-US', 'message': 'API key expired. Please renew the API key.'}]}}",
+      "request_payload": {
+        "task": "build_israeli_model_technical_catalog",
+        "market": "IL-confirmed",
+        "make": "Volvo",
+        "model": "V90",
+        "raw_database_values": {
+          "years_seen": [
+            2017,
+            2020,
+            2026
+          ],
+          "trims_seen": [
+            "B5",
+            "T6"
+          ],
+          "engines_seen": [
+            "2.0L turbocharged petrol, 250 hp",
+            "2.0L twincharged petrol, 320 hp"
+          ],
+          "horsepower_seen": [],
+          "transmissions_seen": [
+            "8-speed automatic"
+          ],
+          "body_types_seen": [
+            "Station Wagon"
+          ],
+          "fuel_types_seen": [
+            "Mild Hybrid",
+            "Petrol"
+          ],
+          "drivetrains_seen": [
+            "AWD"
+          ]
+        },
+        "sample_validation_ids": [
+          "VAL-003671",
+          "VAL-003673"
+        ],
+        "source_indexes": [
+          2739,
+          2740
+        ],
+        "metadata_hints": {
+          "priorities_seen": [
+            "low"
+          ],
+          "validation_routes_seen": [
+            "deterministic_or_skip_ai"
+          ],
+          "possible_duplicate_rows": 0,
+          "validation_id_count": 2
         },
         "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
       },
