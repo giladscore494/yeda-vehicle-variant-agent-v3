@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-26T00:54:46Z",
+  "generated_at": "2026-06-26T00:54:51Z",
   "market": "IL",
   "models": [
     {
@@ -12588,6 +12588,87 @@
           ],
           "possible_duplicate_rows": 0,
           "validation_id_count": 6
+        },
+        "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
+      },
+      "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
+      ]
+    },
+    {
+      "market": "IL-confirmed",
+      "make": "Voyah",
+      "model": "Dream",
+      "canonical_model": "Dream",
+      "year_start": null,
+      "year_end": null,
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [],
+      "profile_confidence": null,
+      "notes": [],
+      "error": "Gemini catalog API call failed: 400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'API key expired. Please renew the API key.', 'status': 'INVALID_ARGUMENT', 'details': [{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'API_KEY_INVALID', 'domain': 'googleapis.com', 'metadata': {'service': 'generativelanguage.googleapis.com'}}, {'@type': 'type.googleapis.com/google.rpc.LocalizedMessage', 'locale': 'en-US', 'message': 'API key expired. Please renew the API key.'}]}}",
+      "request_payload": {
+        "task": "build_israeli_model_technical_catalog",
+        "market": "IL-confirmed",
+        "make": "Voyah",
+        "model": "Dream",
+        "raw_database_values": {
+          "years_seen": [
+            2023,
+            2026
+          ],
+          "trims_seen": [
+            "EV",
+            "PHEV"
+          ],
+          "engines_seen": [
+            "1.5L Turbo Petrol + Dual Electric Motors, 394 hp",
+            "Dual Electric Motors, 435 hp (320 kW)"
+          ],
+          "horsepower_seen": [],
+          "transmissions_seen": [
+            "Single-speed direct drive",
+            "Single-speed EV"
+          ],
+          "body_types_seen": [
+            "Minivan"
+          ],
+          "fuel_types_seen": [
+            "Electric",
+            "Plug-in Hybrid"
+          ],
+          "drivetrains_seen": [
+            "AWD"
+          ]
+        },
+        "sample_validation_ids": [
+          "VAL-003692",
+          "VAL-003693"
+        ],
+        "source_indexes": [
+          1675,
+          1676
+        ],
+        "metadata_hints": {
+          "priorities_seen": [
+            "low"
+          ],
+          "validation_routes_seen": [
+            "deterministic_or_skip_ai"
+          ],
+          "possible_duplicate_rows": 0,
+          "validation_id_count": 2
         },
         "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
       },
