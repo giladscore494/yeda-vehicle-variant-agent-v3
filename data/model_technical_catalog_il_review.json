@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-26T00:54:51Z",
+  "generated_at": "2026-06-26T00:54:57Z",
   "market": "IL",
   "models": [
     {
@@ -12669,6 +12669,81 @@
           ],
           "possible_duplicate_rows": 0,
           "validation_id_count": 2
+        },
+        "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
+      },
+      "rebuild_required": true,
+      "validation_issues": [
+        "technical_variants_il is empty"
+      ]
+    },
+    {
+      "market": "global-reference-only",
+      "make": "Voyah",
+      "model": "Free",
+      "canonical_model": "Free",
+      "year_start": null,
+      "year_end": null,
+      "technical_variants_il": [],
+      "available_values_for_website": {
+        "version_or_trim": [],
+        "body_type": [],
+        "fuel_type": [],
+        "engine": [],
+        "horsepower_hp": [],
+        "transmission": [],
+        "drivetrain": []
+      },
+      "invalid_or_non_trim_labels": [],
+      "sources": [],
+      "profile_confidence": null,
+      "notes": [],
+      "error": "Gemini catalog API call failed: 400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'API key expired. Please renew the API key.', 'status': 'INVALID_ARGUMENT', 'details': [{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'API_KEY_INVALID', 'domain': 'googleapis.com', 'metadata': {'service': 'generativelanguage.googleapis.com'}}, {'@type': 'type.googleapis.com/google.rpc.LocalizedMessage', 'locale': 'en-US', 'message': 'API key expired. Please renew the API key.'}]}}",
+      "request_payload": {
+        "task": "build_israeli_model_technical_catalog",
+        "market": "global-reference-only",
+        "make": "Voyah",
+        "model": "Free",
+        "raw_database_values": {
+          "years_seen": [
+            2023,
+            2026
+          ],
+          "trims_seen": [
+            "318 / EREV"
+          ],
+          "engines_seen": [
+            "1.5L Turbo I4 EREV + Dual Electric Motors, 39.2 kWh, 490 hp"
+          ],
+          "horsepower_seen": [],
+          "transmissions_seen": [
+            "Single-speed EV"
+          ],
+          "body_types_seen": [
+            "SUV"
+          ],
+          "fuel_types_seen": [
+            "Plug-in Hybrid"
+          ],
+          "drivetrains_seen": [
+            "AWD"
+          ]
+        },
+        "sample_validation_ids": [
+          "VAL-003694"
+        ],
+        "source_indexes": [
+          1674
+        ],
+        "metadata_hints": {
+          "priorities_seen": [
+            "high"
+          ],
+          "validation_routes_seen": [
+            "strong_model_or_manual_review"
+          ],
+          "possible_duplicate_rows": 0,
+          "validation_id_count": 1
         },
         "question": "Using Israeli-market sources, return the technical versions of this make/model that were actually sold in Israel. Return only technical data."
       },
