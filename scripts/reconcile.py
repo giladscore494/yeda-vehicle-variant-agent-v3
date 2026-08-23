@@ -1,9 +1,16 @@
-"""Deterministic audit post-processing for validated rows.
+"""Deterministic audit post-processing + v4 grounded final seal for validated rows.
 
-This module runs *after* Gemini returns JSON. It only cleans and reconciles the
-output — it NEVER rejects a row and NEVER makes acceptance stricter. The core
-acceptance policy (valid identity + weak/missing trim -> ``clean_partial``) is
-left completely untouched here.
+This module runs *after* Gemini returns JSON. The legacy reconciliation steps
+(``reconcile_validation_output*``) only clean and reconcile the output and never
+reject a row. The v4 ``final_seal``/``apply_deterministic_quality_guards`` layer,
+by contrast, IS deliberately stricter about *publishability*: it is Python's sole
+clean-catalog authority and may block a row, clear a combined trim to null,
+nullify unverified technical fields, and downgrade redirect-only grounding. It
+still never converts ``clean_partial`` into ``reject`` — it only decides what may
+enter the canonical clean catalog.
+
+The core acceptance policy (valid identity + weak/missing trim -> ``clean_partial``)
+remains untouched by the cleanup steps.
 
 Responsibilities (cleanup only):
 
@@ -55,10 +62,13 @@ _YEAR_FIELDS = {"year_start", "year_end"}
 
 # Output fields that should be removed from ``fields_left_unresolved`` once they
 # hold a non-null value (they are then treated as resolved/usable).
+# A populated value alone is enough to drop these from ``fields_left_unresolved``.
+# ``transmission`` is intentionally excluded: a populated transmission must not
+# be auto-resolved when audit text says it is not verified (e.g. special-order
+# manual). It is only resolved when no unresolved text contradicts it.
 _RESOLVE_WHEN_FILLED = (
     "official_marketed_name_il",
     "engine",
-    "transmission",
     "fuel_type",
     "body_type",
     "year_start",
@@ -283,6 +293,11 @@ _URL_RE = re.compile(r"https?://\S+")
 
 def _looks_like_domain(token: str) -> bool:
     return bool(_DOMAIN_RE.match(token))
+
+
+def is_temporary_grounding_redirect(url: Any) -> bool:
+    """True for Vertex grounding redirect URLs that are not stable, auditable sources."""
+    return "vertexaisearch.cloud.google.com/grounding-api-redirect" in str(url or "")
 
 
 def _normalize_evidence_source(item: Any) -> Optional[Dict[str, Any]]:
@@ -920,6 +935,15 @@ def assess_grounding(row: Dict[str, Any], *, repair_used: bool = False, require_
     audit = row.get("evidence_auditability") or ("acceptable" if sources or matrix else "missing")
     gem_present = bool(meta or matrix or any(isinstance(s, dict) and s.get("url") for s in sources))
     gem_quality = audit if audit in {"strong", "acceptable", "weak", "missing"} else ("acceptable" if gem_present else "missing")
+    # Auditability downgrade: redirect-only evidence is not stably auditable, so
+    # it can never be "strong". URLs that are all temporary Vertex grounding
+    # redirects are capped at "acceptable".
+    source_urls = [s.get("url") for s in sources if isinstance(s, dict) and s.get("url")]
+    if source_urls and all(is_temporary_grounding_redirect(u) for u in source_urls):
+        if gem_quality == "strong":
+            gem_quality = "acceptable"
+        if row.get("evidence_auditability") == "strong":
+            row["evidence_auditability"] = "acceptable"
     gpt_required = bool(repair_used and require_gpt54_for_repair)
     existing = row.get("grounding_status") if isinstance(row.get("grounding_status"), dict) else {}
     gpt_present = bool(existing.get("gpt54_grounding_present") or row.get("gpt54_grounding_metadata") or row.get("gpt54_citations"))
@@ -992,9 +1016,31 @@ def apply_deterministic_quality_guards(row: Dict[str, Any], flags: List[GuardFla
             if row.get("validation_decision") == "clean_exact":
                 row["validation_decision"] = "clean_partial"
     if _has_combined_trim(trim) or row.get("split_candidates"):
+        old_trim = row.get("canonical_trim")
+        # Derive split candidates from the combined string when the model did
+        # not already provide them, so the split queue keeps the parts.
+        if _has_combined_trim(old_trim) and not row.get("split_candidates"):
+            parts = [p.strip() for p in re.split(r"\s*/\s*|\s*\|\s*|\s+or\s+|\s+and\s+|,", str(old_trim)) if p.strip()]
+            seen_parts: set = set()
+            deduped = []
+            for p in parts:
+                if p.lower() not in seen_parts:
+                    seen_parts.add(p.lower())
+                    deduped.append(p)
+            if len(deduped) >= 2:
+                row["split_candidates"] = deduped
         row["validation_decision"] = "split_required"
+        # Canonical output must never keep a combined trim string. The raw
+        # combined value survives in decision_reason/split_candidates for audit.
+        row["canonical_trim"] = None
+        row["trim_status"] = "invalid"
+        row["trim_confidence"] = 0.0
+        row["acceptance_tier"] = "none"
         row["publishable_to_clean_catalog"] = False
-        _add_flag(flags, "split_required_routing", trim, "split_required", "validation_decision", "Combined trim/split candidates require split_queue.", severity="high", risk_tags=["split"])
+        if "canonical_trim" not in unresolved:
+            unresolved.append("canonical_trim")
+        row["fields_left_unresolved"] = unresolved
+        _add_flag(flags, "split_required_routing", old_trim, None, "canonical_trim", "Combined trim cleared to null; split candidates require split_queue.", severity="high", risk_tags=["split"])
 
     # Summary current contradiction: rewrite stale claims.
     summary = str(row.get("grounding_summary") or "")
@@ -1093,14 +1139,40 @@ def final_seal(row: Dict[str, Any], original_gemini_output: Optional[Dict[str, A
     apply_deterministic_quality_guards(sealed, flags)
     sealed = enforce_consistency(sealed)
     sealed["grounding_status"] = assess_grounding(sealed, repair_used=repair_used, require_gemini=require_gemini_grounding, require_gpt54_for_repair=require_gpt54_grounding_for_repair)
+    route_before = sealed.get("final_route")
+    publishable_before = bool(sealed.get("publishable_to_clean_catalog"))
     route, pub, reason = determine_final_route(sealed, flags)
-    old_route = sealed.get("final_route")
-    if old_route != route:
-        _add_flag(flags, "final_seal_route_override", old_route, route, "final_route", reason, severity="high" if old_route == "clean_catalog" else "medium", risk_tags=["routing", "final_seal"])
+    if route_before != route:
+        _add_flag(flags, "final_seal_route_override", route_before, route, "final_route", reason, severity="high" if route_before == "clean_catalog" else "medium", risk_tags=["routing", "final_seal"])
     sealed["final_route"] = route
     sealed["publishable_to_clean_catalog"] = pub
     sealed["route_reason"] = reason
     unresolved = sealed.get("fields_left_unresolved") or []
     sealed["decision_reason"] = f"Final seal route={route}; validation_decision={sealed.get('validation_decision')}; identity_status={sealed.get('identity_status')}; trim_status={sealed.get('trim_status')}." + (f" Unresolved fields: {', '.join(map(str, unresolved))}." if unresolved else "")
-    sealed["final_seal_result"] = {"passed": bool(pub or route in {"partial_queue", "split_queue", "duplicate_queue", "review_queue", "rejected"}), "guard_flags": [_flag_to_dict(f) for f in flags], "blocks_clean_catalog": not pub}
+    blocks: List[str] = []
+    if not pub:
+        if sealed.get("validation_decision") == "clean_partial":
+            blocks.append("clean_partial_not_publishable")
+        if sealed.get("validation_decision") == "split_required" or sealed.get("split_candidates"):
+            blocks.append("split_required")
+        if sealed.get("canonical_trim") in (None, "", []) or sealed.get("trim_status") in {"unresolved", "invalid"} or "canonical_trim" in unresolved:
+            blocks.append("unresolved_trim")
+        if set(unresolved) & _IDENTITY_CRITICAL_FIELDS:
+            blocks.append("unresolved_critical_field")
+        if not (sealed.get("grounding_status") or {}).get("final_grounding_gate_passed"):
+            blocks.append("grounding_gate_not_passed")
+        if sealed.get("duplicate_of"):
+            blocks.append("duplicate_of")
+        if not blocks:
+            blocks.append("strict_clean_catalog_policy")
+    sealed["final_seal_result"] = {
+        "passed": bool(pub or route in {"partial_queue", "split_queue", "duplicate_queue", "review_queue", "rejected"}),
+        "blocks_clean_catalog": not pub,
+        "route_before": route_before,
+        "route_after": route,
+        "publishable_before": publishable_before,
+        "publishable_after": bool(pub),
+        "blocks": blocks,
+        "guard_flags": [_flag_to_dict(f) for f in flags],
+    }
     return sealed, flags

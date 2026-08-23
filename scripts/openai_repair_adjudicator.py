@@ -56,6 +56,7 @@ class OpenAIRepairAdjudicatorSettings:
     model_id: str = "gpt-5.4"
     enabled: bool = True
     grounding_required: bool = True
+    use_web_search: bool = True
     max_completion_tokens: int = 6000
 
 
@@ -63,6 +64,7 @@ class OpenAIRepairAdjudicator:
     def __init__(self, settings: OpenAIRepairAdjudicatorSettings) -> None:
         self.settings = settings
         self.calls = 0
+        self.last_web_search_error: Optional[str] = None
         self._client = None
 
     def _ensure_client(self):
@@ -125,11 +127,25 @@ class OpenAIRepairAdjudicator:
             "max_completion_tokens": self.settings.max_completion_tokens,
             "text": {"format": {"type": "json_schema", "name": "repair_adjudicator_output", "schema": schema, "strict": False}},
         }
-        try:
+        # Mandatory web grounding for the repair model. If the target API/model
+        # does not support the web search tool, retry once WITHOUT the tool and
+        # record that GPT-5.4 grounding is absent so final seal cannot unlock the
+        # clean catalog for this repair.
+        web_search_used = True
+        if self.settings.use_web_search:
             kwargs["tools"] = [{"type": "web_search_preview"}]
-        except Exception:
-            pass
-        resp = client.responses.create(**kwargs)
+        else:
+            web_search_used = False
+        try:
+            resp = client.responses.create(**kwargs)
+        except Exception as exc:
+            if "tools" not in kwargs:
+                raise
+            # Web search tool unsupported: fall back without it, no silent pass.
+            kwargs.pop("tools", None)
+            web_search_used = False
+            self.last_web_search_error = str(exc)
+            resp = client.responses.create(**kwargs)
         text = getattr(resp, "output_text", None)
         if not text:
             parts: List[str] = []
@@ -138,4 +154,44 @@ class OpenAIRepairAdjudicator:
                     if getattr(c, "text", None):
                         parts.append(c.text)
             text = "\n".join(parts)
-        return parse_strict_json(text)
+        parsed = parse_strict_json(text)
+        self._validate_response(parsed)
+
+        # Preserve any grounding artifacts the model returned so the Python final
+        # seal can audit them. If no grounding is present, mark it explicitly.
+        grounding_meta = self._extract_grounding_metadata(resp)
+        patched = parsed.get("patched_variant")
+        gpt_present = bool(web_search_used and grounding_meta)
+        if isinstance(patched, dict):
+            if grounding_meta:
+                patched.setdefault("gpt54_grounding_metadata", grounding_meta)
+            gs = patched.get("grounding_status") if isinstance(patched.get("grounding_status"), dict) else {}
+            gs["gpt54_grounding_present"] = gpt_present
+            gs["gpt54_grounding_quality"] = "acceptable" if gpt_present else "missing"
+            patched["grounding_status"] = gs
+        parsed["gpt54_grounding_present"] = gpt_present
+        parsed["gpt54_web_search_used"] = web_search_used
+        return parsed
+
+    @staticmethod
+    def _validate_response(parsed: Dict[str, Any]) -> None:
+        required = ["repair_decision", "patched_variant", "field_patches", "summary_patch", "routing_patch", "grounding_patch", "remaining_uncertainties", "confidence"]
+        if not isinstance(parsed, dict):
+            raise RuntimeError("Repair adjudicator returned non-object JSON")
+        missing = [k for k in required if k not in parsed]
+        if missing:
+            raise RuntimeError(f"Repair adjudicator returned invalid schema; missing: {missing}")
+        if not isinstance(parsed.get("patched_variant"), dict) or not parsed.get("patched_variant"):
+            raise RuntimeError("Repair adjudicator returned empty/invalid patched_variant")
+
+    @staticmethod
+    def _extract_grounding_metadata(resp: Any) -> Dict[str, Any]:
+        """Collect any web-search/citation annotations from the response."""
+        citations: List[Any] = []
+        for item in getattr(resp, "output", []) or []:
+            for c in getattr(item, "content", []) or []:
+                for ann in getattr(c, "annotations", []) or []:
+                    url = getattr(ann, "url", None) or (ann.get("url") if isinstance(ann, dict) else None)
+                    if url:
+                        citations.append(url)
+        return {"citations": citations} if citations else {}

@@ -5,7 +5,7 @@
     "is_mock_output": false,
     "model": "gemini-3.1-pro-preview",
     "market": "IL",
-    "run_timestamp_utc": "2026-06-13T21:32:14Z",
+    "run_timestamp_utc": "2026-06-13T22:03:47Z",
     "total_input_variants": 3712,
     "total_instruction_records": 3712,
     "total_validated_variants": 5,
@@ -25,7 +25,7 @@
     "schema_version": "v3_three_stage",
     "pipeline_version": "v3_three_stage",
     "stage1_pro_calls": 5,
-    "stage2_guard_flags_total": 4,
+    "stage2_guard_flags_total": 5,
     "stage3_flash_calls": 0,
     "flash_overrode_guard": 0,
     "guard_overrode_flash": 0,
@@ -74,34 +74,54 @@
       "market_scope": "IL",
       "validation_decision": "clean_partial",
       "acceptance_tier": "partial",
-      "identity_status": "verified",
+      "identity_status": "likely_valid",
       "identity_confidence": 0.95,
       "trim_status": "unresolved",
       "trim_confidence": 0.0,
-      "grounding_summary": "The Abarth 500 was officially launched in Israel in June 2010, correcting the 2008 global launch year. It was offered with a 1.4L Turbo engine and a choice of 5-speed manual or 5-speed robotic transmissions. The input trim 'Base' is a generic term; the actual entry-level trim in Israel was 'Scorpione', alongside 'Lusso' and 'Competizione'. The model was replaced by the Abarth 595 in late 2016.",
+      "grounding_summary": "The Abarth 500 was officially launched in Israel in June 2010. It was sold with a 1.4L Turbo petrol engine and manual transmission. The 'Base' trim is a generic placeholder, as actual marketed trims in Israel include Scorpione, Lusso, Competizione, Turismo, etc. The 1st generation petrol model continued to be sold well beyond 2016 (up to 2023/2024), so year_end is set to null. The vehicle is no longer imported as it was replaced by the electric 500e.",
       "evidence_sources": [
         {
-          "title": "אבארט 500 2008 יד שניה - אוטו",
-          "url": null,
+          "title": "500 אבארט: מבחן דרכים (וידאו) - אוטו",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFwajveLktNGky117-xYvUwU4x7vFdrJY7Gwj1yQLG-jq7Ui1AgBILqyk5u5pf6RrTfzjIdpXoD6LGxPCC5X0DCUtcfn7RtpIS5iTnGzqXbl180emQXjtsME9nSsGCmfPYHC3-VEwlMNfI=",
           "source_name": "auto.co.il",
           "source_type": "editorial",
           "supports": [
             "market_presence_il",
-            "year_range",
-            "engine",
-            "transmission",
-            "trim_candidates"
+            "year_range"
           ]
         },
         {
           "title": "אבארט 500 - אתר iCar",
-          "url": null,
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHVsHqo5MRpETxb_SGk7ymeFziVxxsM878-fGE2kl0ZDXXPka0QlOBJgRTJFJ8AsgALv4X1DOIyLRtrELFnCImVDVKV9RgCSI_YS33McxDa-HrueHFI-JcyDmLO48QC1fueEPCvbay-RpNyckyhBrUSBoPeycPvQXBNKwhWCZESV1ASTDhBfPZ7m_E1gsZHW6PXsYdqwPn_pynIC_sBenM9rh-_1dnsWhGQRU4Oqh6EMP-kgyRj40GjRThiBcF7xuR6Ffm32iw=",
           "source_name": "icar.co.il",
           "source_type": "editorial",
           "supports": [
             "market_presence_il",
+            "engine",
+            "transmission",
+            "body_type"
+          ]
+        },
+        {
+          "title": "אבארט 500 1.4 ידני 180 כ\"ס Competizione 2024 | מפרט טכני - cartube",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHlIhQbaonLo3BhNrB5TEbjjfbq26Ok0xs5y55nPxuYChKUvj4WBy4cgkwg9fxwe7ffJTX0VFKhZMa1m261klU3r83MMgMC4DtnCFdj5jriMfT0sFsoFMFO9r6LVAxXyjXWq58hCVXUccAN1CWHqrtr3RuF6fHaxb0j971Pu5syCguv8nndHhALl5fB9rsdQjz9jdqR_7WdUW4gynUmNjjSw3aAU3pwYOv0D4iSDoU-jDP3_lZiVFl2_RtO1DLh-m71rAqaBOIs74_Q7qhFRlDOUycMsSeBx1snOJHP_skKZojxmOZgGpIf-mDn9PKAk86mSAEyatd_X0nnE90zd-YLFKFevGaxWA7xrH_a9N-vK1zT9RI9u6IMdRmJYiqO3bfaKdsh7XNz_E1Z5EX-ubYAh6NI014ItRBgDNcdSx9vKeQ=",
+          "source_name": "cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
             "year_range",
-            "engine"
+            "trim_candidates",
+            "engine",
+            "transmission"
+          ]
+        },
+        {
+          "title": "אבארט 500 למכירה | יד2 רכב - אלפי מודעות חדשות בכל יום",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHndSEGgCpYNPsSWGZZTMX0l57y4jfdlP0WNg22bS-SUwbahHd3696-kYbvttoh2cjrW_ewr3sjnlfrKPD_OB4A8hGBXZqIF9mzm1aO9v7oBNlovrndvyFUW8U0GYgTxjkoMrFhb9SJ2uYW3fA3uX2jJePsjeZv",
+          "source_name": "yad2.co.il",
+          "source_type": "marketplace",
+          "supports": [
+            "market_presence_il",
+            "trim_candidates"
           ]
         }
       ],
@@ -109,12 +129,16 @@
         "Scorpione",
         "Lusso",
         "Competizione",
-        "San Marino"
+        "Turismo",
+        "Pista",
+        "Nuvolari",
+        "EsseEsse",
+        "Rivale"
       ],
       "split_candidates": [],
       "blocking_identity_issues": [],
       "non_blocking_trim_issues": [
-        "Input trim 'Base' is a generic placeholder. Actual trims include Scorpione, Lusso, and Competizione."
+        "The provided trim 'Base' is a generic placeholder. The Abarth 500 was sold in Israel under specific trim names such as Scorpione, Lusso, Competizione, and Turismo."
       ],
       "fields_changed": [
         {
@@ -127,7 +151,7 @@
       "fields_left_unresolved": [
         "canonical_trim"
       ],
-      "decision_reason": "Vehicle identity is verified for the Israeli market, but the start year was corrected to 2010 based on official local launch dates. The input trim 'Base' is a generic placeholder and has been marked unresolved, as the actual entry-level trim was 'Scorpione'. Validation is clean_partial due to the unresolved trim.",
+      "decision_reason": "The vehicle's core identity (make, model, engine, transmission, body type) is verified for the Israeli market. However, the provided trim 'Base' is a generic placeholder and not a specific marketed trim. Additionally, the year range was adjusted to reflect actual Israeli market availability. Therefore, the validation decision is clean_partial.",
       "_pipeline_version": "v3_three_stage",
       "_flags_count": 0,
       "_flash_used": false,
@@ -157,7 +181,7 @@
       "transmission": "manual",
       "drivetrain": "FWD",
       "year_start": 2010,
-      "year_end": 2016,
+      "year_end": 2024,
       "is_currently_produced": false,
       "is_currently_imported_il": false,
       "market_scope": "IL",
@@ -167,42 +191,63 @@
       "identity_confidence": 0.95,
       "trim_status": "unresolved",
       "trim_confidence": 0.0,
-      "grounding_summary": "The Abarth 500 was officially imported to Israel starting in 2010 with a 1.4L Turbo engine and manual transmission. The input trim 'Base' is a generic placeholder and not an official trim name, so it has been removed. The actual entry-level trim in Israel was 'Scorpione'.",
+      "grounding_summary": "The Abarth 500 was officially launched in Israel in June 2010. It was sold with a 1.4L Turbo petrol engine and manual transmission. The 'Base' trim is a generic placeholder, as actual marketed trims in Israel include Scorpione, Lusso, Competizione, and Turismo. The 1st generation petrol model continued to be sold in Israel until 2024. The vehicle is no longer imported as it was replaced by the electric 500e.",
       "evidence_sources": [
         {
-          "title": "אבארט 500 2008 יד שניה - אוטו",
-          "url": null,
+          "title": "500 אבארט: מבחן דרכים (וידאו) - אוטו",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFwajveLktNGky117-xYvUwU4x7vFdrJY7Gwj1yQLG-jq7Ui1AgBILqyk5u5pf6RrTfzjIdpXoD6LGxPCC5X0DCUtcfn7RtpIS5iTnGzqXbl180emQXjtsME9nSsGCmfPYHC3-VEwlMNfI=",
           "source_name": "auto.co.il",
           "source_type": "editorial",
           "supports": [
             "market_presence_il",
-            "year_range",
-            "engine",
-            "transmission",
-            "trim_candidates"
+            "year_range"
           ]
         },
         {
           "title": "אבארט 500 - אתר iCar",
-          "url": null,
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHVsHqo5MRpETxb_SGk7ymeFziVxxsM878-fGE2kl0ZDXXPka0QlOBJgRTJFJ8AsgALv4X1DOIyLRtrELFnCImVDVKV9RgCSI_YS33McxDa-HrueHFI-JcyDmLO48QC1fueEPCvbay-RpNyckyhBrUSBoPeycPvQXBNKwhWCZESV1ASTDhBfPZ7m_E1gsZHW6PXsYdqwPn_pynIC_sBenM9rh-_1dnsWhGQRU4Oqh6EMP-kgyRj40GjRThiBcF7xuR6Ffm32iw=",
           "source_name": "icar.co.il",
           "source_type": "editorial",
           "supports": [
             "market_presence_il",
+            "engine",
+            "transmission",
+            "body_type"
+          ]
+        },
+        {
+          "title": "אבארט 500 1.4 ידני 180 כ\"ס Competizione 2024 | מפרט טכני - cartube",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHlIhQbaonLo3BhNrB5TEbjjfbq26Ok0xs5y55nPxuYChKUvj4WBy4cgkwg9fxwe7ffJTX0VFKhZMa1m261klU3r83MMgMC4DtnCFdj5jriMfT0sFsoFMFO9r6LVAxXyjXWq58hCVXUccAN1CWHqrtr3RuF6fHaxb0j971Pu5syCguv8nndHhALl5fB9rsdQjz9jdqR_7WdUW4gynUmNjjSw3aAU3pwYOv0D4iSDoU-jDP3_lZiVFl2_RtO1DLh-m71rAqaBOIs74_Q7qhFRlDOUycMsSeBx1snOJHP_skKZojxmOZgGpIf-mDn9PKAk86mSAEyatd_X0nnE90zd-YLFKFevGaxWA7xrH_a9N-vK1zT9RI9u6IMdRmJYiqO3bfaKdsh7XNz_E1Z5EX-ubYAh6NI014ItRBgDNcdSx9vKeQ=",
+          "source_name": "cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
             "year_range",
-            "engine"
+            "trim_candidates",
+            "engine",
+            "transmission"
+          ]
+        },
+        {
+          "title": "אבארט 500 למכירה | יד2 רכב - אלפי מודעות חדשות בכל יום",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHndSEGgCpYNPsSWGZZTMX0l57y4jfdlP0WNg22bS-SUwbahHd3696-kYbvttoh2cjrW_ewr3sjnlfrKPD_OB4A8hGBXZqIF9mzm1aO9v7oBNlovrndvyFUW8U0GYgTxjkoMrFhb9SJ2uYW3fA3uX2jJePsjeZv",
+          "source_name": "yad2.co.il",
+          "source_type": "marketplace",
+          "supports": [
+            "market_presence_il",
+            "trim_candidates"
           ]
         }
       ],
       "possible_trim_names": [
         "Scorpione",
         "Lusso",
-        "Competizione"
+        "Competizione",
+        "Turismo"
       ],
       "split_candidates": [],
       "blocking_identity_issues": [],
       "non_blocking_trim_issues": [
-        "Input trim 'Base' is a generic placeholder, not an official marketed trim."
+        "Trim 'Base' is a generic placeholder and does not represent a specific marketed trim in Israel."
       ],
       "fields_changed": [
         {
@@ -210,12 +255,18 @@
           "from": 2008,
           "to": 2010,
           "reason": "Model changed value during validation; see decision_reason/grounding_summary"
+        },
+        {
+          "field": "year_end",
+          "from": 2016,
+          "to": 2024,
+          "reason": "Model changed value during validation; see decision_reason/grounding_summary"
         }
       ],
       "fields_left_unresolved": [
         "canonical_trim"
       ],
-      "decision_reason": "Vehicle identity is verified for the Israeli market, but the provided trim 'Base' is a generic placeholder. Validation decision is clean_partial.",
+      "decision_reason": "Vehicle identity is verified for the Israeli market, but the trim 'Base' is a generic placeholder. Validation decision is clean_partial.",
       "_pipeline_version": "v3_three_stage",
       "_flags_count": 0,
       "_flash_used": false,
@@ -245,9 +296,9 @@
       "transmission": "manual",
       "drivetrain": "FWD",
       "year_start": 2010,
-      "year_end": 2024,
-      "is_currently_produced": false,
-      "is_currently_imported_il": false,
+      "year_end": null,
+      "is_currently_produced": null,
+      "is_currently_imported_il": null,
       "market_scope": "IL",
       "validation_decision": "split_required",
       "acceptance_tier": "none",
@@ -255,37 +306,30 @@
       "identity_confidence": 0.9,
       "trim_status": "invalid",
       "trim_confidence": 0.0,
-      "grounding_summary": "The Abarth 500 (later updated and marketed as the 595) was officially imported to Israel starting around 2010. The 1.4L Turbo ICE model ended production and import around 2024, being replaced by the electric 500e. The provided trim string 'Competizione / Scorpione / Nuvolari S' combines multiple distinct trims with different power outputs and specifications (e.g., Competizione has 180hp, while Scorpione and Nuvolari have 140-165hp). Therefore, a split is required to represent these as individual variants.",
+      "grounding_summary": "The Abarth 500 was officially imported to Israel starting in June 2010. It is equipped with a 1.4L Turbo engine and manual transmission. The provided trim string 'Competizione / Scorpione / Nuvolari S' lists three distinct trims that were sold in Israel with different power outputs (e.g., Scorpione at 135-145 hp, Competizione at 160-180 hp, Nuvolari S at 165 hp). Therefore, the variant must be split into separate records for each trim.",
       "evidence_sources": [
         {
-          "title": "אבארט 595 2023 יד שניה - אוטו",
-          "url": null,
-          "source_name": "Auto.co.il",
+          "title": "אבארט 500 - מחירון, חוות דעת ומידע טכני | אוטו",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFNs_LhTh5SFxmpqX7MfyxdxIC1TMlSVuJTUmxL-aZcr-DIZZt6ywjODX8WCTq9IAmsJ2CrAlAmskKS4p8AocTopYtHdyFKk9ucR4ec7rY35VsUU2kBGOcrdBXry2M=",
+          "source_name": "auto.co.il",
           "source_type": "editorial",
           "supports": [
             "market_presence_il",
-            "exact_trim",
+            "year_range",
             "split_required",
-            "engine"
+            "engine",
+            "transmission"
           ]
         },
         {
-          "title": "Abarth 500 1 generation 2010-2016 in Israel - AUTOBOOM",
-          "url": null,
-          "source_name": "Autoboom",
+          "title": "אבארט 500 למכירה | יד2 רכב",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH1VoY4AtLaPWZNdBzwN00xJO1m-XT-n_23wv-R-snOjl7YpKdRsXDLAyDiFPbyuzA_ml7QhkUubSVvSZUGOd05im9J67rHgCnY9Isi6D2LBp4d-LSy85NqFvXPKooePDwRm2gfksSeuUj8Co9B6O7opUSkYl-C",
+          "source_name": "yad2.co.il",
           "source_type": "marketplace",
           "supports": [
-            "year_range",
-            "market_presence_il"
-          ]
-        },
-        {
-          "title": "Fiat 500 and Abarth 595 retired after 17 years on sale - Autocar",
-          "url": null,
-          "source_name": "Autocar",
-          "source_type": "editorial",
-          "supports": [
-            "year_range"
+            "market_presence_il",
+            "trim_candidates",
+            "split_required"
           ]
         }
       ],
@@ -293,7 +337,9 @@
         "Competizione",
         "Scorpione",
         "Nuvolari S",
-        "Scorpione Nuvolari"
+        "Lusso",
+        "Turismo",
+        "San Marino 595"
       ],
       "split_candidates": [
         "Competizione",
@@ -302,8 +348,9 @@
       ],
       "blocking_identity_issues": [],
       "non_blocking_trim_issues": [
-        "Trim string combines multiple distinct trims with different specifications (Competizione is 180hp, Scorpione/Nuvolari are 140-165hp).",
-        "Combined trim contains multiple distinct marketed trims and must be split into separate variants."
+        "The provided trim string combines multiple distinct marketed variants with different specifications and power outputs.",
+        "Combined trim contains multiple distinct marketed trims and must be split into separate variants.",
+        "year_end was current/future and not kept as a placeholder."
       ],
       "fields_changed": [
         {
@@ -315,20 +362,20 @@
         {
           "field": "year_end",
           "from": 2026,
-          "to": 2024,
-          "reason": "Model changed value during validation; see decision_reason/grounding_summary"
+          "to": null,
+          "reason": "Current/future year_end was not kept as a placeholder; reset to null unless strongly supported as an end year."
         }
       ],
       "fields_left_unresolved": [],
-      "decision_reason": "The trim string combines multiple distinct marketed trims (Competizione, Scorpione, Nuvolari S) which have different power outputs and specifications. A split is required to represent these as individual variants. Additionally, the Israeli market start year was corrected to 2010 and the end year to 2024, as the ICE model is no longer produced. Guard correction: Python guards corrected the model output: trim_status: 'inferred' -> 'invalid'.",
+      "decision_reason": "The vehicle identity (Abarth 500 1.4L Turbo manual) is verified for the Israeli market. However, the provided trim string 'Competizione / Scorpione / Nuvolari S' combines multiple distinct marketed variants with different specifications and power outputs. A split is required to represent these as individual variants. Guard correction: Python guards corrected the model output: trim_status: 'inferred' -> 'invalid'; year_end: 2026 -> None.",
       "_pipeline_version": "v3_three_stage",
-      "_flags_count": 1,
+      "_flags_count": 2,
       "_flash_used": false,
       "adjudication_log": [
         {
           "guard_verifier": "gpt-5.4",
           "verdict": "accept_guard",
-          "reason": "The combined trim clearly requires splitting into distinct variants."
+          "reason": "The combined trim string explicitly requires splitting into distinct trims."
         }
       ],
       "publishable_to_clean_catalog": false,
@@ -336,7 +383,7 @@
       "route_reason": "Routing not yet assigned.",
       "duplicate_group_id": null,
       "duplicate_of": null,
-      "guard_corrected_reason": "Python guards corrected the model output: trim_status: 'inferred' -> 'invalid'.",
+      "guard_corrected_reason": "Python guards corrected the model output: trim_status: 'inferred' -> 'invalid'; year_end: 2026 -> None.",
       "_guard_verifier_success": true,
       "_guard_verifier_error": null,
       "_guard_verifier_used": true
@@ -369,28 +416,37 @@
       "identity_confidence": 0.9,
       "trim_status": "invalid",
       "trim_confidence": 0.0,
-      "grounding_summary": "The Abarth 500 (later updated and marketed as the 595) was officially imported to Israel starting around 2010. The 1.4L Turbo ICE model ended production and import around 2024, being replaced by the electric 500e. The provided trim string 'Turismo / Competizione' combines two distinct trims with different power outputs (Turismo has 165 hp, Competizione has 180 hp). Therefore, a split is required to represent these as individual variants.",
+      "grounding_summary": "The Abarth 500 was officially imported to Israel starting in June 2010. The petrol models (including the 595/695 designations) were discontinued around 2024, replaced by the electric 500e. The provided trim string 'Turismo / Competizione' lists two distinct trims that were sold in Israel with different power outputs (Turismo at 165 hp, Competizione at 180 hp). Therefore, the variant must be split into separate records for each trim.",
       "evidence_sources": [
         {
-          "title": "אבארט 500 למכירה | יד2 רכב",
-          "url": null,
-          "source_name": "Yad2",
-          "source_type": "marketplace",
-          "supports": [
-            "market_presence_il",
-            "exact_trim",
-            "split_required"
-          ]
-        },
-        {
-          "title": "אבארט 595 - מחירון, חוות דעת ומידע טכני | אוטו",
-          "url": null,
-          "source_name": "Auto.co.il",
+          "title": "חדשות רכב - השקה: אבארת' משתזפת בת\"א - iCar",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHuFh_M8ErbT-aIFEMPmvU5joZ9pwjSKtlDoleaf1TIeVqn8upDyXyFdYrUXzGY-N3wkF1zPrSr8YeXP3P79JIfLg8hy_UJjaemibisoM_yvXn-sNMDHZdryojudDDft1zEPBNYi2WT4l8nN56kckF65JuCP4j_jzIDEmtXmZ28LkTNLigfkQiaGQ7-nMSaMwWZDvLEdnVIcOVMBjUb0tTcNuE_x4XH65O-Ki4N96yTpmVhN1_aVPiP_tfVLa0pGBBGpvSOFk5sy8dF41_hn2PLXe5rAbnqDtfL-s0lRYcZqoOc4g6dD86DxLObhFo4eX2-uHliLQ==",
+          "source_name": "icar.co.il",
           "source_type": "editorial",
           "supports": [
             "market_presence_il",
             "year_range",
-            "engine"
+            "engine",
+            "transmission"
+          ]
+        },
+        {
+          "title": "אבארט 595 2022 1.4 טורבו סקורפיון אוטומט 🏎️ בפורטל הרכב גיר",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEMgIr5M66vHHvGUI8aZ6TOhACA4RdqejBDjJU7K7Yj7ItngKKO8i9sJUxGjSR8ig8WxGMcM0AHx9WMi2zDTKtPFliMGDPaYlzNoN_C1MRK7aPfn68UwPoVk6n3oFJmnQ7GL3HXsso0xC4Taa9eUD6mkK-kqEKB4t2wUrODUAIm3zrw90POhwMrvP2BD_eHfzxK7ZZJU9cD87aE80vNazynJdcRLrbwif6yPp6AisKZVKUjMUPO7F-MFAQN60uF4c0iQnZCNgk1bdS74TbYrXiF2lrczrZByxsF3kJYj5PGX0oJuS1_uhki87N9JaDKUumtxDQg2Jg_CMQx5cLLYNMtYgvkFoOkPwsb4tE=",
+          "source_name": "gear.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "split_required",
+            "trim_candidates"
+          ]
+        },
+        {
+          "title": "אבארט שוקלת לחזור לבנזין: הלקוחות לא רוצים חשמל - אוטו",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFF_-AKGm84pBRQWjaecyZxGLcYo1s4-9DN5GSkKLlhmZYyvjwHTGkr1CXgdJ7YkZu950rlE0qRu9gbGjcG4yTFJc6nWVFvuzfJErBcZGaa1K9QC1g3Lo7D82x70kgttYzzDE7w_EnpyXXLhiTltoLyl9p0gR0Yb3NOTJ9cZ6IvHKX4QCO3-EcPDg==",
+          "source_name": "auto.co.il",
+          "source_type": "editorial",
+          "supports": [
+            "year_range"
           ]
         }
       ],
@@ -404,7 +460,7 @@
       ],
       "blocking_identity_issues": [],
       "non_blocking_trim_issues": [
-        "Trim string 'Turismo / Competizione' combines multiple distinct trims with different power outputs (165 hp vs 180 hp).",
+        "Trim string combines multiple distinct trims (Turismo and Competizione) with different specifications, requiring a split.",
         "Combined trim contains multiple distinct marketed trims and must be split into separate variants."
       ],
       "fields_changed": [
@@ -422,7 +478,7 @@
         }
       ],
       "fields_left_unresolved": [],
-      "decision_reason": "The trim string combines two distinct trims (Turismo and Competizione) with different specifications and power outputs, requiring a split into separate variants.",
+      "decision_reason": "The trim string combines 'Turismo' and 'Competizione', which are distinct trims with different power outputs (165 hp vs 180 hp) sold in Israel. A split is required to represent each variant accurately.",
       "_pipeline_version": "v3_three_stage",
       "_flags_count": 1,
       "_flash_used": false,
@@ -430,7 +486,7 @@
         {
           "guard_verifier": "gpt-5.4",
           "verdict": "accept_guard",
-          "reason": "The combined trim explicitly spans two distinct variants, so split_required is appropriate."
+          "reason": "The combined trim clearly maps to two distinct Israeli-market trims, so split_required is appropriate."
         }
       ],
       "publishable_to_clean_catalog": false,
@@ -470,43 +526,39 @@
       "identity_confidence": 0.7,
       "trim_status": "unresolved",
       "trim_confidence": 0.0,
-      "grounding_summary": "The Abarth 500 Cabriolet (often referred to as 500C) was officially imported to Israel between 2010 and 2016. It was available with a 1.4L Turbo engine and both robotic and manual transmissions (manual initially by special order, later in specific trims). The provided trim '500C' is a body style indicator rather than a specific marketed trim level (actual trims include Scorpione, Turismo, Competizione, San Marino, Lusso). Therefore, the trim is marked as unresolved, leading to a clean_partial decision.",
+      "grounding_summary": "The Abarth 500C (Cabriolet) was officially launched in Israel in November 2010. It was sold with a 1.4L Turbo engine. While initially offered primarily with a robotic gearbox, a manual transmission was available by special order and later as a standard option across various trims. The first generation was marketed until late 2016, when the facelifted model arrived under the new name Abarth 595. The designation '500C' refers to the cabriolet body style rather than a specific trim level; actual marketed trims in Israel included Scorpione, Lusso, San Marino, Turismo, and Competizione.",
       "evidence_sources": [
         {
-          "title": "אבארט 500 - מחירון, חוות דעת ומידע טכני | אוטו",
-          "url": null,
-          "source_name": "auto.co.il",
+          "title": "אבארט קבריולט בישראל – החל מ-180,000 שקל - cartube",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGGr_R4BE1gHhQ4VUpGbCmQIoGXe-eCOC4THtY-zdFkoeVyP1RpMu-xC6LqvzR2HVfRwHP1R3yEIb_stD6fM0E2FneyoanC0i2OUWMn0v5DVBtHJ9PkqUbx6USLRkaJuPylIP5hwe_INgdSk-PqAw0MEi99xhqjA0AY0a2d8lBw8bcH2SrCdcaqRL54gVs8dSPfaq80964mFcL8hl0Se3vNeaS3UBfny9xlcdZtDSKUrZG5jPY8HypUywZ8xtFGlBbTiUK5svdAVU9casie4_wcglXjZnL3d7nQdKWVtY9kHfIOlgbOjFtgJMzOaUnjHtMAvO7KydSVC5vEynjIhVb4NDrpEgBvnPjtiDH137hzpJXPolxJmbw1Ws2iDlbH36sRcA6WtQ9HvNKtFB-QVYNp",
+          "source_name": "cartube",
           "source_type": "editorial",
           "supports": [
             "market_presence_il",
             "year_range",
-            "engine",
             "transmission",
-            "body_type",
-            "trim_candidates"
+            "body_type"
           ]
         },
         {
-          "title": "מחירון של אבארט - יד2",
-          "url": null,
-          "source_name": "yad2.co.il",
+          "title": "Abarth 500 1 generation 2010-2016 in Israel - AUTOBOOM",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG-ighPA6XoZRlVMcha1T7RyiCRHTxa3091wCU61WelEdbkigUItvMPNrd8ilXOrdX0CnuM0Bq7jhmFEISUqu_M_zC5K4zYDf3SFO6-nz3of_mqDvLA-N_TPSGWVC3dt2HFXK8igc4IiNwIWAXNK5yG9hpPtw==",
+          "source_name": "AUTOBOOM",
           "source_type": "marketplace",
           "supports": [
-            "market_presence_il",
-            "year_range",
             "trim_candidates",
+            "engine",
             "transmission"
           ]
         },
         {
-          "title": "אבארט קבריולט בישראל – החל מ-180,000 שקל - cartube",
-          "url": null,
-          "source_name": "cartube.co.il",
+          "title": "אבארט 500 - מחירון, חוות דעת ומידע טכני | אוטו",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHiJzHDlZx6-nXfXmI4Ep6sMm3eUavupwAGfKjHtI-JVnRde9hbRaEYfJK9ivmWOv2ghn8Z4gXY6YRk9gONSHzXZOuo4W7nuDecEpr-V6_rrJwy0SEXiT3RbqaxcTc=",
+          "source_name": "אוטו",
           "source_type": "editorial",
           "supports": [
-            "official_import_il",
-            "body_type",
-            "transmission"
+            "year_range",
+            "market_presence_il"
           ]
         }
       ],
@@ -515,18 +567,19 @@
         "Lusso",
         "San Marino",
         "Turismo",
-        "Competizione"
+        "Competizione",
+        "Esseesse"
       ],
       "split_candidates": [],
       "blocking_identity_issues": [],
       "non_blocking_trim_issues": [
-        "The provided trim '500C' designates the Cabriolet body style rather than a specific equipment trim level. Actual trims for the Israeli market include Scorpione, Turismo, Competizione, San Marino, and Lusso.",
+        "The provided trim '500C' is a generic body style indicator, not a specific trim level.",
         "500C/Cabriolet is a body/model designation, not a verified trim.",
         "Abarth 500C/Cabriolet manual transmission is not verified for the Israeli market; transmission left unresolved."
       ],
       "fields_changed": [],
       "fields_left_unresolved": [],
-      "decision_reason": "The core identity of the Abarth 500 Cabriolet 1.4L Turbo manual (2010-2016) is verified for the Israeli market. However, the provided trim '500C' is a generic body style indicator rather than a specific trim level. The exact trim is unresolved, resulting in a clean_partial validation. Guard correction: Python guards corrected the model output: identity_status: 'verified' -> 'likely_valid'; identity_confidence: 0.95 -> 0.7; canonical_trim: '500C' -> None; trim_status: 'inferred' -> 'unresolved'.",
+      "decision_reason": "The vehicle's core identity (Abarth 500 Cabriolet, 1.4L Turbo, manual transmission, 2010-2016) is verified for the Israeli market. However, the provided trim '500C' is a generic body style indicator rather than a specific trim level. Because the exact trim (e.g., Scorpione, Lusso) is missing, the variant is validated as clean_partial. Guard correction: Python guards corrected the model output: identity_status: 'verified' -> 'likely_valid'; identity_confidence: 0.95 -> 0.7; canonical_trim: '500C' -> None; trim_status: 'inferred' -> 'unresolved'.",
       "_pipeline_version": "v3_three_stage",
       "_flags_count": 2,
       "_flash_used": false,
@@ -534,7 +587,7 @@
         {
           "guard_verifier": "gpt-5.4",
           "verdict": "modify_guard",
-          "reason": "Guard requires unresolved transmission to keep identity in partial status."
+          "reason": "Guard should align identity_status with the unresolved transmission uncertainty."
         }
       ],
       "publishable_to_clean_catalog": false,
@@ -551,32 +604,52 @@
   "cluster_cache": {
     "CLU-7ea11c499a5f": {
       "anchor_id": "VAL-000001",
-      "identity_status": "verified",
+      "identity_status": "likely_valid",
       "identity_confidence": 0.95,
-      "grounding_summary": "The Abarth 500 was officially launched in Israel in June 2010, correcting the 2008 global launch year. It was offered with a 1.4L Turbo engine and a choice of 5-speed manual or 5-speed robotic transmissions. The input trim 'Base' is a generic term; the actual entry-level trim in Israel was 'Scorpione', alongside 'Lusso' and 'Competizione'. The model was replaced by the Abarth 595 in late 2016.",
+      "grounding_summary": "The Abarth 500 was officially launched in Israel in June 2010. It was sold with a 1.4L Turbo petrol engine and manual transmission. The 'Base' trim is a generic placeholder, as actual marketed trims in Israel include Scorpione, Lusso, Competizione, Turismo, etc. The 1st generation petrol model continued to be sold well beyond 2016 (up to 2023/2024), so year_end is set to null. The vehicle is no longer imported as it was replaced by the electric 500e.",
       "evidence_sources": [
         {
-          "title": "אבארט 500 2008 יד שניה - אוטו",
-          "url": null,
+          "title": "500 אבארט: מבחן דרכים (וידאו) - אוטו",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFwajveLktNGky117-xYvUwU4x7vFdrJY7Gwj1yQLG-jq7Ui1AgBILqyk5u5pf6RrTfzjIdpXoD6LGxPCC5X0DCUtcfn7RtpIS5iTnGzqXbl180emQXjtsME9nSsGCmfPYHC3-VEwlMNfI=",
           "source_name": "auto.co.il",
           "source_type": "editorial",
           "supports": [
             "market_presence_il",
-            "year_range",
-            "engine",
-            "transmission",
-            "trim_candidates"
+            "year_range"
           ]
         },
         {
           "title": "אבארט 500 - אתר iCar",
-          "url": null,
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHVsHqo5MRpETxb_SGk7ymeFziVxxsM878-fGE2kl0ZDXXPka0QlOBJgRTJFJ8AsgALv4X1DOIyLRtrELFnCImVDVKV9RgCSI_YS33McxDa-HrueHFI-JcyDmLO48QC1fueEPCvbay-RpNyckyhBrUSBoPeycPvQXBNKwhWCZESV1ASTDhBfPZ7m_E1gsZHW6PXsYdqwPn_pynIC_sBenM9rh-_1dnsWhGQRU4Oqh6EMP-kgyRj40GjRThiBcF7xuR6Ffm32iw=",
           "source_name": "icar.co.il",
           "source_type": "editorial",
           "supports": [
             "market_presence_il",
+            "engine",
+            "transmission",
+            "body_type"
+          ]
+        },
+        {
+          "title": "אבארט 500 1.4 ידני 180 כ\"ס Competizione 2024 | מפרט טכני - cartube",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHlIhQbaonLo3BhNrB5TEbjjfbq26Ok0xs5y55nPxuYChKUvj4WBy4cgkwg9fxwe7ffJTX0VFKhZMa1m261klU3r83MMgMC4DtnCFdj5jriMfT0sFsoFMFO9r6LVAxXyjXWq58hCVXUccAN1CWHqrtr3RuF6fHaxb0j971Pu5syCguv8nndHhALl5fB9rsdQjz9jdqR_7WdUW4gynUmNjjSw3aAU3pwYOv0D4iSDoU-jDP3_lZiVFl2_RtO1DLh-m71rAqaBOIs74_Q7qhFRlDOUycMsSeBx1snOJHP_skKZojxmOZgGpIf-mDn9PKAk86mSAEyatd_X0nnE90zd-YLFKFevGaxWA7xrH_a9N-vK1zT9RI9u6IMdRmJYiqO3bfaKdsh7XNz_E1Z5EX-ubYAh6NI014ItRBgDNcdSx9vKeQ=",
+          "source_name": "cartube.co.il",
+          "source_type": "editorial",
+          "supports": [
             "year_range",
-            "engine"
+            "trim_candidates",
+            "engine",
+            "transmission"
+          ]
+        },
+        {
+          "title": "אבארט 500 למכירה | יד2 רכב - אלפי מודעות חדשות בכל יום",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHndSEGgCpYNPsSWGZZTMX0l57y4jfdlP0WNg22bS-SUwbahHd3696-kYbvttoh2cjrW_ewr3sjnlfrKPD_OB4A8hGBXZqIF9mzm1aO9v7oBNlovrndvyFUW8U0GYgTxjkoMrFhb9SJ2uYW3fA3uX2jJePsjeZv",
+          "source_name": "yad2.co.il",
+          "source_type": "marketplace",
+          "supports": [
+            "market_presence_il",
+            "trim_candidates"
           ]
         }
       ]
@@ -585,37 +658,30 @@
       "anchor_id": "VAL-000003",
       "identity_status": "likely_valid",
       "identity_confidence": 0.9,
-      "grounding_summary": "The Abarth 500 (later updated and marketed as the 595) was officially imported to Israel starting around 2010. The 1.4L Turbo ICE model ended production and import around 2024, being replaced by the electric 500e. The provided trim string 'Competizione / Scorpione / Nuvolari S' combines multiple distinct trims with different power outputs and specifications (e.g., Competizione has 180hp, while Scorpione and Nuvolari have 140-165hp). Therefore, a split is required to represent these as individual variants.",
+      "grounding_summary": "The Abarth 500 was officially imported to Israel starting in June 2010. It is equipped with a 1.4L Turbo engine and manual transmission. The provided trim string 'Competizione / Scorpione / Nuvolari S' lists three distinct trims that were sold in Israel with different power outputs (e.g., Scorpione at 135-145 hp, Competizione at 160-180 hp, Nuvolari S at 165 hp). Therefore, the variant must be split into separate records for each trim.",
       "evidence_sources": [
         {
-          "title": "אבארט 595 2023 יד שניה - אוטו",
-          "url": null,
-          "source_name": "Auto.co.il",
+          "title": "אבארט 500 - מחירון, חוות דעת ומידע טכני | אוטו",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFNs_LhTh5SFxmpqX7MfyxdxIC1TMlSVuJTUmxL-aZcr-DIZZt6ywjODX8WCTq9IAmsJ2CrAlAmskKS4p8AocTopYtHdyFKk9ucR4ec7rY35VsUU2kBGOcrdBXry2M=",
+          "source_name": "auto.co.il",
           "source_type": "editorial",
           "supports": [
             "market_presence_il",
-            "exact_trim",
+            "year_range",
             "split_required",
-            "engine"
+            "engine",
+            "transmission"
           ]
         },
         {
-          "title": "Abarth 500 1 generation 2010-2016 in Israel - AUTOBOOM",
-          "url": null,
-          "source_name": "Autoboom",
+          "title": "אבארט 500 למכירה | יד2 רכב",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH1VoY4AtLaPWZNdBzwN00xJO1m-XT-n_23wv-R-snOjl7YpKdRsXDLAyDiFPbyuzA_ml7QhkUubSVvSZUGOd05im9J67rHgCnY9Isi6D2LBp4d-LSy85NqFvXPKooePDwRm2gfksSeuUj8Co9B6O7opUSkYl-C",
+          "source_name": "yad2.co.il",
           "source_type": "marketplace",
           "supports": [
-            "year_range",
-            "market_presence_il"
-          ]
-        },
-        {
-          "title": "Fiat 500 and Abarth 595 retired after 17 years on sale - Autocar",
-          "url": null,
-          "source_name": "Autocar",
-          "source_type": "editorial",
-          "supports": [
-            "year_range"
+            "market_presence_il",
+            "trim_candidates",
+            "split_required"
           ]
         }
       ]
@@ -624,43 +690,39 @@
       "anchor_id": "VAL-000005",
       "identity_status": "likely_valid",
       "identity_confidence": 0.7,
-      "grounding_summary": "The Abarth 500 Cabriolet (often referred to as 500C) was officially imported to Israel between 2010 and 2016. It was available with a 1.4L Turbo engine and both robotic and manual transmissions (manual initially by special order, later in specific trims). The provided trim '500C' is a body style indicator rather than a specific marketed trim level (actual trims include Scorpione, Turismo, Competizione, San Marino, Lusso). Therefore, the trim is marked as unresolved, leading to a clean_partial decision.",
+      "grounding_summary": "The Abarth 500C (Cabriolet) was officially launched in Israel in November 2010. It was sold with a 1.4L Turbo engine. While initially offered primarily with a robotic gearbox, a manual transmission was available by special order and later as a standard option across various trims. The first generation was marketed until late 2016, when the facelifted model arrived under the new name Abarth 595. The designation '500C' refers to the cabriolet body style rather than a specific trim level; actual marketed trims in Israel included Scorpione, Lusso, San Marino, Turismo, and Competizione.",
       "evidence_sources": [
         {
-          "title": "אבארט 500 - מחירון, חוות דעת ומידע טכני | אוטו",
-          "url": null,
-          "source_name": "auto.co.il",
+          "title": "אבארט קבריולט בישראל – החל מ-180,000 שקל - cartube",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGGr_R4BE1gHhQ4VUpGbCmQIoGXe-eCOC4THtY-zdFkoeVyP1RpMu-xC6LqvzR2HVfRwHP1R3yEIb_stD6fM0E2FneyoanC0i2OUWMn0v5DVBtHJ9PkqUbx6USLRkaJuPylIP5hwe_INgdSk-PqAw0MEi99xhqjA0AY0a2d8lBw8bcH2SrCdcaqRL54gVs8dSPfaq80964mFcL8hl0Se3vNeaS3UBfny9xlcdZtDSKUrZG5jPY8HypUywZ8xtFGlBbTiUK5svdAVU9casie4_wcglXjZnL3d7nQdKWVtY9kHfIOlgbOjFtgJMzOaUnjHtMAvO7KydSVC5vEynjIhVb4NDrpEgBvnPjtiDH137hzpJXPolxJmbw1Ws2iDlbH36sRcA6WtQ9HvNKtFB-QVYNp",
+          "source_name": "cartube",
           "source_type": "editorial",
           "supports": [
             "market_presence_il",
             "year_range",
-            "engine",
             "transmission",
-            "body_type",
-            "trim_candidates"
+            "body_type"
           ]
         },
         {
-          "title": "מחירון של אבארט - יד2",
-          "url": null,
-          "source_name": "yad2.co.il",
+          "title": "Abarth 500 1 generation 2010-2016 in Israel - AUTOBOOM",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG-ighPA6XoZRlVMcha1T7RyiCRHTxa3091wCU61WelEdbkigUItvMPNrd8ilXOrdX0CnuM0Bq7jhmFEISUqu_M_zC5K4zYDf3SFO6-nz3of_mqDvLA-N_TPSGWVC3dt2HFXK8igc4IiNwIWAXNK5yG9hpPtw==",
+          "source_name": "AUTOBOOM",
           "source_type": "marketplace",
           "supports": [
-            "market_presence_il",
-            "year_range",
             "trim_candidates",
+            "engine",
             "transmission"
           ]
         },
         {
-          "title": "אבארט קבריולט בישראל – החל מ-180,000 שקל - cartube",
-          "url": null,
-          "source_name": "cartube.co.il",
+          "title": "אבארט 500 - מחירון, חוות דעת ומידע טכני | אוטו",
+          "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHiJzHDlZx6-nXfXmI4Ep6sMm3eUavupwAGfKjHtI-JVnRde9hbRaEYfJK9ivmWOv2ghn8Z4gXY6YRk9gONSHzXZOuo4W7nuDecEpr-V6_rrJwy0SEXiT3RbqaxcTc=",
+          "source_name": "אוטו",
           "source_type": "editorial",
           "supports": [
-            "official_import_il",
-            "body_type",
-            "transmission"
+            "year_range",
+            "market_presence_il"
           ]
         }
       ]
@@ -673,5 +735,5 @@
     "reject": 0
   },
   "last_validated_id": "VAL-000005",
-  "updated_at_utc": "2026-06-13T21:34:32Z"
+  "updated_at_utc": "2026-06-13T22:06:41Z"
 }
